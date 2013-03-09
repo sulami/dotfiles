@@ -1,2 +1,3 @@
 set number
-colo pablo
+syntax on
+colo delek
