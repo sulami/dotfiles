@@ -1,3 +1,3 @@
 set number
 syntax on
-colo delek
+colo desert

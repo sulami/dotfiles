@@ -24,7 +24,7 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec xterm -fa terminus -fs 10 -bc -fg white -bg black
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -158,4 +158,4 @@ exec sh xorg-settings.sh
 exec sh xorg-settings.sh
 exec mpd
 
-bindsym $mod+q exec i3lock -c 000000
+bindsym $mod+q exec i3lock -c 000000 -d
