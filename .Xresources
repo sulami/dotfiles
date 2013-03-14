@@ -4,8 +4,8 @@ URxvt*.transparent: true
 URxvt*.shading: 30
 URxvt*.scrollBar: false
 URxvt*loginShell: false
-URxvt*.background: Black
-URxvt*.foreground: White 
+URxvt*.background: #000000
+URxvt*.foreground: #D1A375 
 URxvt*.font: xft:terminus:size=10
 
 *color0: #363636
