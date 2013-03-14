@@ -3,7 +3,7 @@ URxvt*.transparent: true
 ! URxvt*.shading: 0 to 99 darkens, 101 to 200 lightens
 URxvt*.shading: 30
 URxvt*.scrollBar: false
-URxvt*loginShell: true
+URxvt*loginShell: false
 URxvt*.background: Black
 URxvt*.foreground: White 
 URxvt*.font: xft:terminus:size=10
