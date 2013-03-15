@@ -45,7 +45,7 @@ bindsym $mod+l focus right
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
-	bindsym $mod+Up focus up
+bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
@@ -152,10 +152,14 @@ bar {
 }
 
 # Autostart
-
 exec sh xrandr.sh
 exec sh xorg-settings.sh
 exec feh --bg-center ~/Pictures/bg.jpg
 exec mpd
 
+# Keybinds
 bindsym $mod+q exec i3lock -c 000000 -d
+
+# Settings
+new_window pixel 2
+hide_edge_borders both
