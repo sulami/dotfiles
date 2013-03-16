@@ -1,0 +1,11 @@
+set imap_user	= sulamiification@gmail.com
+set folder	= imaps://imap.gmail.com/
+set spoolfile	= +INBOX
+mailboxes	= +INBOX
+set mail_check	= 300
+unset record
+set smtp_url	= smtp://sulamiification@smtp.gmail.com:587/
+set from	= sulamiification@gmail.com
+set realname	= "Rob Schroer"
+set ssl_starttls= yes
+set editor	= vim
