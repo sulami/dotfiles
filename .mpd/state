@@ -1,4 +1,4 @@
-sw_volume: 17
+sw_volume: 56
 audio_device_state:1:My Sound Card
 audio_device_state:1:my_fifo
 state: stop
