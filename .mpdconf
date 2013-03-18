@@ -64,7 +64,7 @@ state_file			"~/.mpd/state"
 # initialization. This setting is disabled by default and MPD is run as the
 # current user.
 #
-user				"sulami"
+user				"mpd"
 #
 # This setting specifies the group that MPD will run as. If not specified
 # primary group of user specified with "user" setting will be used (if set).

@@ -147,15 +147,14 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         #status_command i3status
-	status_command sh /home/sulami/.conky-i3bar
+	status_command sh /home/sulami/dotfiles/.conky-i3bar
 	position top
 }
 
 # Autostart
-exec sh xrandr.sh
-exec sh xorg-settings.sh
+exec sh scripts/xrandr.sh
+exec sh scripts/xorg-settings.sh
 exec feh --bg-center ~/Pictures/bg.jpg
-exec mpd
 
 # Keybinds
 bindsym $mod+q exec i3lock -c 000000 -d

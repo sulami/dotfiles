@@ -257,6 +257,10 @@ statusbar = {
   };
 };
 settings = {
-  core = { real_name = "Unknown"; user_name = "sulami"; nick = "sulami"; };
+  core = {
+    real_name = "Unknown";
+    user_name = "sulamiification";
+    nick = "sulami";
+  };
   "fe-text" = { actlist_sort = "refnum"; };
 };

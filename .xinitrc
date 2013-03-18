@@ -17,6 +17,9 @@ fi
 # feh
 #feh --bg-center ~/bg.jpg &
 
+# Some startup programs
+exec sh /home/sulami/scripts/caps-esc &
+
 # exec gnome-session
 # exec startkde
 # exec startxfce4
