@@ -37,7 +37,7 @@ TEXT
 # JSON for i3bar
 
   [${if_mpd_playing}{ "full_text" : "MPD: ${mpd_smart}" , "color" : "\#ffffff" },${endif}
-  { "full_text" : "NET: ${if_up enp3s0}${addr enp3s0}" , "color" : "\#ffffff" },${else}DOWN , "color" : "\#ff0000" },${endif}
+  { "full_text" : "NET: ${if_up enp3s0}${addr enp3s0}" , "color" : "\#ffffff" },${else}DOWN" , "color" : "\#ff0000" },${endif}
   { "full_text" : "HDD: ${fs_free /mnt/data/} left" , "color" : "\#ffffff" },
   { "full_text" : "SSD: ${fs_free /} left" , "color" : "\#ffffff" },
   { "full_text" : "RAM: ${memperc}%" , "color" : "\#ffffff" },

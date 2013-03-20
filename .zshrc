@@ -15,7 +15,7 @@ compinit
 
 # PROMPT
 autoload -U colors && colors
-PROMPT="%{$fg_bold[green]%}%~ > %#%{$fg_no_bold[yellow]%} "
+PROMPT="%{$fg_bold[cyan]%}%~ > %#%{$fg_no_bold[white]%} "
 
 # VARIABLES
 EDITOR=vim

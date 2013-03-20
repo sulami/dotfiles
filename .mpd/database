@@ -13488,7 +13488,7 @@ song_end
 end: Seeed/Next
 end: Seeed
 directory: Spiele Soundtracks
-mtime: 1354289919
+mtime: 1363697887
 begin: Spiele Soundtracks
 directory: Company of Heroes
 mtime: 1354289933
@@ -16964,6 +16964,114 @@ Genre: Game
 mtime: 1325397877
 song_end
 end: Spiele Soundtracks/Super Metroid
+directory: Tropico 4
+mtime: 1363697935
+begin: Spiele Soundtracks/Tropico 4
+song_begin: Track 1.mp3
+Time: 310
+Artist: Alex Torres & His Latin Orchestra
+AlbumArtist: Alex Torres & His Latin Orchestra
+Title: Track 1
+Album: Tropico 4
+mtime: 1363697891
+song_end
+song_begin: Track 10.mp3
+Time: 163
+Artist: Alex Torres & His Latin Orchestra
+AlbumArtist: Alex Torres & His Latin Orchestra
+Title: Track 10
+Album: Tropico 4
+mtime: 1363697897
+song_end
+song_begin: Track 11.mp3
+Time: 170
+Artist: Alex Torres & His Latin Orchestra
+AlbumArtist: Alex Torres & His Latin Orchestra
+Title: Track 11
+Album: Tropico 4
+mtime: 1363697902
+song_end
+song_begin: Track 12.mp3
+Time: 356
+Artist: Alex Torres & His Latin Orchestra
+AlbumArtist: Alex Torres & His Latin Orchestra
+Title: Track 12
+Album: Tropico 4
+mtime: 1363697906
+song_end
+song_begin: Track 13.mp3
+Time: 408
+Artist: Alex Torres & His Latin Orchestra
+AlbumArtist: Alex Torres & His Latin Orchestra
+Title: Track 13
+Album: Tropico 4
+mtime: 1363697910
+song_end
+song_begin: Track 2.mp3
+Time: 298
+Artist: Alex Torres & His Latin Orchestra
+AlbumArtist: Alex Torres & His Latin Orchestra
+Title: Track 2
+Album: Tropico 4
+mtime: 1363697913
+song_end
+song_begin: Track 3.mp3
+Time: 320
+Artist: Alex Torres & His Latin Orchestra
+AlbumArtist: Alex Torres & His Latin Orchestra
+Title: Track 3
+Album: Tropico 4
+mtime: 1363697916
+song_end
+song_begin: Track 4.mp3
+Time: 267
+Artist: Alex Torres & His Latin Orchestra
+AlbumArtist: Alex Torres & His Latin Orchestra
+Title: Track 4
+Album: Tropico 4
+mtime: 1363697919
+song_end
+song_begin: Track 5.mp3
+Time: 214
+Artist: Alex Torres & His Latin Orchestra
+AlbumArtist: Alex Torres & His Latin Orchestra
+Title: Track 5
+Album: Tropico 4
+mtime: 1363697922
+song_end
+song_begin: Track 6.mp3
+Time: 256
+Artist: Alex Torres & His Latin Orchestra
+AlbumArtist: Alex Torres & His Latin Orchestra
+Title: Track 6
+Album: Tropico 4
+mtime: 1363697926
+song_end
+song_begin: Track 7.mp3
+Time: 152
+Artist: Alex Torres & His Latin Orchestra
+AlbumArtist: Alex Torres & His Latin Orchestra
+Title: Track 7
+Album: Tropico 4
+mtime: 1363697930
+song_end
+song_begin: Track 8.mp3
+Time: 220
+Artist: Alex Torres & His Latin Orchestra
+AlbumArtist: Alex Torres & His Latin Orchestra
+Title: Track 8
+Album: Tropico 4
+mtime: 1363697933
+song_end
+song_begin: Track 9.mp3
+Time: 206
+Artist: Alex Torres & His Latin Orchestra
+AlbumArtist: Alex Torres & His Latin Orchestra
+Title: Track 9
+Album: Tropico 4
+mtime: 1363697936
+song_end
+end: Spiele Soundtracks/Tropico 4
 directory: VVVVVV
 mtime: 1324691008
 begin: Spiele Soundtracks/VVVVVV
