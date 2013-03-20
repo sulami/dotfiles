@@ -1,3 +1,4 @@
+source 'gpg2 -dq ~/dotfiles/.mutt-passwd.gpg |'
 set imap_user	= sulamiification@gmail.com
 set folder	= imaps://imap.gmail.com/
 set spoolfile	= +INBOX
@@ -9,3 +10,4 @@ set from	= sulamiification@gmail.com
 set realname	= "Rob Schroer"
 set ssl_starttls= yes
 set editor	= vim
+set imap_pass	= $my_pw_gmail
