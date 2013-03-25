@@ -8,7 +8,7 @@ URxvt*.scrollBar: false
 URxvt*loginShell: false
 URxvt*.background: #000000
 URxvt*.foreground: #EEEEEE
-URxvt*.font: xft:terminus:size=10
+URxvt*.font: xft:Inconsolata:size=12
 
 !Black
 *color0: #333333
