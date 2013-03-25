@@ -149,6 +149,7 @@ bar {
         #status_command i3status
 	status_command sh /home/sulami/dotfiles/.conky-i3bar
 	position top
+	font pango:Inconsolata 12
 }
 
 # Autostart
@@ -164,3 +165,4 @@ bindsym $mod+q exec i3lock -c 000000 -d
 # Settings
 new_window pixel 2
 hide_edge_borders both
+font pango:Inconsolata 12
