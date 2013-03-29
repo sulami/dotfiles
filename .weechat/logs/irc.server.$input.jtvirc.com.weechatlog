@@ -1,0 +1,5 @@
+2013-03-17 12:46:41	--	irc: connecting to server $input.jtvirc.com/6667...
+2013-03-17 12:46:42	=!=	irc: address "$input.jtvirc.com" not found
+2013-03-17 12:46:42	=!=	irc: error: Name or service not known
+2013-03-17 12:46:42	--	irc: reconnecting to server in 10 seconds
+2013-03-17 12:46:46	--	irc: disconnected from server

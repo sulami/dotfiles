@@ -1,9 +1,7 @@
 sw_volume: 42
 audio_device_state:1:My Sound Card
 audio_device_state:1:my_fifo
-state: pause
-current: 0
-time: 6
+state: stop
 random: 0
 repeat: 0
 single: 0
@@ -12,27 +10,4 @@ crossfade: 0
 mixrampdb: 0.000000
 mixrampdelay: nan
 playlist_begin
-0:VA - Trance History Uplifting Moments Vol 4 - 2012/01. Jens Lonnberg - Last Breath (Dark Moon radio).mp3
-1:VA - Trance History Uplifting Moments Vol 4 - 2012/02. Spiral Story - Spiral Story (Intro mix).mp3
-2:VA - Trance History Uplifting Moments Vol 4 - 2012/03. Brisky - Celestial.mp3
-3:VA - Trance History Uplifting Moments Vol 4 - 2012/04. Avernus - Never Lose (TrancEye remix).mp3
-4:VA - Trance History Uplifting Moments Vol 4 - 2012/05. Will B - Luz De Sol (Will B's NJB mix).mp3
-5:VA - Trance History Uplifting Moments Vol 4 - 2012/06. Ciro Visone - Fire & Ice.mp3
-6:VA - Trance History Uplifting Moments Vol 4 - 2012/07. Pakka - Freedom (feat Stephan Maria - DJ Space Raven remix).mp3
-7:VA - Trance History Uplifting Moments Vol 4 - 2012/08. Soundlift - Nostalgia (Amada remix).mp3
-8:VA - Trance History Uplifting Moments Vol 4 - 2012/09. Martin Sas - Magic Moment (Matthew B remix).mp3
-9:VA - Trance History Uplifting Moments Vol 4 - 2012/10. Michael Splint - Remember (DJ Choose vocal remix).mp3
-10:VA - Trance History Uplifting Moments Vol 4 - 2012/11. 4Fach Zoom - Pixel One.mp3
-11:VA - Trance History Uplifting Moments Vol 4 - 2012/12. Arisen Flame - Never Come Back (Ron Malakai remix).mp3
-12:VA - Trance History Uplifting Moments Vol 4 - 2012/13. Cyrex - Warm Ice (Hi Jackers Space remix).mp3
-13:VA - Trance History Uplifting Moments Vol 4 - 2012/14. Wavetraxx - Beach Stringz (Lennox radio mix).mp3
-14:VA - Trance History Uplifting Moments Vol 4 - 2012/15. Mystery Islands - Solace.mp3
-15:VA - Trance History Uplifting Moments Vol 4 - 2012/16. Fisher & Miethig - Rush Night (Oliver Imseng's Spring Time edit).mp3
-16:VA - Trance History Uplifting Moments Vol 4 - 2012/17. Andy McAndersen - Shine (Dmitry Bessonov remix).mp3
-17:VA - Trance History Uplifting Moments Vol 4 - 2012/18. Will B - Self Portrait.mp3
-18:VA - Trance History Uplifting Moments Vol 4 - 2012/19. Dave Joy - First Impression (SHOKK mix).mp3
-19:VA - Trance History Uplifting Moments Vol 4 - 2012/20. DJ Dazzle - The Reign.mp3
-20:Metallica/Master Of Puppets/02 - Master Of Puppets - Metallica - Master Of Puppets 1.mp3
-21:Metallica/Black Album/02-metallica-sad_but_true-snr.mp3
-22:Metallica/Metallica - S&M/Metallica - 14 - For Whom The Bell Tolls.Mp3
 playlist_end
