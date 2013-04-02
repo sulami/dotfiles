@@ -26,8 +26,8 @@ URxvt*.font: xft:Inconsolata:size=12
 *color4: #005EF7
 *color12: #005EF7
 !Magenta
-*color5: #4C2953
-*color13: #4C2953
+*color5: #7143cc
+*color13: #7143cc
 !Cyan
 *color6: #0091FF
 *color14: #0091FF
