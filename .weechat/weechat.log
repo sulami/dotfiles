@@ -1,24 +1,24 @@
-[2013-04-02 01:37:48] WeeChat 0.4.0 (compiled on Mar 23 2013 12:22:32)
-[2013-04-02 01:37:48] Reading configuration file weechat.conf
-[2013-04-02 01:37:48] Reading configuration file plugins.conf
-[2013-04-02 01:37:48] Reading configuration file alias.conf
-[2013-04-02 01:37:48] Reading configuration file logger.conf
-[2013-04-02 01:37:48] Reading configuration file rmodifier.conf
-[2013-04-02 01:37:48] Reading configuration file relay.conf
-[2013-04-02 01:37:48] Reading configuration file script.conf
-[2013-04-02 01:37:48] Reading configuration file irc.conf
-[2013-04-02 01:37:48] Reading configuration file aspell.conf
-[2013-04-02 01:37:48] Reading configuration file charset.conf
-[2013-04-02 01:37:48] Reading configuration file xfer.conf
-[2013-04-02 01:37:48] irc: connecting to server reckful.jtvirc.com/6667...
-[2013-04-02 01:44:11] Writing configuration file plugins.conf 
-[2013-04-02 01:44:11] Writing configuration file xfer.conf 
-[2013-04-02 01:44:11] Writing configuration file charset.conf 
-[2013-04-02 01:44:11] Writing configuration file aspell.conf 
-[2013-04-02 01:44:11] Writing configuration file irc.conf 
-[2013-04-02 01:44:11] Writing configuration file script.conf 
-[2013-04-02 01:44:11] Writing configuration file relay.conf 
-[2013-04-02 01:44:11] Writing configuration file rmodifier.conf 
-[2013-04-02 01:44:11] Writing configuration file logger.conf 
-[2013-04-02 01:44:11] Writing configuration file alias.conf 
-[2013-04-02 01:44:11] Writing configuration file weechat.conf 
+[2013-04-12 23:59:49] WeeChat 0.4.0 (compiled on Mar 23 2013 12:22:32)
+[2013-04-12 23:59:49] Reading configuration file weechat.conf
+[2013-04-12 23:59:49] Reading configuration file plugins.conf
+[2013-04-12 23:59:49] Reading configuration file alias.conf
+[2013-04-12 23:59:49] Reading configuration file logger.conf
+[2013-04-12 23:59:49] Reading configuration file rmodifier.conf
+[2013-04-12 23:59:49] Reading configuration file relay.conf
+[2013-04-12 23:59:49] Reading configuration file script.conf
+[2013-04-12 23:59:49] Reading configuration file irc.conf
+[2013-04-12 23:59:49] Reading configuration file aspell.conf
+[2013-04-12 23:59:49] Reading configuration file charset.conf
+[2013-04-12 23:59:49] Reading configuration file xfer.conf
+[2013-04-12 23:59:49] irc: connecting to server swifty.jtvirc.com/6667...
+[2013-04-13 00:47:07] Writing configuration file plugins.conf 
+[2013-04-13 00:47:07] Writing configuration file xfer.conf 
+[2013-04-13 00:47:07] Writing configuration file charset.conf 
+[2013-04-13 00:47:07] Writing configuration file aspell.conf 
+[2013-04-13 00:47:07] Writing configuration file irc.conf 
+[2013-04-13 00:47:07] Writing configuration file script.conf 
+[2013-04-13 00:47:07] Writing configuration file relay.conf 
+[2013-04-13 00:47:07] Writing configuration file rmodifier.conf 
+[2013-04-13 00:47:07] Writing configuration file logger.conf 
+[2013-04-13 00:47:07] Writing configuration file alias.conf 
+[2013-04-13 00:47:07] Writing configuration file weechat.conf 

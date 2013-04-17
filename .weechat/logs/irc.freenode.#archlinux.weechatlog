@@ -3451,3 +3451,567 @@
 2013-03-20 22:01:14	sudokode	yay. mesa gl
 2013-03-20 22:01:15	-->	Shyde (~Shyde^^@HSI-KBW-078-043-093-037.hsi4.kabel-badenwuerttemberg.de) has joined #archlinux
 2013-03-20 22:01:23	--	irc: disconnected from server
+2013-04-02 22:29:43	-->	sulami (~sulami@pC19F0562.dip.t-dialin.net) has joined #archlinux
+2013-04-02 22:29:43	--	Topic for #archlinux is "Welcome to Arch Linux World Domination, Inc. <+> MariaDB replaces MySQL https://www.archlinux.org/news/mariadb-replaces-mysql-in-repositories/ <+> Read http://5z8.info/b00bs_pkwj or Allan will break your box."
+2013-04-02 22:29:43	--	Topic set by gtmanfred (root@archlinux/trusteduser/gtmanfred) on Fri, 29 Mar 2013 05:37:09
+2013-04-02 22:29:43	--	Nicks #archlinux: [[Author] [deXter] [HeX] [LeStAt] [vEX] \pub\bash0r \varnothing ]OLI[ ^Inuyasha^ _eye _ikke_ _schulte_ _TB_ `bps `lorim `null a0x a3Dman aapzak aat AbigailBuccaneer AbortRetryFail abyss ac_slater acfrazier acuzio Adran Adys aep aeqwa AeroNotix Afwas aganders3 agjacome agumonkey ahungry aiBo` aisbaa aitorpazos ajashton ajs124 akawaka akiva akl akosch Akranis albelaj alesko alexandros_c alexhairyman AlexP Alice3 alienvenom alkeo Almehdin Almtesh altin alub alveraan alzeih Amadiro amaurea ambossarm AMDrozd amunak anachron Anaphaxeton Anders_J andmars andrew12 andreyv andyjone12001 AndyW anon644_ anon7345 Anonycat anrxc ansikt antihero Apage43 Apes APexilI apod Apsu` aravind arbn arch-bugbot ArcherElf ArchGamer arduix arfoll argentodtw ArGGu^^ Ark_ arli_ armin Artpicre artv61 arza ascendancy asch asdf-chan asfethan AsgardBSD ashadocat ashnur aszc AthlonRo1 Atmoz atragor autumn avawn averell avocado awole20 AxForest axil42 axion azradric1 b1eedr b4d baba BadAtom BadLarry bahamete bandroidx Bane^ Banish bantone barch barraponto Bastian82 batrick batty bauruine bazz bc547_ bcremer_ bdeferme beatrice BeepDog BeholdMyGlory bel3atar benasse_ benjr benpro bentglasstube Beretta021 bertram bezerker bfrog bghost bgs100 bier big_t billybigrigger billybong Biolunar_ bitflip_ BitPuffin bjoe2k4 bjonnh bkpt Bl_nK Blaasvis Black_Prince BlackIkeEagle blacklotus89 BladedThesis BlastHardcheese bleomycin BlindHunter blk bloony BluABK Blub\w blubb blueness Bluewind bmayton boak Bobby body BombStrike bond` Bonstra Boohbah BotoX bougyman boustrophedon boxofrox bparker bpeak brachyonic_ brandon brandonw breakage breiti brewmast1r brian brisbin_ bspar_ buchno Bugson buhman buq2 Byan bytbox C-S-B c1phertxt c4nuck c4rc4s C5OK5Y c_14 Cadair cajone Caleb caleb_9 CalimeroTeknik camerin CandyAngel canta capeta capleton carbolymer carlmro carlocci_ causasui caveat- Cavedude CCfan cduez cedeel Celebiaril centrelink Cerise CESSMASTER cfricke cgar chaky chance ChaozZBubi cHarNe2 chatran ChauffeR chee cheesecakes Chewtoy china chj_ chjj chobojordi Chocobo cholin ChongLi choupydance chridal chris2 chron cinch cinelli cioppa cipher circle cirrus_minor ciscorn ckoch786 clarkm classix cliche ClientAlive clinch Cloudef cmr codeworkx codey_work codile Codynyx colona commontime_ CommunistWitchDr companion cool_ Cor-Ai cored coredump Cork cornu_ Count_0_ CoverSlide Cptn-n00dle CR0W crashmag crazedpsyc CrazyJoeDavola crdueck Creek creese crs_ CryptoCrack_ Cubox cullum cvr Cyber_Akuma CyberSix cyberspace- cyen cYmen CyrilPeponnet cyrusae d-ash d10n d_garbage daaku daBrado Dad`_ daed dagerik dagthema1 damentz Dan39 Danio danishman danking_ danmackay danners dared dario dark8 darkapex DarkFox DarkSim dasbjo Dashkal DasMoeh datagutt_ daurnimator Dave123 davetherat davidfg4 davidstrauss davis dawey DaZ daze dazoe_ dbrgn deadalus Deathspawn debu_ deekeff deeroh Deewiant Defaultti defekt delaman- delcoyote DeLord demarchi Demios demonicm1niac3 demonicmaniac derkha desade desg Desoxy dethredic Dettorer developej Devilholk devtekbeta dEX DexterLB dflurker Dhraakellian Diamondcite diegoviola Dieterbe digilink DigitalK1wi dimaursu16 dimeshake Dimmuxx DinCahill dino- disasm divVerent djkrikke dk0r dkasak DLange dmf21 do0ob doc_who donch Donfuy donquijote DonRichie dorftrottel_ dotpyfe dots dougpiston dracman dramz_ Drathir dRbiG Dreamer3 DRiKE drip drizzd droolendug dropdrive drp DRW_ dsevilla Dtgr dtrz dubwoc Ducky^ Dudalus dude187 dummyan dunz0r DURgod dusares duxklr du|dx_ dvance_ Dwarf dwat3r dwts_ dxtr dylix dza e36freak ealexp Earnestly EastsideR ecraven ecube Edholm eduardostalinho edw_ EdwardIII EIHoppe eiphunter Eipou_ eir eitzei ejl ekeih El_Angelo elaoin_ng elliottcable ellusioner elmhire elsewho emg emlow emmanuelux enderst endre Enjolras Enjolras_ Ephexeve epitron equilibriumuk eqyiel ered erg erikw erkin Error404NotFound Ertyle Esa_ esdf estan ethail ethanol etix eto Evanlec evie_hammond evilgrawity EViLSLuT evpuneq evr__ exciton exilepilot exos eyemonen eyescream ezdiy_ ezzieygu1wuf f0rg0tt3n faen falchie Falx4444 fam|work farangoth fartbox fasta_ favadi FEC felipe` fest fflam finiks fionnan FIQ Fira firecat51 firesock fiyawerx fjasboka_ flaccid fleshbag flexd FliPPeh flo`_ floatingman flocke floft flowsnake Fluke fmartingr foobArrr foohey foosinn Forgetful_Lion forks foutrelis foxxx0 frankyboy_ frb FreeArtMan Freso FSX fuchs12 fuhry fulafisken Funkin_Stoopid FunkyAss fxrh gagan662 gaidal gaisten gajop galaux gamer1990 GarBage gardar gardintrapp garrik gbarboza GEEK1 geewid gehidore gejr_ Genolo germanium gffa GH0S1 gholen ghost64 glebihan GlitchMr GNULinuxGuy GoGi gospodin gotestra gracent1 grafold graperkins graphitemaster grawity greggerz greymalkin gridcol_ Grievar groundnuty gs93 GSF1200S_ gsko gtmanfred guenther Guest44707 Guest51504 Guest61119 Guest7654 Guest875 Guest88172 guiniol Gussi gwash Gyroplast h4z|da haaja habmala hacosta hagabaka hando hanstech Hapsbana1 hardfalcon1 Hardolaf HarryGue1illa Hasselsaurus hdoshi heckman hedimbourg heftig hegemoOn Heikai heinrich5991 hejki hekel helgikrs HenrikJuul_ZNC Hexal hh4a hhehw_ hhenkel_ hi117 hnk hobbily Hodapp homelinen hosk houmles hrnz htor hugogee_ huma HuMu hunger hurricane hw_ Hwkiller hylas i3luefire_ i7c ianj iasov IcarianHeights iccanobif Icedman ichigo-roku iflema ighea Iiiak iKb ikonia ilj illuminatis^^ infojunky Ingar ingenious insatsu Insecta Insu Internet13 intgr invisiblek ioni iostream iotku ircubic ironcamel ISF Ishaq itu ius ivan\ ivan`` ixeft- J0k3r jaake jabirali Jack-is JackBauer24 JackWinter jacres jalle jamesbond-4711 jameson` jamoralesm Janhouse jankyhellface jason^ jasonwryan jayne jaysonr jben1 jblani jbollden jcaprice_ jchen jcornwall jdahm jdost Jeanne-Kamikaze jeekl jefzo_ jekle jelly1 jemark_ jeremydei jham jhankins jhark2 JHeaton jheretic jimBo jimreynold2nd jjk JKL1234- jlewis jmaister jnbek jnials Jobbe jocke-l_ Joehs JoeyJo0 john-f johnhamelink johntramp JohnUK89 johskar_ jokke joko Jonimus JOR-Coder joren jormaa jpyth jrex jryan js6i jsec jsteel jswagner juju2143_ julesw julius2 Jupelius jvolkman jw8 jwpierce3 jwr jxie jxn_ jyc k0ral k2s k6b kaictl Kaivo kallisti5 Kamilion Kanazky Kanerix KanocX kanyl kAPU3 kart0ffelsack kaste Kauhsa kawaii-neko KBme kbrosnan kd35a keel keenerd keks_ kelnoky kelvan kerrick ketamine kevin06 kevku killown Killswitch478|Aw Kilroo KindOne Kirito KitB_ KitH151 kj4 kleph klip kloeri klonkr1 Klowner kmicu kmshanah KnightHawk3 knightshade kniu knopwob_ kode54 Koigreen kolazic KonsoleArch korsi krabador kraM kravlin krisman kry73n kubit kungsget1n kupsh kutio kvbx Kwpolska ky7en Kyle KylieBrooks l0rd_hex l2esonance l3nkz L3thal L42y l4m6da_ l4than-d3vers lahwran lalaallaalalal languitar larsks Lartza lartza_ Lasse- lassulus lastebil_ lattenwald Laughing_man LauJensen laumars launchy leakybuckit lebenserfahrung Lektron leming len Lenny_ leoc leprechau lettuce- lgro lianj libertas Likvidy lilstevie linduxed linux_probe lithiumpt Lky lliehu lonewulf` longmang loofygun loose Lord^Anubis lordheavy Lorem-Ipsum lowprize loxley lpvb lrvick LSD` Luceo Lucifer7 luct luigy luizribe` lukem lunarjar Lurq luuuciano LysergicDreams m1sc M4T1A5 m4tt MacGyver macrobat Mad_Hatter_93 MadAGu madm1ke madnificent magicrhesus magnet77 majikstreet majuscule maletor manio ManoloMtnez mantiz_ marc0s marienz markatto markus__ MarkusH Marqin marquicus marsam martasd martinek|2 martinjlowm_ martinklepsch martinp masterkoppa mathieui Mathnerd626 mattb matthiaskrgr Mattias mattr Matuka mavvert max-k Max401_ Maxa maxexcloo maxus mbaragiola mbr mcguitan93 mcurve Mechanimal medum meitzo Mekaari memand memno meskarune Messenger_bird mesx metasyntax` methril Mezenir mgrimes mickael9 Micki miffe-freenode migueldvb mihok mijenix mike][inq MikeN mikeshultz mikroflops milian milosn mimor minaguib mindcruft MindlessDrone Minos Mion mirar314_ mirelsol MissionCritical MJBrune mjevans- mjms Mkman mloskot Mohan_ mokasin moltendorf MonkZ monokrome MooseElkingtons Moridin morrolan_ mortdeus Mosu moted mouche1 mowe mquin mr0wl mrbanie MrBougo mrdragons mrmackie MrOpposite MrRee mrshu mtao mudkipz mukti murosai murr4y musca` museun MVXA Mxchael mychris Myconix mylvari mysteriousdarren mysticc mythmon mz|` N0BOX n17ikh n2deep N30N N3RG4L Nabobalis nachtwandler naeg Nahlidge- Nahra Nakato Namarrgon nameless` napcode naquad Narrat nasedo nathan7 nathaniel nauski nbg nCrazed ndngvr` necreo necrogami neersighted neibo Nekos Nem nemaeon neobechstein Neozaru nesti netmod netmonger netzvieh neunon nhasian Niamkik nickermire NickHu nickoe niczy nightfly__ NightKhaos NiHP niklasb NiklosKoda niko nil- niloc132 nimred ninjabox Nisstyre nitrix nkoep nmeum NNerch nobo__ nocoast noctavian noctux nodame nojan nokogiri NoobCp noplamodo nosklo Nothing4You NotKruz NotLim Novarg_ noway NoXzema nperry nuba NuckingFuts NucWin nullie nullpuppy numeral nwoki_away nwx_ nXqd nyloc nym_ nyuszika7h o123hallo Obscure2 odavilar Oddity ofan ohcibi ole olegfusion omeringen onebitaway oneirophren onny opatut openess opieng opt1mus Orphis osiman oso96_2000 osse Overand overrider ovidiu-florin ovidiusoft owain_ OxHaK_Netbook P-l p1r p8m paddymahoney passbe pawz pcarrier peeaivo penguin42 Peps perun_ petantik petelewis_ Peuc phenom phignuton phlux Phr33d0m phrik pib1972 pierreghz Pikel Pillz pingveno pinstripes pkiller plok plueschopath plustwo poisond poljar poobert Poodlemastah porti poseidon potato_ PotHix pouete Pougnet_ ppr praedo PreZGN prinnysocks PrO_OkI_ programmerq prometheus1809 prtcl Psi-Jack psii pskept psyk3 pumphaus purpleidea Pyro pythonsnake pyToolmaker q5sys QKO qrwteyrutiyoup qu1ckkkk r4` rabidfurby Raboo radio00 raedwulf raj Raku^ rams ramses_ Raptors Rashy Rasi Ratty ravomavain RawProduce RazorX realitygaps reashlin redland rekahsoft Repentinus resixian restless_being rewtraw Ricas Riiiis rimio rizumu Rn0 robert_ robgraves robjk rocker2344 Roenie rogorido roknir Romeo` root_769 Rosha RougeR Roukoswarf Roukoswarf-M Rovanion roxlu rshackle1ord rson rspkt ruan rumcajs Runaway russo79 rw rymate1234 s00pcan S0lign0c s1gk1ll s1gma sa1 sacredch1o Sacro Sadin SajberVargen sakaru saltsa_ sammyf samruger samu SamuraiGhost Sanky SanskritFritz SchimpansenMann Scifi^ Scimmia sco` ScottG Scub sdh_ sdoerner sebleblanc seemawn sekanS sensae seq99` setkeh sgclark sh4wn shad0VV shade34321 Shados Shadowized shadyabh1 Shahid shammancer_ shapeshifta Shapeshifter sheep sheepbat shining^ shinjikun Shinryuu shiver shupac Shyde sig-wall sigma_g_ sigtrm silentmike Sin` sinkigobopo SirDeiu skate_forever skope skp skrblr Skry skug skyguy skyj sl33v3 sledgehammer Sling slo slopop slovdahl slowpoke sluggr smbkrn2002 smu Sn4keBite snackoverflow sniffells snorre sodoku_ solsTiCe Somasis sooda_ Sora1995|Cloud Sornaenst Soul_Eater Soulou spacebark spacekevin spaceone spaceships speak speechless|2 Speed` splump spyhawk spY|da SquirrelCZECH Srf sri_ srijan4 ssmy stackofcats stanner stardiviner starkline statusfailed staufinc stfn stif Stiletto StMichel stnly strangelyNormal strcpy Strog stufe stvc sudokode sulami sulx2 sunya7a surfhai Suya svenstaro sw0rdfish sw4 sweet_kid SyAchmed Synthead sysadamin syslock t-mart t0m5k1 tabasko Tabz takeshix taldrain talsemgeest Tam tanath tapout tarpsocks tasidus Taylor_ tb01110100 tchebb tchiroux td123 TDJACR tdreyer1 tdy_ Tea teapot41 Tear_ techlife techman2 Tectu tehvdood telmich tenmilestereo tenthirteen teprrr TeslaTest Tetsumaki tewlz Texhex_ tflgen2 Th0mas Th0th th3voic3_ Tha-Fox thadood thalassarche Tharugrim the_metalgamer The_Pacifist thegorn thehoff themattbeballin TheMaverick` thethomaseffect Third3ye thomas____ thomasba_ Thorne thr thrak tiger717 tigrmesh Tiktalik timahvo1 timewa1ker timtux TingPing tinystoat tittentei Titus titzer tjbenator tjiggi_fo TKal tlonim tlvb tme tom94 Tom^ tomaw TomFyuri TommehM tommis Tomoe toofishes toorima toppform_ torpet totte tranqil Trashlord trasig Traumness_G3 Tribal tripleXXX Tropolis trsitan tsbtmn ttl- tumppu Twey twoface twouters tybalt89 tyn Typherix_ tzero tzvi tzxn3 u-foka ubuntufan123 ugg underdog` undersc0re97 unexist unforgiven512 unknwn Unlix_ unrest untitaker Urne uro useless_1_grant v0lZy v0n Vardyr vechnyj vee vegai vehk velcroshooz velusip vesz vhost- vidaloka vihcs viper0984 virtuose Visage Viski VivienHayazaki vladan Vlavv` voltagex Voro2 vostok4_ VSpike vuLgAr Vuokko w00tc0d3 w0ng WakiMiko warddr Wasp wassup waterlae watsonalgas wd40s wdiz webspid0r Weegee- WeissLehrer weltzooo wgosling_ WhereIsMySpoon WhoBe whodevil wildshu willemw willer williewillus WillyKaze WindPower wiske57 witwit Wntrvnm woddf2 Wojo Wr4i7h wrst wting wwraith xaver__ xcrustyx xdarklight XenGi Xeph Xeross xexaxo Xigam xilo xorp xpander69 XReaper xrogaan xymox xyproto Y3K yaccin YaManicKill Yamba yano yaps8 yetr2 yibe_ yogiman331 yorick yoshi314 youlysses yxol ZaB|SHC| ZadYree zalineon zamboli Zane zarac zarrsh_ zatricky zaxe Zbyshek ZeDestructor Zekah ZekeS zendeavor zenguy_pc zenptr Zepp__ zerick Zeroedout zhvtar Ziemas Ziomalon zizzfizzix zkrm zmanfx zokeber zorael Zrax Zucca zxiiro_ zykure zz__ {Nathan} {Nathan}_]
+2013-04-02 22:29:43	--	Channel #archlinux: 1605 nicks (0 ops, 0 halfops, 0 voices, 1605 normals)
+2013-04-02 22:29:44	--	Mode #archlinux [+Cnt]
+2013-04-02 22:29:45	--	Channel created on Sun, 15 Feb 2004 06:08:31
+2013-04-02 22:29:47	ugg	the 'arch' on the rpi is much closer to arch than raspian.  Mion.  I am not asking for support on it.  Just mentioned that I had to make the same change on it's arch varient as I had to make on my x86-64 arch install...
+2013-04-02 22:29:56	Earnestly	Urne: That said, you can get accelerated opengl on linux, that's not an issue if that's your concern
+2013-04-02 22:29:57	Urne	Earnestly: would it be different if I used software rendering on windows?
+2013-04-02 22:30:05	Urne	Earnestly: ah good :-)
+2013-04-02 22:30:10	-->	Moviuro (~quassel@LVelizy-156-45-56-246.w80-13.abo.wanadoo.fr) has joined #archlinux
+2013-04-02 22:30:17	<--	niklasb (~codeslay0@nat-wh-hadi.rz.uni-karlsruhe.de) has quit (Ping timeout: 260 seconds)
+2013-04-02 22:30:22	<--	yxol (~none@h-28-116.a328.priv.bahnhof.se) has quit (Ping timeout: 245 seconds)
+2013-04-02 22:30:26	Earnestly	Urne: Both would be dog slow. Software rendering on Windows with this machine grinds it down to about 5 FPS vs the typical 50-60 FPS 
+2013-04-02 22:30:33	Urne	it was just that last time I tried with GPU accelerated emulation, there were a tremendous amount of glitches
+2013-04-02 22:30:41	Urne	in the games
+2013-04-02 22:30:45	Urne	I tried
+2013-04-02 22:30:46	<--	tyn (~rynxy@131.202.212.54) has quit (Ping timeout: 245 seconds)
+2013-04-02 22:30:51	Urne	not cool x_x
+2013-04-02 22:30:57	-->	Icewing (~Icewing@koln-5d815c5b.pool.mediaWays.net) has joined #archlinux
+2013-04-02 22:30:57	<--	Icewing (~Icewing@koln-5d815c5b.pool.mediaWays.net) has quit (Changing host)
+2013-04-02 22:30:57	-->	Icewing (~Icewing@unaffiliated/icewing) has joined #archlinux
+2013-04-02 22:31:07	Mion	Earnestly: so it grinds down to native speed!
+2013-04-02 22:31:13	Mion	^_^
+2013-04-02 22:31:19	Earnestly	Yeah. Very few will cause flickering during cutscenes (movies). You can easily toggle software and hardware rendering in pcsx2 though (hit F9)
+2013-04-02 22:31:29	<--	pskept (pskept@gateway/shell/devio.us/x-xjkcnmiyemwclihz) has quit (Quit: leaving)
+2013-04-02 22:31:30	Earnestly	Mion: lolo :p
+2013-04-02 22:31:38	Mion	blighttown in dark souls == 5fps on silly ps
+2013-04-02 22:31:46	Mion	:D
+2013-04-02 22:31:48	-->	spracked (~jones@blfd-4d08265c.pool.mediaWays.net) has joined #archlinux
+2013-04-02 22:31:54	-->	hlowthrop (~harrison@host-2-102-30-235.as13285.net) has joined #archlinux
+2013-04-02 22:32:01	-->	loathingkernel (~loathingk@ppp-94-64-228-225.home.otenet.gr) has joined #archlinux
+2013-04-02 22:32:06	Urne	Earnestly: thanks for the tip, nice to know! :)
+2013-04-02 22:32:12	Black_Prince	I hate ps2 emulator
+2013-04-02 22:32:24	Black_Prince	can't get liberty city stories to work great
+2013-04-02 22:32:28	Black_Prince	slow as hell
+2013-04-02 22:32:48	Black_Prince	some say that I need at least 3 GHz processor
+2013-04-02 22:32:54	Urne	I am trying the ratchet and clank series... gpu emulation looks shit, cpu looks wonderful but had 20-25 fps...
+2013-04-02 22:32:55	Black_Prince	and I have 2.4 GHz one ...
+2013-04-02 22:33:13	Earnestly	Black_Prince: http://youtu.be/CR0xAnCt3lA Looks fine to me
+2013-04-02 22:33:15	phrik	Title: Classic Game - GTA - Liberty City Stories (On PCSX2) - YouTube (at youtu.be)
+2013-04-02 22:33:42	Earnestly	Urne: Ratchet and Clank doesn't work well at all in my experience
+2013-04-02 22:33:50	--	irc: disconnected from server
+2013-04-03 21:41:01	-->	sulami (~sulami@pC19F1A12.dip.t-dialin.net) has joined #archlinux
+2013-04-03 21:41:01	--	Topic for #archlinux is "Welcome to Arch Linux World Domination, Inc. <+> MariaDB replaces MySQL https://www.archlinux.org/news/mariadb-replaces-mysql-in-repositories/ <+> Read http://5z8.info/b00bs_pkwj or Allan will break your box."
+2013-04-03 21:41:01	--	Topic set by gtmanfred (root@archlinux/trusteduser/gtmanfred) on Fri, 29 Mar 2013 05:37:09
+2013-04-03 21:41:02	--	Nicks #archlinux: [[Author] [deXter] [HeX] [LeStAt] [vEX] \elongur \varnothing ]OLI[ ^Inuyasha^ _eye _ikke_ _schulte_ _TB_ `bps `lorim a0x a3Dman a_meteorite aapzak aat AbigailBuccaneer AbortRetryFail abyss ac_slater acfrazier ack006 acuzio Adran Adys aep Afwas aganders3 agumonkey aiBo` aisbaa aitorpazos ajashton ajs124 akawaka akemrir akiva akl akosch Akranis albelaj aleb alexandros_c alexhairyman AlexP alexwh Alice3 alienvenom alkeo Almehdin Almtesh altin alub alveraan alzeih Amadiro amaurea AMDrozd amunak anachron Anaphaxeton Anders_J AndreeeCZ andrew12 andrewSC andrey013 andreyv andyjone12001 andyrtr AndyW anon4623 Anonycat anrxc antihero Apage43 Apes APexilI applegekko Apsu` Araex aravind arbn Arcalyth arch-bugbot ArcherElf ArchGamer arfoll argentodtw ArGGu^^ Ark_ arli_ armin Artpicre artv61 arza asch asdf-chan asfethan ashadocat ashnur aszc AthlonRo1 Atmoz atragor ausbin autumn avawn averell avocado awole20 AxForest axil42 axion azradric1 b1eedr b4d_ baba BadAtom BadLarry bahamete bajsolator bandroidx Bane^ Banish bantone barch Bastian82 batrick batty bazz bc547_ bcremer_ bdeferme beatrice BeepDog BeholdMyGlory benanne benasse_ benjr benpro bentglasstube bentham Beretta021 bertram bezerker bfrog bghost bgs100 bier big_t billybigrigger billybong binarypie Biolunar__ bitflip_ bizarro_1 bjonnh bjorn_248 bkc_ Bl_nK Blaasvis Black_Prince blackdev1l BlackIkeEagle blacklotus89 BlackMagik BladedThesis BlastHardcheese bleomycin BlindHunter blk bloony BluABK blubb blueness Bluewind bmayton boak Bobby bogwonch_ BombStrike bond` Bonstra Boohbah borh BotoX bougyman boustrophedon boxofrox bparker bpeak brachyonic_ brandon brandonw breakage breiti bretzel brewmast1r brian brisbin bsmirnov_ bspar_ buchno bug2000 Bugson buhman buq2 bwat47 Byan C-S-B c1phertxt c4nuck c4rc4s C5OK5Y c_14 Cadair cajone Caleb caleb_9 CalimeroTeknik camerin CandyAngel canta capeta capleton Captain-n00dle carbolymer carlmro carlocci_ causasui caveat- Cavedude CCfan cduez cedeel Celebiaril centrelink Cerise CESSMASTER cfricke cgar chaky chance ChaozZBubi cHarNe2 ChauffeR chee cheesecakes Chelsea Chewtoy china chj chjj cholin ChongLi choupydance chridal chris2 chron cinch cinelli cioppa cipher circle ciscorn clarkm classix cliche clinch Cloudef cmr codeworkx codey codey_work codile Codynyx ColdFeetBob colona commontime_ CommunistWitchDr companion confoocious cool_ Cor-Ai cored coredump Cork cornu_ Count_0_ CoverSlide CR0W crashmag crawlman crazedpsyc CrazyJoeDavola crdueck Creek creese crs_ CryptoCrack_ csc` Cubox cullum cvr Cyber_Akuma CyberSix cyberspace- cyen cYmen CyrilPeponnet cyrusae d-ash d10n daaku daBrado Dad`_ daed daedalux dagerik dagthema1 Dan39 Danio danking_ danmackay danners dared dario dark8 darkapex DarkFox darrend dasbjo Dashkal DasMoeh datagutt_ daurnimator Dave123 Dave123-road davetherat davidstrauss davis dawey DaZ daza daze dazoe_ dbrgn dcrouse deadalus Deathspawn debu_ deekeff deeroh Deewiant def-_ Defaultti defekt degeso delaman- delcoyote DeLord demarchi Demios demonicm1niac demonicm1niac3 derkha desade desg Desoxy dethredic Dettorer developej Devilholk devtekbeta dEX DexterLB dflurker Dhraakellian Diamondcite diegoviola Dieterbe digilink DigitalKiwi dimaursu16 dimeshake Dimmuxx DinCahill dino- disasm divVerent djkrikke dk0r dkasak DLange doerner donch Donfuy DonRichie dorftrottel_ dotpyfe dots dougpiston dracman drag0nl0rd dramz Drathir dRbiG Dreamer3 DRiKE drip drizzd droolendug dropdrive DRW_ Dtgr dtrz dubwoc Ducky^ dude187 dummyan dunz0r DURgod dusares duxklr du|dx_ dvance Dwarf dwarfolo dwat3r dxtr dylix` dza e36freak ealexp Earnestly EastsideR ecraven ecube Edholm eduardostalinho EdwardIII EgdEv EIHoppe eiphunter Eipou_ eir Eisenhans eitzei ejl ekeih El_Angelo elaoin_ng elliottcable ellusioner elmhire elsewho emlow enderst endre Enjolras Enjolras_ Ephexeve epitron equilibriumuk eqyiel ered erg erikw erkin Error404NotFound Ertyle esdf espensb estan ethail ethanol etix eto Evanlec evie_hammond evilgrawity EViLSLuT evpuneq evr__ exciton exilepilot exos eyemonen eyescream ezdiy ezzieygu1wuf f0rg0tt3n f15h faen falchie Falx4444 farangoth fartbox fasta favadi fawkes5 fawkes5_ FEC Feigr felipe` felipealmeida fest fflam fgallina Fififox finiks fionnan FIQ Fira firesock Firestone fiyawerx fjasboka_ flaccid fleshbag flexd FliPPeh flo`_ floatingman flocke floft flowsnake Fluke fmartingr foobArrr foohey foosinn forks foutrelis foxxx0 frankyboy_ frb free_beard freedrull Freso FSX Ftroop fuhry fulafisken FunkyAss futpib fxrh gaisten gajop galaux gamer1990 GarBage gardar gardintrapp garrik gbarboza GEEK1 geekitus- geewid gehidore gejr_ Genolo germanium gffa GH0S1 gholen ghost64 gimbel glebihan GlitchMr GNULinuxGuy GoGi gospodin gracent grafold graperkins graphitemaster grawity greggerz greymalkin gridcol_ Grievar GrimKriegor groundnuty gs93 gsko gtmanfred guelfey guenther Guest44707 Guest61119 Guest79568 Guest88172 guiniol Gussi gwash Gyroplast haaja habmala hacosta hagabaka halj hamid hando Hapsbana1 hardfalcon Hardolaf haroldwu HarryGue1illa Hasselsaurus hdoshi heckman heftig hegemoOn Heikai heinrich5991 hejki hekel helgikrs HenrikJuul_ZNC Hexal hhehw_ hi117 hnk hobbily Hodapp homelinen hosk houmles hrnz hspasta htor hugogee HuMu_ hunger hurricane hw_ Hwkiller hylas hypestar i3luefire_ i7c ianj iasov iccanobif ichigo-roku iflema ighea Iiiak iKb ikonia ilj illuminatis^^ infojunky Ingar ingenious insatsu Insecta Insu Internet13 intgr invalido invisiblek ioni iostream iotku ircubic ironcamel Ishaq itu ius ivan\ ivan`` ixeft- J0k3r jaake jabirali Jack-is JackWinter1 jalle jamesbond-4711 Janhouse jankyhellface jason^ jasonwryan jayne jaysonr jben1 jbollden jcaprice jchen jcornwall jdahm jdost Jeanne-Kamikaze jeekl jefzo_ Jekyll jelly1 jemark_ jeremydei Jesin jhankins jhark2 jhartigan JHeaton jheretic_ jimBo jimreynold2nd jjk JKL1234- jlewis jmaister jnbek jnials Jobbe jocke-l_ JoeyJo0 john_f johnhamelink johntramp JohnUK89 johskar_ jokke joko Jonimus JOR-Coder jormaa jrex js6i jsec jsteel jswagner juju2143 julius2 Jupelius jvolkman jw8 jwr jxie jxn_ jyc k0ral k6b KaeruCT kaictl kallisti5 Kamilion Kanerix KanocX kanyl kAPU3 kart0ffelsack kaste katsh Kauhsa kawaii-neko KBme kbrosnan kd35a keel keenerd keks_ kelvan kerrick-work-lap kerum ketamine kevin06 kevku kexibq killown Killswitch478|Aw Kilroo1 KindOne Kirito KitB_ kiwnix kj4 kleph klip kloeri klonkr1 Klowner kmicu kmshanah KnightHawk3 knightshade knopwob kode54 Koigreen kolazic komori KonsoleArch KooeeeeennN korsi krabador kraffs kraM kravlin kry73n kubit kungsgeten kupsh Kurlon kutio kvbx Kwpolska ky7en Kyle KylieBrooks l0rd_hex l2esonance l3nkz L42y l4m6da_ l4than-d3vers lahwran lalaallaalalal languitar larsks Lartza lartza_ Lasse- lassulus lastebil_ lattenwald Laughing_man LauJensen laumars launchy Lektron leming Lenny_ leoc leprechau lettuce- lgro lianj libertas Lifkug Likvidy lilstevie linduxed Lintor linux_probe lithiumpt Lky lliehu loathingkernel lonewulf` longshot902 loofygun LookTJ loose Lord^Anubis lordheavy Lorem-Ipsum LostInInaka lowprize loxley lpvb lrvick LSD` lstarnes Lucifer7 luct luigy luizribe` lukem lunarjar Lurq luuuciano LysergicDreams lytedev m1sc M4T1A5 m4tt MacGyver macrobat Mad_Hatter_93 madm1ke madnificent magicrhesus magnet77 majikstreet majuscule malcolmva maletor manio mantiz_ mar77i marc0s marienz markatto markus__ MarkusH Marqin marquicus marsam martasd martinek martinjlowm_ martinp masterkoppa Mathieu mathieui Mathnerd626 mattb Mattias mattr Matuka mavvert max-k Max401_ Maxa maxexcloo maxus mbr mcguitan93 mcurve Mechanimal medum meitzo Mekaari melpo memand memno meskarune Messenger_bird mesx metasyntax` Mezenir mgrimes mickael9 Micki Midler miffe-freenode migueldvb mike][inq_ MikeN mikeshultz mikko777 mikroflops milian milosn mimor minaguib mindcruft Minos mirar314_ mirelsol MissionCritical misterswag mittald mjevans mjms Mkman moetunes Mohan_ moltendorf MonkZ monokrome MooseElkingtons Moridin morrolan_ Mosu moted mouche1 Moviuro mowe mquin mr0wl mrbanie MrBougo mrdragons MrElendig mrmackie MrOpposite MrRee mrshu mSSM msx mtao mudkipz mukti murr4y MVXA Mxchael mychris mylvari mysteriousdarren mysticc mystiiq mythmon mz|` N0BOX n17ikh n2deep N30N N3RG4L Nabobalis nachtwandler naeg Nahlidge Nahra Nakato Namarrgon nameless` napcode naquad Narrat Naruni nasedo nathan7 nathaniel nauski nbg nCrazed ndngvr` necreo necrogami neersighted neibo Nekos nemaeon neobechstein Neozaru nesti netmod netmonger netzvieh neunon nhasian Niamkik NickHu nickoe niczy nightfly__ NightKhaos NiHP NiklosKoda niko niloc132 nimred ninjabox nioncode Nisstyre nitrix nixin njbair nmeum NNerch nobo__ nocoast noctux nodame nokogiri NoobCp noplamodo nosklo Nothing4You NotKruz NotLim Novarg_ noway NoXzema nperry nuba Nuck NucWin null_ptr nullie nullpuppy numeral numismatics nwoki_away nyloc nym_ nyuszika7h o123hallo odavilar Oddity ofan ohcibi ole olegfusion onebitaway oneleggedgiraffe onny opatut openess opieng Opiumozor opt1mus Orphis osiman oskude oso96_2000 osse Overand overrider ovidiu-florin ovidiusoft owain_ OxHaK P-l p1r p8m paddymahoney passbe paullik pawz pcarrier peeaivo penguin42 perun_ petantik petelewis_ Peuc phazz phenom phignuton phlux Phr33d0m phrik pib1972 Pikel Pillz Pillz|Away pingveno pinstripes pkiller plains plitter plok plueschopath plustwo poisond poljar poobert Poodlemastah porti poseidon potato_ PotHix pouete Pougnet_ ppr praedo PreZGN prinnysocks PrO_OkI_ programmerq prometheus1809 prtcl Psi-Jack pskept psyk3 pumphaus purpleidea Pyro PyroPeter pythonsnake q5sys QKO qrwteyrutiyoup qu1ckkkk r4` rabidfurby Raboo radio00 raedwulf raijin raj Raku^ rams rapidx Raptors Rashy Rasi Ratty ravomavain RawProduce RazorX rcarrillo realitygaps reashlin redland rekahsoft Repentinus resixian restless_being rewtraw Ricas Riiiis rimio rizumu Rn0 robgraves robjk rocker2344 Roenie rogorido roknir Romeo` root_769 RougeR Roukoswarf Rovanion roxlu rshackle1ord rson rspkt ruan RudyValencia- Runaway1 russo79 rw rxt0 ryjm rymate1234 s00pcan S0lign0c s1gk1ll s1gma sa1 sacredch1o Sacro SajberVargen sakaru sallie27 saltsa_ sammyf samruger samu SamuraiGhost sandlst Sanky SanskritFritz SchimpansenMann schiv Scifi^ Scimmia sco` ScottG Scub sdh_ sebleblanc seemawn sensae seq99` setkeh sh4wn shad0VV Shados Shadowized shadyabh1 Shahid shammancer_ shapeshifta Shapeshifter sheepbat shining^ shinjikun Shinryuu shiver shupac Shyde sig-wall sigma_g_ sigtrm silentmike Sin` sinkigobopo SirDeiu skate_forever skope skp skrblr Skry skug skyguy skyj_ sl33v3 sledgehammer Sling slo slopop slovdahl slowpoke sluggr smbkrn2002 smu Sn4keBite snackoverflow snackoverflow_ snafoo sniffells snorre Snowman sodoku_ solsTiCe Somasis sooda_ Sora1995|Cloud Sornaenst Soulou spacekevin spaceone spaceships speak speechless|2 Speed` splump spyhawk SquirrelCZECH Srf sri_ srijan4 ssmy stackofcats stanner starkline statusfailed stfn stif Stiletto stnly strangelyNormal strcpy Strog stufe SubaruSVX subscious sudokode sujal sulami sulx2 surfhai Suya svaante svenstaro sw0rdfish sw4 swedala sweet_kid SyAchmed Synthead sysadamin syslock t-mart t0m5k1 tabasko Tabz taha takeshix taldrain talsemgeest Tam tanath tapout tarpsocks tasidus tb01110100 tbo tchebb tchiroux td123 TDJACR tdreyer1 tdy_ Tea teapot41 Tear__ techlife techman2 Tectu tehvdood telmich tenthirteen teprrr TeslaTest Tetsumaki tewlz Texhex_ tgoossens Th0mas Th0th th3voic3 Tha-Fox thadood thalassarche Tharugrim the_metalgamer The_Pacifist thefamilydog thegorn thehoff themattbeballin TheMaverick` thethomaseffect thomasba_ Thorne thr Thra11 thrak threadlock thrice tibs01 tiger717 tigrmesh Tiktalik timahvo1 timewa1ker timtux TingPing tinystoat titanmech tittentei Titus titzer tjbenator tjiggi_fo TK-999 TKal tlonim tlvb tme Tom^ tomaw TomFyuri TomM_ TommehM tommis Tomoe toofishes toorima top22 toppform_ torpet totte tra-la-la tranqil Trashlord trasig Traumness_G3 Tribal Tropolis trsitan tsbtmn ttl- tumppu Turski Twey twoface twouters tybalt89 tyn Typherix_ tzero tzvi tzxn3 u-foka ubuntufan123 ugg underdog` undersc0re97 unexist unforgiven512 unknwn Unlix_ unrest untitaker Urne uro useless_1_grant usko|2 v0n Vardyr vechnyj vee vegai vehk velcroshooz vesz vhost- vidaloka Vinilox virtuose Visage Viski VivienHayazaki vladan Vlavv` vodik voltagex Voro2 vostok4 VSpike vuLgAr Vuokko vvompy w00tc0d3 w0ng W0rmDr1nk WakiMiko warddr wassup waterlae wd40s wdiz webspid0r Weegee- WeissLehrer weltzooo wgosling_ WhereIsMySpoon whitecrow1 WhoBe whodevil wildshu willemw willer WillyKaze WindPower witwit Wntrvnm woddf2 Wojo Wr4i7h wrst wting wwraith xaver__ xBytez xcrustyx xdarklight XenGi Xeph Xeross xexaxo xilo xorp xpander69 XReaper xrogaan xymox xyproto yaccin YaManicKill Yamba yano yaps8 yetr2 yibe_ yorick yoshi314 ZaB|SHC| ZadYree zalineon zamboli Zane zarac Zardvark zarrsh_ zatricky zaxe Zbyshek zcram zden zed45 ZeDestructor Zekah ZekeS zendeavor zenguy_pc zenptr zephrax zer4tul zerick Zeroedout zhvtar Ziemas zizzfizzix zkrm zmanfx zokeber zorael Zrax Zucca zxiiro_ zz__ {Nathan} {Nathan}_]
+2013-04-03 21:41:02	--	Channel #archlinux: 1598 nicks (0 ops, 0 halfops, 0 voices, 1598 normals)
+2013-04-03 21:41:03	--	Mode #archlinux [+Cnt]
+2013-04-03 21:41:03	--	Channel created on Sun, 15 Feb 2004 06:08:31
+2013-04-03 21:41:10	-->	chobojordi (~chobojord@85-127-171-162.dynamic.xdsl-line.inode.at) has joined #archlinux
+2013-04-03 21:41:25	-->	FreeArtMan (~fam@93.177.213.54) has joined #archlinux
+2013-04-03 21:41:53	<--	taha (~taha@fe938966-c36.eso-es.net) has quit (Quit: Leaving)
+2013-04-03 21:42:07	-->	JackBauer24 (~JackBauer@89-76-72-190.dynamic.chello.pl) has joined #archlinux
+2013-04-03 21:42:32	ketamine	MrElendig,  question for ya. I don't have a 100mb system reserved partition. Just the one I have that I told windows 8 to install on. I have its UUID and am trying to do the grub-probe command but I'm not sure what to put as there is no system reserved partition
+2013-04-03 21:42:37	<--	zden (~Thunderbi@router-sun-nat-f.pilsfree.net) has quit (Quit: zden)
+2013-04-03 21:43:17	<--	snackoverflow_ (~toaster@l-055-018.sheridanc.on.ca) has quit (Ping timeout: 245 seconds)
+2013-04-03 21:43:35	MrElendig	you don't really need to use grub-probe
+2013-04-03 21:43:46	-->	xaver (~xaver@p5DD17DF2.dip.t-dialin.net) has joined #archlinux
+2013-04-03 21:43:51	MrElendig	if you know the uuid, just type it in
+2013-04-03 21:43:56	MrElendig	+the config
+2013-04-03 21:44:09	-->	bobbyd3 (~viktor@209.197.20.205) has joined #archlinux
+2013-04-03 21:44:10	oskude	_type_ sure :P
+2013-04-03 21:44:17	-->	z0id (~z0id@unaffiliated/z0id) has joined #archlinux
+2013-04-03 21:44:18	<--	xaver__ (~xaver@p4FCF5869.dip.t-dialin.net) has quit (Ping timeout: 264 seconds)
+2013-04-03 21:44:20	raijin	MrElendig: \o/
+2013-04-03 21:44:24	raijin	my young hero
+2013-04-03 21:44:38	<--	krabador (~krabador@unaffiliated/krabador) has quit (Quit: Leaving)
+2013-04-03 21:44:41	ketamine	MrElendig,  Oh? So I would skip ahead to the next chunk where I add the code into custom.cfg then run grub-mkconfig?
+2013-04-03 21:45:10	MrElendig	I prefer to just handwrite the config instead of using grub-mkconfig
+2013-04-03 21:45:17	MrElendig	but that's just me
+2013-04-03 21:45:28	ketamine	MrElendig,  I don't know if I'd mess it up. I could try handwriting it
+2013-04-03 21:45:40	<--	w0ng (~w0ng@unaffiliated/w0ng) has quit (Quit: leaving)
+2013-04-03 21:45:43	ketamine	MrElendig,  I'm not horribly familiar with writing the grub config so I'm just being cautious
+2013-04-03 21:45:44	-->	skython (~skython@sign-4d0947d9.pool.mediaWays.net) has joined #archlinux
+2013-04-03 21:45:56	MrElendig	can simply copy/paste the example on the wiki page
+2013-04-03 21:46:00	<--	erikw (~Erik@dhcp-v050-046.mobile.uci.edu) has quit (Ping timeout: 264 seconds)
+2013-04-03 21:46:06	MrElendig	and update the uuid/path etc
+2013-04-03 21:47:06	ketamine	MrElendig,  I hate to sound retarded here, and I know I will. I haven't figured out how to copy from a page into my terminal. I've been handwriting a lot of stuff lol
+2013-04-03 21:47:13	ketamine	MrElendig,  I use nano to edit in terminal
+2013-04-03 21:47:23	gehidore	ketamine: hightlight then middle click
+2013-04-03 21:47:32	<--	Kurlon (~kurlon@bidd-pub-03.gwi.net) has quit (Ping timeout: 258 seconds)
+2013-04-03 21:47:39	<--	andrey013 (~chatzilla@95.73.233.33) has quit (Quit: ChatZilla 0.9.90 [Firefox 20.0/20130403010102])
+2013-04-03 21:47:42	gehidore	middle click wher eyouw ant to paste, if your terminal is setup for it it will paste
+2013-04-03 21:47:42	<--	snackoverflow (~toaster@l-179-096.sheridanc.on.ca) has quit (Ping timeout: 256 seconds)
+2013-04-03 21:47:44	ketamine	gehidore,  x.x that simple
+2013-04-03 21:48:03	ketamine	gehidore,  ty, now feeling uber retarded rofl
+2013-04-03 21:48:08	-->	xaver_ (~xaver@p578FD6FC.dip.t-dialin.net) has joined #archlinux
+2013-04-03 21:48:11	gehidore	no worries
+2013-04-03 21:48:13	<--	zatricky (~zatricky@blvd-cr1-nat1.wa.co.za) has quit (Quit: Leaving.)
+2013-04-03 21:48:23	<--	skython (~skython@sign-4d0947d9.pool.mediaWays.net) has quit (Read error: Operation timed out)
+2013-04-03 21:48:27	<--	teapot41 (~cnewton@h85-238-211-106.dynamic.se.alltele.net) has quit (Read error: No route to host)
+2013-04-03 21:48:41	-->	velusip (~velusip@CPE001d73111113-CM18593340f926.cpe.net.cable.rogers.com) has joined #archlinux
+2013-04-03 21:48:49	-->	skython (~skython@sign-4db6b20f.pool.mediaWays.net) has joined #archlinux
+2013-04-03 21:48:52	<--	xaver (~xaver@p5DD17DF2.dip.t-dialin.net) has quit (Ping timeout: 246 seconds)
+2013-04-03 21:48:53	<--	dusares (~dusares@64.128.42.61) has quit (Ping timeout: 246 seconds)
+2013-04-03 21:49:17	-->	trusktr (~trusktr@130.86.99.64) has joined #archlinux
+2013-04-03 21:49:21	ketamine	MrElendig,  question for ya, in the windows 8 example do I add my UUID to the --fs-uuid part or at the very end of that string where it says msdos1 and a bunch of numbers?
+2013-04-03 21:49:32	<--	solsTiCe (~solsTiCe@ARennes-652-1-50-13.w2-11.abo.wanadoo.fr) has quit (Remote host closed the connection)
+2013-04-03 21:49:48	<--	graphitemaster (~graphitem@unaffiliated/graphitemaster) has quit (Read error: Connection reset by peer)
+2013-04-03 21:49:55	<--	FIQ (~fiq@unaffiliated/fiq) has quit (Ping timeout: 246 seconds)
+2013-04-03 21:50:15	<--	espensb (~espensb@cm-84.215.87.241.getinternet.no) has quit (Quit: Leaving)
+2013-04-03 21:50:28	-->	Soul_Eater (~marcelo@unaffiliated/soul-eater/x-4649632) has joined #archlinux
+2013-04-03 21:50:38	<--	Firestone (~Firestone@j225018.upc-j.chello.nl) has quit (Remote host closed the connection)
+2013-04-03 21:50:39	<--	onny (~onny@port-92-200-21-100.dynamic.qsc.de) has quit (Ping timeout: 248 seconds)
+2013-04-03 21:50:41	<--	felipealmeida (~user@mvx-187-16-79-187.mundivox.com) has quit (Remote host closed the connection)
+2013-04-03 21:50:45	<--	onebitaway (~onebitawa@static.213.229.46.78.clients.your-server.de) has quit (Ping timeout: 276 seconds)
+2013-04-03 21:50:52	<--	netzvieh (~nerd@landhandel-marschall.de) has quit (Quit: No Ping reply in 180 seconds.)
+2013-04-03 21:51:07	-->	shmoo (~IceChat9@77-23-77-157-dynip.superkabel.de) has joined #archlinux
+2013-04-03 21:51:30	<--	farangoth (~clement@ARouen-651-1-260-142.w109-209.abo.wanadoo.fr) has quit (Read error: No route to host)
+2013-04-03 21:51:31	<--	mittald (~mittald@dhcp02722.mid-resnet.unc.edu) has quit (Ping timeout: 240 seconds)
+2013-04-03 21:51:37	<--	Zardvark (~admiraldr@142.204.70.21) has quit (Ping timeout: 245 seconds)
+2013-04-03 21:51:37	-->	hdoshi_ (~hdoshi@66.54.159.166) has joined #archlinux
+2013-04-03 21:52:02	-->	curtism (~curtis@unaffiliated/programble) has joined #archlinux
+2013-04-03 21:52:19	ketamine	oh well added it, wish me luck *poof*
+2013-04-03 21:52:23	<--	ketamine (~ketamine@97-94-146-232.dhcp.trlk.ca.charter.com) has quit (Quit: Leaving)
+2013-04-03 21:52:41	-->	ckoch786 (~cory@98.103.82.66) has joined #archlinux
+2013-04-03 21:52:42	-->	farangoth (~clement@ARouen-651-1-260-142.w109-209.abo.wanadoo.fr) has joined #archlinux
+2013-04-03 21:53:10	--	NoobCp is now known as CryptoNaut
+2013-04-03 21:53:33	<--	hdoshi (~hdoshi@66.54.159.166) has quit (Ping timeout: 252 seconds)
+2013-04-03 21:53:46	-->	Xaapyks (~Xaapyks@78.250.252.56) has joined #archlinux
+2013-04-03 21:54:08	gehidore	good luck... 
+2013-04-03 21:54:09	gehidore	;)
+2013-04-03 21:54:16	Ftroop	:P
+2013-04-03 21:54:27	gehidore	!grab ketamine
+2013-04-03 21:54:28	phrik	gehidore: Tada!
+2013-04-03 21:54:34	<--	ColdFeetBob (roberto@host71-100-dynamic.51-82-r.retail.telecomitalia.it) has quit
+2013-04-03 21:54:37	gehidore	if it's the last time we see him, now we have a record
+2013-04-03 21:54:47	-->	graphitemaster (~graphitem@unaffiliated/graphitemaster) has joined #archlinux
+2013-04-03 21:54:51	-->	sputnikus (~sputnikus@ip-89-102-7-58.net.upcbroadband.cz) has joined #archlinux
+2013-04-03 21:55:05	gehidore	I still for the life of me haven't found a need to dual boot, vbox takes care of anything I could ever need in win or osx
+2013-04-03 21:55:11	-->	firecat53 (~firecat53@192.34.58.11) has joined #archlinux
+2013-04-03 21:55:13	<--	degeso (~NiaTeppel@WiseOS/Founder/NiaTeppelin) has quit (Read error: Connection reset by peer)
+2013-04-03 21:55:13	-->	FIQ (~fiq@unaffiliated/fiq) has joined #archlinux
+2013-04-03 21:55:14	<--	akemrir (~akemrir@89.200.156.169.internetia.net.pl) has quit (Quit: WeeChat 0.4.0)
+2013-04-03 21:55:22	Ftroop	gaming>?#
+2013-04-03 21:55:31	<--	Soul_Eater (~marcelo@unaffiliated/soul-eater/x-4649632) has quit (Quit: Leaving)
+2013-04-03 21:55:44	-->	herpderpington (ad0f4bc9@gateway/web/freenode/ip.173.15.75.201) has joined #archlinux
+2013-04-03 21:55:45	Urne	how do i check what type of ram is in my comp from terminal?
+2013-04-03 21:55:45	gehidore	psht, the games I play are all quake engine fps so most are already in the repos anyways
+2013-04-03 21:55:48	<--	Feigr (~zypo@c-a971e353.6325654--62697410.cust.bredbandsbolaget.se) has left #archlinux
+2013-04-03 21:55:54	<--	tyn (~rynxy@131.202.164.16) has quit (Ping timeout: 245 seconds)
+2013-04-03 21:55:56	-->	rumcajs (~andy@176.97.250.19) has joined #archlinux
+2013-04-03 21:55:56	-->	banaan (~rijdier@ip-213-49-242-138.dsl.scarlet.be) has joined #archlinux
+2013-04-03 21:56:04	gehidore	Urne: what type or how much?
+2013-04-03 21:56:17	<--	benanne (~rijdier@ip-81-11-185-249.dsl.scarlet.be) has quit (Ping timeout: 252 seconds)
+2013-04-03 21:56:19	Urne	gehidore: what type
+2013-04-03 21:56:24	Ftroop	well still not overly impressed with catalyst so i will still have to suffer
+2013-04-03 21:57:13	-->	t60p (~t60p@69.38.173.130) has joined #archlinux
+2013-04-03 21:57:24	<--	xaver_ (~xaver@p578FD6FC.dip.t-dialin.net) has quit (Ping timeout: 252 seconds)
+2013-04-03 21:57:29	-->	xaver__ (~xaver@p5DD16CF6.dip.t-dialin.net) has joined #archlinux
+2013-04-03 21:57:37	-->	Zardvark (~admiraldr@142.204.70.21) has joined #archlinux
+2013-04-03 21:57:39	gehidore	Urne: pacman -S dmidecode 
+2013-04-03 21:57:49	Urne	gehidore: ah ok thanks :)
+2013-04-03 21:58:03	gehidore	then run as root dmidecode --type 17
+2013-04-03 21:58:16	-->	amstan_ (~alex@aichallenge/admin/amstan) has joined #archlinux
+2013-04-03 21:58:21	-->	zden (~Thunderbi@router-sun-nat-f.pilsfree.net) has joined #archlinux
+2013-04-03 21:58:42	-->	pierreghz (~krux@ie3.freedom-ip.com) has joined #archlinux
+2013-04-03 21:58:42	<--	herpderpington (ad0f4bc9@gateway/web/freenode/ip.173.15.75.201) has left #archlinux
+2013-04-03 21:59:16	<--	davis (davis@pilot.trilug.org) has quit (Remote host closed the connection)
+2013-04-03 21:59:25	<--	bpeak (~shivalva@unaffiliated/bpeak) has quit (Quit: WeeChat 0.4.0)
+2013-04-03 22:00:10	-->	Pip (~Pip__@unaffiliated/pip) has joined #archlinux
+2013-04-03 22:00:19	<--	free_beard (~mircea@unaffiliated/free-beard/x-6152516) has quit (Quit: Leaving.)
+2013-04-03 22:00:40	Urne	gehidore: that worked, thanks a bunch :)
+2013-04-03 22:00:42	<--	redland (~redland@150.134.234.30) has quit (Ping timeout: 252 seconds)
+2013-04-03 22:00:56	gehidore	np
+2013-04-03 22:01:09	gehidore	actually been ages since I used it, I forgot how much info it could grab for ya
+2013-04-03 22:01:19	gehidore	check out the man page ...
+2013-04-03 22:02:01	-->	DarkSim (~DarkSim@78-72-49-75-no186.tbcn.telia.com) has joined #archlinux
+2013-04-03 22:02:30	<--	Anaphaxeton (~george@ppp005054030218.access.hol.gr) has quit (Ping timeout: 240 seconds)
+2013-04-03 22:02:36	-->	dusares (~dusares@231.sub-70-197-165.myvzw.com) has joined #archlinux
+2013-04-03 22:02:48	<--	xaver__ (~xaver@p5DD16CF6.dip.t-dialin.net) has quit (Ping timeout: 264 seconds)
+2013-04-03 22:02:59	<--	amstan_ (~alex@aichallenge/admin/amstan) has quit (Ping timeout: 245 seconds)
+2013-04-03 22:03:12	-->	surcontre (~surcontre@ppp-236-197.98-62.inwind.it) has joined #archlinux
+2013-04-03 22:03:23	<--	Ftroop (~kvirc@cpc23-linc11-2-0-cust242.12-1.cable.virginmedia.com) has quit (Quit: KVIrc 4.2.0 Equilibrium http://www.kvirc.net/)
+2013-04-03 22:03:31	<--	kraffs (~kraffs@c-17f8e253.07-109-6e6b702.cust.bredbandsbolaget.se) has quit (Quit: WeeChat 0.3.8)
+2013-04-03 22:03:39	-->	ketamine (~ketamine@97-94-146-232.dhcp.trlk.ca.charter.com) has joined #archlinux
+2013-04-03 22:03:39	<--	exilepilot (~exilepilo@host109-150-194-204.range109-150.btcentralplus.com) has quit (Quit: Leaving)
+2013-04-03 22:04:02	MrElendig	Urne: don't blindly trust dmidecode, it does not always give the right info
+2013-04-03 22:04:11	-->	TingPing_ (~tingping@fedora/pdpc.professional.tingping) has joined #archlinux
+2013-04-03 22:04:13	-->	syberdog (~syberdog@62.68.107.238) has joined #archlinux
+2013-04-03 22:04:17	-->	mloskot (~mloskot@osgeo/member/mloskot) has joined #archlinux
+2013-04-03 22:04:25	-->	apod (~apod@5353B80C.cm-6-4c.dynamic.ziggo.nl) has joined #archlinux
+2013-04-03 22:04:27	<--	KooeeeeennN (~koen@82-170-97-118.ip.telfort.nl) has left #archlinux
+2013-04-03 22:04:32	<--	leoc (~leoc.git@p5DDBB184.dip.t-dialin.net) has quit (Ping timeout: 245 seconds)
+2013-04-03 22:04:35	ketamine	MrElendig, It definitely worked in loading the right partition but I have a /boot/bcd error. Any ideas on this. I am looking around google and wiki for an answer but most people use UEFI x.x
+2013-04-03 22:04:48	<--	bobbyd3 (~viktor@209.197.20.205) has quit (Quit: leaving)
+2013-04-03 22:04:56	gehidore	ketamine: what's the error?
+2013-04-03 22:05:05	gehidore	MrElendig: good point
+2013-04-03 22:05:06	<--	TingPing_ (~tingping@fedora/pdpc.professional.tingping) has quit (Client Quit)
+2013-04-03 22:05:17	-->	illusions (~illusions@24.152.243.133.res-cmts.sewb.ptd.net) has joined #archlinux
+2013-04-03 22:05:25	ketamine	gehidore,  don't have it in front of me, its essentially telling me to insert the windows 8 disc and repair, and that i couldnt boot it mentions /boot/bcd being messed up
+2013-04-03 22:05:40	ketamine	gehidore,  I would assume, in my limited wisdom, that I didn't point it to the right boot area on that UUID
+2013-04-03 22:05:45	ArchGamer	Okay.  I need recommendations for a terminal based network and system monitor.
+2013-04-03 22:05:52	Urne	MrElendig: can I trust dmidecode for stuff like RAM Mhz speed?
+2013-04-03 22:05:56	MrElendig	ArchGamer: wireshark
+2013-04-03 22:06:04	MrElendig	Urne: not always
+2013-04-03 22:06:14	MrElendig	Urne: if you want to be sure, pull out that screwdriver
+2013-04-03 22:06:27	Urne	MrElendig: ah, so it's written on the RAM or ?
+2013-04-03 22:06:39	-->	OldShatterhand (~OldShatte@p5B154ACF.dip.t-dialin.net) has joined #archlinux
+2013-04-03 22:06:43	<--	maxexcloo (~maxexcloo@2606:df00:3:0:216:3cff:febd:3b2) has quit (Ping timeout: 246 seconds)
+2013-04-03 22:06:46	ArchGamer	MrElendig: Okay more interested in the system monitor aspect I guess.  I have wireshark :P
+2013-04-03 22:06:47	<--	hobbily (~hobbily@unaffiliated/hobbily) has quit (Ping timeout: 255 seconds)
+2013-04-03 22:06:50	<--	OldShatterhand (~OldShatte@p5B154ACF.dip.t-dialin.net) has quit (Remote host closed the connection)
+2013-04-03 22:06:50	MrElendig	Urne: usually, and if not the maker and product model/SN should be printed
+2013-04-03 22:06:51	ketamine	gehidore,  I think  Isee something wrong. My arch grub areas show --hint-bios, the one I copied has efi mentioned
+2013-04-03 22:06:59	<--	spaceships (~spaceship@host-72-174-137-126.msl-mt.client.bresnan.net) has quit (Read error: Connection reset by peer)
+2013-04-03 22:07:00	ketamine	gehidore,  I would assume this has to be changed
+2013-04-03 22:07:00	<--	thefamilydog (62d3095f@gateway/web/freenode/ip.98.211.9.95) has left #archlinux
+2013-04-03 22:07:05	Urne	MrElendig: that's nice to know, thanks for the help :)
+2013-04-03 22:07:11	MrElendig	Urne: and even if not, the chips themself are usually marked, so you can use google to find the product sheet
+2013-04-03 22:07:26	kerum	ArchGamer: conky?
+2013-04-03 22:07:31	-->	bovis (~bovis@173-81-223-62-elkn.atw.dyn.suddenlink.net) has joined #archlinux
+2013-04-03 22:07:35	MrElendig	Urne: not to mention that you can google the mobo model and find the manual, which should list supported ram speeds etc
+2013-04-03 22:07:49	ketamine	gehidore, nevermind there are two, one is bios, one is efi i see them in all entries. hmm
+2013-04-03 22:07:58	-->	m4b (~user@64.106.39.49) has joined #archlinux
+2013-04-03 22:08:05	<--	TK-999 (~TK-999@wikia/vstf/TK-999) has quit (Quit: systemctl poweroff)
+2013-04-03 22:08:08	<--	jnbek (~jnbek@pdpc/supporter/active/jnbek) has quit (Quit: kthx)
+2013-04-03 22:08:22	-->	ambossarm (~kvirc@kvirc/staff/ambossarm) has joined #archlinux
+2013-04-03 22:08:28	phazz	hey, can anyone tell me why i can't yank stuff out of vim to systemclipboard? set clipboard=unnamedplus is set, recompiled version with x-window enabled etc. etc.
+2013-04-03 22:08:38	-->	jekle (~quassel@178.79.133.76) has joined #archlinux
+2013-04-03 22:08:40	-->	OldShatterhand (~OldShatte@p5B154ACF.dip.t-dialin.net) has joined #archlinux
+2013-04-03 22:08:41	-->	jnbek (~jnbek@2605:6400:2:fed5:22:0:d183:2bef) has joined #archlinux
+2013-04-03 22:08:46	grawity	Don't recompile; install the 'gvim' package
+2013-04-03 22:08:53	ketamine	gehidore,  would this ntldr /bootmgr somehow need to be /boot/bcd?
+2013-04-03 22:09:00	-->	jpyth (~jmorgan@c-67-169-178-24.hsd1.ca.comcast.net) has joined #archlinux
+2013-04-03 22:09:05	<--	olegfusion (~olegfusio@46.191.225.84) has quit (Quit: Leaving)
+2013-04-03 22:09:17	gehidore	ketamine: I dont' know anything about grub, sorry I was merely pointing out that wihtout an error we can't help
+2013-04-03 22:09:18	-->	maxexcloo (~maxexcloo@2606:df00:3:0:216:3cff:febd:3b2) has joined #archlinux
+2013-04-03 22:09:20	<--	zden (~Thunderbi@router-sun-nat-f.pilsfree.net) has quit (Quit: zden)
+2013-04-03 22:09:21	ambossarm	gvim is not a xwindow for vim?
+2013-04-03 22:09:21	<--	syberdog (~syberdog@62.68.107.238) has quit (Quit: Konversation terminated!)
+2013-04-03 22:09:24	<--	bwat47 (~bwat47@c-75-68-148-166.hsd1.nh.comcast.net) has quit (Ping timeout: 264 seconds)
+2013-04-03 22:09:31	ketamine	gehidore,  no problem.
+2013-04-03 22:09:35	Ingar	phazz: is it selecting that doesn't work ?
+2013-04-03 22:09:38	MrElendig	ambossarm: gvim provides a vim binary too
+2013-04-03 22:09:51	-->	olegfusion (~olegfusio@96.47.236.112) has joined #archlinux
+2013-04-03 22:09:52	ketamine	MrElendig,  do you have any ideas on what I asked?
+2013-04-03 22:09:54	MrElendig	(in fact it only provides a vim binary)
+2013-04-03 22:10:02	<--	Urne (~bastian@87-61-242-96-dynamic.dk.customer.tdc.net) has left #archlinux
+2013-04-03 22:10:02	MrElendig	ketamine: ask ##windows
+2013-04-03 22:10:10	<--	fawkes5 (~fawkes5@198-84-199-210.cpe.teksavvy.com) has quit (Quit: Lost terminal)
+2013-04-03 22:10:11	<--	fawkes5_ (~fawkes5@198-84-199-210.cpe.teksavvy.com) has quit (Quit: Lost terminal)
+2013-04-03 22:10:32	phazz	ill give it a try
+2013-04-03 22:10:38	-->	onny (~onny@port-92-200-21-100.dynamic.qsc.de) has joined #archlinux
+2013-04-03 22:11:38	Namarrgon	ketamine: make sure your windows partition has the /bootmgr file and a populated /Boot/ directory
+2013-04-03 22:11:39	<--	Yamba (~Yamba@31.25.23.229) has quit (Read error: Operation timed out)
+2013-04-03 22:11:42	phazz	hmm gvim wanna replace vim, but thats not what i want, i like it console only
+2013-04-03 22:12:02	-->	lazyball (~lazyball@cpe-24-210-186-119.woh.res.rr.com) has joined #archlinux
+2013-04-03 22:12:04	grawity	/usr/bin/vim is always console-only
+2013-04-03 22:12:05	webspid0r	phazz: it provides both gvim and vim, while the vim is configured with tons of more options
+2013-04-03 22:12:16	ketamine	Namarrgon,  how would I confirm this. I essentially put in the windows 8 DVD told it to install to the partition and it rebooted after all of the normal stuff, now I just want grub to boot to the drive to finish everything
+2013-04-03 22:12:30	-->	bpeak (~bpeak@unaffiliated/bpeak) has joined #archlinux
+2013-04-03 22:12:38	<--	drag0nl0rd (~drag0nl0r@archlinux/trusteduser/drag0nl0rd) has quit (Ping timeout: 255 seconds)
+2013-04-03 22:12:39	ketamine	Namarrgon,  I will mount the partition and see whats on it
+2013-04-03 22:12:40	webspid0r	phazz: and yes, it supports yanking to the clipboard just fine
+2013-04-03 22:12:43	-->	stardiviner (~stardivin@122.236.248.36) has joined #archlinux
+2013-04-03 22:12:47	<--	bpeak (~bpeak@unaffiliated/bpeak) has left #archlinux
+2013-04-03 22:12:55	numeral	anybody familiar with an xmpp client for the command line?
+2013-04-03 22:12:57	numeral	webspid0r?
+2013-04-03 22:13:03	MrElendig	numeral: they all suck
+2013-04-03 22:13:16	Ingar	penguin42: I think the snd_hda_intel issue is audacious' fault. Switching from to hd0,0 instead of default alsa device is giving hopeful results
+2013-04-03 22:13:18	webspid0r	numeral: I'm sorry, only know of bitlbee supporting it, maybe barnowl, too
+2013-04-03 22:13:22	-->	spaceships (~spaceship@host-72-174-137-126.msl-mt.client.bresnan.net) has joined #archlinux
+2013-04-03 22:13:30	ketamine	Namarrgon: I see the bootmgr file trying to locate the populated boot folder you mentioned
+2013-04-03 22:13:32	numeral	MrElendig: seriously? :/
+2013-04-03 22:13:43	MrElendig	numeral: yes
+2013-04-03 22:13:52	webspid0r	numeral: just like pretty much most software
+2013-04-03 22:13:56	numeral	webspid0r: aren't both of those primarily gui implementations?
+2013-04-03 22:13:59	webspid0r	numeral: it's why I dropped twitter
+2013-04-03 22:14:06	<--	andyrtr (~andyrtr_l@archlinux/developer/andyrtr) has quit (Quit: Ex-Chat)
+2013-04-03 22:14:09	MrElendig	numeral: weechat is promising though
+2013-04-03 22:14:09	webspid0r	numeral: nope, both are tui
+2013-04-03 22:14:13	ketamine	Namarrgon,  I definitely don't see a boot directory, how would I typically handle this. Arch is installed of course and grub 2 but do I just put in the DVD and try again or?
+2013-04-03 22:14:21	webspid0r	numeral: or rather, bitlbee can be used in your favorite tui irc client
+2013-04-03 22:14:25	-->	d_garbage (~free@unaffiliated/dgarbage/x-348756) has joined #archlinux
+2013-04-03 22:14:45	numeral	weechat? for xmpp?
+2013-04-03 22:14:49	ketamine	Namarrgon,  there is a windows/boot directory with DVD EFI Fonts PCAT and Resources?
+2013-04-03 22:14:52	MrElendig	numeral: yes
+2013-04-03 22:14:54	webspid0r	must be some new feature :P
+2013-04-03 22:15:04	numeral	yeah I never heard of this
+2013-04-03 22:15:22	Namarrgon	ketamine: no, afaik it needs to be /Boot
+2013-04-03 22:15:25	<--	\elongur (~elongur@ip-62-251-46-46.dialup.ice.net) has quit (Read error: Connection reset by peer)
+2013-04-03 22:15:28	numeral	external script apparently...
+2013-04-03 22:15:31	-->	redland (~redland@150.134.234.30) has joined #archlinux
+2013-04-03 22:15:48	-->	onebitaway (~onebitawa@static.213.229.46.78.clients.your-server.de) has joined #archlinux
+2013-04-03 22:15:49	webspid0r	well, weechat is also set on providing a gui interface some day
+2013-04-03 22:15:50	ketamine	Namarrgon,  its not there, does windows 8 have to fully install for it to be there? Is it required that I install windows 8 completely then arch? That'd be a bitch
+2013-04-03 22:15:56	<--	maxexcloo (~maxexcloo@2606:df00:3:0:216:3cff:febd:3b2) has quit (Quit: Quit.)
+2013-04-03 22:15:57	webspid0r	so it doesn't come that unexpected
+2013-04-03 22:16:08	Namarrgon	ketamine: are you sure you didn't wipe the system-reserved-partition by accident?
+2013-04-03 22:16:11	<--	hdoshi_ (~hdoshi@66.54.159.166) has quit (Quit: leaving)
+2013-04-03 22:16:22	-->	Blub\w (~wry@unaffiliated/blubw/x-6625061) has joined #archlinux
+2013-04-03 22:16:27	-->	hdoshi (~hdoshi@66.54.159.166) has joined #archlinux
+2013-04-03 22:16:28	Namarrgon	ketamine: what do you mean by 'completely'?
+2013-04-03 22:16:31	numeral	well I'm sticking with weechat-curses 
+2013-04-03 22:16:35	numeral	but whatever
+2013-04-03 22:16:56	ketamine	Namarrgon,  looking at the partitions it is very possible. I meant like to a desktop, you know how windows unpacks itself installs then reboots then goes to a desktop eventually. I only got to the reboot piece
+2013-04-03 22:17:13	<--	mikko777 (~quassel@dsl-hkibrasgw2-50de27-167.dhcp.inet.fi) has quit (Remote host closed the connection)
+2013-04-03 22:17:16	phazz	yeah gvim just works fine, thx mates
+2013-04-03 22:17:19	ketamine	Namarrgon,  I don't see a partitiong for system reserved, just the 170GB partition I used for windows, my swap, my root, and my home
+2013-04-03 22:17:22	MrElendig	numeral: bitlbee or jabber.py script
+2013-04-03 22:17:30	numeral	MrElendig: nod, I found jabber.py
+2013-04-03 22:17:31	Namarrgon	ketamine: wtf would you do that?
+2013-04-03 22:17:39	ketamine	Namarrgon,  ignorance?
+2013-04-03 22:17:40	<--	hdoshi (~hdoshi@66.54.159.166) has quit (Client Quit)
+2013-04-03 22:17:55	MrElendig	numeral: there is a fork of it somewhere that is somewhat more activly developed too
+2013-04-03 22:17:56	Ingar	I wiped windows 8, it felt good
+2013-04-03 22:17:59	-->	hdoshi (~hdoshi@66.54.159.166) has joined #archlinux
+2013-04-03 22:18:05	<--	zamboli (~itsatrap@rrcs-24-103-222-50.nys.biz.rr.com) has quit (Quit: leaving)
+2013-04-03 22:18:10	Namarrgon	ketamine: make sure windows boots, then reinstall grub
+2013-04-03 22:18:14	numeral	MrElendig: msg me if you remember what it's called
+2013-04-03 22:18:17	-->	zamboli (~itsatrap@rrcs-24-103-222-50.nys.biz.rr.com) has joined #archlinux
+2013-04-03 22:18:24	MrElendig	same name
+2013-04-03 22:18:28	ketamine	Namarrgon,  how can I bypass grub to let it boot?
+2013-04-03 22:18:30	<--	nachtwandler (~nachtwand@p5089D814.dip.t-dialin.net) has quit (Quit: leaving)
+2013-04-03 22:18:34	<--	crawlman (~crawlman@41-135-63-53.dsl.mweb.co.za) has quit (Quit: Leaving)
+2013-04-03 22:18:35	MrElendig	just hosted on github or something
+2013-04-03 22:18:40	numeral	ah ok
+2013-04-03 22:18:44	numeral	I'll check it out
+2013-04-03 22:18:50	Namarrgon	ketamine: win8 -> cdrom-drive->repair install
+2013-04-03 22:18:53	-->	Yamba (~Yamba@31.25.23.229) has joined #archlinux
+2013-04-03 22:19:07	-->	Urne (~bastian@87-61-242-96-dynamic.dk.customer.tdc.net) has joined #archlinux
+2013-04-03 22:19:18	<--	cduez (~cduez@89-92-29-101.hfc.dyn.abo.bbox.fr) has quit (Quit: Bye)
+2013-04-03 22:19:38	ketamine	Namarrgon,  ok I will try that. I tried making a partition before so I could have 2 for windows and it ended up yelling at me about only allowing 4
+2013-04-03 22:19:41	<--	kexibq (~kexibq@unaffiliated/kexibq) has quit (Ping timeout: 260 seconds)
+2013-04-03 22:19:42	Urne	i wonder why brightness key problems on laptops are such a common problem under linux ._.
+2013-04-03 22:19:48	-->	nous (~nous@188.4.158.244.dsl.dyn.forthnet.gr) has joined #archlinux
+2013-04-03 22:20:16	velcroshooz	because acpi is a broken standard
+2013-04-03 22:20:22	<--	hspasta (~Haptic@pal-178-016.itap.purdue.edu) has quit (Ping timeout: 245 seconds)
+2013-04-03 22:20:24	-->	Theoden (~quassel@c-98-234-161-226.hsd1.ca.comcast.net) has joined #archlinux
+2013-04-03 22:20:25	-->	maxexcloo (~maxexcloo@2606:df00:3:0:216:3cff:febd:3b2) has joined #archlinux
+2013-04-03 22:20:29	<--	nullie (~nullie@128-75-9-202.broadband.corbina.ru) has quit (Ping timeout: 245 seconds)
+2013-04-03 22:20:43	Namarrgon	ketamine: yes, because windows knows its shit. read up on mbr partitions and their limit
+2013-04-03 22:20:55	Urne	velcroshooz: oh i see, thanks for clarification
+2013-04-03 22:20:58	--	hw_ is now known as hw
+2013-04-03 22:21:00	-->	tzvi|work (~tspitz@68.170.144.194) has joined #archlinux
+2013-04-03 22:21:00	<--	tzvi|work (~tspitz@68.170.144.194) has quit (Changing host)
+2013-04-03 22:21:00	-->	tzvi|work (~tspitz@unaffiliated/tzvi) has joined #archlinux
+2013-04-03 22:21:24	-->	d_garbage_ (~free@unaffiliated/dgarbage/x-348756) has joined #archlinux
+2013-04-03 22:21:28	<--	zendeavor (~zendeavor@auriga.kiwilight.com) has quit (Read error: Operation timed out)
+2013-04-03 22:21:28	<--	Hodapp (~hodapp@li438-77.members.linode.com) has quit (Write error: Broken pipe)
+2013-04-03 22:21:30	<--	TingPing (TingPing@fedora/pdpc.professional.tingping) has quit (Read error: Operation timed out)
+2013-04-03 22:21:30	<--	BlackIkeEagle (~BlackIkeE@archlinux/trusteduser/blackikeeagle) has quit (Ping timeout: 264 seconds)
+2013-04-03 22:21:31	-->	Anaphaxeton (~george@ppp046176041005.access.hol.gr) has joined #archlinux
+2013-04-03 22:21:31	<--	breakage (~ash@unaffiliated/breakage) has quit (Read error: Operation timed out)
+2013-04-03 22:21:35	<--	julius2 (julius@unaffiliated/julius2) has quit (Read error: Operation timed out)
+2013-04-03 22:22:00	<--	oneleggedgiraffe (~onelegged@cpc2-bexl8-2-0-cust26.2-3.cable.virginmedia.com) has quit (Ping timeout: 264 seconds)
+2013-04-03 22:22:00	<--	kerrick-work-lap (kerrick@nat/google/x-wzkjbcdidpjqnsck) has quit (Ping timeout: 240 seconds)
+2013-04-03 22:22:06	<--	cored (~homer@unaffiliated/cored) has quit (Ping timeout: 264 seconds)
+2013-04-03 22:22:15	ketamine	Namarrgon,  one last question. Could I remove my swap. I had only 2GB of ram when I installed arch but I recently upgraded to 4. If I removed the swap partition I could do the system reserved then. I don't know if I will mess up my install by removing swap though
+2013-04-03 22:22:25	<--	js6i (~zeus@89-68-153-169.dynamic.chello.pl) has quit (Ping timeout: 258 seconds)
+2013-04-03 22:22:25	<--	peeaivo (~peeaivo@unaffiliated/peeaivo) has quit (Ping timeout: 245 seconds)
+2013-04-03 22:22:26	ketamine	I doubt I need swap with 4gb and not doing anything big
+2013-04-03 22:22:32	<--	t0m5k1 (~t0m5k1@197.228.23.240) has quit (Ping timeout: 255 seconds)
+2013-04-03 22:22:34	<--	unforgiven512 (~unforgive@64-121-111-219.c3-0.smt-ubr1.atw-smt.pa.cable.rcn.com) has quit (Ping timeout: 245 seconds)
+2013-04-03 22:22:41	<--	d_garbage (~free@unaffiliated/dgarbage/x-348756) has quit (Ping timeout: 252 seconds)
+2013-04-03 22:22:47	<--	capeta (capeta@unaffiliated/capeta) has quit (Read error: Connection reset by peer)
+2013-04-03 22:23:02	--	jheretic_ is now known as jheretic
+2013-04-03 22:23:13	-->	cdfk (~androirc@c-71-197-44-221.hsd1.fl.comcast.net) has joined #archlinux
+2013-04-03 22:23:16	Namarrgon	ketamine: it's your choice, removing swap will not break anything if you do it right
+2013-04-03 22:23:20	-->	julius2 (julius@unaffiliated/julius2) has joined #archlinux
+2013-04-03 22:23:23	numeral	ok I'm gonna play with this later, thanks MrElendig 
+2013-04-03 22:23:23	-->	peeaivo (~peeaivo@dsl-lprbrasgw1-54fa89-77.dhcp.inet.fi) has joined #archlinux
+2013-04-03 22:23:23	<--	peeaivo (~peeaivo@dsl-lprbrasgw1-54fa89-77.dhcp.inet.fi) has quit (Changing host)
+2013-04-03 22:23:23	-->	peeaivo (~peeaivo@unaffiliated/peeaivo) has joined #archlinux
+2013-04-03 22:23:24	-->	TingPing_ (TingPing@fedora/pdpc.professional.tingping) has joined #archlinux
+2013-04-03 22:23:27	<--	wrst (~wrst@unaffiliated/wrst) has quit (Remote host closed the connection)
+2013-04-03 22:23:29	<--	Neozaru (~Neozaru@lau06-7-83-153-112-28.fbx.proxad.net) has quit (Quit: Leaving)
+2013-04-03 22:23:31	<--	bfrog (tburdick@unaffiliated/themonotone) has quit (Ping timeout: 240 seconds)
+2013-04-03 22:23:34	cdfk	Can you format /var ?
+2013-04-03 22:23:34	ketamine	Namarrgon,  mind directing me on how to do it, like an article so I can do things legit
+2013-04-03 22:23:40	Namarrgon	ketamine: just remove if from fstab
+2013-04-03 22:23:40	-->	wrst (~wrst@unaffiliated/wrst) has joined #archlinux
+2013-04-03 22:23:46	MrElendig	cdfk: sure, by why?
+2013-04-03 22:23:49	-->	cored (~homer@201.229.129.133) has joined #archlinux
+2013-04-03 22:23:50	<--	cored (~homer@201.229.129.133) has quit (Changing host)
+2013-04-03 22:23:50	-->	cored (~homer@unaffiliated/cored) has joined #archlinux
+2013-04-03 22:23:51	-->	TingPing (~tingping@fedora/pdpc.professional.tingping) has joined #archlinux
+2013-04-03 22:23:57	<--	iasov (~iasov@184.82.9.82) has quit (Ping timeout: 258 seconds)
+2013-04-03 22:24:03	sulami	ketamine: in case of an emergency you can go for a swap-file aswell
+2013-04-03 22:24:05	MrElendig	cdfk: ofcourse you would need to have /var on a seperate partition
+2013-04-03 22:24:07	<--	atragor (~atragor@2001:470:1f15:196f:d2df:9aff:fee8:e586) has quit (Ping timeout: 245 seconds)
+2013-04-03 22:24:14	cdfk	Not even root can acces some files
+2013-04-03 22:24:16	-->	breakage (~ash@unaffiliated/breakage) has joined #archlinux
+2013-04-03 22:24:17	ketamine	sulami,  thats what I figured
+2013-04-03 22:24:20	Boohbah	ketamine: remember if you ever use all your RAM your system will crash
+2013-04-03 22:24:25	MrElendig	cdfk: and you should make a backup of anything important in there, like the pacman db...........
+2013-04-03 22:24:29	ketamine	Boohbah,  I understand
+2013-04-03 22:24:29	-->	Hodapp (~hodapp@li438-77.members.linode.com) has joined #archlinux
+2013-04-03 22:24:39	MrElendig	cdfk: check the extended attributes on those files
+2013-04-03 22:24:42	<--	subscious (~user@ppp-188-174-81-44.dynamic.mnet-online.de) has quit (Quit: Leaving)
+2013-04-03 22:24:49	<--	tzvi (~tspitz@unaffiliated/tzvi) has quit (Ping timeout: 264 seconds)
+2013-04-03 22:24:54	-->	zendeavor (~zendeavor@auriga.kiwilight.com) has joined #archlinux
+2013-04-03 22:24:55	ketamine	Namarrgon,  do I have to exit X to redit fstab
+2013-04-03 22:24:56	<--	jnbek (~jnbek@2605:6400:2:fed5:22:0:d183:2bef) has quit (Read error: Connection timed out)
+2013-04-03 22:24:57	MrElendig	cdfk: and if they are really in /var at all, and not on some mount point
+2013-04-03 22:24:58	-->	capeta (~capeta@201.80.34.131) has joined #archlinux
+2013-04-03 22:24:58	<--	capeta (~capeta@201.80.34.131) has quit (Changing host)
+2013-04-03 22:24:58	-->	capeta (~capeta@unaffiliated/capeta) has joined #archlinux
+2013-04-03 22:25:00	<--	batty (~roy.batty@109.201.152.232) has quit (Ping timeout: 240 seconds)
+2013-04-03 22:25:01	Namarrgon	ketamine: no
+2013-04-03 22:25:02	cdfk	Ok but im not sure how
+2013-04-03 22:25:06	MrElendig	cdfk: aka post actual errors!
+2013-04-03 22:25:08	-->	bfrog (~tburdick@li137-239.members.linode.com) has joined #archlinux
+2013-04-03 22:25:09	<--	f15h (~fish@h-164-91.a208.priv.bahnhof.se) has quit (Quit: "Ubuntu", an african word meaning, "Gentoo is too hard for me")
+2013-04-03 22:25:09	ketamine	Namarrgon,  k
+2013-04-03 22:25:11	<--	paullik (~paullik@unaffiliated/paullik) has quit (Quit: paullik)
+2013-04-03 22:25:13	-->	unforgiven512 (~unforgive@64-121-111-219.c3-0.smt-ubr1.atw-smt.pa.cable.rcn.com) has joined #archlinux
+2013-04-03 22:25:16	<--	TingPing (~tingping@fedora/pdpc.professional.tingping) has left #archlinux
+2013-04-03 22:25:17	-->	TingPing (~tingping@fedora/pdpc.professional.tingping) has joined #archlinux
+2013-04-03 22:25:20	MrElendig	also explain what you are really trying to do
+2013-04-03 22:25:34	Namarrgon	ketamine: just 'swapoff' the partition before you try to remove it
+2013-04-03 22:25:40	-->	iasov (~iasov@184.82.9.82) has joined #archlinux
+2013-04-03 22:25:42	-->	t60p_ (~t60p@69.38.173.130) has joined #archlinux
+2013-04-03 22:26:20	cdfk	Cannot acces file.blah permission denied
+2013-04-03 22:26:29	-->	kerrick-work-lap (kerrick@nat/google/x-rntzwqodgtealzol) has joined #archlinux
+2013-04-03 22:26:55	-->	smartin_ (~smartin@ivr94-4-82-229-165-48.fbx.proxad.net) has joined #archlinux
+2013-04-03 22:26:56	ketamine	Namarrgon,  ty for that, disabled it with swapoff -U and the uuid
+2013-04-03 22:27:06	MrElendig	*exact* error
+2013-04-03 22:27:08	-->	jnbek (~jnbek@pdpc/supporter/active/jnbek) has joined #archlinux
+2013-04-03 22:27:08	ketamine	Namarrgon,  there a command to show swap is off?
+2013-04-03 22:27:11	-->	Oddly (~sam@d51535491.access.telenet.be) has joined #archlinux
+2013-04-03 22:27:13	MrElendig	also what are you *really* trying to do?
+2013-04-03 22:27:15	<--	vodik (~root@archlinux/op/vodik) has quit (Quit: WeeChat 0.4.1-dev)
+2013-04-03 22:27:22	-->	qwitwa (~josh@host86-139-189-252.range86-139.btcentralplus.com) has joined #archlinux
+2013-04-03 22:27:27	cdfk	I was trying to clean out the journal files since it said it ran out of memory
+2013-04-03 22:27:28	<--	Fififox (~joan@86-95-190-109.dsl.ovh.fr) has quit (Quit: gn, thanks!)
+2013-04-03 22:27:35	sulami	ketamine "free"
+2013-04-03 22:27:43	-->	Kvadratrot (~Kvadratro@46.246.36.31) has joined #archlinux
+2013-04-03 22:27:46	Namarrgon	ketamine: swapon -s
+2013-04-03 22:28:01	ketamine	Namarrgon,  comes back with terminal prompt, nothing
+2013-04-03 22:28:04	ketamine	Namarrgon,  ty
+2013-04-03 22:28:14	<--	Kvadratrot (~Kvadratro@46.246.36.31) has left #archlinux
+2013-04-03 22:28:30	-->	Fruktkaka (~Kvadratro@46.246.36.31) has joined #archlinux
+2013-04-03 22:28:32	cdfk	ls: cannot access /var/log/journal/172628numbers/user-1000.journal: Permission denied
+2013-04-03 22:28:40	MrElendig	df -h
+2013-04-03 22:28:43	-->	Ravior (~ravior@193.226.56.7) has joined #archlinux
+2013-04-03 22:28:46	<--	avawn (~dv@dave-vps01.adfinis.com) has quit (Ping timeout: 246 seconds)
+2013-04-03 22:28:58	-->	erikw (~Erik@dhcp-v030-243.mobile.uci.edu) has joined #archlinux
+2013-04-03 22:29:17	<--	Evanlec (~Evanlec@elecompte.com) has quit (Quit: WeeChat 0.4.0)
+2013-04-03 22:29:23	cdfk	Yeah im only using like 10% space of /var
+2013-04-03 22:29:30	-->	Evanlec (~Evanlec@elecompte.com) has joined #archlinux
+2013-04-03 22:29:31	<--	alexwh (~alexwh@78.129.222.113) has quit (Quit: Quitting)
+2013-04-03 22:29:43	<--	Captain-n00dle (~Cptn-n00d@wikipedia/Captain-n00dle) has quit (Quit: Cheerio!)
+2013-04-03 22:30:05	<--	Freso (~Freso@drupal.org/user/27504/view) has quit (Ping timeout: 258 seconds)
+2013-04-03 22:30:30	cdfk	The drive keeps messing up. I think tje connector is bad so i thought maybe it was a write error of some kind
+2013-04-03 22:30:37	-->	Kurlon (~kurlon@cpe-74-75-21-239.maine.res.rr.com) has joined #archlinux
+2013-04-03 22:30:42	-->	avawn (~dv@dave-vps01.adfinis.com) has joined #archlinux
+2013-04-03 22:30:46	Hasselsaurus	Hey guys, is catalyst working okay with the xorg included in Arch?
+2013-04-03 22:30:50	-->	Wasp (~wasp@g225082051.adsl.alicedsl.de) has joined #archlinux
+2013-04-03 22:30:53	gtmanfred	no
+2013-04-03 22:30:57	gtmanfred	!give Hasselsaurus catalyst
+2013-04-03 22:30:58	phrik	Hasselsaurus: catalyst does not support xorg-server 1.14,so either add the [xorg113] and [catalyst] repos from the catalyst wiki page, or IgnorePkg=xorg-server in your pacman.conf
+2013-04-03 22:31:07	gtmanfred	Hasselsaurus: it requires xorg113, use the repos mentioned on the catalyst wiki
+2013-04-03 22:31:13	MrElendig	Hasselsaurus: enjoy waiting for the next opensuse release to get support for 1.14
+2013-04-03 22:31:19	Hasselsaurus	alright, i'm gonna have to go fight with that
+2013-04-03 22:31:22	ketamine	Namarrgon,  ty again. I'm off to try to reinstall windows 8 again with 2 partitions available =)
+2013-04-03 22:31:23	Hasselsaurus	catalyst is a huge pain
+2013-04-03 22:31:26	Hasselsaurus	even on other distros
+2013-04-03 22:31:32	<--	TingPing (~tingping@fedora/pdpc.professional.tingping) has quit (Quit: Lost Terminal)
+2013-04-03 22:31:32	MrElendig	!give Hasselsaurus bbs amd bar and grill
+2013-04-03 22:31:34	phrik	Hasselsaurus: The AMD/ATI Bar & Grill (Page 1) / Applications & Desktop ...: <https://bbs.archlinux.org/viewtopic.php?id=57084>
+2013-04-03 22:31:43	MrElendig	you want to follow that thread if you want to use catalyst on arch
+2013-04-03 22:31:48	gtmanfred	Hasselsaurus: or just enable the 2 repos at the top of pacman.conf ...
+2013-04-03 22:31:48	Namarrgon	ketamine: gl
+2013-04-03 22:31:56	gtmanfred	Hasselsaurus: it is all explained on the catalyst wiki page
+2013-04-03 22:31:56	<--	qwitwa (~josh@host86-139-189-252.range86-139.btcentralplus.com) has quit (Read error: Connection reset by peer)
+2013-04-03 22:31:57	MrElendig	check it before every kernel/xorg update
+2013-04-03 22:32:02	<--	C5OK5Y (~C5OK5Y@ip-78-45-13-52.net.upcbroadband.cz) has quit (Ping timeout: 245 seconds)
+2013-04-03 22:32:17	-->	viper1988 (~root@122.252.231.12) has joined #archlinux
+2013-04-03 22:32:18	Hasselsaurus	Yeah, the wiki is great.  One last question - does a pacman -Syyu update the kernel?
+2013-04-03 22:32:25	Hasselsaurus	and thanks a ton for the help
+2013-04-03 22:32:31	gtmanfred	Hasselsaurus: it can
+2013-04-03 22:32:35	webspid0r	I don't see why it shouldn't if there's a new release
+2013-04-03 22:32:38	<--	t60p_ (~t60p@69.38.173.130) has quit (Quit: Lost terminal)
+2013-04-03 22:32:42	<--	ketamine (~ketamine@97-94-146-232.dhcp.trlk.ca.charter.com) has quit (Remote host closed the connection)
+2013-04-03 22:32:50	gtmanfred	Hasselsaurus: if there is a new kernel in the repos
+2013-04-03 22:32:59	cdfk	Thanks MrElendig im going to try that
+2013-04-03 22:33:04	Hasselsaurus	alright, good deal.  Thanks guys, you're always a ton of help
+2013-04-03 22:33:18	-->	t60p_ (~t60p@69.38.173.130) has joined #archlinux
+2013-04-03 22:34:01	viper1988	!help  need help in configuring my bluetooth headset
+2013-04-03 22:34:08	viper1988	help  need help in configuring my bluetooth headset
+2013-04-03 22:34:14	<--	Bastian82 (~grzempek@efg153.neoplus.adsl.tpnet.pl) has quit (Ping timeout: 245 seconds)
+2013-04-03 22:34:15	gtmanfred	!give viper1988 wiki bluetooth
+2013-04-03 22:34:16	phrik	viper1988: https://wiki.archlinux.org/index.php/Bluetooth
+2013-04-03 22:34:17	gtmanfred	!give viper1988 halp
+2013-04-03 22:34:18	phrik	viper1988: Help yourself before you ask. Read the Wiki and man pages, search the BBS and/or Google. Sticking to this method will often get you an answer faster, and you may just happen to learn something from it.
+2013-04-03 22:34:22	-->	TingPing (~tingping@fedora/pdpc.professional.tingping) has joined #archlinux
+2013-04-03 22:34:29	gtmanfred	!give viper1988 howtoask
+2013-04-03 22:34:30	phrik	viper1988: http://catb.org/~esr/faqs/smart-questions.html
+2013-04-03 22:34:30	viper1988	read it..
+2013-04-03 22:34:44	-->	len_ (~quassel@75-161-175-43.mpls.qwest.net) has joined #archlinux
+2013-04-03 22:34:57	viper1988	tried bluez , blueman
+2013-04-03 22:35:05	gtmanfred	!give viper1988 howtoask
+2013-04-03 22:35:08	phrik	viper1988: http://catb.org/~esr/faqs/smart-questions.html
+2013-04-03 22:35:09	<--	Oddly (~sam@d51535491.access.telenet.be) has quit (Read error: Connection reset by peer)
+2013-04-03 22:35:18	-->	sertsa (~sertsa@239.223.118.66.brainstorminternet.net) has joined #archlinux
+2013-04-03 22:35:25	gtmanfred	viper1988: you haven't provided any error to hint at what might be going on or waht you have actually tried
+2013-04-03 22:35:28	gtmanfred	consequently
+2013-04-03 22:35:31	<--	ack006 (~ack006@524A7994.cm-4-3b.dynamic.ziggo.nl) has quit (Quit: Leaving)
+2013-04-03 22:35:34	gtmanfred	i am now logging off
+2013-04-03 22:35:37	gtmanfred	good luck
+2013-04-03 22:35:37	<--	Urne (~bastian@87-61-242-96-dynamic.dk.customer.tdc.net) has left #archlinux
+2013-04-03 22:35:42	gehidore	gtmanfred: wait!!
+2013-04-03 22:36:23	-->	PySloan (~PySloan@147.97.228.40) has joined #archlinux
+2013-04-03 22:36:29	gtmanfred	gehidore: hurry up, i am busy packing for my trip in the morning
+2013-04-03 22:36:34	gehidore	I love you
+2013-04-03 22:36:45	gehidore	have fun on your trip :D
+2013-04-03 22:36:47	-->	Spliffer (~spliff@186.37.203.140) has joined #archlinux
+2013-04-03 22:36:48	gtmanfred	♥
+2013-04-03 22:36:49	gtmanfred	thanks
+2013-04-03 22:36:55	-->	amnesium (~shy@drms-590de388.pool.mediaWays.net) has joined #archlinux
+2013-04-03 22:37:05	-->	moscownights (~moscownig@5ED01E75.cm-7-1a.dynamic.ziggo.nl) has joined #archlinux
+2013-04-03 22:37:11	<--	TingPing (~tingping@fedora/pdpc.professional.tingping) has left #archlinux
+2013-04-03 22:37:33	-->	PrinceAMD (~PrinceAMD@unaffiliated/princeamd) has joined #archlinux
+2013-04-03 22:37:43	-->	hlowthrop (~hlowthrop@host-2-102-30-235.as13285.net) has joined #archlinux
+2013-04-03 22:37:50	<--	viper1988 (~root@122.252.231.12) has quit (Remote host closed the connection)
+2013-04-03 22:38:05	<--	hypestar (~user@2805ds5-fb.0.fullrate.dk) has quit (Ping timeout: 252 seconds)
+2013-04-03 22:38:18	<--	moscownights (~moscownig@5ED01E75.cm-7-1a.dynamic.ziggo.nl) has quit (Client Quit)
+2013-04-03 22:38:34	-->	nil (~nil@108-67-65-17.lightspeed.sntcca.sbcglobal.net) has joined #archlinux
+2013-04-03 22:38:58	-->	viper1988 (~root@122.252.231.12) has joined #archlinux
+2013-04-03 22:39:05	<--	shmoo (~IceChat9@77-23-77-157-dynip.superkabel.de) has quit (Quit: If you think nobody cares, try missing a few payments)
+2013-04-03 22:39:14	-->	wfx (~wolfgang@chello062178223119.13.15.vie.surfer.at) has joined #archlinux
+2013-04-03 22:39:24	wfx	hi
+2013-04-03 22:39:31	-->	manizzle (~manizzle@seclab.ceng.calpoly.edu) has joined #archlinux
+2013-04-03 22:39:43	<--	titanmech (~titan@109.246.194.79) has quit (Ping timeout: 248 seconds)
+2013-04-03 22:39:49	<--	hamid (~nithp@unaffiliated/hamid) has quit (Quit: khosh shab)
+2013-04-03 22:40:28	-->	sandlst_ (~sandlst@68-119-81-51.dhcp.mtgm.al.charter.com) has joined #archlinux
+2013-04-03 22:40:53	-->	tenmilestereo (~tnmlstr@w-70.cust-13055.ip.static.uno.uk.net) has joined #archlinux
+2013-04-03 22:40:54	<--	sandlst (~sandlst@68-119-81-51.dhcp.mtgm.al.charter.com) has quit (Ping timeout: 245 seconds)
+2013-04-03 22:41:13	-->	tacajushi (~tacajushi@ks389320.kimsufi.com) has joined #archlinux
+2013-04-03 22:41:14	-->	js6i (~zeus@89-68-153-169.dynamic.chello.pl) has joined #archlinux
+2013-04-03 22:41:23	<--	Moviuro (~quassel@LPuteaux-156-14-19-220.w82-127.abo.wanadoo.fr) has quit (Remote host closed the connection)
+2013-04-03 22:41:26	-->	hobbily (~hobbily@unaffiliated/hobbily) has joined #archlinux
+2013-04-03 22:41:53	<--	js6i (~zeus@89-68-153-169.dynamic.chello.pl) has quit (Max SendQ exceeded)
+2013-04-03 22:42:09	<--	J0k3r (~sysrq@unaffiliated/proximacentauri1) has quit (Ping timeout: 245 seconds)
+2013-04-03 22:42:23	-->	Freso (~Freso@drupal.org/user/27504/view) has joined #archlinux
+2013-04-03 22:42:24	-->	arielp (~ariel@unaffiliated/arielp) has joined #archlinux
+2013-04-03 22:42:30	<--	guenther (~guenther@whblh00253.uni-regensburg.de) has quit (Ping timeout: 264 seconds)
+2013-04-03 22:42:35	-->	js6i (~zeus@89-68-153-169.dynamic.chello.pl) has joined #archlinux
+2013-04-03 22:43:01	<--	whitecrow1 (~whitecrow@unaffiliated/whitecrow1) has quit (Ping timeout: 260 seconds)
+2013-04-03 22:43:08	tacajushi	Hi, my system doesnt want to boot with that config http://pastebin.archlinux.fr/460600 in logs I've got EXT4-fs (sda2): couldn't mount as ext3 due to feature incompatibilities but only /dev/sda1 is ext2
+2013-04-03 22:43:10	phrik	Title: archlinux.fr - outil collaboratif (at pastebin.archlinux.fr)
+2013-04-03 22:43:15	<--	js6i (~zeus@89-68-153-169.dynamic.chello.pl) has quit (Max SendQ exceeded)
+2013-04-03 22:43:16	<--	TommehM (~TomM@unaffiliated/tommehm) has quit (Quit: ZNC - http://znc.in)
+2013-04-03 22:43:17	-->	sha3 (~sha3@cpe-76-95-90-33.socal.res.rr.com) has joined #archlinux
+2013-04-03 22:43:19	-->	snackoverflow (~toaster@CPE0018e7c5e737-CM602ad0798754.cpe.net.cable.rogers.com) has joined #archlinux
+2013-04-03 22:43:36	<--	Anaphaxeton (~george@ppp046176041005.access.hol.gr) has quit (Ping timeout: 252 seconds)
+2013-04-03 22:43:51	<--	Shahid (~MadSci@cpc1-heck3-0-0-cust811.4-1.cable.virginmedia.com) has quit (Quit: Bye)
+2013-04-03 22:43:54	<--	trusktr (~trusktr@130.86.99.64) has quit (Read error: Operation timed out)
+2013-04-03 22:43:56	grawity	do you have an ext4 filesystem but rootfstype=ext3 in kernel options?
+2013-04-03 22:44:31	tacajushi	rootfstype=ext3 where is that option?
+2013-04-03 22:44:43	MrElendig	tacajushi: CONFIG_EXT4_USE_FOR_EXT23 often requires explicit type
+2013-04-03 22:44:45	-->	ramses_ (~ramses@cl-1301.bru-01.be.sixxs.net) has joined #archlinux
+2013-04-03 22:44:57	-->	watsonalgas (~diomekes@c-71-56-112-120.hsd1.ga.comcast.net) has joined #archlinux
+2013-04-03 22:45:03	MrElendig	when mounting
+2013-04-03 22:45:06	viper1988	gtmanfred, i've been trying with this link https://wiki.archlinux.org/index.php/Bluetooth_Headset 
+2013-04-03 22:45:07	phrik	Title: Bluetooth Headset - ArchWiki (at wiki.archlinux.org)
+2013-04-03 22:45:08	<--	rumcajs (~andy@176.97.250.19) has quit (Quit: Leaving)
+2013-04-03 22:45:17	viper1988	but the note says - its outdated
+2013-04-03 22:45:22	<--	rymate1234 (~rymate@znc.rymate.co.uk) has quit (Quit: ZNC - http://znc.sourceforge.net)
+2013-04-03 22:45:24	--	irc: disconnected from server

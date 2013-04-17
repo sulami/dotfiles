@@ -155,8 +155,7 @@ bar {
 # Autostart
 exec sh scripts/xrandr.sh
 exec sh scripts/xorg-settings.sh
-exec feh --bg-center ~/Pictures/bg.png
-exec mpd
+exec feh --bg-center ~/Pictures/bg.jpg
 exec xmodmap /home/sulami/scripts/caps-esc
 
 # Keybinds

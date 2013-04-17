@@ -64,7 +64,7 @@ state_file			"~/.mpd/state"
 # initialization. This setting is disabled by default and MPD is run as the
 # current user.
 #
-#user				"mpd"
+user				"sulami"
 #
 # This setting specifies the group that MPD will run as. If not specified
 # primary group of user specified with "user" setting will be used (if set).
@@ -79,7 +79,7 @@ state_file			"~/.mpd/state"
 #
 # For network
 bind_to_address		"127.0.0.1"
-bind_to_address		"192.168.178.37"
+#bind_to_address		"192.168.178.37"
 #
 # And for Unix Socket
 #bind_to_address		"~/.mpd/socket"

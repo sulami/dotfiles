@@ -23,6 +23,8 @@ VISUAL=vim
 
 # ALIASES
 alias ls='ls --color=auto'
+alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
+alias rsync="rsync --progress"
 
 # KEYBINDS
 typeset -A key
