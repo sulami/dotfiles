@@ -619,3 +619,51 @@
 2013-04-12 23:59:49	=!=	If you're trying to load a script and not a C plugin, try command to load scripts (/perl, /python, ...)
 2013-04-12 23:59:49		Plugins loaded: alias, aspell, charset, fifo, irc, logger, lua, perl, python, relay, rmodifier, script, xfer
 2013-04-13 00:47:07		fifo: pipe closed
+2013-04-22 22:26:38	=!=	Error: unable to load plugin "/usr/lib/weechat/plugins/guile.so": libguile.so.17: cannot open shared object file: No such file or directory
+2013-04-22 22:26:38	=!=	If you're trying to load a script and not a C plugin, try command to load scripts (/perl, /python, ...)
+2013-04-22 22:26:39	=!=	Error: unable to load plugin "/usr/lib/weechat/plugins/tcl.so": libtcl8.6.so: cannot open shared object file: No such file or directory
+2013-04-22 22:26:39	=!=	If you're trying to load a script and not a C plugin, try command to load scripts (/perl, /python, ...)
+2013-04-22 22:26:39	=!=	Error: unable to load plugin "/usr/lib/weechat/plugins/ruby.so": libruby.so.2.0: cannot open shared object file: No such file or directory
+2013-04-22 22:26:39	=!=	If you're trying to load a script and not a C plugin, try command to load scripts (/perl, /python, ...)
+2013-04-22 22:26:39		Plugins loaded: alias, aspell, charset, fifo, irc, logger, lua, perl, python, relay, rmodifier, script, xfer
+2013-04-22 22:27:05		fifo: pipe closed
+2013-04-22 22:27:41	=!=	Error: unable to load plugin "/usr/lib/weechat/plugins/guile.so": libguile.so.17: cannot open shared object file: No such file or directory
+2013-04-22 22:27:41	=!=	If you're trying to load a script and not a C plugin, try command to load scripts (/perl, /python, ...)
+2013-04-22 22:27:41	=!=	Error: unable to load plugin "/usr/lib/weechat/plugins/tcl.so": libtcl8.6.so: cannot open shared object file: No such file or directory
+2013-04-22 22:27:41	=!=	If you're trying to load a script and not a C plugin, try command to load scripts (/perl, /python, ...)
+2013-04-22 22:27:41	=!=	Error: unable to load plugin "/usr/lib/weechat/plugins/ruby.so": libruby.so.2.0: cannot open shared object file: No such file or directory
+2013-04-22 22:27:41	=!=	If you're trying to load a script and not a C plugin, try command to load scripts (/perl, /python, ...)
+2013-04-22 22:27:41		Plugins loaded: alias, aspell, charset, fifo, irc, logger, lua, perl, python, relay, rmodifier, script, xfer
+2013-04-22 22:27:46		fifo: pipe closed
+2013-04-22 22:28:22	=!=	Error: unable to load plugin "/usr/lib/weechat/plugins/guile.so": libguile.so.17: cannot open shared object file: No such file or directory
+2013-04-22 22:28:22	=!=	If you're trying to load a script and not a C plugin, try command to load scripts (/perl, /python, ...)
+2013-04-22 22:28:22	=!=	Error: unable to load plugin "/usr/lib/weechat/plugins/tcl.so": libtcl8.6.so: cannot open shared object file: No such file or directory
+2013-04-22 22:28:22	=!=	If you're trying to load a script and not a C plugin, try command to load scripts (/perl, /python, ...)
+2013-04-22 22:28:22	=!=	Error: unable to load plugin "/usr/lib/weechat/plugins/ruby.so": libruby.so.2.0: cannot open shared object file: No such file or directory
+2013-04-22 22:28:22	=!=	If you're trying to load a script and not a C plugin, try command to load scripts (/perl, /python, ...)
+2013-04-22 22:28:22		Plugins loaded: alias, aspell, charset, fifo, irc, logger, lua, perl, python, relay, rmodifier, script, xfer
+2013-04-22 22:28:26		fifo: pipe closed
+2013-04-22 22:28:33	=!=	Error: unable to load plugin "/usr/lib/weechat/plugins/guile.so": libguile.so.17: cannot open shared object file: No such file or directory
+2013-04-22 22:28:33	=!=	If you're trying to load a script and not a C plugin, try command to load scripts (/perl, /python, ...)
+2013-04-22 22:28:33	=!=	Error: unable to load plugin "/usr/lib/weechat/plugins/tcl.so": libtcl8.6.so: cannot open shared object file: No such file or directory
+2013-04-22 22:28:33	=!=	If you're trying to load a script and not a C plugin, try command to load scripts (/perl, /python, ...)
+2013-04-22 22:28:33	=!=	Error: unable to load plugin "/usr/lib/weechat/plugins/ruby.so": libruby.so.2.0: cannot open shared object file: No such file or directory
+2013-04-22 22:28:33	=!=	If you're trying to load a script and not a C plugin, try command to load scripts (/perl, /python, ...)
+2013-04-22 22:28:33		Plugins loaded: alias, aspell, charset, fifo, irc, logger, lua, perl, python, relay, rmodifier, script, xfer
+2013-04-22 22:28:36		fifo: pipe closed
+2013-04-22 22:28:49	=!=	Error: unable to load plugin "/usr/lib/weechat/plugins/guile.so": libguile.so.17: cannot open shared object file: No such file or directory
+2013-04-22 22:28:49	=!=	If you're trying to load a script and not a C plugin, try command to load scripts (/perl, /python, ...)
+2013-04-22 22:28:49	=!=	Error: unable to load plugin "/usr/lib/weechat/plugins/tcl.so": libtcl8.6.so: cannot open shared object file: No such file or directory
+2013-04-22 22:28:49	=!=	If you're trying to load a script and not a C plugin, try command to load scripts (/perl, /python, ...)
+2013-04-22 22:28:49	=!=	Error: unable to load plugin "/usr/lib/weechat/plugins/ruby.so": libruby.so.2.0: cannot open shared object file: No such file or directory
+2013-04-22 22:28:49	=!=	If you're trying to load a script and not a C plugin, try command to load scripts (/perl, /python, ...)
+2013-04-22 22:28:49		Plugins loaded: alias, aspell, charset, fifo, irc, logger, lua, perl, python, relay, rmodifier, script, xfer
+2013-04-22 22:29:03		fifo: pipe closed
+2013-04-22 22:29:13	=!=	Error: unable to load plugin "/usr/lib/weechat/plugins/guile.so": libguile.so.17: cannot open shared object file: No such file or directory
+2013-04-22 22:29:13	=!=	If you're trying to load a script and not a C plugin, try command to load scripts (/perl, /python, ...)
+2013-04-22 22:29:13	=!=	Error: unable to load plugin "/usr/lib/weechat/plugins/tcl.so": libtcl8.6.so: cannot open shared object file: No such file or directory
+2013-04-22 22:29:13	=!=	If you're trying to load a script and not a C plugin, try command to load scripts (/perl, /python, ...)
+2013-04-22 22:29:13	=!=	Error: unable to load plugin "/usr/lib/weechat/plugins/ruby.so": libruby.so.2.0: cannot open shared object file: No such file or directory
+2013-04-22 22:29:13	=!=	If you're trying to load a script and not a C plugin, try command to load scripts (/perl, /python, ...)
+2013-04-22 22:29:13		Plugins loaded: alias, aspell, charset, fifo, irc, logger, lua, perl, python, relay, rmodifier, script, xfer
+2013-04-22 22:29:46		fifo: pipe closed

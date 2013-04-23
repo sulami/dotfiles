@@ -61,3 +61,33 @@
 2013-03-17 12:39:40	--	irc: disconnected from server
 2013-03-17 12:39:40	--	irc: reconnecting to server in 40 seconds
 2013-03-17 12:40:11	--	irc: disconnected from server
+2013-04-22 22:26:39	--	irc: connecting to server sulamiification.jtvirc.com/6667...
+2013-04-22 22:26:42	=!=	irc: address "sulamiification.jtvirc.com" not found
+2013-04-22 22:26:42	=!=	irc: error: Name or service not known
+2013-04-22 22:26:42	--	irc: reconnecting to server in 10 seconds
+2013-04-22 22:26:52	--	irc: reconnecting to server...
+2013-04-22 22:26:52	--	irc: connecting to server sulamiification.jtvirc.com/6667...
+2013-04-22 22:26:52	=!=	irc: address "sulamiification.jtvirc.com" not found
+2013-04-22 22:26:52	=!=	irc: error: Name or service not known
+2013-04-22 22:26:52	--	irc: reconnecting to server in 20 seconds
+2013-04-22 22:27:05	--	irc: disconnected from server
+2013-04-22 22:27:41	--	irc: connecting to server sulamiification.jtvirc.com/6667...
+2013-04-22 22:27:41	=!=	irc: address "sulamiification.jtvirc.com" not found
+2013-04-22 22:27:41	=!=	irc: error: Name or service not known
+2013-04-22 22:27:41	--	irc: reconnecting to server in 10 seconds
+2013-04-22 22:27:46	--	irc: disconnected from server
+2013-04-22 22:28:22	--	irc: connecting to server sulamiification.jtvirc.com/6667...
+2013-04-22 22:28:22	=!=	irc: address "sulamiification.jtvirc.com" not found
+2013-04-22 22:28:22	=!=	irc: error: Name or service not known
+2013-04-22 22:28:22	--	irc: reconnecting to server in 10 seconds
+2013-04-22 22:28:26	--	irc: disconnected from server
+2013-04-22 22:29:13	--	irc: connecting to server Sulamiification.jtvirc.com/6667...
+2013-04-22 22:29:13	--	irc: connected to Sulamiification.jtvirc.com/6667 (199.9.250.229)
+2013-04-22 22:29:14	--	connected to TMI
+2013-04-22 22:29:14	--	your host is TMI
+2013-04-22 22:29:14	--	this server is pretty new
+2013-04-22 22:29:14	--	tmi.twitch.tv 0.0.1 w n
+2013-04-22 22:29:14	--	- tmi.twitch.tv Message of the day -
+2013-04-22 22:29:14	--	- not much to say here
+2013-04-22 22:29:14	--	End of /MOTD command
+2013-04-22 22:29:46	--	irc: disconnected from server
