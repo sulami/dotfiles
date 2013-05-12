@@ -4,6 +4,7 @@ HISTSIZE=1000
 SAVEHIST=1000
 setopt autocd
 unsetopt beep
+setopt correct
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
@@ -15,7 +16,7 @@ compinit
 
 # PROMPT
 autoload -U colors && colors
-PROMPT="%{$fg_bold[cyan]%}%~ > %#%{$fg_no_bold[white]%} "
+PROMPT="%{$fg_bold[green]%}%~ > %#%{$fg_no_bold[white]%} "
 
 # VARIABLES
 EDITOR=vim
@@ -25,6 +26,7 @@ VISUAL=vim
 alias ls='ls --color=auto'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 alias rsync="rsync --progress"
+alias zyp="zypper"
 
 # KEYBINDS
 typeset -A key
