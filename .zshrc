@@ -48,6 +48,8 @@ key[PageDown]=${terminfo[knp]}
 [[ -n "${key[Down]}"    ]]  && bindkey  "${key[Down]}"    down-line-or-history
 [[ -n "${key[Left]}"    ]]  && bindkey  "${key[Left]}"    backward-char
 [[ -n "${key[Right]}"   ]]  && bindkey  "${key[Right]}"   forward-char
+bindkey '\E[1;5D' backward-word
+bindkey '\E[1;5C' forward-word
 
 # Activate syntax highlighting
 source '/home/sulami/Scripts/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh'
