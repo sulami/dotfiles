@@ -56,21 +56,21 @@ source '/home/sulami/Scripts/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # X-less colors
 if [ "$TERM" = "linux" ]; then
-    echo -en "\e]P0222222" #black
-    echo -en "\e]P8222222" #darkgrey
-    echo -en "\e]P1803232" #darkred
-    echo -en "\e]P9982b2b" #red
-    echo -en "\e]P25b762f" #darkgreen
-    echo -en "\e]PA89b83f" #green
-    echo -en "\e]P3aa9943" #brown
-    echo -en "\e]PBefef60" #yellow
-    echo -en "\e]P4324c80" #darkblue
-    echo -en "\e]PC2b4f98" #blue
-    echo -en "\e]P5706c9a" #darkmagenta
-    echo -en "\e]PD826ab1" #magenta
-    echo -en "\e]P692b19e" #darkcyan
-    echo -en "\e]PEa1cdcd" #cyan
-    echo -en "\e]P7ffffff" #lightgrey
-    echo -en "\e]PFdedede" #white
+    echo -en "\e]P0151515" #black
+    echo -en "\e]P8151515" #darkgrey
+    echo -en "\e]P1AC4142" #darkred
+    echo -en "\e]P9AC4142" #red
+    echo -en "\e]P290A959" #darkgreen
+    echo -en "\e]PA90A959" #green
+    echo -en "\e]P38F5536" #brown
+    echo -en "\e]PB8F5536" #yellow
+    echo -en "\e]P46A9FB5" #darkblue
+    echo -en "\e]PC6A9FB5" #blue
+    echo -en "\e]P5AA759F" #darkmagenta
+    echo -en "\e]PDAA759F" #magenta
+    echo -en "\e]P675B5AA" #darkcyan
+    echo -en "\e]PE75B5AA" #cyan
+    echo -en "\e]P7F5F5F5" #lightgrey
+    echo -en "\e]PFF5F5F5" #white
     clear #for background artifacting
 fi
