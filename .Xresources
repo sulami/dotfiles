@@ -6,31 +6,31 @@ URxvt*.transparent: true
 URxvt*.shading: 40
 URxvt*.scrollBar: false
 URxvt*loginShell: false
-URxvt*.background: #000000
-URxvt*.foreground: #EEEEEE
+URxvt*.background: #151515
+URxvt*.foreground: #F5F5F5
 URxvt*.font: xft:Inconsolata:size=12
 
 !Black
-*color0: #333333
-*color8: #333333
+*color0: #505050
+*color8: #505050
 !Red
-*color1: #FF8800
-*color9: #FF8800
+*color1: #AC4142
+*color9: #AC4142
 !Green
-*color2: #5BFA7C
-*color10: #5BFA7C
+*color2: #90A969
+*color10: #90A969
 !Yellow
-*color3: #FF963B
-*color11: #FF963B
+*color3: #F4BF75
+*color11: #F4BF75
 !Blue
-*color4: #005EF7
-*color12: #005EF7
+*color4: #6A9FB5
+*color12: #6A9FB5
 !Magenta
-*color5: #7143cc
-*color13: #7143cc
+*color5: #AA759F
+*color13: #AA759F
 !Cyan
-*color6: #0091FF
-*color14: #0091FF
+*color6: #75B5AA
+*color14: #75B5AA
 !White
-*color7: #EEEEEE
-*color15: #EEEEEE
+*color7: #F5F5F5
+*color15: #F5F5F5
