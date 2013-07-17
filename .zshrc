@@ -57,7 +57,7 @@ source '/home/sulami/Scripts/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # X-less colors
 if [ "$TERM" = "linux" ]; then
     echo -en "\e]P0151515" #black
-    echo -en "\e]P8151515" #darkgrey
+    echo -en "\e]P8505050" #darkgrey
     echo -en "\e]P1AC4142" #darkred
     echo -en "\e]P9AC4142" #red
     echo -en "\e]P290A959" #darkgreen
