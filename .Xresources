@@ -1,4 +1,4 @@
-URxvt*perl-ext-common: default,matcher
+URxvt*.perl-ext-common: default,matcher
 URxvt*url-launcher: /usr/bin/firefox
 URxvt*matcher.button: 1
 URxvt*.transparent: true
@@ -10,6 +10,8 @@ URxvt*.background: #151515
 URxvt*.foreground: #F5F5F5
 URxvt*.font: xft:Inconsolata:size=12
 URxvt*cursorUnderline: true
+URxvt*.internalBorder: 0
+URxvt*.externalBorder: 0
 
 !Black
 *color0: #505050
