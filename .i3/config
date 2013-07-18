@@ -146,22 +146,29 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        #status_command i3status
-	status_command sh /home/sulami/dotfiles/.conky-i3bar
+    #status_command i3status
+	#status_command sh /home/sulami/dotfiles/.conky-i3bar
 	position top
 	font pango:Inconsolata 12
 }
 
 # Autostart
-exec sh scripts/xrandr.sh
-exec sh scripts/xorg-settings.sh
-exec feh --bg-center ~/Pictures/bg.jpg
-exec xmodmap /home/sulami/scripts/caps-esc
+#exec sh scripts/xrandr.sh
+#exec sh scripts/xorg-settings.sh
+#exec feh --bg-center ~/Pictures/bg.jpg
+exec xmodmap /home/sulami/Scripts/caps-esc
 
 # Keybinds
 bindsym $mod+q exec i3lock -c 000000 -d
 
 # Settings
-new_window pixel 2
+new_window pixel
 hide_edge_borders both
 font pango:Inconsolata 12
+
+#Colors
+# class                 border  backgr. text    indicator
+client.focused          #90A969 #90A969 #ffffff #2e9ef4
+client.focused_inactive #333333 #5f676a #ffffff #484e50
+client.unfocused        #333333 #222222 #888888 #292d2e
+client.urgent           #2f343a #900000 #ffffff #900000
