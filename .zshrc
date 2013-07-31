@@ -24,6 +24,8 @@ VISUAL=vim
 
 # ALIASES
 alias ls='ls --color=auto'
+alias ll='ls -l --color=auto'
+alias la='ls -la --color=auto'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 alias rsync="rsync --progress"
 alias zyp="zypper"
