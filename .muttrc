@@ -1,4 +1,5 @@
 source 'gpg2 -dq ~/dotfiles/.mutt-passwd.gpg |'
+source ~/dotfiles/.mutt-gpg
 set imap_user	= sulamiification@gmail.com
 set folder	= imaps://imap.gmail.com/
 set spoolfile	= +INBOX
