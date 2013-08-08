@@ -11,6 +11,7 @@ set realname	= "Rob Schroer"
 set ssl_starttls= yes
 set editor	= vim
 set imap_pass	= $my_pw_gmail
+set send_charset="utf-8"
 
 color normal white default
 color message white default
