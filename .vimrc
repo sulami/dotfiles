@@ -1,4 +1,5 @@
 set number
+set tw=80
 syntax on
 colo desert
 set mouse=a
