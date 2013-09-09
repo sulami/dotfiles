@@ -21,6 +21,7 @@ PROMPT="%{$fg_bold[green]%}%~ > %#%{$fg_no_bold[white]%} "
 # VARIABLES
 EDITOR=vim
 VISUAL=vim
+XDG_CONFIG_HOME='/home/sulami'
 
 # ALIASES
 alias ls='ls --color=auto'
