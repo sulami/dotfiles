@@ -27,6 +27,8 @@ export XDG_CONFIG_HOME="$HOME"
 alias ls='ls --color=auto'
 alias ll='ls -l --color=auto'
 alias la='ls -la --color=auto'
+alias v='vim'
+alias weechat='weechat-curses'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 alias rsync="rsync --progress"
 alias zyp="zypper"
