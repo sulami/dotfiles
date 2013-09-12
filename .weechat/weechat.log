@@ -1,24 +1,12 @@
-[2013-04-22 22:29:13] WeeChat 0.4.0 (compiled on Mar 23 2013 12:22:32)
-[2013-04-22 22:29:13] Reading configuration file weechat.conf
-[2013-04-22 22:29:13] Reading configuration file plugins.conf
-[2013-04-22 22:29:13] Reading configuration file alias.conf
-[2013-04-22 22:29:13] Reading configuration file logger.conf
-[2013-04-22 22:29:13] Reading configuration file rmodifier.conf
-[2013-04-22 22:29:13] Reading configuration file relay.conf
-[2013-04-22 22:29:13] Reading configuration file script.conf
-[2013-04-22 22:29:13] Reading configuration file irc.conf
-[2013-04-22 22:29:13] Reading configuration file aspell.conf
-[2013-04-22 22:29:13] Reading configuration file charset.conf
-[2013-04-22 22:29:13] Reading configuration file xfer.conf
-[2013-04-22 22:29:13] irc: connecting to server Sulamiification.jtvirc.com/6667...
-[2013-04-22 22:29:46] Writing configuration file plugins.conf 
-[2013-04-22 22:29:46] Writing configuration file xfer.conf 
-[2013-04-22 22:29:46] Writing configuration file charset.conf 
-[2013-04-22 22:29:46] Writing configuration file aspell.conf 
-[2013-04-22 22:29:46] Writing configuration file irc.conf 
-[2013-04-22 22:29:46] Writing configuration file script.conf 
-[2013-04-22 22:29:46] Writing configuration file relay.conf 
-[2013-04-22 22:29:46] Writing configuration file rmodifier.conf 
-[2013-04-22 22:29:46] Writing configuration file logger.conf 
-[2013-04-22 22:29:46] Writing configuration file alias.conf 
-[2013-04-22 22:29:46] Writing configuration file weechat.conf 
+[2013-09-12 18:07:53] weechat 0.3.9.2 (compiled on Nov 19 2012 09:35)
+[2013-09-12 18:07:53] Reading configuration file weechat.conf
+[2013-09-12 18:07:53] Reading configuration file plugins.conf
+[2013-09-12 18:07:53] Reading configuration file irc.conf
+[2013-09-12 18:07:53] Reading configuration file logger.conf
+[2013-09-12 18:07:53] Reading configuration file charset.conf
+[2013-09-12 18:07:53] Reading configuration file xfer.conf
+[2013-09-12 18:07:53] Reading configuration file rmodifier.conf
+[2013-09-12 18:07:53] Reading configuration file relay.conf
+[2013-09-12 18:07:53] Reading configuration file alias.conf
+[2013-09-12 18:07:53] Reading configuration file script.conf
+[2013-09-12 18:08:00] irc: connecting to server chat.freenode.net/6667...
