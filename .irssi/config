@@ -275,7 +275,7 @@ settings = {
     use_status_window = "no";
     use_msgs_window = "yes";
     autocreate_query_level = "DCCMSGS";
-    autocreate_windows = "no";
+    autocreate_windows = "yes";
     reuse_unused_windows = "yes";
     completion_auto = "yes";
   };
