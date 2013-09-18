@@ -271,7 +271,7 @@ settings = {
   };
   "fe-text" = { actlist_sort = "refnum"; };
   "fe-common/core" = {
-    theme = "xchat";
+    theme = "madcow";
     use_status_window = "no";
     use_msgs_window = "yes";
     autocreate_query_level = "DCCMSGS";
