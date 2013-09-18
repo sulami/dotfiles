@@ -57,7 +57,7 @@ bindkey '\E[1;5D' backward-word
 bindkey '\E[1;5C' forward-word
 
 # Activate syntax highlighting
-source '/home/sulami/Scripts/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh'
+source "$HOME/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # X-less colors
 if [ "$TERM" = "linux" ]; then
