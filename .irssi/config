@@ -29,6 +29,13 @@ servers = (
     port = "6667";
     use_ssl = "no";
     ssl_verify = "no";
+  },
+  {
+    address = "irc.unixhub.net";
+    chatnet = "Unixhub";
+    port = "6667";
+    use_ssl = "no";
+    ssl_verify = "no";
     autoconnect = "yes";
   }
 );
@@ -91,6 +98,10 @@ chatnets = {
   };
   SILC = { type = "SILC"; };
   freenode = {
+    type = "IRC";
+    autosendcmd = "/^msg nickserv id EPigd0wmedF0i;wait 2000";
+  };
+  Unixhub = {
     type = "IRC";
     autosendcmd = "/^msg nickserv id EPigd0wmedF0i;wait 2000";
   };
