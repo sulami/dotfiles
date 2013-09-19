@@ -105,6 +105,7 @@ chatnets = {
     type = "IRC";
     autosendcmd = "/^msg nickserv id EPigd0wmedF0i;wait 2000";
   };
+  OFTC = { type = "IRC"; };
 };
 
 channels = (
@@ -290,4 +291,3 @@ settings = {
     completion_auto = "yes";
   };
 };
-hilights = ( { text = "sulami"; nick = "yes"; word = "yes"; } );

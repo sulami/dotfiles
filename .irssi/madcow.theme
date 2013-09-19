@@ -78,7 +78,7 @@ abstracts = {
   ##
 
   # the basic styling of how to print message, $0 = nick mode, $1 = nick
-  msgnick = "%r<%n%_$0%_$1%r>%n %|";
+  msgnick = "%r<%n%_$0%_$1%r>%n |%| ";
 
   # message from you is printed. "msgownnick" specifies the styling of the
   # nick ($0 part in msgnick) and "ownmsgnick" specifies the styling of the
@@ -268,10 +268,10 @@ abstracts = {
 formats = {
   "fe-common/core" = {
     pubmsg = "{pubmsgnick $2 {pubnick $[-9]0}}$1";
-    join = "             %K>%g>%G>%n {nick %W$0%n}!%n{chanhost_hilight %K$1%n}";
-    part = "             %r<%n   {nick %w$0%n}!%n{chanhost_hilight %K$1%n} {reason %K$3%n}%n";
-    kick = "             %R<%r<%K<%n {nick %w$0%n} {reason %w$3%n} %rkicked%n by {nick $2}";
-    quit = "             %K<%n   {nick %w$0%n}!%n{chanhost_hilight %K$1%n} {reason %K$2%n}";
+    join = "           %K>%g>%G>%n {nick %W$0%n}!%n{chanhost_hilight %K$1%n}";
+    part = "           %r<%r<%R<%n {nick %w$0%n}!%n{chanhost_hilight %K$1%n} {reason %K$3%n}%n";
+    kick = "           %R<%r<%K<%n {nick %w$0%n} {reason %w$3%n} %rkicked%n by {nick $2}";
+    quit = "           %K<%r<%R<%n {nick %w$0%n}!%n{chanhost_hilight %K$1%n} {reason %K$2%n}";
     nick_changed = "             %c~%n   {nick %w$0%n} %Nis now {nick %W$1%n}";
     new_topic = "%K>%r>%R>%n topic changed by $0: $2";
     daychange = "                     %K-----------------%w-%W-%n Day changed to %%D %W-%w-%K-----------------%n";
