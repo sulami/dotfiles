@@ -105,7 +105,6 @@ chatnets = {
     type = "IRC";
     autosendcmd = "/^msg nickserv id EPigd0wmedF0i;wait 2000";
   };
-  OFTC = { type = "IRC"; };
 };
 
 channels = (
