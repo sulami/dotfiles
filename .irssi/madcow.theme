@@ -78,7 +78,7 @@ abstracts = {
   ##
 
   # the basic styling of how to print message, $0 = nick mode, $1 = nick
-  msgnick = "%r<%n%_$0%_$1%r>%n |%| ";
+  msgnick = "%r<%n%_$0%_$1%r>%n %| ";
 
   # message from you is printed. "msgownnick" specifies the styling of the
   # nick ($0 part in msgnick) and "ownmsgnick" specifies the styling of the
@@ -97,8 +97,10 @@ abstracts = {
   #  privmsgnick = "%K{msgnick  %R$*%K}%n";
 
   # $0 = nick mode, $1 = nick
-  ownmsgnick = "{msgnick $0 $1-}%W";
-  ownnick = "%r$*%n";
+  #ownmsgnick = "{msgnick $0$1-}";
+  #ownnick = "%r$*%n";
+  ownmsgnick = "{msgnick $0$1-}";
+  ownnick = "%w$*%n";
 
   # public message in channel, $0 = nick mode, $1 = nick
   pubmsgnick = "{msgnick $0$1-}";
@@ -267,14 +269,14 @@ abstracts = {
 
 formats = {
   "fe-common/core" = {
-    pubmsg = "{pubmsgnick $2 {pubnick $[-9]0}}$1";
-    join = "           %K>%g>%G>%n {nick %W$0%n}!%n{chanhost_hilight %K$1%n}";
-    part = "           %r<%r<%R<%n {nick %w$0%n}!%n{chanhost_hilight %K$1%n} {reason %K$3%n}%n";
-    kick = "           %R<%r<%K<%n {nick %w$0%n} {reason %w$3%n} %rkicked%n by {nick $2}";
-    quit = "           %K<%r<%R<%n {nick %w$0%n}!%n{chanhost_hilight %K$1%n} {reason %K$2%n}";
+    join = "             %K>%g>%G>%n {nick %W$0%n}!%n{chanhost_hilight %K$1%n}";
+    part = "             %r<%r<%R<%n {nick %w$0%n}!%n{chanhost_hilight %K$1%n} {reason %K$3%n}%n";
+    kick = "             %R<%r<%K<%n {nick %w$0%n} {reason %w$3%n} %rkicked%n by {nick $2}";
+    quit = "             %K<%r<%R<%n {nick %w$0%n}!%n{chanhost_hilight %K$1%n} {reason %K$2%n}";
     nick_changed = "           %c~%n   {nick %w$0%n} %Nis now {nick %W$1%n}";
     new_topic = "%K>%r>%R>%n topic changed by $0: $2";
     daychange = "                   %K-----------------%w-%W-%n Day changed to %%D %W-%w-%K-----------------%n";
+    pubmsg = "{pubmsgnick $2 {pubnick $[-]0}}$1";
     own_msg = "{ownmsgnick $2 {ownnick $[-9]0}}$1";
     own_msg_channel = "{ownmsgnick $3 {ownnick $[-9]0}{msgchannel $1}}$2";
     pubmsg_me = "{pubmsgmenick $2 {menick $[-9]0}}$1";
@@ -320,8 +322,8 @@ formats = {
     netsplit_more = "{netsplit                  } %K-%w-%W-%n {server $0} %w<-%r\\->%n {server %K$1%n} %W-%w-%K-%n%:             %K<<<%n [$2%_+$3 more%_]";
     netsplit_join = "{netjoin              %G>>>%n} [$0]";
     netsplit_join_more = "{netjoin              %G>>%n} [$0\012%_+$1 more%_]";
-    chanmode_change = "               $2 sets {mode $1}";
-    server_chanmode_change = "           {nick $2} sets {mode $1}";
+    chanmode_change = "                 $2 sets {mode $1}";
+    server_chanmode_change = "             {nick $2} sets {mode $1}";
     own_action = "{ownaction  $0}%|$1";
     action_public = "{pubaction  $0}%|$1";
     who = "%#{channelhilight $[-10]0} {nick %n$[9]1%n} $[3]2 $[2]3 {comment {hilight $[10]6}} {comment $[!18]7} {chanhost %n$4@$5}";
