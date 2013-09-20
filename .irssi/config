@@ -105,6 +105,7 @@ chatnets = {
     type = "IRC";
     autosendcmd = "/^msg nickserv id EPigd0wmedF0i;wait 2000";
   };
+  OFTC = { type = "IRC"; };
 };
 
 channels = (
@@ -209,7 +210,7 @@ statusbar = {
       # top, bottom
       placement = "top";
       # number
-      position = "100";
+      position = "1";
       # active, inactive, always
       visible = "active";
 
@@ -244,6 +245,30 @@ statusbar = {
 
     # we treat input line as yet another statusbar :) It's possible to
     # add other items before or after the input line item.
+    empty_bar = {
+      type = "root";
+      placement = "bottom";
+      position = "8";
+      visible = "always";
+    };
+    empty_bar2 = {
+      type = "root";
+      placement = "bottom";
+      position = "12";
+      visible = "always";
+    };
+    empty_bar3 = {
+      type = "root";
+      placement = "top";
+      position = "10";
+      visible = "always";
+    };
+    empty_bar4 = {
+      type = "window";
+      placement = "top";
+      position = "90";
+      visible = "always";
+    };
     prompt = {
       type = "root";
       placement = "bottom";
@@ -269,7 +294,7 @@ settings = {
   "fe-text" = { actlist_sort = "refnum"; indent = "15"; };
   "fe-common/core" = {
     theme = "madcow";
-    use_status_window = "no";
+    use_status_window = "yes";
     use_msgs_window = "no";
     autocreate_query_level = "DCCMSGS";
     autocreate_windows = "yes";
