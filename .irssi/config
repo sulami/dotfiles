@@ -105,12 +105,11 @@ chatnets = {
     type = "IRC";
     autosendcmd = "/^msg nickserv id EPigd0wmedF0i;wait 2000";
   };
-  OFTC = { type = "IRC"; };
 };
 
 channels = (
   { name = "#irssi"; chatnet = "ircnet"; autojoin = "No"; },
-  { name = "silc"; chatnet = "silc"; autojoin = "No"; }
+  { name = "#unixhub"; chatnet = "Unixhub"; autojoin = "No"; }
 );
 
 aliases = {
@@ -178,17 +177,17 @@ statusbar = {
     topicbarend = "{topicsbend}";
 
     # treated "normally", you could change the time/user name to whatever
-    time = "{sb $Z}";
+    time = "";
     user = "{sb {sbnickmode $cumode}$N{sbmode $usermode}{sbaway $A}}";
 
     # treated specially .. window is printed with non-empty windows,
     # window_empty is printed with empty windows
     window = "{sb $winref:$tag/$itemname{sbmode $M}}";
     window_empty = "{sb $winref{sbservertag $tag}}";
-    prompt = "{prompt $[.15]itemname}";
-    prompt_empty = "{prompt $winname}";
+    prompt = "         %K>%W>>%n %K|%n ";
+    prompt_empty = "         %K>%W>>%n %K|%n ";
     topic = " $topic";
-    topic_empty = " Irssi v$J - http://www.irssi.org";
+    topic_empty = "> No Topic <";
 
     # all of these treated specially, they're only displayed when needed
     lag = "{sb Lag: $0-}";
@@ -208,9 +207,9 @@ statusbar = {
       # window, root
       type = "window";
       # top, bottom
-      placement = "bottom";
+      placement = "top";
       # number
-      position = "1";
+      position = "100";
       # active, inactive, always
       visible = "active";
 
@@ -249,7 +248,7 @@ statusbar = {
       type = "root";
       placement = "bottom";
       # we want to be at the bottom always
-      position = "100";
+      position = "10";
       visible = "always";
       items = {
         prompt = { priority = "-1"; };
@@ -258,20 +257,7 @@ statusbar = {
         input = { priority = "10"; };
       };
     };
-
-    # topicbar
-    topic = {
-      type = "root";
-      placement = "top";
-      position = "1";
-      visible = "always";
-      items = {
-        topicbarstart = { priority = "100"; };
-        topic = { };
-        topic_empty = { };
-        topicbarend = { priority = "100"; alignment = "right"; };
-      };
-    };
+    topic = { disabled = "true"; };
   };
 };
 settings = {
@@ -280,14 +266,16 @@ settings = {
     user_name = "sulami";
     nick = "sulami";
   };
-  "fe-text" = { actlist_sort = "refnum"; };
+  "fe-text" = { actlist_sort = "refnum"; indent = "15"; };
   "fe-common/core" = {
     theme = "madcow";
     use_status_window = "no";
-    use_msgs_window = "yes";
+    use_msgs_window = "no";
     autocreate_query_level = "DCCMSGS";
     autocreate_windows = "yes";
     reuse_unused_windows = "yes";
     completion_auto = "yes";
+    timestamps = "no";
   };
 };
+

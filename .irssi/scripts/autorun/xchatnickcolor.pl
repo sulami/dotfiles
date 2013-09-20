@@ -106,7 +106,7 @@ sub sig_public {
   }
 
   $color = "0".$color if ($color < 10);
-  $server->command('/^format pubmsg %b<%w$2'.chr(3).$color.'$[-9]0%b>
+  $server->command('/^format pubmsg $2'.chr(3).$color.'$[-11]0
 %K |%n $1');
  # $server->command('/^format action_public {pubaction
  # '.chr(3).$color.'$0}$1');
