@@ -1,12 +1,10 @@
 URxvt*.perl-ext-common: default,matcher
 URxvt*url-launcher: /usr/bin/firefox
 URxvt*matcher.button: 1
-URxvt*.transparent: true
-! URxvt*.shading: 0 to 99 darkens, 101 to 200 lightens
-URxvt*.shading: 40
+URxvt.depth: 32
 URxvt*.scrollBar: false
 URxvt*.loginShell: false
-URxvt*.background: #151515
+URxvt*.background: [90]#151516
 URxvt*.foreground: #F5F5F5
 URxvt*.font: xft:Inconsolata:size=12
 URxvt*cursorUnderline: true
