@@ -135,7 +135,7 @@ abstracts = {
   ##
 
   # used internally by this theme
-  action_core = "            %K|%n %p$*";
+  action_core = "           %B*%n %K|%n %p$*";
 
   # generic one that's used by most actions
   action = "{action_core $*} ";
