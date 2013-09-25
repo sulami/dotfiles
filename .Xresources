@@ -1,5 +1,5 @@
 URxvt*.perl-ext-common: default,matcher
-URxvt*url-launcher: /usr/bin/firefox
+URxvt*url-launcher: /usr/bin/aurora
 URxvt*matcher.button: 1
 URxvt.depth: 32
 URxvt*.scrollBar: false
