@@ -1,7 +1,7 @@
 set number
 set tw=80
 syntax on
-colo desert
+colo pablo
 set mouse=a
 set ttymouse=xterm2
 set smartindent
