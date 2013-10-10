@@ -37,6 +37,14 @@ servers = (
     use_ssl = "no";
     ssl_verify = "no";
     autoconnect = "yes";
+  },
+  {
+    address = "irc.twitch.tv";
+    chatnet = "Twitch.tv";
+    port = "6667";
+    password = "oauth:nj2ziukjd64e13hnu9vpy6ijg72iyb0";
+    use_ssl = "no";
+    ssl_verify = "no";
   }
 );
 
@@ -105,7 +113,7 @@ chatnets = {
     type = "IRC";
     autosendcmd = "/^msg nickserv id EPigd0wmedF0i;wait 2000";
   };
-  OFTC = { type = "IRC"; };
+  "Twitch.tv" = { type = "IRC"; };
 };
 
 channels = (
