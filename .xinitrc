@@ -18,5 +18,6 @@ fi
 # exec startkde
 # exec startxfce4
 # ...or the Window Manager of your choice
-# i3, bitches
-exec i3
+compton &
+feh --bg-center ~/bg.png
+exec herbstluftwm
