@@ -22,6 +22,7 @@ PROMPT="%{$fg_bold[green]%}%~ > %#%{$fg_no_bold[white]%} "
 EDITOR=vim
 VISUAL=vim
 export XDG_CONFIG_HOME="$HOME"
+export QT_SELECT=4
 
 # ALIASES
 alias ls='ls --color=auto'

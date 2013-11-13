@@ -3,8 +3,8 @@ URxvt*url-launcher: aurora
 URxvt*matcher.button: 1
 URxvt.depth: 32
 URxvt*.scrollBar: false
-URxvt*.loginShell: false
-URxvt*.background: #151516
+xRxvt*.loginShell: false
+URxvt*.background: [90]#151516
 !URxvt*.background: #151516
 !URxvt*.transparent: true
 !URxvt*.shading: 90
