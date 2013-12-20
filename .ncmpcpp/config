@@ -490,7 +490,7 @@ user_interface = "alternative" (classic/alternative)
 #active_window_border = "red"
 #
 
-visualizer_fifo_path = "/data/mpd.fifo"
+visualizer_fifo_path = "/mnt/data/mpd.fifo"
 visualizer_output_name = "my_fifo"
 visualizer_sync_interval = "1"
 #visualizer_type = "wave" (spectrum/wave)
