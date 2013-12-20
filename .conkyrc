@@ -17,7 +17,7 @@ short_units yes
 # How strict should if_up be when testing an interface for being up?
 # The value is one of up, link or address, to check for the interface
 # being solely up, being up and having link or being up, having link
-# and an assigned IP address. 
+# and an assigned IP address.
 if_up_strictness address
 
 # Add spaces to keep things from moving about?  This only affects certain objects.
@@ -31,16 +31,10 @@ override_utf8_locale no
 # set to 1 to disable averaging
 cpu_avg_samples 1
 
+mpd_host localhost
+mpd_port 6600
+
 # Stuff after 'TEXT' will be formatted on screen
 TEXT
 
-# JSON for i3bar
-
-  [${if_mpd_playing}{ "full_text" : " MPD: ${mpd_smart} " , "color" : "\#ffffff" },${endif}
-  { "full_text" : " NET: ${if_up enp3s0}${addr enp3s0} / ${downspeed enp3s0} down / ${upspeed enp3s0} up " , "color" : "\#5BFA7C" },${else}DOWN" , "color" : "\#FF8800" },${endif}
-  { "full_text" : " HDD: ${fs_free_perc /mnt/data/}% left " , "color" : ${if_match ${fs_free_perc /mnt/data/} > 20}"\#5BDA7C"${else}"\#FF8800"${endif} },
-  { "full_text" : " SSD: ${fs_free_perc /}% left " , "color" : ${if_match ${fs_free_perc /} > 50}"\#5BDA7C"${else}"\#FF8800"${endif} },
-  { "full_text" : " RAM: ${memperc}% " , "color" : ${if_match ${memperc} < 75}"\#5BDA7C"${else}"\#FF8800"${endif} },
-  { "full_text" : " AVG: ${loadavg 1} " , "color" : ${if_match ${loadavg 1} < 5}"\#5BDA7C"${else}"\#FF8800"${endif} },
-  { "full_text" : " UP: ${uptime} " , "color" : "\#EEEEEE" },
-  { "full_text" : " ${time}" , "color" : "\#EEEEEE " }],
+\f2 MPD: ${mpd_smart} (${mpd_elapsed}/${mpd_length})\cCPU: ${cpubar} | MEM: ${membar} | IP: ${addr enp4s0} \r ${time %a %d. %b %k:%M} 
