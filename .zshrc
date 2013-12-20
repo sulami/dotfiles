@@ -59,6 +59,7 @@ bindkey '\E[1;5C' forward-word
 
 # Activate syntax highlighting
 source "$HOME/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "$HOME/Downloads/base16-tomorrow-dark.sh"
 
 # X-less colors
 if [ "$TERM" = "linux" ]; then
