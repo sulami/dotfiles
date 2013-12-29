@@ -1,3 +1,4 @@
+lang English_United States
 set number
 syntax on
 let base16colorspace=256
@@ -22,3 +23,5 @@ set colorcolumn=80
 set fileformat=unix
 set fileformats=unix,dos
 map <C-t> :tabnew<CR>
+imap jk <Esc>
+map <C-e> :Explore<CR>
