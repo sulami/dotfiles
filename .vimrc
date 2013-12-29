@@ -25,3 +25,6 @@ set fileformats=unix,dos
 map <C-t> :tabnew<CR>
 imap jk <Esc>
 map <C-e> :Explore<CR>
+set completeopt=longest,menuone
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
