@@ -4,7 +4,7 @@ URxvt*matcher.button: 1
 URxvt.depth: 32
 URxvt*.scrollBar: false
 xRxvt*.loginShell: false
-URxvt*.background: [100]#1D1F21
+URxvt*.background: [100]#151515
 !URxvt*.background: #151516
 !URxvt*.transparent: true
 !URxvt*.shading: 90
@@ -14,27 +14,27 @@ URxvt*cursorUnderline: true
 URxvt*.internalBorder: 0
 URxvt*.externalBorder: 0
 
-!!Black
-!*color0: #505050
-!*color8: #505050
-!!Red
-!*color1: #AC4142
-!*color9: #AC4142
-!!Green
-!*color2: #90A969
-!*color10: #90A969
-!!Yellow
-!*color3: #F4BF75
-!*color11: #F4BF75
-!!Blue
-!*color4: #6A9FB5
-!*color12: #6A9FB5
-!!Magenta
-!*color5: #AA759F
-!*color13: #AA759F
-!!Cyan
-!*color6: #75B5AA
-!*color14: #75B5AA
-!!White
-!*color7: #F5F5F5
-!*color15: #F5F5F5
+!Black
+*color0: #3B3B3B
+*color8: #3B3B3B
+!Red
+*color1: #CF6A4C
+*color9: #CF6A4C
+!Green
+*color2: #99AD6A
+*color10: #99AD6A
+!Yellow
+*color3: #D8AD4C
+*color11: #D8AD4C
+!Blue
+*color4: #597BC5
+*color12: #597BC5
+!Magenta
+*color5: #A037B0
+*color13: #A037B0
+!Cyan
+*color6: #71B9F8
+*color14: #71B9F8
+!White
+*color7: #ADADAD
+*color15: #ADADAD
