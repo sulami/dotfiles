@@ -32,7 +32,6 @@ alias v='vim'
 alias weechat='weechat-curses'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 alias rsync="rsync --progress"
-alias zyp="zypper"
 
 # KEYBINDS
 typeset -A key
@@ -59,7 +58,6 @@ bindkey '\E[1;5C' forward-word
 
 # Activate syntax highlighting
 source "$HOME/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-source "$HOME/Downloads/base16-tomorrow-dark.sh"
 
 # X-less colors
 if [ "$TERM" = "linux" ]; then
