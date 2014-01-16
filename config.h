@@ -22,7 +22,7 @@
 #define FOCUS_BUTTON    Button1   /* mouse button to be used along with CLICK_TO_FOCUS */
 #define BORDER_WIDTH    6         /* window border width */
 #define FOCUS           "#99AD6A" /* focused window border color    */
-#define UNFOCUS         "#151515" /* unfocused window border color  */
+#define UNFOCUS         "#121212" /* unfocused window border color  */
 #define MINWSZ          50        /* minimum window size in pixels  */
 #define DEFAULT_DESKTOP 0         /* the desktop to focus initially */
 #define DESKTOPS        4         /* number of desktops - edit DESKTOPCHANGE keys to suit */
