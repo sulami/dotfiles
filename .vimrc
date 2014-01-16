@@ -1,9 +1,6 @@
-lang English_United States
 set number
 syntax on
-let base16colorspace=256
-colo base16-tomorrow
-set background=dark
+colorscheme jellybeans
 set mouse=a
 set ttymouse=xterm2
 set smartindent
@@ -15,6 +12,10 @@ au BufRead /tmp/mutt-* set tw=72
 execute pathogen#infect()
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'jellybeans'
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
 set laststatus=2
 set encoding=utf-8
 set nobackup
