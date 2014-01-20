@@ -22,3 +22,13 @@ color attachment yellow default
 color index cyan default "~N"
 color index cyan default "~O"
 color index magenta default "~D"
+
+# Gmail tweaks
+set postponed="imaps://imap.gmail.com/[Google Mail]/Entwürfe"
+bind editor <space> noop
+macro index,pager y "<save-message>=[Google Mail]/Alle Nachrichten<enter><enter>" "Archive"
+macro index,pager d "<save-message>=[Google Mail]/Papierkorb<enter><enter>" "Trash"
+macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index ga "<change-folder>=[Google Mail]/Alle Nachrichten<enter>" "Go to all mail"
+macro index gs "<change-folder>=[Google Mail]/Markiert<enter>" "Go to starred messages"
+macro index gd "<change-folder>=[Google Mail]/Entwürfe<enter>" "Go to drafts"
