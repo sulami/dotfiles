@@ -1,5 +1,6 @@
-source 'gpg2 -dq ~/dotfiles/.mutt-passwd.gpg |'
-source ~/dotfiles/.mutt-gpg
+#source 'gpg2 -dq ~/dotfiles/.mutt-passwd.gpg |'
+#source ~/dotfiles/.mutt-gpg
+set my_pw_gmail = 'EPigd0wmedF0i.'
 set imap_user	= sulamiification@gmail.com
 set folder	    = imaps://imap.gmail.com/
 set spoolfile	= +INBOX
@@ -14,6 +15,8 @@ set ssl_starttls= yes
 set editor	    = vim
 set imap_pass	= $my_pw_gmail
 set send_charset= "utf-8"
+set sort        = threads
+set sort_aux    = date-sent
 
 color normal white default
 color message white default
@@ -21,7 +24,8 @@ color hdrdefault cyan default
 color attachment yellow default
 color index cyan default "~N"
 color index cyan default "~O"
-color index magenta default "~D"
+color index red default "~D"
+color indicator default black 
 
 # Gmail tweaks
 set postponed="imaps://imap.gmail.com/[Google Mail]/Entwürfe"
