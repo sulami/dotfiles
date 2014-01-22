@@ -1,0 +1,2 @@
+colorscheme molokai
+:inoremap <C-a> <Ins><C-a><Ins>
