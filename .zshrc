@@ -16,7 +16,9 @@ compinit
 
 # PROMPT
 autoload -U colors && colors
-PROMPT="%{$fg_bold[green]%}%~ > %#%{$fg_no_bold[white]%} "
+PROMPT="%{$fg[green]%} %# %{$reset_color%}"
+ERRORCODE="%(?..%{$fg[red]%} %? <<%{$resetcolor%})"
+RPROMPT="${ERRORCODE}"
 
 # VARIABLES
 EDITOR=vim
