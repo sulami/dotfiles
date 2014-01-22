@@ -1,21 +1,21 @@
 source 'gpg2 -dq ~/dotfiles/.mutt-passwd.gpg |'
 source ~/dotfiles/.mutt-gpg
-set imap_user	= sulamiification@gmail.com
-set folder	    = imaps://imap.gmail.com/
-set spoolfile	= +INBOX
-mailboxes	    = +INBOX
-set mail_check	= 300
+set imap_user       = sulamiification@gmail.com
+set folder          = imaps://imap.gmail.com/
+set spoolfile       = +INBOX
+mailboxes           = +INBOX
+set mail_check      = 300
 unset record
-set smtp_url	= smtp://sulamiification:$my_pw_gmail@smtp.gmail.com:587/
+set smtp_url        = smtp://sulamiification:$my_pw_gmail@smtp.gmail.com:587/
 set ssl_force_tls   = yes
-set from	    = sulamiification@gmail.com
-set realname	= "Rob Schroer"
-set ssl_starttls= yes
-set editor	    = vim
-set imap_pass	= $my_pw_gmail
-set send_charset= "utf-8"
-set sort        = threads
-set sort_aux    = date-sent
+set from            = sulamiification@gmail.com
+set realname        = "Robin Schroer"
+set ssl_starttls    = yes
+set editor          = vim
+set imap_pass       = $my_pw_gmail
+set send_charset    = "utf-8"
+set sort            = threads
+set sort_aux        = date-sent
 
 color normal white default
 color message white default
@@ -27,7 +27,7 @@ color index red default "~D"
 color indicator default black
 
 # Gmail tweaks
-set postponed="imaps://imap.gmail.com/[Google Mail]/Entwürfe"
+set postponed       ="imaps://imap.gmail.com/[Google Mail]/Entwürfe"
 bind editor <space> noop
 bind index R group-reply
 macro index,pager y "<save-message>=[Google Mail]/Alle Nachrichten<enter><enter>" "Archive"
