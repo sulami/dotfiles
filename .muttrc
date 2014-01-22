@@ -29,6 +29,7 @@ color indicator default black
 # Gmail tweaks
 set postponed="imaps://imap.gmail.com/[Google Mail]/Entwürfe"
 bind editor <space> noop
+bind index R group-reply
 macro index,pager y "<save-message>=[Google Mail]/Alle Nachrichten<enter><enter>" "Archive"
 macro index,pager d "<save-message>=[Google Mail]/Papierkorb<enter><enter>" "Trash"
 macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
