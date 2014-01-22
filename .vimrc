@@ -23,6 +23,8 @@ set noswapfile
 set colorcolumn=80
 set fileformat=unix
 set fileformats=unix,dos
+set list
+set listchars=tab:\|\ 
 map <C-t> :tabnew<CR>
 imap jk <Esc>
 map <C-e> :Explore<CR>
