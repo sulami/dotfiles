@@ -34,6 +34,8 @@ alias v='vim'
 alias weechat='weechat-curses'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 alias rsync="rsync --progress"
+alias wget="wget -c"
+alias yum="sudo yum"
 
 # KEYBINDS
 typeset -A key
