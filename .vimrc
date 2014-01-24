@@ -10,12 +10,10 @@ set expandtab
 silent
 au BufRead /tmp/mutt-* set tw=72
 execute pathogen#infect()
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
+let g:airline_left_sep=''
+let g:airline_right_sep=''
 let g:airline_theme = 'jellybeans'
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_symbols.space = "\ua0"
 set laststatus=2
 set encoding=utf-8
 set nobackup
