@@ -31,7 +31,7 @@ alias ls='ls --color=auto'
 alias ll='ls -l --color=auto'
 alias la='ls -la --color=auto'
 alias v='vim'
-alias 'git log'='git log --decorate --graph'
+alias gitlog='git log --decorate --graph'
 alias weechat='weechat-curses'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 alias rsync='rsync --progress'
