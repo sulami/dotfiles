@@ -1,0 +1,9 @@
+[core]
+	editor = vim
+[user]
+	name = Robin Schroer
+	email = sulamiification@gmail.com
+[push]
+	default = simple
+[credential]
+	helper = gnome-keyring
