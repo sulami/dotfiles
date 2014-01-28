@@ -1,18 +1,10 @@
-source 'gpg2 -dq ~/dotfiles/.mutt-passwd.gpg |'
-source ~/dotfiles/.mutt-gpg
-set imap_user       = sulamiification@gmail.com
-set folder          = imaps://imap.gmail.com/
-set spoolfile       = +INBOX
-mailboxes           = +INBOX
+source ~/.mutt-gpg
 set mail_check      = 300
 unset record
-set smtp_url        = smtp://sulamiification:$my_pw_gmail@smtp.gmail.com:587/
 set ssl_force_tls   = yes
-set from            = sulamiification@gmail.com
 set realname        = "Robin Schroer"
 set ssl_starttls    = yes
 set editor          = vim
-set imap_pass       = $my_pw_gmail
 set send_charset    = "utf-8"
 set sort            = threads
 set sort_aux        = date-sent
@@ -26,14 +18,13 @@ color index cyan default "~O"
 color index red default "~D"
 color indicator default black
 
-# Gmail tweaks
-set postponed       ="imaps://imap.gmail.com/[Google Mail]/Entwürfe"
+# Hotkeys
 bind editor <space> noop
 bind index R group-reply
-macro index,pager y "<save-message>=[Google Mail]/Alle Nachrichten<enter><enter>" "Archive"
-macro index,pager d "<save-message>=[Google Mail]/Papierkorb<enter><enter>" "Trash"
-macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
-macro index ga "<change-folder>=[Google Mail]/Alle Nachrichten<enter>" "Go to all mail"
-macro index gs "<change-folder>=[Google Mail]/Gesendet<enter>" "Go to sent messages"
-macro index gd "<change-folder>=[Google Mail]/Entwürfe<enter>" "Go to drafts"
-macro index gt "<change-folder>=[Google Mail]/Papierkorb<enter>" "Go to trash"
+# macro index,pager <f2> '<sync-mailbox><enter-command>source ~/dotfiles/.mutt_gmail.gpg<enter><change-folder>+INBOX<enter>'
+# macro index,pager <f3> '<sync-mailbox><enter-command>source ~/dotfiles/.mutt_udag.gpg<enter><change-folder>+INBOX<enter>'
+
+source 'gpg2 -dq ~/dotfiles/.mutt_gmail.gpg |'
+# folder-hook $folder "source ~/dotfiles/.mutt_gmail.gpg |"
+# source "gpg2 -dq ~/dotfiles/.mutt_udag.gpg |"
+# folder-hook $folder "source ~/dotfiles/.mutt_udag.gpg |"
