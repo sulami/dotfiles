@@ -24,7 +24,6 @@ RPROMPT="${ERRORCODE}"
 EDITOR=vim
 VISUAL=vim
 export XDG_CONFIG_HOME="$HOME"
-export QT_SELECT=4
 
 # ALIASES
 alias ls='ls --color=auto'
