@@ -1,3 +1,5 @@
 .weechat/weechat.log
 .weechat/logs/*
 .newsbeuter/cache.db
+*.log
+*.lock
