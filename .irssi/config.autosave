@@ -267,10 +267,4 @@ settings = {
 };
 
 logs = { };
-hilights = (
-  { text = "magicalkarp"; nick = "no"; word = "no"; },
-  { text = "magicaltux"; nick = "no"; word = "no"; },
-  { text = "anarchystar"; nick = "no"; word = "no"; },
-  { text = "peerwire"; nick = "no"; word = "no"; },
-  { text = "sulami"; nick = "no"; word = "no"; }
-);
+hilights = ( { text = "MagicalKarp"; nick = "yes"; word = "yes"; } );
