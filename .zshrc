@@ -33,7 +33,7 @@ alias v='vim'
 alias gitlog='git log --decorate --graph'
 alias weechat='weechat-curses'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
-alias rsync='rsync --progress'
+alias rsync='rsync -aP --stats'
 alias wget='wget -c'
 alias yum='sudo yum'
 
