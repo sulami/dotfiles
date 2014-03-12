@@ -36,6 +36,7 @@ alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 alias rsync='rsync -aP --stats'
 alias wget='wget -c'
 alias yum='sudo yum'
+alias btrfs='sudo btrfs'
 
 # KEYBINDS
 typeset -A key
