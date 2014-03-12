@@ -1,5 +1,5 @@
 servers = (
-  { 
+  {
     address = "irc.quakenet.org";
     chatnet = "QuakeNet";
     port = "6667";
@@ -268,9 +268,6 @@ settings = {
 
 logs = { };
 hilights = (
-  { text = "magicalkarp"; nick = "no"; word = "no"; },
-  { text = "magicaltux"; nick = "no"; word = "no"; },
-  { text = "anarchystar"; nick = "no"; word = "no"; },
   { text = "peerwire"; nick = "no"; word = "no"; },
   { text = "sulami"; nick = "no"; word = "no"; }
 );
