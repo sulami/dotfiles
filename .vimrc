@@ -23,11 +23,12 @@ set fileformat=unix
 set fileformats=unix,dos
 set list
 set listchars=tab:\|\ 
+set pastetoggle=<C-l>
 map <C-t> :tabnew<CR>
 imap jk <Esc>
 map <C-e> :Explore<CR>
-map <C-m> oSigned-off-by: Robin Schroer <sulamiification@gmail.com><Enter><Esc>
 map <C-y> :set tabstop=8<Return>:set noexpandtab<Return>:set shiftwidth=8<Return>
 set completeopt=longest,menuone
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
