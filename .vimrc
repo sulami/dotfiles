@@ -23,11 +23,13 @@ set fileformat=unix
 set fileformats=unix,dos
 set list
 set listchars=tab:\|\ 
-set pastetoggle=<C-l>
-map <C-t> :tabnew<CR>
+set pastetoggle=<Leader>p
 imap jk <Esc>
-map <C-e> :Explore<CR>
-map <C-y> :set tabstop=8<Return>:set noexpandtab<Return>:set shiftwidth=8<Return>
+map <Leader>t :tabnew<CR>
+map <Leader>e :Explore<CR>
+map <Leader>c :set tabstop=8<Return>:set noexpandtab<Return>:set shiftwidth=8<Return>
+map <Leader>p :set tabstop=4<Return>:set expandtab<Return>:set shiftwidth=4<Return>
+map <Leader>n :NERDTreeFind<CR>
 set completeopt=longest,menuone
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
