@@ -1,3 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_cnt =7
 let g:netrw_dirhist_1='/home/sulami'
+let g:netrw_dirhist_2='sftp://sulami@peerwire.org:/'
+let g:netrw_dirhist_3='sftp://sulami@peerwire.org/'
+let g:netrw_dirhist_4='sftp://sulami@peerwire.org/build/'
+let g:netrw_dirhist_5='sftp://sulami@peerwire.org/build/peerwire_pm/'
+let g:netrw_dirhist_6='sftp://sulami@peerwire.org/build/peerwire_pm/peerwire/'
+let g:netrw_dirhist_7='sftp://sulami@peerwire.org/build/peerwire_pm/peerwire/projects/'
