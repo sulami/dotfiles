@@ -1,9 +1,20 @@
 [core]
-	editor = vim
+    editor = vim
 [user]
-	name = Robin Schroer
-	email = sulamiification@gmail.com
+    name = Robin Schroer
+    email = sulamiification@gmail.com
 [push]
-	default = simple
+    default = simple
 [credential]
-	helper = gnome-keyring
+    helper = cache --timeout=86400
+[alias]
+    st = status
+    di = diff
+    br = branch
+    co = checkout
+    aa = add --all
+    cm = commit
+    pom = push origin master
+[merge]
+    tool = vimdiff
+
