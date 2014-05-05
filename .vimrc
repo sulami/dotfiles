@@ -55,6 +55,8 @@ nnoremap <c-l> <c-w>l
 nnoremap <CR> :noh<CR>
 let mapleader = ','
 set pastetoggle=<Leader>p
+map <Leader>rc :!make -B %:r && ./%:r<CR>
+map <Leader>rp :!python %<CR>
 map <Leader>t :tabnew<CR>
 map <Leader>o :CtrlPMixed<CR>
 map <Leader>f :call RenameFile()<CR>
