@@ -8,6 +8,7 @@ set smartindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set nohls
 set encoding=utf-8
 set fileformat=unix
 set fileformats=unix,dos
@@ -28,8 +29,8 @@ execute pathogen#infect()
 
 " Airline
 let g:airline_powerline_fonts = 0
-let g:airline_left_sep=''
-let g:airline_right_sep=''
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
 let g:airline_theme = 'jellybeans'
 set laststatus=2
 
@@ -38,6 +39,7 @@ let g:SingleCompile_usetee = 0
 let g:SingleCompile_showquickfixiferror = 1
 
 " Hotkeys
+let mapleader = ','
 imap jk <Esc>
 set pastetoggle=<Leader>p
 map <Leader>t :tabnew<CR>
@@ -45,6 +47,7 @@ map <Leader>n :NERDTreeTabsToggle<CR>
 map <Leader>b :TagbarToggle<CR>
 map <Leader>c :SCCompile<CR>
 map <Leader>r :SCCompileRun<CR>
+map <Leader>o :CtrlPMixed<CR>
 
 " Autocompletion fixes
 set completeopt=longest,menuone
