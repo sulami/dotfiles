@@ -8,7 +8,7 @@ setopt correct
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/sulami/.zshrc'
+zstyle :compinstall filename '$HOME/.zshrc'
 
 autoload -Uz compinit
 compinit
@@ -61,7 +61,7 @@ bindkey '\E[1;5D' backward-word
 bindkey '\E[1;5C' forward-word
 
 # Activate syntax highlighting
-source "/home/sulami/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "$HOME/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # X-less colors
 if [ "$TERM" = "linux" ]; then
