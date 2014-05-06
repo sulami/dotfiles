@@ -3,3 +3,4 @@
 .newsbeuter/cache.db
 *.log
 *.lock
+.vim/.netrwhist
