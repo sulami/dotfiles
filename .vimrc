@@ -26,7 +26,12 @@ set nofoldenable " only fold when I want to
 set mouse=a " enable mouse
 set ttymouse=xterm2 " enable mouse
 set t_Co=256 " 256 colours
-colorscheme jellybeans " colorscheme
+" colorscheme jellybeans " dark colors
+colorscheme solarized " light colors
+
+" Solarized
+let g:solarized_termcolors=256 " force 256 colour mode
+let g:solarized_bold=0 " do not use bold
 
 " Tab highlights
 set list
@@ -48,7 +53,8 @@ execute pathogen#infect()
 let g:airline_powerline_fonts = 0
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
-let g:airline_theme = 'jellybeans'
+" let g:airline_theme = 'jellybeans'
+let g:airline_theme = 'solarized'
 set laststatus=2
 
 " Hotkeys
