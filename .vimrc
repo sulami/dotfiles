@@ -7,10 +7,12 @@ set scrolloff=2 " keep cursor from upper/lower end of the buffer
 set winheight=5 " temp value for winminheight
 set winminheight=5 " keep buffers at least 5 rows high
 set winheight=999 " maximise current buffer vertically
+set splitright " open vsplits on the right side
 set smartindent " indent autmatically
 set tabstop=4 " 1 tab = 4 spaces
 set softtabstop=4 " 1 tab = 4 spaces
 set shiftwidth=4 " shift by 4 spaces
+set shiftround " round indents to multiples of 4 (shiftwidth)
 set expandtab " expand tabs to spaces
 set incsearch " search while typing
 set ignorecase smartcase " ignore case if everything is lowercase
@@ -31,17 +33,19 @@ colorscheme solarized " light colors
 
 " Solarized
 let g:solarized_termcolors=256 " force 256 colour mode
-let g:solarized_bold=0 " do not use bold
 
 " Tab highlights
 set list
-set listchars=tab:\|\ 
+set listchars=tab:\|\
 
 " Jump to last cursor position unless it's invalid or in an event handler
 autocmd BufReadPost *
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
+
+" No cursoline in Gdiff
+autocmd BufRead */.git//* set nocursorline
 
 " Mutt text-width
 autocmd BufRead /tmp/mutt-* set tw=72
@@ -66,11 +70,16 @@ nnoremap <c-l> <c-w>l
 nnoremap <CR> :noh<CR>
 let mapleader = ','
 set pastetoggle=<Leader>p
-map <Leader>rc :!make -B %:r && ./%:r<CR>
-map <Leader>rp :!python %<CR>
 map <Leader>t :tabnew<CR>
 map <Leader>o :CtrlPMixed<CR>
 map <Leader>f :call RenameFile()<CR>
+map <Leader>rp :!python %<CR>
+map <Leader>rc :!gcc -B -pipe -m64 -ansi -fPIC -g -O3 -fno-exceptions
+    \ -fstack-protector -Wl,-z,relro -Wl,-z,now -fvisibility=hidden -W -Wall
+    \ -Wno-unused-parameter -Wno-unused-function -Wno-unused-label
+    \ -Wpointer-arith -Wformat -Wreturn-type -Wsign-compare -Wmultichar
+    \ -Wformat-nonliteral -Winit-self -Wuninitialized -Wno-deprecated
+    \ -Wformat-security -Werror -o %:r % && chmod +x %:r && ./%:r<CR>
 
 " Multi-purpose tab key, credits to GRB
 function! InsertTabWrapper()
