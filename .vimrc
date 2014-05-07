@@ -36,7 +36,7 @@ let g:solarized_termcolors=256 " force 256 colour mode
 
 " Tab highlights
 set list
-set listchars=tab:\|\
+set listchars=tab:\|\ 
 
 " Jump to last cursor position unless it's invalid or in an event handler
 autocmd BufReadPost *
