@@ -13,6 +13,7 @@
     br = branch
     co = checkout
     aa = add --all
+    ap = add -p
     cm = commit
     pom = push origin master
 [merge]
