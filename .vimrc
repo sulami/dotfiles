@@ -73,8 +73,8 @@ set pastetoggle=<Leader>p
 map <Leader>t :tabnew<CR>
 map <Leader>o :CtrlPMixed<CR>
 map <Leader>f :call RenameFile()<CR>
-map <Leader>rp :!python %<CR>
 map <Leader>rc :!gcc -B -pipe -m64 -ansi -fPIC -g -O3 -fno-exceptions
+map <Leader>rp :!chmod +x % && ./%<CR>
     \ -fstack-protector -Wl,-z,relro -Wl,-z,now -fvisibility=hidden -W -Wall
     \ -Wno-unused-parameter -Wno-unused-function -Wno-unused-label
     \ -Wpointer-arith -Wformat -Wreturn-type -Wsign-compare -Wmultichar
