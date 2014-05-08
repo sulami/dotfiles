@@ -8,6 +8,7 @@ set winheight=5 " temp value for winminheight
 set winminheight=5 " keep buffers at least 5 rows high
 set winheight=999 " maximise current buffer vertically
 set splitright " open vsplits on the right side
+set showtabline=2
 set smartindent " indent autmatically
 set tabstop=4 " 1 tab = 4 spaces
 set softtabstop=4 " 1 tab = 4 spaces
@@ -65,6 +66,8 @@ set laststatus=2
 
 " Hotkeys
 imap jk <Esc>
+nnoremap gh gt
+nnoremap gH gT
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
@@ -76,7 +79,7 @@ map <Leader>t :tabnew<CR>
 map <Leader>o :CtrlPMixed<CR>
 map <Leader>f :call RenameFile()<CR>
 map <Leader>rp :!chmod +x % && clear && ./%<CR>
-map <Leader>rn :!clear && nosetests -v %<CR>
+map <Leader>rn :!clear && nosetests -v<CR>
 map <Leader>rc :!gcc -pipe -m64 -ansi -fPIC -g -O3 -fno-exceptions
     \ -fstack-protector -Wl,-z,relro -Wl,-z,now -fvisibility=hidden -W -Wall
     \ -Wno-unused-parameter -Wno-unused-function -Wno-unused-label
