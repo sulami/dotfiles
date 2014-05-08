@@ -28,8 +28,10 @@ set nofoldenable " only fold when I want to
 set mouse=a " enable mouse
 set ttymouse=xterm2 " enable mouse
 set t_Co=256 " 256 colours
-" colorscheme jellybeans " dark colors
-colorscheme solarized " light colors
+if ! exists('g:colors_name') || g:colors_name !=# 'solarized'
+    " colorscheme jellybeans " dark colors
+    colorscheme solarized " light colors
+endif
 
 " Solarized
 let g:solarized_termcolors=256 " force 256 colour mode
