@@ -16,9 +16,15 @@ compinit
 
 # PROMPT
 autoload -U colors && colors
-PROMPT="%{$fg[green]%} %# %{$reset_color%}"
+# PROMPT="%{$fg[green]%} %# %{$reset_color%}"
+# PROMPT=" %1~ %# "
+source $HOME/dotfiles/zshrc.sh
+PROMPT=' %1~$(git_super_status) %# '
 ERRORCODE="%(?..%{$fg[red]%} %? <<%{$resetcolor%})"
 RPROMPT="${ERRORCODE}"
+
+# Disable flow control
+unsetopt flowcontrol
 
 # VARIABLES
 EDITOR=vim
