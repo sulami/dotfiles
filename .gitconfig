@@ -15,6 +15,7 @@
     aa = add --all
     ap = add -p
     cm = commit
+    ca = commit -a
     pom = push origin master
 [merge]
     tool = vimdiff
