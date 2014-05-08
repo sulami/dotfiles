@@ -75,20 +75,21 @@ set pastetoggle=<Leader>p
 map <Leader>t :tabnew<CR>
 map <Leader>o :CtrlPMixed<CR>
 map <Leader>f :call RenameFile()<CR>
-map <Leader>rp :!chmod +x % && ./%<CR>
+map <Leader>rp :!chmod +x % && clear && ./%<CR>
+map <Leader>rn :!clear && nosetests -v %<CR>
 map <Leader>rc :!gcc -pipe -m64 -ansi -fPIC -g -O3 -fno-exceptions
     \ -fstack-protector -Wl,-z,relro -Wl,-z,now -fvisibility=hidden -W -Wall
     \ -Wno-unused-parameter -Wno-unused-function -Wno-unused-label
     \ -Wpointer-arith -Wformat -Wreturn-type -Wsign-compare -Wmultichar
     \ -Wformat-nonliteral -Winit-self -Wuninitialized -Wno-deprecated
-    \ -Wformat-security -Werror -o %:r % && chmod +x %:r && ./%:r<CR>
+    \ -Wformat-security -Werror -o %:r % && chmod +x %:r && clear && ./%:r<CR>
 map <Leader>rd :!gcc -g -pipe -m64 -ansi -fPIC -g -O3 -fno-exceptions
     \ -fstack-protector -Wl,-z,relro -Wl,-z,now -fvisibility=hidden -W -Wall
     \ -Wno-unused-parameter -Wno-unused-function -Wno-unused-label
     \ -Wpointer-arith -Wformat -Wreturn-type -Wsign-compare -Wmultichar
     \ -Wformat-nonliteral -Winit-self -Wuninitialized -Wno-deprecated
-    \ -Wformat-security -Werror -o %:r % && chmod +x %:r &&
-    \ gdb -q -ex run %:r<CR>
+    \ -Wformat-security -Werror -o %:r % && chmod +x %:r && clear &&
+    \ gdb -q -ex run ./%:r<CR>
 
 " Multi-purpose tab key, credits to GRB
 function! InsertTabWrapper()
