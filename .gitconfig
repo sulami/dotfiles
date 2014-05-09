@@ -10,6 +10,7 @@
 [alias]
     st = status
     di = diff
+    dh = diff HEAD --cached
     br = branch
     co = checkout
     aa = add --all
@@ -17,6 +18,9 @@
     cm = commit
     ca = commit -a
     pom = push origin master
+    pgm = push gh master
+    l = log --decorate --graph --oneline
+    ll = log --decorate --graph
 [merge]
     tool = vimdiff
 
