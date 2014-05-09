@@ -81,14 +81,11 @@ map <Leader>o :CtrlPMixed<CR>
 map <Leader>f :call RenameFile()<CR>
 map <Leader>rp :!clear && python %<CR>
 map <Leader>rP :!clear && python3 %<CR>
-map <Leader>rn :call RunNoseTestsOnProjectRoot()<CR>
+map <Leader>rn :call RunNoseTests()<CR>
+map <Leader>rN :call RunNoseTestsOnProjectRoot()<CR>
 map <Leader>rd :call ProjectRootExe('!clear && python manage.py test -v 2')<CR>
-map <Leader>rc :!gcc -pipe -m64 -ansi -fPIC -g -O3 -fno-exceptions
-    \ -fstack-protector -Wl,-z,relro -Wl,-z,now -fvisibility=hidden -W -Wall
-    \ -Wno-unused-parameter -Wno-unused-function -Wno-unused-label
-    \ -Wpointer-arith -Wformat -Wreturn-type -Wsign-compare -Wmultichar
-    \ -Wformat-nonliteral -Winit-self -Wuninitialized -Wno-deprecated
-    \ -Wformat-security -Werror -o %:r % && chmod +x %:r && clear && ./%:r<CR>
+map <Leader>rc :!clang -g -O0 -Weverything -Werror -o %:r % && chmod +x %:r &&
+    \ clear && %:r<CR>
 
 " Multi-purpose tab key, credits to GRB
 function! InsertTabWrapper()
@@ -111,6 +108,13 @@ function! RenameFile()
         exec ':silent !rm ' . old_name
         redraw!
     endif
+endfunction
+
+" Run nose on test for current file
+function! RunNoseTests()
+    " exec (':!clear && nosetests -v -e ' . expand('%:r') . '_test.py')
+    let str = ':!cd %:h && clear && nosetests -v --exe -e %:r_test.py'
+    exec str
 endfunction
 
 " Run nose on project root
