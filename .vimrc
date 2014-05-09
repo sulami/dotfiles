@@ -68,6 +68,7 @@ set laststatus=2
 imap jk <Esc>
 nnoremap gh gt
 nnoremap gH gT
+nnoremap ,, <c-^>
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
