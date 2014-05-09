@@ -82,19 +82,13 @@ map <Leader>f :call RenameFile()<CR>
 map <Leader>rp :!clear && python %<CR>
 map <Leader>rP :!clear && python3 %<CR>
 map <Leader>rn :call RunNoseTestsOnProjectRoot()<CR>
+map <Leader>rd :call ProjectRootExe('!clear && python manage.py test -v 2')<CR>
 map <Leader>rc :!gcc -pipe -m64 -ansi -fPIC -g -O3 -fno-exceptions
     \ -fstack-protector -Wl,-z,relro -Wl,-z,now -fvisibility=hidden -W -Wall
     \ -Wno-unused-parameter -Wno-unused-function -Wno-unused-label
     \ -Wpointer-arith -Wformat -Wreturn-type -Wsign-compare -Wmultichar
     \ -Wformat-nonliteral -Winit-self -Wuninitialized -Wno-deprecated
     \ -Wformat-security -Werror -o %:r % && chmod +x %:r && clear && ./%:r<CR>
-map <Leader>rd :!gcc -g -pipe -m64 -ansi -fPIC -g -O3 -fno-exceptions
-    \ -fstack-protector -Wl,-z,relro -Wl,-z,now -fvisibility=hidden -W -Wall
-    \ -Wno-unused-parameter -Wno-unused-function -Wno-unused-label
-    \ -Wpointer-arith -Wformat -Wreturn-type -Wsign-compare -Wmultichar
-    \ -Wformat-nonliteral -Winit-self -Wuninitialized -Wno-deprecated
-    \ -Wformat-security -Werror -o %:r % && chmod +x %:r && clear &&
-    \ gdb -q -ex run ./%:r<CR>
 
 " Multi-purpose tab key, credits to GRB
 function! InsertTabWrapper()
@@ -125,31 +119,50 @@ function! RunNoseTestsOnProjectRoot()
     exec ':!clear && find '.root.' -name "*test*.py" | xargs nosetests -v -e'
 endfunction
 
-" Project root guesstimate
+" Project root guess-stuff, shamelessly stolen from
+" github.com/vim-scripts/projectroot
 if !exists('g:rootmarkers')
-  let g:rootmarkers = ['.git', '.hg', '.svn', '.bzr', 'build.xml']
+    let g:rootmarkers = ['.git', '.hg', '.svn', '.bzr', 'build.xml']
 endif
 
 function! ProjectRootGuess(...)
-  let fullfile = a:0 ? fnamemodify(expand(a:1), ':p') : expand('%:p')
-  if exists('b:projectroot')
-    if stridx(fullfile, fnamemodify(b:projectroot, ':p'))==0
-      return b:projectroot
+    let fullfile = a:0 ? fnamemodify(expand(a:1), ':p') : expand('%:p')
+    if exists('b:projectroot')
+        if stridx(fullfile, fnamemodify(b:projectroot, ':p'))==0
+            return b:projectroot
+        endif
     endif
-  endif
-  for marker in g:rootmarkers
-    let result=''
-    let pivot=fullfile
-    while pivot!=fnamemodify(pivot, ':h')
-      let pivot=fnamemodify(pivot, ':h')
-      if len(glob(pivot.'/'.marker))
-        let result=pivot
-      endif
-    endwhile
-    if len(result)
-      return result
-    endif
-  endfor
-  return filereadable(fullfile) ? fnamemodify(fullfile, ':h') : fullfile
+    for marker in g:rootmarkers
+        let result=''
+        let pivot=fullfile
+        while pivot!=fnamemodify(pivot, ':h')
+            let pivot=fnamemodify(pivot, ':h')
+            if len(glob(pivot.'/'.marker))
+                let result=pivot
+            endif
+        endwhile
+        if len(result)
+            return result
+        endif
+    endfor
+    return filereadable(fullfile) ? fnamemodify(fullfile, ':h') : fullfile
 endf
+
+function! ProjectRootCD(...)
+    let r = a:0 && len(a:1) ? ProjectRootGuess(a:1) : ProjectRootGuess()
+    exe 'cd '.r
+endf
+command! -nargs=? -complete=file ProjectRootCD :call ProjectRootCD('<args>')
+
+function! ProjectRootExe(cmd)
+    let olddir = getcwd()
+    try
+        ProjectRootCD
+        exe a:cmd
+    finally
+        exe 'cd '.olddir
+    endtry
+endfun
+command! -nargs=* -complete=command ProjectRootExe :call
+\ ProjectRootExe('<args>')
 
