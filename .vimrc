@@ -68,7 +68,6 @@ set laststatus=2
 imap jk <Esc>
 nnoremap gh gt
 nnoremap gH gT
-nnoremap ,, <c-^>
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
@@ -76,11 +75,13 @@ nnoremap <c-l> <c-w>l
 nnoremap <CR> :noh<CR>
 let mapleader = ','
 set pastetoggle=<Leader>p
+map <Leader>m <c-^>
 map <Leader>t :tabnew<CR>
 map <Leader>o :CtrlPMixed<CR>
 map <Leader>f :call RenameFile()<CR>
-map <Leader>rp :!chmod +x % && clear && ./%<CR>
-map <Leader>rn :!clear && nosetests -v<CR>
+map <Leader>rp :!clear && python %<CR>
+map <Leader>rP :!clear && python3 %<CR>
+map <Leader>rn :call RunNoseTestsOnProjectRoot()<CR>
 map <Leader>rc :!gcc -pipe -m64 -ansi -fPIC -g -O3 -fno-exceptions
     \ -fstack-protector -Wl,-z,relro -Wl,-z,now -fvisibility=hidden -W -Wall
     \ -Wno-unused-parameter -Wno-unused-function -Wno-unused-label
@@ -117,4 +118,38 @@ function! RenameFile()
         redraw!
     endif
 endfunction
+
+" Run nose on project root
+function! RunNoseTestsOnProjectRoot()
+    let root = ProjectRootGuess()
+    exec ':!clear && find '.root.' -name "*test*.py" | xargs nosetests -v -e'
+endfunction
+
+" Project root guesstimate
+if !exists('g:rootmarkers')
+  let g:rootmarkers = ['.git', '.hg', '.svn', '.bzr', 'build.xml']
+endif
+
+function! ProjectRootGuess(...)
+  let fullfile = a:0 ? fnamemodify(expand(a:1), ':p') : expand('%:p')
+  if exists('b:projectroot')
+    if stridx(fullfile, fnamemodify(b:projectroot, ':p'))==0
+      return b:projectroot
+    endif
+  endif
+  for marker in g:rootmarkers
+    let result=''
+    let pivot=fullfile
+    while pivot!=fnamemodify(pivot, ':h')
+      let pivot=fnamemodify(pivot, ':h')
+      if len(glob(pivot.'/'.marker))
+        let result=pivot
+      endif
+    endwhile
+    if len(result)
+      return result
+    endif
+  endfor
+  return filereadable(fullfile) ? fnamemodify(fullfile, ':h') : fullfile
+endf
 
