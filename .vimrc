@@ -78,6 +78,7 @@ let mapleader = ','
 set pastetoggle=<Leader>p
 map <Leader>m <c-^>
 map <Leader>t :tabnew<CR>
+map <Leader>T <c-w><s-t>
 map <Leader>o :CtrlPMixed<CR>
 map <Leader>f :call RenameFile()<CR>
 map <Leader>rp :!clear && python %<CR>
