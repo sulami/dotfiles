@@ -49,6 +49,7 @@ autocmd BufReadPost *
 
 " No cursoline in Gdiff
 autocmd BufRead */.git//* set nocursorline
+autocmd BufEnter */.git/index set wh=999
 
 " Mutt text-width
 autocmd BufRead /tmp/mutt-* set tw=72
