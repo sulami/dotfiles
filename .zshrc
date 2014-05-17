@@ -1,18 +1,10 @@
-# Lines configured by zsh-newuser-install
+# BASIC STUFF
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-setopt autocd
-unsetopt beep
-setopt correct
-bindkey -e
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
 zstyle :compinstall filename '$HOME/.zshrc'
-
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
 
 # PROMPT
 autoload -U colors && colors
@@ -23,7 +15,11 @@ PROMPT=' %1~$(git_super_status) %# '
 ERRORCODE="%(?..%{$fg[red]%} %? <<%{$resetcolor%})"
 RPROMPT="${ERRORCODE}"
 
-# Disable flow control
+# OPTIONS
+setopt autocd
+unsetopt beep
+setopt correct
+bindkey -e
 unsetopt flowcontrol
 
 # VARIABLES
@@ -36,7 +32,7 @@ alias ls='ls --color=auto'
 alias ll='ls -l --color=auto'
 alias la='ls -la --color=auto'
 alias v='vim'
-alias gitlog='git log --decorate --graph'
+alias nosy='nosy -c ~/build/nosy.cfg'
 alias weechat='weechat-curses'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 alias rsync='rsync -aP --stats'
