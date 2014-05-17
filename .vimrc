@@ -67,6 +67,7 @@ set laststatus=2
 
 " Hotkeys
 imap jk <Esc>
+imap <Leader>s <CR>Signed-off-by: Robin Schroer <sulamiification@gmail.com><CR>
 nnoremap gh gt
 nnoremap gH gT
 nnoremap <c-j> <c-w>j
