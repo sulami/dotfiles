@@ -82,6 +82,9 @@ map <Leader>t :tabnew<CR>
 map <Leader>T <c-w><s-t>
 map <Leader>o :CtrlPMixed<CR>
 map <Leader>f :call RenameFile()<CR>
+map <Leader>sk :set ts=8 sw=8 noexpandtab<CR>
+map <Leader>sp :set ts=4 sw=4 expandtab<CR>
+map <Leader>m :!clear && make<CR>
 map <Leader>rp :!clear && python %<CR>
 map <Leader>rP :!clear && python3 %<CR>
 map <Leader>rn :call RunNoseTests()<CR>
