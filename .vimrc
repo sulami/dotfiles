@@ -8,7 +8,7 @@ set winheight=5 " temp value for winminheight
 set winminheight=5 " keep buffers at least 5 rows high
 set winheight=999 " maximise current buffer vertically
 set splitright " open vsplits on the right side
-set showtabline=2
+set showtabline=2 " always show tabline
 set smartindent " indent autmatically
 set tabstop=4 " 1 tab = 4 spaces
 set softtabstop=4 " 1 tab = 4 spaces
@@ -66,34 +66,36 @@ let g:airline_theme = 'solarized'
 set laststatus=2
 
 " Hotkeys
-imap jk <Esc>
+imap jk <Esc> " Faster exit from insert mode
 imap <Leader>s <CR>Signed-off-by: Robin Schroer <sulamiification@gmail.com><CR>
-nnoremap gh gt
+" Kernel sign-off
+nnoremap gh gt " Better tab switching
 nnoremap gH gT
-nnoremap <c-j> <c-w>j
+nnoremap <c-j> <c-w>j " Better buffer switching
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
-nnoremap <CR> :noh<CR>
-let mapleader = ','
-set pastetoggle=<Leader>p
-map <Leader>m <c-^>
-map <Leader>t :tabnew<CR>
-map <Leader>T <c-w><s-t>
-map <Leader>o :CtrlPMixed<CR>
-map <Leader>f :call RenameFile()<CR>
-map <Leader>sk :set ts=8 sw=8 noexpandtab<CR>
-map <Leader>sp :set ts=4 sw=4 expandtab<CR>
-map <Leader>m :!clear && make<CR>
-map <Leader>rp :!clear && python %<CR>
-map <Leader>rP :!clear && python3 %<CR>
-map <Leader>rn :call RunNoseTests()<CR>
-map <Leader>rN :call RunNoseTestsOnProjectRoot()<CR>
+nnoremap <CR> :noh<CR> " Remove search highlights
+let mapleader = ',' " Remap Leader key
+set pastetoggle=<Leader>p " Toggle paste mode
+map <Leader>m <c-^> " Switch to last edited file
+map <Leader>t :tabnew<CR> " Open new tab
+map <Leader>T <c-w><s-t> " Move buffer to new tab
+map <Leader>o :CtrlPMixed<CR> " CtrlP with everythin
+map <Leader>f :call RenameFile()<CR> " Rename current file
+map <Leader>sk :set ts=8 sw=8 noexpandtab<CR> " Kernel coding style
+map <Leader>sp :set ts=4 sw=4 expandtab<CR> " PEP8 coding style
+map <Leader>m :!clear && make<CR> " Make
+map <Leader>rp :!clear && python %<CR> " Python 2
+map <Leader>rP :!clear && python3 %<CR> " Python 3
+map <Leader>rn :call RunNoseTests()<CR> " Nose
+map <Leader>rN :call RunNoseTestsOnProjectRoot()<CR> "Nose on project root
 map <Leader>rd :call ProjectRootExe('!clear && python manage.py test -v 2')<CR>
+" Django tests
 map <Leader>rc :!clear && clang -Weverything -Wno-vla --std=c99 -o %:r % &&
-    \ chmod +x %:r && %:r<CR>
+    \ chmod +x %:r && %:r<CR> " Compile in clang and run
 map <Leader>rC :!clear && clang -g -O0 -std=c99 -Weverything -o %:r % &&
-    \ chmod +x %:r && gdb -ex run %:r<CR>
+    \ chmod +x %:r && gdb -ex run %:r<CR> " Compile in clang and debug
 
 " Multi-purpose tab key, credits to GRB
 function! InsertTabWrapper()
