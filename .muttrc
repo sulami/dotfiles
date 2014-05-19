@@ -9,14 +9,15 @@ set send_charset    = "utf-8"
 set sort            = threads
 set sort_aux        = date-sent
 
-color normal white default
-color message white default
-color hdrdefault cyan default
-color attachment yellow default
-color index cyan default "~N"
-color index cyan default "~O"
-color index red default "~D"
-color indicator default black
+source ~/dotfiles/mutt-colors-solarized-light-16.muttrc
+# color normal white default
+# color message white default
+# color hdrdefault cyan default
+# color attachment yellow default
+# color index cyan default "~N"
+# color index cyan default "~O"
+# color index red default "~D"
+# color indicator default black
 
 # Hotkeys
 bind editor <space> noop
