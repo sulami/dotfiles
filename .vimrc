@@ -83,8 +83,8 @@ map <Leader>t :tabnew<CR> " Open new tab
 map <Leader>T <c-w><s-t> " Move buffer to new tab
 map <Leader>o :CtrlPMixed<CR> " CtrlP with everythin
 map <Leader>f :call RenameFile()<CR> " Rename current file
-map <Leader>sk :set ts=8 sw=8 noexpandtab<CR> " Kernel coding style
-map <Leader>sp :set ts=4 sw=4 expandtab<CR> " PEP8 coding style
+map <Leader>sk :set ts=8 sts=8 sw=8 noexpandtab<CR> " Kernel coding style
+map <Leader>sp :set ts=4 sts=4 sw=4 expandtab<CR> " PEP8 coding style
 map <Leader>m :!clear && make<CR> " Make
 map <Leader>rp :!clear && python %<CR> " Python 2
 map <Leader>rP :!clear && python3 %<CR> " Python 3
