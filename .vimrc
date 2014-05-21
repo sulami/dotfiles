@@ -66,7 +66,7 @@ let g:airline_theme = 'solarized'
 set laststatus=2
 
 " Hotkeys
-imap jk <Esc> " Faster exit from insert mode
+imap jk <Esc>
 imap <Leader>s <CR>Signed-off-by: Robin Schroer <sulamiification@gmail.com><CR>
 " Kernel sign-off
 nnoremap gh gt " Better tab switching
