@@ -4,3 +4,5 @@
 *.log
 *.lock
 .vim/.netrwhist
+.mpd/*
+.ssh/known_hosts
