@@ -26,7 +26,7 @@ set pgp_good_sign="^gpg: Good signature from"
 # if you want to use S-mime instead set the smime_is_default variable to yes
 
 # automatically sign all outgoing messages
-set crypt_autosign
+# set crypt_autosign
 # sign only replies to signed messages
 set crypt_replysign
 
