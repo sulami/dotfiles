@@ -245,14 +245,14 @@ formats = { # {{{
     line_start = "{line_start}";
     line_start_irssi = "{line_start}";
 
-    join = "%K       %G◢ %K: %W{channick $0}%K: {nickhost %w$1}";
-    part = "%K       %y◥ %K: %W{channick $0}%K: {reason %Y$3}";
-    kick = "%K       %r◥ %K: %W{channick $0}%K: {reason %r$3}";
-    quit = "%K       %R◥ %K: %W{channick $0}%K: {reason %R$2}";
+    join = "%K      %G◢ %K: %G{channick $0}%K: {nickhost %w$1}";
+    part = "%K      %y◥ %K: %R{channick $0}%K: {reason %Y$3}";
+    kick = "%K      %r◥ %K: %M{channick $0}%K: {reason %r$3}";
+    quit = "%K      %R◥ %K: %R{channick $0}%K: {reason %R$2}";
     quit_once = "{channel $3} {channick $0} {chanhost $1} %Kquit {reason %r$2}";
 
-    nick_changed =      "%K        %y◢ %K: %n{channick $0} %K: %Y{channick $1}";
-    your_nick_changed = "%K        %y◢ %K: %nyou%K: %Y{channick $1}";
+    nick_changed =      "%K      %y◢ %K: %n{channick $0} %K: %Y{channick $1}";
+    your_nick_changed = "%K      %y◢ %K: %nyou%K: %Y{channick $1}";
 
     pubmsg = "{msgnick %y$[-8]0}$1";
 
