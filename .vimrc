@@ -91,9 +91,9 @@ map <Leader>rn :call RunNoseTests()<CR>
 map <Leader>rN :call RunNoseTestsOnProjectRoot()<CR>
 map <Leader>rd :call ProjectRootExe('!clear && python manage.py test -v 2')<CR>
 map <Leader>rc :!clear && clang -Weverything -Wno-vla --std=c99 -o %:r % &&
-    \ chmod +x %:r && %:r<CR> " Compile in clang and run
+    \ chmod +x %:r && ./%:r<CR>
 map <Leader>rC :!clear && clang -g -O0 -std=c99 -Weverything -o %:r % &&
-    \ chmod +x %:r && gdb -ex run %:r<CR> " Compile in clang and debug
+    \ chmod +x %:r && gdb -ex run ./%:r<CR>
 
 " Multi-purpose tab key, credits to GRB
 function! InsertTabWrapper()
