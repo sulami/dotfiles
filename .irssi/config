@@ -248,13 +248,13 @@ statusbar = {
 };
 settings = {
   core = {
-    real_name = "Rob Schroer";
+    real_name = "Robin Schroer";
     user_name = "sulami";
     nick = "sulami";
   };
   "fe-text" = { actlist_sort = "refnum"; indent = "18"; };
   "fe-common/core" = {
-    theme = "madcow";
+    theme = "zebrah";
     use_status_window = "yes";
     use_msgs_window = "no";
     autocreate_query_level = "DCCMSGS";
