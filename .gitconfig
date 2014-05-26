@@ -16,7 +16,9 @@
     aa = add --all
     ap = add -p
     cm = commit
+    cmm = commit -m
     ca = commit -a
+    cam = commit -am
     pom = push origin master
     pgm = push gh master
     l = log --decorate --graph --oneline
