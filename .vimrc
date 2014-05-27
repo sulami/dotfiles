@@ -54,6 +54,9 @@ autocmd BufEnter */.git/index set wh=999
 " Mutt text-width
 autocmd BufRead /tmp/mutt-* set tw=72
 
+" Fix Markdown
+autocmd BufRead *.md set ft=markdown
+
 " Pathogen
 execute pathogen#infect()
 
