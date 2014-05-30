@@ -70,7 +70,6 @@ set laststatus=2
 
 " Hotkeys
 imap jk <Esc>
-imap <Leader>s <CR>Signed-off-by: Robin Schroer <sulamiification@gmail.com><CR>
 nnoremap gh gt
 nnoremap gH gT
 nnoremap <c-j> <c-w>j
@@ -87,6 +86,8 @@ map <Leader>o :CtrlPMixed<CR>
 map <Leader>f :call RenameFile()<CR>
 map <Leader>sk :set ts=8 sts=8 sw=8 noexpandtab<CR>
 map <Leader>sp :set ts=4 sts=4 sw=4 expandtab<CR>
+map <Leader>so i<CR>Signed-off-by: Robin Schroer <sulamiification@gmail.com>
+    \<CR><Esc>
 map <Leader>rm :!clear && make<CR>
 map <Leader>rp :!clear && python %<CR>
 map <Leader>rP :!clear && python3 %<CR>
