@@ -8,6 +8,7 @@ set editor          = vim
 set send_charset    = "utf-8"
 set sort            = threads
 set sort_aux        = date-sent
+set signature       = "~/dotfiles/signature"
 
 source ~/dotfiles/mutt-colors-solarized-light-16.muttrc
 # color normal white default
@@ -29,3 +30,4 @@ source 'gpg2 -dq ~/dotfiles/.mutt_gmail.gpg |'
 # folder-hook $folder "source ~/dotfiles/.mutt_gmail.gpg |"
 # source "gpg2 -dq ~/dotfiles/.mutt_udag.gpg |"
 # folder-hook $folder "source ~/dotfiles/.mutt_udag.gpg |"
+
