@@ -181,20 +181,20 @@ abstracts = { # {{{
   wallop_action = "%K * $*%n ";
 
   # netsplits
-  netsplit = "     %Ksplit %R< %b\"$*\"%n";
-  netjoin =  "     %Ksplit %G> %b\"$*\"%n";
+  netsplit = "         %Ksplit %R< %b\"$*\"%n";
+  netjoin =  "         %Ksplit %G> %b\"$*\"%n";
 
   # /names list
-  names_users = "%K        %K:─ %nNAMES %K──╼";
+  names_users = "%K             %K:─ %nNAMES %K──╼";
   names_nick = "%_$2$0%_%n$1- ";
   names_nick_op = "{names_nick $* %R}";
   names_nick_halfop = "{names_nick $* %C}";
   names_nick_voice = "{names_nick $* %K}";
-  names_prefix = "%K          %n$1";
+  names_prefix = "%K               %n$1";
   names_channel = "\"%b$*\"%n";
 
   # /whois command
-         whois = "%K           %K$[-8]0 %n- $1";
+  whois = "%K$[-12]0 : %n$1";
 
   # DCC
   dcc = "%g$*%n";
@@ -245,45 +245,45 @@ formats = { # {{{
     line_start = "{line_start}";
     line_start_irssi = "{line_start}";
 
-    join = "%K      %G◢ %K: %G{channick $0}%K: {nickhost %w$1}";
-    part = "%K      %y◥ %K: %R{channick $0}%K: {reason %Y$3}";
-    kick = "%K      %r◥ %K: %M{channick $0}%K: {reason %r$3}";
-    quit = "%K      %R◥ %K: %R{channick $0}%K: {reason %R$2}";
+    join = "%K           %G◥ %K: %G{channick $0}%K : {nickhost %w$1}";
+    part = "%K           %y◢ %K: %R{channick $0}%K : {reason %Y$3}";
+    kick = "%K           %r◢ %K: %M{channick $0}%K : {reason %r$3}";
+    quit = "%K           %R◢ %K: %R{channick $0}%K : {reason %R$2}";
     quit_once = "{channel $3} {channick $0} {chanhost $1} %Kquit {reason %r$2}";
 
-    nick_changed =      "%K      %y◢ %K: %n{channick $0} %K: %Y{channick $1}";
-    your_nick_changed = "%K      %y◢ %K: %nyou%K: %Y{channick $1}";
+    nick_changed =          "%K           %y* %K: %n{channick $0} %K> %Y{channick $1}";
+    your_nick_changed =     "%K           %y* %K: %nyou %K> %Y{channick $1}";
 
-    pubmsg = "{msgnick %y$[-8]0}$1";
+    pubmsg = "{msgnick %y$[-12]0}$1";
 
-    own_msg =                   "{msgnick %r$[-8]0}$1";
-    own_msg_channel =           "{msgnick %r$[-8]0}{msgchannel $1}}$2";
-    own_msg_private_query =     "{msgnick %r$[-8]2}$1";
+    own_msg =                   "{msgnick %r$[-12]0}$1";
+    own_msg_channel =           "{msgnick %r$[-12]0}{msgchannel $1}}$2";
+    own_msg_private_query =     "{msgnick %r$[-12]2}$1";
 
-    pubmsg_me =                 "{msgnick %G$[-8]0}$1";
-    pubmsg_me_channel =         "{msgnick %G$[-8]0}{msgchannel $1}}$2";
+    pubmsg_me =                 "{msgnick %G$[-12]0}$1";
+    pubmsg_me_channel =         "{msgnick %G$[-12]0}{msgchannel $1}}$2";
 
-    pubmsg_hilight =            "{msgnick %G$[-8]1}$2";
-    pubmsg_hilight_channel =    "{msgnick %G$[-8]1}$4{msgchannel $2}$3";
+    pubmsg_hilight =            "{msgnick %G$[-12]1}$2";
+    pubmsg_hilight_channel =    "{msgnick %G$[-12]1}$4{msgchannel $2}$3";
 
-    pubmsg_channel =            "{msgnick $[-8]0}$1";
-    msg_private_query =         "{msgnick $[-8]0}$2";
-    new_topic = "{msgnick %c$[-8]1}%wnew topic %W'$2' %K-- $0";
+    pubmsg_channel =            "{msgnick $[-12]0}$1";
+    msg_private_query =         "{msgnick $[-12]0}$2";
+    new_topic = "{msgnick %c$[-12]1}%wnew topic %W'$2' %K-- $0";
 
-    endofnames =                "%K        %K:── %nEND OF NAMES %K──╼";
+    endofnames =                "%K             %K:─ %nEND OF NAMES %K──╼";
 
   }; # }}}
   "fe-common/irc" = { # {{{
-    chanmode_change =           "%K      %y◢ %K:{channick $1}";
-    server_chanmode_change =    "%K      %y◢ %K: %n {channick $1}";
+    chanmode_change =           "%K          %y◢ %K:{channick $1}";
+    server_chanmode_change =    "%K          %y◢ %K: %n {channick $1}";
 
-    whois        =              "%K        %K:── %nWHOIS $0 %K──╼";
-    end_of_whois =              "%K        %K:── %nEND OF WHOIS %K──╼";
+    whois        =              "%K             %K:── %nWHOIS $0 %K──╼";
+    end_of_whois =              "%K             %K:── %nEND OF WHOIS %K──╼";
 
-    own_action =                "{action %Y$[-8]0}$1";
-    action_private =            "{action %Y$[-8]0}$1";
-    action_private_query =      "{action %Y$[-8]0}$2";
-    action_public =             "{action %Y$[-8]0}$1";
+    own_action =                "{action %Y$[-12]0}. $1";
+    action_private =            "{action %Y$[-12]0}. $1";
+    action_private_query =      "{action %Y$[-12]0}. $2";
+    action_public =             "{action %Y$[-12]0}. $1";
 
   }; # }}}
 }; # }}}
