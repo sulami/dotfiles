@@ -10,7 +10,7 @@ set sort            = threads
 set sort_aux        = date-sent
 set signature       = "~/dotfiles/signature"
 
-source ~/dotfiles/mutt-colors-solarized-light-16.muttrc
+source ~/dotfiles/mutt-colors-solarized-dark-256.muttrc
 # color normal white default
 # color message white default
 # color hdrdefault cyan default
