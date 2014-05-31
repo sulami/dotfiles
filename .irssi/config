@@ -14,15 +14,6 @@ servers = (
     autoconnect = "yes";
   },
   {
-    address = "irc.unixhub.net";
-    chatnet = "Unixhub";
-    nick = "sulami";
-    port = "6667";
-    use_ssl = "yes";
-    ssl_verify = "no";
-    autoconnect = "no";
-  },
-  {
     address = "irc.twitch.tv";
     chatnet = "Twitch";
     nick = "sulamiification";
