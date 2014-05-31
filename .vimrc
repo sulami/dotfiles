@@ -27,9 +27,9 @@ set autoread                " reread changed files automatically
 set foldmethod=manual       " only fold when I want to
 set nofoldenable            " only fold when I want to
 set t_Co=256 " 256 colours
-if ! exists('g:colors_name') || g:colors_name !=# 'solarized'
-    " colorscheme jellybeans " dark colors
-    colorscheme solarized " light colors
+if ! exists('g:colors_name') || g:colors_name !=# 'jellybeans'
+    colorscheme jellybeans " dark colors
+    " colorscheme solarized " light colors
 endif
 
 " Solarized
@@ -63,7 +63,8 @@ let g:airline_powerline_fonts = 0
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 " let g:airline_theme = 'jellybeans'
-let g:airline_theme = 'solarized'
+" let g:airline_theme = 'solarized'
+let g:airline_theme = 'wombat'
 set laststatus=2
 
 " Hotkeys
