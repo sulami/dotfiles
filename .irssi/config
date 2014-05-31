@@ -262,7 +262,7 @@ settings = {
     trackbar_string = "-";
     trackbar_style = "%K";
   };
-  "irc/core" = { part_message = "booty call"; };
+  "irc/core" = { part_message = "PARTy!"; };
 };
 
 logs = { };
