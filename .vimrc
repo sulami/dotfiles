@@ -26,8 +26,6 @@ set fileformats=unix,dos    " line endings
 set autoread                " reread changed files automatically
 set foldmethod=manual       " only fold when I want to
 set nofoldenable            " only fold when I want to
-set mouse=a " enable mouse
-set ttymouse=xterm2 " enable mouse
 set t_Co=256 " 256 colours
 if ! exists('g:colors_name') || g:colors_name !=# 'solarized'
     " colorscheme jellybeans " dark colors
