@@ -246,9 +246,9 @@ formats = { # {{{
     line_start_irssi = "{line_start}";
 
     join = "%K               %G>%K {channick $0} @ {nickhost %w$1}";
-    part = "%K               %R<%K {channick $0} @ {reason %Y$3}";
-    kick = "%K               %R<%K {channick $0} @ {reason %r$3}";
-    quit = "%K               %R<%K {channick $0} @ {reason %R$2}";
+    part = "%K               %R<%K {channick $0} {reason %Y$3}";
+    kick = "%K               %R<%K {channick $0} {reason %r$3}";
+    quit = "%K               %R<%K {channick $0} {reason %R$2}";
     quit_once = "{channel $3} {channick $0} {chanhost $1} %Kquit {reason %r$2}";
 
     nick_changed =          "%K               %y*%K %n{channick $0} %K> %Y{channick $1}";
@@ -256,15 +256,15 @@ formats = { # {{{
 
     pubmsg = "{msgnick %y$[-16]0}$1";
 
-    own_msg =                   "{msgnick %r$[-16]0}$1";
-    own_msg_channel =           "{msgnick %r$[-16]0}{msgchannel $1}}$2";
-    own_msg_private_query =     "{msgnick %r$[-16]2}$1";
+    own_msg =                   "{msgnick %g$[-16]0}$1";
+    own_msg_channel =           "{msgnick %g$[-16]0}{msgchannel $1}}$2";
+    own_msg_private_query =     "{msgnick %g$[-16]2}$1";
 
     pubmsg_me =                 "{msgnick %G$[-16]0}$1";
     pubmsg_me_channel =         "{msgnick %G$[-16]0}{msgchannel $1}}$2";
 
-    pubmsg_hilight =            "{msgnick %G$[-16]1}$2";
-    pubmsg_hilight_channel =    "{msgnick %G$[-16]1}$4{msgchannel $2}$3";
+    pubmsg_hilight =            "{msgnick %R$[-16]1}$2";
+    pubmsg_hilight_channel =    "{msgnick %R$[-16]1}$4{msgchannel $2}$3";
 
     pubmsg_channel =            "{msgnick $[-16]0}$1";
     msg_private_query =         "{msgnick $[-16]0}$2";
