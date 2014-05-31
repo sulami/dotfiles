@@ -19,7 +19,7 @@ RPROMPT="${ERRORCODE}"
 setopt autocd
 unsetopt beep
 setopt correct
-bindkey -e
+bindkey -v
 unsetopt flowcontrol
 
 # VARIABLES
