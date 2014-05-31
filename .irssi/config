@@ -267,6 +267,9 @@ settings = {
 
 logs = { };
 hilights = (
-  { text = "peerwire"; nick = "no"; word = "no"; },
-  { text = "sulami"; nick = "no"; word = "no"; }
+  { text = "sulami"; nick = "no"; word = "no"; },
+  { text = "robin"; nick = "no"; word = "no"; },
+  { text = "schroer"; nick = "no"; word = "no"; },
+  { text = "sulamiification"; nick = "no"; word = "no"; },
+  { text = "peerwire"; nick = "no"; word = "no"; }
 );
