@@ -1,31 +1,31 @@
-set number " line numbering
-set cursorline " highlight current row
-set syntax=on " highlight syntax
-set colorcolumn=80 " highlight col 80
-set showtabline=1 " always show tabline
-set scrolloff=2 " keep cursor from upper/lower end of the buffer
-set winheight=5 " temp value for winminheight
-set winminheight=5 " keep buffers at least 5 rows high
-set winheight=999 " maximise current buffer vertically
-set splitright " open vsplits on the right side
-set showtabline=2 " always show tabline
-set smartindent " indent autmatically
-set tabstop=4 " 1 tab = 4 spaces
-set softtabstop=4 " 1 tab = 4 spaces
-set shiftwidth=4 " shift by 4 spaces
-set shiftround " round indents to multiples of 4 (shiftwidth)
-set expandtab " expand tabs to spaces
-set incsearch " search while typing
-set ignorecase smartcase " ignore case if everything is lowercase
-set noswapfile " no clutter
-set backup " save backups
-set backupdir=/tmp " keep backups in /tmp
-set encoding=utf-8 " unicode ftw
-set fileformat=unix " line endings
-set fileformats=unix,dos " line endings
-set autoread " reread changed files automatically
-set foldmethod=manual " only fold when I want to
-set nofoldenable " only fold when I want to
+set number                  " line numbering
+set cursorline              " highlight current row
+set syntax=on               " highlight syntax
+set colorcolumn=80          " highlight col 80
+set showtabline=1           " always show tabline
+set scrolloff=2             " keep cursor from upper/lower end of the buffer
+set winheight=5             " temp value for winminheight
+set winminheight=5          " keep buffers at least 5 rows high
+set winheight=999           " maximise current buffer vertically
+set splitright              " open vsplits on the right side
+set showtabline=2           " always show tabline
+set smartindent             " indent autmatically
+set tabstop=4               " 1 tab = 4 spaces
+set softtabstop=4           " 1 tab = 4 spaces
+set shiftwidth=4            " shift by 4 spaces
+set shiftround              " round indents to multiples of 4 (shiftwidth)
+set expandtab               " expand tabs to spaces
+set incsearch               " search while typing
+set ignorecase smartcase    " ignore case if everything is lowercase
+set noswapfile              " no clutter
+set backup                  " save backups
+set backupdir=/tmp          " keep backups in /tmp
+set encoding=utf-8          " unicode ftw
+set fileformat=unix         " line endings
+set fileformats=unix,dos    " line endings
+set autoread                " reread changed files automatically
+set foldmethod=manual       " only fold when I want to
+set nofoldenable            " only fold when I want to
 set mouse=a " enable mouse
 set ttymouse=xterm2 " enable mouse
 set t_Co=256 " 256 colours
