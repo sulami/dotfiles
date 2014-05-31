@@ -1,5 +1,5 @@
 servers = (
-  {
+  { 
     address = "irc.quakenet.org";
     chatnet = "QuakeNet";
     port = "6667";
