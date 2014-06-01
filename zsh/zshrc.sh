@@ -1,7 +1,7 @@
 # To install source this file from your .zshrc file
 
 # Change this to reflect your installation directory
-export __GIT_PROMPT_DIR=$HOME/dotfiles/git-prompt
+export __GIT_PROMPT_DIR=$HOME/dotfiles/zsh/git-prompt
 # Initialize colors.
 autoload -U colors
 colors

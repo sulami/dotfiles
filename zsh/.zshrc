@@ -1,7 +1,7 @@
 # BASIC STUFF
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 zstyle :compinstall filename '$HOME/.zshrc'
 autoload -Uz compinit
 compinit
@@ -10,7 +10,7 @@ compinit
 autoload -U colors && colors
 # PROMPT="%{$fg[green]%} %# %{$reset_color%}"
 # PROMPT=" %1~ %# "
-source $HOME/dotfiles/zshrc.sh
+source $HOME/dotfiles/zsh/zshrc.sh
 PROMPT=' %1~$(git_super_status) %# '
 ERRORCODE="%(?..%{$fg[red]%} %? <<%{$resetcolor%})"
 RPROMPT="${ERRORCODE}"
@@ -64,7 +64,7 @@ bindkey '\E[1;5D' backward-word
 bindkey '\E[1;5C' forward-word
 
 # Activate syntax highlighting
-source "$HOME/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "$HOME/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # X-less colors
 if [ "$TERM" = "linux" ]; then

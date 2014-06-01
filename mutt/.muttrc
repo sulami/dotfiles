@@ -1,4 +1,4 @@
-source ~/.mutt-gpg
+source ~/dotfiles/mutt/mutt-gpg
 set mail_check      = 300
 unset record
 set ssl_force_tls   = yes
@@ -10,7 +10,7 @@ set sort            = threads
 set sort_aux        = date-sent
 set signature       = "~/dotfiles/signature"
 
-source ~/dotfiles/mutt-colors-solarized-dark-16.muttrc
+source ~/dotfiles/mutt/mutt-colors-solarized-dark-16.muttrc
 # color normal white default
 # color message white default
 # color hdrdefault cyan default
@@ -26,8 +26,6 @@ bind index R group-reply
 # macro index,pager <f2> '<sync-mailbox><enter-command>source ~/dotfiles/.mutt_gmail.gpg<enter><change-folder>+INBOX<enter>'
 # macro index,pager <f3> '<sync-mailbox><enter-command>source ~/dotfiles/.mutt_udag.gpg<enter><change-folder>+INBOX<enter>'
 
-source 'gpg2 -dq ~/dotfiles/.mutt_gmail.gpg |'
+source 'gpg2 -dq ~/dotfiles/mutt/mutt-gmail.gpg |'
 # folder-hook $folder "source ~/dotfiles/.mutt_gmail.gpg |"
-# source "gpg2 -dq ~/dotfiles/.mutt_udag.gpg |"
-# folder-hook $folder "source ~/dotfiles/.mutt_udag.gpg |"
 
