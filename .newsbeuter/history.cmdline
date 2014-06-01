@@ -1,5 +1,0 @@
-set browser firefox %u
-set browser 'firefox %u'
-set browser=firefox %u
-set browser='firefox %u'
-set browser=firefox
