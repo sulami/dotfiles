@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
-font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
@@ -145,12 +145,12 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-#bar {
-    #status_command i3status
-	#status_command sh /home/sulami/dotfiles/.conky-i3bar
-	#position top
-	#font pango:Inconsolata 12
-#}
+bar {
+    status_command i3status
+    status_command sh /home/sulami/dotfiles/.conky-i3bar
+    position top
+    font Terminus 9
+}
 
 # Autostart
 #exec sh scripts/xrandr.sh
@@ -164,7 +164,8 @@ bindsym $mod+r mode "resize"
 # Settings
 new_window pixel
 hide_edge_borders both
-font pango:Inconsolata 12
+# font pango:Inconsolata 12
+font Terminus 9
 
 #Colors
 # class                 border  backgr. text    indicator
