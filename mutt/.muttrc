@@ -8,7 +8,7 @@ set editor          = vim
 set send_charset    = "utf-8"
 set sort            = threads
 set sort_aux        = date-sent
-set signature       = "~/dotfiles/signature"
+set signature       = "~/dotfiles/mutt/.signature"
 
 source ~/dotfiles/mutt/mutt-colors-solarized-dark-16.muttrc
 # color normal white default
