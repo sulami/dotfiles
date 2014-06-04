@@ -8,11 +8,11 @@ compinit
 
 # PROMPT
 autoload -U colors && colors
-# PROMPT="%{$fg[green]%} %# %{$reset_color%}"
-# PROMPT=" %1~ %# "
 source $HOME/dotfiles/zsh/zshrc.sh
-PROMPT=' %1~$(git_super_status) %# '
-ERRORCODE="%(?..%{$fg[red]%} %? <<%{$resetcolor%})"
+# PROMPT="%{$fg[green]%} %# %{$reset_color%}"
+PROMPT="%B%1~$(git_super_status) %#%b "
+# PROMPT=' %1~$(git_super_status) %# '
+ERRORCODE="%(?..%{$fg[red]%} %? <<%{$reset_color%})"
 RPROMPT="${ERRORCODE}"
 
 # OPTIONS
