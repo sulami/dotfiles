@@ -147,7 +147,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
     status_command i3status
-    status_command sh /home/sulami/dotfiles/.conky-i3bar
+    status_command sh /home/sulami/dotfiles/.i3/.conky-i3bar
     position top
     font Terminus 9
 }
