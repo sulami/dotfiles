@@ -32,11 +32,10 @@ alias ls='ls --color=auto'
 alias ll='ls -l --color=auto'
 alias la='ls -la --color=auto'
 alias v='vim'
-alias nosy='nosy -c ~/build/nosy.cfg'
-alias weechat='weechat-curses'
-alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
+alias make='time make -j16'
 alias rsync='rsync -aP --stats'
 alias wget='wget -c'
+alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 alias yum='sudo yum'
 alias btrfs='sudo btrfs'
 
