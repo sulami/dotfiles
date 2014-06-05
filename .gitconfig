@@ -25,4 +25,9 @@
     ll = log --decorate --graph
 [merge]
     tool = vimdiff
+[sendemail]
+    smtpencryption = tls
+    smtpserver = smtp.gmail.com
+    smtpuser = sulamiification@gmail.com
+    smtpserverport = 587
 
