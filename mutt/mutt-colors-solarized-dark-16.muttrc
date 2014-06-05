@@ -51,20 +51,20 @@ mono  error         bold
 #color index         J_base          default         "~A~N!~T!~p!~Q!~F!~D"      # the rest, new
 color index         red             default         "~A"                        # all messages
 color index         brightred       default         "~E"                        # expired messages
-color index         blue            default         "~N"                        # new messages
-color index         blue            default         "~O"                        # old messages
+color index         yellow          default         "~N"                        # new messages
+color index         yellow          default         "~O"                        # old messages
 color index         white           default         "~R"                        # read messages
-color index         black           default         "~Q"                        # messages that have been replied to
-color index         blue            default         "~U"                        # unread messages
-color index         blue            default         "~U~$"                      # unread, unreferenced messages
+color index         green           default         "~Q"                        # messages that have been replied to
+color index         yellow          default         "~U"                        # unread messages
+color index         yellow          default         "~U~$"                      # unread, unreferenced messages
 color index         brightyellow    default         "~v"                        # messages part of a collapsed thread
 color index         brightyellow    default         "~P"                        # messages from me
-color index         cyan            default         "~N~p!~F"                   # new messages to me
-color index         cyan            default         "~U~p!~F"                   # unread messages to me
+color index         red             default         "~N~p!~F"                   # new messages to me
+color index         red             default         "~U~p!~F"                   # unread messages to me
 color index         red             default         "~F"                        # flagged messages
-color index         red             default         "~N~F"                      # new flagged messages
-color index         red             default         "~N~F~p"                    # new flagged messages to me
-color index         red             default         "~U~F~p"                    # new flagged messages to me
+color index         blue            default         "~N~F"                      # new flagged messages
+color index         blue            default         "~N~F~p"                    # new flagged messages to me
+color index         blue            default         "~U~F~p"                    # new flagged messages to me
 color index         black           red             "~D"                        # deleted messages
 color index         yellow          red             "~v~(~D)"                   # thread with deleted (doesn't differentiate between all or partial)
 #color index         yellow          default         "~(~N)"                    # messages in threads with some unread
