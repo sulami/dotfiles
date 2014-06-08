@@ -10,8 +10,9 @@
 [alias]
     st = status
     di = diff
-    dh = diff HEAD --cached
     ds = diff --stat
+    dh = diff HEAD --cached
+    dhs = diff HEAD --cached --stat
     br = branch
     co = checkout
     aa = add --all
