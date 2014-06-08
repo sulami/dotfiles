@@ -11,6 +11,7 @@
     st = status
     di = diff
     dh = diff HEAD --cached
+    ds = diff --stat
     br = branch
     co = checkout
     aa = add --all
