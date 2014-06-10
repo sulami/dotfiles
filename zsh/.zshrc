@@ -8,7 +8,7 @@ compinit
 
 # PROMPT
 autoload -U colors && colors
-source $HOME/dotfiles/zsh/zshrc.sh
+# source $HOME/dotfiles/zsh/zshrc.sh
 # PROMPT="%{$fg[green]%} %# %{$reset_color%}"
 # PROMPT="%B%1~%b$(git_super_status) %B%#%b "
 PROMPT="%B%1~ %#%b "
