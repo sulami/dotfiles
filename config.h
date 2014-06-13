@@ -1,5 +1,7 @@
 /* see LICENSE for copyright and license */
 
+/* Monsterwm config by sulami.github.io */
+
 #ifndef CONFIG_H
 #define CONFIG_H
 
