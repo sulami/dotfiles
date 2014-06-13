@@ -45,6 +45,7 @@ autocmd BufReadPost *
     \   exe "normal g`\"" |
     \ endif
 
+
 " No cursoline in Gdiff
 autocmd BufRead */.git//* set nocursorline
 autocmd BufEnter */.git/index set wh=999
@@ -66,6 +67,7 @@ let g:airline_right_sep = ''
 " let g:airline_theme = 'solarized'
 let g:airline_theme = 'wombat'
 set laststatus=2
+let g:airline#extensions#whitespace#enabled = 0
 
 " Hotkeys
 imap jk <Esc>
