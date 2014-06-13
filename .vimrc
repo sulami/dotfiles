@@ -1,6 +1,7 @@
 set number                  " line numbering
 set cursorline              " highlight current row
-set syntax=on               " highlight syntax
+filetype plugin on          " enable filetype detection
+syntax on                   " highlight syntax
 set colorcolumn=80          " highlight col 80
 set showtabline=1           " always show tabline
 set scrolloff=2             " keep cursor from upper/lower end of the buffer
