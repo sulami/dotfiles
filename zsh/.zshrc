@@ -24,8 +24,8 @@ bindkey -e
 unsetopt flowcontrol
 
 # VARIABLES
-EDITOR=vim
-VISUAL=vim
+export EDITOR=vim
+export VISUAL=vim
 export XDG_CONFIG_HOME="$HOME"
 
 # ALIASES
