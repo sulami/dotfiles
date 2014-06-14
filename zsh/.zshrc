@@ -40,6 +40,7 @@ alias rsync='rsync -aP --stats'
 alias wget='wget -c'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 alias yum='sudo yum'
+alias pc='pacman'
 alias btrfs='sudo btrfs'
 
 # KEYBINDS
