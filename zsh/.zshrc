@@ -70,22 +70,22 @@ source "$HOME/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # X-less colors
 if [ "$TERM" = "linux" ]; then
-    echo -en "\e]P0151515" #black
-    echo -en "\e]P8505050" #darkgrey
-    echo -en "\e]P1AC4142" #darkred
-    echo -en "\e]P9AC4142" #red
-    echo -en "\e]P290A959" #darkgreen
-    echo -en "\e]PA90A959" #green
-    echo -en "\e]P38F5536" #brown
-    echo -en "\e]PB8F5536" #yellow
-    echo -en "\e]P46A9FB5" #darkblue
-    echo -en "\e]PC6A9FB5" #blue
-    echo -en "\e]P5AA759F" #darkmagenta
-    echo -en "\e]PDAA759F" #magenta
-    echo -en "\e]P675B5AA" #darkcyan
-    echo -en "\e]PE75B5AA" #cyan
-    echo -en "\e]P7F5F5F5" #lightgrey
-    echo -en "\e]PFF5F5F5" #white
+    echo -en "\e]P0121212" #black
+    echo -en "\e]P83B3B3B" #darkgrey
+    echo -en "\e]P1CF6A4C" #darkred
+    echo -en "\e]P9CF6A4C" #red
+    echo -en "\e]P299AD6A" #darkgreen
+    echo -en "\e]PA99AD6A" #green
+    echo -en "\e]P3D8AD4C" #brown
+    echo -en "\e]PBD8AD4C" #yellow
+    echo -en "\e]P4579BC5" #darkblue
+    echo -en "\e]PC579BC5" #blue
+    echo -en "\e]P5A037B0" #darkmagenta
+    echo -en "\e]PDA037B0" #magenta
+    echo -en "\e]P671B9F8" #darkcyan
+    echo -en "\e]PE71B9F8" #cyan
+    echo -en "\e]P7ADADAD" #lightgrey
+    echo -en "\e]PFADADAD" #white
     clear #for background artifacting
 fi
 
