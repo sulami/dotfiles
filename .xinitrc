@@ -14,7 +14,7 @@ feh --bg-fill $HOME/bg.png
 xcompmgr -c -t3 -l3 -r2 -o.5 &
 
 # exec dwm
-exec monsterwm
+exec $HOME/dotfiles/monsterwm/monsterwm2bar.sh
 
 # vim: set ft=sh:
 
