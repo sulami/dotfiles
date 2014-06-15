@@ -22,8 +22,8 @@
 #define FOLLOW_MOUSE    False     /* focus the window the mouse just entered */
 #define CLICK_TO_FOCUS  True      /* focus an unfocused window when clicked  */
 #define FOCUS_BUTTON    Button1   /* mouse button to be used along with CLICK_TO_FOCUS */
-#define BORDER_WIDTH    6         /* window border width */
-#define FOCUS           "#99AD6A" /* focused window border color    */
+#define BORDER_WIDTH    1         /* window border width */
+#define FOCUS           "#597BC5" /* focused window border color    */
 #define UNFOCUS         "#121212" /* unfocused window border color  */
 #define MINWSZ          50        /* minimum window size in pixels  */
 #define DEFAULT_DESKTOP 0         /* the desktop to focus initially */
@@ -36,8 +36,8 @@
  */
 static const AppRule rules[] = { \
     /*  class     desktop  follow  float */
-    { "MPlayer",     3,    True,   False },
-    { "Gimp",        0,    False,  True  },
+    /* { "MPlayer",     3,    True,   False }, */
+    /* { "Gimp",        0,    False,  True  }, */
 };
 
 /* helper for spawning shell commands */
@@ -47,7 +47,7 @@ static const AppRule rules[] = { \
  * custom commands
  * must always end with ', NULL };'
  */
-static const char *termcmd[] = { "urxvt256c-ml",     NULL };
+static const char *termcmd[] = { "urxvt",     NULL };
 static const char *menucmd[] = { "dmenu_run", NULL };
 
 #define DESKTOPCHANGE(K,N) \
