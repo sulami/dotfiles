@@ -22,7 +22,7 @@ while read -t 60 -r wmout || true; do
         done
         r="${r%::*}"
     fi
-    printf "%s%s%s\n" "%{l} $r" "%{c}%{F#FFADADAD}$i" "%{r}$(date +"%F %R") "
+    printf "%s%s%s\n" "%{l} $r" "%{c}%{F#FFADADAD}$i" "%{r}$(date +"%F  %R")  "
 done < "$ff" | bar -d -g x18xx -u 2 -B "#FF121212" -F "#FF579BC5" \
 -f "-*-terminus-*-*-*-12-*-*-*-*-*-*-*" &
 
