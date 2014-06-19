@@ -4,7 +4,7 @@ URxvt*matcher.button: 1
 URxvt.depth: 32
 URxvt*.scrollBar: false
 xRxvt*.loginShell: false
-URxvt*.background: [100]#121212
+URxvt*.background: [90]#121212
 !URxvt*.background: #151516
 !URxvt*.transparent: true
 !URxvt*.shading: 90
