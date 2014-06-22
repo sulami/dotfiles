@@ -1,6 +1,7 @@
 .weechat/weechat.log
 .weechat/logs/*
 .newsbeuter/cache.db
+.newsbeuter/history.*
 *.log
 *.lock
 .vim/.netrwhist

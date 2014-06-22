@@ -1,0 +1,10 @@
+# Reload feeds on startup and on a timer
+auto-reload yes
+reload-time 300
+
+# Set the browser
+browser firefox %u
+
+# Read in vim :P
+pager "vim -c 'set ft=markdown' %f"
+
