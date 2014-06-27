@@ -1,10 +1,10 @@
 URxvt*.perl-ext-common: default,matcher,-option-popup,-selection-popup,-realline
 URxvt*url-launcher: /usr/bin/firefox
 URxvt*matcher.button: 1
-URxvt.depth: 32
+!URxvt.depth: 32
 URxvt*.scrollBar: false
 xRxvt*.loginShell: false
-URxvt*.background: [90]#1a1814
+URxvt*.background: #1a1814
 !URxvt*.transparent: true
 !URxvt*.shading: 90
 URxvt*.foreground: #e6d1a1
@@ -26,14 +26,14 @@ URxvt*.externalBorder: 0
 *color3: #b39559
 *color11: #b39559
 !Blue
-*color4: #5976b3
-*color12: #5976b3
+*color4: #5b6c98
+*color12: #5b6c98
 !Magenta
-*color5: #5d59b3
-*color13: #5d59b3
+*color5: #655b98
+*color13: #655b98
 !Cyan
-*color6: #599cb2
-*color14: #599cb2
+*color6: #5c8899
+*color14: #5c8899
 !White
 *color7: #e6d1a1
 *color15: #e6d1a1
