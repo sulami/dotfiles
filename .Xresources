@@ -1,40 +1,42 @@
 URxvt*.perl-ext-common: default,matcher,-option-popup,-selection-popup,-realline
 URxvt*url-launcher: /usr/bin/firefox
 URxvt*matcher.button: 1
-URxvt.depth: 32
-URxvt*.scrollBar: false
-xRxvt*.loginShell: false
-URxvt*.background: [90]#121212
+!URxvt.depth: 32
+*.scrollBar: false
+*.loginShell: false
 !URxvt*.background: #151516
 !URxvt*.transparent: true
 !URxvt*.shading: 90
-URxvt*.foreground: #C5C8C6
-URxvt*.font: xft:Terminus:size=9
-URxvt*cursorUnderline: true
-URxvt*.internalBorder: 0
-URxvt*.externalBorder: 0
+*.font: xft:Terminus:size=9
+*cursorUnderline: false
+*.internalBorder: 0
+*.externalBorder: 0
 
+!Colors
+*.background: [100]#1A1815
+*.foreground: #E6CFA1
 !Black
-*color0: #3B3B3B
-*color8: #3B3B3B
+*color0: #4D4536
+*color8: #665C48
 !Red
-*color1: #CF6A4C
-*color9: #CF6A4C
+*color1: #B36859
+*color9: #CC7765
 !Green
-*color2: #99AD6A
-*color10: #99AD6A
+*color2: #B3BE59
+*color10: #CCCC67
 !Yellow
-*color3: #D8AD4C
-*color11: #D8AD4C
+*color3: #B39559
+*color11: #CCAA65
 !Blue
-*color4: #597BC5
-*color12: #597BC5
+*color4: #5B6F98
+*color12: #6B92B3
 !Magenta
-*color5: #A037B0
-*color13: #A037B0
+*color5: #665C99
+*color13: #776BB3
 !Cyan
-*color6: #71B9F8
-*color14: #71B9F8
+*color6: #5C8599
+*color14: #6B9BB3
 !White
-*color7: #ADADAD
-*color15: #ADADAD
+*color7: #E6CFA1
+*color15: #FFE6B3
+
