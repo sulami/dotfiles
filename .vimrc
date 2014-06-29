@@ -1,5 +1,4 @@
 set number                  " line numbering
-set cursorline              " highlight current row
 filetype plugin on          " enable filetype detection
 syntax on                   " highlight syntax
 set colorcolumn=80          " highlight col 80
@@ -29,12 +28,12 @@ set foldmethod=manual       " only fold when I want to
 set nofoldenable            " only fold when I want to
 set t_Co=256 " 256 colours
 if ! exists('g:colors_name') || g:colors_name !=# 'jellybeans'
-    colorscheme jellybeans " dark colors
+    colorscheme grb-light " dark colors
     " colorscheme solarized " light colors
 endif
 
 " Solarized
-let g:solarized_termcolors=256 " force 256 colour mode
+" let g:solarized_termcolors=256 " force 256 colour mode
 
 " Tab highlights
 set list
@@ -47,8 +46,7 @@ autocmd BufReadPost *
     \ endif
 
 
-" No cursoline in Gdiff
-autocmd BufRead */.git//* set nocursorline
+" Gdiff window height fix
 autocmd BufEnter */.git/index set wh=999
 
 " Mutt text-width
@@ -64,14 +62,14 @@ autocmd BufRead *.md set ft=markdown
 execute pathogen#infect()
 
 " Airline
-let g:airline_powerline_fonts = 0
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
+" let g:airline_powerline_fonts = 0
+" let g:airline_left_sep = ''
+" let g:airline_right_sep = ''
 " let g:airline_theme = 'jellybeans'
 " let g:airline_theme = 'solarized'
-let g:airline_theme = 'wombat'
-set laststatus=2
-let g:airline#extensions#whitespace#enabled = 0
+" let g:airline_theme = 'wombat'
+set laststatus=0 " disable statusline
+" let g:airline#extensions#whitespace#enabled = 0
 
 " Hotkeys
 imap jk <Esc>
