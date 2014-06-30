@@ -49,7 +49,7 @@ static const AppRule rules[] = { \
  * Adjust those and add them to the shortcuts below to launch anything you want
  * by pressing a key (combination)
  */
-static const char *termcmd[] = { "xterm",     NULL };
+static const char *termcmd[] = { "urxvt",     NULL };
 static const char *menucmd[] = { "dmenu_run", NULL };
 
 #define DESKTOPCHANGE(K,N) \
