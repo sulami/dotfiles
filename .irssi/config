@@ -1,9 +1,4 @@
 servers = (
-  { 
-    address = "irc.quakenet.org";
-    chatnet = "QuakeNet";
-    port = "6667";
-  },
   {
     address = "irc.freenode.net";
     chatnet = "Freenode";
@@ -25,25 +20,15 @@ servers = (
 );
 
 chatnets = {
-  QuakeNet = {
-    type = "IRC";
-    nick = "sulami";
-    username = "sulami";
-    max_kicks = "1";
-    max_msgs = "3";
-    max_whois = "30";
-  };
   freenode = {
     type = "IRC";
     nick = "sulami";
     username = "sulami";
-    autosendcmd = "/^msg nickserv id EPigd0wmedF0i;wait 2000";
   };
-  Unixhub = {
+  Nixers = {
     type = "IRC";
     nick = "sulami";
     username = "sulami";
-    autosendcmd = "/^msg nickserv id EPigd0wmedF0i;wait 2000;/^join #unixhub";
   };
   Twitch = {
     type = "IRC";
@@ -51,10 +36,6 @@ chatnets = {
     username = "sulamiification";
   };
 };
-
-channels = (
-  { name = "#unixhub"; chatnet = "Unixhub"; autojoin = "No"; }
-);
 
 aliases = {
   J = "join";
@@ -272,4 +253,6 @@ hilights = (
   { text = "schroer"; nick = "no"; word = "no"; },
   { text = "sulamiification"; nick = "no"; word = "no"; },
   { text = "peerwire"; nick = "no"; word = "no"; }
+  { text = "frankenwm"; nick = "no"; word = "no"; }
 );
+
