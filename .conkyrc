@@ -1,0 +1,43 @@
+alignment top_left
+gap_x 12
+gap_y 4
+minimum_size 1000
+own_window yes
+own_window_transparent yes
+own_window_type override
+use_xft yes
+xftfont Terminus:size=10
+
+TEXT
+${color #665C48}\
+CPU: \
+${color #E6CFA1}\
+$cpu% \
+${color #665C48}\
+(\
+${color #E6CFA1}\
+$acpitemp°C\
+${color #665C48}\
+)   \
+${color #665C48}\
+MEM: \
+${color #E6CFA1}\
+$memperc%   \
+${color #665C48}\
+NET: \
+${if_up wlp2s0}\
+${color #B3BE59}\
+${wireless_essid wlp2s0} \
+${color #665C48}\
+(\
+${color #B3BE59}\
+${wireless_link_qual_perc wlp2s0}%\
+${color #665C48}\
+)\
+${else}\
+${color #B36859}\
+down\
+${endif}\
+${color #E6CFA1}\
+${alignr}${time %H:%M %Y-%m-%d}
+
