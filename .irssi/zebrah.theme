@@ -263,8 +263,8 @@ formats = { # {{{
     pubmsg_me =                 "{msgnick %G$[-16]0}$1";
     pubmsg_me_channel =         "{msgnick %G$[-16]0}{msgchannel $1}}$2";
 
-    pubmsg_hilight =            "{msgnick %R$[-16]1}$2";
-    pubmsg_hilight_channel =    "{msgnick %R$[-16]1}$4{msgchannel $2}$3";
+    pubmsg_hilight =            "{msgnick %R$[-16]1}%R$2";
+    pubmsg_hilight_channel =    "{msgnick %R$[-16]1}%R$4{msgchannel $2}$3";
 
     pubmsg_channel =            "{msgnick $[-16]0}$1";
     msg_private_query =         "{msgnick $[-16]0}$2";
