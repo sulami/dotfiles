@@ -1,0 +1,72 @@
+alignment top_left
+gap_x 12
+gap_y 4
+minimum_size 1900
+own_window yes
+own_window_transparent yes
+own_window_type override
+use_xft yes
+xftfont Terminus:size=10
+use_spacer yes
+default_bar_size 90 9
+
+TEXT
+${color #665C48}\
+AVG \
+${color #E6CFA1}\
+$loadavg     \
+${color #665C48}\
+CPU \
+${color #E6CFA1}\
+$cpu% \
+${color #665C48}\
+(\
+${color #E6CFA1}\
+$acpitemp°C\
+${color #665C48}\
+)     \
+${color #665C48}\
+MEM \
+${color #E6CFA1}\
+$memperc% \
+${color #665C48}\
+(\
+${color #E6CFA1}\
+$swapperc%\
+${color #665C48}\
+)     \
+${color #665C48}\
+HDD \
+${color #E6CFA1}\
+${fs_used_perc /}%     \
+${color #665C48}\
+NET \
+${if_up br0}\
+${color #E6CFA1}\
+${addr br0}\
+${else}\
+${color #B36859}\
+DOWN\
+${endif}     \
+${color #665C48}\
+UPT \
+${color #E6CFA1}\
+$uptime_short     \
+${color #665C48}\
+MPD \
+${color #E6CFA1}\
+${if_mpd_playing}\
+$mpd_smart\
+${else}\
+NONE\
+${endif}\
+${alignr}\
+${color #665C48}\
+TIME \
+${color #E6CFA1}\
+${time %H:%M}     \
+${color #665C48}\
+DATE \
+${color #E6CFA1}\
+${time %Y-%m-%d}
+
