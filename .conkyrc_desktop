@@ -5,10 +5,10 @@ minimum_size 1900
 own_window yes
 own_window_transparent yes
 own_window_type override
+double_buffer yes
 use_xft yes
 xftfont Terminus:size=10
-use_spacer yes
-default_bar_size 90 9
+use_spacer left
 
 TEXT
 ${color #665C48}\
@@ -68,5 +68,5 @@ ${time %H:%M}     \
 ${color #665C48}\
 DATE \
 ${color #E6CFA1}\
-${time %Y-%m-%d}
+${time %Y-%m-%d}\
 
