@@ -24,7 +24,7 @@ hi VertSplit        ctermbg=darkgrey    ctermfg=black      cterm=NONE
 hi StatusLine       ctermbg=darkgrey    ctermfg=white      cterm=NONE
 hi StatusLineNC     ctermbg=darkgrey    ctermfg=black      cterm=NONE
 
-hi Folded           ctermfg=NONE        ctermbg=NONE       cterm=NONE
+hi Folded           ctermfg=yellow        ctermbg=NONE       cterm=NONE
 hi Title            ctermfg=NONE        ctermbg=NONE       cterm=NONE
 hi Visual           ctermfg=NONE        ctermbg=black      cterm=NONE
 
@@ -32,9 +32,9 @@ hi SpecialKey       ctermfg=NONE        ctermbg=NONE       cterm=NONE
 
 "hi Ignore           ctermfg=NONE        ctermbg=NONE       cterm=NONE
 
-hi Error            ctermfg=NONE         ctermbg=red       cterm=NONE
+hi Error            ctermfg=black         ctermbg=red       cterm=NONE
 hi ErrorMsg         ctermfg=NONE         ctermbg=NONE      cterm=NONE
-hi WarningMsg       ctermfg=NONE         ctermbg=red       cterm=NONE
+hi WarningMsg       ctermfg=black         ctermbg=red       cterm=NONE
 
 " Message displayed in lower left, such as --INSERT--
 hi ModeMsg          ctermfg=red         ctermbg=NONE       cterm=BOLD
@@ -48,10 +48,10 @@ hi PmenuSbar        ctermfg=NONE         ctermbg=yellow     cterm=NONE
 hi Search           ctermfg=NONE         ctermbg=NONE       cterm=underline
 hi Colorcolumn      ctermfg=NONE         ctermbg=black      cterm=NONE
 
-hi DiffAdd          ctermfg=NONE         ctermbg=lightgreen cterm=NONE
-hi DiffChange       ctermfg=NONE         ctermbg=lightblue  cterm=NONE
-hi DiffText         ctermfg=NONE         ctermbg=lightgray  cterm=NONE
-hi DiffDelete       ctermfg=NONE         ctermbg=red   cterm=NONE
+hi DiffAdd          ctermfg=black         ctermbg=green cterm=NONE
+hi DiffChange       ctermfg=black         ctermbg=blue  cterm=NONE
+hi DiffText         ctermfg=black         ctermbg=cyan  cterm=NONE
+hi DiffDelete       ctermfg=black         ctermbg=red   cterm=NONE
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntax highlighting of actual code
