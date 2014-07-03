@@ -20,8 +20,8 @@
 #define FOLLOW_WINDOW   False     /* Follow the window when moved to a different desktop */
 #define CLICK_TO_FOCUS  True      /* Focus an unfocused window when clicked */
 #define BORDER_WIDTH    2         /* window border width */
-#define FOCUS           "#E6CFA1" /* focused window border color   */
-#define UNFOCUS         "#1A1815" /* unfocused window border color */
+#define FOCUS           "#43a172" /* focused window border color   */
+#define UNFOCUS         "#424b6c" /* unfocused window border color */
 #define DESKTOPS        4         /* number of desktops - edit DESKTOPCHANGE keys to suit */
 #define DEFAULT_DESKTOP 0         /* the desktop to focus on exec */
 #define MINWSZ          50        /* minimum window size in pixels */
@@ -52,6 +52,14 @@ static const AppRule rules[] = { \
  */
 static const char *termcmd[] = { "urxvt",     NULL };
 static const char *menucmd[] = { "dmenu_run", NULL };
+static const char *mpdtogg[] = { "mpc",   "toggle" };
+static const char *mpdstop[] = { "mpc",     "stop" };
+static const char *mpdprev[] = { "mpc",     "prev" };
+static const char *mpdnext[] = { "mpc",     "next" };
+/* TODO */
+/* static const char *mute[]    = {}; */
+/* static const char *voldown[] = {}; */
+/* static const char *volup[]   = {}; */
 
 #define DESKTOPCHANGE(K,N) \
     {  MOD4,             K,              change_desktop, {.i = N}}, \
