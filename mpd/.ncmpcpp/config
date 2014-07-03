@@ -58,7 +58,6 @@
 ## If you set format to 44100:16:2, make it 'yes'.
 ##
 #
-visualizer_in_stereo = "yes"
 #
 #visualizer_fifo_path = ""
 #
@@ -394,7 +393,7 @@ user_interface = "alternative" (classic/alternative)
 #
 #display_volume_level = "yes"
 #
-#display_bitrate = "no"
+display_bitrate = "yes"
 #
 #display_remaining_time = "no"
 #
@@ -493,6 +492,7 @@ user_interface = "alternative" (classic/alternative)
 visualizer_fifo_path = "/tmp/mpd.fifo"
 visualizer_output_name = "fifo"
 visualizer_sync_interval = "1"
+visualizer_in_stereo = "no"
 #visualizer_type = "wave" (spectrum/wave)
-visualizer_type = "spectrum" (spectrum/wave)
+visualizer_type = "spectrum"
 
