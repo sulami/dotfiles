@@ -6,7 +6,6 @@ servers = (
     port = "6667";
     use_ssl = "no";
     ssl_verify = "no";
-    autoconnect = "yes";
   },
   {
     address = "irc.twitch.tv";
@@ -16,75 +15,26 @@ servers = (
     password = "oauth:5atdvyyudywq0ca84rbc69f116q6w8v";
     use_ssl = "no";
     ssl_verify = "no";
+  },
+  {
+    address = "irc.nixers.net";
+    chatnet = "Nixers";
+    nick = "sulami";
+    port = "6667";
+    use_ssl = "no";
+    ssl_verify = "no";
+    autoconnect = "yes";
   }
 );
 
 chatnets = {
-  freenode = {
-    type = "IRC";
-    nick = "sulami";
-    username = "sulami";
-  };
-  Nixers = {
-    type = "IRC";
-    nick = "sulami";
-    username = "sulami";
-  };
+  freenode = { type = "IRC"; nick = "sulami"; username = "sulami"; };
+  Nixers = { type = "IRC"; nick = "sulami"; username = "sulami"; };
   Twitch = {
     type = "IRC";
     nick = "sulamiification";
     username = "sulamiification";
   };
-};
-
-aliases = {
-  J = "join";
-  WJOIN = "join -window";
-  WQUERY = "query -window";
-  LEAVE = "part";
-  BYE = "quit";
-  EXIT = "quit";
-  SIGNOFF = "quit";
-  DESCRIBE = "action";
-  DATE = "time";
-  HOST = "userhost";
-  LAST = "lastlog";
-  SAY = "msg *";
-  WI = "whois";
-  WII = "whois $0 $0";
-  WW = "whowas";
-  W = "who";
-  N = "names";
-  M = "msg";
-  T = "topic";
-  C = "clear";
-  CL = "clear";
-  K = "kick";
-  KB = "kickban";
-  KN = "knockout";
-  BANS = "ban";
-  B = "ban";
-  MUB = "unban *";
-  UB = "unban";
-  IG = "ignore";
-  UNIG = "unignore";
-  SB = "scrollback";
-  UMODE = "mode $N";
-  WC = "window close";
-  WN = "window new hide";
-  SV = "say Irssi $J ($V) - http://irssi.org/";
-  GOTO = "sb goto";
-  CHAT = "dcc chat";
-  RUN = "SCRIPT LOAD";
-  CALC = "exec - if command -v bc >/dev/null 2>&1\\; then printf '%s=' '$*'\\; echo '$*' | bc -l\\; else echo bc was not found\\; fi";
-  SBAR = "STATUSBAR";
-  INVITELIST = "mode $C +I";
-  Q = "QUERY";
-  "MANUAL-WINDOWS" = "set use_status_window off;set autocreate_windows off;set autocreate_query_level none;set autoclose_windows off;set reuse_unused_windows on;save";
-  EXEMPTLIST = "mode $C +e";
-  ATAG = "WINDOW SERVER";
-  UNSET = "set -clear";
-  RESET = "set -default";
 };
 
 statusbar = {
@@ -233,6 +183,8 @@ settings = {
     completion_auto = "yes";
     timestamps = "no";
     autolog = "no";
+    hilight_nick_matches = "no";
+    hilight_color = "%r";
   };
   "perl/core/scripts" = {
     awl_placement = "top";
@@ -243,7 +195,6 @@ settings = {
     trackbar_string = "-";
     trackbar_style = "%K";
   };
-  "irc/core" = { part_message = "PARTy!"; };
 };
 
 logs = { };
@@ -252,7 +203,7 @@ hilights = (
   { text = "robin"; nick = "no"; word = "no"; },
   { text = "schroer"; nick = "no"; word = "no"; },
   { text = "sulamiification"; nick = "no"; word = "no"; },
-  { text = "peerwire"; nick = "no"; word = "no"; }
+  { text = "peerwire"; nick = "no"; word = "no"; },
   { text = "frankenwm"; nick = "no"; word = "no"; }
 );
 
