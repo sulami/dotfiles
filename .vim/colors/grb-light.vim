@@ -24,6 +24,10 @@ hi VertSplit        ctermbg=darkgrey    ctermfg=black      cterm=NONE
 hi StatusLine       ctermbg=darkgrey    ctermfg=white      cterm=NONE
 hi StatusLineNC     ctermbg=darkgrey    ctermfg=black      cterm=NONE
 
+hi TabLineSel       ctermbg=NONE        ctermfg=yellow     cterm=NONE
+hi TabLine          ctermbg=NONE        ctermfg=NONE       cterm=NONE
+hi TabLineFill      ctermbg=NONE        ctermfg=NONE       cterm=NONE
+
 hi Folded           ctermfg=yellow        ctermbg=NONE       cterm=NONE
 hi Title            ctermfg=NONE        ctermbg=NONE       cterm=NONE
 hi Visual           ctermfg=NONE        ctermbg=black      cterm=NONE
@@ -37,7 +41,7 @@ hi ErrorMsg         ctermfg=NONE         ctermbg=NONE      cterm=NONE
 hi WarningMsg       ctermfg=black         ctermbg=red       cterm=NONE
 
 " Message displayed in lower left, such as --INSERT--
-hi ModeMsg          ctermfg=red         ctermbg=NONE       cterm=BOLD
+hi ModeMsg          ctermfg=green         ctermbg=NONE       cterm=BOLD
 
 hi CursorLine       ctermfg=NONE         ctermbg=black      cterm=NONE
 hi CursorColumn     ctermfg=NONE         ctermbg=NONE       cterm=BOLD
