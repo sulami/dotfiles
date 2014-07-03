@@ -1,0 +1,42 @@
+URxvt*.perl-ext-common: default,matcher,-option-popup,-selection-popup,-realline
+URxvt*url-launcher: /usr/bin/firefox
+URxvt*matcher.button: 1
+!URxvt.depth: 32
+*.scrollBar: false
+*.loginShell: false
+!URxvt*.background: #151516
+!URxvt*.transparent: true
+!URxvt*.shading: 90
+*.font: xft:Terminus:size=9
+*cursorUnderline: false
+*.internalBorder: 0
+*.externalBorder: 0
+
+!Colors
+*.background: [100]#272d36
+*.foreground: #afbad2
+!Black
+*color0: #424b6c
+*color8: #424b6c
+!Red
+*color1: #cc593b
+*color9: #cc593b
+!Green
+*color2: #43a172
+*color10: #43a172
+!Yellow
+*color3: #abd78b
+*color11: #abd78b
+!Blue
+*color4: #2f7b9d
+*color12: #2f7b9d
+!Magenta
+*color5: #235063
+*color13: #235063
+!Cyan
+*color6: #63a8c7
+*color14: #63a8c7
+!White
+*color7: #afbad2
+*color15: #afbad2
+
