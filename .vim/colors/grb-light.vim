@@ -46,8 +46,8 @@ hi ModeMsg          ctermfg=green         ctermbg=NONE       cterm=BOLD
 hi CursorLine       ctermfg=NONE         ctermbg=black      cterm=NONE
 hi CursorColumn     ctermfg=NONE         ctermbg=NONE       cterm=BOLD
 hi MatchParen       ctermfg=white        ctermbg=darkgray   cterm=NONE
-hi Pmenu            ctermfg=black        ctermbg=yellow     cterm=NONE
-hi PmenuSel         ctermfg=NONE         ctermbg=yellow     cterm=NONE
+hi Pmenu            ctermfg=NONE         ctermbg=black      cterm=NONE
+hi PmenuSel         ctermfg=black        ctermbg=yellow     cterm=NONE
 hi PmenuSbar        ctermfg=NONE         ctermbg=yellow     cterm=NONE
 hi Search           ctermfg=NONE         ctermbg=NONE       cterm=underline
 hi Colorcolumn      ctermfg=NONE         ctermbg=black      cterm=NONE
@@ -70,7 +70,7 @@ hi Function         ctermfg=yellow      ctermbg=NONE        cterm=NONE
 hi Type             ctermfg=yellow      ctermbg=NONE        cterm=NONE
 
 hi Special          ctermfg=NONE        ctermbg=NONE        cterm=NONE
-hi Operator         ctermfg=magenta     ctermbg=NONE        cterm=NONE
+hi Operator         ctermfg=cyan        ctermbg=NONE        cterm=NONE
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Dependent highlighting rules. Mostly irrelevant crap from 1972.
