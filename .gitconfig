@@ -16,7 +16,7 @@
     dhs = diff HEAD --cached --stat
     br = branch
     co = checkout
-    aa = add --all
+    aa = add --all .
     ap = add -p
     cm = commit
     cmm = commit -m
