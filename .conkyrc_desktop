@@ -11,62 +11,62 @@ xftfont Terminus:size=10
 use_spacer left
 
 TEXT
-${color #665C48}\
+${color #3e4b6c}\
 AVG \
-${color #E6CFA1}\
+${color #afbad2}\
 $loadavg     \
-${color #665C48}\
+${color #3e4b6c}\
 CPU \
-${color #E6CFA1}\
+${color #afbad2}\
 $cpu% \
-${color #665C48}\
+${color #3e4b6c}\
 (\
-${color #E6CFA1}\
+${color #afbad2}\
 $acpitemp°C\
-${color #665C48}\
+${color #3e4b6c}\
 )     \
-${color #665C48}\
+${color #3e4b6c}\
 MEM \
-${color #E6CFA1}\
+${color #afbad2}\
 $memperc% \
-${color #665C48}\
+${color #3e4b6c}\
 (\
-${color #E6CFA1}\
+${color #afbad2}\
 $swapperc%\
-${color #665C48}\
+${color #3e4b6c}\
 )     \
-${color #665C48}\
+${color #3e4b6c}\
 HDD \
-${color #E6CFA1}\
+${color #afbad2}\
 ${fs_used_perc /}%     \
-${color #665C48}\
+${color #3e4b6c}\
 NET \
 ${if_up br0}\
-${color #E6CFA1}\
+${color #afbad2}\
 ${addr br0}\
 ${else}\
 ${color #B36859}\
 DOWN\
 ${endif}     \
-${color #665C48}\
+${color #3e4b6c}\
 UPT \
-${color #E6CFA1}\
+${color #afbad2}\
 $uptime_short     \
-${color #665C48}\
+${color #3e4b6c}\
 MPD \
-${color #E6CFA1}\
+${color #afbad2}\
 ${if_mpd_playing}\
 $mpd_smart\
 ${else}\
 NONE\
 ${endif}\
 ${alignr}\
-${color #665C48}\
+${color #3e4b6c}\
 TIME \
-${color #E6CFA1}\
+${color #afbad2}\
 ${time %H:%M}     \
-${color #665C48}\
+${color #3e4b6c}\
 DATE \
-${color #E6CFA1}\
+${color #afbad2}\
 ${time %Y-%m-%d}\
 
