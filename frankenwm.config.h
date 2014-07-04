@@ -39,7 +39,7 @@
  */
 static const AppRule rules[] = { \
     /*  class     desktop  follow  float */
-    { "MPlayer",     3,    True,   False },
+    { "Skype",     -1,    False,   True },
 };
 
 /* helper for spawning shell commands, usually you don't edit this */
@@ -48,17 +48,18 @@ static const AppRule rules[] = { \
 /*
  * EDIT THIS: commands
  * Adjust those and add them to the shortcuts below to launch anything you want
- * by pressing a key (combination)
+ * by pressing a key (combination). The last argument should ALWAYS be an null
+ * pointer.
  */
 static const char *termcmd[] = { "urxvt",     NULL };
 static const char *menucmd[] = { "dmenu_run", NULL };
-static const char *mpdtogg[] = { "mpc",   "toggle" };
-static const char *mpdstop[] = { "mpc",     "stop" };
-static const char *mpdprev[] = { "mpc",     "prev" };
-static const char *mpdnext[] = { "mpc",     "next" };
-static const char *mute[]    = { "~/dotfiles/pulseaudio-ctl.sh", "mute" };
-static const char *voldown[] = { "~/dotfiles/pulseaudio-ctl.sh", "down" };
-static const char *volup[]   = { "~/dotfiles/pulseaudio-ctl.sh",   "up" };
+static const char *mpdtogg[] = { "mpc", "-q", "toggle", NULL };
+static const char *mpdstop[] = { "mpc", "-q", "stop", NULL };
+static const char *mpdprev[] = { "mpc", "-q", "prev", NULL };
+static const char *mpdnext[] = { "mpc", "-q", "next", NULL };
+static const char *mute[]    = { "/home/sulami/dotfiles/pulseaudio-ctl.sh", "mute", NULL };
+static const char *voldown[] = { "/home/sulami/dotfiles/pulseaudio-ctl.sh", "down", NULL };
+static const char *volup[]   = { "/home/sulami/dotfiles/pulseaudio-ctl.sh",   "up", NULL };
 
 #define DESKTOPCHANGE(K,N) \
     {  MOD4,             K,              change_desktop, {.i = N}}, \
@@ -116,6 +117,15 @@ static key keys[] = {
     {  MOD4,             XK_r,          spawn,             {.com = menucmd}},
     /* kill current window */
     {  MOD4|SHIFT,       XK_c,          killclient,        {NULL}},
+
+    /* media keys, there seem to exist no keysyms, so I hardcoded them */
+    { 0,                 0x1008ff11,    spawn,             {.com = voldown}},
+    { 0,                 0x1008ff12,    spawn,             {.com = mute   }},
+    { 0,                 0x1008ff13,    spawn,             {.com = volup  }},
+    { 0,                 0x1008ff14,    spawn,             {.com = mpdtogg}},
+    { 0,                 0x1008ff15,    spawn,             {.com = mpdstop}},
+    { 0,                 0x1008ff16,    spawn,             {.com = mpdprev}},
+    { 0,                 0x1008ff17,    spawn,             {.com = mpdnext}},
 
     /* desktop selection */
        DESKTOPCHANGE(    XK_1,                             0)
