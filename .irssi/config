@@ -172,7 +172,7 @@ settings = {
     user_name = "sulami";
     nick = "sulami";
   };
-  "fe-text" = { actlist_sort = "refnum"; indent = "18"; };
+  "fe-text" = { actlist_sort = "refnum"; indent = "17"; };
   "fe-common/core" = {
     theme = "zebrah";
     use_status_window = "yes";

@@ -240,7 +240,7 @@ formats = {
     nick_changed = "%K               %c*%K %n{channick $0} %K> %c{channick $1}";
     your_nick_changed = "%K               %c*%K %nyou %K> %c{channick $1}";
 
-    pubmsg = "{msgnick %g$[-16]0}%n$1";
+    pubmsg = "{msgnick %b$[-16]0}%n$1";
 
     own_msg = "{msgnick %y$[-16]0}%n$1";
     own_msg_channel = "{msgnick %y$[-16]0}%n{msgchannel $1}}$2";
