@@ -232,9 +232,9 @@ formats = {
     line_start_irssi = "{line_start}";
 
     join = "%K               %G>%n {channick $0} %K@ {nickhost %K$1}";
-    part = "%K               %R<%K {channick $0} {reason %w$3}";
-    kick = "%K               %R<%K {channick $0} {reason %w$3}";
-    quit = "%K               %R<%K {channick $0} {reason %w$2}";
+    part = "%K               %R<%n {channick $0} %K{reason %w$3}";
+    kick = "%K               %R<%n {channick $0} %K{reason %w$3}";
+    quit = "%K               %R<%n {channick $0} %K{reason %w$2}";
     quit_once = "{channel $3} {channick $0} {chanhost $1} %Kquit {reason %r$2}";
 
     nick_changed = "%K               %c*%K %n{channick $0} %K> %c{channick $1}";
