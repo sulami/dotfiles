@@ -56,10 +56,9 @@ static const char *mpdtogg[] = { "mpc",   "toggle" };
 static const char *mpdstop[] = { "mpc",     "stop" };
 static const char *mpdprev[] = { "mpc",     "prev" };
 static const char *mpdnext[] = { "mpc",     "next" };
-/* TODO */
-/* static const char *mute[]    = {}; */
-/* static const char *voldown[] = {}; */
-/* static const char *volup[]   = {}; */
+static const char *mute[]    = { "~/dotfiles/pulseaudio-ctl.sh", "mute" };
+static const char *voldown[] = { "~/dotfiles/pulseaudio-ctl.sh", "down" };
+static const char *volup[]   = { "~/dotfiles/pulseaudio-ctl.sh",   "up" };
 
 #define DESKTOPCHANGE(K,N) \
     {  MOD4,             K,              change_desktop, {.i = N}}, \
