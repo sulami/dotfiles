@@ -45,7 +45,7 @@ ${if_up br0}\
 ${color #afbad2}\
 ${addr br0}\
 ${else}\
-${color #B36859}\
+${color #cc593b}\
 DOWN\
 ${endif}     \
 ${color #3e4b6c}\
