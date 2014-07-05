@@ -7,7 +7,7 @@ URxvt*matcher.button: 1
 !URxvt*.background: #151516
 !URxvt*.transparent: true
 !URxvt*.shading: 90
-*.font: xft:Terminus:size=9
+*.font: -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*
 *cursorUnderline: false
 *.internalBorder: 0
 *.externalBorder: 0
