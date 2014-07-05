@@ -9,35 +9,35 @@ use_xft yes
 xftfont Terminus:size=10
 
 TEXT
-${color #665C48}\
+${color #3E4B6C}\
 CPU: \
-${color #E6CFA1}\
+${color #AFBAD2}\
 $cpu% \
-${color #665C48}\
+${color #3E4B6C}\
 (\
-${color #E6CFA1}\
+${color #AFBAD2}\
 $acpitemp°C\
-${color #665C48}\
+${color #3E4B6C}\
 )   \
-${color #665C48}\
+${color #3E4B6C}\
 MEM: \
-${color #E6CFA1}\
+${color #AFBAD2}\
 $memperc%   \
-${color #665C48}\
+${color #3E4B6C}\
 NET: \
 ${if_up wlp2s0}\
-${color #B3BE59}\
+${color #AFBAD2}\
 ${wireless_essid wlp2s0} \
-${color #665C48}\
+${color #3E4B6C}\
 (\
-${color #B3BE59}\
+${color #AFBAD2}\
 ${wireless_link_qual_perc wlp2s0}%\
-${color #665C48}\
+${color #3E4B6C}\
 )\
 ${else}\
-${color #B36859}\
-down\
+${color #CC593B}\
+DOWN\
 ${endif}\
-${color #E6CFA1}\
+${color #AFBAD2}\
 ${alignr}${time %H:%M %Y-%m-%d}
 
