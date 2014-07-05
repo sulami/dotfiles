@@ -242,9 +242,9 @@ formats = {
 
     pubmsg = "{msgnick %b$[-16]0}%n$1";
 
-    own_msg = "{msgnick %y$[-16]0}%n$1";
-    own_msg_channel = "{msgnick %y$[-16]0}%n{msgchannel $1}}$2";
-    own_msg_private_query = "{msgnick %y$[-16]2}%n$1";
+    own_msg = "{msgnick %c$[-16]0}%n$1";
+    own_msg_channel = "{msgnick %c$[-16]0}%n{msgchannel $1}}$2";
+    own_msg_private_query = "{msgnick %c$[-16]2}%n$1";
 
     pubmsg_me = "{msgnick %r$[-16]0}%n$1";
     pubmsg_me_channel = "{msgnick %r$[-16]0}{msgchannel $1}}%n$2";
