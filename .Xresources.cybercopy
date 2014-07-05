@@ -31,8 +31,8 @@ URxvt*matcher.button: 1
 *color4: #2f7b9d
 *color12: #2f7b9d
 !Magenta
-*color5: #235063
-*color13: #235063
+*color5: #275a6f
+*color13: #275a6f
 !Cyan
 *color6: #63a8c7
 *color14: #63a8c7
