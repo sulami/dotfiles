@@ -53,7 +53,10 @@ static const AppRule rules[] = { \
  * pointer.
  */
 static const char *termcmd[] = { "urxvt",     NULL };
-static const char *menucmd[] = { "dmenu_run", NULL };
+static const char *menucmd[] = { "dmenu_run", "-i",
+                                 "-fn", "-*-terminus-*-*-*-*-16-*-*-*-*-*-*-*",
+                                 "-nb", "#151a25", "-nf", "#afbad2",
+                                 "-sb", "#151a25", "-sf", "#43a172", NULL };
 static const char *mpdtogg[] = { "mpc", "-q", "toggle", NULL };
 static const char *mpdstop[] = { "mpc", "-q", "stop", NULL };
 static const char *mpdprev[] = { "mpc", "-q", "prev", NULL };
