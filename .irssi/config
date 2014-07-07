@@ -207,3 +207,6 @@ hilights = (
   { text = "frankenwm"; nick = "no"; word = "no"; }
 );
 
+ignores = (
+  { level = "JOINS PARTS QUITS NICKS"; servertag = "Freenode"; }
+);
