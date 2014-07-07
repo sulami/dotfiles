@@ -268,10 +268,10 @@ formats = {
     whois = "%K             %K:── %nWHOIS $0 %K──╼";
     end_of_whois = "%K             %K:── %nEND OF WHOIS %K──╼";
 
-    own_action = "{action %c$[-16]0}%B$1";
-    action_private = "{action %c$[-16]0}%B$1";
-    action_private_query = "{action %c$[-16]0}%B$2";
-    action_public = "{action %c$[-16]0}%B$1";
+    own_action = "{action %c$[-16]0}%c$1";
+    action_private = "{action %b$[-16]0}%b$1";
+    action_private_query = "{action %b$[-16]0}%b$2";
+    action_public = "{action %b$[-16]0}%b$1";
 
   };
   # }}}
