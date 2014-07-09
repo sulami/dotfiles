@@ -1,9 +1,9 @@
 help:
 	@echo "=> Targets:"
 	@echo "vim, mutt, zsh, git, tmux, irssi, newsbeuter, mpd, xinitrc, \
-	frankenwm, vimperator, conky_desktop, conky_netbook"
+	frankenwm, vimperator, conky-desktop, conky-netbook"
 	@echo "=> Groups:"
-	@echo "devel, cli, gui"
+	@echo "dev, cli, gui"
 
 LN=ln -s
 
@@ -50,7 +50,7 @@ conky-desktop:
 conky-netbook:
 	$(LN) $(shell pwd)/.conkyrc_netbook ~/.conkyrc
 
-devel: vim mutt zsh git tmux
+dev: vim mutt zsh git tmux
 
 cli: vim mutt zsh git tmux irssi newsbeuter mpd
 
