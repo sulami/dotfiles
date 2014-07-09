@@ -69,13 +69,6 @@ bindkey '\E[1;5C' forward-word
 # Activate syntax highlighting
 source "$HOME/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
-# Activate autosuggestions
-source "$HOME/dotfiles/zsh/zsh-autosuggestions/autosuggestions.zsh"
-zle-line-init() {
-    zle autosuggest-start
-}
-zle -N zle-line-init
-
 # X-less colors
 if [ "$TERM" = "linux" ]; then
     echo -en "\e]P0121212" #black
