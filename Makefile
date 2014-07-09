@@ -1,31 +1,58 @@
 help:
-	echo -e "\nTargets: vim, mutt, zsh, git, tmux, irssi, i3, devel, all\n"
+	@echo "=> Targets:"
+	@echo "vim, mutt, zsh, git, tmux, irssi, newsbeuter, mpd, xinitrc, \
+	frankenwm, vimperator, conky_desktop, conky_netbook"
+	@echo "=> Groups:"
+	@echo "devel, cli, gui"
 
 LN=ln -s
 
 vim:
-	$(LN) .vimrc ~/.vimrc
-	$(LN) .vim ~/.vim
+	$(LN) $(shell pwd)/.vimrc ~/.vimrc
+	$(LN) $(shell pwd)/.vim ~/.vim
 
 mutt:
-	$(LN) mutt/.muttrc ~/.muttrc
+	$(LN) $(shell pwd)/mutt/.muttrc ~/.muttrc
 
 zsh:
-	$(LN) zsh/.zshrc ~/.zshrc
+	$(LN) $(shell pwd)/zsh/.zshrc ~/.zshrc
 
 git:
-	$(LN) .gitconfig ~/.gitconfig
+	$(LN) $(shell pwd)/.gitconfig ~/.gitconfig
 
 tmux:
-	$(LN) .tmux.conf ~/.tmux.conf
+	$(LN) $(shell pwd)/.tmux.conf ~/.tmux.conf
 
 irssi:
-	$(LN) .irrsi ~/.irssi
+	$(LN) $(shell pwd)/.irrsi ~/.irssi
 
-i3:
-	$(LN) .i3 ~/.i3
+newsbeuter:
+	$(LN) $(shell pwd)/.newsbeuter ~/.newsbeuter
 
-devel: vim mutt zsh tmux git
+mpd:
+	$(LN) $(shell pwd)/mpd/.mpdconf ~/.mpdconf
+	$(LN) $(shell pwd)/mpd/.mpd ~/.mpd
+	$(LN) $(shell pwd)/mpd/.ncmpcpp ~/.ncmpcpp
 
-all: vim mutt zsh git tmux irssi i3
+xinitrc:
+	$(LN) $(shell pwd)/.xinitrc ~/.xinitrc
+
+frankenwm:
+	$(LN) $(shell pwd)/.frankenwm.config.h ~/build/frankenwm/config.h
+
+vimperator:
+	$(LN) $(shell pwd)/.vimperator ~/.vimperator
+	$(LN) $(shell pwd)/.vimperatorrc ~/.vimperatorrc
+
+conky-desktop:
+	$(LN) $(shell pwd)/.conkyrc_desktop ~/.conkyrc
+
+conky-netbook:
+	$(LN) $(shell pwd)/.conkyrc_netbook ~/.conkyrc
+
+devel: vim mutt zsh git tmux
+
+cli: vim mutt zsh git tmux irssi newsbeuter mpd
+
+gui: xinitrc frankenwm vimperator conky-desktop
 
