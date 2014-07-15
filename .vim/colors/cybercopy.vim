@@ -14,67 +14,63 @@ endif
 
 let colors_name = "cybercopy"
 
-
-"hi Example         ctermfg=NONE        ctermbg=NONE        cterm=NONE
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General colors
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-hi Normal           ctermfg=NONE        ctermbg=NONE       cterm=NONE
-hi NonText          ctermfg=NONE        ctermbg=NONE       cterm=NONE
-hi CurrentWindow    ctermfg=NONE        ctermbg=lightgrey  cterm=NONE
+hi Normal           ctermfg=NONE        ctermbg=NONE        cterm=NONE
+hi NonText          ctermfg=NONE        ctermbg=NONE        cterm=NONE
+hi CurrentWindow    ctermfg=NONE        ctermbg=NONE        cterm=NONE
 
-hi Cursor           ctermfg=black       ctermbg=white      cterm=reverse
-hi LineNr           ctermfg=darkgray
+hi Cursor           ctermfg=black       ctermbg=yellow      cterm=NONE
+hi LineNr           ctermfg=black       ctermbg=NONE        cterm=NONE
 
-hi VertSplit        ctermbg=darkgrey    ctermfg=black      cterm=NONE
-hi StatusLine       ctermbg=darkgrey    ctermfg=white      cterm=NONE
-hi StatusLineNC     ctermbg=darkgrey    ctermfg=black      cterm=NONE
+hi VertSplit        ctermbg=NONE        ctermfg=black       cterm=NONE
+hi StatusLine       ctermbg=NONE        ctermfg=black       cterm=NONE
+hi StatusLineNC     ctermbg=NONE        ctermfg=black       cterm=NONE
 
-hi TabLineSel       ctermbg=NONE        ctermfg=yellow     cterm=NONE
-hi TabLine          ctermbg=NONE        ctermfg=NONE       cterm=NONE
-hi TabLineFill      ctermbg=NONE        ctermfg=NONE       cterm=NONE
+hi TabLineSel       ctermbg=NONE        ctermfg=yellow       cterm=NONE
+hi TabLine          ctermbg=NONE        ctermfg=black       cterm=NONE
+hi TabLineFill      ctermbg=NONE        ctermfg=NONE        cterm=NONE
 
-hi Folded           ctermfg=yellow        ctermbg=NONE       cterm=NONE
-hi Title            ctermfg=NONE        ctermbg=NONE       cterm=NONE
-hi Visual           ctermfg=NONE        ctermbg=black      cterm=NONE
+hi Folded           ctermfg=yellow      ctermbg=NONE        cterm=NONE
+hi Title            ctermfg=NONE        ctermbg=NONE        cterm=NONE
+hi Visual           ctermfg=NONE        ctermbg=black       cterm=NONE
 
-hi SpecialKey       ctermfg=NONE        ctermbg=NONE       cterm=NONE
+hi SpecialKey       ctermfg=black       ctermbg=NONE        cterm=NONE
 
-"hi Ignore           ctermfg=NONE        ctermbg=NONE       cterm=NONE
+hi Error            ctermfg=black       ctermbg=red         cterm=NONE
+hi ErrorMsg         ctermfg=NONE        ctermbg=NONE        cterm=NONE
+hi WarningMsg       ctermfg=black       ctermbg=red         cterm=NONE
 
-hi Error            ctermfg=black         ctermbg=red       cterm=NONE
-hi ErrorMsg         ctermfg=NONE         ctermbg=NONE      cterm=NONE
-hi WarningMsg       ctermfg=black         ctermbg=red       cterm=NONE
+hi ModeMsg          ctermfg=yellow      ctermbg=NONE        cterm=BOLD
 
-" Message displayed in lower left, such as --INSERT--
-hi ModeMsg          ctermfg=green         ctermbg=NONE       cterm=BOLD
+hi CursorLine       ctermfg=NONE        ctermbg=NONE        cterm=NONE
+hi CursorLineNr     ctermfg=yellow      ctermbg=NONE        cterm=NONE
+hi CursorColumn     ctermfg=NONE        ctermbg=NONE        cterm=BOLD
+hi MatchParen       ctermfg=white       ctermbg=darkgray    cterm=NONE
+hi Pmenu            ctermfg=NONE        ctermbg=black       cterm=NONE
+hi PmenuSel         ctermfg=black       ctermbg=yellow      cterm=NONE
+hi PmenuSbar        ctermfg=NONE        ctermbg=yellow      cterm=NONE
+hi Search           ctermfg=NONE        ctermbg=yellow      cterm=NONE
+hi IncSearch        ctermfg=NONE        ctermbg=yellow      cterm=NONE
+hi ColorColumn      ctermfg=NONE        ctermbg=black       cterm=NONE
 
-hi CursorLine       ctermfg=NONE         ctermbg=black      cterm=NONE
-hi CursorColumn     ctermfg=NONE         ctermbg=NONE       cterm=BOLD
-hi MatchParen       ctermfg=white        ctermbg=darkgray   cterm=NONE
-hi Pmenu            ctermfg=NONE         ctermbg=black      cterm=NONE
-hi PmenuSel         ctermfg=black        ctermbg=yellow     cterm=NONE
-hi PmenuSbar        ctermfg=NONE         ctermbg=yellow     cterm=NONE
-hi Search           ctermfg=NONE         ctermbg=NONE       cterm=underline
-hi Colorcolumn      ctermfg=NONE         ctermbg=black      cterm=NONE
-
-hi DiffAdd          ctermfg=black         ctermbg=green cterm=NONE
-hi DiffChange       ctermfg=black         ctermbg=blue  cterm=NONE
-hi DiffText         ctermfg=black         ctermbg=cyan  cterm=NONE
-hi DiffDelete       ctermfg=black         ctermbg=red   cterm=NONE
+hi DiffAdd          ctermfg=black       ctermbg=green       cterm=NONE
+hi DiffChange       ctermfg=black       ctermbg=blue        cterm=NONE
+hi DiffText         ctermfg=black       ctermbg=cyan        cterm=NONE
+hi DiffDelete       ctermfg=black       ctermbg=red         cterm=NONE
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntax highlighting of actual code
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-hi Comment          ctermfg=darkgrey    ctermbg=NONE        cterm=NONE
-hi Todo             ctermfg=red         ctermbg=NONE        cterm=bold
+hi Comment          ctermfg=magenta     ctermbg=NONE        cterm=NONE
+hi Todo             ctermfg=red         ctermbg=NONE        cterm=BOLD
 hi Constant         ctermfg=green       ctermbg=NONE        cterm=NONE
 
-hi Statement        ctermfg=blue        ctermbg=NONE        cterm=NONE
-hi Identifier       ctermfg=NONE        ctermbg=NONE        cterm=NONE
+hi Statement        ctermfg=cyan        ctermbg=NONE        cterm=NONE
+hi Identifier       ctermfg=blue        ctermbg=NONE        cterm=NONE
 hi Function         ctermfg=yellow      ctermbg=NONE        cterm=NONE
-hi Type             ctermfg=yellow      ctermbg=NONE        cterm=NONE
+hi Type             ctermfg=blue        ctermbg=NONE        cterm=NONE
 
 hi Special          ctermfg=NONE        ctermbg=NONE        cterm=NONE
 hi Operator         ctermfg=cyan        ctermbg=NONE        cterm=NONE
