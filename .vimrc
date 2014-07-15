@@ -55,6 +55,9 @@ autocmd BufRead /tmp/mutt-* set tw=72
 "Git send-email text-width
 autocmd BufRead *.gitsendemail.msg.* set tw=72
 
+" Kernel coding style
+autocmd BufEnter */linux-next/* call KernelStyle()
+
 " Fix Markdown
 autocmd BufRead *.md set ft=markdown
 
@@ -87,8 +90,8 @@ map <Leader>t :tabnew<CR>
 map <Leader>T <c-w><s-t>
 map <Leader>o :CtrlPMixed<CR>
 map <Leader>f :call RenameFile()<CR>
-map <Leader>sk :set ts=8 sts=8 sw=8 noexpandtab<CR>
-map <Leader>sp :set ts=4 sts=4 sw=4 expandtab<CR>
+map <Leader>sk :call KernelStyle()<CR>
+map <Leader>sp :call PEPStyle()<CR>
 map <Leader>so i<CR>Signed-off-by: Robin Schroer <sulamiification@gmail.com>
     \<CR><Esc>
 map <Leader>rl :!clear && pdflatex %<CR>
@@ -102,6 +105,16 @@ map <Leader>rc :!clear && clang -Weverything -Wno-vla --std=c99 -o %:r % &&
     \ chmod +x %:r && ./%:r<CR>
 map <Leader>rC :!clear && clang -g -O0 -std=c99 -Weverything -o %:r % &&
     \ chmod +x %:r && gdb -ex run ./%:r<CR>
+
+" Predefined coding styles - Kernel
+function! KernelStyle()
+    exec ":set ts=8 sts=8 sw=8 noexpandtab"
+endfunction
+
+" Predefined coding styles - PEP8
+function! PEPStyle()
+    exec ":set ts=4 sts=4 sw=4 expandtab"
+endfunction
 
 " Multi-purpose tab key, credits to GRB
 function! InsertTabWrapper()
