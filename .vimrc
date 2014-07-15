@@ -28,7 +28,7 @@ set foldmethod=manual       " only fold when I want to
 set nofoldenable            " only fold when I want to
 set laststatus=0            " disable statusline
 set t_Co=256                " 256 colours
-colorscheme grb-light       " my own colourscheme
+colorscheme cybercopy       " my own colourscheme
 
 " Tab highlights
 set list

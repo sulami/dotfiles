@@ -1,3 +1,10 @@
+"
+" Cybercopy vim colourscheme
+" by sulami
+" => sulami.github.io
+" based on grb-light by Gary Bernhardt
+"
+
 set background=light
 hi clear
 
@@ -5,7 +12,7 @@ if exists("syntax_on")
   syntax reset
 endif
 
-let colors_name = "grb-light"
+let colors_name = "cybercopy"
 
 
 "hi Example         ctermfg=NONE        ctermbg=NONE        cterm=NONE
