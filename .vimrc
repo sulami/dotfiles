@@ -26,14 +26,9 @@ set fileformats=unix,dos    " line endings
 set autoread                " reread changed files automatically
 set foldmethod=manual       " only fold when I want to
 set nofoldenable            " only fold when I want to
-set t_Co=256 " 256 colours
-if ! exists('g:colors_name') || g:colors_name !=# 'jellybeans'
-    colorscheme grb-light " dark colors
-    " colorscheme solarized " light colors
-endif
-
-" Solarized
-" let g:solarized_termcolors=256 " force 256 colour mode
+set laststatus=0            " disable statusline
+set t_Co=256                " 256 colours
+colorscheme grb-light       " my own colourscheme
 
 " Tab highlights
 set list
@@ -45,14 +40,13 @@ autocmd BufReadPost *
     \   exe "normal g`\"" |
     \ endif
 
-
 " Gdiff window height fix
 autocmd BufEnter */.git/index set wh=999
 
 " Mutt text-width
 autocmd BufRead /tmp/mutt-* set tw=72
 
-"Git send-email text-width
+" Git send-email text-width
 autocmd BufRead *.gitsendemail.msg.* set tw=72
 
 " Kernel coding style
@@ -64,15 +58,6 @@ autocmd BufRead *.md set ft=markdown
 " Pathogen
 execute pathogen#infect()
 
-" Airline
-" let g:airline_powerline_fonts = 0
-" let g:airline_left_sep = ''
-" let g:airline_right_sep = ''
-" let g:airline_theme = 'jellybeans'
-" let g:airline_theme = 'solarized'
-" let g:airline_theme = 'wombat'
-set laststatus=0 " disable statusline
-" let g:airline#extensions#whitespace#enabled = 0
 
 " Hotkeys
 imap jk <Esc>
