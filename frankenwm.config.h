@@ -33,9 +33,9 @@
 
 /*
  * EDIT THIS: applicaton specific rules
- * open applications to specified desktop with specified mode.
- * if desktop is negative, then current is assumed
- * sadly, this can not be empty (for now), so enter something non-existent if
+ * Open applications to specified desktop with specified mode.
+ * If desktop is negative, then current is assumed. Desktops are 0-indexed.
+ * Sadly, this can not be empty (for now), so enter something non-existent if
  * you do not wish to use this functionality
  */
 static const AppRule rules[] = { \
@@ -48,8 +48,8 @@ static const AppRule rules[] = { \
 
 /*
  * EDIT THIS: commands
- * Adjust those and add them to the shortcuts below to launch anything you want
- * by pressing a key (combination). The last argument should ALWAYS be an null
+ * Adjust and add these to the shortcuts below to launch anything you want by
+ * pressing a key (combination). The last argument should ALWAYS be a null
  * pointer.
  */
 static const char *termcmd[] = { "urxvt",     NULL };
@@ -93,8 +93,10 @@ static key keys[] = {
     {  MOD4,             XK_Return,     swap_master,       {NULL}},
     /* move the current window to the center of the screen, floating */
     {  MOD4,             XK_c,          centerwindow,      {NULL}},
+    /* toggles v-stack between left- and right-stacking */
+    {  MOD4|SHIFT,       XK_i,          invertstack,       {NULL}},
     /* show/hide all windows on all desktops */
-    {  MOD4|SHIFT,       XK_s,          showhide,          {NULL}},
+    {  MOD4|CONTROL,     XK_s,          showhide,          {NULL}},
 
     /* move floating windows */
     {  MOD4|MOD1,        XK_j,          float_y,           {.i = +10}},
@@ -113,8 +115,7 @@ static key keys[] = {
     {  MOD4|SHIFT,       XK_b,          switch_mode,       {.i = BSTACK}},
     {  MOD4|SHIFT,       XK_g,          switch_mode,       {.i = GRID}},
     {  MOD4|SHIFT,       XK_f,          switch_mode,       {.i = FIBONACCI}},
-    /* toggles v-stack between left- and right-stacking */
-    {  MOD4|SHIFT,       XK_i,          invertstack,       {NULL}},
+    {  MOD4|SHIFT,       XK_d,          switch_mode,       {.i = DUALSTACK}},
 
     /* spawn terminal, dmenu, w/e you want to */
     {  MOD4|SHIFT,       XK_Return,     spawn,             {.com = termcmd}},
@@ -151,15 +152,17 @@ static key keys[] = {
     {  MOD4,             XK_o,          resize_stack,      {.i = -10}},
     {  MOD4,             XK_p,          resize_stack,      {.i = +10}},
 
+    /* resize the borders */
+    {  MOD4|CONTROL,     XK_u,          adjust_borders,    {.i = -1}},
+    {  MOD4|CONTROL,     XK_i,          adjust_borders,    {.i = +1}},
     /* resize the useless gaps between the windows */
-    {  MOD4|SHIFT,       XK_o,          adjust_gaps,       {.i = -1}},
-    {  MOD4|SHIFT,       XK_p,          adjust_gaps,       {.i = +1}},
+    {  MOD4|CONTROL,     XK_o,          adjust_gaps,       {.i = -1}},
+    {  MOD4|CONTROL,     XK_p,          adjust_gaps,       {.i = +1}},
     /* toggle the panel space */
     {  MOD4|CONTROL,     XK_b,          togglepanel,       {NULL}},
 
-    /* exit with different return values */
-    {  MOD4|CONTROL,     XK_r,          quit,              {.i = 0}},
-    {  MOD4|CONTROL,     XK_q,          quit,              {.i = 1}},
+    /* exit */
+    {  MOD4|CONTROL,     XK_q,          quit,              {.i = 0}},
 };
 
 /* EDIT THIS: mouse-based shortcuts */
