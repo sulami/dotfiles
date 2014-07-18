@@ -51,8 +51,8 @@ hi MatchParen       ctermfg=white       ctermbg=darkgray    cterm=NONE
 hi Pmenu            ctermfg=NONE        ctermbg=black       cterm=NONE
 hi PmenuSel         ctermfg=black       ctermbg=yellow      cterm=NONE
 hi PmenuSbar        ctermfg=NONE        ctermbg=yellow      cterm=NONE
-hi Search           ctermfg=NONE        ctermbg=yellow      cterm=NONE
-hi IncSearch        ctermfg=NONE        ctermbg=yellow      cterm=NONE
+hi Search           ctermfg=black       ctermbg=yellow      cterm=NONE
+hi IncSearch        ctermfg=black       ctermbg=yellow      cterm=NONE
 hi ColorColumn      ctermfg=NONE        ctermbg=black       cterm=NONE
 
 hi DiffAdd          ctermfg=black       ctermbg=green       cterm=NONE
