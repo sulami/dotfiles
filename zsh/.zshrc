@@ -34,8 +34,9 @@ alias ll='ls -l --color=auto'
 alias la='ls -la --color=auto'
 alias v='vim'
 alias make='time make -j16'
-alias gitup='git fetch && git co tmp && git br -D master && git co -b master \
-    origin/master && git st'
+alias gitup='git fetch && git co origin/master && git st'
+alias gitauthors='git ls-tree -r -z --name-only HEAD -- * | xargs -0 -n1 git \
+    blame --line-porcelain HEAD | grep  "^author " | sort | uniq -c | sort -nr'
 alias rsync='rsync -aP --stats'
 alias wget='wget -c'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
