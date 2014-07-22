@@ -24,7 +24,12 @@
     ca = commit -a
     cam = commit -am
     pom = push origin master
+    plm = push local master
     pgm = push gh master
+    fe = fetch
+    puo = pull origin master
+    pul = pull local master
+    pug = pull gh master
     l = log --decorate --graph --oneline
     ll = log --decorate --graph
 [merge]
