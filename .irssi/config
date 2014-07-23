@@ -177,14 +177,15 @@ settings = {
     theme = "zebrah";
     use_status_window = "yes";
     use_msgs_window = "no";
-    autocreate_query_level = "DCCMSGS";
+    autocreate_query_level = "MSGS DCCMSGS";
     autocreate_windows = "yes";
     reuse_unused_windows = "yes";
     completion_auto = "yes";
-    timestamps = "no";
+    timestamps = "yes";
     autolog = "no";
     hilight_nick_matches = "no";
     hilight_color = "%r";
+    timestamp_level = "MSGS";
   };
   "perl/core/scripts" = {
     awl_placement = "top";
