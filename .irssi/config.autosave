@@ -172,7 +172,7 @@ settings = {
     user_name = "sulami";
     nick = "sulami";
   };
-  "fe-text" = { actlist_sort = "refnum"; indent = "18"; };
+  "fe-text" = { actlist_sort = "refnum"; indent = "17"; };
   "fe-common/core" = {
     theme = "zebrah";
     use_status_window = "yes";
@@ -183,6 +183,8 @@ settings = {
     completion_auto = "yes";
     timestamps = "no";
     autolog = "no";
+    hilight_nick_matches = "no";
+    hilight_color = "%r";
   };
   "perl/core/scripts" = {
     awl_placement = "top";
@@ -205,3 +207,6 @@ hilights = (
   { text = "frankenwm"; nick = "no"; word = "no"; }
 );
 
+ignores = (
+  { level = "JOINS PARTS QUITS NICKS"; servertag = "Freenode"; }
+);
