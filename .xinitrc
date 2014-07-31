@@ -14,7 +14,7 @@ xsetroot -solid "#151a25"
 # feh --bg-fill $HOME/bg.png &
 xsetroot -cursor_name left_ptr &
 
-xcompmgr -c -f -t3 -l3 -r2 -o.5 &
+# xcompmgr -c -f -t3 -l3 -r2 -o.5 &
 
 conky &
 
