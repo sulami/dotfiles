@@ -82,6 +82,7 @@ map <Leader>so i<CR>Signed-off-by: Robin Schroer <sulamiification@gmail.com>
     \<CR><Esc>
 map <Leader>rl :!clear && pdflatex %<CR>
 map <Leader>rm :!clear && make<CR>
+map <Leader>rM :!clear && make && ./%:r<CR>
 map <Leader>rp :!clear && python %<CR>
 map <Leader>rP :!clear && python3 %<CR>
 map <Leader>rn :call RunNoseTests()<CR>
