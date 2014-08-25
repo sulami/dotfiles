@@ -1,0 +1,69 @@
+# main()
+snippet main
+	int main(string[] args)
+	{
+		${1}
+		return 0;
+	}
+# import <...>
+snippet inp
+	import ${1:std.stdio};${2}
+# If Condition
+snippet if
+	if (${1:/* condition */}) {
+		${2:/* code */}
+	}
+snippet el
+	else {
+		${1}
+	}
+# Tertiary conditional
+snippet t
+	${1:/* condition */} ? ${2:a} : ${3:b}
+# Do While Loop
+snippet do
+	do {
+		${2:/* code */}
+	} while (${1:/* condition */});
+# While Loop
+snippet wh
+	while (${1:/* condition */}) {
+		${2:/* code */}
+	}
+# For Loop
+snippet for
+	for (${2:i} = 0; $2 < ${1:count}; $2${3:++}) {
+		${4:/* code */}
+	}
+# Custom For Loop
+snippet forr
+	for (${1:i} = ${2:0}; ${3:$1 < 10}; $1${4:++}) {
+		${5:/* code */}
+	}
+# Function
+snippet fun
+	${1:void} ${2:function_name}(${3})
+	{
+		${4:/* code */}
+	}
+# Struct
+snippet st
+	struct ${1:`Filename('$1_t', 'name')`} {
+		${2:/* data */}
+	}${3: /* optional variable list */};${4}
+# Class
+snippet cl
+	class ${1:Foo}
+	{
+		this(${2})
+		{
+			${3}
+		}
+		${4}
+	}
+# unsigned
+snippet un
+	unsigned
+# converting
+snippet to
+	to!${1:int}(${2})
