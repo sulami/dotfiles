@@ -91,7 +91,7 @@ map <Leader>rP :!clear && python3 %<CR>
 map <Leader>rn :call RunNoseTests()<CR>
 map <Leader>rN :call RunNoseTestsOnProjectRoot()<CR>
 map <Leader>rD :call ProjectRootExe('!clear && python manage.py test -v 2')<CR>
-map <Leader>rd :!clear && ldc2 -w -wi % && ./%:r<CR>
+map <Leader>rd :!clear && dmd -w -wi % && ./%:r<CR>
 map <Leader>rc :!clear && clang -Weverything -Wno-vla --std=c99 -o %:r % &&
     \ chmod +x %:r && ./%:r<CR>
 map <Leader>rC :!clear && clang -g -O0 -std=c99 -Weverything -o %:r % &&
