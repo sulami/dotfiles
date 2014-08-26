@@ -29,7 +29,10 @@ set foldmethod=manual       " only fold when I want to
 set nofoldenable            " only fold when I want to
 set laststatus=0            " disable statusline
 set t_Co=256                " 256 colours
-colorscheme cybercopy       " my own colourscheme
+colorscheme jellybeans      " colourscheme
+
+" Gvim settings
+set guioptions=agimrLt      " do not use the toolkit for the tabbar/no toolbar
 
 " Tab highlights
 set list
