@@ -62,7 +62,6 @@ autocmd BufRead *.md set ft=markdown
 " Pathogen
 execute pathogen#infect()
 
-
 " Hotkeys
 imap jk <Esc>
 nnoremap gh gt
@@ -81,21 +80,14 @@ map <Leader>o :CtrlPMixed<CR>
 map <Leader>f :call RenameFile()<CR>
 map <Leader>sk :call KernelStyle()<CR>
 map <Leader>sp :call PEPStyle()<CR>
-map <Leader>so i<CR>Signed-off-by: Robin Schroer <sulamiification@gmail.com>
-    \<CR><Esc>
 map <Leader>rl :!clear && pdflatex %<CR>
-map <Leader>rm :!clear && make<CR>
-map <Leader>rM :!clear && make && ./%:r<CR>
+map <Leader>rm :call ProjectRootExe('!clear && make')<CR>
 map <Leader>rp :!clear && python %<CR>
 map <Leader>rP :!clear && python3 %<CR>
-map <Leader>rn :call RunNoseTests()<CR>
-map <Leader>rN :call RunNoseTestsOnProjectRoot()<CR>
+map <Leader>rd :call ProjectRootExe('!clear && dub')<CR>
 map <Leader>rD :call ProjectRootExe('!clear && python manage.py test -v 2')<CR>
-map <Leader>rd :!clear && dmd -w -wi % && ./%:r<CR>
-map <Leader>rc :!clear && clang -Weverything -Wno-vla --std=c99 -o %:r % &&
-    \ chmod +x %:r && ./%:r<CR>
-map <Leader>rC :!clear && clang -g -O0 -std=c99 -Weverything -o %:r % &&
-    \ chmod +x %:r && gdb -ex run ./%:r<CR>
+map <Leader>rc :!clear && gcc -Wall --std=gnu99 -o %:r % && ./%:r<CR>
+imap <Leader>so <CR>Signed-off-by: Robin Schroer <sulamiification@gmail.com>
 
 " Predefined coding styles - Kernel
 function! KernelStyle()
@@ -130,23 +122,10 @@ function! RenameFile()
     endif
 endfunction
 
-" Run nose on test for current file
-function! RunNoseTests()
-    " exec (':!clear && nosetests -v -e ' . expand('%:r') . '_test.py')
-    let str = ':!cd %:h && clear && nosetests -v --exe -e %:r_test.py'
-    exec str
-endfunction
-
-" Run nose on project root
-function! RunNoseTestsOnProjectRoot()
-    let root = ProjectRootGuess()
-    exec ':!clear && find '.root.' -name "*test*.py" | xargs nosetests -v -e'
-endfunction
-
 " Project root guess-stuff, shamelessly stolen from
 " github.com/vim-scripts/projectroot
 if !exists('g:rootmarkers')
-    let g:rootmarkers = ['.git', '.hg', '.svn', '.bzr', 'build.xml']
+    let g:rootmarkers = ['.git', '.hg', '.svn', 'dub.json']
 endif
 
 function! ProjectRootGuess(...)
