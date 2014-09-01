@@ -31,7 +31,7 @@
     pul = pull local master
     pug = pull gh master
     l = log --decorate --graph --oneline
-    ll = log --decorate --graph
+    ll = log --decorate --graph --stat
 [merge]
     tool = vimdiff
 [sendemail]
