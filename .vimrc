@@ -27,7 +27,7 @@ set fileformats=unix,dos    " line endings
 set autoread                " reread changed files automatically
 set foldmethod=manual       " only fold when I want to
 set nofoldenable            " only fold when I want to
-set laststatus=0            " disable statusline
+set laststatus=1            " show statusline only with more than one buffer
 set t_Co=256                " 256 colours
 colorscheme jellybeans      " colourscheme
 
@@ -86,7 +86,7 @@ map <Leader>rp :!clear && python %<CR>
 map <Leader>rP :!clear && python3 %<CR>
 map <Leader>rd :call ProjectRootExe('!clear && dub')<CR>
 map <Leader>rD :call ProjectRootExe('!clear && python manage.py test -v 2')<CR>
-map <Leader>rc :!clear && gcc -Wall --std=gnu99 -o %:r % && ./%:r<CR>
+map <Leader>rc :!clear && gcc -W -Wall --std=gnu99 -o %:r % && ./%:r<CR>
 imap <Leader>so <CR>Signed-off-by: Robin Schroer <sulamiification@gmail.com>
 
 " Predefined coding styles - Kernel
