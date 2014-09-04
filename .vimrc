@@ -48,16 +48,18 @@ autocmd BufReadPost *
 autocmd BufEnter */.git/index set wh=999
 
 " Mutt text-width
-autocmd BufRead /tmp/mutt-* set tw=72
+autocmd BufEnter /tmp/mutt-* set tw=72
 
 " Git send-email text-width
-autocmd BufRead *.gitsendemail.msg.* set tw=72
+autocmd BufEnter *.gitsendemail.msg.* set tw=72
 
 " Kernel coding style
 autocmd BufEnter */linux-next/* call KernelStyle()
 
-" Fix Markdown
-autocmd BufRead *.md set ft=markdown
+" Fix Filetypes
+autocmd BufEnter *.dt set ft=diet
+autocmd BufEnter *.glsl set ft=c
+autocmd BufEnter *.md set ft=markdown
 
 " Pathogen
 execute pathogen#infect()
