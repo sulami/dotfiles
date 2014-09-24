@@ -91,6 +91,23 @@ map <Leader>rD :call ProjectRootExe('!clear && python manage.py test -v 2')<CR>
 map <Leader>rc :!clear && gcc -W -Wall --std=gnu99 -o %:r % && ./%:r<CR>
 imap <Leader>so <CR>Signed-off-by: Robin Schroer <sulamiification@gmail.com>
 
+if has('cscope')
+  set cscopetag cscopeverbose
+
+  if has('quickfix')
+    set cscopequickfix=s-,c-,d-,i-,t-,e-
+  endif
+
+  cnoreabbrev csa cs add
+  cnoreabbrev csf cs find
+  cnoreabbrev csk cs kill
+  cnoreabbrev csr cs reset
+  cnoreabbrev css cs show
+  cnoreabbrev csh cs help
+
+  command -nargs=0 Cscope cs add $VIMSRC/src/cscope.out $VIMSRC/src
+endif
+
 " Predefined coding styles - Kernel
 function! KernelStyle()
     exec ":set ts=8 sts=8 sw=8 noexpandtab"
