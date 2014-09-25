@@ -1,18 +1,3 @@
-URxvt*.perl-ext-common: default,matcher,-option-popup,-selection-popup,-realline
-URxvt*url-launcher: /usr/bin/firefox
-URxvt*matcher.button: 1
-!URxvt.depth: 32
-*.scrollBar: false
-*.loginShell: false
-!URxvt*.background: #151516
-!URxvt*.transparent: true
-!URxvt*.shading: 90
-*.font: xft:Terminus:size=9
-*cursorUnderline: false
-*.internalBorder: 0
-*.externalBorder: 0
-
-!Colors
 *background: #151515
 *foreground: #888888
 ! black

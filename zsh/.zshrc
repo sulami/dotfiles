@@ -72,7 +72,10 @@ bindkey '\E[1;5C' forward-word
 # Activate syntax highlighting
 source "$HOME/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
-# X-less colors
+# X colours
+xrdb -merge ~/dotfiles/Xresources/jellybeans
+
+# X-less colours
 if [ "$TERM" = "linux" ]; then
     echo -en "\e]P0121212" #black
     echo -en "\e]P83B3B3B" #darkgrey
@@ -103,3 +106,4 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 export LESS=-r
 export GROFF_NO_SGR=1
+
