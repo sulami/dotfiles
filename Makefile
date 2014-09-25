@@ -1,9 +1,9 @@
 help:
 	@echo "=> Targets:"
-	@echo "vim, mutt, zsh, git, tmux, irssi, newsbeuter, mpd, xinitrc, \
-	frankenwm, vimperator, conky-desktop, conky-netbook"
+	@echo "vim, mutt, zsh, git, tmux, irssi, newsbeuter, mpd, xresources, \
+	xinitrc, frankenwm, vimperator, conky-desktop, conky-netbook"
 	@echo "=> Groups:"
-	@echo "dev, cli, gui"
+	@echo "dev, cli, gui, all"
 
 LN=ln -s
 
@@ -34,6 +34,9 @@ mpd:
 	$(LN) $(shell pwd)/mpd/.mpd ~/.mpd
 	$(LN) $(shell pwd)/mpd/.ncmpcpp ~/.ncmpcpp
 
+xresources:
+	$(LN) $(shell pwd)/.Xresources ~/.Xresources
+
 xinitrc:
 	$(LN) $(shell pwd)/.xinitrc ~/.xinitrc
 
@@ -52,7 +55,9 @@ conky-netbook:
 
 dev: vim mutt zsh git tmux
 
-cli: vim mutt zsh git tmux irssi newsbeuter mpd
+cli: vim mutt zsh git tmux irssi newsbeuter mpd xresources
 
 gui: xinitrc frankenwm vimperator conky-desktop
+
+all: cli gui
 
