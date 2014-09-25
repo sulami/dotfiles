@@ -1,5 +1,5 @@
 [playlist]
-NumberOfEntries=4
+NumberOfEntries=7
 File1=http://pub9am.di.fm:80/di_progressive?75efb7ca98c04586d59d3ac4
 Title1=DI - Progressive
 Length1=-1
@@ -12,5 +12,14 @@ Length3=-1
 File4=http://pub9am.di.fm:80/di_glitchhop?75efb7ca98c04586d59d3ac4
 Title4=DI - Glitch Hop
 Length4=-1
+File5=http://pub9am.di.fm:80/di_trance?75efb7ca98c04586d59d3ac4
+Title5=DI - Trance
+Length5=-1
+File6=http://pub9am.di.fm:80/di_chillstep?75efb7ca98c04586d59d3ac4
+Title6=DI - Chillstep
+Length6=-1
+File7=http://pub9am.di.fm:80/di_spacemusic?75efb7ca98c04586d59d3ac4
+Title7=DI - Space Dreams
+Length7=-1
 Version=1
 
