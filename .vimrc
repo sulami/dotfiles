@@ -10,6 +10,7 @@ set winminheight=5          " keep buffers at least 5 rows high
 set winheight=999           " maximise current buffer vertically
 set splitright              " open vsplits on the right side
 set showtabline=2           " always show tabline
+set showcmd                 " show incomplete commands
 set smartindent             " indent autmatically
 set tabstop=4               " 1 tab = 4 spaces
 set softtabstop=4           " 1 tab = 4 spaces
@@ -25,7 +26,7 @@ set encoding=utf-8          " unicode ftw
 set fileformat=unix         " line endings
 set fileformats=unix,dos    " line endings
 set autoread                " reread changed files automatically
-set foldmethod=manual       " only fold when I want to
+set foldmethod=indent       " fold based on indents
 set nofoldenable            " only fold when I want to
 set laststatus=1            " show statusline only with more than one buffer
 set t_Co=256                " 256 colours
