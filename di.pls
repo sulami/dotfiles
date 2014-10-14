@@ -1,5 +1,5 @@
 [playlist]
-NumberOfEntries=7
+NumberOfEntries=8
 File1=http://pub9am.di.fm:80/di_progressive?75efb7ca98c04586d59d3ac4
 Title1=DI - Progressive
 Length1=-1
@@ -21,5 +21,8 @@ Length6=-1
 File7=http://pub9am.di.fm:80/di_spacemusic?75efb7ca98c04586d59d3ac4
 Title7=DI - Space Dreams
 Length7=-1
+File8=http://pub9am.di.fm:80/di_vocaltrance?75efb7ca98c04586d59d3ac4
+Title8=DI - Vocal Trance
+Length8=-1
 Version=1
 
