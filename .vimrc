@@ -17,6 +17,8 @@ set softtabstop=4           " 1 tab = 4 spaces
 set shiftwidth=4            " shift by 4 spaces
 set shiftround              " round indents to multiples of 4 (shiftwidth)
 set expandtab               " expand tabs to spaces
+set breakindent             " properly indent wrapped lines
+set showbreak=->\           " mark wrapped lines
 set incsearch               " search while typing
 set ignorecase smartcase    " ignore case if everything is lowercase
 set noswapfile              " no clutter
