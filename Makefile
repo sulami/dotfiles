@@ -31,7 +31,6 @@ newsbeuter:
 
 mpd:
 	$(LN) $(shell pwd)/mpd/.mpdconf ~/.mpdconf
-	$(LN) $(shell pwd)/mpd/.mpd ~/.mpd
 	$(LN) $(shell pwd)/mpd/.ncmpcpp ~/.ncmpcpp
 
 xresources:
