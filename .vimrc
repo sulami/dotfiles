@@ -82,6 +82,7 @@ map <Leader>m <c-^>
 map <Leader>t :tabnew<CR>
 map <Leader>T <c-w><s-t>
 map <Leader>o :CtrlPMixed<CR>
+map <Leader>cc :CtrlPClearCache<CR>
 map <Leader>f :call RenameFile()<CR>
 map <Leader>sk :call KernelStyle()<CR>
 map <Leader>sp :call PEPStyle()<CR>
