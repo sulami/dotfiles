@@ -73,6 +73,9 @@ bindkey '\E[1;5C' forward-word
 # Activate syntax highlighting
 source "$HOME/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
+# Source my custom functions
+source $HOME/dotfiles/zsh/functions/*.sh
+
 # X colours
 xrdb -merge ~/dotfiles/Xresources/jellybeans
 
