@@ -1,14 +1,15 @@
-source ~/dotfiles/mutt/mutt-gpg
+source $HOME/dotfiles/mutt/mutt-gpg
+
+set realname        = "Robin Schroer"
 set mail_check      = 300
 unset record
 set ssl_force_tls   = yes
-set realname        = "Robin Schroer"
 set ssl_starttls    = yes
 set editor          = vim
 set send_charset    = "utf-8"
 set sort            = threads
 set sort_aux        = date-sent
-set signature       = "~/dotfiles/mutt/.signature"
+set signature       = "$HOME/dotfiles/mutt/.signature"
 
 source $HOME/dotfiles/mutt/colors.muttrc
 # color normal white default
@@ -23,9 +24,13 @@ source $HOME/dotfiles/mutt/colors.muttrc
 # Hotkeys
 bind editor <space> noop
 bind index R group-reply
-# macro index,pager <f2> '<sync-mailbox><enter-command>source ~/dotfiles/.mutt_gmail.gpg<enter><change-folder>+INBOX<enter>'
-# macro index,pager <f3> '<sync-mailbox><enter-command>source ~/dotfiles/.mutt_udag.gpg<enter><change-folder>+INBOX<enter>'
+macro index,pager <f2> "<sync-mailbox><enter-command>source 'gpg2 -dq $HOME/dotfiles/mutt/mutt-gmail.gpg |'<enter><change-folder>!<enter>"
+macro index,pager <f3> "<sync-mailbox><enter-command>source 'gpg2 -dq $HOME/dotfiles/mutt/mutt-pawnmail.gpg'<enter><change-folder>imaps://mail.pawnmail.com/<enter>"
+macro index 'c' '<change-folder>?<change-dir><home>^K=<enter>'
 
-source 'gpg2 -dq ~/dotfiles/mutt/mutt-gmail.gpg |'
-# folder-hook $folder "source ~/dotfiles/.mutt_gmail.gpg |"
+source 'gpg2 -dq $HOME/dotfiles/mutt/mutt-gmail.gpg |'
+folder-hook $folder "source 'gpg2 -dq $HOME/dotfiles/mutt/mutt-gmail.gpg |'"
+
+source 'gpg2 -dq $HOME/dotfiles/mutt/mutt-pawnmail.gpg |'
+folder-hook sulami@pawnmail.com "source 'gpg2 -dq $HOME/dotfiles/mutt/mutt-pawnmail.gpg |'"
 
