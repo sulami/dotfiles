@@ -272,11 +272,11 @@
 #
 #playlist_separate_albums = "no"
 #
-#playlist_display_mode = "classic" (classic/columns)
+playlist_display_mode = "columns" (classic/columns)
 #
 #browser_display_mode = "classic" (classic/columns)
 #
-#search_engine_display_mode = "classic" (classic/columns)
+search_engine_display_mode = "columns" (classic/columns)
 #
 #playlist_editor_display_mode = "classic" (classic/columns)
 #
@@ -298,7 +298,7 @@ progressbar_look = "-+ "
 #
 #default_place_to_search_in = "database" (database/playlist)
 #
-user_interface = "alternative" (classic/alternative)
+user_interface = "classic" (classic/alternative)
 #
 #media_library_left_column = "a" (possible values: a,y,g,c,p, legend above)
 #
