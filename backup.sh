@@ -5,10 +5,9 @@ PARENT="/home/sulami/"
 DIRS=("Documents"
       "git"
       "Music"
-      "Pictures"
-      "SteamLibrary")
+      "Pictures")
 
-TARGET="/home/sulami/mnt/data/"
+TARGET="/home/sulami/mnt/raspi/"
 
 for DIR in ${DIRS[*]}
 do
