@@ -13,6 +13,7 @@ vim:
 
 mutt:
 	$(LN) $(shell pwd)/mutt/.muttrc ~/.muttrc
+	$(LN) $(shell pwd)/mutt/.offlineimaprc ~/.offlineimaprc
 
 zsh:
 	$(LN) $(shell pwd)/zsh/.zshrc ~/.zshrc
