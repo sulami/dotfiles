@@ -7,6 +7,8 @@ pythonfile = ~/dotfiles/mutt/offlineimap.py
 localrepository = Pawnmail-local
 remoterepository = Pawnmail-remote
 status_backend = sqlite
+autorefresh = 5
+quick = 5
 
 [Repository Pawnmail-local]
 type = Maildir
@@ -25,6 +27,8 @@ ssl = yes
 localrepository = Gmail-local
 remoterepository = Gmail-remote
 status_backend = sqlite
+autorefresh = 5
+quick = 5
 
 [Repository Gmail-local]
 type = Maildir

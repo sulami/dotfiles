@@ -17,7 +17,7 @@ set sort            = threads
 set sort_aux        = date-sent
 set signature       = "$HOME/dotfiles/mutt/.signature"
 
-mailboxes "$HOME/mail/pawnmail/INBOX" "$HOME/mail/gmail/INBOX"
+mailboxes $HOME/mail/pawnmail/INBOX $HOME/mail/gmail/INBOX
 set mbox_type       = Maildir
 set folder          = $HOME/mail/pawnmail/INBOX
 set spoolfile       = =/
