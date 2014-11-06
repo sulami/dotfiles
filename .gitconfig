@@ -2,7 +2,7 @@
     editor = vim
 [user]
     name = Robin Schroer
-    email = sulamiification@gmail.com
+    email = sulami@peerwire.org
 [push]
     default = simple
 [credential]
@@ -36,7 +36,7 @@
     tool = vimdiff
 [sendemail]
     smtpencryption = tls
-    smtpserver = smtp.gmail.com
-    smtpuser = sulamiification@gmail.com
+    smtpserver = mail.pawnmail.com
+    smtpuser = sulami@peerwire.org
     smtpserverport = 587
 
