@@ -1,8 +1,14 @@
 source $HOME/dotfiles/mutt/mutt-gpg
 
+source 'gpg2 -dq $HOME/dotfiles/mutt/mutt-gmail.gpg |'
+source 'gpg2 -dq $HOME/dotfiles/mutt/mutt-pawnmail.gpg |'
+
+source $HOME/dotfiles/mutt/colors.muttrc
+
 set realname        = "Robin Schroer"
+set from            = sulami@peerwire.org
+set use_from        = yes
 set mail_check      = 300
-unset record
 set ssl_force_tls   = yes
 set ssl_starttls    = yes
 set editor          = vim
@@ -11,26 +17,25 @@ set sort            = threads
 set sort_aux        = date-sent
 set signature       = "$HOME/dotfiles/mutt/.signature"
 
-source $HOME/dotfiles/mutt/colors.muttrc
-# color normal white default
-# color message white default
-# color hdrdefault cyan default
-# color attachment yellow default
-# color index cyan default "~N"
-# color index cyan default "~O"
-# color index red default "~D"
-# color indicator default black
+mailboxes "$HOME/mail/pawnmail/INBOX" "$HOME/mail/gmail/INBOX"
+set mbox_type       = Maildir
+set folder          = $HOME/mail/pawnmail/INBOX
+set spoolfile       = =/
+set record          = =/../Sent
+set postponed       = =/../Drafts
+set header_cache    = /tmp/mutt-header-cache
 
 # Hotkeys
 bind editor <space> noop
 bind index R group-reply
-macro index,pager <f2> "<sync-mailbox><enter-command>source 'gpg2 -dq $HOME/dotfiles/mutt/mutt-gmail.gpg |'<enter><change-folder>!<enter>"
-macro index,pager <f3> "<sync-mailbox><enter-command>source 'gpg2 -dq $HOME/dotfiles/mutt/mutt-pawnmail.gpg'<enter><change-folder>imaps://mail.pawnmail.com/<enter>"
-macro index 'c' '<change-folder>?<change-dir><home>^K=<enter>'
+macro index,pager <f2> "<change-folder>$HOME/mail/pawnmail/INBOX<enter>"
+macro index,pager <f3> "<change-folder>$HOME/mail/gmail/INBOX<enter>"
+macro index 'c' '<change-folder>?<change-dir><home>^K=<enter><enter><enter><enter>'
+macro index,pager d "<save-message>=/../Trash<enter><enter>" "Trash"
 
-source 'gpg2 -dq $HOME/dotfiles/mutt/mutt-gmail.gpg |'
-folder-hook $folder "source 'gpg2 -dq $HOME/dotfiles/mutt/mutt-gmail.gpg |'"
+folder-hook gmail "set smtp_url = smtp://sulamiification:$my_pw_gmail@smtp.gmail.com:587/"
+folder-hook gmail "set from = sulamiification@gmail.com"
 
-source 'gpg2 -dq $HOME/dotfiles/mutt/mutt-pawnmail.gpg |'
-folder-hook pawnmail "source 'gpg2 -dq $HOME/dotfiles/mutt/mutt-pawnmail.gpg |'"
+folder-hook pawnmail "set smtp_url = smtp://sulami@peerwire.org:$my_pw_pawnmail@mail.pawnmail.com:587/"
+folder-hook pawnmail "set from = sulami@peerwire.org"
 
