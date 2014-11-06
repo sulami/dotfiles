@@ -8,7 +8,8 @@ source $HOME/dotfiles/mutt/colors.muttrc
 set realname        = "Robin Schroer"
 set from            = sulami@peerwire.org
 set use_from        = yes
-set mail_check      = 300
+set mail_check      = 30
+set timeout         = 30
 set ssl_force_tls   = yes
 set ssl_starttls    = yes
 set editor          = vim
