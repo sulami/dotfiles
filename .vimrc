@@ -86,15 +86,19 @@ map <Leader>cc :CtrlPClearCache<CR>
 map <Leader>f :call RenameFile()<CR>
 map <Leader>sk :call KernelStyle()<CR>
 map <Leader>sp :call PEPStyle()<CR>
-map <Leader>rl :!clear && pdflatex %<CR>
-map <Leader>rm :call ProjectRootExe('!clear && make')<CR>
 map <Leader>rp :!clear && python %<CR>
 map <Leader>rP :!clear && python3 %<CR>
-map <Leader>rd :call ProjectRootExe('!clear && dub')<CR>
-map <Leader>rD :call ProjectRootExe('!clear && python manage.py test -v 2')<CR>
+map <Leader>rm :call ProjectRootExe('!clear && make')<CR>
+map <Leader>rl :!clear && pdflatex %<CR>
 map <Leader>rc :!clear && gcc -W -Wall --std=gnu99 -o %:r % && ./%:r<CR>
-imap <Leader>so <CR>Signed-off-by: Robin Schroer <sulamiification@gmail.com>
+map <Leader>rt :call ProjectRootExe('!clear && python tests.py')<CR>
 
+" Dynamic Hotkeys
+autocmd BufEnter *.d map <Leader>rd :call ProjectRootExe('!clear && dub')<CR>
+autocmd BufEnter *.py map <Leader>rd :call ProjectRootExe('!clear && python
+                          \ manage.py test -v 2')<CR>
+
+" Cscope
 if has('cscope')
   set cscopetag cscopeverbose
 
@@ -109,7 +113,7 @@ if has('cscope')
   cnoreabbrev css cs show
   cnoreabbrev csh cs help
 
-  command -nargs=0 Cscope cs add $VIMSRC/src/cscope.out $VIMSRC/src
+  command! -nargs=0 Cscope cs add $VIMSRC/src/cscope.out $VIMSRC/src
 endif
 
 " Predefined coding styles - Kernel
