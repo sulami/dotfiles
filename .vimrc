@@ -100,6 +100,12 @@ autocmd BufEnter *.d map <Leader>rd :call ProjectRootExe('!clear && dub')<CR>
 autocmd BufEnter *.py map <Leader>rd :call ProjectRootExe('!clear && python
                           \ manage.py test -v 2')<CR>
 
+" CtrlP
+let g:ctrlp_custom_ignore = {
+\   'dir' : '\v[\/]\.(git)$',
+\   'file': '\v\.(pyc)$',
+\}
+
 " Cscope
 if has('cscope')
   set cscopetag cscopeverbose
