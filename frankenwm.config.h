@@ -30,6 +30,9 @@
 #define MONOCLE_BORDERS False     /* display borders in monocle mode */
 #define INVERT          False     /* use alternative modes by default */
 #define AUTOCENTER      True      /* automatically center windows floating by default */
+#define OUTPUT_TITLE    True     /* output the title of the currently active window */
+#define USE_SCRATCHPAD  True      /* enable the scratchpad functionality */
+#define SCRPDNAME       "scratchpad" /* the name of the scratchpad window */
 
 /*
  * EDIT THIS: applicaton specific rules
@@ -40,7 +43,8 @@
  */
 static const AppRule rules[] = { \
     /*  class     desktop  follow  float */
-    { "Skype",     -1,    False,   True },
+    { "GNU Image",-1,      False,  True },
+    { "Skype",     3,      False,  True },
 };
 
 /* helper for spawning shell commands, usually you don't edit this */
@@ -57,6 +61,7 @@ static const char *menucmd[] = { "dmenu_run", "-i",
                                  "-fn", "-*-terminus-*-*-*-*-16-*-*-*-*-*-*-*",
                                  "-nb", "#151a25", "-nf", "#afbad2",
                                  "-sb", "#151a25", "-sf", "#43a172", NULL };
+static const char *scrpcmd[] = { "urxvt", "-name", "scratchpad",  NULL };
 static const char *mpdtogg[] = { "mpc", "-q", "toggle", NULL };
 static const char *mpdstop[] = { "mpc", "-q", "stop", NULL };
 static const char *mpdprev[] = { "mpc", "-q", "prev", NULL };
@@ -102,6 +107,8 @@ static key keys[] = {
     {  MOD4|SHIFT,       XK_i,          invertstack,       {NULL}},
     /* show/hide all windows on all desktops */
     {  MOD4|CONTROL,     XK_s,          showhide,          {NULL}},
+    /* toggle the scratchpad terminal, if enabled */
+    {  MOD4|SHIFT,       XK_s,          togglescratchpad,  {NULL}},
 
     /* move floating windows */
     {  MOD4|MOD1,        XK_j,          float_y,           {.i = +10}},
