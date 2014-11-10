@@ -86,6 +86,8 @@ map <Leader>cc :CtrlPClearCache<CR>
 map <Leader>f :call RenameFile()<CR>
 map <Leader>sk :call KernelStyle()<CR>
 map <Leader>sp :call PEPStyle()<CR>
+map <Leader>dt :diffthis<CR>
+map <Leader>dp :diffput<CR>
 map <Leader>rp :!clear && python %<CR>
 map <Leader>rP :!clear && python3 %<CR>
 map <Leader>rm :call ProjectRootExe('!clear && make')<CR>
