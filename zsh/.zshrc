@@ -42,6 +42,7 @@ alias gitup='git fetch && git co origin/master && git st'
 alias gitpush='git pom && git pgm && git plm'
 alias gitauthors='git ls-tree -r -z --name-only HEAD -- * | xargs -0 -n1 git \
     blame --line-porcelain HEAD | grep  "^author " | sort | uniq -c | sort -nr'
+alias gitsearch='git rev-list --all | pv | xargs git grep -F'
 alias size='du -sh * | pv | sort -rh'
 alias rsync='rsync -aP --stats'
 alias wget='wget -c'
