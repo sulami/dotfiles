@@ -51,6 +51,9 @@ alias yum='sudo yum'
 alias pc='sudo pacman'
 alias btrfs='sudo btrfs'
 
+# COMPLETIONS
+compdef gpg2=gpg
+
 # KEYBINDS
 typeset -A key
 key[Home]=${terminfo[khome]}
