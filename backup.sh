@@ -5,7 +5,8 @@ PARENT="/home/sulami"
 DIRS=("Documents"
       "git"
       "Music"
-      "Pictures")
+      "Pictures"
+      "Videos")
 
 TARGET="/home/sulami/mnt/raspi"
 
