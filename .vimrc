@@ -107,6 +107,13 @@ let g:ctrlp_custom_ignore = {
 \   'file': '\v\.(pyc)$',
 \}
 
+" Gitgutter
+hi SignColumn                   ctermbg=NONE
+hi GitGutterAddDefault          ctermbg=NONE
+hi GitGutterChangeDefault       ctermbg=NONE
+hi GitGutterDeleteDefault       ctermbg=NONE
+hi GitGutterChangeDeleteDefault ctermbg=NONE
+
 " Cscope
 if has('cscope')
     set cscopetag cscopeverbose
