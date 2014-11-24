@@ -107,6 +107,11 @@ let g:ctrlp_custom_ignore = {
 \   'file': '\v\.(pyc)$',
 \}
 
+" Indent Guides
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+
 " Gitgutter
 hi SignColumn                   ctermbg=NONE
 hi GitGutterAddDefault          ctermbg=NONE
