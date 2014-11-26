@@ -94,7 +94,7 @@ map <Leader>rm :call ProjectRootExe('!clear && make')<CR>
 map <Leader>rl :!clear && pdflatex %<CR>
 map <Leader>rc :!clear && gcc -W -Wall --std=gnu99 -o %:r % && ./%:r<CR>
 map <Leader>rt :call ProjectRootExe('!clear && python setup.py test')<CR>
-map <Leader>rT :call ProjectRootExe('!clear && python setup.py test')<CR>
+map <Leader>rT :call ProjectRootExe('!clear && python3 setup.py test')<CR>
 
 " Dynamic Hotkeys
 autocmd BufEnter *.d map <Leader>rd :call ProjectRootExe('!clear && dub')<CR>
