@@ -24,9 +24,9 @@
     cmm = commit -m
     ca = commit -a
     cam = commit -am
-    pom = push origin master
-    plm = push local master
-    pgm = push gh master
+    pom = push origin master --tags
+    plm = push local master --tags
+    pgm = push gh master --tags
     fe = fetch
     puo = pull origin master
     pul = pull local master
