@@ -1,0 +1,24 @@
+{
+    "db": "~/.f2mdb",
+    "maildir": "~/mail/feeds",
+    "feeds": {
+        "My Blog": "https://sulami.github.io/feed/rss.xml",
+        "Coding Horror": "http://feeds.feedburner.com/codinghorror/",
+        "OneAndOne": "http://geekblog.oneandoneis2.org/index.php?tempskin=_rss2",
+        "DAS": "https://www.destroyallsoftware.com/blog/index.xml",
+        "LambdaOps": "http://lambdaops.com/feed",
+        "UseVim": "http://feeds.feedburner.com/usevim?format=xml",
+        "Commit Strip": "http://www.commitstrip.com/en/feed/",
+        "XKCD": "http://xkcd.com/rss.xml",
+        "What If?": "http://what-if.xkcd.com/feed.atom",
+        "Dilbert": "http://feed.dilbert.com/dilbert/daily_strip?format=xml",
+        "CnH": "http://feeds.feedburner.com/Explosm",
+        "Zero Punctuation": "http://www.escapistmagazine.com/rss/videos/list/1.xml",
+        "Zaaltag": "http://zaaltag.blogspot.com/atom.xml",
+        "5CP": "http://5cp.blogspot.com/feeds/posts/default",
+        "Slappa": "http://slappablog.com/feed/",
+        "Stay Forever": "http://www.stayforever.de/feed/",
+        "BSDNow": "http://feeds.feedburner.com/BsdNowOgg"
+    }
+}
+
