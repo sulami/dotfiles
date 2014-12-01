@@ -23,6 +23,7 @@ git:
 
 tmux:
 	$(LN) $(shell pwd)/.tmux.conf ~/.tmux.conf
+	$(LN) $(shell pwd)/.tmuxinator ~/.tmuxinator
 
 irssi:
 	$(LN) $(shell pwd)/.irrsi ~/.irssi
