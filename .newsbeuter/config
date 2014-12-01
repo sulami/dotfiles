@@ -6,5 +6,5 @@ reload-time 300
 browser firefox %u
 
 # Read in vim :P
-pager "vim -c 'set ft=markdown' %f"
+# pager "vim -c 'set ft=markdown' %f"
 
