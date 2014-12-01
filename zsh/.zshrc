@@ -47,6 +47,7 @@ alias size='du -sh * | pv | sort -rh'
 alias rsync='rsync -aP --stats'
 alias wget='wget -c'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
+alias news='newsbeuter'
 alias yum='sudo yum'
 alias pc='sudo pacman'
 alias btrfs='sudo btrfs'
