@@ -5,16 +5,8 @@ windows:
         layout: bf1d,91x84,0,0,0
         panes:
             - mutt
-    - offlineimap:
-        layout: bf1e,91x84,0,0,1
-        panes:
-            - offlineimap
-    - newsbeuter:
-        layout: bf1e,91x84,0,0,2
-        panes:
-            - newsbeuter
     - work:
-        layout: 5fc7,91x84,0,0,3
+        layout: 5fc7,91x84,0,0,1
         panes:
             - clear
 

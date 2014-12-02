@@ -6,4 +6,5 @@
 #|  |  |  | | /- command
 00  *  *  * * /home/sulami/dotfiles/mutt/commit.sh
 */6 *  *  * * /usr/bin/feed2maildir
+*/5 *  *  * * /usr/bin/offlineimap
 
