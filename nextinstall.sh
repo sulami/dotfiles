@@ -14,6 +14,7 @@
 ARCH=$(uname -m)
 KERNELRELEASE=$(make kernelrelease)
 
+make modules_install
 cp arch/$ARCH/boot/bzImage /boot/vmlinuz-next
 mkinitcpio -k $KERNELRELEASE -c /etc/mkinitcpio.conf -g /boot/initramfs-next.img
 
