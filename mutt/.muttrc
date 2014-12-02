@@ -18,7 +18,7 @@ set sort            = threads
 set sort_aux        = date-sent
 set signature       = "$HOME/dotfiles/mutt/.signature"
 
-mailboxes $HOME/mail/pawnmail/INBOX $HOME/mail/gmail/INBOX
+mailboxes $HOME/mail/pawnmail/INBOX $HOME/mail/gmail/INBOX $HOME/mail/feeds
 set mbox_type       = Maildir
 set folder          = $HOME/mail/pawnmail/INBOX
 set spoolfile       = =/
@@ -31,6 +31,7 @@ bind editor <space> noop
 bind index R group-reply
 macro index,pager <f2> "<change-folder>$HOME/mail/pawnmail/INBOX<enter>"
 macro index,pager <f3> "<change-folder>$HOME/mail/gmail/INBOX<enter>"
+macro index,pager <f4> "<change-folder>$HOME/mail/feeds<enter>"
 macro index 'c' '<change-folder>?<change-dir><home>^K=<enter><enter><enter><enter>'
 macro index,pager d "<save-message>=/../Trash<enter><enter>" "Trash"
 
