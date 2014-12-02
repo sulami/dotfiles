@@ -7,6 +7,7 @@
         "OneAndOne": "http://geekblog.oneandoneis2.org/index.php?tempskin=_rss2",
         "DAS": "https://www.destroyallsoftware.com/blog/index.xml",
         "LambdaOps": "http://lambdaops.com/feed",
+        "GrehKH": "http://www.kroah.com/log/index.rss",
         "UseVim": "http://feeds.feedburner.com/usevim?format=xml",
         "Commit Strip": "http://www.commitstrip.com/en/feed/",
         "XKCD": "http://xkcd.com/rss.xml",
@@ -18,6 +19,9 @@
         "5CP": "http://5cp.blogspot.com/feeds/posts/default",
         "Slappa": "http://slappablog.com/feed/",
         "Stay Forever": "http://www.stayforever.de/feed/",
+        "LAS": "http://feeds2.feedburner.com/TheLinuxActionShowOGG",
+        "CoderRadio": "http://www.jupiterbroadcasting.com/feeds/coderradioogg.xml",
+        "TechSNAP": "http://feeds.feedburner.com/techsnapogg",
         "BSDNow": "http://feeds.feedburner.com/BsdNowOgg"
     }
 }
