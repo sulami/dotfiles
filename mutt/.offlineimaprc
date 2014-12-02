@@ -1,0 +1,50 @@
+[general]
+accounts = Pawnmail, Gmail
+maxsyncaccounts = 2
+pythonfile = ~/dotfiles/mutt/offlineimap.py
+
+[Account Pawnmail]
+localrepository = Pawnmail-local
+remoterepository = Pawnmail-remote
+status_backend = sqlite
+autorefresh = 5
+quick = 5
+
+[Repository Pawnmail-local]
+type = Maildir
+localfolders = ~/mail/pawnmail
+
+[Repository Pawnmail-remote]
+type = IMAP
+remotehost = mail.pawnmail.com
+remoteuser = sulami@peerwire.org
+remotepasseval = passwd("pawnmail")
+cert_fingerprint = 7deb90b110a59abbf3b816428fdd1d6de2ff1ab0
+maxconnnections = 1
+ssl = yes
+
+[Account Gmail]
+localrepository = Gmail-local
+remoterepository = Gmail-remote
+status_backend = sqlite
+autorefresh = 5
+quick = 5
+
+[Repository Gmail-local]
+type = Maildir
+localfolders = ~/mail/gmail
+
+[Repository Gmail-remote]
+type = Gmail
+remoteuser = sulamiification
+remotepasseval = passwd("gmail")
+# cert_fingerprint = fb679e12a6ff179e00a454da8441cc1b6c3d261f
+cert_fingerprint = 9d5e4c35f59fcb4edd3fa4d47a453bbc1cf2aff1
+maxconnnections = 2
+ssl = yes
+folderfilter = lambda folder: folder in ['INBOX', '[Google Mail]/Sent Mail',
+                                         '[Google Mail]/Drafts',
+                                         '[Google Mail]/Trash']
+
+# vim: ft=cfg
+

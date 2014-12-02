@@ -2,7 +2,7 @@
     editor = vim
 [user]
     name = Robin Schroer
-    email = sulamiification@gmail.com
+    email = sulami@peerwire.org
 [push]
     default = simple
 [credential]
@@ -16,6 +16,7 @@
     dhs = diff HEAD --cached --stat
     br = branch
     co = checkout
+    cob = checkout -b
     add = add --all
     aa = add --all .
     ap = add --all -p
@@ -23,20 +24,20 @@
     cmm = commit -m
     ca = commit -a
     cam = commit -am
-    pom = push origin master
-    plm = push local master
-    pgm = push gh master
+    pom = push origin master --tags
+    plm = push local master --tags
+    pgm = push gh master --tags
     fe = fetch
     puo = pull origin master
     pul = pull local master
     pug = pull gh master
     l = log --decorate --graph --oneline
-    ll = log --decorate --graph
+    ll = log --decorate --graph --stat
 [merge]
     tool = vimdiff
 [sendemail]
     smtpencryption = tls
-    smtpserver = smtp.gmail.com
-    smtpuser = sulamiification@gmail.com
+    smtpserver = mail.pawnmail.com
+    smtpuser = sulami@peerwire.org
     smtpserverport = 587
 

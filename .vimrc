@@ -10,12 +10,15 @@ set winminheight=5          " keep buffers at least 5 rows high
 set winheight=999           " maximise current buffer vertically
 set splitright              " open vsplits on the right side
 set showtabline=2           " always show tabline
+set showcmd                 " show incomplete commands
 set smartindent             " indent autmatically
 set tabstop=4               " 1 tab = 4 spaces
 set softtabstop=4           " 1 tab = 4 spaces
 set shiftwidth=4            " shift by 4 spaces
 set shiftround              " round indents to multiples of 4 (shiftwidth)
 set expandtab               " expand tabs to spaces
+set breakindent             " properly indent wrapped lines
+set showbreak=->\           " mark wrapped lines
 set incsearch               " search while typing
 set ignorecase smartcase    " ignore case if everything is lowercase
 set noswapfile              " no clutter
@@ -25,9 +28,9 @@ set encoding=utf-8          " unicode ftw
 set fileformat=unix         " line endings
 set fileformats=unix,dos    " line endings
 set autoread                " reread changed files automatically
-set foldmethod=manual       " only fold when I want to
+set foldmethod=indent       " fold based on indents
 set nofoldenable            " only fold when I want to
-set laststatus=0            " disable statusline
+set laststatus=1            " show statusline only with more than one buffer
 set t_Co=256                " 256 colours
 colorscheme jellybeans      " colourscheme
 
@@ -48,16 +51,18 @@ autocmd BufReadPost *
 autocmd BufEnter */.git/index set wh=999
 
 " Mutt text-width
-autocmd BufRead /tmp/mutt-* set tw=72
+autocmd BufEnter /tmp/mutt-* set tw=72
 
 " Git send-email text-width
-autocmd BufRead *.gitsendemail.msg.* set tw=72
+autocmd BufEnter *.gitsendemail.msg.* set tw=72
 
 " Kernel coding style
 autocmd BufEnter */linux-next/* call KernelStyle()
 
-" Fix Markdown
-autocmd BufRead *.md set ft=markdown
+" Fix Filetypes
+autocmd BufEnter *.dt set ft=diet
+autocmd BufEnter *.glsl set ft=c
+autocmd BufEnter *.md set ft=markdown
 
 " Pathogen
 execute pathogen#infect()
@@ -77,17 +82,62 @@ map <Leader>m <c-^>
 map <Leader>t :tabnew<CR>
 map <Leader>T <c-w><s-t>
 map <Leader>o :CtrlPMixed<CR>
+map <Leader>cc :CtrlPClearCache<CR>
 map <Leader>f :call RenameFile()<CR>
 map <Leader>sk :call KernelStyle()<CR>
 map <Leader>sp :call PEPStyle()<CR>
-map <Leader>rl :!clear && pdflatex %<CR>
-map <Leader>rm :call ProjectRootExe('!clear && make')<CR>
+map <Leader>dt :diffthis<CR>
+map <Leader>dp :diffput<CR>
 map <Leader>rp :!clear && python %<CR>
 map <Leader>rP :!clear && python3 %<CR>
-map <Leader>rd :call ProjectRootExe('!clear && dub')<CR>
-map <Leader>rD :call ProjectRootExe('!clear && python manage.py test -v 2')<CR>
-map <Leader>rc :!clear && gcc -Wall --std=gnu99 -o %:r % && ./%:r<CR>
-imap <Leader>so <CR>Signed-off-by: Robin Schroer <sulamiification@gmail.com>
+map <Leader>rm :call ProjectRootExe('!clear && make')<CR>
+map <Leader>rl :!clear && pdflatex %<CR>
+map <Leader>rc :!clear && gcc -W -Wall --std=gnu99 -o %:r % && ./%:r<CR>
+map <Leader>rt :call ProjectRootExe('!clear && python setup.py test')<CR>
+map <Leader>rT :call ProjectRootExe('!clear && python3 setup.py test')<CR>
+
+" Dynamic Hotkeys
+autocmd BufEnter *.d map <Leader>rd :call ProjectRootExe('!clear && dub')<CR>
+autocmd BufEnter *.py map <Leader>rd :call ProjectRootExe('!clear && python
+                          \ manage.py test -v 2')<CR>
+
+" CtrlP
+let g:ctrlp_custom_ignore = {
+\   'dir' : '\v[\/]\.(git)$',
+\   'file': '\v\.(pyc)$',
+\}
+
+" Indent Guides
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+hi IndentGuidesEven ctermbg=235
+hi IndentGuidesOdd  ctermbg=236
+
+" Gitgutter
+hi SignColumn                   ctermbg=NONE
+hi GitGutterAddDefault          ctermbg=NONE
+hi GitGutterChangeDefault       ctermbg=NONE
+hi GitGutterDeleteDefault       ctermbg=NONE
+hi GitGutterChangeDeleteDefault ctermbg=NONE
+
+" Cscope
+if has('cscope')
+    set cscopetag cscopeverbose
+
+    if has('quickfix')
+        set cscopequickfix=s-,c-,d-,i-,t-,e-
+    endif
+
+    cnoreabbrev csa cs add
+    cnoreabbrev csf cs find
+    cnoreabbrev csk cs kill
+    cnoreabbrev csr cs reset
+    cnoreabbrev css cs show
+    cnoreabbrev csh cs help
+
+    command! -nargs=0 Cscope cs add $VIMSRC/src/cscope.out $VIMSRC/src
+endif
 
 " Predefined coding styles - Kernel
 function! KernelStyle()

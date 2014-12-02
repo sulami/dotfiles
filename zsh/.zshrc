@@ -8,11 +8,11 @@ compinit
 
 # PROMPT
 autoload -U colors && colors
-# source $HOME/dotfiles/zsh/zshrc.sh
+source $HOME/dotfiles/zsh/zshrc.sh
 # PROMPT="%{$fg[green]%} %# %{$reset_color%}"
 # PROMPT="%B%1~%b$(git_super_status) %B%#%b "
-PROMPT="%B%1~ %#%b "
-# PROMPT=' %1~$(git_super_status) %# '
+# PROMPT="%B%1~ %#%b "
+PROMPT='%1~$(git_super_status) %# '
 ERRORCODE="%(?..%{$fg[red]%} %? <<%{$reset_color%})"
 RPROMPT="${ERRORCODE}"
 
@@ -33,17 +33,27 @@ alias ls='ls --color=auto'
 alias ll='ls -l --color=auto'
 alias la='ls -la --color=auto'
 alias v='vim'
+alias g='git'
 alias make='time make -j16'
+alias py='ipython2'
+alias py3='ipython3'
+alias psg='ps aux | grep'
 alias gitup='git fetch && git co origin/master && git st'
 alias gitpush='git pom && git pgm && git plm'
 alias gitauthors='git ls-tree -r -z --name-only HEAD -- * | xargs -0 -n1 git \
     blame --line-porcelain HEAD | grep  "^author " | sort | uniq -c | sort -nr'
+alias gitsearch='git rev-list --all | pv | xargs git grep -F'
+alias size='du -sh * | pv | sort -rh'
 alias rsync='rsync -aP --stats'
 alias wget='wget -c'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
+alias news='newsbeuter'
 alias yum='sudo yum'
-alias pc='pacman'
+alias pc='sudo pacman'
 alias btrfs='sudo btrfs'
+
+# COMPLETIONS
+compdef gpg2=gpg
 
 # KEYBINDS
 typeset -A key
@@ -71,7 +81,13 @@ bindkey '\E[1;5C' forward-word
 # Activate syntax highlighting
 source "$HOME/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
-# X-less colors
+# Source my custom functions
+source $HOME/dotfiles/zsh/functions/*.sh
+
+# X colours
+xrdb -merge ~/dotfiles/Xresources/jellybeans
+
+# X-less colours
 if [ "$TERM" = "linux" ]; then
     echo -en "\e]P0121212" #black
     echo -en "\e]P83B3B3B" #darkgrey
@@ -102,3 +118,4 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 export LESS=-r
 export GROFF_NO_SGR=1
+

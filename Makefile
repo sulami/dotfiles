@@ -1,9 +1,9 @@
 help:
 	@echo "=> Targets:"
-	@echo "vim, mutt, zsh, git, tmux, irssi, newsbeuter, mpd, xinitrc, \
-	frankenwm, vimperator, conky-desktop, conky-netbook"
+	@echo "vim, mutt, zsh, git, tmux, irssi, newsbeuter, feed2maildir, mpd, \
+	xresources, xinitrc, frankenwm, vimperator, conky-desktop, conky-netbook"
 	@echo "=> Groups:"
-	@echo "dev, cli, gui"
+	@echo "dev, cli, gui, all"
 
 LN=ln -s
 
@@ -13,6 +13,7 @@ vim:
 
 mutt:
 	$(LN) $(shell pwd)/mutt/.muttrc ~/.muttrc
+	$(LN) $(shell pwd)/mutt/.offlineimaprc ~/.offlineimaprc
 
 zsh:
 	$(LN) $(shell pwd)/zsh/.zshrc ~/.zshrc
@@ -22,6 +23,7 @@ git:
 
 tmux:
 	$(LN) $(shell pwd)/.tmux.conf ~/.tmux.conf
+	$(LN) $(shell pwd)/.tmuxinator ~/.tmuxinator
 
 irssi:
 	$(LN) $(shell pwd)/.irrsi ~/.irssi
@@ -29,10 +31,15 @@ irssi:
 newsbeuter:
 	$(LN) $(shell pwd)/.newsbeuter ~/.newsbeuter
 
+feed2maildir:
+	$(LN) $(shell pwd)/.f2mrc ~/.f2mrc
+
 mpd:
 	$(LN) $(shell pwd)/mpd/.mpdconf ~/.mpdconf
-	$(LN) $(shell pwd)/mpd/.mpd ~/.mpd
 	$(LN) $(shell pwd)/mpd/.ncmpcpp ~/.ncmpcpp
+
+xresources:
+	$(LN) $(shell pwd)/.Xresources ~/.Xresources
 
 xinitrc:
 	$(LN) $(shell pwd)/.xinitrc ~/.xinitrc
@@ -52,7 +59,9 @@ conky-netbook:
 
 dev: vim mutt zsh git tmux
 
-cli: vim mutt zsh git tmux irssi newsbeuter mpd
+cli: vim mutt zsh git tmux irssi newsbeuter feed2maildir mpd xresources
 
 gui: xinitrc frankenwm vimperator conky-desktop
+
+all: cli gui
 
