@@ -4,5 +4,6 @@
 #|  |  |  /----- month
 #|  |  |  | /--- day of week
 #|  |  |  | | /- command
-00 */4 *  * * /home/sulami/dotfiles/mutt/commit.sh
+00  *  *  * * /home/sulami/dotfiles/mutt/commit.sh
+*/6 *  *  * * /usr/bin/feed2maildir
 
