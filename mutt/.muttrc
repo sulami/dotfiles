@@ -33,7 +33,7 @@ macro index,pager <f2> "<change-folder>$HOME/mail/pawnmail/INBOX<enter>"
 macro index,pager <f3> "<change-folder>$HOME/mail/gmail/INBOX<enter>"
 macro index,pager <f4> "<change-folder>$HOME/mail/feeds<enter>"
 macro index 'c' '<change-folder>?<change-dir><home>^K=<enter><enter><enter><enter>'
-macro index,pager d "<save-message>=/../Trash<enter><enter>" "Trash"
+macro index,pager D "<save-message>=/../Trash<enter><enter>" "Trash"
 
 folder-hook gmail "set smtp_url = smtp://sulamiification:$my_pw_gmail@smtp.gmail.com:587/"
 folder-hook gmail "set from = sulamiification@gmail.com"
