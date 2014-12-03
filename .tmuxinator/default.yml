@@ -1,10 +1,11 @@
 name: default
 root: ~/
 windows:
-    - mutt:
-        layout: bf1d,91x84,0,0,0
+    - web:
+        layout: 3402,91x84,0,0[91x42,0,0,0,91x41,0,43,155]
         panes:
             - mutt
+            - irssi
     - work:
         layout: 5fc7,91x84,0,0,1
         panes:
