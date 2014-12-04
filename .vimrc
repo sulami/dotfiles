@@ -23,6 +23,7 @@ set ignorecase smartcase    " ignore case if everything is lowercase
 set noswapfile              " no clutter
 set backup                  " save backups
 set backupdir=/tmp          " keep backups in /tmp
+set backupext='.bak'        " postfix backups
 set encoding=utf-8          " unicode ftw
 set fileformat=unix         " line endings
 set fileformats=unix,dos    " line endings
