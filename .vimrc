@@ -2,7 +2,6 @@ set number                  " line numbering
 filetype plugin on          " enable filetype detection
 syntax on                   " highlight syntax
 set colorcolumn=80          " highlight col 80
-set cursorline              " hilight my current line
 set showtabline=1           " always show tabline
 set scrolloff=2             " keep cursor from upper/lower end of the buffer
 set winheight=5             " temp value for winminheight
@@ -30,7 +29,8 @@ set fileformats=unix,dos    " line endings
 set autoread                " reread changed files automatically
 set foldmethod=indent       " fold based on indents
 set nofoldenable            " only fold when I want to
-set laststatus=1            " show statusline only with more than one buffer
+set laststatus=2            " always show statusline (for lightline)
+set noshowmode              " do not show mode below statusline
 set t_Co=256                " 256 colours
 colorscheme jellybeans      " colourscheme
 
@@ -63,6 +63,10 @@ autocmd BufEnter */linux-next/* call KernelStyle()
 autocmd BufEnter *.dt set ft=diet
 autocmd BufEnter *.glsl set ft=c
 autocmd BufEnter *.md set ft=markdown
+
+" Cursorline always only in current window
+autocmd WinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
 
 " Pathogen
 execute pathogen#infect()
@@ -120,6 +124,21 @@ hi GitGutterAddDefault          ctermbg=NONE
 hi GitGutterChangeDefault       ctermbg=NONE
 hi GitGutterDeleteDefault       ctermbg=NONE
 hi GitGutterChangeDeleteDefault ctermbg=NONE
+
+" LightLine
+let g:lightline = {
+    \ 'colorscheme': 'jellybeans',
+    \ 'active': {
+        \ 'left': [ [ 'mode', 'paste'],
+        \           [ 'fugitive', 'readonly', 'filename', 'modified' ]]
+    \ },
+    \ 'component': {
+        \ 'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+    \ },
+    \ 'component_visible_condition': {
+        \ 'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+    \ }
+\ }
 
 " Cscope
 if has('cscope')
