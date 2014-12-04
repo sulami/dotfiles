@@ -84,9 +84,6 @@ source "$HOME/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 # Source my custom functions
 source $HOME/dotfiles/zsh/functions/*.sh
 
-# X colours
-xrdb -merge ~/dotfiles/Xresources/jellybeans
-
 # X-less colours
 if [ "$TERM" = "linux" ]; then
     echo -en "\e]P0121212" #black
