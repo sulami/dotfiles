@@ -1,0 +1,115 @@
+# Arch Install Script
+# 2013-04-04
+# Confirmed: regular MBR/GPT, LVM MBR, LUKS/LVM MBR
+# ToDo: RAID, fix GPT+LVM
+
+(loadkeys de-latin1)                    # german
+(c)fdisk / (c)gdisk                     # make partitions
+
+# regular setup
+    mkfs.ext4 <partition>
+    mount <partition> /mnt
+
+# lvm
+    # in case of system-rescue load logical volumes
+        vgscan
+        vgchange -ay
+    mkfs.ext4 <partition>               # boot partition
+    pvcreate <partition>
+    vgcreate <group> <partition>
+    lvcreate [-L 10G / -l 100%FREE] -n <name> <group>
+    mkfs.ext4 /dev/mapper/<group>-<name>
+    mount !$ /mnt
+    mkdir /mnt/boot
+    mount <partition> $!                # boot partition
+
+# encrypted lvm
+    mkfs.ext4 <partition>               # boot partition
+    modprobe dm-crypt
+    cryptsetup -c aes-xts-plain -y -s 512 luksFormat <partition>
+    cryptsetup luksOpen <partition> <crypt>
+    pvcreate /dev/mapper/<crypt>
+    vgcreate <group> /dev/mapper/<crpyt>
+    lvcreate [-L 10G / -l 100%FREE] -n <name> <group>
+    mkfs.ext4 /dev/mapper/<group>-<name>
+    mount $! /mnt
+    mkdir /mnt/boot
+    mount <partition> !$                # boot partition
+
+pacstrap /mnt base (base-devel)
+# mount swap(-files)
+genfstab -p /mnt >> /mnt/etc/fstab
+arch-chroot /mnt
+pacman -Sy vim
+echo hostname > /etc/hostname
+
+# german
+    echo LANG=de_DE.UTF-8 > /etc/locale.conf
+    echo LC_COLLATE=C >> !$
+    echo KEYMAP=de-latin1 > /etc/vconsole.conf
+
+# english
+    echo LANG=en_US.UTF-8 > /etc/locale.conf
+    echo LC_COLLATE=C >> !$
+    echo KEYMAP=us > /etc/vconsole.conf
+
+ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime
+vim /etc/hosts
+vim /etc/locale.gen                     # choose language
+locale-gen
+vim /etc/modules-load.d/modules.conf    # load custom modules
+(vim /etc/pacman.conf)                  # activate multilib
+
+# lvm
+    vim /etc/mkinitcpio.conf
+    # MODULES="dm_mod ext4"
+    # HOOKS="...block lvm2 filesystems..."
+
+# encrypted lvm
+    vim /etc/mkinitcpio.conf
+    # MODULES="dm_mod ext4"
+    # HOOKS="...block keyboard encrypt lvm2 filesystems..."
+
+mkinitcpio -p linux
+passwd                                  # set root password
+(pacman -Sy)                            # get multilib
+
+# syslinux
+    (pacman -S gptfdisk)                # gpt
+    pacman -S syslinux
+    vim /boot/syslinux/syslinux.cfg
+    # regular
+        APPEND root=<partition> ro
+    # lvm
+        APPEND root=/dev/mapper/<group>-<name> ro
+    # encrypted lvm, one line
+        APPEND root=/dev/mapper/<group>-<name>
+        cryptdevice=<partition>:<name> ro
+    syslinux-install_update -iam
+
+exit
+umount <partition>                      # unmount everything
+reboot
+
+useradd -d <user>
+passwd <user>
+
+systemctl enable dhcpcd
+systemctl start dhcpcd
+# if needed cronie aswell
+
+# graphics driver packages
+catalyst-kvm                            # prop. AMD/ATI
+xf86-video-ati                          # oss AMD/ATI
+xf86-video-intel                        # Intel IGP
+xf86-video-nv                           # prop. Nvidia
+xf86-video-nouveau                      # oss Nvidia
+xf86-video-cirrus                       # QEMU
+xf86-video-vmware                       # VMware
+virtualbox-guest-utils                  # VirtualBox
+
+# Xorg
+pacman -S xorg-server xorg-server-utils xorg-xinit xorg-utils
+
+# personal favourite software (official repo only)
+alsa-utils conky dmenu dwb epdfview feh ffmpeg firefox flashplugin gimp git htop i3lock i3-wm iftop iotop keepassx links linux-headers mirage mpd mubmle munin mutt ncmpcpp newsbeuter nmap ntfs-3g openssh p7zip rsync rtorrent rxvt-unicode scrot skype slim tmux traceroute texlive-core ttf-inconsolata ttf-liberation unzip vim vlc weechat wget xorg-xmodmap zsh
