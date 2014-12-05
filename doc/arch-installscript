@@ -1,14 +1,24 @@
 # Arch Install Script
-# 2013-04-04
-# Confirmed: regular MBR/GPT, LVM MBR, LUKS/LVM MBR
+# Confirmed: regular MBR/GPT, LVM MBR, LUKS/LVM MBR, plain LUKS GPT/EFI
 # ToDo: RAID, fix GPT+LVM
+# vim: ft=sh
 
 (loadkeys de-latin1)                    # german
 (c)fdisk / (c)gdisk                     # make partitions
 
+# EFI needs a ~200-2000 MB ef00-type fat32 partition as /boot
+
 # regular setup
     mkfs.ext4 <partition>
     mount <partition> /mnt
+
+# plain luks
+    cryptsetup -c aes-xts-plain -y -s 512 luksFormat <partition>
+    cryptsetup luksOpen <partition> <crypt>
+    mkfs.ext4 /dev/mapper/<crypt>
+    mount $1 /mnt
+    mkdir /mnt/boot
+    mount <partition> /mnt/boot
 
 # lvm
     # in case of system-rescue load logical volumes
@@ -97,6 +107,7 @@ passwd <user>
 systemctl enable dhcpcd
 systemctl start dhcpcd
 # if needed cronie aswell
+# nfs? -> rpcbind
 
 # graphics driver packages
 catalyst-kvm                            # prop. AMD/ATI
@@ -111,5 +122,14 @@ virtualbox-guest-utils                  # VirtualBox
 # Xorg
 pacman -S xorg-server xorg-server-utils xorg-xinit xorg-utils
 
-# personal favourite software (official repo only)
-alsa-utils conky dmenu dwb epdfview feh ffmpeg firefox flashplugin gimp git htop i3lock i3-wm iftop iotop keepassx links linux-headers mirage mpd mubmle munin mutt ncmpcpp newsbeuter nmap ntfs-3g openssh p7zip rsync rtorrent rxvt-unicode scrot skype slim tmux traceroute texlive-core ttf-inconsolata ttf-liberation unzip vim vlc weechat wget xorg-xmodmap zsh
+# personal favourite software (official repos only)
+ccrypt chromium cron conky dmenu dwb epdfview feh ffmpeg firefox flashplugin
+gimp git gnupg htop i3lock i3-wm iftop iotop irssi keepassx lightdm
+lightdm-gtk3-greeter links linux-headers mirage mpd mubmle munin mutt ncmpcpp
+newsbeuter nfs-common nfs-utils nmap ntfs-3g numix-themes offlineimap openssh
+p7zip pavucontrol pulseaudio pv reptyr rpcbind rsync rtorrent rxvt-unicode
+scrot skype slim steam tmux traceroute tree texlive-core ttf-bitsream-vera
+ttf-dejavu ttf-droid ttf-inconsolata ttf-liberation ttf-ubuntu-font-family
+unzip vim virt-manager vlc weechat wget xorg-xmodmap zathura-djvu
+zathura-pdf-mupdf zathura-ps zsh
+
