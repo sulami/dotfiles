@@ -28,6 +28,7 @@
     plm = push local master --tags
     pgm = push gh master --tags
     fe = fetch
+    rup = remote update
     puo = pull origin master
     pul = pull local master
     pug = pull gh master
