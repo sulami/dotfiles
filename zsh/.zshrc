@@ -83,7 +83,10 @@ bindkey '\E[1;5C' forward-word
 source "$HOME/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # Source my custom functions
-source $HOME/dotfiles/zsh/functions/*.sh
+for file in $HOME/dotfiles/zsh/functions/*.sh;
+{
+    source $file
+}
 
 # X-less colours
 if [ "$TERM" = "linux" ]; then
