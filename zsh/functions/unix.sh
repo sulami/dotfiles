@@ -6,6 +6,21 @@ mkdircd()
     mkdir -p "$1" && cd "$1"
 }
 
+# Disown a process and delete its output
+ds()
+{
+    if test -t 1
+    then
+        exec 1>/dev/null
+    fi
+    if test -t 2;
+    then
+        exec 2>/dev/null
+    fi
+
+    "$@" &
+}
+
 # Cd back to a dir in pwd
 bd ()
 {
