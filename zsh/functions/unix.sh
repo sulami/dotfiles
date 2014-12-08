@@ -3,7 +3,7 @@
 # Make a new dir and cd to it
 mkdircd()
 {
-    mkdir -p $1 && cd $1
+    mkdir -p "$1" && cd "$1"
 }
 
 # Cd back to a dir in pwd
