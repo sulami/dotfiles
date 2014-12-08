@@ -27,6 +27,7 @@ unsetopt flowcontrol
 export EDITOR=vim
 export VISUAL=vim
 export XDG_CONFIG_HOME="$HOME"
+export PATH=$PATH:$HOME/.local/bin
 
 # ALIASES
 alias ls='ls --color=auto'
