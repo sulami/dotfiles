@@ -63,7 +63,7 @@ autocmd BufEnter */linux-next/* call KernelStyle()
 " Fix Filetypes
 autocmd BufEnter *.dt set ft=diet
 autocmd BufEnter *.glsl set ft=c
-autocmd BufEnter *.md set ft=markdown
+autocmd BufEnter *.md set ft=markdown tw=79
 
 " Cursorline always only in current window
 autocmd WinEnter * setlocal cursorline
