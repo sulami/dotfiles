@@ -32,6 +32,7 @@ set foldmethod=indent       " fold based on indents
 set nofoldenable            " only fold when I want to
 set laststatus=2            " always show statusline (for lightline)
 set noshowmode              " do not show mode below statusline
+set cursorline              " cursorline by default
 set t_Co=256                " 256 colours
 colorscheme jellybeans      " colourscheme
 
