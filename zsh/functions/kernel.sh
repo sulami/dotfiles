@@ -22,6 +22,12 @@
 
 kernel_install()
 {
+    if [ "$#" -ne 1 ]
+    then
+        echo "Usage: $0 <name>" >&2
+        return 1
+    fi
+
     ARCH=$(uname -m)
     KERNELRELEASE=$(make kernelrelease)
 
