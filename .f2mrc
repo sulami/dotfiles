@@ -12,9 +12,7 @@
         "Commit Strip": "http://www.commitstrip.com/en/feed/",
         "XKCD": "http://xkcd.com/rss.xml",
         "What If?": "http://what-if.xkcd.com/feed.atom",
-        "Dilbert": "http://feed.dilbert.com/dilbert/daily_strip?format=xml",
         "CnH": "http://feeds.feedburner.com/Explosm",
-        "Zero Punctuation": "http://www.escapistmagazine.com/rss/videos/list/1.xml",
         "Zaaltag": "http://zaaltag.blogspot.com/atom.xml",
         "5CP": "http://5cp.blogspot.com/feeds/posts/default",
         "Slappa": "http://slappablog.com/feed/",
@@ -22,7 +20,6 @@
         "LAS": "http://feeds2.feedburner.com/TheLinuxActionShowOGG",
         "CoderRadio": "http://www.jupiterbroadcasting.com/feeds/coderradioogg.xml",
         "TechSNAP": "http://feeds.feedburner.com/techsnapogg",
-        "BSDNow": "http://feeds.feedburner.com/BsdNowOgg"
     }
 }
 
