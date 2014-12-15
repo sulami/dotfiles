@@ -129,12 +129,12 @@ statusbar = {
       position = "12";
       visible = "always";
     };
-    empty_bar3 = {
-      type = "root";
-      placement = "top";
-      position = "10";
-      visible = "always";
-    };
+    # empty_bar3 = {
+    #   type = "root";
+    #   placement = "top";
+    #   position = "10";
+    #   visible = "always";
+    # };
     empty_bar4 = {
       type = "window";
       placement = "top";
