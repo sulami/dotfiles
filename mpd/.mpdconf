@@ -1,8 +1,8 @@
 follow_outside_symlinks "yes"
 follow_inside_symlinks "yes"
-db_file "/var/mpd/mpd.db"
-sticker_file "/var/mpd/mpd.sticker"
-log_file "/var/log/mpd.log"
+db_file "/home/sulami/.mpd.db"
+sticker_file "/home/sulami/.mpd.sticker"
+# log_file "/var/log/mpd.log"
 bind_to_address "127.0.0.1"
 
 music_directory "/home/sulami/Music"
@@ -26,4 +26,6 @@ audio_output {
     bitrate "128"
     format "44100:16:2"
 }
+
+# vim: ft=conf
 
