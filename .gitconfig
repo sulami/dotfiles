@@ -14,6 +14,7 @@
     ds = diff --stat
     dh = diff HEAD --cached
     dhs = diff HEAD --cached --stat
+    cl = clone
     br = branch
     co = checkout
     cob = checkout -b
@@ -24,6 +25,7 @@
     cmm = commit -m
     ca = commit -a
     cam = commit -am
+    pu = push
     pom = push origin master --tags
     plm = push local master --tags
     pgm = push gh master --tags
