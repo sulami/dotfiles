@@ -25,6 +25,7 @@
     cmm = commit -m
     ca = commit -a
     cam = commit -am
+    am = commit --amend
     pu = push
     pom = push origin master --tags
     plm = push local master --tags
