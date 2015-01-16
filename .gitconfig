@@ -28,12 +28,12 @@
     am = commit --amend
     pu = push
     pom = push origin master --tags
-    plm = push local master --tags
     pgm = push gh master --tags
+    pog = push origin gh-pages --tags
+    pgg = push gh gh-pages --tags
     fe = fetch
     rup = remote update
     puo = pull origin master
-    pul = pull local master
     pug = pull gh master
     l = log --decorate --graph --oneline
     ll = log --decorate --graph --stat
