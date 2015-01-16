@@ -211,3 +211,4 @@ hilights = (
 ignores = (
   { level = "JOINS PARTS QUITS NICKS"; servertag = "Freenode"; }
 );
+aliases = { do = "say `$*`; exec -o - $*"; };
