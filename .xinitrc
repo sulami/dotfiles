@@ -11,6 +11,8 @@ fi
 xrdb -merge $HOME/dotfiles/.Xresources
 xrdb -merge $HOME/dotfiles/Xresources/jellybeans
 
+razercfg -r 400
+
 # xsetroot -solid "#151a25"
 # feh --bg-fill $HOME/bg.png &
 # xsetroot -cursor_name left_ptr &
