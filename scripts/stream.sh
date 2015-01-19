@@ -1,9 +1,6 @@
-RES="1920x1080"
+RES="1280x720"
 FPS="30"
-QUAL="medium"
 STREAM_KEY="live_27370333_oiBEe7bfi71fz3wIr27CRXpmszQts5"
-
-# -af aresample \
 
 ffmpeg \
 -f x11grab \
@@ -12,14 +9,21 @@ ffmpeg \
 -i :0.0+0,0 \
 -f pulse \
 -i default \
+-f pulse \
+-i default \
 -vcodec libx264 \
--preset "$QUAL" \
+-preset medium \
 -s $RES \
--filter_complex amix=inputs=1:duration=first:dropout_transition=3 \
+-b:v 2048k \
+-minrate 2048k \
+-maxrate 2048k \
+-bufsize 4096k \
+-g 60 \
+-filter_complex amix=inputs=2:duration=first:dropout_transition=3 \
 -acodec libmp3lame \
 -ar 44100 \
+-b:a 128k \
 -threads 8 \
--b:a 512k \
 -pix_fmt yuv420p \
 -f flv "rtmp://live.justin.tv/app/$STREAM_KEY"
 
