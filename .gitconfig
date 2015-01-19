@@ -10,6 +10,7 @@
 [alias]
     st = status
     sh = show
+    shs = show --stat
     di = diff
     ds = diff --stat
     dh = diff HEAD --cached
