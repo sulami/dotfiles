@@ -59,7 +59,7 @@ autocmd BufEnter /tmp/mutt-* set tw=72
 autocmd BufEnter *.gitsendemail.msg.* set tw=72
 
 " Kernel coding style
-autocmd BufEnter */linux-next/* call KernelStyle()
+autocmd BufEnter */linux/* call KernelStyle()
 
 " Fix Filetypes
 autocmd BufEnter *.dt set ft=diet
