@@ -7,6 +7,7 @@ set scrolloff=2             " keep cursor from upper/lower end of the buffer
 set winheight=5             " temp value for winminheight
 set winminheight=5          " keep buffers at least 5 rows high
 set winheight=999           " maximise current buffer vertically
+set splitbelow              " open splits below
 set splitright              " open vsplits on the right side
 set showtabline=2           " always show tabline
 set showcmd                 " show incomplete commands
@@ -33,6 +34,7 @@ set nofoldenable            " only fold when I want to
 set laststatus=2            " always show statusline (for lightline)
 set noshowmode              " do not show mode below statusline
 set cursorline              " cursorline by default
+set ttyfast                 " improved redrawing
 set t_Co=256                " 256 colours
 colorscheme jellybeans      " colourscheme
 
