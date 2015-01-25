@@ -26,7 +26,7 @@
     cmm = commit -m
     ca = commit -a
     cam = commit -am
-    am = commit --amend
+    rsh = reset --soft HEAD^
     pu = push
     pom = push origin master --tags
     pgm = push gh master --tags
