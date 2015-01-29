@@ -7,6 +7,7 @@ autoload -Uz compinit
 compinit
 
 # PROMPT
+prompt off
 autoload -U colors && colors
 source $HOME/dotfiles/zsh/zshrc.sh
 # PROMPT="%{$fg[green]%} %# %{$reset_color%}"
@@ -17,11 +18,17 @@ ERRORCODE="%(?..%{$fg[red]%} %? <<%{$reset_color%})"
 RPROMPT="${ERRORCODE}"
 
 # OPTIONS
-setopt autocd
-unsetopt beep
-setopt correct
 bindkey -e
+unsetopt beep
 unsetopt flowcontrol
+setopt autocd
+setopt correct
+setopt completealiases
+setopt completeinword
+setopt longlistjobs
+setopt noglobdots
+setopt noshwordsplit
+setopt unset
 
 # VARIABLES
 export EDITOR=vim
