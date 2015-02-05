@@ -205,6 +205,9 @@
     #PersonalToolbar {
         background-color: var(--url-background) !important;
         color: var(--url-color) !important;
+        font-size: .8em !important;
+        height: 28px !important;
+        margin-top: -6px !important;
     }
 }
 
