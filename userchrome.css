@@ -259,29 +259,22 @@
 
 /* AGENT_SHEET */
 @-moz-document url-prefix(http://), url-prefix(https://), url-prefix(chrome://liberator/) {
-    /* SCROLLBAR */
-    scrollbar[orient="vertical"], scrollbar thumb[orient="vertical"],
-    scrollbar[orient="horizontal"], scrollbar thumb[orient="horizontal"] {
-        display: none !important; /* none = hide || block = show */
-    }
 
-    /*
+
     scrollbar > slider { -moz-appearance: none !important; }
 
-    scrollbar[orient="vertical"] { margin: -3px -7px -3px -3px !important; }
-    scrollbar[orient='vertical'] > slider { background: #27282B !important; max-width: 5px !important; }
+    scrollbar[orient='vertical'] > slider { background: #17181A !important; max-width: 12px !important; }
     scrollbar[orient='vertical'] > slider > thumb {
         -moz-appearance: none !important;
-        background: #9b79f7 !important; border: 0 !important;
-        width: 5px !important; max-width: 5px !important;
+        background: #27282B !important; border: 0 !important;
+        width: 12px !important; max-width: 12px !important;
     }
 
-    scrollbar[orient="horizontal"] { margin: -3px -3px -7px -3px !important; }
-    scrollbar[orient='horizontal'] > slider { background: #27282B !important; max-height: 5px !important; }
+    scrollbar[orient='horizontal'] > slider { background: #17181A !important; max-height: 12px !important; }
     scrollbar[orient='horizontal'] > slider > thumb {
         -moz-appearance: none !important;
-        background: #9b79f7 !important; border: 0 !important;
-        height: 5px !important; max-height: 5px !important;
+        background: #27282B !important; border: 0 !important;
+        height: 12px !important; max-height: 12px !important;
     }
 
     scrollbar > scrollbarbutton { -moz-appearance: none !important; border: none !important; background: none !important; }
