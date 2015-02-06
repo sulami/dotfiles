@@ -206,8 +206,27 @@
         background-color: var(--url-background) !important;
         color: var(--url-color) !important;
         font-size: .8em !important;
-        height: 28px !important;
-        margin-top: -6px !important;
+        height: 0px !important;
+        margin-top: -10px !important;
+        margin-bottom: -10px !important;
+        transition: .5s !important;
+        transition-delay: 1s !important;
+        visibility: collapse !important;
+    }
+    #navigator-toolbox:hover > #PersonalToolbar {
+        height: 32px !important;
+        margin-bottom: 0 !important;
+        margin-top: 0px !important;
+        transition: .5s !important;
+        transition-delay: 1s !important;
+        visibility: visible !important;
+    }
+    #PersonalToolbar .toolbarbutton-menu-dropmarker {
+        display: none !important;
+    }
+    #PersonalToolbar toolbarbutton[type=menu]:hover {
+        background-color: var(--url-background) !important;
+        color: var(--url-color) !important;
     }
 }
 
