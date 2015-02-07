@@ -293,7 +293,8 @@ search_engine_display_mode = "columns" (classic/columns)
 ## Note: You can specify third character which will
 ## be used to build 'empty' part of progressbar.
 ##
-progressbar_look = "-+ "
+# progressbar_look = "-+ "
+progressbar_look = "─━┄"
 #
 #default_place_to_search_in = "database" (database/playlist)
 #
@@ -492,7 +493,7 @@ visualizer_fifo_path = "/tmp/mpd.fifo"
 visualizer_output_name = "fifo"
 visualizer_sync_interval = "15"
 visualizer_in_stereo = "no"
-visualizer_look = "*|"
+visualizer_look = "*│"
 #visualizer_type = "wave" (spectrum/wave)
 visualizer_type = "spectrum"
 
