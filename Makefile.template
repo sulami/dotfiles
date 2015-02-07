@@ -29,7 +29,7 @@ all: $(PROJECT)
 
 $(PROJECT): $(SRC) $(OBJ)
 	@echo \  CC $<
-	@$(CC) $(SRC) $(OBJ) $(LDFLAGS) -o $(PROJECT)
+	@$(CC) $(SRC) $(OBJ) $(CFLAGS) $(LDFLAGS) -o $(PROJECT)
 
 clean:
 	@echo \  RM $(PROJECT)
