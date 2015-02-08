@@ -1,3 +1,4 @@
+SIZE="hd1080"
 RESOLUTION="1280x720"
 FRAMERATE="30"
 STREAMKEY="live_27370333_oiBEe7bfi71fz3wIr27CRXpmszQts5"
@@ -7,8 +8,11 @@ AUDIO="pulse"
 CHANNELS="2"
 VERBOSE=false
 
-while getopts ":r:f:k:t:a:c:vh" opt; do
+while getopts ":s:r:f:k:t:a:c:vh" opt; do
     case $opt in
+        s)
+            SIZE=$OPTARG
+            ;;
         r)
             RESOLUTION=$OPTARG
             ;;
@@ -35,7 +39,8 @@ while getopts ":r:f:k:t:a:c:vh" opt; do
             ;;
         h)
             echo "Options:"
-            echo "  -r <int>x<int>  - Resolution (def: 1280x720)"
+            echo "  -s <str>        - Desktop size (def: hd1080)"
+            echo "  -r <int>x<int>  - Stream resolution (def: 1280x720)"
             echo "  -f <int>        - Framerate (def: 30)"
             echo "  -k <str>        - Streamkey (Acquire from Twitch.tv)"
             echo "  -t <int>        - Threads (def: 8)"
@@ -63,7 +68,7 @@ done
 
 ffmpeg \
 -f x11grab \
--video_size hd1080 \
+-video_size ${SIZE} \
 -framerate ${FRAMERATE} \
 -i :0.0+0,0 \
 $AUDIOCODE \
