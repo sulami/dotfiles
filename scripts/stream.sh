@@ -8,7 +8,7 @@ AUDIO="pulse"
 CHANNELS="2"
 VERBOSE=false
 
-while getopts ":s:r:f:k:t:a:c:vh" opt; do
+while getopts ":s:r:f:k:t:b:a:c:vh" opt; do
     case $opt in
         s)
             SIZE=$OPTARG
