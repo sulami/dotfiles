@@ -1,4 +1,4 @@
-SIZE="hd1080"
+SIZE="1920x1080"
 RESOLUTION="1280x720"
 FRAMERATE="30"
 STREAMKEY="live_27370333_oiBEe7bfi71fz3wIr27CRXpmszQts5"
@@ -39,7 +39,7 @@ while getopts ":s:r:f:k:t:a:c:vh" opt; do
             ;;
         h)
             echo "Options:"
-            echo "  -s <str>        - Desktop size (def: hd1080)"
+            echo "  -s <int>x<int>  - Desktop size (def: 1920x1080)"
             echo "  -r <int>x<int>  - Stream resolution (def: 1280x720)"
             echo "  -f <int>        - Framerate (def: 30)"
             echo "  -k <str>        - Streamkey (Acquire from Twitch.tv)"
