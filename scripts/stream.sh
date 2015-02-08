@@ -7,7 +7,7 @@ AUDIO="pulse"
 CHANNELS="2"
 VERBOSE=false
 
-while getopts ":r:f:k:t:a:c:v" opt; do
+while getopts ":r:f:k:t:a:c:vh" opt; do
     case $opt in
         r)
             RESOLUTION=$OPTARG
@@ -32,6 +32,19 @@ while getopts ":r:f:k:t:a:c:v" opt; do
             ;;
         v)
             VERBOSE=true
+            ;;
+        h)
+            echo "Options:"
+            echo "  -r <int>x<int>  - Resolution (def: 1280x720)"
+            echo "  -f <int>        - Framerate (def: 30)"
+            echo "  -k <str>        - Streamkey (Acquire from Twitch.tv)"
+            echo "  -t <int>        - Threads (def: 8)"
+            echo "  -b <int>        - Video bitrate in kb/s (def: 2048)"
+            echo "  -a <str>        - Audio framework (def: pulse)"
+            echo "  -c <int>        - Audio Channels (def: 2)"
+            echo "  -v              - Verbose output"
+            echo "  -h              - This help output"
+            exit 0
             ;;
         \?)
             echo "Invalid option: -$OPTARG" >&2
