@@ -3,7 +3,7 @@ PROJECT =
 DEBUG = 0
 
 PREFIX ?= /usr/local
-BINDIR ?= $(BINDIR)/bin
+BINDIR ?= $(PREFIX)/bin
 
 CC = gcc
 CFLAGS += -std=c99 -pedantic -Wall -Wextra -Werror \
