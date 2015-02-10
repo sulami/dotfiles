@@ -207,19 +207,23 @@
         color: var(--url-color) !important;
         font-size: .8em !important;
         height: 0px !important;
-        margin-top: -10px !important;
-        margin-bottom: -10px !important;
+        margin-bottom: -32px !important;
+        margin-top: -32px !important;
+        position: fixed;
         transition: .5s !important;
         transition-delay: 1s !important;
-        visibility: collapse !important;
+        visibility: hidden !important;
+        width: 100% !important;
+        z-index: -1 !important;
     }
     #navigator-toolbox:hover > #PersonalToolbar {
         height: 32px !important;
         margin-bottom: 0 !important;
         margin-top: 0px !important;
         transition: .5s !important;
-        transition-delay: 1s !important;
+        transition-delay: 0s !important;
         visibility: visible !important;
+        z-index: 1 !important;
     }
     #PersonalToolbar .toolbarbutton-menu-dropmarker {
         display: none !important;
