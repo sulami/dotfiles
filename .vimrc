@@ -62,6 +62,7 @@ autocmd BufEnter *.gitsendemail.msg.* set tw=72
 
 " Kernel coding style
 autocmd BufEnter */linux/* call KernelStyle()
+autocmd BufEnter *.go call KernelStyle()
 
 " Fix Filetypes
 autocmd BufEnter *.dt set ft=diet
