@@ -17,7 +17,7 @@ mutt:
 	$(LN) $(shell pwd)/mutt/.offlineimaprc ~/.offlineimaprc
 
 zsh:
-	$(LN) $(shell pwd)/zsh/.zshrc ~/.zshrc
+	$(LN) $(shell pwd)/zsh/.zshrc ~/.zshrc.local
 
 git:
 	$(LN) $(shell pwd)/.gitconfig ~/.gitconfig
