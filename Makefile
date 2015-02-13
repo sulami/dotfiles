@@ -1,6 +1,6 @@
 help:
 	@echo "=> Targets:"
-	@echo "vim, mutt, zsh, git, tmux, irssi, newsbeuter, feed2maildir, \
+	@echo "nvim, mutt, zsh, git, tmux, irssi, newsbeuter, feed2maildir, \
 	imgur, mpd, xresources, xinitrc, frankenwm, vimperator, conky-desktop, \
 	conky-netbook"
 	@echo "=> Groups:"
@@ -8,9 +8,9 @@ help:
 
 LN=ln -s
 
-vim:
-	$(LN) $(shell pwd)/.vimrc ~/.vimrc
-	$(LN) $(shell pwd)/.vim ~/.vim
+nvim:
+	$(LN) $(shell pwd)/.nvimrc ~/.nvimrc
+	$(LN) $(shell pwd)/.nvim ~/.nvim
 
 mutt:
 	$(LN) $(shell pwd)/mutt/.muttrc ~/.muttrc
@@ -63,9 +63,9 @@ conky-desktop:
 conky-netbook:
 	$(LN) $(shell pwd)/.conkyrc_netbook ~/.conkyrc
 
-dev: vim mutt zsh git tmux
+dev: nvim mutt zsh git tmux
 
-cli: vim mutt zsh git tmux irssi newsbeuter feed2maildir mpd xresources imgur
+cli: nvim mutt zsh git tmux irssi newsbeuter feed2maildir mpd xresources imgur
 
 gui: xinitrc frankenwm vimperator conky-desktop
 
