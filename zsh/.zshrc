@@ -31,8 +31,8 @@ setopt noshwordsplit
 setopt unset
 
 # VARIABLES
-export EDITOR=vim
-export VISUAL=vim
+export EDITOR=nvim
+export VISUAL=nvim
 export XDG_CONFIG_HOME="$HOME"
 export PATH=$PATH:$HOME/.local/bin
 export GOPATH=$HOME/build/go
