@@ -68,12 +68,12 @@ case "$1" in
     # raise volume by 5% or set it to the upper threshold
     # in cases where external apps have pushed it above
     [[ "$CURVOL" -ge $UPPER_THRESHOLD ]] && pactl set-sink-volume "$SINK" $UPPER_THRESHOLD% ||
-      pactl set-sink-volume "$SINK" -- +5%
+      pactl set-sink-volume "$SINK" +5%
     ;;
   D|d|[D,d]own|[D,d]o)
     # lowers volume by 5%
     [[ "$CURVOL" -le 0 ]] && exit 0 ||
-      pactl set-sink-volume "$SINK" -- -5%
+      pactl set-sink-volume "$SINK" -5%
     ;;
   M|m|[M,m]u|[M,m]ute)
     # mutes the volume entirely
