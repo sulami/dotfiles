@@ -19,6 +19,7 @@ set shiftround              " round indents to multiples of 4 (shiftwidth)
 set expandtab               " expand tabs to spaces
 set breakindent             " properly indent wrapped lines
 set showbreak=->\           " mark wrapped lines
+set backspace=2             " fix backspace with autoindent
 set incsearch               " search while typing
 set ignorecase smartcase    " ignore case if everything is lowercase
 set noswapfile              " no clutter
