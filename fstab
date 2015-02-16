@@ -1,0 +1,16 @@
+#
+# /etc/fstab: static file system information
+#
+# <file system> <dir> <type> <options> <dump> <pass>
+# /dev/mapper/cryptroot
+UUID=54b0c889-388f-43d5-a618-3f6b644ea6ae / btrfs rw,relatime,ssd,space_cache 0 0
+
+# /dev/sda1
+UUID=58AF-277B /boot vfat rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro	0 2
+
+# Downloads
+tmpfs /home/sulami/Downloads tmpfs nodev,nosuid,size=8G 0 0
+
+# RasPi
+raspberrypi:/mnt/external /home/sulami/mnt/raspi nfs nfsvers=4,users,rw,soft 0 0
+
