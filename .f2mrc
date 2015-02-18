@@ -2,7 +2,6 @@
     "db": "~/.f2mdb",
     "maildir": "~/mail/feeds",
     "feeds": {
-        "My Blog": "https://sulami.github.io/feed/rss.xml",
         "Coding Horror": "http://feeds.feedburner.com/codinghorror/",
         "OneAndOne": "http://geekblog.oneandoneis2.org/index.php?tempskin=_rss2",
         "DAS": "https://www.destroyallsoftware.com/blog/index.xml",
@@ -13,11 +12,8 @@
         "XKCD": "http://xkcd.com/rss.xml",
         "What If?": "http://what-if.xkcd.com/feed.atom",
         "CnH": "http://feeds.feedburner.com/Explosm",
-        "Zaaltag": "http://zaaltag.blogspot.com/atom.xml",
-        "5CP": "http://5cp.blogspot.com/feeds/posts/default",
         "Slappa": "http://slappablog.com/feed/",
         "Stay Forever": "http://www.stayforever.de/feed/",
-        "LAS": "http://feeds2.feedburner.com/TheLinuxActionShowOGG",
         "TechSNAP": "http://feeds.feedburner.com/techsnapogg"
     }
 }
