@@ -36,6 +36,7 @@ export VISUAL=nvim
 export XDG_CONFIG_HOME="$HOME"
 export PATH=$PATH:$HOME/.local/bin
 export GOPATH=$HOME/build/go
+export GOMAXPROCS=8
 
 # ALIASES
 alias ls='ls --color=auto'
