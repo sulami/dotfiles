@@ -34,3 +34,6 @@
 [submodule "lightline.vim"]
 	path = .nvim/bundle/lightline.vim
 	url = https://github.com/sulami/lightline.vim
+[submodule "zsh/zsh-syntax-highlighting"]
+	path = zsh/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting
