@@ -31,3 +31,6 @@
 [submodule ".nvim/bundle/vim-css-color"]
 	path = .nvim/bundle/vim-css-color
 	url = https://github.com/skammer/vim-css-color
+[submodule "lightline.vim"]
+	path = .nvim/bundle/lightline.vim
+	url = https://github.com/sulami/lightline.vim
