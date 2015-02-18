@@ -1,3 +1,36 @@
 [submodule ".nvim/bundle/vim-easymotion"]
 	path = .nvim/bundle/vim-easymotion
 	url = https://github.com/Lokaltog/vim-easymotion
+[submodule ".nvim/bundle/ctrlp.vim"]
+	path = .nvim/bundle/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim
+[submodule ".nvim/bundle/lightline.vim"]
+	path = .nvim/bundle/lightline.vim
+	url = https://github.com/itchyny/lightline.vim
+[submodule ".nvim/bundle/vim-commentary"]
+	path = .nvim/bundle/vim-commentary
+	url = https://github.com/tpope/vim-commentary
+[submodule ".nvim/bundle/vim-surround"]
+	path = .nvim/bundle/vim-surround
+	url = https://github.com/tpope/vim-surround
+[submodule ".nvim/bundle/vim-repeat"]
+	path = .nvim/bundle/vim-repeat
+	url = https://github.com/tpope/vim-repeat
+[submodule ".nvim/bundle/vim-indent-guides"]
+	path = .nvim/bundle/vim-indent-guides
+	url = https://github.com/nathanaelkane/vim-indent-guides
+[submodule ".nvim/bundle/vim-multiple-cursors"]
+	path = .nvim/bundle/vim-multiple-cursors
+	url = https://github.com/terryma/vim-multiple-cursors
+[submodule ".nvim/bundle/vim-fugitive"]
+	path = .nvim/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule ".nvim/bundle/vim-gitgutter"]
+	path = .nvim/bundle/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter
+[submodule ".nvim/bundle/vim-trailing-whitespace"]
+	path = .nvim/bundle/vim-trailing-whitespace
+	url = https://github.com/bronson/vim-trailing-whitespace
+[submodule ".nvim/bundle/vim-css-color"]
+	path = .nvim/bundle/vim-css-color
+	url = https://github.com/skammer/vim-css-color
