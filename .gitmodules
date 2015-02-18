@@ -4,9 +4,6 @@
 [submodule ".nvim/bundle/ctrlp.vim"]
 	path = .nvim/bundle/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim
-[submodule ".nvim/bundle/lightline.vim"]
-	path = .nvim/bundle/lightline.vim
-	url = https://github.com/sulami/lightline.vim
 [submodule ".nvim/bundle/vim-commentary"]
 	path = .nvim/bundle/vim-commentary
 	url = https://github.com/tpope/vim-commentary
