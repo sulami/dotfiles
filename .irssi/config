@@ -30,11 +30,7 @@ servers = (
 chatnets = {
   freenode = { type = "IRC"; nick = "sulami"; username = "sulami"; };
   Nixers = { type = "IRC"; nick = "sulami"; username = "sulami"; };
-  Twitch = {
-    type = "IRC";
-    nick = "sulamiification";
-    username = "sulamiification";
-  };
+  Twitch = { type = "IRC"; nick = "fineous"; username = "fineous"; };
 };
 
 statusbar = {
