@@ -1,4 +1,4 @@
-pace html url(http://www.w3.org/1999/xhtml);
+@namespace html url(http://www.w3.org/1999/xhtml);
 @namespace xul url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
 /*
  * Based on Twily's "Minimal flat styled tabs for Australis" - http://twily.info
@@ -29,7 +29,7 @@ pace html url(http://www.w3.org/1999/xhtml);
     .tab-close-button, .tab-close, .tab-throbber, .tab-background-start, .tab-background-end,
     #window-controls /*, #alltabs-button, #tabview-button, .tab-icon-image, .tab-icon-image:not([pinned])*/ { display: none !important; }
     .tabs-newtab-button { width: 0px !important; visibility: hidden !important; }
-
+    .autocomplete-history-dropmarker { display: none !important; }
     #nav-bar {
         position: var(--url-position) !important;
         width: 100% !important; height: var(--url-height) !important;
@@ -38,7 +38,7 @@ pace html url(http://www.w3.org/1999/xhtml);
     }
        #nav-bar-customization-target { width: 100% !important; }
           #urlbar-wrapper {
-              width: 100% !important; margin-top: 0 !important; /* adjust margin-top to ~ -5px if you experience gap */
+              width: 100% !important; margin-top: -2px !important; /* adjust margin-top to ~ -5px if you experience gap */
               position: absolute !important; top: 0 !important; left: 0 !important;
               border-bottom: none !important;
           }
@@ -61,6 +61,7 @@ pace html url(http://www.w3.org/1999/xhtml);
         height: var(--tab-height) !important; min-height: var(--tab-height) !important;
         background: var(--bg-dark) !important; color: var(--fg-dark) !important;
         font-size: var(--tab-font-size); text-shadow: none !important; text-align: left /* center | left */ !important;
+        text-decoration: none !important;
     }
 
     .tabbrowser-tab label { padding: 0 22px 0 22px !important; }
@@ -245,4 +246,5 @@ tabbrowser tabpanels, #appcontent > #content { background: var(--bg-light) !impo
 @-moz-document regexp("https?://(?!(localhost|twily.info|.*.4chan.org|.*.youtube.com)).*") {
     input, textarea { color: #222628 !important; -moz-appearance: none !important; }
 }*/
+
 
