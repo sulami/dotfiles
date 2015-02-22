@@ -191,6 +191,7 @@ settings = {
     awl_display_key_message = "$Q %y$C%n";
     trackbar_string = "-";
     trackbar_style = "%K";
+    anotherway_reason = "autoaway";
   };
 };
 
