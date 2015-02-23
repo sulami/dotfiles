@@ -209,6 +209,6 @@ ignores = (
   { level = "JOINS PARTS QUITS NICKS"; servertag = "Freenode"; }
 );
 aliases = { do = "say `$*`; exec -o - $*"; };
-channels = ( 
+channels = (
   { name = "#nixers"; chatnet = "Nixers"; autojoin = "yes"; }
 );
