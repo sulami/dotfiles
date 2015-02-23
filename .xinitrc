@@ -11,7 +11,9 @@ fi
 xrdb -merge $HOME/dotfiles/.Xresources
 xrdb -merge $HOME/dotfiles/Xresources/jellybeans
 
-razercfg -r 400
+razercfg -r 400 &
+
+sxhkd -c ~/dotfiles/.sxhkdrc &
 
 # xsetroot -solid "#151a25"
 # feh --bg-fill $HOME/bg.png &
@@ -23,7 +25,8 @@ razercfg -r 400
 
 # exec dwm
 # exec frankenwm
-exec startxfce4
+exec cwm
+# exec startxfce4
 
 # vim: set ft=sh:
 
