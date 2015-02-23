@@ -1,0 +1,12 @@
+super + r
+    dmenu_run
+
+Print
+    scrot -e 'mv $f ~/Downloads/'
+
+XF86Audio{Play,Stop,Prev,Next}
+    mpc -q {toggle,stop,prev,next}
+
+XF86Audio{Mute,LowerVolume,RaiseVolume}
+    /home/sulami/dotfiles/scripts/pulseaudio-ctl.sh {mute,down,up}
+
