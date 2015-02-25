@@ -2,7 +2,6 @@ set number                  " line numbering
 filetype plugin on          " enable filetype detection
 syntax on                   " highlight syntax
 set colorcolumn=80          " highlight col 80
-set showtabline=1           " always show tabline
 set scrolloff=2             " keep cursor from upper/lower end of the buffer
 set winheight=5             " temp value for winminheight
 set winminheight=5          " keep buffers at least 5 rows high
