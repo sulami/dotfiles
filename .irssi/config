@@ -186,12 +186,14 @@ settings = {
   "perl/core/scripts" = {
     awl_placement = "top";
     awl_position = "10";
-    awl_display_key = "$Q $H$C$S";
-    awl_display_key_active = "$Q %g$C%n";
-    awl_display_key_message = "$Q %y$C%n";
+    awl_display_key = "$H$C$S";
+    awl_display_key_active = "%g$C%n";
+    awl_display_key_message = "%y$C%n";
     trackbar_string = "-";
     trackbar_style = "%K";
     anotherway_reason = "autoaway";
+    awl_hide_data = "0";
+    awl_display_header = " ";
   };
 };
 
@@ -209,6 +211,6 @@ ignores = (
   { level = "JOINS PARTS QUITS NICKS"; servertag = "Freenode"; }
 );
 aliases = { do = "say `$*`; exec -o - $*"; };
-channels = (
+channels = ( 
   { name = "#nixers"; chatnet = "Nixers"; autojoin = "yes"; }
 );
