@@ -1,4 +1,4 @@
-set number                  " line numbering
+" set number                  " line numbering
 filetype plugin on          " enable filetype detection
 syntax on                   " highlight syntax
 set colorcolumn=80          " highlight col 80
@@ -8,7 +8,7 @@ set winminheight=5          " keep buffers at least 5 rows high
 set winheight=999           " maximise current buffer vertically
 set splitbelow              " open splits below
 set splitright              " open vsplits on the right side
-set showtabline=2           " always show tabline
+set showtabline=1           " always show tabline
 set showcmd                 " show incomplete commands
 set smartindent             " indent autmatically
 set tabstop=4               " 1 tab = 4 spaces
