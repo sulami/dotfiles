@@ -96,8 +96,11 @@ map <Leader>sk :call KernelStyle()<CR>
 map <Leader>sp :call PEPStyle()<CR>
 map <Leader>dt :diffthis<CR>
 map <Leader>dp :diffput<CR>
+map <Leader>en :cn<CR>
+map <Leader>ep :cp<CR>
 map <Leader>rp :!clear && python %<CR>
-map <Leader>rm :call ProjectRootExe('!clear && make')<CR>
+map <Leader>rm :make<CR>
+map <Leader>rM :call ProjectRootExe('!clear && make')<CR>
 map <Leader>rl :!clear && pdflatex %<CR>
 map <Leader>rc :!clear && gcc -W -Wall --std=gnu99 -o %:r % && ./%:r<CR>
 map <Leader>rg :call ProjectRootExe('!clear && go build && go test')<CR>
