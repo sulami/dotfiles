@@ -4,7 +4,7 @@
 .newsbeuter/history.*
 *.log
 *.lock
-.vim/.netrwhist
+.nvim/.netrwhist
 .mpd/*
 .ssh/known_hosts
 .vimperator/info
