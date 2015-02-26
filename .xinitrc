@@ -19,9 +19,9 @@ sxhkd -c ~/dotfiles/.sxhkdrc &
 # feh --bg-fill $HOME/bg.png &
 # xsetroot -cursor_name left_ptr &
 
-# xcompmgr -c -f -t3 -l3 -r2 -o.5 &
+xcompmgr -c -C -f -t-5 -l-5 -r8 -o.5 &
 
-# conky &
+conky -c $HOME/dotfiles/.conkyrc &
 
 # exec dwm
 # exec frankenwm
