@@ -33,6 +33,7 @@ setopt unset
 # VARIABLES
 export EDITOR=nvim
 export VISUAL=nvim
+export BROWSER=firefox
 export XDG_CONFIG_HOME="$HOME"
 export PATH=$PATH:$HOME/.local/bin
 export GOPATH=$HOME/build/go
