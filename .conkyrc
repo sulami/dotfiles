@@ -31,13 +31,7 @@ ${color #3e4b6c}\
 MEM \
 ${color #afbad2}\
 $memperc% \
-${color #3e4b6c}\
-(\
-${color #afbad2}\
-$swapperc%\
-${color #3e4b6c}\
-)     \
-${color #3e4b6c}\
+${color #3e4b6c}     \
 HDD \
 ${color #afbad2}\
 ${fs_used_perc /}%     \
