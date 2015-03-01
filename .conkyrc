@@ -37,9 +37,9 @@ ${color #afbad2}\
 ${fs_used_perc /}%     \
 ${color #3e4b6c}\
 NET \
-${if_up virbr0}\
+${if_up enp0s25}\
 ${color #afbad2}\
-${addr virbr0}\
+${addr enp0s25}\
 ${else}\
 ${color #B36859}\
 DOWN\
