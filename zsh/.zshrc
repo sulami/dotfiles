@@ -13,12 +13,20 @@ source $HOME/dotfiles/zsh/zshrc.sh
 # PROMPT="%{$fg[green]%} %# %{$reset_color%}"
 # PROMPT="%B%1~%b$(git_super_status) %B%#%b "
 # PROMPT="%B%1~ %#%b "
-PROMPT='%1~$(git_super_status) %# '
+PWDGIT='%1~$(git_super_status)'
 ERRORCODE="%(?..%{$fg[red]%} %? <<%{$reset_color%})"
-RPROMPT="${ERRORCODE}"
+RPS1="${ERRORCODE}"
+# adpat prompt when entering/leaving normal mode
+function zle-line-init zle-keymap-select {
+    VIM_STATUS="${${KEYMAP/vicmd/N}/(main|viins)/%#}"
+    PS1="$PWDGIT %{$fg_bold[white]%}$VIM_STATUS%{$reset_color%} $EPS1"
+    zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
 
 # OPTIONS
-bindkey -e
+bindkey -v
 unsetopt beep
 unsetopt flowcontrol
 setopt autocd
@@ -89,6 +97,12 @@ key[PageDown]=${terminfo[knp]}
 [[ -n "${key[Right]}"   ]]  && bindkey  "${key[Right]}"   forward-char
 bindkey '\E[1;5D' backward-word
 bindkey '\E[1;5C' forward-word
+# fix not being able to delete past entry point (vim: set backspace)
+bindkey -M viins '^h' backward-delete-char
+bindkey -M viins '^?' backward-delete-char
+bindkey -M viins '^w' backward-kill-word
+# bind jk to exit insert mode, just like vim
+bindkey -M viins 'jk' vi-cmd-mode
 
 # Activate syntax highlighting
 source "$HOME/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
