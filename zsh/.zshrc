@@ -18,8 +18,7 @@ ERRORCODE="%(?..%{$fg[red]%} %? <<%{$reset_color%})"
 RPS1="${ERRORCODE}"
 # adpat prompt when entering/leaving normal mode
 function zle-line-init zle-keymap-select {
-    VIM_STATUS="${${KEYMAP/vicmd/N}/(main|viins)/%#}"
-    PS1="$PWDGIT %{$fg_bold[white]%}$VIM_STATUS%{$reset_color%} $EPS1"
+    PS1="$PWDGIT ${${KEYMAP/vicmd/N}/(main|viins)/%#} $EPS1"
     zle reset-prompt
 }
 zle -N zle-line-init
