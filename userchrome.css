@@ -17,7 +17,7 @@
     --url-background: var(--bg-light); --url-color: var(--fg-dark);
     --url-height: 24px; --url-right-margin: 5px;
     --url-fonts: "Droid Sans", "Source Sans Pro", "Lemon",monospace,"Dejavu Sans"; --url-font-size: 10pt;
-    --url-text-align: center; /* left | center | right */
+    --url-text-align: left; /* left | center | right */
     --url-position: absolute; /* absolute == top (under tabs) || fixed == bottom of browser */
 }
 
