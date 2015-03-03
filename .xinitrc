@@ -11,7 +11,7 @@ fi
 xrdb -merge $HOME/dotfiles/.Xresources
 xrdb -merge $HOME/dotfiles/Xresources/jellybeans
 
-razercfg -r 400 &
+# razercfg -r 400 &
 
 sxhkd -c ~/dotfiles/.sxhkdrc &
 
@@ -19,9 +19,11 @@ sxhkd -c ~/dotfiles/.sxhkdrc &
 # feh --bg-fill $HOME/bg.png &
 # xsetroot -cursor_name left_ptr &
 
-xcompmgr -c -C -f -t-5 -l-5 -r8 -o.5 &
+compton -c -C -f -t-5 -l-5 -r8 -o.5 &
 
-conky -c $HOME/dotfiles/.conkyrc &
+# conky -c $HOME/dotfiles/.conkyrc &
+
+~/dotfiles/scripts/swapdisplays.sh &
 
 # exec dwm
 # exec frankenwm
