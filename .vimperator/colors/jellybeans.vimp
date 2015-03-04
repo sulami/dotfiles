@@ -5,9 +5,9 @@ hi CompGroup background:#151515;color:#888888
 hi CompTitle background:#151515;color:#799d6a;text-shadow: none !important; border:none
 hi CompTitle>* background:#151515;color:#799d6a;text-shadow: none !important; border:none
 hi CompItem background:#151515;color:#888888;padding:0px 3px
-hi CompItem[selected] background:#8787af;color:#888888
+hi CompItem[selected] background:#222;color:#888888
 hi CompDesc color:#667899
-hi CompDesc[selected] background:#8787af;color:#888888
+hi CompDesc[selected] background:#222;color:#888888
 hi CompMsg background:#151515;color:#888888
 hi ErrorMsg background:#151515;color:#b85335
 hi Bell background:#151515;color:#b85335
