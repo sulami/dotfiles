@@ -31,6 +31,7 @@
     .tabs-newtab-button { width: 0px !important; visibility: hidden !important; }
     .autocomplete-history-dropmarker { display: none !important; }
     #nav-bar {
+        display: none !important;
         position: var(--url-position) !important;
         width: 100% !important; height: var(--url-height) !important;
         min-height: var(--url-height) !important; max-height: var(--url-height) !important;
