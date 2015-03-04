@@ -193,7 +193,7 @@ settings = {
     trackbar_style = "%K";
     anotherway_reason = "autoaway";
     awl_hide_data = "0";
-    awl_display_header = " ";
+    awl_display_header = "";
   };
 };
 
