@@ -1,0 +1,24 @@
+" name:jellybeans
+hi Normal background:#151515;color:#888888;font-size:9pt;font-family:Terminus;overflow:hidden
+hi CmdLine background:#151515;color:#667899;font-size:9pt;font-family:Terminus;padding:0px 3px
+hi CompGroup background:#151515;color:#888888
+hi CompTitle background:#151515;color:#799d6a;text-shadow: none !important; border:none
+hi CompTitle>* background:#151515;color:#799d6a;text-shadow: none !important; border:none
+hi CompItem background:#151515;color:#888888;padding:0px 3px
+hi CompItem[selected] background:#8787af;color:#888888
+hi CompDesc color:#667899
+hi CompDesc[selected] background:#8787af;color:#888888
+hi CompMsg background:#151515;color:#888888
+hi ErrorMsg background:#151515;color:#b85335
+hi Bell background:#151515;color:#b85335
+hi InfoMsg background:#151515;color:#799d6a
+hi Filter color:#799d6a
+hi StatusLine  font-family: Terminus; font-size: 9pt; color: #888888; background: #151515;
+hi ContentSeparator border:none !important
+hi Hint font-family:Terminus;font-size:9pt;color:#888888; background-color:#151515;border:solid 1px #8787af;
+hi HintElem backgorund-color: #000
+hi HintActive background-color: #99ad6a; color: #151515
+style -name statusbar chrome://* <<EOM
+#status-bar statusbarpanel {padding:0 1px !important;}
+statusbarpanel > * { margin:0 !important; padding:0 2px 0 0 !important; }
+EOM

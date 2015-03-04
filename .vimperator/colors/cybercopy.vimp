@@ -1,0 +1,24 @@
+" name:cybercopy
+hi Normal background:#272d36;color:#afbad2;font-size:9pt;font-family:Terminus;overflow:hidden
+hi CmdLine background:#272d36;color:#2f7b9d;font-size:9pt;font-family:Terminus;padding:0px 3px
+hi CompGroup background:#272d36;color:#afbad2
+hi CompTitle background:#272d36;color:#43a172;text-shadow: none !important; border:none
+hi CompTitle>* background:#272d36;color:#43a172;text-shadow: none !important; border:none
+hi CompItem background:#272d36;color:#afbad2;padding:0px 3px
+hi CompItem[selected] background:#424b6c;color:#afbad2
+hi CompDesc color:#2f7b9d
+hi CompDesc[selected] background:#424b6c;color:#afbad2
+hi CompMsg background:#272d36;color:#afbad2
+hi ErrorMsg background:#272d36;color:#cc593b
+hi Bell background:#272d36;color:#cc593b
+hi InfoMsg background:#272d36;color:#43a172
+hi Filter color:#43a172
+hi StatusLine  font-family: Terminus; font-size: 9pt; color: #afbad2; background: #272d36;
+hi ContentSeparator border:none !important
+hi Hint font-family:Terminus;font-size:9pt;color:#afbad2; background-color:#272d36;border:solid 1px #424b6c;
+hi HintElem backgorund-color: #000
+hi HintActive background-color: #abd78b; color: #272d36
+style -name statusbar chrome://* <<EOM
+#status-bar statusbarpanel {padding:0 1px !important;}
+statusbarpanel > * { margin:0 !important; padding:0 2px 0 0 !important; }
+EOM

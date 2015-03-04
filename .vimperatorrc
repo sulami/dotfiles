@@ -1,0 +1,5 @@
+colorscheme jellybeans
+:inoremap <C-a> <Ins><C-a><Ins>
+autocmd VimperatorEnter .* nonavbar
+autocmd VimperatorEnter .* echo ""
+
