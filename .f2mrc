@@ -5,16 +5,18 @@
         "Coding Horror": "http://feeds.feedburner.com/codinghorror/",
         "OneAndOne": "http://geekblog.oneandoneis2.org/index.php?tempskin=_rss2",
         "DAS": "https://www.destroyallsoftware.com/blog/index.xml",
+        "Martin Fowler": "http://martinfowler.com/feed.atom",
         "LambdaOps": "http://lambdaops.com/feed",
         "GrehKH": "http://www.kroah.com/log/index.rss",
+        "Slappa": "http://slappablog.com/feed/",
+        "Undeadly": "http://undeadly.org/cgi?action=rss",
+        "TechSNAP": "http://feeds.feedburner.com/techsnapogg",
         "UseVim": "http://feeds.feedburner.com/usevim?format=xml",
         "Commit Strip": "http://www.commitstrip.com/en/feed/",
         "XKCD": "http://xkcd.com/rss.xml",
         "What If?": "http://what-if.xkcd.com/feed.atom",
-        "CnH": "http://feeds.feedburner.com/Explosm",
-        "Slappa": "http://slappablog.com/feed/",
         "Stay Forever": "http://www.stayforever.de/feed/",
-        "TechSNAP": "http://feeds.feedburner.com/techsnapogg"
+        "Zero Punctuation": "http://rss.escapistmagazine.com/videos/list/1.xml"
     }
 }
 
