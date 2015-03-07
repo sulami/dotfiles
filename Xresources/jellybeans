@@ -1,5 +1,7 @@
 *background: #151515
 *foreground: #888888
+*highlightColor: #222222
+*HighlightTextColor: #888888
 ! black
 *color0: #1C1C1C
 *color8: #404040
