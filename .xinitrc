@@ -11,6 +11,10 @@ fi
 xrdb -merge $HOME/dotfiles/.Xresources
 xrdb -merge $HOME/dotfiles/Xresources/jellybeans
 
+xset -dpms
+xset s off
+xsett r rate 200 20
+
 # razercfg -r 400 &
 
 sxhkd -c ~/dotfiles/.sxhkdrc &
