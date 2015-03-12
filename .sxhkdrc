@@ -1,5 +1,12 @@
+super + Return
+    urxvt
+
 super + r
     dmenu_run
+
+# Yeah, that's right...
+super + slash
+    hidden -c | dmenu -i | sed "s/:/\n/g" | sed "s/'//g" | tail -1 | sh
 
 Print
     scrot -e 'mv $f ~/Downloads/'
