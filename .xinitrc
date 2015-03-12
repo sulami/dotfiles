@@ -11,13 +11,17 @@ fi
 xrdb -merge $HOME/dotfiles/.Xresources
 xrdb -merge $HOME/dotfiles/Xresources/jellybeans
 
-xset -dpms
-xset s off
-xsett r rate 200 20
+xset -dpms &
+xset s off &
+xset r rate 200 20 &
 
 # razercfg -r 400 &
 
 sxhkd -c ~/dotfiles/.sxhkdrc &
+
+if [[ -e ~/.fehbg ]]; then
+    sh ~/.fehbg &
+fi
 
 # xsetroot -solid "#151a25"
 # feh --bg-fill $HOME/bg.png &
@@ -27,12 +31,14 @@ compton -c -C -f -t-5 -l-5 -r8 -o.5 &
 
 # conky -c $HOME/dotfiles/.conkyrc &
 
+# This sets the resolution properly after slim mangled it.
 ~/dotfiles/scripts/swapdisplays.sh &
 
 # exec dwm
 # exec frankenwm
-exec cwm
+# exec cwm
 # exec startxfce4
+exec 2bwm
 
 # vim: set ft=sh:
 
