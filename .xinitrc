@@ -20,7 +20,7 @@ xset r rate 200 20 &
 sxhkd -c ~/dotfiles/.sxhkdrc &
 
 if [[ -e ~/.fehbg ]]; then
-    sh ~/.fehbg &
+    sh ~/.fehbg
 fi
 
 # xsetroot -solid "#151a25"
