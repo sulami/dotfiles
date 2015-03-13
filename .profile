@@ -16,3 +16,8 @@ echo "Last logins:"
 echo "$(last -n 3)"
 echo
 
+if [[ -e /var/mail/$(whoami) ]]; then
+    echo "You've got mail!"
+    echo
+fi
+
