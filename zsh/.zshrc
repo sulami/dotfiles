@@ -37,7 +37,10 @@ setopt noglobdots
 setopt noshwordsplit
 setopt unset
 
-# VARIABLES
+# EXPORTS
+export PATH HOME TERM
+export PKG_PATH=ftp://ftp.halifax.rwth-aachen.de/pub/OpenBSD/5.6/packages/amd64/
+export ENV=$HOME/.kshrc
 export EDITOR=nvim
 export VISUAL=nvim
 export BROWSER=firefox
@@ -48,14 +51,15 @@ export GOPATH=$HOME/build/go
 export GOMAXPROCS=8
 
 # ALIASES
-alias ls='ls --color=auto'
-alias ll='ls -l --color=auto'
-alias la='ls -la --color=auto'
+alias ls='ls -F'
+alias ll='ls -l'
+alias la='ls -la'
 alias v='vim'
 alias nv='nvim'
 alias g='git'
 alias make='time make -j16'
 alias py='ipython'
+alias python='python2.7'
 alias psg='ps aux | grep'
 alias gitup='git fetch && git co origin/master && git st'
 alias gitpush='git pom && git pgm && git plm'
@@ -145,4 +149,7 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 export LESS=-r
 export GROFF_NO_SGR=1
+
+# TMUX
+test -z "$TMUX" && (tmux attach || tmux new 'sh $HOME/.profile && zsh')
 
