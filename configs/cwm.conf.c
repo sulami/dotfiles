@@ -168,7 +168,7 @@ static const struct {
 	const char	*key;
 	const char	*func;
 } kbd_binds[] = {
-	{ "4-Return",	"hide" },
+	{ "S4-Return",	"hide" },
 	{ "4-Down",	"lower" },
 	{ "4-Up",	"raise" },
 	{ "4-slash",	"search" },
