@@ -51,9 +51,17 @@ export GOPATH=$HOME/build/go
 export GOMAXPROCS=8
 
 # ALIASES
-alias ls='ls -F'
-alias ll='ls -l'
-alias la='ls -la'
+if [[ $(uname) == "Linux" ]]; then
+    # GNU ls has coloring capabilities...
+    alias ls='ls -F --color=auto'
+    alias ll='ls -l --color=auto'
+    alias la='ls -la --color=auto'
+else
+    # ...BSD ls not.
+    alias ls='ls -F'
+    alias ll='ls -l'
+    alias la='ls -la'
+fi
 alias v='vim'
 alias nv='nvim'
 alias g='git'
