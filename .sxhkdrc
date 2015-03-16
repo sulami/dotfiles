@@ -7,12 +7,15 @@ super + r
 super + {Up,Left,Down,Right}
     xdotool mousemove_relative -- {0 -30,-30 0,0 30,30 0}
 
+super + shift + {Up,Left,Down,Right}
+    xdotool mousemove_relative -- {0 -5,-5 0,0 5,5 0}
+
 super + alt + {Left,Down,Right}
     xdotool click {1,2,3}
 
 # Yeah, that's right...
-super + slash
-    hidden -c | dmenu -i | sed "s/:/\n/g" | sed "s/'//g" | tail -1 | sh
+#super + slash
+#    hidden -c | dmenu -i | sed "s/:/\n/g" | sed "s/'//g" | tail -1 | sh
 
 Print
     scrot -e 'mv $f ~/Downloads/'
