@@ -150,6 +150,3 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 export LESS=-r
 export GROFF_NO_SGR=1
 
-# TMUX
-test -z "$TMUX" && (tmux attach || tmux new 'sh $HOME/.profile && zsh')
-
