@@ -28,12 +28,11 @@ color normal        white           default
 color error         red             default
 color tilde         black           default
 color message       cyan            default
-color markers       red             white
+color markers       red             default
 color attachment    white           default
 color search        brightmagenta   default
-#color status        J_black         J_status
-color status        white           black
-color indicator     brightblack     yellow
+color status        white           default
+color indicator     blue            default
 color tree          brightblack     default                                     # arrow in threads
 
 # basic monocolor screen
