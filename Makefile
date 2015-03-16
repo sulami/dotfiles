@@ -1,8 +1,7 @@
 help:
 	@echo "=> Targets:"
-	@echo "nvim, mutt, zsh, git, tmux, irssi, newsbeuter, feed2maildir, \
-	imgur, mpd, xresources, xinitrc, frankenwm, vimperator, conky-desktop, \
-	conky-netbook"
+	@echo "nvim, mutt, zsh, git, tmux, irssi, feed2maildir, imgur, mpd, \
+	xresources, xinitrc, vimperator"
 	@echo "=> Groups:"
 	@echo "dev, cli, gui, all"
 
@@ -24,16 +23,12 @@ git:
 
 tmux:
 	$(LN) $(shell pwd)/.tmux.conf ~/.tmux.conf
-	$(LN) $(shell pwd)/.tmuxinator ~/.tmuxinator
 
 irssi:
 	$(LN) $(shell pwd)/.irrsi ~/.irssi
 
-newsbeuter:
-	$(LN) $(shell pwd)/.newsbeuter ~/.newsbeuter
-
 feed2maildir:
-	$(LN) $(shell pwd)/.f2mrc ~/.f2mrc
+	$(LN) $(shell pwd)/mutt/.f2mrc ~/.f2mrc
 
 imgur:
 	mkdir -p ~/.config/imgur-screenshot
@@ -45,29 +40,20 @@ mpd:
 	$(LN) $(shell pwd)/mpd/.ncmpcpp ~/.ncmpcpp
 
 xresources:
-	$(LN) $(shell pwd)/.Xresources ~/.Xresources
+	$(LN) $(shell pwd)/Xresources/.Xresources ~/.Xresources
 
 xinitrc:
 	$(LN) $(shell pwd)/.xinitrc ~/.xinitrc
 
-frankenwm:
-	$(LN) $(shell pwd)/.frankenwm.config.h ~/build/frankenwm/config.h
-
 vimperator:
-	$(LN) $(shell pwd)/.vimperator ~/.vimperator
-	$(LN) $(shell pwd)/.vimperatorrc ~/.vimperatorrc
-
-conky-desktop:
-	$(LN) $(shell pwd)/.conkyrc_desktop ~/.conkyrc
-
-conky-netbook:
-	$(LN) $(shell pwd)/.conkyrc_netbook ~/.conkyrc
+	$(LN) $(shell pwd)/firefox/.vimperator ~/.vimperator
+	$(LN) $(shell pwd)/firefox/.vimperatorrc ~/.vimperatorrc
 
 dev: nvim mutt zsh git tmux
 
-cli: nvim mutt zsh git tmux irssi newsbeuter feed2maildir mpd xresources imgur
+cli: nvim mutt zsh git tmux irssi feed2maildir mpd xresources imgur
 
-gui: xinitrc frankenwm vimperator conky-desktop
+gui: xinitrc vimperator
 
 all: cli gui
 
