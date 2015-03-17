@@ -48,8 +48,14 @@ setopt unset
 export PATH HOME TERM
 export PKG_PATH=ftp://ftp.halifax.rwth-aachen.de/pub/OpenBSD/5.6/packages/amd64/
 export ENV=$HOME/.kshrc
-export EDITOR=nvim
-export VISUAL=nvim
+if which nvim > /dev/null 2>&1; then
+    # Enable neovim if it is installed.
+    export EDITOR=nvim
+    export VISUAL=nvim
+else
+    export EDITOR=vim
+    export VISUAL=vim
+fi
 export BROWSER=firefox
 export XDG_CONFIG_HOME="$HOME"
 export PATH=$PATH:$HOME/.local/bin
@@ -74,10 +80,8 @@ alias nv='nvim'
 alias g='git'
 alias make='time make -j16'
 alias py='ipython'
-alias python='python2.7'
+alias python='python2.7' # OpenBSD...
 alias psg='ps aux | grep'
-alias gitup='git fetch && git co origin/master && git st'
-alias gitpush='git pom && git pgm && git plm'
 alias gitsubup="git submodule foreach 'git pull origin master'"
 alias gitauthors='git ls-tree -r -z --name-only HEAD -- * | xargs -0 -n1 git \
     blame --line-porcelain HEAD | grep  "^author " | sort | uniq -c | sort -nr'
@@ -87,8 +91,6 @@ alias rsync='rsync -aP --stats'
 alias wget='wget -c'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 alias imgur='imgur-screenshot'
-alias news='newsbeuter'
-alias yum='sudo yum'
 alias pc='sudo pacman'
 alias btrfs='sudo btrfs'
 
