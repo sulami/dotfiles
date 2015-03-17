@@ -7,22 +7,29 @@ autoload -Uz compinit
 compinit
 
 # PROMPT
-prompt off
+if [[ $(uname) != "OpenBSD" ]]; then
+    # OpenBSD's zsh does not know about this
+    prompt off
+fi
 autoload -U colors && colors
+
+# git prompt stuff
 source $HOME/dotfiles/zsh/zshrc.sh
-# PROMPT="%{$fg[green]%} %# %{$reset_color%}"
-# PROMPT="%B%1~%b$(git_super_status) %B%#%b "
-# PROMPT="%B%1~ %#%b "
-PWDGIT='%1~$(git_super_status)'
-ERRORCODE="%(?..%{$fg[red]%} %? <<%{$reset_color%})"
-RPS1="${ERRORCODE}"
-# adpat prompt when entering/leaving normal mode
+
+PWD="%1~" # currently not in use
+GITSTATUS='$(git_super_status)'
+ERRORCODE="%(?..%{$fg[red]%}%?%{$reset_color%} < )"
+RPS1="${ERRORCODE}${GITSTATUS}"
+# Adapt prompt when entering/leaving normal mode
 function zle-line-init zle-keymap-select {
-    PS1="$PWDGIT ${${KEYMAP/vicmd/N}/(main|viins)/%#} $EPS1"
+    PS1=" ${${KEYMAP/vicmd/N}/(main|viins)/%#} "
     zle reset-prompt
 }
 zle -N zle-line-init
 zle -N zle-keymap-select
+
+# Activate syntax highlighting
+source "$HOME/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # OPTIONS
 bindkey -v
@@ -116,9 +123,6 @@ bindkey -M viins '^?' backward-delete-char
 bindkey -M viins '^w' backward-kill-word
 # bind jk to exit insert mode, just like vim
 bindkey -M viins 'jk' vi-cmd-mode
-
-# Activate syntax highlighting
-source "$HOME/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # Source my custom functions
 for file in $HOME/dotfiles/zsh/functions/*.sh;
