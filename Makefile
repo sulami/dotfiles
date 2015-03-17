@@ -1,11 +1,15 @@
 help:
 	@echo "=> Targets:"
-	@echo "nvim, mutt, zsh, git, tmux, irssi, feed2maildir, imgur, mpd, \
-	xresources, xinitrc, vimperator"
+	@echo "vim, nvim, mutt, zsh, git, tmux, irssi, feed2maildir, imgur, \
+	mpd, xresources, xinitrc"
 	@echo "=> Groups:"
 	@echo "dev, cli, gui, all"
 
 LN=ln -s
+
+vim:
+	$(LN) $(shell pwd)/.nvimrc ~/.vimrc
+	$(LN) $(shell pwd)/.nvim ~/.vim
 
 nvim:
 	$(LN) $(shell pwd)/.nvimrc ~/.nvimrc
@@ -45,15 +49,11 @@ xresources:
 xinitrc:
 	$(LN) $(shell pwd)/.xinitrc ~/.xinitrc
 
-vimperator:
-	$(LN) $(shell pwd)/firefox/.vimperator ~/.vimperator
-	$(LN) $(shell pwd)/firefox/.vimperatorrc ~/.vimperatorrc
-
 dev: nvim mutt zsh git tmux
 
 cli: nvim mutt zsh git tmux irssi feed2maildir mpd xresources imgur
 
-gui: xinitrc vimperator
+gui: xinitrc
 
 all: cli gui
 
