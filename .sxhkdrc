@@ -1,5 +1,5 @@
 super + Return
-    urxvt
+    st
 
 super + r
     dmenu_run
