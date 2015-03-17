@@ -95,6 +95,21 @@ key[PageDown]=${terminfo[knp]}
 [[ -n "${key[Right]}"   ]]  && bindkey  "${key[Right]}"   forward-char
 bindkey '\E[1;5D' backward-word
 bindkey '\E[1;5C' forward-word
+# Add incremental backwards search
+bindkey '^r' history-incremental-search-backward
+# Return to background program by hitting ^z again, thanks to grml
+function zsh-fg() {
+    if (( ${#jobstates} )); then
+        zle .push-input
+        [[ -o hist_ignore_space ]] && BUFFER=' ' || BUFFER=''
+        BUFFER="${BUFFER}fg"
+        zle .accept-line
+    else
+        zle -M 'No background jobs. Doing nothing.'
+    fi
+}
+zle -N zsh-fg
+bindkey '^z' zsh-fg
 # fix not being able to delete past entry point (vim: set backspace)
 bindkey -M viins '^h' backward-delete-char
 bindkey -M viins '^?' backward-delete-char
