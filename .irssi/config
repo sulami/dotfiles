@@ -182,6 +182,8 @@ settings = {
     hilight_nick_matches = "no";
     hilight_color = "%r";
     timestamp_level = "MSGS";
+    bell_beeps = "yes";
+    beep_msg_level = "MSGS NOTICES DCC DCCMSGS HILIGHT";
   };
   "perl/core/scripts" = {
     awl_placement = "top";
