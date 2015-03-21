@@ -146,7 +146,7 @@ abstracts = {
   ########## other IRC events #############################
 
   # whois
-  whois = "%K$[-12]0 : %n$1";
+  whois = "%c$[-16]0 %n$1";
 
   # notices
   ownnotice = "%NNote n = %Mnew%n $0 ($1-) ";
@@ -169,12 +169,12 @@ abstracts = {
   netjoin = "         %Ksplit %G> %b\"$*\"%n";
 
   # /names list
-  names_users = "%K             %K:─ %nNAMES %K──╼";
+  names_users = "%K               %c*%K %nNAMES%K";
   names_nick = "%_$2$0%_%n$1- ";
   names_nick_op = "{names_nick $* %R}";
   names_nick_halfop = "{names_nick $* %C}";
   names_nick_voice = "{names_nick $* %K}";
-  names_prefix = "%K               %n$1";
+  names_prefix = "%K               %c*%K %n$1";
   names_channel = "\"%b$*\"%n";
 
   # /whois command
@@ -256,7 +256,7 @@ formats = {
     msg_private_query = "{msgnick $[-16]0}$2";
     new_topic = "{msgnick %c$[-12]1}%wnew topic %W'$2' %K-- $0";
 
-    endofnames = "%K             %K:─ %nEND OF NAMES %K──╼";
+    endofnames = "%K               %c*%K %nEND OF NAMES%K";
 
   };
   # }}}
@@ -265,8 +265,8 @@ formats = {
     chanmode_change = "%K               %b*%K {channick $1}";
     server_chanmode_change = "%K               %b*%K {channick $1}";
 
-    whois = "%K             %K:── %nWHOIS $0 %K──╼";
-    end_of_whois = "%K             %K:── %nEND OF WHOIS %K──╼";
+    whois = "%K               %b*%K %nWHOIS %b$0%n%K";
+    end_of_whois = "%K               %b*%K %nEND OF WHOIS%K";
 
     own_action = "{action %c$[-16]0}%c$1";
     action_private = "{action %b$[-16]0}%b$1";
