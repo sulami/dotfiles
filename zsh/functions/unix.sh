@@ -1,5 +1,3 @@
-#!/bin/zsh
-
 # Make a new dir and cd to it
 mkdircd()
 {

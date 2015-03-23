@@ -1,5 +1,3 @@
-#!/bin/sh
-
 # Install a freshly made Linux Kernel on Arch w/ Syslinux
 # First argument decides the name (mainline or next)
 

@@ -1,5 +1,3 @@
-#!/bin/zsh
-
 git_add_remote()
 {
     if [ "$#" -ne 2 ]

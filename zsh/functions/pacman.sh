@@ -1,5 +1,3 @@
-#!/bin/zsh
-
 # Print manpages in a package
 about() {
     local PATHS="$(pacmN -Ql "$1" |\
