@@ -23,3 +23,14 @@ git_init()
     git_add_remote gh https://github.com/sulami/${PWD}
 }
 
+git_hist()
+{
+    count=0
+    for DIR in $(ls); do
+        cd $DIR
+        let count="count + $(git rev-list --count --since=$1 master)"
+        cd ..
+    done
+    echo "Commits in ${1}: $count"
+}
+
