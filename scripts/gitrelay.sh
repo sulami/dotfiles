@@ -2,10 +2,10 @@
 
 # Push all repos in the current dir to their respective local remote
 
-for DIR in $(find . -maxdepth 1 -type d -name "*.git")
+for DIR in $(ls)
 do
-    cd $DIR
+    pushd $DIR
     git push local master --tags
-    cd ..
+    popd
 done
 
