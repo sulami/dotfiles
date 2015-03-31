@@ -6,6 +6,8 @@ zstyle :compinstall filename '$HOME/.zshrc'
 autoload -Uz compinit
 compinit
 
+source "$HOME/dotfiles/zsh/zshrc"
+
 # Activate syntax highlighting
 source "$HOME/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
