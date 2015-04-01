@@ -145,6 +145,14 @@ abstracts = {
 
   ########## other IRC events #############################
 
+  # events
+  default_event = "               %c*%K $*";
+  default_event_server = "%c$[-16]0%K $1";
+
+  # away
+  away_msgs = "               %c*%K New messages in awaylog";
+  no_away_msgs = "               %c*%K No new messages in awaylog";
+
   # whois
   whois = "%c$[-16]0 %n$1";
 
