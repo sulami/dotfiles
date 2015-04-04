@@ -63,3 +63,14 @@ _bd ()
 }
 compctl -V directories -K _bd bd
 
+# Display infos about bat0 on OpenBSD for a Thinkpad X200.
+batinfo()
+{
+    CURR=$(sysctl -n hw.sensors.acpibat0.watthour3)
+    FULL=$(sysctl -n hw.sensors.acpibat0.watthour4)
+    RATE=$(sysctl -n hw.sensors.acpibat0.power0)
+
+    echo "$(echo $CURR | cut -d ' ' -f 1-2) / $(echo $FULL | cut -d ' ' -f 1-2)"
+    echo "Current usage: $(echo $RATE | cut -d ' ' -f 1-2)"
+}
+
