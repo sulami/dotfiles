@@ -28,18 +28,8 @@ servers = (
 );
 
 chatnets = {
-  freenode = {
-    type = "IRC";
-    nick = "sulami";
-    username = "sulami";
-    autosendcmd = "/^msg nickserv ghost sulami;wait 2000";
-  };
-  Nixers = {
-    type = "IRC";
-    nick = "sulami";
-    username = "sulami";
-    autosendcmd = "/^msg nickserv ghost sulami;wait 2000";
-  };
+  freenode = { type = "IRC"; nick = "sulami"; username = "sulami"; };
+  Nixers = { type = "IRC"; nick = "sulami"; username = "sulami"; };
   Twitch = { type = "IRC"; nick = "fineous"; username = "fineous"; };
 };
 
