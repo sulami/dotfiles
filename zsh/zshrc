@@ -63,7 +63,7 @@ alias gitsubup="git submodule foreach 'git pull origin master'"
 alias gitauthors='git ls-tree -r -z --name-only HEAD -- * | xargs -0 -n1 git \
     blame --line-porcelain HEAD | grep  "^author " | sort | uniq -c | sort -nr'
 alias gitsearch='git rev-list --all | pv | xargs git grep -F'
-alias size='du -sh * | pv | sort -rh'
+alias size='du -sh * | sort -rh'
 alias rsync='rsync -aP --stats'
 alias wget='wget -c'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
