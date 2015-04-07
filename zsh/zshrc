@@ -26,7 +26,6 @@ setopt noshwordsplit
 setopt unset
 
 # EXPORTS
-export PKG_PATH=ftp://ftp.halifax.rwth-aachen.de/pub/OpenBSD/5.6/packages/amd64/
 if which nvim > /dev/null 2>&1; then
     # Enable neovim if it is installed.
     export EDITOR=nvim
@@ -59,7 +58,6 @@ alias nv='nvim'
 alias g='git'
 alias make='time make -j16'
 alias py='ipython'
-alias python='python2.7' # OpenBSD...
 alias psg='ps aux | grep'
 alias gitsubup="git submodule foreach 'git pull origin master'"
 alias gitauthors='git ls-tree -r -z --name-only HEAD -- * | xargs -0 -n1 git \
