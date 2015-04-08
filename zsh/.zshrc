@@ -8,7 +8,7 @@ compinit
 
 # Zsh does not load .profile like ksh does (at least not by default w/o
 # any compability mode, but we need it for login shells on OpenBSD.
-if [[ $(uname) == "OpenBSD" && -o login ]]; then
+if [[ $(uname) == "OpenBSD" && -o login && -z $TMUX ]]; then
     source $HOME/.profile
 fi
 
