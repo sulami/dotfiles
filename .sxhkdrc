@@ -26,6 +26,9 @@ XF86Audio{Play,Stop,Prev,Next}
 XF86Audio{Mute,LowerVolume,RaiseVolume}
     /home/sulami/dotfiles/scripts/pulseaudio-ctl.sh {mute,down,up}
 
+super + backslash
+    /home/sulami/dotfiles/scripts/pulseaudio-ctl.sh mute-input
+
 super + shift + control + d
     /home/sulami/dotfiles/scripts/swapdisplays.sh
 
