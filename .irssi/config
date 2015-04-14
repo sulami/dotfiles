@@ -11,9 +11,9 @@ servers = (
   {
     address = "irc.twitch.tv";
     chatnet = "Twitch";
-    nick = "fineous";
+    nick = "sulamiification";
     port = "6667";
-    password = "oauth:mf6fvk4zd7sq2bxuaw36qzfnxb7jx1";
+    password = "oauth:7wbt4i2c2vg0l2svlhzf07uusx9jyr";
     use_ssl = "no";
     ssl_verify = "no";
   },
@@ -31,7 +31,11 @@ servers = (
 chatnets = {
   freenode = { type = "IRC"; nick = "sulami"; username = "sulami"; };
   Nixers = { type = "IRC"; nick = "sulami"; username = "sulami"; };
-  Twitch = { type = "IRC"; nick = "fineous"; username = "fineous"; };
+  Twitch = {
+    type = "IRC";
+    nick = "sulamiification";
+    username = "sulamiification";
+  };
 };
 
 statusbar = {
