@@ -1,5 +1,5 @@
 [core]
-    editor = nvim
+    editor = $EDITOR
 [user]
     name = Robin Schroer
     email = sulami@peerwire.org
