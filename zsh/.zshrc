@@ -12,6 +12,12 @@ if [[ $(uname) == "OpenBSD" && -o login && -z $TMUX ]]; then
     source $HOME/.profile
 fi
 
+# If on Arch, source the pkgfile command-not-found script that tells us
+# where to find a binary that is not installed.
+if [[ $(uname) == "Linux" ]]; then
+    source /usr/share/doc/pkgfile/command-not-found.zsh
+fi
+
 source "$HOME/dotfiles/zsh/zshrc"
 
 # Activate syntax highlighting
