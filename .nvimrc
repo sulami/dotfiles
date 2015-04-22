@@ -102,6 +102,7 @@ map <Leader>rp :!clear && python %<CR>
 map <Leader>rm :make<CR>
 map <Leader>rM :call ProjectRootExe('!clear && make')<CR>
 map <Leader>rl :!clear && pdflatex %<CR>
+map <Leader>ro :!clear && gnuplot -p %<CR>
 map <Leader>rc :!clear && gcc -W -Wall --std=gnu99 -o %:r % && ./%:r<CR>
 map <Leader>rg :call ProjectRootExe('!clear && go build && go test -v')<CR>
 map <Leader>rt :call ProjectRootExe('!clear && python setup.py test')<CR>
