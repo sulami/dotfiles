@@ -42,7 +42,7 @@ set guioptions=agimrLt      " do not use the toolkit for the tabbar/no toolbar
 
 " Tab highlights
 set list
-set listchars=tab:\|\ " This comment has a function...
+set listchars=tab:\>\ " This comment has a function...
 
 " Jump to last cursor position unless it's invalid or in an event handler
 autocmd BufReadPost *
