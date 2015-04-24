@@ -99,6 +99,7 @@ map <Leader>dp :diffput<CR>
 map <Leader>en :cn<CR>
 map <Leader>ep :cp<CR>
 map <Leader>rp :!clear && python %<CR>
+map <Leader>rh :!clear && ghc % && ./%:r<CR>
 map <Leader>rm :make<CR>
 map <Leader>rM :call ProjectRootExe('!clear && make')<CR>
 map <Leader>rl :!clear && pdflatex %<CR>
