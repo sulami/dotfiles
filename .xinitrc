@@ -9,7 +9,7 @@ fi
 
 # xset +fp /user/share/fonts/local/ &
 xrdb -merge $HOME/dotfiles/Xresources/.Xresources
-xrdb -merge $HOME/dotfiles/Xresources/jellybeans
+xrdb -merge $HOME/dotfiles/Xresources/su256
 
 xset -dpms &
 xset s off &
