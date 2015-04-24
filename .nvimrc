@@ -35,7 +35,7 @@ set laststatus=2            " always show statusline (for lightline)
 set noshowmode              " do not show mode below statusline
 set cursorline              " cursorline by default
 set t_Co=256                " 256 colours
-colorscheme jellybeans      " colourscheme
+colorscheme smh      " colourscheme
 
 " Gvim settings
 set guioptions=agimrLt      " do not use the toolkit for the tabbar/no toolbar
