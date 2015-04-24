@@ -136,7 +136,7 @@ hi GitGutterChangeDeleteDefault ctermbg=NONE
 
 " LightLine
 let g:lightline = {
-    \ 'colorscheme': 'jellybeans',
+    \ 'colorscheme': 'su256',
     \ 'active': {
         \ 'left': [ [ 'mode', 'paste'],
         \           [ 'fugitive', 'readonly', 'filename', 'modified' ]]
