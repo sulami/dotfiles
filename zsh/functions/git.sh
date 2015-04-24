@@ -16,7 +16,8 @@ git_add_remote()
 git_init()
 {
     git init
-    PWD=$(pwd | sed 's/\//\n/g' | tail -1)
+    PWD=$(pwd | sed 's/\//\
+/g' | tail -1)
     git_add_remote origin ${HOME}/git/${PWD}.git
     git_add_remote gh https://github.com/sulami/${PWD}
 }
