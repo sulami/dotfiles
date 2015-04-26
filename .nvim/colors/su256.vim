@@ -29,6 +29,7 @@ let g:colors_name = "su256"
 " Base
 hi Normal guifg=#d0d0d0 guibg=#000000 guisp=#000000 gui=NONE ctermfg=252 ctermbg=NONE cterm=NONE
 hi Cursor guifg=#192224 guibg=#F9F9F9 guisp=#F9F9F9 gui=NONE ctermfg=235 ctermbg=15 cterm=NONE
+hi CursorIM guifg=#192224 guibg=#536991 guisp=#536991 gui=NONE ctermfg=235 ctermbg=15 cterm=NONE
 
 " Various interface stuff
 hi LineNr guifg=#3a3a3a guibg=NONE guisp=NONE gui=NONE ctermfg=237 ctermbg=NONE cterm=NONE
@@ -125,12 +126,13 @@ hi Error guifg=#A1A6A8 guibg=#912C00 guisp=#912C00 gui=NONE ctermfg=203 ctermbg=
 hi Identifier guifg=#87afd7 guibg=NONE guisp=NONE gui=NONE ctermfg=110 ctermbg=NONE cterm=NONE
 hi Underlined guifg=#F9F9FF guibg=#192224 guisp=#192224 gui=underline ctermfg=110 ctermbg=NONE cterm=underline
 
-hi Title guifg=#afd7ff guibg=NONE guisp=NONE gui=bold ctermfg=153 ctermbg=NONE cterm=bold
+" Spell checking
 hi SpellRare guifg=#F9F9FF guibg=#192224 guisp=#192224 gui=underline ctermfg=189 ctermbg=235 cterm=underline
 hi SpellCap guifg=#F9F9FF guibg=#192224 guisp=#192224 gui=underline ctermfg=189 ctermbg=235 cterm=underline
 hi SpellLocal guifg=#F9F9FF guibg=#192224 guisp=#192224 gui=underline ctermfg=189 ctermbg=235 cterm=underline
-hi SpecialKey guifg=#5E6C70 guibg=NONE guisp=NONE gui=italic ctermfg=66 ctermbg=NONE cterm=NONE
 hi SpellBad guifg=#F9F9FF guibg=#192224 guisp=#192224 gui=underline ctermfg=189 ctermbg=235 cterm=underline
+
+hi Title guifg=#afd7ff guibg=NONE guisp=NONE gui=bold ctermfg=153 ctermbg=NONE cterm=bold
+hi SpecialKey guifg=#5E6C70 guibg=NONE guisp=NONE gui=italic ctermfg=66 ctermbg=NONE cterm=NONE
 hi Directory guifg=#536991 guibg=NONE guisp=NONE gui=bold ctermfg=60 ctermbg=NONE cterm=bold
-hi cursorim guifg=#192224 guibg=#536991 guisp=#536991 gui=NONE ctermfg=235 ctermbg=60 cterm=NONE
 
