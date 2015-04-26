@@ -60,9 +60,9 @@ hi TabLineFill guifg=#767676 guibg=#000000 guisp=#000000 gui=bold ctermfg=237 ct
 hi TabLineSel guifg=#767676 guibg=#000000 guisp=#000000 gui=bold ctermfg=243 ctermbg=NONE cterm=bold
 
 " Popup menu
-hi PMenu guifg=#3a3a3a guibg=#121212 guisp=#121212 gui=NONE ctermfg=237 ctermbg=233 cterm=NONE
-hi PMenuSbar guifg=NONE guibg=#121212 guisp=#121212 gui=NONE ctermfg=NONE ctermbg=233 cterm=NONE
-hi PMenuSel guifg=#767676 guibg=NONE guisp=NONE gui=NONE ctermfg=243 ctermbg=NONE cterm=NONE
+hi PMenu guifg=#3a3a3a guibg=#121212 guisp=#121212 gui=NONE ctermfg=239 ctermbg=234 cterm=NONE
+hi PMenuSel guifg=#767676 guibg=NONE guisp=NONE gui=NONE ctermfg=244 ctermbg=234 cterm=NONE
+hi PMenuSbar guifg=NONE guibg=#121212 guisp=#121212 gui=NONE ctermfg=NONE ctermbg=234 cterm=NONE
 hi PMenuThumb guifg=NONE guibg=#262626 guisp=#262626 gui=NONE ctermfg=NONE ctermbg=235 cterm=NONE
 
 " Comments
