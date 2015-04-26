@@ -4,8 +4,9 @@ PATH=$HOME/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/
 PKG_PATH=ftp://openbsd.cs.fau.de/pub/OpenBSD/snapshots/packages/amd64
 CVSROOT=anoncvs@openbsd.cs.fau.de:/cvs
 LC_CTYTPE=en_US.UTF-8
+LANG=en_US.UTF-8
 LESSCHARSET=utf-8
-export PATH HOME TERM PKG_PATH CVSROOT LC_CTYTPE LESSCHARSET
+export PATH HOME TERM PKG_PATH CVSROOT LC_CTYTPE LANG LESSCHARSET
 
 # Map Capslock to Control
 wsconsctl keyboard.map+="keysym Caps_Lock = Control_L"
