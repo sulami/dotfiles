@@ -69,7 +69,8 @@ export PATH=$PATH:$HOME/.local/bin
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig
 export GOPATH=$HOME/build/go
 export GOMAXPROCS=8
-export GITSERVER=ssh://pi@peerwire.dtdns.net/srv/git
+export GITSERVER=ssh://pi@peerwire.dtdns.net
+export GITURL=${GITSERVER}/srv/git
 
 # ALIASES
 if [[ $(uname) == "Linux" ]]; then
