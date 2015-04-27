@@ -28,7 +28,7 @@ compton -c -C -f -t-5 -l-5 -r8 -o.5 &
 # conky -c $HOME/dotfiles/.conkyrc &
 
 # This sets the resolution properly after slim mangled it.
-~/dotfiles/scripts/swapdisplays.sh &
+# ~/dotfiles/scripts/swapdisplays.sh &
 
 if [[ -e ~/.fehbg ]]; then
     sh ~/.fehbg
