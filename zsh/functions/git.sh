@@ -11,7 +11,7 @@ git_add_remote()
         mkdir -p "$2" && git init --bare "$2"
     elif [[ "$2" =~ ssh://.* ]]
     then
-        ssh ${GITSERVER} "mkdir -p /srv/git/$2 && git init --bare $2"
+        ssh ${GITSERVER} "mkdir -p /srv/git/${PWD}.git && git init --bare /srv/git/${PWD}.git"
     fi
     git remote add "$1" "$2"
 }
@@ -22,7 +22,7 @@ git_init()
     PWD=$(pwd | sed 's/\//\
 /g' | tail -1)
     git_add_remote origin ${GITURL}/${PWD}.git
-    git_add_remote gh https://github.com/sulami/${PWD}
+    git_add_remote gh https://github.com/sulami/${PWD}.git
 }
 
 git_hist()
