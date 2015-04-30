@@ -63,6 +63,14 @@ autocmd BufEnter *.gitsendemail.msg.* set tw=72
 autocmd BufEnter */linux/* call KernelStyle()
 autocmd BufEnter *.go call KernelStyle()
 
+" PEP8 coding style
+autocmd BufEnter *.py call PEPStyle()
+
+" Haskell coding style
+autocmd BufEnter *.hs call HaskellStyle()
+autocmd BufEnter *.css call HaskellStyle()
+autocmd BufEnter *.js call HaskellStyle()
+
 " Fix Filetypes
 autocmd BufEnter *.dt set ft=diet
 autocmd BufEnter *.glsl set ft=c
@@ -175,6 +183,11 @@ endfunction
 " Predefined coding styles - PEP8
 function! PEPStyle()
     exec ":set ts=4 sts=4 sw=4 expandtab"
+endfunction
+
+" Predefined coding styles - Haskell
+function! HaskellStyle()
+    exec ":set ts=2 sts=2 sw=2 expandtab"
 endfunction
 
 " Multi-purpose tab key, credits to GRB
