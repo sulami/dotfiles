@@ -101,6 +101,7 @@ alias wget='wget -c'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 alias imgur='imgur-screenshot'
 alias pc='sudo pacman'
+alias em='sudo emerge --ask'
 alias btrfs='sudo btrfs'
 
 # KEYBINDS
