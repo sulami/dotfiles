@@ -22,6 +22,12 @@ switch_display()
     fi
 }
 
+# Reset the wallpaper using feh.
+reset_wallpaper()
+{
+    sh $HOME/.fehbg
+}
+
 # Change the terminal colourscheme.
 switch_colours()
 {
@@ -37,6 +43,7 @@ action()
 {
     switch_display
     # switch_colours
+    reset_wallpaper
 }
 
 action
