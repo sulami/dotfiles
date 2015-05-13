@@ -34,10 +34,15 @@ if [[ -e ~/.fehbg ]]; then
     sh ~/.fehbg
 fi
 
+# Use the ThinkPad TrackPoint as mousewheel.
+xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation" 1
+xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Button" 2
+xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Timeout" 200
+
 # exec dwm
 # exec frankenwm
-exec cwm
-# exec startxfce4
+# exec cwm
+exec startxfce4
 # exec 2bwm
 
 # vim: set ft=sh:
