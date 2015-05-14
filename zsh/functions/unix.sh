@@ -1,5 +1,5 @@
 # Make a new dir and cd to it
-mkdircd()
+mcd()
 {
     mkdir -p "$1" && cd "$1"
 }
