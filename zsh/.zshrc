@@ -34,7 +34,7 @@ RPS1="%(?..%{$fg[red]%}%?%{$reset_color%} <)"
 # prompt red if we are privileged. For this to work, this needs to be
 # installed as global config.
 function zle-line-init zle-keymap-select {
-    PRMPT="${${KEYMAP/vicmd/N}/(main|viins)/%#}"
+    PRMPT="${${KEYMAP/vicmd/N}/(main|viins)/λ}"
     PS1=" %(!.%{$fg[red]%}.)$PRMPT%{$reset_color%} "
     zle reset-prompt
 }
