@@ -60,7 +60,7 @@ autocmd BufEnter /tmp/mutt-* set tw=72
 autocmd BufEnter *.gitsendemail.msg.* set tw=72
 
 " Kernel coding style
-autocmd BufEnter */linux/* call KernelStyle()
+autocmd BufEnter *.c call KernelStyle()
 autocmd BufEnter *.go call KernelStyle()
 
 " PEP8 coding style
