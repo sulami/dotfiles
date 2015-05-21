@@ -14,9 +14,9 @@ fi
 
 # If on Arch, source the pkgfile command-not-found script that tells us
 # where to find a binary that is not installed.
-if [[ $(uname) == "Linux" ]]; then
-    source /usr/share/doc/pkgfile/command-not-found.zsh
-fi
+# if [[ $(uname) == "Linux" ]]; then
+#     source /usr/share/doc/pkgfile/command-not-found.zsh
+# fi
 
 # Activate syntax highlighting
 # source "$HOME/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
