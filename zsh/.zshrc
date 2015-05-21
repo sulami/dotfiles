@@ -64,7 +64,6 @@ else
     export VISUAL=vim
 fi
 export BROWSER=firefox
-export XDG_CONFIG_HOME="$HOME"
 export PATH=$PATH:$HOME/.local/bin
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig
 export GOPATH=$HOME/build/go
