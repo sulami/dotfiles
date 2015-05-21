@@ -7,13 +7,13 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
-xset +fp /user/local/lib/X11/fonts/terminus
+xset +fp /usr/local/lib/X11/fonts/terminus
 xrdb -merge $HOME/dotfiles/Xresources/.Xresources
 xrdb -merge $HOME/dotfiles/Xresources/su256
 
-xset -dpms &
-xset s off &
-xset r rate 200 20 &
+# xset -dpms &
+# xset s off &
+# xset r rate 200 20 &
 
 # razercfg -r 400 &
 
@@ -23,7 +23,7 @@ sxhkd -c ~/dotfiles/.sxhkdrc &
 # feh --bg-fill $HOME/bg.png &
 # xsetroot -cursor_name left_ptr &
 
-compton -c -C -f -t-5 -l-5 -r8 -o.5 &
+# compton -c -C -f -t-5 -l-5 -r8 -o.5 &
 
 # conky -c $HOME/dotfiles/.conkyrc &
 
