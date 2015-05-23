@@ -8,6 +8,11 @@ bind_to_address "127.0.0.1"
 music_directory "/home/sulami/Music"
 
 audio_output {
+    type "alsa"
+    name "alsa"
+}
+
+audio_output {
     type "pulse"
     name "pulse"
 }
