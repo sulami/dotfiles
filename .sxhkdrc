@@ -20,8 +20,8 @@ super + alt + {Left,Down,Right}
 Print
     scrot -e 'mv $f ~/Downloads/'
 
-XF86Display
-    /home/sulami/dotfiles/scripts/dock.sh
+#XF86Display
+    #/home/sulami/dotfiles/scripts/dock.sh
 
 XF86Audio{Play,Stop,Prev,Next}
     mpc -q {toggle,stop,prev,next}
