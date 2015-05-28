@@ -79,6 +79,9 @@ autocmd BufEnter *.md set ft=markdown tw=79
 autocmd WinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
 
+" Enable spellchecking for emails
+autocmd BufEnter /tmp/mutt-* set spell spelllang=en_us
+
 " Pathogen
 execute pathogen#infect()
 
@@ -101,6 +104,9 @@ map <Leader>cc :CtrlPClearCache<CR>
 map <Leader>f :call RenameFile()<CR>
 map <Leader>sk :call KernelStyle()<CR>
 map <Leader>sp :call PEPStyle()<CR>
+map <Leader>se :set spell spelllang=en_us<CR>
+map <Leader>sd :set spell spelllang=de_de<CR>
+map <Leader>so :set nospell<CR>
 map <Leader>dt :diffthis<CR>
 map <Leader>dp :diffput<CR>
 map <Leader>en :cn<CR>
