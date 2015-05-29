@@ -1,7 +1,7 @@
 source $HOME/dotfiles/mutt/mutt-gpg
 
 # source 'gpg -dq $HOME/dotfiles/mutt/mutt-gmail.gpg |'
-source 'gpg -dq $HOME/dotfiles/mutt/mutt-pawnmail.gpg |'
+source 'gpg2 -dq $HOME/dotfiles/mutt/mutt-pawnmail.gpg |'
 
 source $HOME/dotfiles/mutt/colors.muttrc
 
