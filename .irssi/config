@@ -9,15 +9,6 @@ servers = (
     autosendcmd = "/^exec -send nickserv gpg --use-agent -q -d ~/.irssi/ghost.gpg; exec -send nickserv gpg --use-agent -q -d ~/.irssi/id.gpg; wait 2000";
   },
   {
-    address = "irc.twitch.tv";
-    chatnet = "Twitch";
-    nick = "sulamiification";
-    port = "6667";
-    password = "oauth:7wbt4i2c2vg0l2svlhzf07uusx9jyr";
-    use_ssl = "no";
-    ssl_verify = "no";
-  },
-  {
     address = "irc.nixers.net";
     chatnet = "Nixers";
     nick = "sulami";
