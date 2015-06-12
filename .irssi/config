@@ -212,5 +212,5 @@ ignores = (
 aliases = { do = "say `$*`; exec -o - $*"; wcl = "window close"; };
 channels = (
   { name = "#nixers"; chatnet = "Nixers"; autojoin = "yes"; },
-  { name = "#openbsd"; chatnet = "Freenode"; autojoin = "yes"; }
 );
+
