@@ -43,7 +43,7 @@ zle -N zle-keymap-select
 
 # OPTIONS
 bindkey -v
-unsetopt beep
+setopt beep
 unsetopt flowcontrol
 setopt autocd
 setopt correct
