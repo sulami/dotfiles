@@ -1,4 +1,4 @@
-#
+# 
 # /etc/fstab: static file system information
 #
 # <file system>	<dir>	<type>	<options>	<dump>	<pass>
@@ -11,5 +11,5 @@ UUID=d507453a-2d4d-45b8-ac0d-d541e7019028 / ext4 defaults 0 1
 # Uncomment the line below to setup /tmp as tmpfs
 # tmpfs    /tmp    tmpfs    nodev,nosuid    0   0
 
-raspberrypi:/mnt/nfs /mnt/raspi nfs nfsvers=4,users,rw,soft 0 0
+raspberrypi:/srv/nfs /mnt/raspi nfs nfsvers=4,users,rw,soft 0 0
 
