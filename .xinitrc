@@ -30,9 +30,9 @@ sxhkd -c ~/dotfiles/.sxhkdrc &
 # This sets the resolution properly after slim mangled it.
 # ~/dotfiles/scripts/swapdisplays.sh &
 
-if [[ -e ~/.fehbg ]]; then
-    sh ~/.fehbg
-fi
+# if [[ -e ~/.fehbg ]]; then
+#     sh ~/.fehbg
+# fi
 
 # Use the ThinkPad TrackPoint as mousewheel.
 xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation" 1
