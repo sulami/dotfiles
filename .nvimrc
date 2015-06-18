@@ -113,13 +113,13 @@ map <Leader>dp :diffput<CR>
 map <Leader>en :cn<CR>
 map <Leader>ep :cp<CR>
 map <Leader>rp :!clear && python %<CR>
-map <Leader>rh :!clear && ghc % && ./%:r<CR>
+map <Leader>rh :!clear && ghc % && time ./%:r<CR>
 map <Leader>rH :!clear && ghci %<CR>
 map <Leader>rm :make<CR>
 map <Leader>rM :call ProjectRootExe('!clear && make')<CR>
 map <Leader>rl :!clear && pdflatex %<CR>
 map <Leader>ro :!clear && gnuplot -p %<CR>
-map <Leader>rc :!clear && gcc -W -Wall --std=gnu99 -o %:r % && ./%:r<CR>
+map <Leader>rc :!clear && gcc -W -Wall --std=gnu99 -o %:r % && time ./%:r<CR>
 map <Leader>rg :call ProjectRootExe('!clear && go build && go test -v')<CR>
 map <Leader>rt :call ProjectRootExe('!clear && python setup.py test')<CR>
 
