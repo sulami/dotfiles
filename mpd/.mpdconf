@@ -12,25 +12,25 @@ audio_output {
     name "alsa"
 }
 
-audio_output {
-    type "pulse"
-    name "pulse"
-}
+# audio_output {
+#     type "pulse"
+#     name "pulse"
+# }
 
-audio_output {
-    type "fifo"
-    name "fifo"
-    path "/tmp/mpd.fifo"
-    format "44100:16:1"
-}
+# audio_output {
+#     type "fifo"
+#     name "fifo"
+#     path "/tmp/mpd.fifo"
+#     format "44100:16:1"
+# }
 
-audio_output {
-    type "httpd"
-    name "stream"
-    port "1338"
-    bitrate "128"
-    format "44100:16:2"
-}
+# audio_output {
+#     type "httpd"
+#     name "stream"
+#     port "1338"
+#     bitrate "128"
+#     format "44100:16:2"
+# }
 
 # vim: ft=conf
 
