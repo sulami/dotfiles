@@ -9,4 +9,5 @@
 .ssh/known_hosts
 .vimperator/info
 *.pyc
+*.spl
 
