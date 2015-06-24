@@ -113,6 +113,7 @@ map <Leader>dp :diffput<CR>
 map <Leader>en :cn<CR>
 map <Leader>ep :cp<CR>
 map <Leader>rp :!clear && python %<CR>
+map <Leader>rP :call ProjectRootExe('!clear && make html')<CR>
 map <Leader>rh :!clear && ghc % && time ./%:r<CR>
 map <Leader>rH :!clear && ghci %<CR>
 map <Leader>rm :make<CR>
