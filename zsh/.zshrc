@@ -64,7 +64,7 @@ else
     export VISUAL=vim
 fi
 export BROWSER=firefox
-export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.local/bin:$HOME/.cabal/bin
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig
 export GOPATH=$HOME/build/go
 export GOMAXPROCS=8
