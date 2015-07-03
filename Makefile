@@ -1,6 +1,6 @@
 help:
 	@echo "=> Targets:"
-	@echo "vim, nvim, mutt, zsh, git, tmux, irssi, feed2maildir, imgur, \
+	@echo "vim, nvim, mutt, zsh, git, tmux, top, irssi, feed2maildir, imgur, \
 	mpd, xresources, xinitrc"
 	@echo "=> Groups:"
 	@echo "dev, cli, gui, all"
@@ -28,6 +28,9 @@ git:
 tmux:
 	$(LN) $(shell pwd)/.tmux.conf ~/.tmux.conf
 
+top:
+	$(LN) $(shell pwd)/.toprc ~/.toprc
+
 irssi:
 	$(LN) $(shell pwd)/.irrsi ~/.irssi
 
@@ -49,9 +52,9 @@ xresources:
 xinitrc:
 	$(LN) $(shell pwd)/.xinitrc ~/.xinitrc
 
-dev: nvim mutt zsh git tmux
+dev: nvim mutt zsh git tmux top
 
-cli: nvim mutt zsh git tmux irssi feed2maildir mpd xresources imgur
+cli: nvim mutt zsh git tmux irssi feed2maildir mpd xresources imgur top
 
 gui: xinitrc
 
