@@ -123,6 +123,8 @@ map <Leader>ro :!clear && gnuplot -p %<CR>
 map <Leader>rc :!clear && gcc -W -Wall --std=gnu99 -o %:r % && time ./%:r<CR>
 map <Leader>rg :call ProjectRootExe('!clear && go build && go test -v')<CR>
 map <Leader>rt :call ProjectRootExe('!clear && python setup.py test')<CR>
+map <Leader>rs :call ProjectRootExe('!clear && stack build')<CR>
+map <Leader>rS :call ProjectRootExe('!clear && stack test')<CR>
 
 " Dynamic Hotkeys
 autocmd BufEnter *.d map <Leader>rd :call ProjectRootExe('!clear && dub')<CR>
