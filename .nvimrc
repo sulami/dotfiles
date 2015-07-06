@@ -33,7 +33,7 @@ set nofoldenable            " only fold when I want to
 set laststatus=2            " always show statusline (for lightline)
 set noshowmode              " do not show mode below statusline
 set cursorline              " cursorline by default
-set novisualbell            " don't beep even if beeping is enabled
+set visualbell              " don't beep even if beeping is enabled
 set t_Co=256                " 256 colours
 colorscheme su256           " colourscheme
 
