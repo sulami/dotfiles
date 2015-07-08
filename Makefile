@@ -1,7 +1,7 @@
 help:
 	@echo "=> Targets:"
 	@echo "vim, nvim, mutt, zsh, git, tmux, top, irssi, feed2maildir, imgur, \
-	mpd, xresources, xinitrc"
+	mpd, xresources, xinitrc, xprofile"
 	@echo "=> Groups:"
 	@echo "dev, cli, gui, all"
 
@@ -52,11 +52,14 @@ xresources:
 xinitrc:
 	$(LN) $(shell pwd)/.xinitrc ~/.xinitrc
 
+xprofile:
+	$(LN) $(shell pwd)/.xprofile ~/.xprofile
+
 dev: nvim mutt zsh git tmux top
 
 cli: nvim mutt zsh git tmux irssi feed2maildir mpd xresources imgur top
 
-gui: xinitrc
+gui: xinitrc xprofile
 
 all: cli gui
 
