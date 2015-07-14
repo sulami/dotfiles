@@ -88,7 +88,7 @@ fi
 alias v='vim'
 alias nv='nvim'
 alias g='git'
-alias make='time make -j16'
+alias make='time make -j2'
 alias py='ipython'
 alias bp='bpython'
 alias gc="$HOME/dotfiles/scripts/ghci-color"
