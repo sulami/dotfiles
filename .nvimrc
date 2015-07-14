@@ -138,6 +138,12 @@ let g:ctrlp_custom_ignore = {
 \   'file': '\v\.(pyc)$',
 \}
 
+" UltiSnips
+let g:UltiSnipsExpandTrigger="<s-tab>"
+" let g:UltiSnipsListSnippets="<c-s-tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-j>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
 " Indent Guides
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 1
@@ -211,7 +217,7 @@ function! InsertTabWrapper()
     endif
 endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-inoremap <s-tab> <c-n>
+" inoremap <s-tab> <c-n>
 
 " Rename current file
 function! RenameFile()

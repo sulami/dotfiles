@@ -37,3 +37,9 @@
 [submodule "zsh/zsh-syntax-highlighting"]
 	path = zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting
+[submodule ".nvim/bundle/ultisnips"]
+	path = .nvim/bundle/ultisnips
+	url = https://github.com/sirver/ultisnips
+[submodule ".nvim/bundle/vim-snippets"]
+	path = .nvim/bundle/vim-snippets
+	url = https://github.com/honza/vim-snippets
