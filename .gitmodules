@@ -43,3 +43,6 @@
 [submodule ".nvim/bundle/vim-snippets"]
 	path = .nvim/bundle/vim-snippets
 	url = https://github.com/honza/vim-snippets
+[submodule ".nvim/bundle/vim-slime"]
+	path = .nvim/bundle/vim-slime
+	url = https://github.com/jpalardy/vim-slime

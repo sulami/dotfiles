@@ -140,9 +140,6 @@ let g:ctrlp_custom_ignore = {
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<s-tab>"
-" let g:UltiSnipsListSnippets="<c-s-tab>"
-" let g:UltiSnipsJumpForwardTrigger="<c-j>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " Indent Guides
 let g:indent_guides_enable_on_vim_startup = 1
@@ -173,6 +170,9 @@ let g:lightline = {
         \ 'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
     \ }
 \ }
+
+" Slime
+let g:slime_target="tmux"
 
 " Cscope
 if has('cscope')
