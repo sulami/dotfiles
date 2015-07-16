@@ -46,3 +46,6 @@
 [submodule ".nvim/bundle/vim-slime"]
 	path = .nvim/bundle/vim-slime
 	url = https://github.com/jpalardy/vim-slime
+[submodule ".nvim/bundle/vim-syntax-shakespeare"]
+	path = .nvim/bundle/vim-syntax-shakespeare
+	url = https://github.com/pbrisbin/vim-syntax-shakespeare
