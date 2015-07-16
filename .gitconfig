@@ -38,6 +38,7 @@
     pug = pull gh master
     l = log --decorate --graph --oneline
     ll = log --decorate --graph --stat
+    sm = submodule
 [merge]
     tool = vimdiff
 [sendemail]
