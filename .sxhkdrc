@@ -2,7 +2,7 @@ super + Return
     urxvt
 
 super + r
-    dmenu_run
+     dmenu_run -z -h 50 -fn "Droid Sans-18" -b -y 100 -o 0.9
 
 super + t
     thunar
@@ -24,7 +24,7 @@ super + alt + {Left,Down,Right}
 #    hidden -c | dmenu -i | sed "s/:/\n/g" | sed "s/'//g" | tail -1 | sh
 
 Print
-    scrot -e 'mv $f ~/Downloads/'
+    scrot -s -e 'mv $f ~/Downloads/'
 
 #XF86Display
     #/home/sulami/dotfiles/scripts/dock.sh
