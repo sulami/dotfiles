@@ -1,6 +1,7 @@
 filetype plugin on          " enable filetype detection
 syntax on                   " highlight syntax
 set number                  " line numbering
+set relativenumber          " relative line numbering
 set colorcolumn=80          " highlight col 80
 set scrolloff=2             " keep cursor from upper/lower end of the buffer
 set winheight=5             " temp value for winminheight
