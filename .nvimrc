@@ -96,12 +96,6 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
-if has ('nvim')
-    tnoremap <c-j> <c-\><c-n><c-w>j
-    tnoremap <c-k> <c-\><c-n><c-w>k
-    tnoremap <c-h> <c-\><c-n><c-w>h
-    tnoremap <c-l> <c-\><c-n><c-w>l
-endif
 nnoremap <CR> :noh<CR>
 let mapleader = ','
 set pastetoggle=<Leader>p
