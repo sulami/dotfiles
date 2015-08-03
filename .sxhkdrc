@@ -2,7 +2,7 @@ super + Return
     urxvt
 
 super + r
-     dmenu_run -z -h 50 -fn "Droid Sans-18" -b -y 100 -o 0.9
+     dmenu_run -h 50 -fn "Droid Sans-18" -b -y 100 -o 0.9
 
 super + t
     thunar
