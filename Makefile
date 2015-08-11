@@ -55,9 +55,13 @@ xinitrc:
 xprofile:
 	$(LN) $(shell pwd)/.xprofile ~/.xprofile
 
-dev: nvim mutt zsh git tmux top
+urxvt:
+	mkdir -p ${HOME}/.urxvt/ext
+	$(LN) $(shell pwd)/scripts/font-size ${HOME}/.urxvt/ext/font-size
 
-cli: nvim mutt zsh git tmux irssi feed2maildir mpd xresources imgur top
+dev: urxvt nvim mutt zsh git tmux top
+
+cli: urxvt nvim mutt zsh git tmux irssi feed2maildir mpd xresources imgur top
 
 gui: xinitrc xprofile
 
