@@ -28,7 +28,7 @@ git_init()
 git_hist()
 {
     count=0
-    for DIR in $(ls); do
+    for DIR in $(find -maxdepth 1 -type d); do
         cd $DIR
         let count="count + $(git rev-list --count --since=$1 master)"
         cd ..
