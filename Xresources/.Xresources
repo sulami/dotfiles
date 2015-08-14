@@ -3,18 +3,19 @@ URxvt*url-launcher: /usr/bin/firefox
 !URxvt*url-launcher: /usr/bin/chromium
 URxvt*matcher.button: 1
 
-!URxvt.depth: 32
+URxvt.depth: 32
 *.scrollBar: false
 *cursorUnderline: false
 *.internalBorder: 0
 *.externalBorder: 0
 *.loginShell: false
 
-*.font: xft:Terminus:size=9
+*.font: xft:Inconsolata:size=15
 !*.font: -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*
 
+URxvt*.background: [80]#000000
 !URxvt*.background: #151516
-!URxvt*.transparent: true
+!Urxvt*.transparent: true
 !URxvt*.shading: 90
 
 URxvt.keysym.C-Up:   font-size:increase
