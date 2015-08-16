@@ -114,19 +114,29 @@ map <Leader>dt :diffthis<CR>
 map <Leader>dp :diffput<CR>
 map <Leader>en :cn<CR>
 map <Leader>ep :cp<CR>
-map <Leader>rp :!clear && python %<CR>
+map <Leader>rp :call Clrun('python %')<CR>
 map <Leader>rP :call ProjectRootExe('!clear && make html')<CR>
-map <Leader>rh :!clear && ghc % && time ./%:r<CR>
-map <Leader>rH :!clear && ghci %<CR>
+map <Leader>rh :call Clrun('ghc -O2 % && time ./%:r')<CR>
+map <Leader>rH :call Clrun('ghci %')<CR>
 map <Leader>rm :make<CR>
 map <Leader>rM :call ProjectRootExe('!clear && make')<CR>
-map <Leader>rl :!clear && pdflatex %<CR>
-map <Leader>ro :!clear && gnuplot -p %<CR>
-map <Leader>rc :!clear && gcc -W -Wall --std=gnu99 -o %:r % && time ./%:r<CR>
+map <Leader>rl :call Clrun('pdflatex %')<CR>
+map <Leader>ro :call Clrun('gnuplot -p %')<CR>
+map <Leader>rc :call Clrun('gcc -W -Wall -O2 --std=c99 -o %:r % && time ./%:r')<CR>
 map <Leader>rg :call ProjectRootExe('!clear && go build && go test -v')<CR>
 map <Leader>rt :call ProjectRootExe('!clear && python setup.py test')<CR>
 map <Leader>rs :call ProjectRootExe('!clear && stack build')<CR>
 map <Leader>rS :call ProjectRootExe('!clear && stack test')<CR>
+
+" Don't clear when in neovim
+function! Clrun(cmd)
+    if has('nvim')
+        exe "!" . a:cmd
+    else
+        exe "!clear && " . a:cmd
+    endif
+endfun
+command! -nargs=* -complete=command Clrun :call Clrun ('<args>')
 
 " Dynamic Hotkeys
 autocmd BufEnter *.d map <Leader>rd :call ProjectRootExe('!clear && dub')<CR>
