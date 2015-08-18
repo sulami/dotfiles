@@ -114,6 +114,8 @@ map <Leader>dt :diffthis<CR>
 map <Leader>dp :diffput<CR>
 map <Leader>en :cn<CR>
 map <Leader>ep :cp<CR>
+map <Leader>gs :Gstatus<CR>
+map <Leader>gc :Gcommit<CR>
 map <Leader>rp :call Clrun('python %')<CR>
 map <Leader>rP :call ProjectRootExe('!clear && make html')<CR>
 map <Leader>rh :call Clrun('ghc -O2 % && time ./%:r')<CR>
