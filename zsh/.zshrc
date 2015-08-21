@@ -149,6 +149,8 @@ bindkey -M viins '^?' backward-delete-char
 bindkey -M viins '^w' backward-kill-word
 # bind jk to exit insert mode, just like vim
 bindkey -M viins 'jk' vi-cmd-mode
+# bind hmenu
+bindkey -s '^h' 'hmenu\n'
 
 # X-less colours
 if [ "$TERM" = "linux" ]; then
