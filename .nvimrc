@@ -51,6 +51,11 @@ autocmd BufReadPost *
     \   exe "normal g`\"" |
     \ endif
 
+" Fix Ctrl-H in neovim
+if has('nvim')
+    nmap <BS> <C-w>h
+endif
+
 " Gdiff window height fix
 autocmd BufEnter */.git/index set wh=999
 
