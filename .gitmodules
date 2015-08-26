@@ -49,3 +49,6 @@
 [submodule ".nvim/bundle/vim-syntax-shakespeare"]
 	path = .nvim/bundle/vim-syntax-shakespeare
 	url = https://github.com/pbrisbin/vim-syntax-shakespeare
+[submodule ".nvim/bundle/syntastic"]
+	path = .nvim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic

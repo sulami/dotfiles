@@ -192,6 +192,15 @@ let g:lightline = {
 " Slime
 let g:slime_target="tmux"
 
+" Syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_sort_aggregated_errors = 1
+let g:syntastic_haskell_checkers = ['hlint', 'ghc-mod']
+
 " Cscope
 if has('cscope')
     set cscopetag cscopeverbose
