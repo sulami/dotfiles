@@ -199,7 +199,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_sort_aggregated_errors = 1
-let g:syntastic_haskell_checkers = ['hlint', 'ghc-mod']
+let g:syntastic_haskell_checkers = ['hlint']
 
 " Cscope
 if has('cscope')
