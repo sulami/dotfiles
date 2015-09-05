@@ -110,6 +110,7 @@ map <Leader>t :tabnew<CR>
 map <Leader>T <c-w><s-t>
 map <Leader>o :CtrlPMixed<CR>
 map <Leader>cc :CtrlPClearCache<CR>
+map <Leader>dd :call DeleteFile()<CR>
 map <Leader>f :call RenameFile()<CR>
 map <Leader>sk :call KernelStyle()<CR>
 map <Leader>sp :call PEPStyle()<CR>
@@ -247,6 +248,14 @@ function! InsertTabWrapper()
 endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 " inoremap <s-tab> <c-n>
+
+" Delete current file
+function! DeleteFile()
+  let name = expand('%')
+  exec ':quit!'
+  exec ':silent !rm ' . name
+  redraw!
+endfunction
 
 " Rename current file
 function! RenameFile()
