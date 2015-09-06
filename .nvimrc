@@ -253,8 +253,8 @@ inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 " Delete current file
 function! DeleteFile()
   let name = expand('%')
-  exec ':quit!'
   exec ':silent !rm ' . name
+  exec ':quit!'
   redraw!
 endfunction
 
