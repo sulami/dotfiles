@@ -221,7 +221,7 @@ if has('cscope')
     cnoreabbrev csf cs find
     cnoreabbrev csk cs kill
     cnoreabbrev csr cs reset
-    cnoreabbrev css cs show
+    "cnoreabbrev css cs show " This is stupid...
     cnoreabbrev csh cs help
 
     command! -nargs=0 Cscope cs add $VIMSRC/src/cscope.out $VIMSRC/src
