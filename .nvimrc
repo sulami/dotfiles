@@ -165,7 +165,7 @@ let g:ctrlp_custom_ignore = {
 let g:UltiSnipsExpandTrigger="<s-tab>"
 
 " Easymotion
-map <Leader><Space> <Plug>(easymotion-prefix)
+nmap <Leader><Space> <Plug>(easymotion-prefix)
 
 " Indent Guides
 let g:indent_guides_enable_on_vim_startup = 1
