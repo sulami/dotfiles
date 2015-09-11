@@ -105,6 +105,7 @@ alias imgur='imgur-screenshot'
 alias pc='sudo pacman'
 alias em='sudo emerge --ask'
 alias btrfs='sudo btrfs'
+alias temps="sensors | grep -v 'N/A'"
 
 # KEYBINDS
 typeset -A key
