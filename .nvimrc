@@ -97,14 +97,14 @@ execute pathogen#infect()
 
 " Hotkeys
 imap jk <Esc>
-nnoremap gh gt
-nnoremap hg gT
+nnoremap GH gt
+nnoremap HG gT
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
-nnoremap <Left>  :vertical resize +1<CR>
-nnoremap <Right> :vertical resize -1<CR>
+nnoremap <Left>  :vertical resize -1<CR>
+nnoremap <Right> :vertical resize +1<CR>
 nnoremap <Up>    :resize +1<CR>
 nnoremap <Down>  :resize -1<CR>
 nnoremap <CR> :noh<CR>
