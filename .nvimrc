@@ -22,6 +22,7 @@ set nojoinspaces            " Use a single space when joining lines
 set backspace=2             " fix backspace with autoindent
 set incsearch               " search while typing
 set ignorecase smartcase    " ignore case if everything is lowercase
+set gdefault                " add g to search/replace by default
 set noswapfile              " no clutter
 set backup                  " save backups
 set backupdir=/tmp          " keep backups in /tmp
@@ -89,7 +90,7 @@ autocmd WinLeave * setlocal nocursorline
 
 " Enable spellchecking for emails and (La)TeX
 autocmd BufEnter /tmp/mutt-* set spell spelllang=en_us
-autocmd BufEnter *.tex set spell spelllang=de_de
+"autocmd BufEnter *.tex set spell spelllang=de_de
 
 " Pathogen
 execute pathogen#infect()
@@ -97,11 +98,15 @@ execute pathogen#infect()
 " Hotkeys
 imap jk <Esc>
 nnoremap gh gt
-nnoremap gH gT
+nnoremap hg gT
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
+nnoremap <Left>  :vertical resize +1<CR>
+nnoremap <Right> :vertical resize -1<CR>
+nnoremap <Up>    :resize +1<CR>
+nnoremap <Down>  :resize -1<CR>
 nnoremap <CR> :noh<CR>
 map <Space> \
 let mapleader = '\'
@@ -117,7 +122,7 @@ map <Leader>sk :call KernelStyle()<CR>
 map <Leader>sp :call PEPStyle()<CR>
 map <Leader>se :set spell spelllang=en_us<CR>
 map <Leader>sd :set spell spelllang=de_de<CR>
-map <Leader>so :set nospell<CR>
+map <Leader>ss :set spell!<CR>
 map <Leader>dt :diffthis<CR>
 map <Leader>dp :diffput<CR>
 map <Leader>tn :set number! relativenumber!<CR>
