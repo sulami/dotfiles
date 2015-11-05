@@ -130,6 +130,7 @@ map <Leader>en :cn<CR>
 map <Leader>ep :cp<CR>
 map <Leader>gs :Gstatus<CR>
 map <Leader>gc :Gcommit<CR>
+map <Leader>gd :Gdiff<CR>
 map <Leader>ev :tabe $MYVIMRC<CR>
 map <Leader>rv :source $MYVIMRC<CR>
 map <Leader>rp :call Clrun('python %')<CR>
