@@ -32,8 +32,8 @@ Print
 XF86Audio{Play,Stop,Prev,Next}
     mpc -q {toggle,stop,prev,next}
 
- XF86Audio{Mute,LowerVolume,RaiseVolume}
-     /home/sulami/dotfiles/scripts/pulseaudio-ctl.sh {mute,down,up}
+# XF86Audio{Mute,LowerVolume,RaiseVolume}
+#     /home/sulami/dotfiles/scripts/pulseaudio-ctl.sh {mute,down,up}
 
 super + backslash
     /home/sulami/dotfiles/scripts/pulseaudio-ctl.sh mute-input
