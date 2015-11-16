@@ -106,6 +106,8 @@ alias pc='sudo pacman'
 alias em='sudo emerge --ask'
 alias btrfs='sudo btrfs'
 alias temps="sensors | grep -v 'N/A'"
+alias snd_restart="pulseaudio -k && pulseaudio --start && xfce4-panel -r && \
+    killall xfce4-volumed-pulse && xfce4-volumed-pulse"
 
 # KEYBINDS
 typeset -A key
