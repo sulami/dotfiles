@@ -13,7 +13,7 @@ URxvt.depth: 32
 *.font: xft:Inconsolata:size=11
 !*.font: -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*
 
-URxvt*.background: #000000
+URxvt*.background: [90]#000000
 !URxvt*.background: #151516
 !Urxvt*.transparent: true
 !URxvt*.shading: 90
