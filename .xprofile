@@ -19,6 +19,7 @@ xrdb -merge $HOME/dotfiles/Xresources/su256
 
 # razercfg -r 400 &
 
+xflux -l 6.7 -g 51.5 &
 sxhkd -c ~/dotfiles/.sxhkdrc &
 
 # xsetroot -solid "#151a25"
