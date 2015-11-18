@@ -146,12 +146,15 @@ map <Leader>rg :call ProjectRootExe('!clear && go build && go test -v')<CR>
 map <Leader>rt :call ProjectRootExe('!clear && python setup.py test')<CR>
 map <Leader>rs :call ProjectRootExe('!clear && stack build')<CR>
 map <Leader>rS :call ProjectRootExe('!clear && stack test')<CR>
-map <Leader>rt :Silent 'echo "stack test"'<CR>
 
 " :silent wrapper that redraws automatically
 command! -nargs=1 Silent
 \ | execute ':silent !'.<q-args>
 \ | execute ':redraw!'
+
+" Echo arbitrary commands to the async listener
+command! -nargs=1 Async
+\ | execute ':Silent echo '.<q-args>.' > commands.fifo'
 
 " Don't clear when in neovim
 function! Clrun(cmd)
