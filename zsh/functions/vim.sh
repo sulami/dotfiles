@@ -7,12 +7,12 @@ cv()
 # Start an asynchronous test-runner
 test_runner()
 {
-    if [ ! -p test-commands ]; then
-        mkfifo test-commands
+    if [ ! -p commands.fifo ]; then
+        mkfifo commands.fifo
     fi
 
     while true; do
-        sh -c "$(cat test-commands)"
+        sh -c "$(cat commands.fifo)"
     done
 }
 
