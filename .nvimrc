@@ -126,8 +126,8 @@ map <Leader>ss :set spell!<CR>
 map <Leader>dt :diffthis<CR>
 map <Leader>dp :diffput<CR>
 map <Leader>tn :set number! relativenumber!<CR>
-map <Leader>en :cn<CR>
-map <Leader>ep :cp<CR>
+map <Leader>[  :silent lpr<CR>
+map <Leader>]  :silent lne<CR>
 map <Leader>gs :Gstatus<CR>
 map <Leader>gc :Gcommit<CR>
 map <Leader>gd :Gdiff<CR>
