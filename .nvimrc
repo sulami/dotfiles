@@ -210,6 +210,14 @@ let g:lightline = {
     \ },
     \ 'component_visible_condition': {
         \ 'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+    \ },
+    \ 'tabline': {
+        \ 'left': [ [ 'tabs' ] ],
+        \ 'right': [ ]
+    \ },
+    \ 'tab': {
+        \ 'active': [ 'tabnum', 'filename', 'modified' ],
+        \ 'inactive': [ 'tabnum', 'filename', 'modified' ]
     \ }
 \ }
 
