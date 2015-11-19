@@ -126,6 +126,7 @@ map <Leader>ss :set spell!<CR>
 map <Leader>dt :diffthis<CR>
 map <Leader>dp :diffput<CR>
 map <Leader>tn :set number! relativenumber!<CR>
+map <Leader>'  :silent ll<CR>
 map <Leader>[  :silent lpr<CR>
 map <Leader>]  :silent lne<CR>
 map <Leader>gs :Gstatus<CR>
