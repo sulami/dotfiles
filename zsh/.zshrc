@@ -116,6 +116,8 @@ alias btrfs='sudo btrfs'
 alias temps="sensors | grep -v 'N/A'"
 alias snd_restart="pulseaudio -k && pulseaudio --start && xfce4-panel -r && \
     killall xfce4-volumed-pulse && xfce4-volumed-pulse"
+alias tspv='tmux split-window -v -c "$PWD"'
+alias tsph='tmux split-window -h -c "$PWD"'
 
 # KEYBINDS
 typeset -A key
