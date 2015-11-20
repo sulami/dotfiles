@@ -36,9 +36,14 @@ RPS1="%(?..%{$fg_bold[red]%}%?%{$reset_color%} <)"
 # prompt red if we are privileged. For this to work, this needs to be
 # installed as global config.
 function zle-line-init zle-keymap-select {
+    # Color the working dir if we are in a stack environment
+    COLDIR="$(in_stack_dir && echo %{$fg[green]%})%1~%{$reset_color%}"
+    # hostname:pwd(git status)
+    PREFIX="%{$fg_bold[black]%}%m:%{$reset_color%}$COLDIR$(git_super_status)"
+    # Mode-dependent symbol
     PRMPT="${${KEYMAP/vicmd/N}/(main|viins)/λ}"
-    PREFX="%{$fg_bold[black]%}%m:%{$reset_color%}%1~$(git_super_status)"
-    PS1="$PREFX %1(j.%{$fg_bold[cyan]%}$PRMPT%{$reset_color%}.$PRMPT) "
+    # Put it all together, color the symbol if there are bg jobs
+    PS1="$PREFIX %1(j.%{$fg_bold[cyan]%}$PRMPT%{$reset_color%}.$PRMPT) "
     zle reset-prompt
 }
 zle -N zle-line-init
