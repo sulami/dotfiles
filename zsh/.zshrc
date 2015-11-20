@@ -6,6 +6,8 @@ zstyle :compinstall filename '$HOME/.zshrc'
 autoload -Uz compinit
 compinit
 
+source $HOME/dotfiles/zsh/zshrc.sh
+
 # Zsh does not load .profile like ksh does (at least not by default w/o
 # any compability mode, but we need it for login shells on OpenBSD.
 if [[ $(uname) == "OpenBSD" && -o login && -z $TMUX ]]; then
@@ -29,13 +31,14 @@ for file in $HOME/dotfiles/zsh/functions/*.sh;
 
 # PROMPT
 autoload -U colors && colors
-RPS1="%(?..%{$fg[red]%}%?%{$reset_color%} <)"
+RPS1="%(?..%{$fg_bold[red]%}%?%{$reset_color%} <)"
 # Adapt prompt when entering/leaving normal mode, and also color the
 # prompt red if we are privileged. For this to work, this needs to be
 # installed as global config.
 function zle-line-init zle-keymap-select {
     PRMPT="${${KEYMAP/vicmd/N}/(main|viins)/λ}"
-    PS1=" %(!.%{$fg[red]%}.)$PRMPT%{$reset_color%} "
+    PREFX="%{$fg_bold[black]%}%m:%{$reset_color%}%1~$(git_super_status)"
+    PS1="$PREFX %1(j.%{$fg_bold[cyan]%}$PRMPT%{$reset_color%}.$PRMPT) "
     zle reset-prompt
 }
 zle -N zle-line-init
@@ -153,7 +156,7 @@ bindkey -M viins '^w' backward-kill-word
 # bind jk to exit insert mode, just like vim
 bindkey -M viins 'jk' vi-cmd-mode
 # bind hmenu
-bindkey -s '^h' 'hmenu\n'
+# bindkey -s '^h' 'hmenu\n'
 
 # X-less colours
 if [ "$TERM" = "linux" ]; then
