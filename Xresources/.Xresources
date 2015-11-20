@@ -10,8 +10,9 @@ URxvt.depth: 32
 *.externalBorder: 0
 *.loginShell: false
 
-*.font: xft:Inconsolata:size=11
+*.font: xft:Fira Mono:size=11
 !*.font: -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*
+*.letterSpace: -1
 
 URxvt*.background: #000000
 !URxvt*.background: #151516
