@@ -58,6 +58,8 @@ if has('nvim')
     nmap <BS> <C-w>h
 endif
 
+autocmd BufEnter * set wiw=85
+
 " Gdiff window height fix
 autocmd BufEnter */.git/index set wh=999
 
