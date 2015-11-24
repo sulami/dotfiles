@@ -1,9 +1,9 @@
 # These are OpenBSD-specific exports that need to stay here to be independent
 # of zsh's config.
 PATH=$HOME/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin:/usr/games:.
-PKG_PATH=ftp://openbsd.cs.fau.de/pub/OpenBSD/5.7/packages/amd64
+PKG_PATH=ftp://openbsd.cs.fau.de/pub/OpenBSD/5.8/packages/amd64
 CVSROOT=anoncvs@openbsd.cs.fau.de:/cvs
-LC_CTYTPE=en_US.UTF-8
+LC_CTYPE=en_US.UTF-8
 LANG=en_US.UTF-8
 LESSCHARSET=utf-8
 export PATH HOME TERM PKG_PATH CVSROOT LC_CTYTPE LANG LESSCHARSET
