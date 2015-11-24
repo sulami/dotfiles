@@ -2,55 +2,55 @@ help:
 	@echo "=> Groups:"
 	@echo "dev, cli, gui, all"
 
-LN=ln -s
+LN=ln -sf
 
 vim:
-	$(LN) $(shell pwd)/.nvimrc ${HOME}/
-	$(LN) $(shell pwd)/.nvim ${HOME}/
+	$(LN) ${HOME}/dotfiles/.vimrc ${HOME}/
+	$(LN) ${HOME}/dotfiles/.vim ${HOME}/
 
 mutt:
-	$(LN) $(shell pwd)/mutt/.muttrc ${HOME}/
-	$(LN) $(shell pwd)/mutt/.offlineimaprc ${HOME}/
+	$(LN) ${HOME}/dotfiles/mutt/.muttrc ${HOME}/
+	$(LN) ${HOME}/dotfiles/mutt/.offlineimaprc ${HOME}/
 
 zsh:
-	$(LN) $(shell pwd)/zsh/.zshrc ${HOME}/
+	$(LN) ${HOME}/dotfiles/zsh/.zshrc ${HOME}/
 
 git:
-	$(LN) $(shell pwd)/.gitconfig ${HOME}/
+	$(LN) ${HOME}/dotfiles/.gitconfig ${HOME}/
 
 tmux:
-	$(LN) $(shell pwd)/.tmux.conf ${HOME}/
+	$(LN) ${HOME}/dotfiles/.tmux.conf ${HOME}/
 
 top:
-	$(LN) $(shell pwd)/.toprc ${HOME}/
+	$(LN) ${HOME}/dotfiles/.toprc ${HOME}/
 
 irssi:
-	$(LN) $(shell pwd)/.irrsi ${HOME}/
+	$(LN) ${HOME}/dotfiles/.irrsi ${HOME}/
 
 feed2maildir:
-	$(LN) $(shell pwd)/mutt/.f2mrc ${HOME}/
+	$(LN) ${HOME}/dotfiles/mutt/.f2mrc ${HOME}/
 
 imgur:
 	mkdir -p ${HOME}/.config/imgur-screenshot
-	$(LN) $(shell pwd)/configs/imgur-screenshot/settings.conf \
+	$(LN) ${HOME}/dotfiles/configs/imgur-screenshot/settings.conf \
 	${HOME}/.config/imgur-screenshot/
 
 mpd:
-	$(LN) $(shell pwd)/mpd/.mpdconf ${HOME}/
-	$(LN) $(shell pwd)/mpd/.ncmpcpp ${HOME}/
+	$(LN) ${HOME}/dotfiles/mpd/.mpdconf ${HOME}/
+	$(LN) ${HOME}/dotfiles/mpd/.ncmpcpp ${HOME}/
 
 profile:
-	$(LN) $(shell pwd)/.profile ${HOME}/
+	$(LN) ${HOME}/dotfiles/.profile ${HOME}/
 
 xinitrc:
-	$(LN) $(shell pwd)/.xinitrc ${HOME}/
+	$(LN) ${HOME}/dotfiles/.xinitrc ${HOME}/
 
 xprofile:
-	$(LN) $(shell pwd)/.xprofile ${HOME}/
+	$(LN) ${HOME}/dotfiles/.xprofile ${HOME}/
 
 urxvt:
 	mkdir -p ${HOME}/.urxvt/ext
-	$(LN) $(shell pwd)/scripts/font-size ${HOME}/
+	$(LN) ${HOME}/dotfiles/scripts/font-size ${HOME}/.urxvt/ext/
 
 dev: vim zsh git tmux top profile
 
