@@ -6,7 +6,9 @@ zstyle :compinstall filename '$HOME/.zshrc'
 autoload -Uz compinit
 compinit
 
-source $HOME/dotfiles/zsh/zshrc.sh
+# Git prompt import
+source $HOME/dotfiles/zsh/zsh-git-prompt/zshrc.sh
+export GIT_PROMPT_EXECUTABLE="haskell"
 
 # Zsh does not load .profile like ksh does (at least not by default w/o
 # any compability mode, but we need it for login shells on OpenBSD.
