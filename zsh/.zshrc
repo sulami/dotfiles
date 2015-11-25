@@ -101,7 +101,6 @@ alias py='ipython'
 alias bp='bpython'
 alias gc="$HOME/dotfiles/scripts/ghci-color"
 alias psg='ps aux | grep'
-alias gitsubup="git submodule foreach 'git pull origin master'"
 alias gitauthors='git ls-tree -r -z --name-only HEAD -- * | xargs -0 -n1 git \
     blame --line-porcelain HEAD | grep  "^author " | sort | uniq -c | sort -nr'
 alias gitsearch='git rev-list --all | pv | xargs git grep -F'
