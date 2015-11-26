@@ -47,8 +47,8 @@ generate_hoogle()
     PROJ_NAME=$(get_project_name)
     DOC_PATH="${PWD}/.stack-work/install/${ARCH}-linux/${SNAPSHOT}/${GHC_VERSION}/doc/${PROJ_NAME_VERSION}"
     TXT_PATH=".stack-work/install/${ARCH}-linux/${SNAPSHOT}/${GHC_VERSION}/doc/${PROJ_NAME_VERSION}/${PROJ_NAME}.txt"
-    hoogle convert --haddock -d ${DOC_PATH} ${TXT_PATH} local.hoo
-    hoogle combine -o default.hoo stackage.hoo local.hoo
+    hoogle convert --haddock -d ${DOC_PATH} ${TXT_PATH} ${PROJ_NAME}.hoo
+    hoogle combine -o default.hoo stackage.hoo ${PROJ_NAME}.hoo
 }
 
 main()
