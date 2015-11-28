@@ -41,3 +41,6 @@ super + backslash
 super + shift + control + d
     /home/sulami/dotfiles/scripts/swapdisplays.sh
 
+super + e
+    skippy-xd --config /home/sulami/dotfiles/skippy-xd.rc --toggle-window-picker
+
