@@ -19,7 +19,7 @@ xrdb -merge $HOME/dotfiles/Xresources/su256
 
 # razercfg -r 400 &
 
-skippy-xd --config ~/dotfiles/skippy-xd.rc --start-daemon
+skippy-xd --config ~/dotfiles/skippy-xd.rc --start-daemon &
 xflux -l 51 -g 7 &
 sxhkd -c ~/dotfiles/sxhkdrc &
 
