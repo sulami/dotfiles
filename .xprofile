@@ -10,7 +10,7 @@ fi
 pulseaudio --start &
 
 xset +fp /usr/local/lib/X11/fonts/terminus
-xrdb -merge $HOME/dotfiles/Xresources/.Xresources
+xrdb -merge $HOME/dotfiles/Xresources/base
 xrdb -merge $HOME/dotfiles/Xresources/su256
 
 # xset -dpms &
