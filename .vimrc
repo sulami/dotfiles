@@ -177,7 +177,7 @@ autocmd BufEnter *.py map <Leader>rd :call ProjectRootExe('!clear && python
 " CtrlP
 let g:ctrlp_custom_ignore = {
 \   'dir' : '\v[\/]\.(git)$',
-\   'file': '\v\.(pyc|hi|o)$',
+\   'file': '\v\.(pyc|hi|o|dyn_hi|dyn_o)$',
 \}
 
 " UltiSnips
