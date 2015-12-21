@@ -61,3 +61,6 @@
 [submodule "zsh/zsh-git-prompt"]
 	path = zsh/zsh-git-prompt
 	url = https://github.com/olivierverdier/zsh-git-prompt
+[submodule ".vim/bundle/vim-stylish-haskell"]
+	path = .vim/bundle/vim-stylish-haskell
+	url = https://github.com/nbouscal/vim-stylish-haskell

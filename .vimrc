@@ -80,6 +80,10 @@ autocmd BufEnter *.py call PEPStyle()
 autocmd BufEnter *.hs call HaskellStyle()
 autocmd BufEnter *.css call HaskellStyle()
 autocmd BufEnter *.js call HaskellStyle()
+augroup stylish-haskell
+  autocmd!
+  autocmd BufWritePost *.hs call s:StylishHaskell()
+augroup END
 
 " Fix Filetypes
 autocmd BufEnter *.dt set ft=diet
