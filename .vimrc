@@ -94,9 +94,10 @@ autocmd BufEnter *.md set ft=markdown tw=79
 autocmd WinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
 
-" Enable spellchecking for emails and (La)TeX
-autocmd BufEnter /tmp/mutt-* set spell spelllang=en_us
-"autocmd BufEnter *.tex set spell spelllang=de_de
+" Enable spellchecking for markdown, emails and (La)TeX
+autocmd BufEnter *.md        set spell
+autocmd BufEnter /tmp/mutt-* set spell
+autocmd BufEnter *.tex       set spell
 
 " Pathogen
 execute pathogen#infect()
