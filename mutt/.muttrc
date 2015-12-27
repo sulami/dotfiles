@@ -21,7 +21,7 @@ set sort_aux        = date-sent
 set signature       = "$HOME/dotfiles/mutt/.signature"
 set smtp_url        = smtp://sulami@peerwire.org:$my_pw_pawnmail@mail.pawnmail.com:587/
 
-mailboxes $HOME/mail/Inbox
+mailboxes $HOME/mail/Inbox $HOME/mail/feeds
 set mbox_type       = Maildir
 set folder          = $HOME/mail/Inbox
 set spoolfile       = =/
