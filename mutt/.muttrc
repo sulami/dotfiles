@@ -33,6 +33,7 @@ set header_cache    = /tmp/mutt-header-cache
 bind editor <space> noop
 bind index R group-reply
 macro index,pager <f2> "<change-folder>$HOME/mail/Inbox<enter>"
+macro index,pager <f3> "<change-folder>$HOME/mail/Archive<enter>"
 macro index,pager <f4> "<change-folder>$HOME/mail/feeds<enter>"
 macro index 'c' '<change-folder>?<change-dir><home>^K=<enter><enter><enter>'
 macro index,pager D "<save-message>=/../Archive<enter><enter>" "Archive"
