@@ -54,8 +54,8 @@ zle -N zle-keymap-select
 # OPTIONS
 bindkey -v
 setopt beep
-setopt no_list_beep
-setopt no_hist_beep
+setopt no_listbeep
+setopt no_histbeep
 setopt no_flowcontrol
 setopt autocd
 setopt correct
