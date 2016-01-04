@@ -112,6 +112,7 @@ alias wget='wget -c'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 alias imgur='imgur-screenshot'
 alias pc='sudo pacman'
+alias yrt='sudo yaourt'
 alias em='sudo emerge --ask'
 alias btrfs='sudo btrfs'
 alias temps="sensors | grep -v 'N/A'"
