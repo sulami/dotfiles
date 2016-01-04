@@ -85,6 +85,12 @@ augroup stylish-haskell
   autocmd BufWritePost *.hs call s:StylishHaskell()
 augroup END
 
+" Prose writing mode
+augroup pencil
+  autocmd!
+  autocmd FileType markdown,mkd,mail,rst,asciidoc call pencil#init()
+augroup END
+
 " Fix Filetypes
 autocmd BufEnter *.dt set ft=diet
 autocmd BufEnter *.glsl set ft=c

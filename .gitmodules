@@ -64,3 +64,6 @@
 [submodule ".vim/bundle/vim-stylish-haskell"]
 	path = .vim/bundle/vim-stylish-haskell
 	url = https://github.com/nbouscal/vim-stylish-haskell
+[submodule ".vim/bundle/vim-pencil"]
+	path = .vim/bundle/vim-pencil
+	url = https://github.com/reedes/vim-pencil
