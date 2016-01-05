@@ -108,14 +108,19 @@ autocmd BufEnter *.tex       set spell
 " Pathogen
 execute pathogen#infect()
 
+" Colemak navigation
+nnoremap N h|xnoremap N h|onoremap N h|
+nnoremap n gj|xnoremap n j|onoremap n j|
+nnoremap e gk|xnoremap e k|onoremap e k|
+nnoremap E l|xnoremap E l|onoremap E l|
+
 " Hotkeys
-imap jk <Esc>
 nnoremap gh gt
 nnoremap gH gT
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
+nnoremap <c-n> <c-w>j
+nnoremap <c-e> <c-w>k
+nnoremap <c-N> <c-w>h
+nnoremap <c-E> <c-w>l
 nnoremap <Left>  :vertical resize -1<CR>
 nnoremap <Right> :vertical resize +1<CR>
 nnoremap <Up>    :resize +1<CR>
