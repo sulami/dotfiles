@@ -110,6 +110,7 @@ map <c-h> h
 map <c-n> j
 map <c-e> k
 map <c-i> l
+nnoremap <c-b> <c-i>
 nnoremap <Leader><c-h> <c-w>h
 nnoremap <Leader><c-n> <c-w>j
 nnoremap <Leader><c-e> <c-w>k
