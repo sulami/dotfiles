@@ -204,9 +204,6 @@ let g:multi_cursor_prev_key = '<c-p>'
 let g:multi_cursor_skip_key = '<c-x>'
 let g:multi_cursor_quit_key = '<Esc>'
 
-" UltiSnips
-let g:UltiSnipsExpandTrigger="<s-tab>"
-
 " Easymotion
 nmap <Leader><Space> <Plug>(easymotion-prefix)
 
@@ -292,18 +289,6 @@ endfunction
 function! HaskellStyle()
     exec ":set ts=2 sts=2 sw=2 expandtab"
 endfunction
-
-" Multi-purpose tab key, credits to GRB
-function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    endif
-endfunction
-inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-" inoremap <s-tab> <c-n>
 
 " Delete current file
 function! DeleteFile()
