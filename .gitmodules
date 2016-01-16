@@ -64,3 +64,6 @@
 [submodule ".vim/bundle/vim-stylish-haskell"]
 	path = .vim/bundle/vim-stylish-haskell
 	url = https://github.com/nbouscal/vim-stylish-haskell
+[submodule ".vim/bundle/vim-autoclose"]
+	path = .vim/bundle/vim-autoclose
+	url = https://github.com/Townk/vim-autoclose
