@@ -106,10 +106,14 @@ execute pathogen#infect()
 nnoremap Q <nop>
 nnoremap gh gt
 nnoremap gH gT
-nnoremap <c-n> <c-w>j
-nnoremap <c-e> <c-w>k
-nnoremap <c-N> <c-w>h
-nnoremap <c-E> <c-w>l
+nnoremap <c-h> h
+nnoremap <c-n> j
+nnoremap <c-e> k
+nnoremap <c-i> l
+nnoremap <Leader><c-h> <c-w>h
+nnoremap <Leader><c-n> <c-w>j
+nnoremap <Leader><c-e> <c-w>k
+nnoremap <Leader><c-i> <c-w>l
 nnoremap <Left>  :vertical resize -1<CR>
 nnoremap <Right> :vertical resize +1<CR>
 nnoremap <Up>    :resize +1<CR>
@@ -181,9 +185,23 @@ autocmd BufEnter *.py map <Leader>rd :call ProjectRootExe('!clear && python
 
 " CtrlP
 let g:ctrlp_custom_ignore = {
-\   'dir' : '\v[\/]\.(git)$',
+\   'dir' : '\v[\/]\.(git|stack-work)$',
 \   'file': '\v\.(pyc|hi|o|dyn_hi|dyn_o)$',
 \}
+let g:ctrlp_prompt_mappings = {
+\   'PrtSelectMove("j")':  ['<c-n>'],
+\   'PrtSelectMove("k")':  ['<c-e>'],
+\   'PrtHistory(-1)':      [],
+\   'PrtCurEnd()':         [],
+\}
+
+" Multiple Cursors
+let g:multi_cursor_use_default_mapping = 0
+let g:multi_cursor_start_key = '<Leader>n'
+let g:multi_cursor_next_key = '<c-n>'
+let g:multi_cursor_prev_key = '<c-p>'
+let g:multi_cursor_skip_key = '<c-x>'
+let g:multi_cursor_quit_key = '<Esc>'
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<s-tab>"
