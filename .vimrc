@@ -106,10 +106,10 @@ execute pathogen#infect()
 nnoremap Q <nop>
 nnoremap gh gt
 nnoremap gH gT
-nnoremap <c-h> h
-nnoremap <c-n> j
-nnoremap <c-e> k
-nnoremap <c-i> l
+map <c-h> h
+map <c-n> j
+map <c-e> k
+map <c-i> l
 nnoremap <Leader><c-h> <c-w>h
 nnoremap <Leader><c-n> <c-w>j
 nnoremap <Leader><c-e> <c-w>k
