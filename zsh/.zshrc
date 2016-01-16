@@ -82,6 +82,7 @@ export GOPATH=$HOME/build/go
 export GOMAXPROCS=8
 export GITSERVER=pi@peerwire.dtdns.net
 export GITURL=ssh://${GITSERVER}/srv/git
+export XDG_CONFIG_HOME=$HOME
 
 # ALIASES
 if [[ $(uname) == "Linux" ]]; then
