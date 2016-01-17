@@ -123,7 +123,9 @@ nnoremap <Down>  :resize -1<CR>
 nnoremap <CR> :noh<CR>
 map <Space> \
 let mapleader = '\'
-set pastetoggle=<Leader>p
+set pastetoggle=<Leader>P
+map <Leader>y "*y
+map <Leader>p "*p
 map <Leader>m <c-^>
 map <Leader>t :tabnew<CR>
 map <Leader>T <c-w><s-t>
