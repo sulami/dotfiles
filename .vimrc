@@ -146,43 +146,8 @@ map <Leader>gc :Gcommit<CR>
 map <Leader>gd :Gdiff<CR>
 map <Leader>ev :tabe $MYVIMRC<CR>
 map <Leader>rv :source $MYVIMRC<CR>
-map <Leader>rp :call Clrun('python %')<CR>
-map <Leader>rP :call ProjectRootExe('!clear && make html')<CR>
-map <Leader>rh :call Clrun('ghc -O2 % && time ./%:r')<CR>
-map <Leader>rH :call Clrun('ghci %')<CR>
 map <Leader>rm :make<CR>
-map <Leader>rM :call ProjectRootExe('!clear && make')<CR>
-map <Leader>rl :call Clrun('pdflatex %')<CR>
-map <Leader>ro :call Clrun('gnuplot -p %')<CR>
-map <Leader>rc :call Clrun('gcc -W -Wall -O2 --std=c99 -o %:r % && time ./%:r')<CR>
-map <Leader>rg :call ProjectRootExe('!clear && go build && go test -v')<CR>
-map <Leader>rt :call ProjectRootExe('!clear && python setup.py test')<CR>
-map <Leader>rs :call ProjectRootExe('!clear && stack build')<CR>
-map <Leader>rS :call ProjectRootExe('!clear && stack test')<CR>
-
-" :silent wrapper that redraws automatically
-command! -nargs=1 Silent
-\ | execute ':silent !'.<q-args>
-\ | execute ':redraw!'
-
-" Echo arbitrary commands to the async listener
-command! -nargs=1 Async
-\ | execute ':Silent echo '.<q-args>.' > commands.fifo'
-
-" Don't clear when in neovim
-function! Clrun(cmd)
-    if has('nvim')
-        exe "!" . a:cmd
-    else
-        exe "!clear && " . a:cmd
-    endif
-endfun
-command! -nargs=* -complete=command Clrun :call Clrun ('<args>')
-
-" Dynamic Hotkeys
-autocmd BufEnter *.d map <Leader>rd :call ProjectRootExe('!clear && dub')<CR>
-autocmd BufEnter *.py map <Leader>rd :call ProjectRootExe('!clear && python
-                          \ manage.py test -v 2')<CR>
+map <Leader>rM :Make<CR>
 
 " CtrlP
 let g:ctrlp_custom_ignore = {
