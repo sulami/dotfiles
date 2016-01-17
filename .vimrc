@@ -48,9 +48,9 @@ set listchars=tab:\>\ " This comment has a function...
 
 " Jump to last cursor position unless it's invalid or in an event handler
 autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
+  \ if line("'\"") > 0 && line("'\"") <= line("$") |
+  \   exe "normal g`\"" |
+  \ endif
 
 if has('nvim')
   " Fix Ctrl-H in neovim
@@ -154,14 +154,14 @@ map <Leader>rM :Make<CR>
 
 " CtrlP
 let g:ctrlp_custom_ignore = {
-\   'dir' : '\v[\/]\.(git|stack-work)$',
-\   'file': '\v\.(pyc|hi|o|dyn_hi|dyn_o)$',
+\ 'dir' : '\v[\/]\.(git|stack-work)$',
+\ 'file': '\v\.(pyc|hi|o|dyn_hi|dyn_o)$',
 \}
 let g:ctrlp_prompt_mappings = {
-\   'PrtSelectMove("j")':  ['<c-n>'],
-\   'PrtSelectMove("k")':  ['<c-e>'],
-\   'PrtHistory(-1)':      [],
-\   'PrtCurEnd()':         [],
+\ 'PrtSelectMove("j")':  ['<c-n>'],
+\ 'PrtSelectMove("k")':  ['<c-e>'],
+\ 'PrtHistory(-1)':      [],
+\ 'PrtCurEnd()':         [],
 \}
 
 " Multiple Cursors
@@ -192,25 +192,25 @@ hi GitGutterChangeDeleteDefault ctermbg=NONE
 
 " LightLine
 let g:lightline = {
-    \ 'colorscheme': 'su256',
-    \ 'active': {
-        \ 'left': [ [ 'mode', 'paste'],
-        \           [ 'fugitive', 'readonly', 'filename', 'modified' ]]
-    \ },
-    \ 'component': {
-        \ 'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
-    \ },
-    \ 'component_visible_condition': {
-        \ 'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
-    \ },
-    \ 'tabline': {
-        \ 'left': [ [ 'tabs' ] ],
-        \ 'right': [ ]
-    \ },
-    \ 'tab': {
-        \ 'active': [ 'tabnum', 'filename', 'modified' ],
-        \ 'inactive': [ 'tabnum', 'filename', 'modified' ]
-    \ }
+  \ 'colorscheme': 'su256',
+  \ 'active': {
+    \ 'left': [ [ 'mode', 'paste'],
+    \           [ 'fugitive', 'readonly', 'filename', 'modified' ]]
+  \ },
+  \ 'component': {
+    \ 'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+  \ },
+  \ 'component_visible_condition': {
+    \ 'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+  \ },
+  \ 'tabline': {
+    \ 'left': [ [ 'tabs' ] ],
+    \ 'right': [ ]
+  \ },
+  \ 'tab': {
+    \ 'active': [ 'tabnum', 'filename', 'modified' ],
+    \ 'inactive': [ 'tabnum', 'filename', 'modified' ]
+  \ }
 \ }
 
 " Slime
@@ -227,35 +227,35 @@ let g:syntastic_haskell_checkers = ['hlint']
 
 " Cscope
 if has('cscope')
-    set cscopetag cscopeverbose
+  set cscopetag cscopeverbose
 
-    if has('quickfix')
-        set cscopequickfix=s-,c-,d-,i-,t-,e-
-    endif
+  if has('quickfix')
+      set cscopequickfix=s-,c-,d-,i-,t-,e-
+  endif
 
-    cnoreabbrev csa cs add
-    cnoreabbrev csf cs find
-    cnoreabbrev csk cs kill
-    cnoreabbrev csr cs reset
-    "cnoreabbrev css cs show " This is stupid...
-    cnoreabbrev csh cs help
+  cnoreabbrev csa cs add
+  cnoreabbrev csf cs find
+  cnoreabbrev csk cs kill
+  cnoreabbrev csr cs reset
+  "cnoreabbrev css cs show " This is stupid...
+  cnoreabbrev csh cs help
 
-    command! -nargs=0 Cscope cs add $VIMSRC/src/cscope.out $VIMSRC/src
+  command! -nargs=0 Cscope cs add $VIMSRC/src/cscope.out $VIMSRC/src
 endif
 
 " Predefined coding styles - Kernel
 function! KernelStyle()
-    exec ":set ts=8 sts=8 sw=8 noexpandtab"
+  exec ":set ts=8 sts=8 sw=8 noexpandtab"
 endfunction
 
 " Predefined coding styles - PEP8
 function! PEPStyle()
-    exec ":set ts=4 sts=4 sw=4 expandtab"
+  exec ":set ts=4 sts=4 sw=4 expandtab"
 endfunction
 
 " Predefined coding styles - Haskell
 function! HaskellStyle()
-    exec ":set ts=2 sts=2 sw=2 expandtab"
+  exec ":set ts=2 sts=2 sw=2 expandtab"
 endfunction
 
 " Delete current file
@@ -268,58 +268,58 @@ endfunction
 
 " Rename current file
 function! RenameFile()
-    let old_name = expand('%')
-    let new_name = input('New file name: ', expand('%'), 'file')
-    if new_name != '' && new_name != old_name
-        exec ':saveas ' . new_name
-        exec ':silent !rm ' . old_name
-        redraw!
-    endif
+  let old_name = expand('%')
+  let new_name = input('New file name: ', expand('%'), 'file')
+  if new_name != '' && new_name != old_name
+    exec ':saveas ' . new_name
+    exec ':silent !rm ' . old_name
+    redraw!
+  endif
 endfunction
 
 " Project root guess-stuff, shamelessly stolen from
 " github.com/vim-scripts/projectroot
 if !exists('g:rootmarkers')
-    let g:rootmarkers = ['.git', '.hg', '.svn', 'dub.json']
+  let g:rootmarkers = ['.git', '.hg', '.svn', 'dub.json']
 endif
 
 function! ProjectRootGuess(...)
-    let fullfile = a:0 ? fnamemodify(expand(a:1), ':p') : expand('%:p')
-    if exists('b:projectroot')
-        if stridx(fullfile, fnamemodify(b:projectroot, ':p'))==0
-            return b:projectroot
-        endif
+  let fullfile = a:0 ? fnamemodify(expand(a:1), ':p') : expand('%:p')
+  if exists('b:projectroot')
+    if stridx(fullfile, fnamemodify(b:projectroot, ':p'))==0
+      return b:projectroot
     endif
-    for marker in g:rootmarkers
-        let result=''
-        let pivot=fullfile
-        while pivot!=fnamemodify(pivot, ':h')
-            let pivot=fnamemodify(pivot, ':h')
-            if len(glob(pivot.'/'.marker))
-                let result=pivot
-            endif
-        endwhile
-        if len(result)
-            return result
-        endif
-    endfor
-    return filereadable(fullfile) ? fnamemodify(fullfile, ':h') : fullfile
+  endif
+  for marker in g:rootmarkers
+    let result=''
+    let pivot=fullfile
+    while pivot!=fnamemodify(pivot, ':h')
+      let pivot=fnamemodify(pivot, ':h')
+      if len(glob(pivot.'/'.marker))
+        let result=pivot
+      endif
+    endwhile
+    if len(result)
+      return result
+    endif
+  endfor
+  return filereadable(fullfile) ? fnamemodify(fullfile, ':h') : fullfile
 endf
 
 function! ProjectRootCD(...)
-    let r = a:0 && len(a:1) ? ProjectRootGuess(a:1) : ProjectRootGuess()
-    exe 'cd '.r
+  let r = a:0 && len(a:1) ? ProjectRootGuess(a:1) : ProjectRootGuess()
+  exe 'cd '.r
 endf
 command! -nargs=? -complete=file ProjectRootCD :call ProjectRootCD('<args>')
 
 function! ProjectRootExe(cmd)
-    let olddir = getcwd()
-    try
-        ProjectRootCD
-        exe a:cmd
-    finally
-        exe 'cd '.olddir
-    endtry
+  let olddir = getcwd()
+  try
+    ProjectRootCD
+    exe a:cmd
+  finally
+    exe 'cd '.olddir
+  endtry
 endfun
 command! -nargs=* -complete=command ProjectRootExe :call
 \ ProjectRootExe('<args>')
