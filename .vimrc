@@ -52,10 +52,7 @@ autocmd BufReadPost *
   \   exe "normal g`\"" |
   \ endif
 
-if has('nvim')
-  " Fix Ctrl-H in neovim
-  nmap <BS> <C-w>h
-else
+if !has('nvim')
   set encoding=utf-8
 endif
 
