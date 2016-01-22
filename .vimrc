@@ -76,8 +76,7 @@ autocmd BufEnter *.py call PEPStyle()
 
 " Haskell coding style
 autocmd BufEnter *.hs call HaskellStyle()
-autocmd BufEnter *.css call HaskellStyle()
-autocmd BufEnter *.js call HaskellStyle()
+autocmd BufwritePost *.hs :Spawn! hasktags -c --ignore-close-implementation .<CR>
 augroup stylish-haskell
   autocmd!
   autocmd BufWritePost *.hs call s:StylishHaskell()
