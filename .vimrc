@@ -120,33 +120,33 @@ nnoremap <CR> :noh<CR>
 map <Space> \
 let mapleader = '\'
 set pastetoggle=<Leader>P
-map <Leader>y "*y
-map <Leader>p "*p
-map <Leader>m <c-^>
-map <Leader>t :tabnew<CR>
-map <Leader>T <c-w><s-t>
-map <Leader>o :CtrlPMixed<CR>
-map <Leader>cc :CtrlPClearCache<CR>
-map <Leader>dd :call DeleteFile()<CR>
-map <Leader>f :call RenameFile()<CR>
-map <Leader>sk :call KernelStyle()<CR>
-map <Leader>sp :call PEPStyle()<CR>
-map <Leader>se :set spell spelllang=en_us<CR>
-map <Leader>sd :set spell spelllang=de_de<CR>
-map <Leader>ss :set spell!<CR>
-map <Leader>dt :diffthis<CR>
-map <Leader>dp :diffput<CR>
-map <Leader>tn :set number! relativenumber!<CR>
-map <Leader>'  :silent! ll \| silent! cc<CR>
-map <Leader>[  :silent! lpr \| silent! cp<CR>
-map <Leader>]  :silent! lne \| silent! cn<CR>
-map <Leader>gs :Gstatus<CR>
-map <Leader>gc :Gcommit<CR>
-map <Leader>gd :Gdiff<CR>
-map <Leader>ev :tabe $MYVIMRC<CR>
-map <Leader>rv :source $MYVIMRC<CR>
-map <Leader>rm :make<CR>
-map <Leader>rM :Make<CR>
+nmap <Leader>y "*y
+nmap <Leader>p "*p
+nmap <Leader>m <c-^>
+nmap <Leader>t :tabnew<CR>
+nmap <Leader>T <c-w><s-t>
+nmap <Leader>o :CtrlPMixed<CR>
+nmap <Leader>cc :CtrlPClearCache<CR>
+nmap <Leader>dd :call DeleteFile()<CR>
+nmap <Leader>f :call RenameFile()<CR>
+nmap <Leader>sk :call KernelStyle()<CR>
+nmap <Leader>sp :call PEPStyle()<CR>
+nmap <Leader>se :set spell spelllang=en_us<CR>
+nmap <Leader>sd :set spell spelllang=de_de<CR>
+nmap <Leader>ss :set spell!<CR>
+nmap <Leader>dt :diffthis<CR>
+nmap <Leader>dp :diffput<CR>
+nmap <Leader>tn :set number! relativenumber!<CR>
+nmap <Leader>'  :silent! ll \| silent! cc<CR>
+nmap <Leader>[  :silent! lpr \| silent! cp<CR>
+nmap <Leader>]  :silent! lne \| silent! cn<CR>
+nmap <Leader>gs :Gstatus<CR>
+nmap <Leader>gc :Gcommit<CR>
+nmap <Leader>gd :Gdiff<CR>
+nmap <Leader>ev :tabe $MYVIMRC<CR>
+nmap <Leader>rv :source $MYVIMRC<CR>
+nmap <Leader>rm :make<CR>
+nmap <Leader>rM :Make<CR>
 
 " CtrlP
 let g:ctrlp_custom_ignore = {
