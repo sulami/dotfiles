@@ -103,20 +103,16 @@ execute pathogen#infect()
 nnoremap Q <nop>
 nnoremap gh gt
 nnoremap gH gT
-" map <c-h> h
-" map <c-n> j
-" map <c-e> k
-" map <c-i> l
 nnoremap <c-b> <c-i>
-nnoremap <Leader>h <c-w>h
-nnoremap <Leader>j <c-w>j
-nnoremap <Leader>k <c-w>k
-nnoremap <Leader>l <c-w>l
+nnoremap <a-h> <c-w>h
+nnoremap <a-j> <c-w>j
+nnoremap <a-k> <c-w>k
+nnoremap <a-l> <c-w>l
 nnoremap <Left>  :vertical resize -1<CR>
 nnoremap <Right> :vertical resize +1<CR>
 nnoremap <Up>    :resize +1<CR>
 nnoremap <Down>  :resize -1<CR>
-nnoremap <CR> :noh<CR>
+nnoremap <CR> :silent! noh \| GhcModTypeClear<CR>
 map <Space> \
 let mapleader = '\'
 set pastetoggle=<Leader>P
@@ -143,10 +139,12 @@ nmap <Leader>]  :silent! lne \| silent! cn<CR>
 nmap <Leader>gs :Gstatus<CR>
 nmap <Leader>gc :Gcommit<CR>
 nmap <Leader>gd :Gdiff<CR>
-nmap <Leader>ev :tabe $MYVIMRC<CR>
-nmap <Leader>rv :source $MYVIMRC<CR>
+nmap <Leader>ve :tabe $MYVIMRC<CR>
+nmap <Leader>vr :source $MYVIMRC<CR>
 nmap <Leader>rm :make<CR>
 nmap <Leader>rM :Make<CR>
+nmap <Leader>ht :GhcModType<CR>
+nmap <Leader>hb :GhcModCheck<CR>
 
 " CtrlP
 let g:ctrlp_custom_ignore = {
@@ -220,6 +218,9 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_sort_aggregated_errors = 1
 let g:syntastic_haskell_checkers = ['hlint']
+
+" Deoplete
+let g:deoplete#enable_at_startup = 1
 
 " Cscope
 if has('cscope')
