@@ -103,7 +103,6 @@ execute pathogen#infect()
 nnoremap Q <nop>
 nnoremap gh gt
 nnoremap gH gT
-nnoremap <c-b> <c-i>
 nnoremap <a-h> <c-w>h
 nnoremap <a-j> <c-w>j
 nnoremap <a-k> <c-w>k
@@ -121,12 +120,9 @@ nmap <Leader>p "*p
 nmap <Leader>m <c-^>
 nmap <Leader>t :tabnew<CR>
 nmap <Leader>T <c-w><s-t>
-nmap <Leader>o :CtrlPMixed<CR>
 nmap <Leader>cc :CtrlPClearCache<CR>
 nmap <Leader>dd :call DeleteFile()<CR>
 nmap <Leader>f :call RenameFile()<CR>
-nmap <Leader>sk :call KernelStyle()<CR>
-nmap <Leader>sp :call PEPStyle()<CR>
 nmap <Leader>se :set spell spelllang=en_us<CR>
 nmap <Leader>sd :set spell spelllang=de_de<CR>
 nmap <Leader>ss :set spell!<CR>
