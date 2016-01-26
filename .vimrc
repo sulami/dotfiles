@@ -317,3 +317,15 @@ endfun
 command! -nargs=* -complete=command ProjectRootExe :call
 \ ProjectRootExe('<args>')
 
+function! MinimalMode()
+  set laststatus=0
+  set showtabline=0
+  set nonumber
+  set norelativenumber
+  set ruler
+  set showcmd
+  set showmode
+  set nocursorline
+  GitGutterDisable
+endfun
+
