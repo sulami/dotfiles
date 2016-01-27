@@ -99,6 +99,7 @@ fi
 alias v='vim'
 alias nv='nvim'
 alias g='git'
+compdef g='git'
 alias make='time make -j2'
 alias py='ipython'
 alias bp='bpython'
@@ -113,7 +114,9 @@ alias wget='wget -c'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 alias imgur='imgur-screenshot'
 alias pc='sudo pacman'
+compdef pc='pacman'
 alias yrt='sudo yaourt'
+compdef yrt='pacman'
 alias em='sudo emerge --ask'
 alias btrfs='sudo btrfs'
 alias temps="sensors | grep -v 'N/A'"
