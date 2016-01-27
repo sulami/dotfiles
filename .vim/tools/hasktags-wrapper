@@ -1,0 +1,4 @@
+#!/bin/bash
+
+hasktags -c --ignore-close-implementation .
+

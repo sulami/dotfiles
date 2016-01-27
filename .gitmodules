@@ -76,3 +76,6 @@
 [submodule ".vim/bundle/neco-ghc"]
 	path = .vim/bundle/neco-ghc
 	url = https://github.com/eagletmt/neco-ghc
+[submodule ".vim/bundle/vim-gutentags"]
+	path = .vim/bundle/vim-gutentags
+	url = https://github.com/ludovicchabant/vim-gutentags

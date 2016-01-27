@@ -76,7 +76,6 @@ autocmd BufEnter *.py call PEPStyle()
 
 " Haskell coding style
 autocmd BufEnter *.hs call HaskellStyle()
-autocmd BufwritePost *.hs :Spawn! hasktags -c --ignore-close-implementation .<CR>
 augroup stylish-haskell
   autocmd!
   autocmd BufWritePost *.hs call s:StylishHaskell()
@@ -185,7 +184,8 @@ let g:lightline = {
   \ 'colorscheme': 'su256',
   \ 'active': {
     \ 'left': [ [ 'mode', 'paste'],
-    \           [ 'fugitive', 'readonly', 'filename', 'modified' ]]
+    \           [ 'fugitive', 'readonly', 'filename', 'modified' ],
+    \           [ '%{gutentags#statusline()}' ] ]
   \ },
   \ 'component': {
     \ 'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
@@ -217,6 +217,12 @@ let g:syntastic_haskell_checkers = ['hlint']
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
+
+" GutenTags
+let g:gutentags_project_info = []
+call add(g:gutentags_project_info, {'type': 'haskell', 'glob': '*.cabal'})
+call add(g:gutentags_project_info, {'type': 'haskell', 'file': 'stack.yaml'})
+let g:gutentags_ctags_executable_haskell = expand('~/nvim/tools/hasktags-wrapper')
 
 " Cscope
 if has('cscope')
