@@ -184,8 +184,7 @@ let g:lightline = {
   \ 'colorscheme': 'su256',
   \ 'active': {
     \ 'left': [ [ 'mode', 'paste'],
-    \           [ 'fugitive', 'readonly', 'filename', 'modified' ],
-    \           [ '%{gutentags#statusline()}' ] ]
+    \           [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
   \ },
   \ 'component': {
     \ 'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
