@@ -3,6 +3,7 @@
     "maildir": "~/mail/feeds",
     "feeds": {
         "Andrea Corbellini": "http://andrea.corbellini.name/feed.rss",
+        "AVGN": "http://cinemassacre.com/category/avgn/feed/",
         "Baron von Grumble": "https://www.youtube.com/feeds/videos.xml?channel_id=UCwfiecilqgSBgnxAUhHAgkw",
         "begriffs": "http://begriffs.com/atom.xml",
         "CGP Grey": "http://cgpgrey.libsyn.com/rss",
