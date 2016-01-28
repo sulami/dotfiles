@@ -161,14 +161,6 @@ let g:multi_cursor_prev_key = '<c-p>'
 let g:multi_cursor_skip_key = '<c-x>'
 let g:multi_cursor_quit_key = '<Esc>'
 
-" Indent Guides
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_start_level = 1
-let g:indent_guides_guide_size = 1
-let g:indent_guides_auto_colors = 0
-hi IndentGuidesEven ctermfg=245 ctermbg=NONE cterm=NONE
-hi IndentGuidesOdd  ctermfg=240 ctermbg=NONE cterm=NONE
-
 " Gitgutter
 hi SignColumn                   ctermbg=NONE
 hi GitGutterAddDefault          ctermbg=NONE
