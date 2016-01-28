@@ -39,9 +39,6 @@ set visualbell              " don't beep even if beeping is enabled
 set t_Co=256                " 256 colours
 colorscheme su256           " colourscheme
 
-" Gvim settings
-set guioptions=agimrLt      " do not use the toolkit for the tabbar/no toolbar
-
 " Tab highlights
 set list
 set listchars=tab:\>\ " This comment has a function...
@@ -312,16 +309,4 @@ function! ProjectRootExe(cmd)
 endfun
 command! -nargs=* -complete=command ProjectRootExe :call
 \ ProjectRootExe('<args>')
-
-function! MinimalMode()
-  set laststatus=0
-  set showtabline=0
-  set nonumber
-  set norelativenumber
-  set ruler
-  set showcmd
-  set showmode
-  set nocursorline
-  GitGutterDisable
-endfun
 
