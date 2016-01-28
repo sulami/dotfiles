@@ -27,7 +27,7 @@ let g:colors_name = "su256"
 "hi clear -- no settings --
 
 " Base
-hi Normal guifg=#d0d0d0 guibg=#000000 guisp=#000000 gui=NONE ctermfg=252 ctermbg=NONE cterm=NONE
+hi Normal guifg=#d0d0d0 guibg=#000000 guisp=#000000 gui=NONE ctermfg=252 ctermbg=16 cterm=NONE
 hi Cursor guifg=#192224 guibg=#F9F9F9 guisp=#F9F9F9 gui=NONE ctermfg=235 ctermbg=15 cterm=NONE
 hi CursorIM guifg=#192224 guibg=#536991 guisp=#536991 gui=NONE ctermfg=235 ctermbg=15 cterm=NONE
 
