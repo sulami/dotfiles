@@ -161,9 +161,6 @@ let g:multi_cursor_prev_key = '<c-p>'
 let g:multi_cursor_skip_key = '<c-x>'
 let g:multi_cursor_quit_key = '<Esc>'
 
-" Easymotion
-nmap <Leader><Space> <Plug>(easymotion-prefix)
-
 " Indent Guides
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 1
