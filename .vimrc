@@ -99,6 +99,7 @@ autocmd BufEnter *.tex       set spell
 execute pathogen#infect()
 
 " Hotkeys
+imap <c-c> <Esc>
 nnoremap Q <nop>
 nnoremap gh gt
 nnoremap gH gT
