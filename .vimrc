@@ -215,6 +215,9 @@ let g:syntastic_aggregate_errors = 1
 let g:syntastic_sort_aggregated_errors = 1
 let g:syntastic_haskell_checkers = ['hlint']
 
+" Supertab
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
 " Deoplete
 let g:deoplete#enable_at_startup = 1
 
