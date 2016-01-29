@@ -110,8 +110,8 @@ let mapleader = '\'
 set pastetoggle=<Leader>P
 nmap <Leader>y "*y
 nmap <Leader>p "*p
-nmap <Leader>q :q<CR>
-nmap <Leader>Q :q!<CR>
+nmap <Leader>q :close<CR>
+nmap <Leader>Q :close!<CR>
 nmap <Leader>m <c-^>
 nmap <Leader>t :tabnew<CR>
 nmap <Leader>T <c-w><s-t>
@@ -136,6 +136,7 @@ nmap <Leader>rm :make<CR>
 nmap <Leader>rM :Make<CR>
 nmap <Leader>ht :GhcModType<CR>
 nmap <Leader>hb :GhcModCheck<CR>
+nmap <Leader>nm :nmap <Leader>
 
 " CtrlP
 let g:ctrlp_custom_ignore = {
