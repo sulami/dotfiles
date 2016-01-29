@@ -6,8 +6,9 @@ tags
 *.log
 *.lock
 .vim/.netrwhist
-.nvim/.init.vim-rplugin~
-.nvim/.netrwhist
+nvim/.init.vim-rplugin~
+nvim/.netrwhist
+nvim/plugged
 .mpd/*
 .ssh/known_hosts
 .vimperator/info

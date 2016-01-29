@@ -88,8 +88,29 @@ autocmd BufEnter *.md        set spell
 autocmd BufEnter /tmp/mutt-* set spell
 autocmd BufEnter *.tex       set spell
 
-" Pathogen
-execute pathogen#infect()
+" Plug in all the plugins
+call plug#begin()
+Plug 'shougo/vimproc.vim', { 'do': 'make' } | Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
+Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'sulami/lightline.vim'
+Plug 'ervandew/supertab'
+Plug 'scrooloose/syntastic'
+Plug 'shougo/deoplete.nvim'
+Plug 'townk/vim-autoclose'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'airblade/vim-gitgutter'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'jpalardy/vim-slime'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
+Plug 'nbouscal/vim-stylish-haskell', { 'for': 'haskell' }
+Plug 'pbrisbin/vim-syntax-shakespeare', { 'for': ['hamlet', 'julius', 'cassius'] }
+call plug#end()
 
 " Hotkeys
 imap <c-c> <Esc>
