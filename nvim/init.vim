@@ -36,8 +36,6 @@ set laststatus=2            " always show statusline (for lightline)
 set noshowmode              " do not show mode below statusline
 set cursorline              " cursorline by default
 set visualbell              " don't beep even if beeping is enabled
-set t_Co=256                " 256 colours
-colorscheme su256           " colourscheme
 
 " Tab highlights
 set list
@@ -90,6 +88,7 @@ autocmd BufEnter *.tex       set spell
 
 " Plug in all the plugins
 call plug#begin()
+Plug 'sulami/su256.vim'
 Plug 'shougo/vimproc.vim', { 'do': 'make' } | Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
 Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -111,6 +110,10 @@ Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
 Plug 'nbouscal/vim-stylish-haskell', { 'for': 'haskell' }
 Plug 'pbrisbin/vim-syntax-shakespeare', { 'for': ['hamlet', 'julius', 'cassius'] }
 call plug#end()
+
+" Colours
+set t_Co=256                " 256 colours
+colorscheme su256           " colourscheme
 
 " Hotkeys
 imap <c-c> <Esc>
@@ -215,7 +218,7 @@ let g:slime_target="tmux"
 " Syntastic
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_sort_aggregated_errors = 1
