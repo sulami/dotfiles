@@ -4,6 +4,9 @@ help:
 
 LN=ln -sf
 
+nvim:
+	$(LN) ${HOME}/dotfiles/nvim ${HOME}/
+
 vim:
 	$(LN) ${HOME}/dotfiles/.vimrc ${HOME}/
 	$(LN) ${HOME}/dotfiles/.vim ${HOME}/
@@ -52,7 +55,7 @@ urxvt:
 	mkdir -p ${HOME}/.urxvt/ext
 	$(LN) ${HOME}/dotfiles/scripts/font-size ${HOME}/.urxvt/ext/
 
-dev: vim zsh git tmux top profile
+dev: nvim vim zsh git tmux top profile
 
 cli: dev mutt irssi feed2maildir imgur mpd
 
