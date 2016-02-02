@@ -174,14 +174,6 @@ let g:ctrlp_prompt_mappings = {
 \ 'PrtCurEnd()':         [],
 \}
 
-" Multiple Cursors
-let g:multi_cursor_use_default_mapping = 0
-let g:multi_cursor_start_key = '<Leader>n'
-let g:multi_cursor_next_key = '<c-n>'
-let g:multi_cursor_prev_key = '<c-p>'
-let g:multi_cursor_skip_key = '<c-x>'
-let g:multi_cursor_quit_key = '<Esc>'
-
 " Gitgutter
 hi SignColumn                   ctermbg=NONE
 hi GitGutterAddDefault          ctermbg=NONE
