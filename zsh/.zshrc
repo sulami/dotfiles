@@ -43,7 +43,7 @@ function zle-line-init zle-keymap-select {
     # hostname:pwd(git status)
     PREFIX="%{$fg_bold[black]%}%m:%{$reset_color%}$COLDIR$(git_super_status)"
     # Mode-dependent symbol
-    PRMPT="${${KEYMAP/vicmd/N}/(main|viins)/λ}"
+    PRMPT="${${KEYMAP/vicmd/N}/(main|viins)/$}"
     # Put it all together, color the symbol if there are bg jobs
     PS1="$PREFIX %1(j.%{$fg_bold[cyan]%}$PRMPT%{$reset_color%}.$PRMPT) "
     zle reset-prompt
