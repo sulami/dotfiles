@@ -12,9 +12,9 @@ set splitright              " open vsplits on the right side
 set showtabline=2           " always show tabline
 set showcmd                 " show incomplete commands
 set smartindent             " indent autmatically
-set tabstop=2               " 1 tab = 4 spaces
-set softtabstop=2           " 1 tab = 4 spaces
-set shiftwidth=2            " shift by 4 spaces
+set tabstop=2               " 1 tab = 2 spaces
+set softtabstop=2           " 1 tab = 2 spaces
+set shiftwidth=2            " shift by 2 spaces
 set shiftround              " round indents to multiples of 4 (shiftwidth)
 set expandtab               " expand tabs to spaces
 set showbreak=->\           " mark wrapped lines
