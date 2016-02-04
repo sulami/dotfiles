@@ -217,6 +217,7 @@ let g:syntastic_haskell_checkers = ['hlint']
 
 " Supertab
 let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:SuperTabCrMapping = 1
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
