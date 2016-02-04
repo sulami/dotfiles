@@ -169,8 +169,6 @@ let g:ctrlp_custom_ignore = {
 \ 'file': '\v\.(pyc|hi|o|dyn_hi|dyn_o)$',
 \}
 let g:ctrlp_prompt_mappings = {
-\ 'PrtSelectMove("j")':  ['<c-n>'],
-\ 'PrtSelectMove("k")':  ['<c-e>'],
 \ 'PrtHistory(-1)':      [],
 \ 'PrtCurEnd()':         [],
 \}
