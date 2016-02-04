@@ -36,6 +36,7 @@ set laststatus=2            " always show statusline (for lightline)
 set noshowmode              " do not show mode below statusline
 set cursorline              " cursorline by default
 set visualbell              " don't beep even if beeping is enabled
+set lazyredraw              " don't draw while executing macros
 
 " Tab highlights
 set list
