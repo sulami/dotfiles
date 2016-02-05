@@ -149,6 +149,7 @@ nmap <Leader>ss :set spell!<CR>
 nmap <Leader>dt :diffthis<CR>
 nmap <Leader>dp :diffput<CR>
 nmap <Leader>tn :set number! relativenumber!<CR>
+nmap <Leader>tw :set wrap!<CR>
 nmap <Leader>'  :silent! ll \| silent! cc<CR>
 nmap <Leader>[  :silent! lpr \| silent! cp<CR>
 nmap <Leader>]  :silent! lne \| silent! cn<CR>
