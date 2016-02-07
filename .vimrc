@@ -67,6 +67,8 @@ nmap <Leader>f :call RenameFile()<CR>
 nmap <Leader>se :set spell spelllang=en_us<CR>
 nmap <Leader>sd :set spell spelllang=de_de<CR>
 nmap <Leader>ss :set spell!<CR>
+nmap <Leader>tn :set number! relativenumber!<CR>
+nmap <Leader>tw :set wrap!<CR>
 nmap <Leader>ve :tabe $MYVIMRC<CR>
 nmap <Leader>vr :source $MYVIMRC<CR>
 
