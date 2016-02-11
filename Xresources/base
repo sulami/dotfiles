@@ -13,6 +13,7 @@ URxvt.depth: 32
 *.loginShell: false
 
 *.font: xft:Inconsolata:size=12
+Emacs.font: Inconsolata
 !*.font: -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*
 *.letterSpace: 0
 
