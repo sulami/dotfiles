@@ -1,6 +1,6 @@
 source $HOME/dotfiles/mutt/mutt-gpg
 
-# source 'gpg -dq $HOME/dotfiles/mutt/mutt-gmail.gpg |'
+source 'gpg2 -dq $HOME/dotfiles/mutt/mutt-gmail.gpg |'
 source 'gpg2 -dq $HOME/dotfiles/mutt/mutt-pawnmail.gpg |'
 
 source $HOME/dotfiles/mutt/colors.muttrc
@@ -20,6 +20,7 @@ set sort            = threads
 set sort_aux        = date-sent
 set signature       = "$HOME/dotfiles/mutt/.signature"
 set smtp_url        = smtp://sulami@peerwire.org:$my_pw_pawnmail@mail.pawnmail.com:587/
+#set smtp_url        = smtp://sulamiification:$my_pw_gmail@smtp.gmail.com:587/
 
 mailboxes $HOME/mail/Inbox $HOME/mail/feeds
 set mbox_type       = Maildir
