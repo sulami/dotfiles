@@ -17,7 +17,7 @@ Emacs.font: Inconsolata
 !*.font: -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*
 *.letterSpace: 0
 
-URxvt*.background: #000000
+!URxvt*.background: #000000
 !URxvt*.background: #151516
 !Urxvt*.transparent: true
 !URxvt*.shading: 90
