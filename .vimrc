@@ -13,7 +13,7 @@ set softtabstop=2
 set shiftwidth=2
 set shiftround
 set expandtab
-set showbreak=->\
+set showbreak=->\ 
 set nojoinspaces
 set backspace=2
 set incsearch
