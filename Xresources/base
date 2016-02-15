@@ -12,7 +12,7 @@ URxvt.depth: 32
 *.externalBorder: 0
 *.loginShell: false
 
-*.font: xft:Inconsolata:size=12
+*.font: xft:Inconsolata:size=12:style=Bold
 Emacs.font: Inconsolata
 !*.font: -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*
 *.letterSpace: 0
