@@ -57,7 +57,7 @@ color index         green           default         "~Q"                        
 color index         yellow          default         "~U"                        # unread messages
 color index         yellow          default         "~U~$"                      # unread, unreferenced messages
 color index         brightyellow    default         "~v"                        # messages part of a collapsed thread
-color index         white           default         "~P"                        # messages from me
+color index         default         default         "~P"                        # messages from me
 color index         red             default         "~N~p!~F"                   # new messages to me
 color index         red             default         "~U~p!~F"                   # unread messages to me
 color index         red             default         "~F"                        # flagged messages
