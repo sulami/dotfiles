@@ -24,16 +24,16 @@
 # base03, bg, black, any of the non brights
 
 # basic colors ---------------------------------------------------------
-color normal        white           default
+color normal        black           default
 color error         red             default
-color tilde         black           default
+color tilde         white           default
 color message       cyan            default
 color markers       red             default
-color attachment    white           default
+color attachment    black           default
 color search        brightmagenta   default
-color status        white           default
+color status        default         default
 color indicator     blue            default
-color tree          brightblack     default                                     # arrow in threads
+color tree          default         default                                     # arrow in threads
 
 # basic monocolor screen
 mono  bold          bold
@@ -52,7 +52,7 @@ color index         red             default         "~A"                        
 color index         brightred       default         "~E"                        # expired messages
 color index         yellow          default         "~N"                        # new messages
 color index         yellow          default         "~O"                        # old messages
-color index         white           default         "~R"                        # read messages
+color index         default         default         "~R"                        # read messages
 color index         green           default         "~Q"                        # messages that have been replied to
 color index         yellow          default         "~U"                        # unread messages
 color index         yellow          default         "~U~$"                      # unread, unreferenced messages
@@ -64,7 +64,7 @@ color index         red             default         "~F"                        
 color index         blue            default         "~N~F"                      # new flagged messages
 color index         blue            default         "~N~F~p"                    # new flagged messages to me
 color index         blue            default         "~U~F~p"                    # new flagged messages to me
-color index         black           red             "~D"                        # deleted messages
+color index         white           red             "~D"                        # deleted messages
 color index         yellow          red             "~v~(~D)"                   # thread with deleted (doesn't differentiate between all or partial)
 #color index         yellow          default         "~(~N)"                    # messages in threads with some unread
 #color index         green           default         "~S"                       # superseded messages
@@ -87,8 +87,8 @@ color quoted3       blue            default
 color quoted4       cyan            default
 
 color signature     brightblack     default
-color bold          black           default
-color underline     black           default
+color bold          white           default
+color underline     white           default
 color normal        default         default
 
 # diffs
