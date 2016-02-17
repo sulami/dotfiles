@@ -5,7 +5,7 @@ ytpl2vlc()
 
 twitch()
 {
-    livestreamer --player "vlc --file-caching 2000 --network-caching 2000" --hls-segment-threads 3 twitch.tv/$1 best
+    livestreamer --player "vlc --file-caching 2000 --network-caching 2000 --qt-minimal-view" --hls-segment-threads 3 twitch.tv/$1 best
 }
 
 twitch-vod()
