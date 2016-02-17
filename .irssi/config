@@ -3,9 +3,9 @@ servers = (
     address = "irc.freenode.net";
     chatnet = "Freenode";
     nick = "sulami";
-    port = "6667";
-    use_ssl = "no";
-    ssl_verify = "no";
+    port = "7000";
+    use_ssl = "yes";
+    ssl_verify = "yes";
     autosendcmd = "/^exec -send nickserv gpg --use-agent -q -d ~/.irssi/ghost.gpg; exec -send nickserv gpg --use-agent -q -d ~/.irssi/id.gpg; wait 2000";
   },
   {
@@ -15,7 +15,7 @@ servers = (
     port = "6667";
     use_ssl = "no";
     ssl_verify = "no";
-    autoconnect = "yes";
+    autoconnect = "no";
   }
 );
 
