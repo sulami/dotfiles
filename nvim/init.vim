@@ -166,7 +166,7 @@ nmap <Leader>nm :nmap <Leader>
 
 " CtrlP
 let g:ctrlp_custom_ignore = {
-\ 'dir' : '\v[\/]\.(git|stack-work)$',
+\ 'dir' : '\v[\/](\.(git|stack-work)|target)$',
 \ 'file': '\v\.(pyc|hi|o|dyn_hi|dyn_o)$',
 \}
 let g:ctrlp_prompt_mappings = {
