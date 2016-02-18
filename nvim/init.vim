@@ -107,6 +107,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'jpalardy/vim-slime'
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'ap/vim-css-color'
 Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
 Plug 'nbouscal/vim-stylish-haskell', { 'for': 'haskell' }
 Plug 'pbrisbin/vim-syntax-shakespeare', { 'for': ['hamlet', 'julius', 'cassius'] }
