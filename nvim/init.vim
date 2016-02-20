@@ -97,7 +97,7 @@ Plug 'sulami/lightline.vim'
 Plug 'ervandew/supertab'
 Plug 'scrooloose/syntastic'
 Plug 'shougo/deoplete.nvim'
-Plug 'townk/vim-autoclose'
+" Plug 'townk/vim-autoclose'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
@@ -108,6 +108,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'jpalardy/vim-slime'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'ap/vim-css-color'
+Plug 'vim-scripts/paredit.vim', { 'for': ['clojure', 'racket', 'scheme', 'lisp'] }
 Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
 Plug 'nbouscal/vim-stylish-haskell', { 'for': 'haskell' }
 Plug 'pbrisbin/vim-syntax-shakespeare', { 'for': ['hamlet', 'julius', 'cassius'] }
