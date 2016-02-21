@@ -2,6 +2,7 @@
     "db": "~/.f2mdb",
     "maildir": "~/mail/feeds",
     "feeds": {
+        "Ahoy": "https://www.youtube.com/feeds/videos.xml?channel_id=UCE1jXbVAGJQEORz9nZqb5bQ",
         "Andrea Corbellini": "http://andrea.corbellini.name/feed.rss",
         "AVGN": "http://cinemassacre.com/category/avgn/feed/",
         "Baron von Grumble": "https://www.youtube.com/feeds/videos.xml?channel_id=UCwfiecilqgSBgnxAUhHAgkw",
