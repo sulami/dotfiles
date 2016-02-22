@@ -240,6 +240,12 @@ call add(g:gutentags_project_info, {'type': 'haskell', 'glob': '*.cabal'})
 call add(g:gutentags_project_info, {'type': 'haskell', 'file': 'stack.yaml'})
 let g:gutentags_ctags_executable_haskell = expand('~/nvim/tools/hasktags-wrapper')
 
+" Rainbow Parentheses
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
 " Cscope
 if has('cscope')
   set cscopetag cscopeverbose
