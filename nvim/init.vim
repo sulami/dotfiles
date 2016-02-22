@@ -130,8 +130,6 @@ endif
 " Hotkeys
 imap <c-c> <Esc>
 nnoremap Q <nop>
-nnoremap gh gt
-nnoremap gH gT
 nnoremap <a-h> <c-w>h
 nnoremap <a-j> <c-w>j
 nnoremap <a-k> <c-w>k
@@ -140,12 +138,21 @@ nnoremap <Left>  :vertical resize -1<CR>
 nnoremap <Right> :vertical resize +1<CR>
 nnoremap <Up>    :resize +1<CR>
 nnoremap <Down>  :resize -1<CR>
-nnoremap <CR> :silent! noh \| GhcModTypeClear<CR>
+nnoremap <CR> :noh<CR>
 map <Space> \
 let mapleader = '\'
 set pastetoggle=<Leader>P
 nmap <Leader>y "*y
 nmap <Leader>p "*p
+nmap <Leader>1 1gt
+nmap <Leader>2 2gt
+nmap <Leader>3 3gt
+nmap <Leader>4 4gt
+nmap <Leader>5 5gt
+nmap <Leader>6 6gt
+nmap <Leader>7 7gt
+nmap <Leader>8 8gt
+nmap <Leader>9 9gt
 nmap <Leader>q :close<CR>
 nmap <Leader>Q :close!<CR>
 nmap <Leader>m <c-^>
