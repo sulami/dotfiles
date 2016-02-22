@@ -75,6 +75,7 @@ else
     export EDITOR=vim
     export VISUAL=vim
 fi
+export LC_ALL=en_US.UTF-8
 export BROWSER=firefox
 export PATH=$PATH:$HOME/.local/bin:$HOME/.cabal/bin
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig
