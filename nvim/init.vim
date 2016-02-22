@@ -91,6 +91,7 @@ autocmd BufEnter *.tex       set spell
 " Plug in all the plugins
 call plug#begin()
 Plug 'sulami/su256.vim'
+Plug 'altercation/vim-colors-solarized'
 Plug 'shougo/vimproc.vim', { 'do': 'make' } | Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
 Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -117,7 +118,14 @@ call plug#end()
 
 " Colours
 set t_Co=256                " 256 colours
-colorscheme su256           " colourscheme
+colo solarized
+" Use the dark version at night
+let hour = strftime("%H")
+if 8 <= hour && hour < 18
+  set bg=light
+else
+  set bg=dark
+endif
 
 " Hotkeys
 imap <c-c> <Esc>
@@ -186,7 +194,7 @@ hi GitGutterChangeDeleteDefault ctermbg=NONE
 
 " LightLine
 let g:lightline = {
-  \ 'colorscheme': 'su256',
+  \ 'colorscheme': 'solarized',
   \ 'active': {
     \ 'left': [ [ 'mode', 'paste'],
     \           [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
