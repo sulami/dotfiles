@@ -1,7 +1,5 @@
 filetype plugin on          " enable filetype detection
 syntax on                   " highlight syntax
-set number                  " line numbering
-set relativenumber          " relative line numbering
 set colorcolumn=80          " highlight col 80
 set scrolloff=2             " keep cursor from upper/lower end of the buffer
 set winheight=5             " temp value for winminheight
@@ -9,7 +7,7 @@ set winminheight=5          " keep buffers at least 5 rows high
 set winheight=999           " maximise current buffer vertically
 set splitbelow              " open splits below
 set splitright              " open vsplits on the right side
-set showtabline=2           " always show tabline
+set showtabline=1           " show the tabline when needed
 set showcmd                 " show incomplete commands
 set smartindent             " indent autmatically
 set tabstop=2               " 1 tab = 2 spaces
@@ -90,7 +88,6 @@ autocmd BufEnter *.tex       set spell
 
 " Plug in all the plugins
 call plug#begin()
-Plug 'sulami/su256.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'shougo/vimproc.vim', { 'do': 'make' } | Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
 Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
@@ -104,7 +101,6 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'airblade/vim-gitgutter'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'jpalardy/vim-slime'
 Plug 'bronson/vim-trailing-whitespace'
