@@ -170,6 +170,16 @@ bindkey -M viins '^w' backward-kill-word
 # bind hmenu
 # bindkey -s '^h' 'hmenu\n'
 
+# Set the colourscheme according to the time of day
+if [[ -z "$TMUX" ]]; then
+  HOUR="$(date +'%H')"
+  if [[ $HOUR > 6 && $HOUR < 20 ]]; then
+    $HOME/.dynamic-colors/bin/dynamic-colors switch solarized-dark
+  else
+    $HOME/.dynamic-colors/bin/dynamic-colors switch solarized-light
+  fi
+fi
+
 # X-less colours
 if [ "$TERM" = "linux" ]; then
     echo -en "\e]P0121212" #black
