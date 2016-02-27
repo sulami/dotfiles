@@ -173,10 +173,10 @@ bindkey -M viins '^w' backward-kill-word
 # Set the colourscheme according to the time of day
 if [[ -z "$TMUX" ]]; then
   HOUR="$(date +'%H')"
-  if [[ $HOUR > 6 && $HOUR < 20 ]]; then
-    $HOME/.dynamic-colors/bin/dynamic-colors switch solarized-dark
-  else
+  if [[ 6 < $HOUR && $HOUR < 20 ]]; then
     $HOME/.dynamic-colors/bin/dynamic-colors switch solarized-light
+  else
+    $HOME/.dynamic-colors/bin/dynamic-colors switch solarized-dark
   fi
 fi
 
