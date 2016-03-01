@@ -7,3 +7,6 @@
 [submodule "zsh/zsh-git-prompt"]
 	path = zsh/zsh-git-prompt
 	url = https://github.com/olivierverdier/zsh-git-prompt
+[submodule ".emacs.d"]
+	path = .emacs.d
+	url = https://github.com/syl20bnr/spacemacs
