@@ -4,6 +4,10 @@ help:
 
 LN=ln -sf
 
+emacs:
+	$(LN) ${HOME}/dotfiles/.spacemacs ${HOME}/
+	$(LN) ${HOME}/dotfiles/.emacs.d ${HOME}/
+
 nvim:
 	$(LN) ${HOME}/dotfiles/nvim ${HOME}/
 
@@ -55,7 +59,7 @@ urxvt:
 	mkdir -p ${HOME}/.urxvt/ext
 	$(LN) ${HOME}/dotfiles/scripts/font-size ${HOME}/.urxvt/ext/
 
-dev: nvim vim zsh git tmux top profile
+dev: emacs nvim vim zsh git tmux top profile
 
 cli: dev mutt irssi feed2maildir imgur mpd
 
