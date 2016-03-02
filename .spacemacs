@@ -98,7 +98,7 @@ values."
    dotspacemacs-mode-line-unicode-symbols nil
    dotspacemacs-smooth-scrolling t
    dotspacemacs-line-numbers nil
-   dotspacemacs-smartparens-strict-mode nil
+   dotspacemacs-smartparens-strict-mode t
    dotspacemacs-highlight-delimiters 'all
    dotspacemacs-persistent-server nil
    dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
@@ -159,9 +159,6 @@ values."
 
   ;; No trash
   (setq delete-by-moving-to-trash nil)
-
-  ;; Smartparens strict mode for lisp
-  (smartparens-strict-mode)
   )
 
 
