@@ -161,8 +161,9 @@ values."
 
   ;; Enable evil-smartparens-mode when using smartparens outside of markdown
   (add-hook 'smartparens-enabled-hook
-            #'(when (not spacemacs-markdown-mode-map-active)
-                (evil-smartparens-mode)))
+            #'(lambda ()
+                (when (not spacemacs-markdown-mode-map-active)
+                  (evil-smartparens-mode))))
 
   ;; Mode-Line
   (setq powerline-default-separator nil)
