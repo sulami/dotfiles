@@ -121,9 +121,9 @@ values."
   )
 
 (defun dotspacemacs/user-config ()
-  "Configuration function for user code.
-   This function is called at the very end of Spacemacs initialization after
-   layers configuration. You are free to put any user code."
+  "Configuration function for user code. This function is called at the very end
+   of Spacemacs initialization after layers configuration. You are free to put
+   any user code."
 
   ;; Set the colourscheme according to the time of day
   (let ((hour-of-day (read (format-time-string "%H"))))
@@ -131,23 +131,27 @@ values."
       (load-theme 'solarized-light)
       (load-theme 'solarized-dark)))
 
-  ;; Mode-Line
-  (setq powerline-default-separator nil)
+  ;; Stuff the clutter where I can't see it
+  (setq backup-directory-alist '("/tmp/emacs-backup"))
 
-  ;; Flycheck
-  (setq flycheck-disabled-checkers '(haskell-ghc))
+  ;; Custom session save directory
+  (defun emacs-session-filename (session-id)
+    "Construct a filename to save the session in based on SESSION-ID. Customized
+    version that saves to /tmp."
+    (let ((basename (concat "session." session-id)))
+      (concat "/tmp/.emacs-" basename)))
+
+  ;; No trash
+  (setq delete-by-moving-to-trash nil)
+
+  ;; Apropos
+  (spacemacs/set-leader-keys "ha" 'helm-apropos)
 
   ;; Proper in-/decrease
   (define-key evil-normal-state-map (kbd "C-=")
     'spacemacs/evil-numbers-increase)
   (define-key evil-normal-state-map (kbd "C--")
     'spacemacs/evil-numbers-decrease)
-
-  ;; Set helm to fuzzy matching
-  (setq helm-mode-fuzzy-match t)
-
-  ;; Apropos
-  (spacemacs/set-leader-keys "ha" 'helm-apropos)
 
   ;; Clear highlight with return
   (defun isearch-nohighlight ()
@@ -157,8 +161,16 @@ values."
       (evil-search-highlight-persist-remove-all)))
   (define-key evil-normal-state-map (kbd "RET") 'isearch-nohighlight)
 
-  ;; No trash
-  (setq delete-by-moving-to-trash nil)
+  ;; Mode-Line
+  (setq powerline-default-separator nil)
+
+  ;; Set helm to fuzzy matching and fix c-w
+  (setq helm-mode-fuzzy-match t)
+  (require 'helm)
+  (define-key helm-map (kbd "C-w") 'evil-delete-backward-word)
+
+  ;; Flycheck
+  (setq flycheck-disabled-checkers '(haskell-ghc))
   )
 
 
