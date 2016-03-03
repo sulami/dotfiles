@@ -116,8 +116,6 @@ values."
   (setq tramp-ssh-controlmaster-options
     "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o Control-Persist=no")
 
-  ;; Enable evil-smartparens-mode when using smartparens
-  (add-hook 'smartparens-enabled-hook #'evil-smartparens-mode)
   )
 
 (defun dotspacemacs/user-config ()
@@ -160,6 +158,12 @@ values."
     (when (not isearch-mode)
       (evil-search-highlight-persist-remove-all)))
   (define-key evil-normal-state-map (kbd "RET") 'isearch-nohighlight)
+
+  ;; Enable evil-smartparens-mode when using smartparens outside of markdown
+  (add-hook 'smartparens-enabled-hook
+            #'(lambda ()
+                (when (not spacemacs-markdown-mode-map-active)
+                  (evil-smartparens-mode))))
 
   ;; Mode-Line
   (setq powerline-default-separator nil)
