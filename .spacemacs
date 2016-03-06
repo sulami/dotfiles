@@ -177,6 +177,9 @@ values."
 
   ;; Flycheck
   (setq flycheck-disabled-checkers '(haskell-ghc))
+
+  ;; Enable refill mode for Markdown
+  (add-hook 'markdown-mode-hook 'refill-mode)
   )
 
 
