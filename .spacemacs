@@ -112,10 +112,12 @@ values."
    any user code here.  The exception is org related code, which should be placed
    in `dotspacemacs/user-config'."
 
+  ;; Default frame size
+  (setq default-frame-alist '((width . 85)))
+
   ;; Prevent enormous lag during startup
   (setq tramp-ssh-controlmaster-options
     "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o Control-Persist=no")
-
   )
 
 (defun dotspacemacs/user-config ()
