@@ -28,7 +28,7 @@ values."
      latex
      markdown
      org
-     python
+     (python :variables python-enable-yapf-format-on-save t)
      (shell :variables
             shell-default-shell 'term
             shell-default-term-shell "/bin/zsh")
