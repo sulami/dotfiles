@@ -170,6 +170,9 @@ values."
   ;; Mode-Line
   (setq powerline-default-separator nil)
 
+  ;; Enable golden-ratio-mode
+  (spacemacs/toggle-golden-ratio-on)
+
   ;; Set helm to fuzzy matching and fix c-w
   (setq helm-mode-fuzzy-match t)
   (require 'helm)
