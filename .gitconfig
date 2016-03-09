@@ -47,4 +47,4 @@
     smtpuser = sulami@peerwire.org
     smtpserverport = 587
 [include]
-	path = ~/.gitconfig.secret
+		path = ~/.gitconfig.secret
