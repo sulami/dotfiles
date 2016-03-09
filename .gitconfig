@@ -46,4 +46,5 @@
     smtpserver = mail.pawnmail.com
     smtpuser = sulami@peerwire.org
     smtpserverport = 587
-
+[include]
+	path = ~/.gitconfig.secret
