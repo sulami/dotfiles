@@ -30,8 +30,9 @@ values."
      org
      (python :variables python-enable-yapf-format-on-save t)
      (shell :variables
-            shell-default-shell 'term
-            shell-default-term-shell "/bin/zsh")
+            shell-default-shell 'eshell
+            shell-enable-smart-eshell t
+            shell-protect-eshell-prompt t)
      (spell-checking :variables
                      spell-checking-enable-by-default nil)
      syntax-checking
@@ -160,6 +161,17 @@ values."
     (when (not isearch-mode)
       (evil-search-highlight-persist-remove-all)))
   (define-key evil-normal-state-map (kbd "RET") 'isearch-nohighlight)
+
+  ;; If inside a project, pop shells in the project root
+  (defun project-root-shell ()
+    "Pop the default shell in the project root if inside a project, otherwise in
+the default directory"
+    (interactive)
+    (if (projectile-project-p)
+        (projectile-with-default-dir (projectile-project-root)
+          (spacemacs/default-pop-shell))
+      (spacemacs/default-pop-shell)))
+  (spacemacs/set-leader-keys "'" 'project-root-shell)
 
   ;; Enable evil-smartparens-mode when using smartparens outside of markdown
   (add-hook 'smartparens-enabled-hook
