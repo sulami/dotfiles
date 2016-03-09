@@ -134,7 +134,7 @@ values."
 
   ;; Set the colourscheme according to the time of day
   (let ((hour-of-day (read (format-time-string "%H"))))
-    (if (< 6 hour-of-day 18)
+    (if (< 6 hour-of-day 20)
       (load-theme 'solarized-light)
       (load-theme 'solarized-dark)))
 
