@@ -18,6 +18,7 @@ values."
      (auto-completion :variables
                       auto-completion-enable-snippets-in-popup t)
      clojure
+     common-lisp
      cscope
      django
      emacs-lisp
@@ -42,8 +43,11 @@ values."
      version-control
      yaml
      )
-   dotspacemacs-additional-packages '(evil-smartparens)
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-additional-packages '(company-c-headers
+                                      evil-smartparens
+                                      slime-company)
+   dotspacemacs-excluded-packages '(ac-ispell
+                                    auto-complete)
    dotspacemacs-delete-orphan-packages t))
 
 (defun dotspacemacs/init ()
@@ -191,6 +195,16 @@ the default directory"
   (setq helm-mode-fuzzy-match t)
   (require 'helm)
   (define-key helm-map (kbd "C-w") 'evil-delete-backward-word)
+
+  ;; Add dropdown completion for common lisp
+  (slime-setup '(slime-company))
+  ;; This is dirty, but I cannot bring slime to not load slime-fuzzy
+  (defun slime-fuzzy-complete-symbol ()
+    (interactive)
+    nil)
+
+  ;; Enable autocompletion for C
+  (add-hook 'c-mode-hook 'company-mode)
 
   ;; Flycheck
   (setq flycheck-disabled-checkers '(haskell-ghc))
