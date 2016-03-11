@@ -39,7 +39,6 @@ values."
      (spell-checking :variables
                      spell-checking-enable-by-default nil)
      syntax-checking
-     tmux
      version-control
      yaml
      )
@@ -47,7 +46,18 @@ values."
                                       evil-smartparens
                                       slime-company)
    dotspacemacs-excluded-packages '(ac-ispell
-                                    auto-complete)
+                                    ace-jump-helm-line
+                                    auto-complete
+                                    emmet-mode
+                                    evil-jumper
+                                    evil-mc
+                                    evil-tutor
+                                    fancy-battery
+                                    flx-ido
+                                    ido-vertical-mode
+                                    leuven-theme
+                                    neotree
+                                    smeargle)
    dotspacemacs-delete-orphan-packages t))
 
 (defun dotspacemacs/init ()
