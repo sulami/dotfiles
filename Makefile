@@ -21,6 +21,7 @@ mutt:
 
 zsh:
 	$(LN) ${HOME}/dotfiles/zsh/.zshrc ${HOME}/
+	$(LN) ${HOME}/dotfiles/zsh/.zshenv ${HOME}/
 
 git:
 	$(LN) ${HOME}/dotfiles/.gitconfig ${HOME}/
