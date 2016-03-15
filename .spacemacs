@@ -32,6 +32,8 @@ values."
      markdown
      org
      (python :variables python-enable-yapf-format-on-save t)
+     racket
+     scheme
      (shell :variables
             shell-default-shell 'eshell
             shell-enable-smart-eshell t
