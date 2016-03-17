@@ -223,6 +223,18 @@ the default directory"
 
   ;; Enable refill mode for Markdown
   (add-hook 'markdown-mode-hook 'refill-mode)
+
+  ;; Sprunge support
+  (defun sprunge-buffer ()
+    (interactive)
+    (shell-command-on-region
+     (point-min) (point-max)
+     "curl -sF 'sprunge=<-' http://sprunge.us"
+     "*Sprunge*")
+    (with-current-buffer "*Sprunge*"
+      (message (concat "Sprunged to " (buffer-string)))
+      (spacemacs/copy-whole-buffer-to-clipboard)))
+  (spacemacs/set-leader-keys "b S" 'sprunge-buffer)
   )
 
 
