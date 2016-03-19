@@ -156,8 +156,19 @@ values."
       (load-theme 'solarized-light)
       (load-theme 'solarized-dark)))
 
-  ;; Stuff the clutter where I can't see it
-  (setq backup-directory-alist '("/tmp/emacs-backup"))
+  ;; Set all kinds of stuff
+  (setq
+   ;; Hide the clutter
+   backup-directory-alist '("/tmp/emacs-backup")
+   ;; No trash
+   delete-by-moving-to-trash nil
+   ;; Un-fancy the modeline
+   powerline-default-separator nil
+   ;; Set helm to fuzzy matching
+   helm-mode-fuzzy-match t
+   ;; Disable non-stack GHC in Flycheck
+   flycheck-disabled-checkers '(haskell-ghc)
+   )
 
   ;; Custom session save directory
   (defun emacs-session-filename (session-id)
@@ -165,9 +176,6 @@ values."
     version that saves to /tmp."
     (let ((basename (concat "session." session-id)))
       (concat "/tmp/.emacs-" basename)))
-
-  ;; No trash
-  (setq delete-by-moving-to-trash nil)
 
   ;; Apropos
   (spacemacs/set-leader-keys "ha" 'helm-apropos)
@@ -208,14 +216,10 @@ the default directory"
                 (when (not spacemacs-markdown-mode-map-active)
                   (evil-smartparens-mode))))
 
-  ;; Mode-Line
-  (setq powerline-default-separator nil)
-
   ;; Enable golden-ratio-mode
   (spacemacs/toggle-golden-ratio-on)
 
   ;; Set helm to fuzzy matching and fix c-w
-  (setq helm-mode-fuzzy-match t)
   (require 'helm)
   (define-key helm-map (kbd "C-w") 'evil-delete-backward-word)
 
@@ -228,9 +232,6 @@ the default directory"
 
   ;; Enable autocompletion for C
   (add-hook 'c-mode-hook 'company-mode)
-
-  ;; Flycheck
-  (setq flycheck-disabled-checkers '(haskell-ghc))
 
   ;; Enable refill mode for Markdown
   (add-hook 'markdown-mode-hook 'refill-mode)
