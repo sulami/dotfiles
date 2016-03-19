@@ -196,6 +196,8 @@ the default directory"
           (spacemacs/default-pop-shell))
       (spacemacs/default-pop-shell)))
   (spacemacs/set-leader-keys "'" 'project-root-shell)
+  ;; This "unpops" the shell without having to leave insert mode
+  (define-key evil-insert-state-map (kbd "C-c '") 'project-root-shell)
 
   ;; Enable evil-smartparens-mode when using smartparens outside of markdown
   (add-hook 'smartparens-enabled-hook
