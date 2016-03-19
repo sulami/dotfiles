@@ -74,18 +74,15 @@ values."
   (setq-default
    dotspacemacs-elpa-https t
    dotspacemacs-elpa-timeout 5
-   dotspacemacs-check-for-update t
+   dotspacemacs-check-for-update nil
    dotspacemacs-editing-style 'vim
    dotspacemacs-verbose-loading nil
    dotspacemacs-startup-banner nil
-   dotspacemacs-startup-lists '(recents bookmarks projects)
+   dotspacemacs-startup-lists '() ;;'(recents bookmarks projects)
    dotspacemacs-startup-recent-list-size 5
    dotspacemacs-scratch-mode 'emacs-lisp-mode
    dotspacemacs-themes '(solarized-dark
-                         solarized-light
-                         spacemacs-dark
-                         spacemacs-light
-                         monokai)
+                         solarized-light)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("Inconsolata"
                                :size 15
@@ -111,7 +108,7 @@ values."
    dotspacemacs-enable-paste-micro-state nil
    dotspacemacs-which-key-delay 0.4
    dotspacemacs-which-key-position 'bottom
-   dotspacemacs-loading-progress-bar t
+   dotspacemacs-loading-progress-bar nil
    dotspacemacs-fullscreen-at-startup nil
    dotspacemacs-fullscreen-use-non-native nil
    dotspacemacs-maximized-at-startup nil
