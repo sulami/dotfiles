@@ -122,7 +122,7 @@ values."
    dotspacemacs-line-numbers nil
    dotspacemacs-smartparens-strict-mode t
    dotspacemacs-highlight-delimiters 'all
-   dotspacemacs-persistent-server nil
+   dotspacemacs-persistent-server t
    dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
    dotspacemacs-default-package-repository nil
    dotspacemacs-whitespace-cleanup nil
