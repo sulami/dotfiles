@@ -199,6 +199,9 @@ the default directory"
   ;; This "unpops" the shell without having to leave insert mode
   (define-key evil-insert-state-map (kbd "C-c '") 'project-root-shell)
 
+  ;; Fix C-w when autocompleting
+  (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
+
   ;; Enable evil-smartparens-mode when using smartparens outside of markdown
   (add-hook 'smartparens-enabled-hook
             #'(lambda ()
