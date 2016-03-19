@@ -122,7 +122,7 @@ values."
    dotspacemacs-line-numbers nil
    dotspacemacs-smartparens-strict-mode t
    dotspacemacs-highlight-delimiters 'all
-   dotspacemacs-persistent-server t
+   dotspacemacs-persistent-server nil
    dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
    dotspacemacs-default-package-repository nil
    dotspacemacs-whitespace-cleanup nil
@@ -140,6 +140,9 @@ values."
   ;; Prevent enormous lag during startup
   (setq tramp-ssh-controlmaster-options
     "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o Control-Persist=no")
+
+  ;; Mail-mode for everything mutt
+  (add-to-list 'auto-mode-alist '("/mutt" . mail-mode))
   )
 
 (defun dotspacemacs/user-config ()
