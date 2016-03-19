@@ -6,15 +6,29 @@ zstyle :compinstall filename '$HOME/.zshrc'
 autoload -Uz compinit
 compinit
 
+if which emacsclient > /dev/null 2>&1; then
+    export EDITOR="emacsclient -c"
+    export VISUAL="emacsclient -c"
+elif which nvim > /dev/null 2>&1; then
+    # Enable neovim if it is installed.
+    export EDITOR=nvim
+    export VISUAL=nvim
+else
+    export EDITOR=vim
+    export VISUAL=vim
+fi
+export LC_ALL=en_US.UTF-8
+export BROWSER=firefox
+export PATH=$PATH:$HOME/.local/bin:$HOME/.cabal/bin
+export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig
+export GOPATH=$HOME/build/go
+export GOMAXPROCS=8
+export GITSERVER=pi@peerwire.dtdns.net
+export GITURL=ssh://${GITSERVER}/srv/git
+export XDG_CONFIG_HOME=$HOME
 # Git prompt import
 source $HOME/dotfiles/zsh/zsh-git-prompt/zshrc.sh
 export GIT_PROMPT_EXECUTABLE="haskell"
-
-# Zsh does not load .profile like ksh does (at least not by default w/o
-# any compability mode, but we need it for login shells on OpenBSD.
-if [[ $(uname) == "OpenBSD" && -o login && -z $TMUX ]]; then
-    source $HOME/.profile
-fi
 
 # If on Arch, source the pkgfile command-not-found script that tells us
 # where to find a binary that is not installed.
