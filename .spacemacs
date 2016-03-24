@@ -231,6 +231,9 @@ the default directory"
   ;; Enable autocompletion for C
   (add-hook 'c-mode-hook 'company-mode)
 
+  ;; Spell-checking in org-mode
+  (add-hook 'org-mode-hook 'flyspell-mode)
+
   ;; Enable refill mode for Markdown
   (add-hook 'markdown-mode-hook 'refill-mode)
 
