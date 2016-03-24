@@ -78,7 +78,7 @@ values."
    dotspacemacs-editing-style 'vim
    dotspacemacs-verbose-loading nil
    dotspacemacs-startup-banner nil
-   dotspacemacs-startup-lists '() ;;'(recents bookmarks projects)
+   dotspacemacs-startup-lists nil ;;'(recents bookmarks projects)
    dotspacemacs-startup-recent-list-size 5
    dotspacemacs-scratch-mode 'emacs-lisp-mode
    dotspacemacs-themes '(solarized-dark
@@ -131,12 +131,13 @@ values."
    any user code here.  The exception is org related code, which should be placed
    in `dotspacemacs/user-config'."
 
-  ;; Default frame size
-  (setq default-frame-alist '((width . 85)))
-
-  ;; Prevent enormous lag during startup
-  (setq tramp-ssh-controlmaster-options
-    "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o Control-Persist=no")
+  (setq
+   ;; Default frame size
+   default-frame-alist '((width . 85) (scroll-bar-mode . nil))
+   ;; Prevent enormous lag during startup
+   tramp-ssh-controlmaster-options
+    "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o Control-Persist=no"
+   )
 
   ;; Mail-mode for everything mutt
   (add-to-list 'auto-mode-alist '("/mutt" . mail-mode))
