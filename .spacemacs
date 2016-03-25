@@ -214,9 +214,6 @@ the default directory"
                 (when (not spacemacs-markdown-mode-map-active)
                   (evil-smartparens-mode))))
 
-  ;; Enable golden-ratio-mode
-  (spacemacs/toggle-golden-ratio-on)
-
   ;; Set helm to fuzzy matching and fix c-w
   (require 'helm)
   (define-key helm-map (kbd "C-w") 'evil-delete-backward-word)
