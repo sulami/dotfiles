@@ -248,6 +248,10 @@ the default directory"
       (message (concat "Sprunged to " (buffer-string)))
       (spacemacs/copy-whole-buffer-to-clipboard)))
   (spacemacs/set-leader-keys "b S" 'sprunge-buffer)
+
+  ;; Make desktops persistent
+  (desktop-save-mode t)
+  (desktop-read)
   )
 
 
