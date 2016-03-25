@@ -148,6 +148,9 @@ values."
    of Spacemacs initialization after layers configuration. You are free to put
    any user code."
 
+  ;; Load my default starting desktop
+  (desktop-read)
+
   ;; Set the colourscheme according to the time of day
   (let ((hour-of-day (read (format-time-string "%H"))))
     (if (< 6 hour-of-day 20)
@@ -245,10 +248,6 @@ the default directory"
       (message (concat "Sprunged to " (buffer-string)))
       (spacemacs/copy-whole-buffer-to-clipboard)))
   (spacemacs/set-leader-keys "b S" 'sprunge-buffer)
-
-  ;; Make desktops persistent
-  (desktop-save-mode t)
-  (desktop-read)
   )
 
 
