@@ -183,10 +183,18 @@ values."
   (spacemacs/set-leader-keys "ha" 'helm-apropos)
 
   ;; Proper in-/decrease
-  (define-key evil-normal-state-map (kbd "C-=")
-    'spacemacs/evil-numbers-increase)
-  (define-key evil-normal-state-map (kbd "C--")
+  (define-key evil-normal-state-map (kbd "C-1")
     'spacemacs/evil-numbers-decrease)
+  (define-key evil-normal-state-map (kbd "C-2")
+    'spacemacs/evil-numbers-increase)
+
+  ;; Adjust the font size on the fly
+  (define-key evil-normal-state-map (kbd "C-0")
+    'spacemacs/reset-font-size)
+  (define-key evil-normal-state-map (kbd "C--")
+    'spacemacs/scale-down-font)
+  (define-key evil-normal-state-map (kbd "C-=")
+    'spacemacs/scale-up-font)
 
   ;; Clear highlight with return
   (defun isearch-nohighlight ()
