@@ -148,8 +148,9 @@ values."
    of Spacemacs initialization after layers configuration. You are free to put
    any user code."
 
-  ;; Load my default starting desktop
-  (desktop-read)
+  ;; Load my default starting desktop if started without file input
+  (when (not (buffer-file-name))
+    (desktop-read))
 
   ;; Set the colourscheme according to the time of day
   (let ((hour-of-day (read (format-time-string "%H"))))
