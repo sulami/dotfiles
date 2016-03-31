@@ -139,8 +139,16 @@ values."
     "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o Control-Persist=no"
    )
 
+  ;; Kill buffers when exiting emacsclient
+  (add-hook 'server-done-hook 'kill-buffer)
+
   ;; Mail-mode for everything mutt
   (add-to-list 'auto-mode-alist '("/mutt" . mail-mode))
+
+  ;; Fix scrollbars in newly created frames
+  (add-to-list 'after-make-frame-functions
+               (lambda (arg)
+                 (menu-bar-no-scroll-bar)))
   )
 
 (defun dotspacemacs/user-config ()
@@ -195,6 +203,9 @@ values."
     'spacemacs/scale-down-font)
   (define-key evil-normal-state-map (kbd "C-=")
     'spacemacs/scale-up-font)
+
+  ;; More convenient than C-x #
+  (spacemacs/set-leader-keys "qw" 'server-edit)
 
   ;; Clear highlight with return
   (defun isearch-nohighlight ()
