@@ -7,10 +7,9 @@ autoload -Uz compinit
 compinit
 
 if which emacsclient > /dev/null 2>&1; then
-    export EDITOR=emacs
-    export VISUAL=emacs
+    export EDITOR="emacsclient -c -a emacs"
+    export VISUAL="emacsclient -c -a emacs"
 elif which nvim > /dev/null 2>&1; then
-    # Enable neovim if it is installed.
     export EDITOR=nvim
     export VISUAL=nvim
 else

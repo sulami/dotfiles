@@ -1,4 +1,4 @@
 #!/bin/zsh
 
-/usr/bin/urxvt -e vim $1
+emacsclient -a emacs -c $1
 
