@@ -37,7 +37,7 @@ values."
      scheme
      (shell :variables
             shell-default-shell 'eshell
-            shell-enable-smart-eshell t
+            shell-enable-smart-eshell nil
             shell-protect-eshell-prompt t)
      (spell-checking :variables
                      spell-checking-enable-by-default nil)
