@@ -17,6 +17,7 @@ vim:
 
 mutt:
 	$(LN) ${HOME}/dotfiles/mutt/.muttrc ${HOME}/
+	$(LN) ${HOME}/dotfiles/mutt/.mailcap ${HOME}/
 	$(LN) ${HOME}/dotfiles/mutt/.offlineimaprc ${HOME}/
 
 zsh:

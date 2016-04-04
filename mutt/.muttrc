@@ -46,3 +46,6 @@ macro index,pager D "<save-message>=/../Archive<enter><enter>" "Archive"
 # Multi-Account fuckery
 folder-hook mail 'set folder = $HOME/mail/Inbox; set record = =/../Sent; set from = sulami@peerwire.org; set smtp_url = smtp://sulami@peerwire.org:$my_pw_pawnmail@mail.pawnmail.com:587/'
 folder-hook mail_ablescent 'set folder = $HOME/mail_ablescent/Inbox; set record = =/../Sent; set from = robin.schroer@ablescent.com; set smtp_url = smtp://robin.schroer@ablescent.com:$my_pw_ablescent@smtp.office365.com:587/'
+
+# HTML workaroundery
+auto_view text/html
