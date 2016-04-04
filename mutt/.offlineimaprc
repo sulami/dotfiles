@@ -36,7 +36,7 @@ status_backend = sqlite
 [Repository Ablescent-local]
 type = Maildir
 localfolders = ~/mail_ablescent
-nametrans = lambda folder: re.sub('Inbox', 'INBOX', folder)
+nametrans = lambda folder: re.sub('Inbox', 'INBOX', re.sub('Sent', 'Sent Items', folder))
 
 [Repository Ablescent-remote]
 type = IMAP
@@ -46,6 +46,6 @@ remotepasseval = passwd("ablescent")
 cert_fingerprint = a0476c0c30347a7a159a9ff50bcdbc84bdd3d166
 maxconnnections = 1
 ssl = yes
-nametrans = lambda folder: re.sub('INBOX', 'Inbox', folder)
+nametrans = lambda folder: re.sub('INBOX', 'Inbox', re.sub('Sent Items', 'Sent', folder))
 
 # vim: ft=cfg

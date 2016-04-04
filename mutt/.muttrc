@@ -24,7 +24,7 @@ set signature       = "$HOME/dotfiles/mutt/.signature"
 set smtp_url        = smtp://sulami@peerwire.org:$my_pw_pawnmail@mail.pawnmail.com:587/
 #set smtp_url        = smtp://sulamiification:$my_pw_gmail@smtp.gmail.com:587/
 
-mailboxes $HOME/mail/Inbox $HOME/mail/feeds
+mailboxes $HOME/mail/Inbox $HOME/mail_ablescent/Inbox $HOME/mail/feeds
 set mbox_type       = Maildir
 set folder          = $HOME/mail/Inbox
 set spoolfile       = =/
@@ -44,5 +44,5 @@ macro index 'c' '<change-folder>?<change-dir><home>^K=<enter><enter><enter>'
 macro index,pager D "<save-message>=/../Archive<enter><enter>" "Archive"
 
 # Multi-Account fuckery
-folder-hook mail 'set from = sulami@peerwire.org; set smtp_url = smtp://sulami@peerwire.org:$my_pw_pawnmail@mail.pawnmail.com:587/'
-folder-hook mail_ablescent 'set from = robin.schroer@ablescent.com; set smtp_url = smtp://robin.schroer@ablescent.com:$my_pw_ablescent@smtp.office365.com:587/'
+folder-hook mail 'set folder = $HOME/mail/Inbox; set record = =/../Sent; set from = sulami@peerwire.org; set smtp_url = smtp://sulami@peerwire.org:$my_pw_pawnmail@mail.pawnmail.com:587/'
+folder-hook mail_ablescent 'set folder = $HOME/mail_ablescent/Inbox; set record = =/../Sent; set from = robin.schroer@ablescent.com; set smtp_url = smtp://robin.schroer@ablescent.com:$my_pw_ablescent@smtp.office365.com:587/'
