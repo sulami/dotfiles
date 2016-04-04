@@ -2,10 +2,11 @@ source $HOME/dotfiles/mutt/mutt-gpg
 
 source 'gpg2 -dq $HOME/dotfiles/mutt/mutt-gmail.gpg |'
 source 'gpg2 -dq $HOME/dotfiles/mutt/mutt-pawnmail.gpg |'
+source 'gpg2 -dq $HOME/dotfiles/mutt/mutt-ablescent.gpg |'
 
 source $HOME/dotfiles/mutt/colors.muttrc
 
-alternates "(sulami@peerwire\.org)|(sulamiification@gmail\.com)"
+alternates "(sulami@peerwire\.org)|(sulamiification@gmail\.com)|(robin.schroer@ablescent\.com)"
 
 set realname        = "Robin Schroer"
 set from            = sulami@peerwire.org
@@ -35,8 +36,13 @@ set header_cache    = /tmp/mutt-header-cache
 bind editor <space> noop
 bind index R group-reply
 macro index,pager <f2> "<change-folder>$HOME/mail/Inbox<enter>"
-macro index,pager <f3> "<change-folder>$HOME/mail/Archive<enter>"
-macro index,pager <f4> "<change-folder>$HOME/mail/feeds<enter>"
+macro index,pager <f3> "<change-folder>$HOME/mail/Sent<enter>"
+macro index,pager <f4> "<change-folder>$HOME/mail/Archive<enter>"
+macro index,pager <f5> "<change-folder>$HOME/mail_ablescent/Inbox<enter>"
+macro index,pager <f6> "<change-folder>$HOME/mail_ablescent/Sent<enter>"
 macro index 'c' '<change-folder>?<change-dir><home>^K=<enter><enter><enter>'
 macro index,pager D "<save-message>=/../Archive<enter><enter>" "Archive"
 
+# Multi-Account fuckery
+folder-hook mail 'set from = sulami@peerwire.org; set smtp_url = smtp://sulami@peerwire.org:$my_pw_pawnmail@mail.pawnmail.com:587/'
+folder-hook mail_ablescent 'set from = robin.schroer@ablescent.com; set smtp_url = smtp://robin.schroer@ablescent.com:$my_pw_ablescent@smtp.office365.com:587/'

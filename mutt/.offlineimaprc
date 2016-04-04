@@ -1,5 +1,5 @@
 [general]
-accounts = Pawnmail
+accounts = Pawnmail,Ablescent
 maxsyncaccounts = 1
 pythonfile = ~/dotfiles/mutt/offlineimap.py
 ui = quiet
@@ -26,5 +26,26 @@ maxconnnections = 1
 ssl = yes
 nametrans = lambda folder: re.sub('INBOX', 'Inbox', folder)
 
-# vim: ft=cfg
+[Account Ablescent]
+localrepository = Ablescent-local
+remoterepository = Ablescent-remote
+status_backend = sqlite
+# autorefresh = 5
+# quick = 5
 
+[Repository Ablescent-local]
+type = Maildir
+localfolders = ~/mail_ablescent
+nametrans = lambda folder: re.sub('Inbox', 'INBOX', folder)
+
+[Repository Ablescent-remote]
+type = IMAP
+remotehost = outlook.office365.com
+remoteuser = robin.schroer@ablescent.com
+remotepasseval = passwd("ablescent")
+cert_fingerprint = a0476c0c30347a7a159a9ff50bcdbc84bdd3d166
+maxconnnections = 1
+ssl = yes
+nametrans = lambda folder: re.sub('INBOX', 'Inbox', folder)
+
+# vim: ft=cfg
