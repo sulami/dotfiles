@@ -28,6 +28,10 @@ export XDG_CONFIG_HOME=$HOME
 # Git prompt import
 source $HOME/dotfiles/zsh/zsh-git-prompt/zshrc.sh
 export GIT_PROMPT_EXECUTABLE="haskell"
+# Virtualenvwrapper support if available
+if which virtualenvwrapper_lazy.sh > /dev/null 2&>1; then
+    source "$(which virtualenvwrapper_lazy.sh)"
+fi
 
 # If on Arch, source the pkgfile command-not-found script that tells us
 # where to find a binary that is not installed.
