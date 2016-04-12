@@ -29,7 +29,7 @@ export XDG_CONFIG_HOME=$HOME
 source $HOME/dotfiles/zsh/zsh-git-prompt/zshrc.sh
 export GIT_PROMPT_EXECUTABLE="haskell"
 # Virtualenvwrapper support if available
-if which virtualenvwrapper_lazy.sh > /dev/null 2&>1; then
+if which virtualenvwrapper_lazy.sh > /dev/null 2>&1; then
     source "$(which virtualenvwrapper_lazy.sh)"
 fi
 
