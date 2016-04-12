@@ -32,7 +32,9 @@ values."
      latex
      markdown
      org
-     (python :variables python-enable-yapf-format-on-save t)
+     (python :variables
+             python-enable-yapf-format-on-save t
+             python-test-runner 'pytest)
      racket
      scheme
      (shell :variables
@@ -231,10 +233,12 @@ the default directory"
   ;; Fix C-w when autocompleting
   (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
 
-  ;; Enable evil-smartparens-mode when using smartparens outside of markdown
+  ;; Enable evil-smartparens-mode when using smartparens outside of markdown and
+  ;; python
   (add-hook 'smartparens-enabled-hook
             #'(lambda ()
-                (when (not spacemacs-markdown-mode-map-active)
+                (when (not (or spacemacs-markdown-mode-map-active
+                               spacemacs-python-mode-map-active))
                   (evil-smartparens-mode))))
 
   ;; Set helm to fuzzy matching and fix c-w
