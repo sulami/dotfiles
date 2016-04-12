@@ -89,6 +89,7 @@ else
     alias ll='ls -l'
     alias la='ls -la'
 fi
+alias edit="$EDITOR"
 alias v='vim'
 alias nv='nvim'
 alias g='git'
