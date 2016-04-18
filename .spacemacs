@@ -178,6 +178,8 @@ values."
    powerline-default-separator nil
    ;; Set helm to fuzzy matching
    helm-mode-fuzzy-match t
+   ;; Hide markup in org-mode
+   org-hide-emphasis-markers t
    ;; Disable non-stack GHC in Flycheck
    flycheck-disabled-checkers '(haskell-ghc)
    )
