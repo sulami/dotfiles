@@ -49,6 +49,7 @@ values."
      )
    dotspacemacs-additional-packages '(company-c-headers
                                       evil-smartparens
+                                      json-mode
                                       slime-company)
    dotspacemacs-excluded-packages '(ac-ispell
                                     ace-jump-helm-line
