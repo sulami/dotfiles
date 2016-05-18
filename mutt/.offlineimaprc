@@ -41,7 +41,7 @@ nametrans = lambda folder: re.sub('Inbox', 'INBOX', re.sub('Sent', 'Sent Items',
 [Repository Ablescent-remote]
 type = IMAP
 remotehost = outlook.office365.com
-remoteuser = robin.schroer@ablescent.com
+remoteuser = robin.schroer@myfampal.com
 remotepasseval = passwd("ablescent")
 cert_fingerprint = a0476c0c30347a7a159a9ff50bcdbc84bdd3d166
 maxconnnections = 1
