@@ -6,6 +6,7 @@ sticker_file "/home/sulami/.mpd.sticker"
 bind_to_address "127.0.0.1"
 
 music_directory "/home/sulami/Music"
+playlist_directory "/home/sulami/Music/playlists"
 
 # audio_output {
 #     type "alsa"
