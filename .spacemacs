@@ -121,7 +121,7 @@ values."
    dotspacemacs-mode-line-unicode-symbols nil
    dotspacemacs-smooth-scrolling t
    dotspacemacs-line-numbers nil
-   dotspacemacs-smartparens-strict-mode t
+   dotspacemacs-smartparens-strict-mode nil
    dotspacemacs-highlight-delimiters 'all
    dotspacemacs-persistent-server nil
    dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
@@ -237,13 +237,11 @@ the default directory"
   ;; Fix C-w when autocompleting
   (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
 
-  ;; Enable evil-smartparens-mode when using smartparens outside of markdown and
-  ;; python
-  (add-hook 'smartparens-enabled-hook
-            #'(lambda ()
-                (when (not (or spacemacs-markdown-mode-map-active
-                               spacemacs-python-mode-map-active))
-                  (evil-smartparens-mode))))
+  ;; ;; Enable evil-smartparens-mode in lisp modes
+  ;; (add-hook 'smartparens-enabled-hook
+  ;;           #'(lambda ()
+  ;;               (when common-lisp-mo
+  ;;                 (evil-smartparens-mode))))
 
   ;; Set helm to fuzzy matching and fix c-w
   (require 'helm)
