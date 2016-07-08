@@ -20,6 +20,7 @@ set scrolloff=2
 set winheight=5
 set winminheight=5
 set winheight=999
+set winwidth=80
 set splitbelow
 set splitright
 set showcmd
@@ -42,6 +43,7 @@ set backupext='.bak'
 set fileformat=unix
 set fileformats=unix,dos
 set autoread
+set nowrap
 set foldmethod=indent
 set nofoldenable
 set laststatus=0
