@@ -73,6 +73,7 @@ nnoremap <CR> :noh<CR>
 map <Space> \
 let mapleader = '\'
 set pastetoggle=<Leader>P
+nmap <Leader><Tab> <c-^>
 nmap <Leader>q :q<CR>
 nmap <Leader>Q :q!<CR>
 nmap <Leader>m <c-^>
