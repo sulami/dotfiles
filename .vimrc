@@ -70,8 +70,8 @@ nnoremap <Right> :vertical resize +1<CR>
 nnoremap <Up>    :resize +1<CR>
 nnoremap <Down>  :resize -1<CR>
 nnoremap <CR> :noh<CR>
-map <Space> \
 let mapleader = '\'
+map <Space> <Leader>
 set pastetoggle=<Leader>P
 nmap <Leader><Tab> <c-^>
 nmap <Leader>q :q<CR>
