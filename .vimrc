@@ -1,4 +1,20 @@
-filetype plugin on
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'sirver/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'ervandew/supertab'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
+call vundle#end()
+
+filetype plugin indent on
 syntax on
 set scrolloff=2
 set winheight=5
@@ -32,7 +48,7 @@ set laststatus=0
 set visualbell
 set encoding=utf-8
 set t_Co=256
-colorscheme su256
+colorscheme solarized
 
 " Jump to last cursor position unless it's invalid or in an event handler
 autocmd BufReadPost *
@@ -91,3 +107,25 @@ function! RenameFile()
   endif
 endfunction
 
+" CtrlP
+let g:ctrlp_custom_ignore = {
+  \ 'dir' : '\v[\/](\.(git|stack-work)|target)$',
+  \ 'file': '\v\.(pyc|hi|o|dyn_hi|dyn_o)$',
+  \}
+let g:ctrlp_prompt_mappings = {
+  \ 'PrtHistory(-1)':      [],
+  \ 'PrtCurEnd()':         [],
+\}
+
+" Syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_sort_aggregated_errors = 1
+let g:syntastic_haskell_checkers = ['hlint']
+
+" Supertab
+let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:SuperTabCrMapping = 1
