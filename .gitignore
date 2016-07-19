@@ -14,4 +14,4 @@ nvim/plugged
 .vimperator/info
 *.pyc
 *.spl
-
+.vim/bundle/*

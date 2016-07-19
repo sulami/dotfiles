@@ -26,8 +26,8 @@ export GITSERVER=pi@peerwire.dtdns.net
 export GITURL=ssh://${GITSERVER}/srv/git
 export XDG_CONFIG_HOME=$HOME
 # Git prompt import
-source $HOME/dotfiles/zsh/zsh-git-prompt/zshrc.sh
-export GIT_PROMPT_EXECUTABLE="haskell"
+#source $HOME/dotfiles/zsh/zsh-git-prompt/zshrc.sh
+#export GIT_PROMPT_EXECUTABLE="haskell"
 # Virtualenvwrapper support if available
 if which virtualenvwrapper_lazy.sh > /dev/null 2>&1; then
     source "$(which virtualenvwrapper_lazy.sh)"
@@ -56,7 +56,7 @@ RPS1="%(?..%{$fg_bold[red]%}%?%{$reset_color%} <)"
 # installed as global config.
 function zle-line-init zle-keymap-select {
     # hostname:pwd(git status)
-    PREFIX="%{$fg_bold[magenta]%}%m:%{$reset_color%}%1~$(git_super_status)"
+    PREFIX="%{$fg_bold[magenta]%}%m:%{$reset_color%}%1~"
     # Mode-dependent symbol
     PRMPT="${${KEYMAP/vicmd/N}/(main|viins)/$}"
     # Put it all together, color the symbol if there are bg jobs
@@ -112,9 +112,9 @@ alias wget='wget -c'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 alias imgur='imgur-screenshot'
 alias pc='sudo pacman'
-compdef pc='pacman'
+# compdef pc='pacman'
 alias yrt='sudo yaourt'
-compdef yrt='pacman'
+# compdef yrt='pacman'
 alias em='sudo emerge --ask'
 alias btrfs='sudo btrfs'
 alias temps="sensors | grep -v 'N/A'"
@@ -170,14 +170,14 @@ bindkey -M viins '^w' backward-kill-word
 # bindkey -s '^h' 'hmenu\n'
 
 # Set the colourscheme according to the time of day
-if [[ -z "$TMUX" ]]; then
-  HOUR="$(date +'%H')"
-  if [[ 6 -lt $HOUR && $HOUR -lt 20 ]]; then
-    $HOME/.dynamic-colors/bin/dynamic-colors switch solarized-light
-  else
-    $HOME/.dynamic-colors/bin/dynamic-colors switch solarized-dark
-  fi
-fi
+#if [[ -z "$TMUX" ]]; then
+#  HOUR="$(date +'%H')"
+#  if [[ 6 -lt $HOUR && $HOUR -lt 20 ]]; then
+#    $HOME/.dynamic-colors/bin/dynamic-colors switch solarized-light
+#  else
+#    $HOME/.dynamic-colors/bin/dynamic-colors switch solarized-dark
+#  fi
+#fi
 
 # X-less colours
 if [ "$TERM" = "linux" ]; then
