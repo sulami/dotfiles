@@ -80,6 +80,16 @@ nmap <Leader>q :q<CR>
 nmap <Leader>Q :q!<CR>
 nmap <Leader>m <c-^>
 nmap <Leader>t :tabnew<CR>
+nmap <Leader>1 1gt
+nmap <Leader>2 2gt
+nmap <Leader>3 3gt
+nmap <Leader>4 4gt
+nmap <Leader>5 5gt
+nmap <Leader>6 6gt
+nmap <Leader>7 7gt
+nmap <Leader>8 8gt
+nmap <Leader>9 9gt
+nmap <Leader>0 10gt
 nmap <Leader>T <c-w><s-t>
 nmap <Leader>dd :call DeleteFile()<CR>
 nmap <Leader>f :call RenameFile()<CR>
