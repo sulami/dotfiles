@@ -46,7 +46,7 @@ set autoread
 set nowrap
 set foldmethod=indent
 set nofoldenable
-set laststatus=0
+set laststatus=1
 set visualbell
 set encoding=utf-8
 set t_Co=256
@@ -63,10 +63,10 @@ imap <c-c> <Esc>
 nnoremap Q <nop>
 nnoremap gh gt
 nnoremap gH gT
-nnoremap <a-h> <c-w>h
-nnoremap <a-j> <c-w>j
-nnoremap <a-k> <c-w>k
-nnoremap <a-l> <c-w>l
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
 nnoremap <Left>  :vertical resize -1<CR>
 nnoremap <Right> :vertical resize +1<CR>
 nnoremap <Up>    :resize +1<CR>
