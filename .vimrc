@@ -47,6 +47,7 @@ set nowrap
 set foldmethod=indent
 set nofoldenable
 set laststatus=1
+set ruler
 set visualbell
 set encoding=utf-8
 set t_Co=256
