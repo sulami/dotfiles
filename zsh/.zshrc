@@ -18,7 +18,8 @@ else
 fi
 export LC_ALL=en_US.UTF-8
 export BROWSER=firefox
-export PATH=$PATH:$HOME/.local/bin:$HOME/.cabal/bin
+export PATH=/usr/local/bin:$PATH:$HOME/.local/bin:$HOME/.cabal/bin:$HOME/Library/Python/${PYTHON_3_VERSION}/bin
+PYTHON_3_VERSION=$(python3 -c "import sys; print('{}.{}'.format(sys.version_info.major, sys.version_info.minor))")
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig
 export GOPATH=$HOME/build/go
 export GOMAXPROCS=8
@@ -29,6 +30,8 @@ export XDG_CONFIG_HOME=$HOME
 #source $HOME/dotfiles/zsh/zsh-git-prompt/zshrc.sh
 #export GIT_PROMPT_EXECUTABLE="haskell"
 # Virtualenvwrapper support if available
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+export WORKON_HOME=$HOME/.virtualenvs
 if which virtualenvwrapper_lazy.sh > /dev/null 2>&1; then
     source "$(which virtualenvwrapper_lazy.sh)"
 fi
