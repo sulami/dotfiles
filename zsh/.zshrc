@@ -18,8 +18,9 @@ else
 fi
 export LC_ALL=en_US.UTF-8
 export BROWSER=firefox
-export PATH=/usr/local/bin:$PATH:$HOME/.local/bin:$HOME/.cabal/bin:$HOME/Library/Python/${PYTHON_3_VERSION}/bin
+export PATH=/usr/local/bin:$PATH:$HOME/.local/bin:$HOME/.cabal/bin
 PYTHON_3_VERSION=$(python3 -c "import sys; print('{}.{}'.format(sys.version_info.major, sys.version_info.minor))")
+export PATH=$PATH:$HOME/Library/Python/${PYTHON_3_VERSION}/bin
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig
 export GOPATH=$HOME/build/go
 export GOMAXPROCS=8
