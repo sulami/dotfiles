@@ -29,13 +29,11 @@
     rsh = reset --soft HEAD^
     pu = push
     pom = push origin master --tags
-    pgm = push gh master --tags
-    pog = push origin gh-pages --tags
-    pgg = push gh gh-pages --tags
-    fe = fetch
+    fe = fetch --all
     rup = remote update
     puo = pull origin master
-    pug = pull gh master
+    ff = merge --ff
+    noff = merge --no-ff
     l = log --decorate --graph --oneline
     ll = log --decorate --graph --stat
     sm = submodule
