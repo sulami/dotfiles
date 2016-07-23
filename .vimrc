@@ -99,6 +99,13 @@ nmap <Leader>tn :set number! relativenumber!<CR>
 nmap <Leader>tw :set wrap!<CR>
 nmap <Leader>ve :tabe $MYVIMRC<CR>
 nmap <Leader>vr :source $MYVIMRC<CR>
+nmap <Leader>gs :Gstatus<CR>
+nmap <Leader>gl :Glog<CR>
+nmap <Leader>gc :Gcommit<CR>
+nmap <Leader>gm :Gmerge<CR>
+nmap <Leader>gp :Gpush<CR>
+nmap <Leader>gf :Gpull<CR>
+nmap <Leader>gb :Gblame<CR>
 
 " Delete current file
 function! DeleteFile()
