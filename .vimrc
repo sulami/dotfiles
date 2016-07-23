@@ -135,7 +135,3 @@ let g:ctrlp_prompt_mappings = {
   \ 'PrtHistory(-1)':      [],
   \ 'PrtCurEnd()':         [],
 \}
-
-" Supertab
-let g:SuperTabDefaultCompletionType = "<c-n>"
-let g:SuperTabCrMapping = 1
