@@ -106,6 +106,7 @@ nmap <Leader>gm :Gmerge<CR>
 nmap <Leader>gp :Gpush<CR>
 nmap <Leader>gf :Gpull<CR>
 nmap <Leader>gb :Gblame<CR>
+nmap <Leader>gg :call GitGrep()<CR>
 
 " Delete current file
 function! DeleteFile()
@@ -123,6 +124,14 @@ function! RenameFile()
     exec ':saveas ' . new_name
     exec ':silent !rm ' . old_name
     redraw!
+  endif
+endfunction
+
+" Fugitive wrappers
+function! GitGrep()
+  let query = input('git grep: ')
+  if query != ''
+    exec ':Ggrep! ' . query
   endif
 endfunction
 
