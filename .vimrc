@@ -107,6 +107,7 @@ nmap <Leader>gp :Gpush<CR>
 nmap <Leader>gf :Gpull<CR>
 nmap <Leader>gb :Gblame<CR>
 nmap <Leader>gg :call GitGrep()<CR>
+nmap <Leader>cc :CtrlPClearAllCaches<CR>
 
 " Delete current file
 function! DeleteFile()
