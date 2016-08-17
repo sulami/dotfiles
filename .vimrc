@@ -58,6 +58,10 @@ autocmd BufReadPost *
   \   exe "normal g`\"" |
   \ endif
 
+" Highlight trailing whitespace
+highlight TrailingWhitespace ctermbg=red guibg=red
+match TrailingWhitespace /\s\+\%#\@<!$/
+
 " Hotkeys
 imap <c-c> <Esc>
 nnoremap Q <nop>
