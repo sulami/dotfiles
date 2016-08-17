@@ -33,6 +33,7 @@ set nojoinspaces
 set backspace=2
 set incsearch
 set ignorecase
+set smartcase
 set gdefault
 set noswapfile
 set backup
