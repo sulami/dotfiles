@@ -6,16 +6,16 @@ zstyle :compinstall filename '$HOME/.zshrc'
 autoload -Uz compinit
 compinit
 
-if which emacsclient > /dev/null 2>&1; then
-    export EDITOR="emacsclient -c -a emacs"
-    export VISUAL="emacsclient -c -a emacs"
-elif which nvim > /dev/null 2>&1; then
-    export EDITOR=nvim
-    export VISUAL=nvim
-else
+# if which emacsclient > /dev/null 2>&1; then
+#     export EDITOR="emacsclient -c -a emacs"
+#     export VISUAL="emacsclient -c -a emacs"
+# elif which nvim > /dev/null 2>&1; then
+#     export EDITOR=nvim
+#     export VISUAL=nvim
+# else
     export EDITOR=vim
     export VISUAL=vim
-fi
+# fi
 export LC_ALL=en_US.UTF-8
 export BROWSER=firefox
 export PATH=/usr/local/bin:$PATH:$HOME/.local/bin:$HOME/.cabal/bin
