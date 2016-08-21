@@ -11,6 +11,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-sleuth'
+Plugin 'shougo/neocomplete.vim'
+Plugin 'eagletmt/neco-ghc'
 call vundle#end()
 
 filetype plugin indent on
@@ -151,3 +153,7 @@ let g:ctrlp_prompt_mappings = {
   \ 'PrtHistory(-1)':      [],
   \ 'PrtCurEnd()':         [],
 \}
+
+" Neocomplete
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
