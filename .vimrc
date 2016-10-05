@@ -35,6 +35,7 @@ set showbreak=->\
 set nojoinspaces
 set backspace=2
 set incsearch
+set hlsearch
 set ignorecase
 set smartcase
 set gdefault
