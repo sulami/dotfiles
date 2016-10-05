@@ -13,6 +13,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-sleuth'
 Plugin 'shougo/neocomplete.vim'
 Plugin 'eagletmt/neco-ghc'
+Plugin 'nbouscal/vim-stylish-haskell'
 call vundle#end()
 
 filetype plugin indent on
