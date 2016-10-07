@@ -119,6 +119,12 @@ nmap <Leader>gb :Gblame<CR>
 nmap <Leader>gg :call GitGrep()<CR>
 nmap <Leader>cc :CtrlPClearAllCaches<CR>
 
+" Writing mode
+function! WritingMode()
+  setl fo+=a
+  setl tw=80
+endfunction
+
 " Delete current file
 function! DeleteFile()
   let name = expand('%')
