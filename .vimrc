@@ -123,6 +123,7 @@ nmap <Leader>cc :CtrlPClearAllCaches<CR>
 function! WritingMode()
   setl fo+=a
   setl tw=80
+  setl spell
 endfunction
 
 " Delete current file
