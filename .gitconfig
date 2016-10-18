@@ -27,8 +27,8 @@
     ca = commit -a
     cam = commit -am
     rsh = reset --soft HEAD^
-    pu = push --tags
-    pom = push origin master --tags
+    pu = push --follow-tags
+    pom = push origin master --follow-tags
     fe = fetch --all
     rup = remote update
     puo = pull origin master
