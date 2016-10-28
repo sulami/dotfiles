@@ -12,6 +12,7 @@ Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-sleuth'
 Plugin 'shougo/neocomplete.vim'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'eagletmt/neco-ghc'
 Plugin 'nbouscal/vim-stylish-haskell'
 call vundle#end()
@@ -166,3 +167,6 @@ let g:ctrlp_prompt_mappings = {
 " Neocomplete
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
+
+" Jedi
+let g:jedi#show_call_signatures = "2"
