@@ -119,6 +119,8 @@ nmap <Leader>gp :Gpush<CR>
 nmap <Leader>gf :Gpull<CR>
 nmap <Leader>gb :Gblame<CR>
 nmap <Leader>gg :call GitGrep()<CR>
+nmap <Leader>rt :call RunTestSuite()<CR>
+nmap <Leader>rT :call RunTestFile()<CR>
 nmap <Leader>cc :CtrlPClearAllCaches<CR>
 
 " Writing mode
@@ -145,6 +147,23 @@ function! RenameFile()
     exec ':silent !rm ' . old_name
     redraw!
   endif
+endfunction
+
+" Run current test file
+function! RunTestFile()
+  let cur_file_type = expand('%:e')
+  let test_funcs = {
+    \ 'py': 'py.test %'}
+  exec ':!' . expand(test_funcs[cur_file_type])
+endfunction
+
+" Run the whole project test suite
+function! RunTestSuite()
+  let cur_file_type = expand('%:e')
+  let test_funcs = {
+    \ 'py': 'py.test',
+    \ 'hs': 'stack test'}
+  exec ':!' . expand(test_funcs[cur_file_type])
 endfunction
 
 " Fugitive wrappers
