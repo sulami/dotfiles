@@ -19,7 +19,7 @@ git_add_remote()
 git_forward()
 {
     DIR="$(basename ${PWD})"
-    ssh ${GITSERVER} "cd /srv/git/${DIR}.git/hooks && mv post-update.sample post-update && echo 'git push --tags ssh://git@github.com/sulami/${DIR} master' > post-update"
+    ssh ${GITSERVER} "cd /srv/git/${DIR}.git/hooks && echo 'git push --tags ssh://git@github.com/sulami/${DIR} master' > post-update"
 }
 
 git_init()
@@ -38,6 +38,20 @@ git_hist()
         let count="count + $(git rev-list --count --since=$1 master)"
         cd ..
     done
-    echo "Commits in ${1}: $count"
+    echo "Commits in ${1}: ${count}"
 }
 
+git_rename()
+{
+    if [ "$#" -ne 1 ]
+    then
+        echo "Usage: $0 <new name>" >&2
+        return 1
+    fi
+
+    DIR="$(basename ${PWD})"
+    ssh ${GITSERVER} "cd /srv/git/ && mv ${DIR} ${1}"
+    cd ..
+    mv ${PWD} ${1}
+    cd ${1}
+}
