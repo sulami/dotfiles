@@ -216,3 +216,8 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 export LESS=-r
 export GROFF_NO_SGR=1
 
+
+# Evaluate system PATH
+if [ -x /usr/libexec/path_helper ]; then
+    eval `/usr/libexec/path_helper -s`
+fi
