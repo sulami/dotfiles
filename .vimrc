@@ -189,5 +189,10 @@ let g:ctrlp_prompt_mappings = {
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 
+" Syntastic
+let g:syntastic_check_on_open = 1
+let g:syntastic_enable_highlighting = 0
+hi SignColumn ctermbg=NONE
+
 " Jedi
 let g:jedi#show_call_signatures = "2"
