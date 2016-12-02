@@ -19,7 +19,7 @@ git_add_remote()
 git_forward()
 {
     DIR="$(basename ${PWD})"
-    ssh ${GITSERVER} "cd /srv/git/${DIR}.git/hooks && echo 'git push --tags ssh://git@github.com/sulami/${DIR} master' > post-update"
+    ssh ${GITSERVER} "cd /srv/git/${DIR}.git/hooks && echo 'git push ssh://git@github.com/sulami/${DIR}.git master' > post-update"
 }
 
 git_init()
