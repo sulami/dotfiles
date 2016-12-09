@@ -72,6 +72,9 @@ match TrailingWhitespace /\s\+\%#\@<!$/
 
 " Hotkeys
 imap <c-c> <Esc>
+map <Nul> <Space>
+imap <Nul> <Space>
+cmap <Nul> <Space>
 nnoremap Q <nop>
 nnoremap gh gt
 nnoremap gH gT
