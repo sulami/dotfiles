@@ -13,7 +13,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-sleuth'
 Plugin 'shougo/vimproc.vim'
 Plugin 'shougo/neocomplete.vim'
-Plugin 'vim-syntastic/syntastic'
+Plugin 'w0rp/ale'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'eagletmt/neco-ghc'
 Plugin 'nbouscal/vim-stylish-haskell'
@@ -191,11 +191,6 @@ let g:ctrlp_prompt_mappings = {
 " Neocomplete
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
-
-" Syntastic
-let g:syntastic_check_on_open = 1
-let g:syntastic_enable_highlighting = 0
-hi SignColumn ctermbg=NONE
 
 " Jedi
 let g:jedi#show_call_signatures = "2"
