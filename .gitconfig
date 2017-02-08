@@ -40,6 +40,9 @@
     sts = stash save
     stl = stash list
     stsh = stash show -p
+    stap = stash apply
+    stpp = stash pop
+    stdr = stash drop
 [merge]
     tool = vimdiff
 [sendemail]
