@@ -37,6 +37,9 @@
     l = log --decorate --graph --oneline
     ll = log --decorate --graph --stat
     sm = submodule
+    sts = stash save
+    stl = stash list
+    stsh = stash show -p
 [merge]
     tool = vimdiff
 [sendemail]
