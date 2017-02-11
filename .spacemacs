@@ -137,7 +137,7 @@ values."
 
   (setq
    ;; Default frame size
-   default-frame-alist '((width . 85) (scroll-bar-mode . nil))
+   default-frame-alist '((width . 120) (height . 40) (scroll-bar-mode . nil))
    ;; Prevent enormous lag during startup
    tramp-ssh-controlmaster-options
     "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o Control-Persist=no"
@@ -176,6 +176,9 @@ values."
    backup-directory-alist '("/tmp/emacs-backup")
    ;; No trash
    delete-by-moving-to-trash nil
+   ;; Fix scroll speed
+   mouse-wheel-progressive-speed nil
+   mouse-wheel-scroll-amount '(3 ((shift) . 1) ((control) . nil))
    ;; Un-fancy the modeline
    powerline-default-separator nil
    ;; Set helm to fuzzy matching
