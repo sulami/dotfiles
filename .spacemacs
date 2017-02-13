@@ -178,7 +178,7 @@ values."
    delete-by-moving-to-trash nil
    ;; Fix scroll speed
    mouse-wheel-progressive-speed nil
-   mouse-wheel-scroll-amount '(3 ((shift) . 1) ((control) . nil))
+   mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil))
    ;; Un-fancy the modeline
    powerline-default-separator nil
    ;; Set helm to fuzzy matching
