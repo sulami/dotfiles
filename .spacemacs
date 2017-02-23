@@ -49,6 +49,7 @@ values."
      )
    dotspacemacs-additional-packages '(company-c-headers
                                       evil-smartparens
+                                      jbeans-theme
                                       jinja2-mode
                                       json-mode
                                       slime-company)
