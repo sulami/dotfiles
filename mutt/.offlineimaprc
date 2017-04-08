@@ -1,27 +1,27 @@
 [general]
-accounts = Pawnmail,Ablescent
+accounts = Fastmail
 maxsyncaccounts = 1
 pythonfile = ~/dotfiles/mutt/offlineimap.py
 ui = quiet
 
-[Account Pawnmail]
-localrepository = Pawnmail-local
-remoterepository = Pawnmail-remote
+[Account Fastmail]
+localrepository = Fastmail-local
+remoterepository = Fastmail-remote
 status_backend = sqlite
 # autorefresh = 5
 # quick = 5
 
-[Repository Pawnmail-local]
+[Repository Fastmail-local]
 type = Maildir
 localfolders = ~/mail
 nametrans = lambda folder: re.sub('Inbox', 'INBOX', folder)
 
-[Repository Pawnmail-remote]
+[Repository Fastmail-remote]
 type = IMAP
-remotehost = mail.pawnmail.com
+remotehost = imap.fastmail.com
 remoteuser = sulami@peerwire.org
-remotepasseval = passwd("pawnmail")
-cert_fingerprint = 53b6b52a5de5b60724346187488e75959dafd0c3
+remotepasseval = passwd("fastmail")
+cert_fingerprint = 995d415e2a1000e0574efb30fd01b16709d218ed
 maxconnnections = 1
 ssl = yes
 nametrans = lambda folder: re.sub('INBOX', 'Inbox', folder)
