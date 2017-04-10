@@ -44,6 +44,8 @@
 	stap = stash apply
 	stpp = stash pop
 	stdr = stash drop
+[commit]
+	gpgsign = true
 [merge]
 	tool = vimdiff
 [sendemail]
