@@ -1,54 +1,54 @@
 [core]
-    editor = $EDITOR
+	editor = $EDITOR
 [user]
-    name = Robin Schroer
-    email = sulami@peerwire.org
+	name = Robin Schroer
+	email = robin.schroer@ostmodern.co.uk
 [push]
-    default = simple
+	default = simple
 [credential]
-    helper = cache --timeout=86400
+	helper = cache --timeout=86400
 [alias]
-    st = status
-    sh = show
-    shs = show --stat
-    di = diff
-    ds = diff --stat
-    dh = diff HEAD --cached
-    dhs = diff HEAD --cached --stat
-    cl = clone
-    br = branch
-    co = checkout
-    cob = checkout -b
-    add = add --all
-    aa = add --all .
-    ap = add --all -p
-    cm = commit
-    cmm = commit -m
-    ca = commit -a
-    cam = commit -am
-    rsh = reset --soft HEAD^
-    pu = push --follow-tags
-    pom = push origin master --follow-tags
-    fe = fetch --all
-    rup = remote update
-    puo = pull origin master
-    ff = merge --ff
-    noff = merge --no-ff
-    l = log --decorate --graph --oneline
-    ll = log --decorate --graph --stat
-    sm = submodule
-    sts = stash save
-    stl = stash list
-    stsh = stash show -p
-    stap = stash apply
-    stpp = stash pop
-    stdr = stash drop
+	st = status
+	sh = show
+	shs = show --stat
+	di = diff
+	ds = diff --stat
+	dh = diff HEAD --cached
+	dhs = diff HEAD --cached --stat
+	cl = clone
+	br = branch
+	co = checkout
+	cob = checkout -b
+	add = add --all
+	aa = add --all .
+	ap = add --all -p
+	cm = commit
+	cmm = commit -m
+	ca = commit -a
+	cam = commit -am
+	rsh = reset --soft HEAD^
+	pu = push --follow-tags
+	pom = push origin master --follow-tags
+	fe = fetch --all
+	rup = remote update
+	puo = pull origin master
+	ff = merge --ff
+	noff = merge --no-ff
+	l = log --decorate --graph --oneline
+	ll = log --decorate --graph --stat
+	sm = submodule
+	sts = stash save
+	stl = stash list
+	stsh = stash show -p
+	stap = stash apply
+	stpp = stash pop
+	stdr = stash drop
 [merge]
-    tool = vimdiff
+	tool = vimdiff
 [sendemail]
-    smtpencryption = tls
-    smtpserver = mail.pawnmail.com
-    smtpuser = sulami@peerwire.org
-    smtpserverport = 587
+	smtpencryption = tls
+	smtpserver = mail.pawnmail.com
+	smtpuser = sulami@peerwire.org
+	smtpserverport = 587
 [include]
-    path = ~/.gitconfig.secret
+	path = ~/.gitconfig.secret
