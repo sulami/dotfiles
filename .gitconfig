@@ -3,6 +3,7 @@
 [user]
 	name = Robin Schroer
 	email = robin.schroer@ostmodern.co.uk
+	signingkey = A1418106
 [push]
 	default = simple
 [credential]
@@ -52,3 +53,7 @@
 	smtpserverport = 587
 [include]
 	path = ~/.gitconfig.secret
+[github]
+	user = sulami
+[gpg]
+	program = gpg2
