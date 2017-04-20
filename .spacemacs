@@ -199,6 +199,10 @@ values."
     (let ((basename (concat "session." session-id)))
       (concat "/tmp/.emacs-" basename)))
 
+  ;; Jump "in" using ctrl-i
+  (custom-set-variables
+   '(evil-want-C-i-jump t))
+
   ;; Apropos
   (spacemacs/set-leader-keys "ha" 'helm-apropos)
 
