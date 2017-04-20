@@ -86,7 +86,8 @@ values."
    dotspacemacs-startup-lists '(recents bookmarks projects)
    dotspacemacs-startup-recent-list-size 5
    dotspacemacs-scratch-mode 'emacs-lisp-mode
-   dotspacemacs-themes '(solarized-dark
+   dotspacemacs-themes '(jbeans
+                         solarized-dark
                          solarized-light)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("Inconsolata"
