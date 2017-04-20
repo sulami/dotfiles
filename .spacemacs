@@ -271,7 +271,7 @@ the default directory"
   (add-hook 'org-mode-hook 'flyspell-mode)
 
   ;; Enable refill mode for Markdown
-  (add-hook 'markdown-mode-hook 'refill-mode)
+  ;; (add-hook 'markdown-mode-hook 'refill-mode)
 
   ;; Sprunge support
   (defun sprunge-buffer ()
