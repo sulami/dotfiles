@@ -264,6 +264,10 @@ the default directory"
     (interactive)
     nil)
 
+  ;; Don't interrupt me if autocompletion falls over
+  (remove-hook 'anaconda-mode-response-read-fail-hook
+               'anaconda-mode-show-unreadable-response)
+
   ;; Enable autocompletion for C
   (add-hook 'c-mode-hook 'company-mode)
 
