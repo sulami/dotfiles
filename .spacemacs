@@ -15,6 +15,7 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     elixir
      (auto-completion :variables
                       auto-completion-enable-snippets-in-popup t)
      c-c++
