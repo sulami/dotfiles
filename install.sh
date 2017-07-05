@@ -21,11 +21,10 @@ defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
 defaults write com.apple.TextEdit RichText -int 0
 chflags nohidden ~/Library
 
-curl -fsSL "https://raw.githubusercontent.com/cmacrae/saveosx/master/bootstrap" | bash
-sudo pkgin -y install zsh tmux vim python3 wget inconsolata-g
-
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew cask install iterm2 bettertouchtool firefox dropbox skype steam vlc telegram-desktop mumble libreoffice dwihn0r-keepassx google-chrome
+brew install zsh tmux vim python3 wget watch jq
+brew tap caskroom/fonts
+brew cask install iterm2 font-inconsolata bettertouchtool firefox dropbox skype steam vlc telegram-desktop mumble libreoffice dwihn0r-keepassx google-chrome
 
 git clone ssh://pi@peerwire.dtdns.net:/srv/git/dotfiles.git ~/dotfiles
 cd ~/dotfiles
@@ -34,4 +33,4 @@ cd ~
 
 chsh -s /bin/zsh $(whoami)
 
-pip3 install bpython pytest virtualenvwrapper
+pip3 install bpython pytest virtualenvwrapper django
