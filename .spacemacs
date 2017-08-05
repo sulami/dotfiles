@@ -15,8 +15,6 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
-     nginx
-     javascript
      elixir
      (auto-completion :variables
                       auto-completion-enable-snippets-in-popup t)
@@ -32,8 +30,10 @@ values."
      go
      haskell
      html
+     javascript
      latex
      markdown
+     nginx
      org
      (python :variables
              python-enable-yapf-format-on-save t
