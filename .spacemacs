@@ -67,7 +67,6 @@ values."
                                     leuven-theme
                                     neotree
                                     ;; org-bullets
-                                    org-present
                                     smeargle)
    dotspacemacs-delete-orphan-packages t))
 
