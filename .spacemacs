@@ -262,16 +262,17 @@ the default directory"
   ;; This "unpops" the shell without having to leave insert mode
   (define-key evil-insert-state-map (kbd "C-c '") 'project-root-shell)
 
+  (require 'company)
+
   ;; Use vim-style keys for autocompletion
-  (global-set-key (kbd "C-n") 'company-complete)
   (define-key company-active-map (kbd "C-n") 'company-select-next)
   (define-key company-active-map (kbd "C-p") 'company-select-previous)
 
-  ;; Map snippets from insert mode
-  (define-key evil-insert-state-map (kbd "C-y") 'spacemacs/helm-yas)
-
   ;; Fix C-w when autocompleting
   (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
+
+  ;; Map snippets from insert mode
+  (define-key evil-insert-state-map (kbd "C-y") 'spacemacs/helm-yas)
 
   ;; ;; Enable evil-smartparens-mode in lisp modes
   ;; (add-hook 'smartparens-enabled-hook
