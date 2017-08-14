@@ -140,13 +140,14 @@ values."
    dotspacemacs-inactive-transparency 90
    dotspacemacs-mode-line-unicode-symbols nil
    dotspacemacs-smooth-scrolling t
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers '(:relative t
+                               :enabled-for-modes nil)
    dotspacemacs-smartparens-strict-mode nil
    dotspacemacs-highlight-delimiters 'all
    dotspacemacs-persistent-server nil
    dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
    dotspacemacs-default-package-repository nil
-   dotspacemacs-whitespace-cleanup nil
+   dotspacemacs-whitespace-cleanup 'trailing
    ))
 
 (defun dotspacemacs/user-init ()
