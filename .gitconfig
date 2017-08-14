@@ -58,4 +58,4 @@
 [github]
 	user = sulami
 [gpg]
-	program = gpg2
+	program = gpg
