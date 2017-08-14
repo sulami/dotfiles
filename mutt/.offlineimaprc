@@ -7,7 +7,7 @@ ui = quiet
 [Account Fastmail]
 localrepository = Fastmail-local
 remoterepository = Fastmail-remote
-status_backend = sqlite
+# status_backend = sqlite
 # autorefresh = 5
 # quick = 5
 
@@ -29,7 +29,7 @@ nametrans = lambda folder: re.sub('INBOX', 'Inbox', folder)
 [Account Ablescent]
 localrepository = Ablescent-local
 remoterepository = Ablescent-remote
-status_backend = sqlite
+# status_backend = sqlite
 # autorefresh = 5
 # quick = 5
 
