@@ -243,15 +243,15 @@ values."
   (spacemacs/set-leader-keys "qw" 'server-edit)
 
   ;; Clear highlight with return
-  (defun isearch-nohighlight ()
+  (defun sulami/isearch-nohighlight ()
     "Remove search highlights if not in the isearch minor mode."
     (interactive)
     (when (not isearch-mode)
       (evil-search-highlight-persist-remove-all)))
-  (define-key evil-normal-state-map (kbd "RET") 'isearch-nohighlight)
+  (define-key evil-normal-state-map (kbd "RET") 'sulami/isearch-nohighlight)
 
   ;; If inside a project, pop shells in the project root
-  (defun project-root-shell ()
+  (defun sulami/project-root-shell ()
     "Pop the default shell in the project root if inside a project, otherwise in
 the default directory"
     (interactive)
@@ -259,9 +259,9 @@ the default directory"
         (projectile-with-default-dir (projectile-project-root)
           (spacemacs/default-pop-shell))
       (spacemacs/default-pop-shell)))
-  (spacemacs/set-leader-keys "'" 'project-root-shell)
+  (spacemacs/set-leader-keys "'" 'sulami/project-root-shell)
   ;; This "unpops" the shell without having to leave insert mode
-  (define-key evil-insert-state-map (kbd "C-c '") 'project-root-shell)
+  (define-key evil-insert-state-map (kbd "C-c '") 'sulami/project-root-shell)
 
   (require 'company)
 
