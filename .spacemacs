@@ -227,9 +227,9 @@ values."
 
   ;; Proper in-/decrease
   (define-key evil-normal-state-map (kbd "C-1")
-    'spacemacs/evil-numbers-decrease)
+    'evil-numbers/dec-at-pt)
   (define-key evil-normal-state-map (kbd "C-2")
-    'spacemacs/evil-numbers-increase)
+    'evil-numbers/inc-at-pt)
 
   ;; Adjust the font size on the fly
   (define-key evil-normal-state-map (kbd "C-0")
