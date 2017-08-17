@@ -63,7 +63,7 @@ values."
      racket
      scheme
      (shell :variables
-            shell-default-shell 'eshell
+            shell-default-shell 'multi-term
             shell-enable-smart-eshell nil
             shell-protect-eshell-prompt t)
      (spell-checking :variables
@@ -464,11 +464,30 @@ the default directory"
     (interactive)
     (if (projectile-project-p)
         (projectile-with-default-dir (projectile-project-root)
-          (spacemacs/default-pop-shell))
-      (spacemacs/default-pop-shell)))
-  (spacemacs/set-leader-keys "'" 'sulami/project-root-shell)
-  ;; This "unpops" the shell without having to leave insert mode
-  (define-key evil-insert-state-map (kbd "C-c '") 'sulami/project-root-shell)
+          (spacemacs/default-pop-shell)))
+      (spacemacs/default-pop-shell))
+  (define-key global-map (kbd "s-'") 'sulami/project-root-shell)
+
+  ;; Terminals live in permanent holy mode
+  (evil-set-initial-state 'term-mode 'emacs)
+
+  (when (require 'term nil t) ; only if term can be loaded..
+    (setq term-bind-key-alist
+          (list (cons "C-c C-c" 'term-interrupt-subjob)
+                (cons "C-p" 'previous-line)
+                (cons "C-n" 'next-line)
+                (cons "M-f" 'term-send-forward-word)
+                (cons "M-b" 'term-send-backward-word)
+                (cons "C-c C-j" 'term-line-mode)
+                (cons "C-c C-k" 'term-char-mode)
+                (cons "M-DEL" 'term-send-backward-kill-word)
+                (cons "M-d" 'term-send-forward-kill-word)
+                (cons "<C-left>" 'term-send-backward-word)
+                (cons "<C-right>" 'term-send-forward-word)
+                (cons "C-r" 'term-send-reverse-search-history)
+                (cons "M-p" 'term-send-raw-meta)
+                (cons "M-y" 'term-send-raw-meta)
+                (cons "C-y" 'term-send-raw))))
 
   (require 'company)
 
