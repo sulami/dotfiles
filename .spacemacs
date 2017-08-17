@@ -363,6 +363,21 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (add-to-list 'after-make-frame-functions
                (lambda (arg)
                  (menu-bar-no-scroll-bar)))
+
+  ;; Window navigation using super instead of <Leader>
+  (setq winum-keymap
+        (let ((map (make-sparse-keymap)))
+          (define-key map (kbd "s-0") 'winum-select-window-0-or-10)
+          (define-key map (kbd "s-1") 'winum-select-window-1)
+          (define-key map (kbd "s-2") 'winum-select-window-2)
+          (define-key map (kbd "s-3") 'winum-select-window-3)
+          (define-key map (kbd "s-4") 'winum-select-window-4)
+          (define-key map (kbd "s-5") 'winum-select-window-5)
+          (define-key map (kbd "s-6") 'winum-select-window-6)
+          (define-key map (kbd "s-7") 'winum-select-window-7)
+          (define-key map (kbd "s-8") 'winum-select-window-8)
+          (define-key map (kbd "s-9") 'winum-select-window-9)
+          map))
   )
 
 (defun dotspacemacs/user-config ()
