@@ -498,9 +498,6 @@ the default directory"
   ;; Fix C-w when autocompleting
   (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
 
-  ;; Fix C-w when swooping
-  (define-key helm-swoop-map (kbd "C-w") 'evil-delete-backward-word)
-
   ;; Map snippets from insert mode
   (define-key evil-insert-state-map (kbd "C-y") 'spacemacs/helm-yas)
 
@@ -513,6 +510,10 @@ the default directory"
   ;; Set helm to fuzzy matching and fix c-w
   (require 'helm)
   (define-key helm-map (kbd "C-w") 'evil-delete-backward-word)
+
+  ;; Fix C-w when swooping
+  (require 'helm-swoop)
+  (define-key helm-swoop-map (kbd "C-w") 'evil-delete-backward-word)
 
   ;; Add dropdown completion for common lisp
   (slime-setup '(slime-company))
