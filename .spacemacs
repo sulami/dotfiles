@@ -69,6 +69,7 @@ values."
      (spell-checking :variables
                      spell-checking-enable-by-default nil)
      syntax-checking
+     vagrant
      version-control
      yaml
      )
