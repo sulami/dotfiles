@@ -347,6 +347,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
 
   (setq
+   ;; I know I'm setting environment variables in my .zshrc
+   exec-path-from-shell-check-startup-files nil
    ;; Default frame size
    default-frame-alist '((width . 120) (height . 40) (scroll-bar-mode . nil))
    ;; Prevent enormous lag during startup
