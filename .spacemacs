@@ -417,6 +417,9 @@ you should place your code here."
    helm-mode-fuzzy-match t
    ;; Hide markup in org-mode
    org-hide-emphasis-markers t
+   ;; Disable flycheck on-the-fly checking for performance in 3k+ line Python
+   flycheck-check-syntax-automatically
+      (delete 'idle-change flycheck-check-syntax-automatically)
    ;; Disable non-stack GHC in Flycheck
    flycheck-disabled-checkers '(haskell-ghc)
    )
