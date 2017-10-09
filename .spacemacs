@@ -461,6 +461,55 @@ you should place your code here."
   ;; More convenient than C-x #
   (spacemacs/set-leader-keys "qw" 'server-edit)
 
+  ;; Python: get the current test path for pytest
+  (defun sulami/python-get-current-test ()
+    (interactive)
+
+    (defun get-test-name ()
+      (setq reset-point (point)
+            def-start (search-backward "def "))
+      (forward-char (length "def "))
+      (setq name-start (point)
+            name-end (- (search-forward "(") 1)
+            rv (buffer-substring name-start name-end))
+      (goto-char reset-point)
+      rv)
+
+    (defun get-class-name ()
+      (setq reset-point (point)
+            def-start (search-backward "class "))
+      (forward-char (length "class "))
+      (setq name-start (point)
+            name-end (- (search-forward "(") 1)
+            rv (buffer-substring name-start name-end))
+      (goto-char reset-point)
+      rv)
+
+    (defun get-test-path ()
+      (setq splitted-path (split-string buffer-file-name "/")
+            magic-headoff (nthcdr 5 splitted-path)
+            joined (mapconcat 'identity magic-headoff "/")))
+
+    (concatenate 'string (get-test-path) "::" (get-class-name) "::" (get-test-name)))
+
+  ;; Run the current test inside vagrant
+  (defun sulami/python-run-current-test ()
+    (interactive)
+    (setq vagrant-command "vagrant ssh -c 'cd /vagrant && DJANGO_SETTINGS_MOUDLE=skylark.settings pytest --no-migrations "
+          whole-command (concatenate 'string
+                                    vagrant-command
+                                    (sulami/python-get-current-test)
+                                    "'"))
+    (shell-command whole-command))
+
+  ;; Copy the current test path for pytest
+  (defun sulami/python-copy-current-test ()
+    (interactive)
+    (kill-new (sulami/python-get-current-test)))
+
+  (spacemacs/set-leader-keys-for-major-mode 'python-mode "tv" 'sulami/python-run-current-test)
+  (spacemacs/set-leader-keys-for-major-mode 'python-mode "tc" 'sulami/python-copy-current-test)
+
   ;; Clear highlight with return
   (defun sulami/isearch-nohighlight ()
     "Remove search highlights if not in the isearch minor mode."
