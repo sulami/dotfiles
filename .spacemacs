@@ -438,6 +438,12 @@ you should place your code here."
   ;; Apropos
   (spacemacs/set-leader-keys "ha" 'helm-apropos)
 
+  ;; Open the message buffer
+  (defun sulami/open-message-buffer ()
+    (interactive)
+    (switch-to-buffer "*Messages*"))
+  (spacemacs/set-leader-keys "bm" 'sulami/open-message-buffer)
+
   ;; Proper in-/decrease
   (define-key evil-normal-state-map (kbd "C-1")
     'evil-numbers/dec-at-pt)
