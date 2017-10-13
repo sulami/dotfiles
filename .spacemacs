@@ -80,7 +80,7 @@ values."
    dotspacemacs-additional-packages '(apib-mode
                                       company-c-headers
                                       evil-smartparens
-                                      jbeans-theme
+                                      ;; jbeans-theme
                                       jinja2-mode
                                       json-mode
                                       slime-company)
@@ -169,9 +169,8 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(jbeans
-                         solarized-dark
-                         solarized-light)
+   dotspacemacs-themes '(solarized-light
+                         solarized-dark)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
@@ -400,7 +399,6 @@ you should place your code here."
   ;;   (if (< 6 hour-of-day 20)
   ;;     (load-theme 'solarized-dark)
   ;;     (load-theme 'solarized-dark)))
-  (load-theme 'jbeans)
 
   ;; Set all kinds of stuff
   (setq
@@ -633,8 +631,6 @@ the default directory"
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector
-   ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
  '(custom-safe-themes
    (quote
     ("64f2981274fd8740b794bce9feee7949ed87b88fc0b4654bd98594e1aa81abcd" "45712b65018922c9173439d9b1b193cb406f725f14d02c8c33e0d2cdad844613" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
