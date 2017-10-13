@@ -31,7 +31,7 @@ export XDG_CONFIG_HOME=$HOME
 #source $HOME/dotfiles/zsh/zsh-git-prompt/zshrc.sh
 #export GIT_PROMPT_EXECUTABLE="haskell"
 # Virtualenvwrapper support if available
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+# export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 export WORKON_HOME=$HOME/.virtualenvs
 if which virtualenvwrapper_lazy.sh > /dev/null 2>&1; then
     source "$(which virtualenvwrapper_lazy.sh)"
@@ -71,7 +71,7 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 
 # OPTIONS
-bindkey -v
+bindkey -e
 setopt beep
 setopt no_listbeep
 setopt no_histbeep
