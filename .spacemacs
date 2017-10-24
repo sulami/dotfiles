@@ -529,6 +529,26 @@ the default directory"
       (spacemacs/default-pop-shell))
   (define-key global-map (kbd "s-'") 'sulami/project-root-shell)
 
+  ;; Open the magit status in the current window
+  (defun sulami/magit-status-same-window ()
+    (interactive)
+    (let ((magit-display-buffer-function
+           (lambda (buffer)
+             (display-buffer buffer '(display-buffer-same-window)))))
+      (magit-status)))
+
+  ;; Load up a default 3-split window layout
+  (defun sulami/default-window-layout ()
+    (interactive)
+    (delete-other-windows)
+    (split-window-horizontally)
+    (next-multiframe-window)
+    (switch-to-buffer "*scratch*")
+    (split-window-vertically)
+    (next-multiframe-window)
+    (sulami/magit-status-same-window)
+    (next-multiframe-window))
+
   ;; Terminals live in permanent holy mode
   (evil-set-initial-state 'term-mode 'emacs)
 
