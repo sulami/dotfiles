@@ -543,11 +543,12 @@ the default directory"
     (delete-other-windows)
     (split-window-horizontally)
     (next-multiframe-window)
-    (switch-to-buffer "*scratch*")
     (split-window-vertically)
     (next-multiframe-window)
     (sulami/magit-status-same-window)
-    (next-multiframe-window))
+    (previous-multiframe-window)
+    (switch-to-buffer "*scratch*")
+    (previous-multiframe-window))
 
   ;; Terminals live in permanent holy mode
   (evil-set-initial-state 'term-mode 'emacs)
