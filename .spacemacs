@@ -614,7 +614,7 @@ the default directory"
   ;; (add-hook 'markdown-mode-hook 'refill-mode)
 
   ;; Sprunge support
-  (defun sprunge-buffer ()
+  (defun sulami/sprunge-buffer ()
     (interactive)
     (shell-command-on-region
      (point-min) (point-max)
@@ -623,7 +623,7 @@ the default directory"
     (with-current-buffer "*Sprunge*"
       (message (concat "Sprunged to " (buffer-string)))
       (spacemacs/copy-whole-buffer-to-clipboard)))
-  (spacemacs/set-leader-keys "b S" 'sprunge-buffer)
+  (spacemacs/set-leader-keys "b S" 'sulami/sprunge-buffer)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
