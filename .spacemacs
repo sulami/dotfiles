@@ -461,8 +461,8 @@ you should place your code here."
   ;; More convenient than C-x #
   (spacemacs/set-leader-keys "qw" 'server-edit)
 
-  ;; Python: get the current test path for pytest
   (defun sulami/python-get-current-test ()
+    "Get the current test path for pytest."
     (interactive)
 
     (defun get-test-name ()
@@ -492,8 +492,8 @@ you should place your code here."
 
     (concatenate 'string (get-test-path) "::" (get-class-name) "::" (get-test-name)))
 
-  ;; Run the current test inside vagrant
   (defun sulami/python-run-current-test ()
+    "Run the current test inside Vagrant."
     (interactive)
     (setq vagrant-command "vagrant ssh -c 'cd /vagrant && DJANGO_SETTINGS_MOUDLE=skylark.settings pytest --no-migrations "
           whole-command (concatenate 'string
@@ -502,11 +502,12 @@ you should place your code here."
                                     "'"))
     (shell-command whole-command))
 
-  ;; Copy the current test path for pytest
   (defun sulami/python-copy-current-test ()
+    "Copy the current test path for pytest."
     (interactive)
     (kill-new (sulami/python-get-current-test)))
 
+  ;; Shortcuts to run single Python tests
   (spacemacs/set-leader-keys-for-major-mode 'python-mode "tv" 'sulami/python-run-current-test)
   (spacemacs/set-leader-keys-for-major-mode 'python-mode "tc" 'sulami/python-copy-current-test)
 
@@ -529,16 +530,16 @@ the default directory"
       (spacemacs/default-pop-shell))
   (define-key global-map (kbd "s-'") 'sulami/project-root-shell)
 
-  ;; Open the magit status in the current window
   (defun sulami/magit-status-same-window ()
+    "Open the magit status in the current window."
     (interactive)
     (let ((magit-display-buffer-function
            (lambda (buffer)
              (display-buffer buffer '(display-buffer-same-window)))))
       (magit-status)))
 
-  ;; Load up a default 3-split window layout
   (defun sulami/default-window-layout ()
+    "Load up a default 3-split window layout."
     (interactive)
     (delete-other-windows)
     (split-window-horizontally)
@@ -547,7 +548,7 @@ the default directory"
     (next-multiframe-window)
     (sulami/magit-status-same-window)
     (previous-multiframe-window)
-    (switch-to-buffer "*scratch*")
+    (projectile-multi-term-in-root)
     (previous-multiframe-window))
 
   ;; Terminals live in permanent holy mode
@@ -634,8 +635,9 @@ the default directory"
   ;; Enable refill mode for Markdown
   ;; (add-hook 'markdown-mode-hook 'refill-mode)
 
-  ;; Sprunge support
   (defun sulami/sprunge-buffer ()
+    "Send the current buffer content to sprunge.us and copy the URL to the
+clipboard."
     (interactive)
     (shell-command-on-region
      (point-min) (point-max)
