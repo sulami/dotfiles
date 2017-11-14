@@ -1,4 +1,4 @@
-URxvt*.perl-ext-common: default,matcher,-option-popup,-selection-popup,-realline,font-size
+URxvt*.perl-ext-common: default,matcher,-option-popup,-selection-popup,-realline
 URxvt*url-launcher: /usr/bin/firefox
 !URxvt*url-launcher: /usr/bin/chromium
 URxvt*matcher.button: 1
@@ -21,7 +21,3 @@ Emacs.font: Inconsolata
 !URxvt*.background: #151516
 !Urxvt*.transparent: true
 !URxvt*.shading: 90
-
-URxvt.keysym.C-Up:   font-size:increase
-URxvt.keysym.C-Down: font-size:decrease
-
