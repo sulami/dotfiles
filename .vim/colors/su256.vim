@@ -1,1 +1,0 @@
-/home/sulami/dotfiles/nvim/plugged/su256.vim/colors/su256.vim
