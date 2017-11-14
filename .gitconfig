@@ -44,6 +44,7 @@
 	stap = stash apply
 	stpp = stash pop
 	stdr = stash drop
+	start = !git init && git commit --allow-empty -m \"Initial commit\"
 [commit]
 	gpgsign = true
 [merge]
