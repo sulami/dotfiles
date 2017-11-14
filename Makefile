@@ -58,7 +58,6 @@ xprofile:
 
 urxvt:
 	mkdir -p ${HOME}/.urxvt/ext
-	$(LN) ${HOME}/dotfiles/scripts/font-size ${HOME}/.urxvt/ext/
 
 dev: emacs nvim vim zsh git tmux top profile
 
