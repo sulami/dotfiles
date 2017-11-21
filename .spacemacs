@@ -506,8 +506,8 @@ you should place your code here."
     (kill-new (sulami/python-get-current-test)))
 
   ;; Shortcuts to run single Python tests
-  (spacemacs/set-leader-keys-for-major-mode 'python-mode "tv" 'sulami/python-run-current-test)
   (spacemacs/set-leader-keys-for-major-mode 'python-mode "tc" 'sulami/python-copy-current-test)
+  (spacemacs/set-leader-keys-for-major-mode 'python-mode "tr" 'sulami/python-run-current-test)
 
   ;; Clear highlight with return
   (defun sulami/isearch-nohighlight ()
