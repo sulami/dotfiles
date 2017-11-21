@@ -100,7 +100,6 @@ values."
                                     ido-vertical-mode
                                     leuven-theme
                                     neotree
-                                    ;; org-bullets
                                     smeargle)
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -462,6 +461,20 @@ you should place your code here."
   ;; More convenient than C-x #
   (spacemacs/set-leader-keys "qw" 'server-edit)
 
+  (defun sulami/buffer-line-count ()
+    "Get the number of lines in the active buffer."
+    (count-lines 1 (point-max)))
+
+  (defun sulami/flycheck-disable-for-large-files (limit)
+    "Disable flycheck on-the-fly-checking if the line count exceeds LIMIT."
+    (setq flycheck-check-syntax-automatically
+          (if (> (sulami/buffer-line-count) limit)
+              (delete 'idle-change flycheck-check-syntax-automatically)
+            (add-to-list 'flycheck-check-syntax-automatically 'idle-change))))
+
+  ;; Disable flycheck on-the-fly checking for performance in large Python files
+  (add-hook 'python-mode-hook (lambda () (sulami/flycheck-disable-for-large-files 2000)))
+
   (defun sulami/python-get-current-test ()
     "Get the current test path for pytest."
     (interactive)
@@ -476,6 +489,7 @@ you should place your code here."
       (goto-char reset-point)
       rv)
 
+    ;; TODO There might not be a class, if so, just forget about this
     (defun get-class-name ()
       (setq reset-point (point)
             def-start (search-backward "class "))
@@ -493,6 +507,7 @@ you should place your code here."
 
     (concatenate 'string (get-test-path) "::" (get-class-name) "::" (get-test-name)))
 
+  ;; TODO Pop a temporary buffer
   (defun sulami/python-run-current-test ()
     "Run the current test inside Docker."
     (interactive)
