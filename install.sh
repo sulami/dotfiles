@@ -10,6 +10,7 @@ defaults write -g PMPrintingExpandedStateForPrint -bool true
 defaults write com.apple.dashboard mcx-disabled -boolean YES && killall Dock
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.dock mru-spaces -bool false
+defaults write com.apple.dock workspaces-auto-swoosh -bool NO
 defaults write com.apple.finder NewWindowTarget -string "PfLo" && \
 defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}"
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
