@@ -63,7 +63,7 @@ values."
      racket
      scheme
      (shell :variables
-            shell-default-shell 'multi-term
+            shell-default-shell 'eshell
             shell-enable-smart-eshell nil
             shell-protect-eshell-prompt t)
      (spell-checking :variables
@@ -525,8 +525,8 @@ the default directory"
     (interactive)
     (if (projectile-project-p)
         (projectile-with-default-dir (projectile-project-root)
-          (spacemacs/default-pop-shell)))
-      (spacemacs/default-pop-shell))
+          (spacemacs/default-pop-shell))
+      (spacemacs/default-pop-shell)))
   (define-key global-map (kbd "s-'") 'sulami/project-root-shell)
 
   (defun sulami/magit-status-same-window ()
