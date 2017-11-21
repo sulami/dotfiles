@@ -493,14 +493,12 @@ you should place your code here."
     (concatenate 'string (get-test-path) "::" (get-class-name) "::" (get-test-name)))
 
   (defun sulami/python-run-current-test ()
-    "Run the current test inside Vagrant."
+    "Run the current test inside Docker."
     (interactive)
-    (setq vagrant-command "vagrant ssh -c 'cd /vagrant && DJANGO_SETTINGS_MOUDLE=skylark.settings pytest --no-migrations "
-          whole-command (concatenate 'string
-                                    vagrant-command
-                                    (sulami/python-get-current-test)
-                                    "'"))
-    (shell-command whole-command))
+    (projectile-with-default-dir (projectile-project-root)
+      (async-shell-command
+       (concatenate 'string "./test " (sulami/python-get-current-test))
+       "*Messages*")))
 
   (defun sulami/python-copy-current-test ()
     "Copy the current test path for pytest."
