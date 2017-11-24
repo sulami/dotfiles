@@ -396,12 +396,11 @@ you should place your code here."
   ;; (when (not (buffer-file-name))
   ;;   (desktop-read))
 
-  ;; ;; Set the colourscheme according to the time of day
-  ;; (let ((hour-of-day (read (format-time-string "%H"))))
-  ;;   (if (< 6 hour-of-day 20)
-  ;;     (load-theme 'solarized-dark)
-  ;;     (load-theme 'solarized-dark)))
-  ;; (load-theme 'jbeans)
+  ;; Set the default colourscheme according to the time of day
+  (let ((hour-of-day (read (format-time-string "%H"))))
+    (if (< 8 hour-of-day 18)
+        (load-theme 'solarized-light)
+      (load-theme 'solarized-dark)))
 
   ;; Set all kinds of stuff
   (setq
