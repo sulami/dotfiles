@@ -78,8 +78,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(ace-jump-mode
-                                      apib-mode
+   dotspacemacs-additional-packages '(apib-mode
                                       company-c-headers
                                       emojify
                                       evil-smartparens
@@ -461,8 +460,8 @@ you should place your code here."
   ;; More convenient than C-x #
   (spacemacs/set-leader-keys "qw" 'server-edit)
 
-  ;; Trigger ace-jump-mode
-  (define-key evil-normal-state-map (kbd "s-n") 'ace-jump-mode)
+  ;; Trigger jump to word
+  (define-key evil-normal-state-map (kbd "s-n") 'avy-goto-word-or-subword-1)
 
   ;; This is totally mission-critical :rocket:
   (global-emojify-mode)
