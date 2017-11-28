@@ -420,6 +420,8 @@ you should place your code here."
    org-hide-emphasis-markers t
    ;; Disable non-stack GHC in Flycheck
    flycheck-disabled-checkers '(haskell-ghc)
+   ;; Fuzzy search is life
+   helm-swoop-use-fuzzy-match t
    )
 
   ;; Custom session save directory
