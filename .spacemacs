@@ -101,6 +101,7 @@ values."
                                     ido-vertical-mode
                                     leuven-theme
                                     neotree
+                                    org-bullets
                                     smeargle)
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -465,6 +466,20 @@ you should place your code here."
 
   ;; This is totally mission-critical :rocket:
   (global-emojify-mode)
+
+  (defun sulami/org-mode-format ()
+    "Stop the org-level headers from being fancy."
+    (interactive)
+    (dolist (face '(org-level-1
+                    org-level-2
+                    org-level-3
+                    org-level-4
+                    org-level-5
+                    org-level-6
+                    org-level-7
+                    org-level-8))
+      (set-face-attribute face nil :inherit :family :weight 'normal :height 1.0)))
+  (add-hook 'org-mode-hook 'sulami/org-mode-format)
 
   (defun sulami/buffer-line-count ()
     "Get the number of lines in the active buffer."
