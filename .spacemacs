@@ -481,6 +481,9 @@ you should place your code here."
       (set-face-attribute face nil :inherit :family :weight 'normal :height 1.0)))
   (add-hook 'org-mode-hook 'sulami/org-mode-format)
 
+  ;; Enable org-indent-mode
+  (add-hook 'org-mode-hook 'org-indent-mode)
+
   (defun sulami/buffer-line-count ()
     "Get the number of lines in the active buffer."
     (count-lines 1 (point-max)))
