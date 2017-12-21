@@ -85,6 +85,7 @@ values."
                                       jbeans-theme
                                       jinja2-mode
                                       json-mode
+                                      org-journal
                                       slime-company)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -418,6 +419,8 @@ you should place your code here."
    helm-mode-fuzzy-match t
    ;; Hide markup in org-mode
    org-hide-emphasis-markers t
+   ;; Store org-journal journals in iCloud
+   org-journal-dir "~/Documents/org-journal/"
    ;; Disable non-stack GHC in Flycheck
    flycheck-disabled-checkers '(haskell-ghc)
    ;; Fuzzy search is life
