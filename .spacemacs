@@ -533,14 +533,27 @@ you should place your code here."
 
     (concatenate 'string (get-test-path) "::" (get-class-name) "::" (get-test-name)))
 
-  ;; TODO Pop a temporary buffer
   (defun sulami/python-run-current-test ()
     "Run the current test inside Docker."
     (interactive)
-    (projectile-with-default-dir (projectile-project-root)
-      (async-shell-command
-       (concatenate 'string "./test " (sulami/python-get-current-test))
-       "*Messages*")))
+    (let ((temp-buffer-name "*Test*"))
+      (when (get-buffer temp-buffer-name)
+        (kill-buffer temp-buffer-name))
+      (generate-new-buffer temp-buffer-name)
+      (let* ((test-path (sulami/python-get-current-test))
+             (test-command (concatenate 'string
+                                        (projectile-project-root)
+                                        "test "
+                                        test-path))
+             (process (start-process-shell-command "Test"
+                                                   temp-buffer-name
+                                                   test-command)))
+        (with-current-buffer temp-buffer-name
+          (require 'shell)
+          (shell-mode)
+          (set-process-filter process 'comint-output-filter)))
+      (popwin:popup-buffer temp-buffer-name
+                           :position :bottom)))
 
   (defun sulami/python-copy-current-test ()
     "Copy the current test path for pytest."
