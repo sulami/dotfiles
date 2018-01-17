@@ -515,23 +515,25 @@ you should place your code here."
       (goto-char reset-point)
       rv)
 
-    ;; TODO There might not be a class, if so, just forget about this
     (defun get-class-name ()
       (setq reset-point (point)
-            def-start (search-backward "class "))
-      (forward-char (length "class "))
-      (setq name-start (point)
-            name-end (- (search-forward "(") 1)
-            rv (buffer-substring name-start name-end))
-      (goto-char reset-point)
-      rv)
+            def-start (search-backward "class " nil t))
+      (if def-start
+          (progn
+            (forward-char (length "class "))
+            (setq name-start (point)
+                  name-end (- (search-forward "(") 1)
+                  rv (buffer-substring name-start name-end))
+            (goto-char reset-point)
+            (concatenate 'string rv "::"))
+        ""))
 
     (defun get-test-path ()
       (setq splitted-path (split-string buffer-file-name "/")
             magic-headoff (nthcdr 5 splitted-path)
             joined (mapconcat 'identity magic-headoff "/")))
 
-    (concatenate 'string (get-test-path) "::" (get-class-name) "::" (get-test-name)))
+    (concatenate 'string (get-test-path) "::" (get-class-name) (get-test-name)))
 
   (defun sulami/python-run-current-test ()
     "Run the current test inside Docker."
