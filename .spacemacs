@@ -468,9 +468,6 @@ you should place your code here."
   ;; Trigger jump to word
   (define-key evil-normal-state-map (kbd "s-n") 'avy-goto-word-or-subword-1)
 
-  ;; This is totally mission-critical :rocket:
-  (global-emojify-mode)
-
   (defun sulami/org-mode-format ()
     "Stop the org-level headers from being fancy."
     (interactive)
