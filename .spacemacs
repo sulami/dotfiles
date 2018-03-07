@@ -604,6 +604,21 @@ the default directory"
     (projectile-multi-term-in-root)
     (previous-multiframe-window))
 
+  (defun sulami/scratch-frame ()
+    "To be called from the outside using `emacsclient -a '' -e \"(sulami/scratch-frame)\"`"
+    (switch-to-buffer-other-frame "*scratch*")
+    (spacemacs/toggle-maximize-buffer)
+    (if (< 0 (buffer-size))
+        (spacemacs/safe-erase-buffer)))
+
+  (defun sulami/kill-scratch-frame ()
+    "Copy the content of the current buffer, empty it and kill the frame"
+    (interactive)
+    (clipboard-kill-ring-save (point-min) (point-max))
+    (erase-buffer)
+    (spacemacs/frame-killer))
+  (spacemacs/set-leader-keys "qy" 'sulami/kill-scratch-frame)
+
   ;; Terminals live in permanent holy mode
   (evil-set-initial-state 'term-mode 'emacs)
 
