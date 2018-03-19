@@ -564,6 +564,12 @@ you should place your code here."
   (spacemacs/set-leader-keys-for-major-mode 'python-mode "tc" 'sulami/python-copy-current-test)
   (spacemacs/set-leader-keys-for-major-mode 'python-mode "tr" 'sulami/python-run-current-test)
 
+  (defun sulami/open-test-buffer ()
+    "Open the test buffer."
+    (interactive)
+    (switch-to-buffer "*Test*"))
+  (spacemacs/set-leader-keys "bt" 'sulami/open-test-buffer)
+
   ;; Clear highlight with return
   (defun sulami/isearch-nohighlight ()
     "Remove search highlights if not in the isearch minor mode."
