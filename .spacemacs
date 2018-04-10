@@ -490,6 +490,12 @@ you should place your code here."
   ;; Enable org-indent-mode
   (add-hook 'org-mode-hook 'org-indent-mode)
 
+  (defun sulami/markdown-to-org-mode ()
+    "Markdown -> org-mode import"
+    (interactive)
+    (evil-ex "%s/\\[\\(.*\\)\\](\\(.*\\))/[[\\2][\\1]]/g"))
+  (spacemacs/set-leader-keys-for-major-mode 'org-mode "em" 'sulami/markdown-to-org-mode)
+
   (defun sulami/buffer-line-count ()
     "Get the number of lines in the active buffer."
     (count-lines 1 (point-max)))
