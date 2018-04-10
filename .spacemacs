@@ -44,6 +44,7 @@ values."
      common-lisp
      cscope
      django
+     docker
      elixir
      emacs-lisp
      evil-commentary
