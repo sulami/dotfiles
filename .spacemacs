@@ -81,7 +81,9 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(apib-mode
                                       company-c-headers
+                                      darktooth-theme
                                       evil-smartparens
+                                      flycheck-flow
                                       jbeans-theme
                                       jinja2-mode
                                       json-mode
@@ -173,15 +175,16 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(solarized-light
+   dotspacemacs-themes '(;darktooth
+                        ;solarized-light
                          solarized-dark
                          jbeans)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Inconsolata"
-                               :size 14
+   dotspacemacs-default-font '("Fira Code"
+                               :size 12
                                :weight regular
                                :width normal
                                :powerline-scale 1.1)
@@ -400,10 +403,11 @@ you should place your code here."
   ;;   (desktop-read))
 
   ;; Set the default colourscheme according to the time of day
-  (let ((hour-of-day (read (format-time-string "%H"))))
-    (if (< 8 hour-of-day 18)
-        (load-theme 'solarized-light)
-      (load-theme 'solarized-dark)))
+  ;; (let ((hour-of-day (read (format-time-string "%H"))))
+  ;;   (if (< 8 hour-of-day 18)
+  ;;       (load-theme 'solarized-light)
+  ;;     (load-theme 'solarized-dark)))
+  (load-theme 'darktooth)
 
   ;; Set all kinds of stuff
   (setq
@@ -721,6 +725,44 @@ clipboard."
       (message (concat "Sprunged to " (buffer-string)))
       (spacemacs/copy-whole-buffer-to-clipboard)))
   (spacemacs/set-leader-keys "b S" 'sulami/sprunge-buffer)
+
+  ;; Ligature support, source: https://github.com/tonsky/FiraCode/wiki/Emacs-instructions
+  (let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
+               (35 . ".\\(?:###\\|##\\|_(\\|[#(?[_{]\\)")
+               (36 . ".\\(?:>\\)")
+               (37 . ".\\(?:\\(?:%%\\)\\|%\\)")
+               (38 . ".\\(?:\\(?:&&\\)\\|&\\)")
+               (42 . ".\\(?:\\(?:\\*\\*/\\)\\|\\(?:\\*[*/]\\)\\|[*/>]\\)")
+               (43 . ".\\(?:\\(?:\\+\\+\\)\\|[+>]\\)")
+               (45 . ".\\(?:\\(?:-[>-]\\|<<\\|>>\\)\\|[<>}~-]\\)")
+               (46 . ".\\(?:\\(?:\\.[.<]\\)\\|[.=-]\\)")
+               (47 . ".\\(?:\\(?:\\*\\*\\|//\\|==\\)\\|[*/=>]\\)")
+               (48 . ".\\(?:x[a-zA-Z]\\)")
+               (58 . ".\\(?:::\\|[:=]\\)")
+               (59 . ".\\(?:;;\\|;\\)")
+               (60 . ".\\(?:\\(?:!--\\)\\|\\(?:~~\\|->\\|\\$>\\|\\*>\\|\\+>\\|--\\|<[<=-]\\|=[<=>]\\||>\\)\\|[*$+~/<=>|-]\\)")
+               (61 . ".\\(?:\\(?:/=\\|:=\\|<<\\|=[=>]\\|>>\\)\\|[<=>~]\\)")
+               (62 . ".\\(?:\\(?:=>\\|>[=>-]\\)\\|[=>-]\\)")
+               (63 . ".\\(?:\\(\\?\\?\\)\\|[:=?]\\)")
+               (91 . ".\\(?:]\\)")
+               (92 . ".\\(?:\\(?:\\\\\\\\\\)\\|\\\\\\)")
+               (94 . ".\\(?:=\\)")
+               (119 . ".\\(?:ww\\)")
+               (123 . ".\\(?:-\\)")
+               (124 . ".\\(?:\\(?:|[=|]\\)\\|[=>|]\\)")
+               (126 . ".\\(?:~>\\|~~\\|[>=@~-]\\)")
+               )
+             ))
+  (dolist (char-regexp alist)
+    (set-char-table-range composition-function-table (car char-regexp)
+                          `([,(cdr char-regexp) 0 font-shape-gstring]))))
+
+  (add-hook 'helm-major-mode-hook
+            (lambda ()
+              (setq auto-composition-mode nil)))
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (setq auto-composition-mode nil)))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
