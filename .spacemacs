@@ -547,10 +547,9 @@ you should place your code here."
   (defun sulami/python-run-current-test ()
     "Run the current test inside Docker."
     (interactive)
-    (let ((temp-buffer-name "*Test*"))
-      (when (get-buffer temp-buffer-name)
-        (kill-buffer temp-buffer-name))
-      (generate-new-buffer temp-buffer-name)
+    (let ((temp-buffer-name "*Test*")
+          (inhibit-read-only t))
+      (get-buffer-create temp-buffer-name)
       (let* ((test-path (sulami/python-get-current-test))
              (test-command (concatenate 'string
                                         (projectile-project-root)
@@ -560,11 +559,15 @@ you should place your code here."
                                                    temp-buffer-name
                                                    test-command)))
         (with-current-buffer temp-buffer-name
+          (erase-buffer)
           (require 'shell)
           (shell-mode)
           (set-process-filter process 'comint-output-filter)))
-      (popwin:popup-buffer temp-buffer-name
-                           :position :bottom)))
+      (let ((temp-buffer-window (get-buffer-window temp-buffer-name)))
+        (if temp-buffer-window
+            (select-window temp-buffer-window)
+          (popwin:popup-buffer temp-buffer-name
+                               :position :bottom)))))
 
   (defun sulami/python-copy-current-test ()
     "Copy the current test path for pytest."
