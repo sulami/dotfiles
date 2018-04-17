@@ -544,14 +544,12 @@ you should place your code here."
 
     (concatenate 'string (get-test-path) "::" (get-class-name) (get-test-name)))
 
-  (defun sulami/python-run-current-test ()
-    "Run the current test inside Docker."
-    (interactive)
+  (defun sulami/python-run-test (test-path)
+    "Run a test inside Docker."
     (let ((temp-buffer-name "*Test*")
           (inhibit-read-only t))
       (get-buffer-create temp-buffer-name)
-      (let* ((test-path (sulami/python-get-current-test))
-             (test-command (concatenate 'string
+      (let* ((test-command (concatenate 'string
                                         (projectile-project-root)
                                         "test "
                                         test-path))
@@ -568,6 +566,11 @@ you should place your code here."
             (select-window temp-buffer-window)
           (popwin:popup-buffer temp-buffer-name
                                :position :bottom)))))
+
+  (defun sulami/python-run-current-test ()
+    "Run the current test inside Docker."
+    (interactive)
+    (sulami/python-run-test (sulami/python-get-current-test)))
 
   (defun sulami/python-copy-current-test ()
     "Copy the current test path for pytest."
