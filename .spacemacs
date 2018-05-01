@@ -410,6 +410,9 @@ you should place your code here."
   ;;     (load-theme 'solarized-dark)))
   (load-theme 'darktooth)
 
+  (add-to-list 'load-path "~/dotfiles/")
+  (load "sulami")
+
   ;; Set all kinds of stuff
   (setq
    ;; Hide the clutter
@@ -448,9 +451,6 @@ you should place your code here."
   (spacemacs/set-leader-keys "ha" 'helm-apropos)
 
   ;; Open the message buffer
-  (defun sulami/open-message-buffer ()
-    (interactive)
-    (switch-to-buffer "*Messages*"))
   (spacemacs/set-leader-keys "bm" 'sulami/open-message-buffer)
 
   ;; Proper in-/decrease
@@ -510,73 +510,6 @@ you should place your code here."
   ;; Disable flycheck on-the-fly checking for performance in large Python files
   (add-hook 'python-mode-hook (lambda () (sulami/flycheck-disable-for-large-files 2000)))
 
-  (defun sulami/python-get-current-test ()
-    "Get the current test path for pytest."
-    (interactive)
-
-    (defun get-test-name ()
-      (setq reset-point (point)
-            def-start (search-backward "def "))
-      (forward-char (length "def "))
-      (setq name-start (point)
-            name-end (- (search-forward "(") 1)
-            rv (buffer-substring name-start name-end))
-      (goto-char reset-point)
-      rv)
-
-    (defun get-class-name ()
-      (setq reset-point (point)
-            def-start (search-backward "class " nil t))
-      (if def-start
-          (progn
-            (forward-char (length "class "))
-            (setq name-start (point)
-                  name-end (- (search-forward "(") 1)
-                  rv (buffer-substring name-start name-end))
-            (goto-char reset-point)
-            (concatenate 'string rv "::"))
-        ""))
-
-    (defun get-test-path ()
-      (setq splitted-path (split-string buffer-file-name "/")
-            magic-headoff (nthcdr 5 splitted-path)
-            joined (mapconcat 'identity magic-headoff "/")))
-
-    (concatenate 'string (get-test-path) "::" (get-class-name) (get-test-name)))
-
-  (defun sulami/python-run-test (test-path)
-    "Run a test inside Docker."
-    (let ((temp-buffer-name "*Test*")
-          (inhibit-read-only t))
-      (get-buffer-create temp-buffer-name)
-      (let* ((test-command (concatenate 'string
-                                        (projectile-project-root)
-                                        "test "
-                                        test-path))
-             (process (start-process-shell-command "Test"
-                                                   temp-buffer-name
-                                                   test-command)))
-        (with-current-buffer temp-buffer-name
-          (erase-buffer)
-          (require 'shell)
-          (shell-mode)
-          (set-process-filter process 'comint-output-filter)))
-      (let ((temp-buffer-window (get-buffer-window temp-buffer-name)))
-        (if temp-buffer-window
-            (select-window temp-buffer-window)
-          (popwin:popup-buffer temp-buffer-name
-                               :position :bottom)))))
-
-  (defun sulami/python-run-current-test ()
-    "Run the current test inside Docker."
-    (interactive)
-    (sulami/python-run-test (sulami/python-get-current-test)))
-
-  (defun sulami/python-copy-current-test ()
-    "Copy the current test path for pytest."
-    (interactive)
-    (kill-new (sulami/python-get-current-test)))
-
   ;; Shortcuts to run single Python tests
   (spacemacs/set-leader-keys-for-major-mode 'python-mode "tc" 'sulami/python-copy-current-test)
   (spacemacs/set-leader-keys-for-major-mode 'python-mode "tr" 'sulami/python-run-current-test)
@@ -613,19 +546,6 @@ the default directory"
            (lambda (buffer)
              (display-buffer buffer '(display-buffer-same-window)))))
       (magit-status)))
-
-  (defun sulami/default-window-layout ()
-    "Load up a default 3-split window layout."
-    (interactive)
-    (delete-other-windows)
-    (split-window-horizontally)
-    (next-multiframe-window)
-    (split-window-vertically)
-    (next-multiframe-window)
-    (sulami/magit-status-same-window)
-    (previous-multiframe-window)
-    (projectile-multi-term-in-root)
-    (previous-multiframe-window))
 
   (defun sulami/scratch-frame ()
     "To be called from the outside using `emacsclient -a '' -e \"(sulami/scratch-frame)\"`"
@@ -726,17 +646,6 @@ the default directory"
   ;; Enable refill mode for Markdown
   ;; (add-hook 'markdown-mode-hook 'refill-mode)
 
-  (defun sulami/sprunge-buffer ()
-    "Send the current buffer content to sprunge.us and copy the URL to the
-clipboard."
-    (interactive)
-    (shell-command-on-region
-     (point-min) (point-max)
-     "curl -sF 'sprunge=<-' http://sprunge.us"
-     "*Sprunge*")
-    (with-current-buffer "*Sprunge*"
-      (message (concat "Sprunged to " (buffer-string)))
-      (spacemacs/copy-whole-buffer-to-clipboard)))
   (spacemacs/set-leader-keys "b S" 'sulami/sprunge-buffer)
 
   ;; Ligature support, source: https://github.com/tonsky/FiraCode/wiki/Emacs-instructions
@@ -797,7 +706,7 @@ clipboard."
  '(magit-log-arguments (quote ("--graph" "--color" "--decorate" "-n256")))
  '(package-selected-packages
    (quote
-    (darktooth-theme doom-themes wgrep smex ivy-hydra flyspell-correct-ivy counsel-projectile counsel swiper ivy flycheck-flow flow-minor-mode jsx-mode tablist docker-tramp rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby bundler inf-ruby org-mime csv-mode tramp-term ghub let-alist org-journal \(let\ \(\(hour-of-day\ \(read\ \(format-time-string\ \"%H\"\)\)\)\)\ \(if\ \(<\ 8\ hour-of-day\ 18\)\ solarized-light\ solarized-dark\)\)-theme ace-jump-helm-line ace-jump-mode writeroom-mode emojify swift-mode groovy-mode doom-theme pdf-tools elscreen-multi-term multishell term+ wanderlust winum org-category-capture fuzzy flycheck-credo colemak-evil docker-api dockerfile-mode docker php-auto-yasnippets drupal-mode phpunit phpcbf php-extras php+-mode php-mode epresent org-present nyan-mode ob-elixir flycheck-mix alchemist web-beautify livid-mode skewer-mode simple-httpd js2-refactor js2-mode js-doc company-tern dash-functional tern coffee-mode apib-mode flycheck-elixir color-theme-solarized nginx-mode rust-mode elixir-mode jebans-theme jbeans-theme smooth-scroll org-bullets yapfify yaml-mode xterm-color ws-butler window-numbering which-key web-mode volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spacemacs-theme spaceline powerline slime-company slime slim-mode shell-pop scss-mode sass-mode restart-emacs rainbow-delimiters racket-mode faceup pyvenv pytest pyenv-mode py-isort pug-mode popwin pony-mode pip-requirements persp-mode pcre2el paradox orgit org org-projectile org-pomodoro alert log4e gntp org-plus-contrib org-download open-junk-file multi-term move-text mmm-mode markdown-toc markdown-mode magit-gitflow magit-gh-pulls macrostep lorem-ipsum live-py-mode linum-relative link-hint less-css-mode json-mode json-snatcher json-reformat jinja2-mode intero info+ indent-guide hy-mode hungry-delete htmlize hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make projectile helm-hoogle helm-gitignore request helm-flx flx helm-descbinds helm-css-scss helm-cscope xcscope helm-company helm-c-yasnippet helm-ag haskell-snippets haml-mode google-translate golden-ratio go-guru go-eldoc gnuplot gitignore-mode github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gist gh marshal logito pcache ht gh-md geiser flyspell-correct-helm helm helm-core flyspell-correct flycheck-pos-tip pos-tip flycheck-haskell flycheck fill-column-indicator eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-surround evil-smartparens evil-search-highlight-persist evil-numbers evil-matchit evil-magit magit magit-popup git-commit with-editor evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-commentary evil-args evil-anzu anzu evil goto-chg undo-tree eshell-z eshell-prompt-extras esh-help elisp-slime-nav dumb-jump popup disaster diminish diff-hl define-word cython-mode company-web web-completion-data company-statistics company-go go-mode company-ghci company-ghc ghc haskell-mode company-cabal company-c-headers company-auctex company-anaconda company common-lisp-snippets column-enforce-mode cmm-mode cmake-mode clojure-snippets clj-refactor hydra inflections edn multiple-cursors paredit peg clean-aindent-mode clang-format cider-eval-sexp-fu eval-sexp-fu highlight cider seq spinner queue pkg-info clojure-mode epl bind-map bind-key auto-yasnippet yasnippet auto-highlight-symbol auto-dictionary auto-compile packed auctex async anaconda-mode pythonic f s aggressive-indent adaptive-wrap ace-window ace-link avy quelpa package-build solarized-theme dash)))
+    (auctex-latexmk darktooth-theme doom-themes wgrep smex ivy-hydra flyspell-correct-ivy counsel-projectile counsel swiper ivy flycheck-flow flow-minor-mode jsx-mode tablist docker-tramp rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby bundler inf-ruby org-mime csv-mode tramp-term ghub let-alist org-journal \(let\ \(\(hour-of-day\ \(read\ \(format-time-string\ \"%H\"\)\)\)\)\ \(if\ \(<\ 8\ hour-of-day\ 18\)\ solarized-light\ solarized-dark\)\)-theme ace-jump-helm-line ace-jump-mode writeroom-mode emojify swift-mode groovy-mode doom-theme pdf-tools elscreen-multi-term multishell term+ wanderlust winum org-category-capture fuzzy flycheck-credo colemak-evil docker-api dockerfile-mode docker php-auto-yasnippets drupal-mode phpunit phpcbf php-extras php+-mode php-mode epresent org-present nyan-mode ob-elixir flycheck-mix alchemist web-beautify livid-mode skewer-mode simple-httpd js2-refactor js2-mode js-doc company-tern dash-functional tern coffee-mode apib-mode flycheck-elixir color-theme-solarized nginx-mode rust-mode elixir-mode jebans-theme jbeans-theme smooth-scroll org-bullets yapfify yaml-mode xterm-color ws-butler window-numbering which-key web-mode volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spacemacs-theme spaceline powerline slime-company slime slim-mode shell-pop scss-mode sass-mode restart-emacs rainbow-delimiters racket-mode faceup pyvenv pytest pyenv-mode py-isort pug-mode popwin pony-mode pip-requirements persp-mode pcre2el paradox orgit org org-projectile org-pomodoro alert log4e gntp org-plus-contrib org-download open-junk-file multi-term move-text mmm-mode markdown-toc markdown-mode magit-gitflow magit-gh-pulls macrostep lorem-ipsum live-py-mode linum-relative link-hint less-css-mode json-mode json-snatcher json-reformat jinja2-mode intero info+ indent-guide hy-mode hungry-delete htmlize hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make projectile helm-hoogle helm-gitignore request helm-flx flx helm-descbinds helm-css-scss helm-cscope xcscope helm-company helm-c-yasnippet helm-ag haskell-snippets haml-mode google-translate golden-ratio go-guru go-eldoc gnuplot gitignore-mode github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gist gh marshal logito pcache ht gh-md geiser flyspell-correct-helm helm helm-core flyspell-correct flycheck-pos-tip pos-tip flycheck-haskell flycheck fill-column-indicator eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-surround evil-smartparens evil-search-highlight-persist evil-numbers evil-matchit evil-magit magit magit-popup git-commit with-editor evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-commentary evil-args evil-anzu anzu evil goto-chg undo-tree eshell-z eshell-prompt-extras esh-help elisp-slime-nav dumb-jump popup disaster diminish diff-hl define-word cython-mode company-web web-completion-data company-statistics company-go go-mode company-ghci company-ghc ghc haskell-mode company-cabal company-c-headers company-auctex company-anaconda company common-lisp-snippets column-enforce-mode cmm-mode cmake-mode clojure-snippets clj-refactor hydra inflections edn multiple-cursors paredit peg clean-aindent-mode clang-format cider-eval-sexp-fu eval-sexp-fu highlight cider seq spinner queue pkg-info clojure-mode epl bind-map bind-key auto-yasnippet yasnippet auto-highlight-symbol auto-dictionary auto-compile packed auctex async anaconda-mode pythonic f s aggressive-indent adaptive-wrap ace-window ace-link avy quelpa package-build solarized-theme dash)))
  '(scroll-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
