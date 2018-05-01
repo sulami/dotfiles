@@ -473,39 +473,14 @@ you should place your code here."
   ;; Trigger jump to word
   (define-key evil-normal-state-map (kbd "s-n") 'avy-goto-word-or-subword-1)
 
-  (defun sulami/org-mode-format ()
-    "Stop the org-level headers from being fancy."
-    (interactive)
-    (dolist (face '(org-level-1
-                    org-level-2
-                    org-level-3
-                    org-level-4
-                    org-level-5
-                    org-level-6
-                    org-level-7
-                    org-level-8))
-      (set-face-attribute face nil :inherit :family :weight 'normal :height 1.0)))
+  ;; De-prettify org-mode
   (add-hook 'org-mode-hook 'sulami/org-mode-format)
 
   ;; Enable org-indent-mode
   (add-hook 'org-mode-hook 'org-indent-mode)
 
-  (defun sulami/markdown-to-org-mode ()
-    "Markdown -> org-mode import"
-    (interactive)
-    (evil-ex "%s/\\[\\(.*\\)\\](\\(.*\\))/[[\\2][\\1]]/g"))
+  ;; Import markdown to org-mode
   (spacemacs/set-leader-keys-for-major-mode 'org-mode "em" 'sulami/markdown-to-org-mode)
-
-  (defun sulami/buffer-line-count ()
-    "Get the number of lines in the active buffer."
-    (count-lines 1 (point-max)))
-
-  (defun sulami/flycheck-disable-for-large-files (limit)
-    "Disable flycheck on-the-fly-checking if the line count exceeds LIMIT."
-    (setq flycheck-check-syntax-automatically
-          (if (> (sulami/buffer-line-count) limit)
-              (delete 'idle-change flycheck-check-syntax-automatically)
-            (add-to-list 'flycheck-check-syntax-automatically 'idle-change))))
 
   ;; Disable flycheck on-the-fly checking for performance in large Python files
   (add-hook 'python-mode-hook (lambda () (sulami/flycheck-disable-for-large-files 2000)))
@@ -514,52 +489,16 @@ you should place your code here."
   (spacemacs/set-leader-keys-for-major-mode 'python-mode "tc" 'sulami/python-copy-current-test)
   (spacemacs/set-leader-keys-for-major-mode 'python-mode "tr" 'sulami/python-run-current-test)
 
-  (defun sulami/open-test-buffer ()
-    "Open the test buffer."
-    (interactive)
-    (switch-to-buffer "*Test*"))
+  ;; Shortcut to open the test buffer
   (spacemacs/set-leader-keys "bt" 'sulami/open-test-buffer)
 
   ;; Clear highlight with return
-  (defun sulami/isearch-nohighlight ()
-    "Remove search highlights if not in the isearch minor mode."
-    (interactive)
-    (when (not isearch-mode)
-      (evil-search-highlight-persist-remove-all)))
   (define-key evil-normal-state-map (kbd "RET") 'sulami/isearch-nohighlight)
 
   ;; If inside a project, pop shells in the project root
-  (defun sulami/project-root-shell ()
-    "Pop the default shell in the project root if inside a project, otherwise in
-the default directory"
-    (interactive)
-    (if (projectile-project-p)
-        (projectile-with-default-dir (projectile-project-root)
-          (spacemacs/default-pop-shell))
-      (spacemacs/default-pop-shell)))
   (define-key global-map (kbd "s-'") 'sulami/project-root-shell)
 
-  (defun sulami/magit-status-same-window ()
-    "Open the magit status in the current window."
-    (interactive)
-    (let ((magit-display-buffer-function
-           (lambda (buffer)
-             (display-buffer buffer '(display-buffer-same-window)))))
-      (magit-status)))
-
-  (defun sulami/scratch-frame ()
-    "To be called from the outside using `emacsclient -a '' -e \"(sulami/scratch-frame)\"`"
-    (switch-to-buffer-other-frame "*scratch*")
-    (spacemacs/toggle-maximize-buffer)
-    (if (< 0 (buffer-size))
-        (spacemacs/safe-erase-buffer)))
-
-  (defun sulami/kill-scratch-frame ()
-    "Copy the content of the current buffer, empty it and kill the frame"
-    (interactive)
-    (clipboard-kill-ring-save (point-min) (point-max))
-    (erase-buffer)
-    (spacemacs/frame-killer))
+  ;; Kill the scratch frame
   (spacemacs/set-leader-keys "qy" 'sulami/kill-scratch-frame)
 
   ;; Terminals live in permanent holy mode

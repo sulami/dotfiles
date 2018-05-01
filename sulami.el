@@ -5,6 +5,11 @@
   (interactive)
   (switch-to-buffer "*Messages*"))
 
+(defun sulami/open-test-buffer ()
+  "Open the test buffer."
+  (interactive)
+  (switch-to-buffer "*Test*"))
+
 (defun sulami/sprunge-buffer ()
   "Send the current buffer content to sprunge.us and copy the URL to the
 clipboard."
@@ -16,6 +21,26 @@ clipboard."
   (with-current-buffer "*Sprunge*"
     (message (concat "Sprunged to " (buffer-string)))
     (spacemacs/copy-whole-buffer-to-clipboard)))
+
+;; ORG
+
+(defun sulami/org-mode-format ()
+  "Stop the org-level headers from being fancy."
+  (interactive)
+  (dolist (face '(org-level-1
+                  org-level-2
+                  org-level-3
+                  org-level-4
+                  org-level-5
+                  org-level-6
+                  org-level-7
+                  org-level-8))
+    (set-face-attribute face nil :inherit :family :weight 'normal :height 1.0)))
+
+(defun sulami/markdown-to-org-mode ()
+  "Markdown -> org-mode link conversion."
+  (interactive)
+  (evil-ex "%s/\\[\\(.*\\)\\](\\(.*\\))/[[\\2][\\1]]/g"))
 
 ;; PYTHON
 
@@ -89,3 +114,56 @@ clipboard."
   "Copy the current test path for pytest."
   (interactive)
   (kill-new (sulami/python-get-current-test)))
+
+;; INTERNALS
+
+(defun sulami/isearch-nohighlight ()
+  "Remove search highlights if not in the isearch minor mode."
+  (interactive)
+  (when (not isearch-mode)
+    (evil-search-highlight-persist-remove-all)))
+
+(defun sulami/buffer-line-count ()
+  "Get the number of lines in the active buffer."
+  (count-lines 1 (point-max)))
+
+(defun sulami/flycheck-disable-for-large-files (limit)
+  "Disable flycheck on-the-fly-checking if the line count exceeds LIMIT."
+  (setq flycheck-check-syntax-automatically
+        (if (> (sulami/buffer-line-count) limit)
+            (delete 'idle-change flycheck-check-syntax-automatically)
+          (add-to-list 'flycheck-check-syntax-automatically 'idle-change))))
+
+(defun sulami/project-root-shell ()
+  "Pop the default shell in the project root if inside a project, otherwise in
+the default directory."
+  (interactive)
+  (if (projectile-project-p)
+      (projectile-with-default-dir (projectile-project-root)
+        (spacemacs/default-pop-shell))
+    (spacemacs/default-pop-shell)))
+
+(defun sulami/magit-status-same-window ()
+  "Open the magit status in the current window."
+  (interactive)
+  (let ((magit-display-buffer-function
+         (lambda (buffer)
+           (display-buffer buffer '(display-buffer-same-window)))))
+    (magit-status)))
+
+(defun sulami/scratch-frame ()
+  "Open empty scratch buffer in new frame.
+
+To be called from the outside using `emacsclient -a '' -e
+\"(sulami/scratch-frame)\"`."
+  (switch-to-buffer-other-frame "*scratch*")
+  (spacemacs/toggle-maximize-buffer)
+  (if (< 0 (buffer-size))
+      (spacemacs/safe-erase-buffer)))
+
+(defun sulami/kill-scratch-frame ()
+  "Copy the content of the current buffer, empty it and kill the frame."
+  (interactive)
+  (clipboard-kill-ring-save (point-min) (point-max))
+  (erase-buffer)
+  (spacemacs/frame-killer))
