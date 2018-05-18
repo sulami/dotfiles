@@ -254,7 +254,7 @@ values."
    ;; in all non-asynchronous sources. If set to `source', preserve individual
    ;; source settings. Else, disable fuzzy matching in all sources.
    ;; (default 'always)
-   dotspacemacs-helm-use-fuzzy 'source
+   dotspacemacs-helm-use-fuzzy 'always
    ;; If non nil the paste micro-state is enabled. When enabled pressing `p`
    ;; several times cycle between the kill ring content. (default nil)
    dotspacemacs-enable-paste-transient-state nil
@@ -424,17 +424,12 @@ you should place your code here."
    mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil))
    ;; Un-fancy the modeline
    powerline-default-separator nil
-   ;; Set helm to fuzzy matching
-   helm-mode-fuzzy-match t
    ;; Hide markup in org-mode
    org-hide-emphasis-markers t
    ;; Store org-journal journals in iCloud
    org-journal-dir "~/Documents/org-journal/"
    ;; Disable non-stack GHC in Flycheck
-   flycheck-disabled-checkers '(haskell-ghc)
-   ;; Fuzzy search is life
-   helm-swoop-use-fuzzy-match t
-   )
+   flycheck-disabled-checkers '(haskell-ghc))
 
   ;; Custom session save directory
   (defun emacs-session-filename (session-id)
