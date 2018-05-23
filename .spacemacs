@@ -162,7 +162,7 @@ values."
    ;; directory. A string value must be a path to an image format supported
    ;; by your Emacs build.
    ;; If the value is nil then no banner is displayed. (default 'official)
-   dotspacemacs-startup-banner 'random
+   dotspacemacs-startup-banner '999
    ;; List of items to show in startup buffer or an association list of
    ;; the form `(list-type . list-size)`. If nil then it is disabled.
    ;; Possible values for list-type are:
@@ -191,7 +191,7 @@ values."
                                :size 12
                                :weight regular
                                :width normal
-                               :powerline-scale 1.1)
+                               :powerline-scale 1)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
@@ -361,7 +361,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
    ;; I know I'm setting environment variables in my .zshrc
    exec-path-from-shell-check-startup-files nil
    ;; Default frame size
-   default-frame-alist '((width . 120) (height . 40) (scroll-bar-mode . nil))
+   default-frame-alist '((width . 130) (height . 80) (scroll-bar-mode . nil))
    ;; Prevent enormous lag during startup
    tramp-ssh-controlmaster-options
     "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o Control-Persist=no"
@@ -434,6 +434,9 @@ you should place your code here."
    ;; Disable non-stack GHC in Flycheck
    flycheck-disabled-checkers '(haskell-ghc))
 
+  ;; Disable current line highlight
+  (spacemacs/toggle-highlight-current-line-globally-off)
+
   ;; Custom session save directory
   (defun emacs-session-filename (session-id)
     "Construct a filename to save the session in based on SESSION-ID. Customized
@@ -493,7 +496,7 @@ you should place your code here."
   (add-hook 'org-mode-hook 'org-indent-mode)
 
   ;; Import markdown to org-mode
-  (spacemacs/set-leader-keys-for-major-mode 'org-mode "em" 'sulami/markdown-to-org-mode)
+  ;; (spacemacs/set-leader-keys-for-major-mode 'org-mode "em" 'sulami/markdown-to-org-mode)
 
   ;; Disable flycheck on-the-fly checking for performance in large Python files
   (add-hook 'python-mode-hook (lambda () (sulami/flycheck-disable-for-large-files 2000)))
