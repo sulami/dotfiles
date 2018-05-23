@@ -73,7 +73,7 @@ values."
                      spell-checking-enable-by-default nil)
      ;; swift
      syntax-checking
-     vagrant
+     ;; vagrant
      version-control
      yaml
      )
@@ -83,11 +83,13 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(apib-mode
+                                      atomic-chrome
                                       ;; company-c-headers
                                       darktooth-theme
                                       jbeans-theme
                                       ;; jinja2-mode
                                       json-mode
+                                      magithub
                                       ;; slime-company
                                       ;; tramp-term
                                       )
@@ -105,6 +107,7 @@ values."
                                     flx-ido
                                     ido-vertical-mode
                                     leuven-theme
+                                    magit-gitflow
                                     neotree
                                     org-bullets
                                     smeargle)
