@@ -27,6 +27,7 @@ clipboard."
 (defun sulami/org-mode-format ()
   "Stop the org-level headers from being fancy."
   (interactive)
+  (auto-composition-mode 0)
   (dolist (face '(org-level-1
                   org-level-2
                   org-level-3

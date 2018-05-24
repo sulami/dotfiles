@@ -461,7 +461,7 @@ you should place your code here."
   (setq evil-cleverparens-use-additional-movement-keys nil)
   (setq evil-cleverparens-use-additional-bindings nil)
   (spacemacs/toggle-evil-cleverparens-on)
-  (add-hook 'smartparens-enabled-hook #'evil-cleverparens-mode)
+  (add-hook 'smartparens-enabled-hook 'evil-cleverparens-mode)
 
   ;; Apropos
   (spacemacs/set-leader-keys "ha" 'helm-apropos)
@@ -579,7 +579,8 @@ you should place your code here."
     (evil-append-line nil)
     (haskell-indentation-newline-and-indent))
 
-  (evil-define-key 'normal haskell-mode-map "o" 'haskell-evil-open-below
+  (evil-define-key 'normal haskell-mode-map
+    "o" 'haskell-evil-open-below
     "O" 'haskell-evil-open-above)
 
   ;; Don't interrupt me if autocompletion falls over
