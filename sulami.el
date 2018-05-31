@@ -1,5 +1,11 @@
 ;; GENERAL STUFF
 
+(defun sulami/pop-file (file-path)
+  "Pop up a buffer with a file path."
+  (popwin:popup-buffer (find-file-noselect file-path)
+                       :position :bottom
+                       :stick t))
+
 (defun sulami/open-message-buffer ()
   "Open the message buffer."
   (interactive)
