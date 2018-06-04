@@ -464,6 +464,9 @@ you should place your code here."
   (spacemacs/toggle-evil-cleverparens-on)
   (add-hook 'smartparens-enabled-hook 'evil-cleverparens-mode)
 
+  ;; Quick window layout
+  (spacemacs/set-leader-keys "w4" 'sulami/layout-triple-fib)
+
   ;; Apropos
   (spacemacs/set-leader-keys "ha" 'helm-apropos)
 

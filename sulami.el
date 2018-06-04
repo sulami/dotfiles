@@ -1,5 +1,13 @@
 ;; GENERAL STUFF
 
+(defun sulami/layout-triple-fib ()
+  "Open one window on the left and stacked on the right."
+  (interactive)
+  (delete-other-windows)
+  (split-window-horizontally)
+  (select-window (next-window))
+  (split-window-vertically))
+
 (defun sulami/pop-file (file-path)
   "Pop up a buffer with a file path."
   (popwin:popup-buffer (find-file-noselect file-path)
