@@ -29,6 +29,7 @@
 	cam = commit -am
 	rsh = reset --soft HEAD^
 	pu = push --follow-tags
+	poh = push origin HEAD --follow-tags
 	pom = push origin master --follow-tags
 	fe = fetch --all
 	rup = remote update
