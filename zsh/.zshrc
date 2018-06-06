@@ -62,11 +62,11 @@ RPS1="%(?..%{$fg_bold[red]%}%?%{$reset_color%} <)"
 # installed as global config.
 function zle-line-init zle-keymap-select {
     # hostname:pwd(git status)
-    PREFIX="%{$fg_bold[magenta]%}%m:%{$reset_color%}%1~"
+    PPREFIX="%{$fg_bold[magenta]%}%1~%{$reset_color%}"
     # Mode-dependent symbol
-    PRMPT="${${KEYMAP/vicmd/N}/(main|viins)/$}"
+    PRMPT="${${KEYMAP/vicmd/N}/(main|viins)/λ}"
     # Put it all together, color the symbol if there are bg jobs
-    PS1="$PREFIX %1(j.%{$fg[cyan]%}$PRMPT%{$reset_color%}.$PRMPT) "
+    PS1="$PPREFIX %1(j.%{$fg[cyan]%}$PRMPT%{$reset_color%}.$PRMPT) "
     zle reset-prompt
 }
 zle -N zle-line-init
