@@ -61,3 +61,5 @@
 	user = sulami
 [gpg]
 	program = gpg
+[fetch]
+	prune = true
