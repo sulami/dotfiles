@@ -46,8 +46,8 @@
 	stpp = stash pop
 	stdr = stash drop
 	start = !git init && git commit --allow-empty -m \"Initial commit\"
-	cleanup = !git br --merged | ghc -e 'mapM_ (putStrLn . drop 2) =<< lines <$> getContents' | grep -v '^\\(develop\\|master\\)$' | xargs git br -D
-	cleanup-remote = !git br -r --merged | ghc -e 'mapM_ (putStrLn . drop 2) =<< lines <$> getContents' | sed 's:^origin/::' | grep -v '^\\(develop\\|HEAD\\)' | xargs git push origin --delete
+	cleanup = !git br --merged | sed -E 's:^\\* |  ::' | grep -v '^\\(develop\\|master\\|HEAD\\)$' | xargs git br -D
+	cleanup-remote = !git br -r --merged | sed -E 's:^\\* |  ::' | sed 's:^origin/::' | grep -v '^\\(develop\\|master\\|HEAD\\)' | xargs git push origin --delete
 [commit]
 	gpgsign = true
 [merge]
