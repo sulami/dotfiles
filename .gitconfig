@@ -31,7 +31,7 @@
 	pu = push --follow-tags
 	poh = push origin HEAD --follow-tags
 	pom = push origin master --follow-tags
-	fe = fetch --all
+	fe = fetch --all --prune
 	rup = remote update
 	puo = pull origin master
 	ff = merge --ff
