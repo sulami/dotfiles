@@ -90,6 +90,7 @@ values."
                                       jbeans-theme
                                       ;; jinja2-mode
                                       json-mode
+                                      gruvbox-theme
                                       magithub
                                       ;; slime-company
                                       ;; tramp-term
@@ -180,10 +181,8 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(;darktooth
-                        ;solarized-light
-                         solarized-dark
-                         jbeans)
+   dotspacemacs-themes '(gruvbox-dark-soft
+                         gruvbox-light-soft)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
@@ -358,6 +357,10 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
 
+  ;; Load these for gruvbox at startup
+  (mapc 'load (file-expand-wildcards `"~/.emacs.d/elpa/dash-*/dash.el"))
+  (mapc 'load (file-expand-wildcards "~/.emacs.d/elpa/autothemer-*/autothemer.el"))
+
   (setq
    ;; I know I'm setting environment variables in my .zshrc
    exec-path-from-shell-check-startup-files nil
@@ -409,10 +412,9 @@ you should place your code here."
 
   ;; Set the default colourscheme according to the time of day
   ;; (let ((hour-of-day (read (format-time-string "%H"))))
-  ;;   (if (< 8 hour-of-day 18)
-  ;;       (load-theme 'solarized-light)
-  ;;     (load-theme 'solarized-dark)))
-  (load-theme 'darktooth)
+  ;;   (if (< 9 hour-of-day 18)
+  ;;       (load-theme 'gruvbox-light-soft)
+  ;;     (load-theme 'gruvbox-dark-soft)))
 
   (add-to-list 'load-path "~/dotfiles/")
   (load "sulami")
@@ -671,26 +673,15 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Inconsolata" :foundry "nil" :slant normal :weight normal :height 140 :width normal))))
- '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
- '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
+ )
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector
-   ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
  '(custom-safe-themes
    (quote
-    ("a4d03266add9a1c8f12b5309612cbbf96e1291773c7bc4fb685bfdaf83b721c6" "64f2981274fd8740b794bce9feee7949ed87b88fc0b4654bd98594e1aa81abcd" "45712b65018922c9173439d9b1b193cb406f725f14d02c8c33e0d2cdad844613" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
- '(evil-want-C-i-jump t)
- '(evil-want-Y-yank-to-eol t)
- '(global-emojify-mode t)
- '(linum-format " %3i ")
- '(magit-log-arguments (quote ("--graph" "--color" "--decorate" "-n256")))
+    ("62c81ae32320ceff5228edceeaa6895c029cc8f43c8c98a023f91b5b339d633f" default)))
  '(package-selected-packages
    (quote
-    (evil-cleverparens circe oauth2 websocket emoji-display slack magit auctex-latexmk darktooth-theme doom-themes wgrep smex ivy-hydra flyspell-correct-ivy counsel-projectile counsel swiper ivy flycheck-flow flow-minor-mode jsx-mode tablist docker-tramp rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby bundler inf-ruby org-mime csv-mode tramp-term ghub let-alist org-journal \(let\ \(\(hour-of-day\ \(read\ \(format-time-string\ \"%H\"\)\)\)\)\ \(if\ \(<\ 8\ hour-of-day\ 18\)\ solarized-light\ solarized-dark\)\)-theme ace-jump-helm-line ace-jump-mode writeroom-mode emojify swift-mode groovy-mode doom-theme pdf-tools elscreen-multi-term multishell term+ wanderlust winum org-category-capture fuzzy flycheck-credo colemak-evil docker-api dockerfile-mode docker php-auto-yasnippets drupal-mode phpunit phpcbf php-extras php+-mode php-mode epresent org-present nyan-mode ob-elixir flycheck-mix alchemist web-beautify livid-mode skewer-mode simple-httpd js2-refactor js2-mode js-doc company-tern dash-functional tern coffee-mode apib-mode flycheck-elixir color-theme-solarized nginx-mode rust-mode elixir-mode jebans-theme jbeans-theme smooth-scroll org-bullets yapfify yaml-mode xterm-color ws-butler window-numbering which-key web-mode volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spacemacs-theme spaceline powerline slime-company slime slim-mode shell-pop scss-mode sass-mode restart-emacs rainbow-delimiters racket-mode faceup pyvenv pytest pyenv-mode py-isort pug-mode popwin pony-mode pip-requirements persp-mode pcre2el paradox orgit org org-projectile org-pomodoro alert log4e gntp org-plus-contrib org-download open-junk-file multi-term move-text mmm-mode markdown-toc markdown-mode magit-gitflow magit-gh-pulls macrostep lorem-ipsum live-py-mode linum-relative link-hint less-css-mode json-mode json-snatcher json-reformat jinja2-mode intero info+ indent-guide hy-mode hungry-delete htmlize hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make projectile helm-hoogle helm-gitignore request helm-flx flx helm-descbinds helm-css-scss helm-cscope xcscope helm-company helm-c-yasnippet helm-ag haskell-snippets haml-mode google-translate golden-ratio go-guru go-eldoc gnuplot gitignore-mode github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gist gh marshal logito pcache ht gh-md geiser flyspell-correct-helm helm helm-core flyspell-correct flycheck-pos-tip pos-tip flycheck-haskell flycheck fill-column-indicator eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-surround evil-smartparens evil-search-highlight-persist evil-numbers evil-matchit evil-magit magit-popup git-commit with-editor evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-commentary evil-args evil-anzu anzu evil goto-chg undo-tree eshell-z eshell-prompt-extras esh-help elisp-slime-nav dumb-jump popup disaster diminish diff-hl define-word cython-mode company-web web-completion-data company-statistics company-go go-mode company-ghci company-ghc ghc haskell-mode company-cabal company-c-headers company-auctex company-anaconda company common-lisp-snippets column-enforce-mode cmm-mode cmake-mode clojure-snippets clj-refactor hydra inflections edn multiple-cursors paredit peg clean-aindent-mode clang-format cider-eval-sexp-fu eval-sexp-fu highlight cider seq spinner queue pkg-info clojure-mode epl bind-map bind-key auto-yasnippet yasnippet auto-highlight-symbol auto-dictionary auto-compile packed auctex async anaconda-mode pythonic f s aggressive-indent adaptive-wrap ace-window ace-link avy quelpa package-build solarized-theme dash)))
- '(scroll-bar-mode nil)
- '(send-mail-function (quote mailclient-send-it)))
+    (org-bullets neotree flx-ido fancy-battery evil-tutor evil-nerd-commenter evil-mc define-word ace-jump-helm-line yapfify yaml-mode xterm-color ws-butler winum which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spaceline solarized-theme slim-mode shell-pop scss-mode sass-mode reveal-in-osx-finder restclient-helm restart-emacs rainbow-delimiters pyvenv pytest pyenv-mode py-isort pug-mode popwin pip-requirements persp-mode pcre2el pbcopy paradox osx-trash osx-dictionary orgit org-projectile org-present org-pomodoro org-mime org-download open-junk-file ob-restclient ob-http ob-elixir nginx-mode multi-term move-text mmm-mode markdown-toc magithub magit-gh-pulls macrostep lorem-ipsum livid-mode live-py-mode linum-relative link-hint less-css-mode launchctl js2-refactor js-doc jbeans-theme intero indent-guide hy-mode hungry-delete htmlize hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-hoogle helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag haskell-snippets gruvbox-theme google-translate golden-ratio gnuplot github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gist gh-md fuzzy flyspell-correct-helm flycheck-pos-tip flycheck-mix flycheck-haskell flycheck-credo fill-column-indicator eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-surround evil-search-highlight-persist evil-numbers evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-commentary evil-cleverparens evil-args evil-anzu eshell-z eshell-prompt-extras esh-help erc-yt erc-view-log erc-terminal-notifier erc-social-graph erc-image erc-hl-nicks elisp-slime-nav dumb-jump dockerfile-mode docker diminish diff-hl darktooth-theme cython-mode company-web company-tern company-statistics company-restclient company-ghci company-ghc company-cabal company-anaconda column-enforce-mode coffee-mode cmm-mode clojure-snippets clj-refactor clean-aindent-mode cider-eval-sexp-fu auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile atomic-chrome apib-mode alchemist aggressive-indent adaptive-wrap ace-window ace-link))))
