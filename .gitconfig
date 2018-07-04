@@ -36,6 +36,8 @@
 	puo = pull origin master
 	ff = merge --ff
 	noff = merge --no-ff
+	cp = cherry-pick
+	cpn = cherry-pick -n
 	l = log --decorate --graph --oneline
 	ll = log --decorate --graph --stat
 	sm = submodule
