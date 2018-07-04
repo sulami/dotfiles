@@ -27,6 +27,7 @@
 	cmm = commit -m
 	ca = commit -a
 	cam = commit -am
+	rh = reset --hard
 	rsh = reset --soft HEAD^
 	pu = push --follow-tags
 	poh = push origin HEAD --follow-tags
