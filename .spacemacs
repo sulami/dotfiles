@@ -637,7 +637,12 @@ you should place your code here."
 
   ;; Only enable ligatures for these modes, as they tend to hang emacs for
   ;; various funky modes.
-  (dolist (mode-hook '(clojure-mode))
+  (dolist (mode-hook '(clojure-mode-hook
+                       elixir-mode-hook
+                       emacs-lisp-mode-hook
+                       haskell-mode-hook
+                       python-mode-hook
+                       web-mode-hook))
     (add-hook mode-hook 'auto-composition-mode))
 
 
