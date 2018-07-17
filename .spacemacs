@@ -434,6 +434,8 @@ you should place your code here."
    org-hide-emphasis-markers t
    ;; Store org-journal journals in iCloud
    org-journal-dir "~/Documents/org-journal/"
+   ;; Store junk files in /tmp
+   open-junk-file-directory "/tmp/emacs-junk/%Y-%m-%d-%H%M%S."
    ;; Disable non-stack GHC in Flycheck
    flycheck-disabled-checkers '(haskell-ghc))
 

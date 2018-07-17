@@ -36,6 +36,15 @@ clipboard."
     (message (concat "Sprunged to " (buffer-string)))
     (spacemacs/copy-whole-buffer-to-clipboard)))
 
+(defun sulami/save-to-junk ()
+  "Save the current buffer as a junk file."
+  (interactive)
+  (spacemacs/copy-whole-buffer-to-clipboard)
+  (kill-buffer)
+  (open-junk-file)
+  (insert (current-kill 0))
+  (save-buffer))
+
 ;; ORG
 
 (defun sulami/org-mode-format ()
