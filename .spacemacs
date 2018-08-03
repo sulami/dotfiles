@@ -2,6 +2,9 @@
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 
+(defvar sulami/file-name-handler-alist file-name-handler-alist)
+(setq file-name-handler-alist nil)
+
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
 You should not put any user code in this function besides modifying the variable
@@ -654,6 +657,6 @@ you should place your code here."
   ;; (setq atomic-chrome-default-major-mode 'markdown-mode
   ;;       atomic-chrome-buffer-open-style 'frame)
 
-  (setq file-name-handler-alist doom--file-name-handler-alist)
+  (load-file custom-file)
 
-  (load-file custom-file))
+  (setq file-name-handler-alist sulami/file-name-handler-alist))
