@@ -425,6 +425,8 @@ you should place your code here."
 
   ;; Set all kinds of stuff
   (setq
+   ;; Customisations live in a separate file
+   custom-file "~/dotfiles/custom.el"
    ;; Hide the clutter
    backup-directory-alist '("/tmp/emacs-backup")
    ;; No trash
