@@ -483,6 +483,12 @@ you should place your code here."
   ;; Open the message buffer
   (spacemacs/set-leader-keys "bm" 'sulami/open-message-buffer)
 
+  ;; Open my note file
+  (spacemacs/set-leader-keys "ft"
+    (lambda ()
+      (interactive)
+      (sulami/pop-file "~/Documents/TODO.org")))
+
   ;; Proper in-/decrease
   (define-key evil-normal-state-map (kbd "C-1")
     'evil-numbers/dec-at-pt)
