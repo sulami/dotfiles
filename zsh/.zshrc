@@ -46,7 +46,7 @@ fi
 # fi
 
 # Activate syntax highlighting
-# source "$HOME/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "$HOME/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # Source my custom functions
 for file in $HOME/dotfiles/zsh/functions/*.sh;
