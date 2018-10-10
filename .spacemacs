@@ -78,7 +78,8 @@ values."
      ;; swift
      syntax-checking
      ;; vagrant
-     ;; yaml
+     ;; version-control
+     yaml
      )
 
    ;; List of additional packages that will be installed without being

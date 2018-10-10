@@ -5,12 +5,9 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("7d2e7a9a7944fbde74be3e133fc607f59fdbbab798d13bd7a05e38d35ce0db8d" "62c81ae32320ceff5228edceeaa6895c029cc8f43c8c98a023f91b5b339d633f" default)))
+    ("88c9585322c217e9ef986050092c010c11f31d39db62e7adc369e5b4376266d4" default)))
  '(evil-want-C-i-jump t)
- '(evil-want-Y-yank-to-eol t))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+ '(evil-want-Y-yank-to-eol t)
+ '(package-selected-packages
+   (quote
+    (yaml-mode highlight yapfify web-mode toc-org pyvenv org-mime org-download ob-restclient live-py-mode intero htmlize helm-projectile helm-company google-translate flyspell-correct-helm flyspell-correct expand-region evil-matchit evil-escape evil-args dumb-jump dockerfile-mode clj-refactor cider sesman clojure-mode ace-window anaconda-mode company iedit smartparens evil flycheck haskell-mode yasnippet multiple-cursors avy markdown-mode alert projectile org-plus-contrib magit git-commit ghub treepy graphql hydra pythonic helm helm-core gruvbox-theme xterm-color ws-butler with-editor winum which-key web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package undo-tree tagedit spaceline slim-mode shell-pop scss-mode sass-mode restclient-helm restart-emacs rainbow-delimiters queue pytest pyenv-mode py-isort pug-mode popwin pip-requirements persp-mode pcre2el paradox orgit org-projectile org-present org-pomodoro open-junk-file ob-http ob-elixir nginx-mode multi-term move-text mmm-mode markdown-toc magit-popup magit-gh-pulls macrostep lorem-ipsum log4e livid-mode linum-relative link-hint json-mode js2-refactor js-doc inflections indent-guide hy-mode hungry-delete hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-pydoc helm-mode-manager helm-make helm-hoogle helm-gitignore helm-flx helm-descbinds helm-css-scss helm-c-yasnippet helm-ag haskell-snippets goto-chg golden-ratio gnuplot gntp github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gist gh-md fuzzy flycheck-pos-tip flycheck-mix flycheck-haskell flycheck-credo fill-column-indicator eyebrowse exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-surround evil-search-highlight-persist evil-numbers evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-ediff evil-commentary evil-cleverparens evil-anzu eshell-z eshell-prompt-extras esh-help elisp-slime-nav edn diminish define-word cython-mode company-web company-tern company-statistics company-restclient company-ghci company-ghc company-cabal company-anaconda column-enforce-mode coffee-mode cmm-mode clojure-snippets clean-aindent-mode cider-eval-sexp-fu auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile apib-mode alchemist aggressive-indent adaptive-wrap ace-link))))
