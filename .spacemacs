@@ -650,15 +650,12 @@ you should place your code here."
       (set-char-table-range composition-function-table (car char-regexp)
                             `([,(cdr char-regexp) 0 font-shape-gstring]))))
 
-  ;; Only enable ligatures for these modes, as they tend to hang emacs for
-  ;; various funky modes.
-  (dolist (mode-hook '(clojure-mode-hook
-                       elixir-mode-hook
-                       emacs-lisp-mode-hook
-                       haskell-mode-hook
-                       ;; python-mode-hook
-                       web-mode-hook))
-    (add-hook mode-hook 'auto-composition-mode))
+  (defun file-composition-mode ()
+    "Enable `auto-composition-mode` if the buffer is visiting a file."
+    (if (buffer-file-name)
+      (auto-composition-mode)))
+  (dolist (mode-hook '(text-mode-hook prog-mode-hook))
+    (add-hook mode-hook 'file-composition-mode))
 
   ;; Bring up the atomic-chrome editing server
   ;; (require 'atomic-chrome)
