@@ -1,18 +1,28 @@
-set pgp_decode_command="gpg %?p?--passphrase-fd 0? --no-verbose --batch --output - %f"
-set pgp_verify_command="gpg --no-verbose --batch --output - --verify %s %f"
-set pgp_decrypt_command="gpg --passphrase-fd 0 --no-verbose --batch --output - %f"
-set pgp_sign_command="gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --detach-sign --textmode %?a?-u %a? %f"
-set pgp_clearsign_command="gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --textmode --clearsign %?a?-u %a? %f"
-set pgp_encrypt_only_command="pgpewrap gpg --batch --quiet --no-verbose --output - --encrypt --textmode --armor --always-trust --encrypt-to 0xA1418106 -- -r %r -- %f"
-set pgp_encrypt_sign_command="pgpewrap gpg --passphrase-fd 0 --batch --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust --encrypt-to 0xA1418106 -- -r %r -- %f"
-set pgp_import_command="gpg --no-verbose --import -v %f"
+set pgp_default_key="0xA1418106"
+set pgp_use_gpg_agent
+
+set pgp_decode_command="gpg --status-fd=2 %?p?--passphrase-fd 0? --no-verbose --quiet --batch --output - %f"
+set pgp_verify_command="gpg --status-fd=2 --no-verbose --quiet --batch --output - --verify %s %f"
+set pgp_decrypt_command="gpg --status-fd=2 %?p?--passphrase-fd 0? --no-verbose --quiet --batch --output - %f"
+# set pgp_sign_command="gpg-2comp --comment '' --no-verbose --batch --output - %?p?--passphrase-fd 0? --armor --detach-sign --textmode %?a?-u %a? %f"
+set pgp_sign_command="gpg --no-verbose --batch --quiet --output - %?p?--passphrase-fd 0? --armor --detach-sign --textmode %?a?-u %a? %f"
+set pgp_clearsign_command="gpg-2comp --comment '' --no-verbose --batch --output - %?p?--passphrase-fd 0? --armor --textmode --clearsign %?a?-u %a? %f"
+set pgp_clearsign_command="gpg --no-verbose --batch --quiet --output - %?p?--passphrase-fd 0? --armor --textmode --clearsign %?a?-u %a? %f"
+set pgp_encrypt_only_command="pgpewrap gpg-2comp -v --batch --output - --encrypt --textmode --armor --always-trust -- -r %r -- %f"
+set pgp_encrypt_only_command="pgpewrap gpg --batch --quiet --no-verbose --output - --encrypt --textmode --armor --always-trust -- -r %r -- %f"
+set pgp_encrypt_sign_command="pgpewrap gpg-2comp %?p?--passphrase-fd 0? -v --batch --output - --encrypt --sign %?a?-u %a? --armor --always-trust -- -r %r -- %f"
+set pgp_encrypt_sign_command="pgpewrap gpg %?p?--passphrase-fd 0? --batch --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust -- -r %r -- %f"
+set pgp_import_command="gpg --no-verbose --import %f"
 set pgp_export_command="gpg --no-verbose --export --armor %r"
-set pgp_verify_key_command="gpg --no-verbose --batch --fingerprint --check-sigs %r"
-set pgp_list_pubring_command="gpg --no-verbose --batch --with-colons --list-keys %r"
-set pgp_list_secring_command="gpg --no-verbose --batch --with-colons --list-secret-keys %r"
+set pgp_verify_key_command="gpg --verbose --batch --fingerprint --check-sigs %r"
+# set pgp_list_pubring_command="gpg --no-verbose --batch --quiet --with-colons --with-fingerprint --with-fingerprint --list-keys %r"
+set pgp_list_pubring_command="gpg --list-keys --with-colons --with-fingerprint"
+set pgp_list_secring_command="gpg --list-keys --with-colons --with-fingerprint"
+# set pgp_list_secring_command="gpg --no-verbose --batch --quiet --with-colons --with-fingerprint --with-fingerprint --list-secret-keys %r"
+# set pgp_getkeys_command="pkspxycwrap %r"
+
 
 # specify the uid to use when encrypting/signing
-set pgp_sign_as=0xA1418106
 
 # this set the number of seconds to keep in memory the passpharse used to encrypt/sign
 # the more the less secure it will be
@@ -39,4 +49,4 @@ set crypt_replysignencrypted=yes
 
 # automatically verify the sign of a message when opened
 set crypt_verify_sig=yes
-
+set crypt_use_gpgme=no

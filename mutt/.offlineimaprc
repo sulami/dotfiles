@@ -1,8 +1,10 @@
+# vim: ft=cfg
+
 [general]
 accounts = Fastmail
 maxsyncaccounts = 1
 pythonfile = ~/dotfiles/mutt/offlineimap.py
-ui = quiet
+# ui = quiet
 
 [Account Fastmail]
 localrepository = Fastmail-local
@@ -21,31 +23,57 @@ type = IMAP
 remotehost = imap.fastmail.com
 remoteuser = sulami@peerwire.org
 remotepasseval = passwd("fastmail")
-cert_fingerprint = 995d415e2a1000e0574efb30fd01b16709d218ed
+cert_fingerprint = edd7ee170863afd2bbfbede31a6f9354c99ee0b0
 maxconnnections = 1
 ssl = yes
 nametrans = lambda folder: re.sub('INBOX', 'Inbox', folder)
 
-[Account Ablescent]
-localrepository = Ablescent-local
-remoterepository = Ablescent-remote
+[Account Gmail]
+localrepository = Gmail-local
+remoterepository = Gmail-remote
 # status_backend = sqlite
 # autorefresh = 5
 # quick = 5
 
-[Repository Ablescent-local]
+[Repository Gmail-local]
 type = Maildir
-localfolders = ~/mail_ablescent
-nametrans = lambda folder: re.sub('Inbox', 'INBOX', re.sub('Sent', 'Sent Items', folder))
+localfolders = ~/mail
+nametrans = lambda folder: re.sub('Inbox', 'INBOX', folder)
 
-[Repository Ablescent-remote]
-type = IMAP
-remotehost = outlook.office365.com
-remoteuser = robin.schroer@myfampal.com
-remotepasseval = passwd("ablescent")
-cert_fingerprint = a0476c0c30347a7a159a9ff50bcdbc84bdd3d166
-maxconnnections = 1
+[Repository Gmail-remote]
+type = Gmail
+remoteuser = robin.schroer@ostmodern.co.uk
+remotepasseval = passwd("gmail")
+cert_fingerprint = bd94418c64d9b143493a9868571251a33c52bf86
+maxconnnections = 2
 ssl = yes
-nametrans = lambda folder: re.sub('INBOX', 'Inbox', re.sub('Sent Items', 'Sent', folder))
+nametrans = lambda folder: re.sub('INBOX', 'Ostmodern Inbox', re.sub('[Google Mail]/All Mail', 'Ostmodern Archive', folder))
+folderfilter = lambda folder: folder in ['INBOX',
+                                         '[Google Mail]/Sent Mail',
+                                         '[Google Mail]/Drafts',
+                                         '[Google Mail]/All Mail',
+                                         '[Google Mail]/Trash']
 
-# vim: ft=cfg
+
+# [Account Ablescent]
+# localrepository = Ablescent-local
+# remoterepository = Ablescent-remote
+# status_backend = sqlite
+# autorefresh = 5
+# quick = 5
+
+# [Repository Ablescent-local]
+# type = Maildir
+# localfolders = ~/mail_ablescent
+# nametrans = lambda folder: re.sub('Inbox', 'INBOX', re.sub('Sent', 'Sent Items', folder))
+
+# [Repository Ablescent-remote]
+# type = IMAP
+# remotehost = outlook.office365.com
+# remoteuser = robin.schroer@myfampal.com
+# remotepasseval = passwd("ablescent")
+# cert_fingerprint = a0476c0c30347a7a159a9ff50bcdbc84bdd3d166
+# maxconnnections = 1
+# ssl = yes
+# nametrans = lambda folder: re.sub('INBOX', 'Inbox', re.sub('Sent Items', 'Sent', folder))
+
