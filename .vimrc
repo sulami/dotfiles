@@ -59,7 +59,7 @@ set ruler
 set visualbell
 set encoding=utf-8
 set t_Co=256
-colorscheme solarized
+colorscheme pablo
 
 " Jump to last cursor position unless it's invalid or in an event handler
 autocmd BufReadPost *
