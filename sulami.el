@@ -141,6 +141,13 @@ clipboard."
 
 ;; INTERNALS
 
+(defun sulami/setup-frame (&optional frame)
+  "Set some options depending on whether we're in GUI or terminal mode."
+  (interactive)
+  (set-frame-parameter frame 'menu-bar-lines
+                       (if (display-graphic-p frame)
+                           1 0)))
+
 (defun sulami/isearch-nohighlight ()
   "Remove search highlights if not in the isearch minor mode."
   (interactive)

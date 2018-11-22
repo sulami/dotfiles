@@ -449,6 +449,8 @@ you should place your code here."
   ;; Disable current line highlight
   (spacemacs/toggle-highlight-current-line-globally-off)
 
+  (add-hook 'after-make-frame-functions 'sulami/setup-frame)
+
   ;; Custom session save directory
   (defun emacs-session-filename (session-id)
     "Construct a filename to save the session in based on SESSION-ID. Customized
