@@ -4,6 +4,8 @@
 
 (defvar sulami/file-name-handler-alist file-name-handler-alist)
 (setq file-name-handler-alist nil)
+;; Customisations live in a separate file
+(setq custom-file "~/dotfiles/custom.el")
 
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
@@ -426,8 +428,6 @@ you should place your code here."
 
   ;; Set all kinds of stuff
   (setq
-   ;; Customisations live in a separate file
-   custom-file "~/dotfiles/custom.el"
    ;; Hide the clutter
    backup-directory-alist '("/tmp/emacs-backup")
    ;; No trash
