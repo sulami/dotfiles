@@ -9,8 +9,8 @@ compinit
 source ~/dotfiles/zsh/sandboxd
 
 if which emacsclient > /dev/null 2>&1; then
-    export EDITOR="emacsclient -a emacs -c -nw"
-    export VISUAL="emacsclient -a emacs -c"
+    export EDITOR="emacsclient -c -nw"
+    export VISUAL="emacsclient -c"
 elif which nvim > /dev/null 2>&1; then
     export EDITOR=nvim
     export VISUAL=nvim
