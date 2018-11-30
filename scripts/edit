@@ -1,4 +1,0 @@
-#!/bin/zsh
-
-emacsclient -a emacs -c $1
-

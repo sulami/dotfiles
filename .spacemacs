@@ -56,6 +56,7 @@ values."
      git
      github
      ;; go
+     gnus
      haskell
      helm
      html
@@ -364,6 +365,9 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
 
+  (require 'ido)
+  (ido-mode -1)
+
   ;; Load these for gruvbox at startup
   (mapc 'load (file-expand-wildcards `"~/.emacs.d/elpa/dash-*/dash.el"))
   (mapc 'load (file-expand-wildcards "~/.emacs.d/elpa/autothemer-*/autothemer.el"))
@@ -377,6 +381,13 @@ before packages are loaded. If you are unsure, you should try in setting them in
    tramp-ssh-controlmaster-options
     "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o Control-Persist=no"
    )
+
+  (setq gnus-select-method
+        '(nnmaildir ""
+                    (directory "/Users/robinschroer/mail")
+                    (get-new-mail nil)))
+  (setq mail-sources nil)
+  (setq gnus-secondary-select-methods nil)
 
   ;; Kill buffers when exiting emacsclient
   (add-hook 'server-done-hook 'kill-buffer)
@@ -578,8 +589,8 @@ you should place your code here."
   (define-key helm-map (kbd "C-w") 'evil-delete-backward-word)
 
   ;; Fix C-w when swooping
-  (require 'helm-swoop)
-  (define-key helm-swoop-map (kbd "C-w") 'evil-delete-backward-word)
+  ;; (require 'helm-swoop)
+  ;; (define-key helm-swoop-map (kbd "C-w") 'evil-delete-backward-word)
 
   ;; Add dropdown completion for common lisp
   ;; (slime-setup '(slime-company))

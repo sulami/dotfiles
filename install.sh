@@ -23,15 +23,9 @@ defaults write com.apple.TextEdit RichText -int 0
 chflags nohidden ~/Library
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew install zsh tmux vim python3 wget watch jq
-brew tap caskroom/fonts
-brew cask install iterm2 font-inconsolata bettertouchtool firefox dropbox skype steam vlc telegram-desktop mumble libreoffice dwihn0r-keepassx google-chrome
 
 git clone ssh://pi@peerwire.dtdns.net:/srv/git/dotfiles.git ~/dotfiles
-cd ~/dotfiles
-make zsh vim tmux git
-cd ~
 
 chsh -s /bin/zsh $(whoami)
 
-pip3 install bpython pytest virtualenvwrapper django
+pip3 install bpython pytest 
