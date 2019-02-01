@@ -454,6 +454,9 @@ you should place your code here."
    org-journal-dir "~/Documents/org-journal/"
    ;; Store junk files in /tmp
    open-junk-file-directory "/tmp/emacs-junk/%Y-%m-%d-%H%M%S."
+   ;; Use aspell for spelling, with British spelling
+   ispell-program-name "aspell"
+   ispell-extra-args (quote ("--sug-mode=ultra" "--lang=en_GB-ise"))
    ;; Disable non-stack GHC in Flycheck
    flycheck-disabled-checkers '(haskell-ghc))
 
