@@ -1,24 +1,24 @@
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-abolish'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-sleuth'
-Plugin 'shougo/vimproc.vim'
-Plugin 'jreybert/vimagit'
-Plugin 'shougo/neocomplete.vim'
-Plugin 'w0rp/ale'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'eagletmt/neco-ghc'
-Plugin 'nbouscal/vim-stylish-haskell'
-call vundle#end()
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
+"Plugin 'VundleVim/Vundle.vim'
+"Plugin 'altercation/vim-colors-solarized'
+"Plugin 'ctrlpvim/ctrlp.vim'
+"Plugin 'tpope/vim-commentary'
+"Plugin 'tpope/vim-repeat'
+"Plugin 'tpope/vim-surround'
+"Plugin 'tpope/vim-abolish'
+"Plugin 'tpope/vim-fugitive'
+"Plugin 'tpope/vim-sleuth'
+"Plugin 'shougo/vimproc.vim'
+"Plugin 'jreybert/vimagit'
+"Plugin 'shougo/neocomplete.vim'
+"Plugin 'w0rp/ale'
+"Plugin 'davidhalter/jedi-vim'
+"Plugin 'eagletmt/neco-ghc'
+"Plugin 'nbouscal/vim-stylish-haskell'
+"call vundle#end()
 
 filetype plugin on          " enable filetype detection
 syntax on                   " highlight syntax
