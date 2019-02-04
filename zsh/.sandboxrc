@@ -42,5 +42,5 @@ sandbox_init_nvm(){
 
 sandbox_hook nvm node
 sandbox_hook nvm nodemon
-sandbox_hook nvm lein
+#sandbox_hook nvm lein
 sandbox_hook nvm cljs
