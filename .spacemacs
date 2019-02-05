@@ -474,8 +474,8 @@ you should place your code here."
     (let ((basename (concat "session." session-id)))
       (concat "/tmp/.emacs-" basename)))
 
-  ;; Fix evil keybindings in CIDER
-  (evil-collection-init 'cider)
+  ;; Fix evil keybindings in various modes
+  (evil-collection-init)
 
   ;; Jump "in" using ctrl-i
   (custom-set-variables '(evil-want-C-i-jump t))
