@@ -17,7 +17,7 @@
                         ["change" "version" "leiningen.release/bump-version" "release"]
                         ["vcs" "commit"]
                         ["vcs" "tag"]
-                        ["deploy"]
+                        ["deploy"]]
         :deploy-repositories [["releases" {:url "https://repo.clojars.org"
                                            :creds :gpg}]]
         :signing {:gpg-key "0xA1418106"}}}
