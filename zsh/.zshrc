@@ -6,7 +6,7 @@ zstyle :compinstall filename '$HOME/.zshrc'
 autoload -Uz compinit
 compinit
 
-source ~/dotfiles/zsh/sandboxd
+source ~/.zsh/sandboxd
 
 if which emacsclient > /dev/null 2>&1; then
     export EDITOR="emacsclient -c -nw"
@@ -46,10 +46,10 @@ fi
 # fi
 
 # Activate syntax highlighting
-source "$HOME/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "$HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # Source my custom functions
-for file in $HOME/dotfiles/zsh/functions/*.sh;
+for file in $HOME/.zsh/functions/*.sh;
 {
     source $file
 }

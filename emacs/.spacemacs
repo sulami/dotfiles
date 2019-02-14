@@ -94,6 +94,7 @@ values."
                                       ;; company-c-headers
                                       ;; darktooth-theme
                                       evil-collection
+                                      ;; forge
                                       ;; jbeans-theme
                                       ;; jinja2-mode
                                       json-mode

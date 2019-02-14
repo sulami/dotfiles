@@ -3,7 +3,7 @@
 [general]
 accounts = Fastmail
 maxsyncaccounts = 1
-pythonfile = ~/dotfiles/mutt/offlineimap.py
+pythonfile = ~/.mutt/offlineimap.py
 # ui = quiet
 
 [Account Fastmail]
@@ -76,4 +76,3 @@ folderfilter = lambda folder: folder in ['INBOX',
 # maxconnnections = 1
 # ssl = yes
 # nametrans = lambda folder: re.sub('INBOX', 'Inbox', re.sub('Sent Items', 'Sent', folder))
-

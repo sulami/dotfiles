@@ -48,7 +48,7 @@
 	stap = stash apply
 	stpp = stash pop
 	stdr = stash drop
-	start = !git init && git commit --allow-empty -m \"Initial commit\"
+	start = !git init && git commit --allow-empty -m \"In the beginning there was darkness\"
 	cleanup = !git br --merged | sed -E 's:^\\* |  ::' | grep -v '^\\(develop\\|master\\|HEAD\\)$' | xargs git br -D
 	cleanup-remote = !git br -r --merged | sed -E 's:^\\* |  ::' | sed 's:^origin/::' | grep -v '^\\(develop\\|master\\|HEAD\\)' | xargs git push origin --delete
 [commit]

@@ -1,9 +1,9 @@
-# source 'gpg -dq $HOME/dotfiles/mutt/mutt-gmail.gpg |'
-source 'gpg -dq $HOME/dotfiles/mutt/mutt-fastmail.gpg |'
-# source 'gpg -dq $HOME/dotfiles/mutt/mutt-ablescent.gpg |'
+# source 'gpg -dq $HOME/.mutt/mutt-gmail.gpg |'
+source 'gpg -dq $HOME/.mutt/mutt-fastmail.gpg |'
+# source 'gpg -dq $HOME/.mutt/mutt-ablescent.gpg |'
 
-source $HOME/dotfiles/mutt/mutt-gpg
-source $HOME/dotfiles/mutt/colors.muttrc
+source $HOME/.mutt/mutt-gpg
+source $HOME/.mutt/colors.muttrc
 
 alternates "(sulami@peerwire\.org)|(sulamiification@gmail\.com)"
 
@@ -19,7 +19,7 @@ set sleep_time      = 0
 set send_charset    = "utf-8"
 set sort            = threads
 set sort_aux        = date-sent
-set signature       = "$HOME/dotfiles/mutt/.signature"
+set signature       = "$HOME/.mutt/.signature"
 set smtp_url        = smtp://sulami@peerwire.org:$my_pw_fastmail@smtp.fastmail.com:587/
 #set smtp_url        = smtp://sulamiification:$my_pw_gmail@smtp.gmail.com:587/
 

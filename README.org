@@ -1,0 +1,13 @@
+* Dotfiles
+Home sweet home.
+
+** Installation
+#+BEGIN_SRC bash
+stow -v emacs
+stow -v git
+stow -v leiningen
+stow -v mutt
+stow -v tmux
+stow -v vim
+stow -v zsh
+#+END_SRC
