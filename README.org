@@ -2,7 +2,7 @@
 Home sweet home.
 
 ** Installation
-Clone this repository to ~~/dotfiles~ with ~git clone --recurse-submodules
+Clone this repository to ~$HOME/dotfiles~ with ~git clone --recurse-submodules
 https://github.com/sulami/dotfiles~. Then run:
 
 #+BEGIN_SRC bash
