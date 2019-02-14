@@ -2,6 +2,9 @@
 Home sweet home.
 
 ** Installation
+Clone this repository to ~~/dotfiles~ with ~git clone --recurse-submodules
+https://github.com/sulami/dotfiles~. Then run:
+
 #+BEGIN_SRC bash
 stow -v emacs
 stow -v git
@@ -11,3 +14,8 @@ stow -v tmux
 stow -v vim
 stow -v zsh
 #+END_SRC
+
+** Notes
+The ~install.sh~ script and the ~configs~ directory aren't ~stow~-able. ~install.sh~ is
+a whole system-setup for macOS (and includes cloning this repo), and ~configs~ is
+just a mixed bag of, well, configs.
