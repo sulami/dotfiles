@@ -5,7 +5,7 @@
 (defvar sulami/file-name-handler-alist file-name-handler-alist)
 (setq file-name-handler-alist nil)
 ;; Customisations live in a separate file
-(setq custom-file "~/dotfiles/custom.el")
+(setq custom-file "~/.emacs/custom.el")
 
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
@@ -437,7 +437,7 @@ you should place your code here."
   ;;       (load-theme 'gruvbox-light-soft)
   ;;     (load-theme 'gruvbox-dark-soft)))
 
-  (add-to-list 'load-path "~/dotfiles/")
+  (add-to-list 'load-path "~/.emacs/")
   (load "sulami")
 
   ;; Set all kinds of stuff
