@@ -128,6 +128,7 @@ alias snd_restart="pulseaudio -k && pulseaudio --start && xfce4-panel -r && \
     killall xfce4-volumed-pulse && xfce4-volumed-pulse"
 alias tspv='tmux split-window -v -c "$PWD"'
 alias tsph='tmux split-window -h -c "$PWD"'
+alias dc='docker-compose'
 
 # KEYBINDS
 typeset -A key
