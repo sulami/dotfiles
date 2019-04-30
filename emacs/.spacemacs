@@ -379,7 +379,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
    ;; I know I'm setting environment variables in my .zshrc
    exec-path-from-shell-check-startup-files nil
    ;; Default frame size
-   default-frame-alist '((width . 130) (height . 80) (scroll-bar-mode . nil))
+   default-frame-alist '((width . 80) (height . 25) (scroll-bar-mode . nil))
    ;; Prevent enormous lag during startup
    tramp-ssh-controlmaster-options
     "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o Control-Persist=no"
