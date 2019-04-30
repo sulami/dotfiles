@@ -49,7 +49,7 @@ values."
      ;; cscope
      ;; django
      docker
-     elixir
+     ;; elixir
      emacs-lisp
      evil-cleverparens
      evil-commentary
@@ -63,13 +63,13 @@ values."
      javascript
      ;; latex
      markdown
-     nginx
+     ;; nginx
      org
      (python :variables
              python-enable-yapf-format-on-save t
              python-test-runner 'pytest)
      ;; racket
-     restclient
+     ;; restclient
      ;; ruby
      ;; scheme
      (shell :variables
