@@ -119,6 +119,7 @@ values."
                                     flx-ido
                                     ido-vertical-mode
                                     leuven-theme
+                                    magit-gh-pulls
                                     magit-gitflow
                                     neotree
                                     org-bullets
