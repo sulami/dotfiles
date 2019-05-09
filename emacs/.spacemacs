@@ -55,7 +55,7 @@ values."
      evil-commentary
      git
      github
-     ;; go
+     go
      gnus
      haskell
      helm
