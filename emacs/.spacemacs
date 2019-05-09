@@ -192,8 +192,8 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(gruvbox-dark-soft
-                         gruvbox-light-soft)
+   dotspacemacs-themes '(gruvbox-light-soft
+                         gruvbox-dark-soft)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
@@ -380,7 +380,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
    ;; I know I'm setting environment variables in my .zshrc
    exec-path-from-shell-check-startup-files nil
    ;; Default frame size
-   default-frame-alist '((width . 80) (height . 25) (scroll-bar-mode . nil))
+   default-frame-alist '((width . 100) (height . 40) (scroll-bar-mode . nil))
    ;; Prevent enormous lag during startup
    tramp-ssh-controlmaster-options
     "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o Control-Persist=no"
