@@ -498,6 +498,9 @@ you should place your code here."
   (spacemacs/toggle-evil-cleverparens-on)
   (add-hook 'smartparens-enabled-hook 'evil-cleverparens-mode)
 
+  ;; Kill project and layout
+  (spacemacs/set-leader-keys "pK" 'sulami/kill-project-layout)
+
   ;; Quick window layout
   (spacemacs/set-leader-keys "w4" 'sulami/layout-triple-fib)
 

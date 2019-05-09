@@ -45,6 +45,12 @@ clipboard."
   (insert (current-kill 0))
   (save-buffer))
 
+(defun sulami/kill-project-layout ()
+  "Kill the current project and then the layout."
+  (interactive)
+  (projectile-kill-buffers)
+  (spacemacs/layouts-ts-kill))
+
 ;; ORG
 
 (defun sulami/org-mode-format ()
