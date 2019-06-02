@@ -89,8 +89,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(apib-mode
-                                      ;; atomic-chrome
+   dotspacemacs-additional-packages '(;; atomic-chrome
                                       ;; company-c-headers
                                       ;; darktooth-theme
                                       evil-collection
@@ -230,10 +229,10 @@ values."
    dotspacemacs-remap-Y-to-y$ t
    ;; If non-nil, the shift mappings `<' and `>' retain visual state if used
    ;; there. (default t)
+   ;; (default nil)
    dotspacemacs-retain-visual-state-on-shift t
    ;; If non-nil, J and K move lines up and down when in visual mode.
-   ;; (default nil)
-   dotspacemacs-visual-line-move-text nil
+   dotspacemacs-visual-line-move-text t
    ;; If non nil, inverse the meaning of `g' in `:substitute' Evil ex-command.
    ;; (default nil)
    dotspacemacs-ex-substitute-global nil
@@ -356,7 +355,7 @@ values."
    ;; `trailing' to delete only the whitespace at end of lines, `changed'to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup 'trailing
+   dotspacemacs-whitespace-cleanup 'changed
    ))
 
 (defun dotspacemacs/user-init ()
