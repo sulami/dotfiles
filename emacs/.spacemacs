@@ -611,6 +611,9 @@ you should place your code here."
   ;;   (interactive)
   ;;   nil)
 
+  ;; Fix magit blame
+  (spacemacs/set-leader-keys "gb" 'magit-blame-addition)
+
   ;; Fix indentation when using o/O in Haskell
   (defun haskell-evil-open-above ()
     (interactive)
