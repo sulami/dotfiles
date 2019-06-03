@@ -81,34 +81,34 @@ clipboard."
   (cl-flet
       ((get-test-name
         ()
-        (setq reset-point (point)
-              def-start (search-backward "def "))
-        (forward-char (length "def "))
-        (setq name-start (point)
-              name-end (- (search-forward "(") 1)
-              rv (buffer-substring name-start name-end))
-        (goto-char reset-point)
-        rv)
+        (let* ((reset-point (point))
+               (def-start (search-backward "def "))
+               (_ (forward-char (length "def ")))
+               (name-start (point))
+               (name-end (- (search-forward "(") 1))
+               (rv (buffer-substring name-start name-end)))
+          (goto-char reset-point)
+          rv))
 
       (get-class-name
         ()
-        (setq reset-point (point)
-              def-start (search-backward "class " nil t))
-        (if def-start
-            (progn
-              (forward-char (length "class "))
-              (setq name-start (point)
-                    name-end (- (search-forward "(") 1)
-                    rv (buffer-substring name-start name-end))
-              (goto-char reset-point)
-              (concatenate 'string rv "::"))
-          ""))
+        (let ((reset-point (point))
+              (def-start (search-backward "class " nil t)))
+          (if def-start
+              (progn
+                (forward-char (length "class "))
+                (let* ((name-start (point))
+                       (name-end (- (search-forward "(") 1))
+                       (rv (buffer-substring name-start name-end)))
+                  (goto-char reset-point)
+                  (concatenate 'string rv "::")))
+            "")))
 
       (get-test-path
         ()
-        (setq splitted-path (split-string buffer-file-name "/")
-              magic-headoff (nthcdr 5 splitted-path)
-              joined (mapconcat 'identity magic-headoff "/"))))
+        (let* ((splitted-path (split-string buffer-file-name "/"))
+               (magic-headoff (nthcdr 5 splitted-path)))
+          (joined (mapconcat 'identity magic-headoff "/")))))
 
     (concatenate 'string (get-test-path) "::" (get-class-name) (get-test-name))))
 
