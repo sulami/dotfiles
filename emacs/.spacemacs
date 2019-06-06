@@ -460,6 +460,8 @@ you should place your code here."
    ;; Use aspell for spelling, with British spelling
    ispell-program-name "aspell"
    ispell-extra-args (quote ("--sug-mode=ultra" "--lang=en_GB-ise"))
+   ;; Custom yasnippet directory
+   yas-snippet-dirs (cons "~/.emacs/snippets/" yas-snippet-dirs)
    ;; Disable non-stack GHC in Flycheck
    flycheck-disabled-checkers '(haskell-ghc))
 
