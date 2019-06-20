@@ -92,6 +92,7 @@ values."
    dotspacemacs-additional-packages '(;; atomic-chrome
                                       ;; company-c-headers
                                       ;; darktooth-theme
+                                      doom-themes
                                       evil-collection
                                       ;; forge
                                       ;; jbeans-theme
@@ -116,6 +117,7 @@ values."
                                     evil-tutor
                                     fancy-battery
                                     flx-ido
+                                    google-translate
                                     ido-vertical-mode
                                     leuven-theme
                                     magit-gh-pulls
@@ -191,8 +193,9 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(gruvbox-light-soft
-                         gruvbox-dark-soft)
+   dotspacemacs-themes '(doom-one
+                         gruvbox
+                         gruvbox-light-soft)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
@@ -466,7 +469,9 @@ you should place your code here."
    ;; Custom yasnippet directory
    yas-snippet-dirs (cons "~/.emacs/snippets/" yas-snippet-dirs)
    ;; Disable non-stack GHC in Flycheck
-   flycheck-disabled-checkers '(haskell-ghc))
+   flycheck-disabled-checkers '(haskell-ghc)
+   ;; Indent JS(ON) by 2 spaces
+   js2-basic-offset 2)
 
   ;; Disable current line highlight
   (spacemacs/toggle-highlight-current-line-globally-off)
@@ -541,7 +546,7 @@ you should place your code here."
   (define-key evil-normal-state-map (kbd "s-n") 'avy-goto-word-or-subword-1)
 
   ;; De-prettify org-mode
-  (add-hook 'org-mode-hook 'sulami/org-mode-format)
+  ;; (add-hook 'org-mode-hook 'sulami/org-mode-format)
 
   ;; Enable org-indent-mode
   (add-hook 'org-mode-hook 'org-indent-mode)
