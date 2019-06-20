@@ -442,6 +442,9 @@ you should place your code here."
 
   ;; Set all kinds of stuff
   (setq
+   ;; Undo the modifier key swapping from macports emacs
+   mac-command-modifier 'super
+   mac-option-modifier 'meta
    ;; Hide the clutter
    backup-directory-alist '("/tmp/emacs-backup")
    ;; No trash
@@ -651,41 +654,7 @@ you should place your code here."
   ;; (spacemacs/set-leader-keys "b S" 'sulami/sprunge-buffer)
 
   ;; Ligature support, source: https://github.com/tonsky/FiraCode/wiki/Emacs-instructions
-  (global-auto-composition-mode 0)
-  (let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
-                 (35 . ".\\(?:###\\|##\\|_(\\|[#(?[_{]\\)")
-                 (36 . ".\\(?:>\\)")
-                 (37 . ".\\(?:\\(?:%%\\)\\|%\\)")
-                 (38 . ".\\(?:\\(?:&&\\)\\|&\\)")
-                 (42 . ".\\(?:\\(?:\\*\\*/\\)\\|\\(?:\\*[*/]\\)\\|[*/>]\\)")
-                 (43 . ".\\(?:\\(?:\\+\\+\\)\\|[+>]\\)")
-                 (45 . ".\\(?:\\(?:-[>-]\\|<<\\|>>\\)\\|[<>}~-]\\)")
-                 (46 . ".\\(?:\\(?:\\.[.<]\\)\\|[.=-]\\)")
-                 (47 . ".\\(?:\\(?:\\*\\*\\|//\\|==\\)\\|[*/=>]\\)")
-                 (48 . ".\\(?:x[a-zA-Z]\\)")
-                 (58 . ".\\(?:::\\|[:=]\\)")
-                 (59 . ".\\(?:;;\\|;\\)")
-                 (60 . ".\\(?:\\(?:!--\\)\\|\\(?:~~\\|->\\|\\$>\\|\\*>\\|\\+>\\|--\\|<[<=-]\\|=[<=>]\\||>\\)\\|[*$+~/<=>|-]\\)")
-                 (61 . ".\\(?:\\(?:/=\\|:=\\|<<\\|=[=>]\\|>>\\)\\|[<=>~]\\)")
-                 (62 . ".\\(?:\\(?:=>\\|>[=>-]\\)\\|[=>-]\\)")
-                 (63 . ".\\(?:\\(\\?\\?\\)\\|[:=?]\\)")
-                 (91 . ".\\(?:]\\)")
-                 (92 . ".\\(?:\\(?:\\\\\\\\\\)\\|\\\\\\)")
-                 (94 . ".\\(?:=\\)")
-                 (119 . ".\\(?:ww\\)")
-                 (123 . ".\\(?:-\\)")
-                 (124 . ".\\(?:\\(?:|[=|]\\)\\|[=>|]\\)")
-                 (126 . ".\\(?:~>\\|~~\\|[>=@~-]\\)"))))
-    (dolist (char-regexp alist)
-      (set-char-table-range composition-function-table (car char-regexp)
-                            `([,(cdr char-regexp) 0 font-shape-gstring]))))
-
-  (defun file-composition-mode ()
-    "Enable `auto-composition-mode` if the buffer is visiting a file."
-    (if (buffer-file-name)
-      (auto-composition-mode)))
-  (dolist (mode-hook '(text-mode-hook prog-mode-hook))
-    (add-hook mode-hook 'file-composition-mode))
+  (mac-auto-operator-composition-mode)
 
   ;; Bring up the atomic-chrome editing server
   ;; (require 'atomic-chrome)
