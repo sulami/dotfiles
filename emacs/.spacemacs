@@ -69,7 +69,7 @@ values."
              python-enable-yapf-format-on-save t
              python-test-runner 'pytest)
      ;; racket
-     ;; restclient
+     restclient
      ;; ruby
      ;; scheme
      (shell :variables
@@ -78,6 +78,7 @@ values."
             shell-protect-eshell-prompt t)
      (spell-checking :variables
                      spell-checking-enable-by-default nil)
+     sql
      ;; swift
      syntax-checking
      ;; vagrant
