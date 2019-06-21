@@ -474,6 +474,9 @@ you should place your code here."
    ;; Indent JS(ON) by 2 spaces
    js2-basic-offset 2)
 
+  ;; Fix paste with external tools (like Alfred)
+  (define-key global-map (kbd "s-v") 'yank)
+
   ;; Disable current line highlight
   (spacemacs/toggle-highlight-current-line-globally-off)
 
