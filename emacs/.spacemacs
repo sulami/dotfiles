@@ -481,6 +481,9 @@ you should place your code here."
 
   (add-hook 'after-make-frame-functions 'sulami/setup-frame)
 
+  ;; Ask before killing everything
+  (spacemacs/set-leader-keys "q q" 'spacemacs/save-buffers-kill-emacs)
+
   ;; Custom session save directory
   (defun emacs-session-filename (session-id)
     "Construct a filename to save the session in based on SESSION-ID. Customized
