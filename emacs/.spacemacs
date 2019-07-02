@@ -124,7 +124,6 @@ values."
                                     magit-gh-pulls
                                     magit-gitflow
                                     neotree
-                                    org-bullets
                                     smeargle)
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
