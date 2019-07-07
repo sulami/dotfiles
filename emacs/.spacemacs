@@ -513,6 +513,9 @@ you should place your code here."
   (spacemacs/toggle-evil-cleverparens-on)
   (add-hook 'smartparens-enabled-hook 'evil-cleverparens-mode)
 
+  ;; Init spaceline
+  (sulami/compile-spaceline)
+
   ;; Kill project and layout
   (spacemacs/set-leader-keys "pK" 'sulami/kill-project-layout)
 

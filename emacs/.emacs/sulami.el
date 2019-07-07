@@ -51,6 +51,32 @@ clipboard."
   (projectile-kill-buffers)
   (spacemacs/layouts-ts-kill))
 
+(defun sulami/compile-spaceline ()
+  "Inits my custom spaceline."
+  (spaceline-compile
+    '(((window-number)
+       :fallback evil-state
+       :face highlight-face
+       :priority 100)
+      (anzu :priority 95)
+      auto-compile
+      ((buffer-modified buffer-size buffer-id remote-host)
+       :priority 98)
+      (version-control :when active
+                       :priority 78)
+      (major-mode :priority 79)
+      (process :when active)
+      ((flycheck-error flycheck-warning flycheck-info)
+       :when active
+       :priority 89))
+    '((python-pyvenv :fallback python-pyenv)
+      (selection-info :priority 95)
+      (global :when active)
+      ((line-column
+        buffer-position)
+       :priority 99
+       :separator " | "))))
+
 ;; ORG
 
 (defun sulami/org-mode-format ()
