@@ -554,6 +554,10 @@ you should place your code here."
   ;; De-prettify org-mode
   ;; (add-hook 'org-mode-hook 'sulami/org-mode-format)
 
+  ;; Enable so-long mode
+  (when (require 'so-long nil :noerror)
+    (so-long-enable))
+
   ;; Enable org-indent-mode
   (add-hook 'org-mode-hook 'org-indent-mode)
 
