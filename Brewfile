@@ -17,6 +17,7 @@ brew "docker-compose", link: false
 brew "git"
 brew "gnu-sed"
 brew "gnupg"
+brew "grpcurl"
 brew "haskell-stack"
 brew "htop"
 brew "iftop"
