@@ -22,19 +22,7 @@ defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
 defaults write com.apple.TextEdit RichText -int 0
 chflags nohidden ~/Library
 
-git clone ssh://git@github.com:sulami/dotfiles.git ~/dotfiles
-
-cd ~/dotfiles
-
-stow -v emacs
-stow -v git
-stow -v leiningen
-stow -v mutt
-stow -v tmux
-stow -v vim
-stow -v zsh
-
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+which brew || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew bundle
 
 chsh -s /bin/zsh $(whoami)
