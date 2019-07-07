@@ -6,7 +6,7 @@ zstyle :compinstall filename '$HOME/.zshrc'
 autoload -Uz compinit
 compinit
 
-source ~/.zsh/sandboxd
+# source ~/.zsh/sandboxd
 
 if which emacsclient > /dev/null 2>&1; then
     export EDITOR="emacsclient -c -nw"
