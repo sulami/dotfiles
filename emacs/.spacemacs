@@ -456,11 +456,13 @@ you should place your code here."
    mouse-wheel-progressive-speed nil
    mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil))
    ;; Un-fancy the modeline
-   powerline-default-separator nil
+   powerline-default-separator 'slant
    ;; Hide markup in org-mode
    org-hide-emphasis-markers t
    ;; Store org-journal journals in iCloud
    org-journal-dir "~/Documents/org-journal/"
+   ;; All notes are agenda files
+   org-agenda-files '("~/Documents/Notes/")
    ;; Store junk files in /tmp
    open-junk-file-directory "/tmp/emacs-junk/%Y-%m-%d-%H%M%S."
    ;; Use aspell for spelling, with British spelling
