@@ -456,7 +456,7 @@ you should place your code here."
    mouse-wheel-progressive-speed nil
    mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil))
    ;; Un-fancy the modeline
-   powerline-default-separator 'slant
+   powerline-default-separator nil
    ;; Hide markup in org-mode
    org-hide-emphasis-markers t
    ;; Store org-journal journals in iCloud
