@@ -614,6 +614,7 @@ you should place your code here."
   ;; Use vim-style keys for autocompletion
   (define-key company-active-map (kbd "C-n") 'company-select-next)
   (define-key company-active-map (kbd "C-p") 'company-select-previous)
+  (define-key company-active-map (kbd "RET") 'company-complete-selection)
 
   ;; Fix C-w when autocompleting
   (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
