@@ -372,8 +372,11 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
 
-  ;; This is needed for evil-collection to work properly later on
-  (setq evil-want-keybinding nil))
+  ;; Load up my init
+  (setq is-spacemacs t)
+  (add-to-list 'load-path "~/.emacs/")
+  (load "sulami")
+  (sulami/init))
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -384,7 +387,4 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
   ;; Load up my config
-  (setq is-spacemacs t)
-  (add-to-list 'load-path "~/.emacs/")
-  (load "sulami")
   (sulami/config))

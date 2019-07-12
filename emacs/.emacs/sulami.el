@@ -231,6 +231,30 @@ To be called from the outside using `emacsclient -a '' -e
 
 ;; CONFIG
 
+(defun sulami/init ()
+  "Early config that needs to happen before stuff loads."
+  (setq
+   ;; Undo the modifier key swapping from macports emacs
+   mac-command-modifier 'super
+   mac-option-modifier 'meta
+   ;; This is needed for evil-collection to work properly later on
+   evil-want-keybinding nil
+   ;; I know I'm setting environment variables in my .zshrc
+   exec-path-from-shell-check-startup-files nil
+   ;; Window navigation using super instead of <Leader>
+   winum-keymap (let ((map (make-sparse-keymap)))
+                  (define-key map (kbd "s-0") 'winum-select-window-0-or-10)
+                  (define-key map (kbd "s-1") 'winum-select-window-1)
+                  (define-key map (kbd "s-2") 'winum-select-window-2)
+                  (define-key map (kbd "s-3") 'winum-select-window-3)
+                  (define-key map (kbd "s-4") 'winum-select-window-4)
+                  (define-key map (kbd "s-5") 'winum-select-window-5)
+                  (define-key map (kbd "s-6") 'winum-select-window-6)
+                  (define-key map (kbd "s-7") 'winum-select-window-7)
+                  (define-key map (kbd "s-8") 'winum-select-window-8)
+                  (define-key map (kbd "s-9") 'winum-select-window-9)
+                  map)))
+
 (defun sulami/config ()
   "Setup all my personal config."
 
@@ -242,10 +266,15 @@ To be called from the outside using `emacsclient -a '' -e
   (mapc 'load (file-expand-wildcards "~/.emacs.d/elpa/autothemer-*/autothemer.el"))
 
   (setq
-   ;; I know I'm setting environment variables in my .zshrc
-   exec-path-from-shell-check-startup-files nil
-   ;; Default frame size
-   default-frame-alist '((width . 100) (height . 40) (scroll-bar-mode . nil))
+   ;; Default frame size & titlebar style
+   default-frame-alist '((width . 100)
+                         (height . 40)
+                         (scroll-bar-mode . nil)
+                         (ns-transparent-titlebar . t)
+                         (ns-appearance . dark))
+   ;; Unfancy the titlebar
+   ns-use-proxy-icon nil
+   frame-title-format "Emacs"
    ;; Prevent enormous lag during startup
    tramp-ssh-controlmaster-options
    "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o Control-Persist=no"
@@ -269,21 +298,6 @@ To be called from the outside using `emacsclient -a '' -e
                (lambda (arg)
                  (menu-bar-no-scroll-bar)))
 
-  ;; Window navigation using super instead of <Leader>
-  (setq winum-keymap
-        (let ((map (make-sparse-keymap)))
-          (define-key map (kbd "s-0") 'winum-select-window-0-or-10)
-          (define-key map (kbd "s-1") 'winum-select-window-1)
-          (define-key map (kbd "s-2") 'winum-select-window-2)
-          (define-key map (kbd "s-3") 'winum-select-window-3)
-          (define-key map (kbd "s-4") 'winum-select-window-4)
-          (define-key map (kbd "s-5") 'winum-select-window-5)
-          (define-key map (kbd "s-6") 'winum-select-window-6)
-          (define-key map (kbd "s-7") 'winum-select-window-7)
-          (define-key map (kbd "s-8") 'winum-select-window-8)
-          (define-key map (kbd "s-9") 'winum-select-window-9)
-          map))
-
   ;; Load my default starting desktop if started without file input
   ;; (when (not (buffer-file-name))
   ;;   (desktop-read))
@@ -296,9 +310,6 @@ To be called from the outside using `emacsclient -a '' -e
 
   ;; Set all kinds of stuff
   (setq
-   ;; Undo the modifier key swapping from macports emacs
-   mac-command-modifier 'super
-   mac-option-modifier 'meta
    ;; Hide the clutter
    backup-directory-alist '("/tmp/emacs-backup")
    ;; No trash
