@@ -240,8 +240,6 @@ To be called from the outside using `emacsclient -a '' -e
   (mapc 'load (file-expand-wildcards "~/.emacs.d/elpa/autothemer-*/autothemer.el"))
 
   (setq
-   ;; This is needed for evil-collection to work properly later on
-   evil-want-keybinding nil
    ;; I know I'm setting environment variables in my .zshrc
    exec-path-from-shell-check-startup-files nil
    ;; Default frame size
