@@ -478,6 +478,9 @@ you should place your code here."
    ;; Indent JS(ON) by 2 spaces
    js2-basic-offset 2)
 
+  ;; :nowrap by default
+  (set-default 'truncate-lines t)
+
   ;; Fix paste with external tools (like Alfred)
   (define-key global-map (kbd "s-v") 'yank)
 
