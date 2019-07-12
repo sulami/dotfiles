@@ -66,9 +66,11 @@ clipboard."
   "Start up my modeline."
   (require 'doom-modeline)
   (doom-modeline-mode 1)
-  (setq doom-modeline-buffer-file-name-style 'relative-to-project)
-  (setq doom-modeline-buffer-encoding nil)
-  (setq doom-modeline-persp-name nil))
+  (setq
+   doom-modeline-buffer-file-name-style 'relative-to-project
+   doom-modeline-buffer-encoding nil
+   doom-modeline-persp-name nil
+   doom-modeline-vcs-max-length 36))
 
 ;; ORG
 
