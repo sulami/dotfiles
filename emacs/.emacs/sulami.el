@@ -51,31 +51,13 @@ clipboard."
   (projectile-kill-buffers)
   (spacemacs/layouts-ts-kill))
 
-(defun sulami/compile-spaceline ()
-  "Inits my custom spaceline."
-  (spaceline-compile
-    '(((window-number)
-       :fallback evil-state
-       :face highlight-face
-       :priority 100)
-      (anzu :priority 95)
-      auto-compile
-      ((buffer-modified buffer-size buffer-id remote-host)
-       :priority 98)
-      (version-control :when active
-                       :priority 78)
-      (major-mode :priority 79)
-      (process :when active)
-      ((flycheck-error flycheck-warning flycheck-info)
-       :when active
-       :priority 89))
-    '((python-pyvenv :fallback python-pyenv)
-      (selection-info :priority 95)
-      (global :when active)
-      ((line-column
-        buffer-position)
-       :priority 99
-       :separator " | "))))
+(defun sulami/init-modeline ()
+  "Start up my modeline."
+  (require 'doom-modeline)
+  (doom-modeline-mode 1)
+  (setq doom-modeline-buffer-file-name-style 'relative-to-project)
+  (setq doom-modeline-buffer-encoding nil)
+  (setq doom-modeline-persp-name nil))
 
 ;; ORG
 
