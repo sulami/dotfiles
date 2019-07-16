@@ -43,7 +43,7 @@ values."
      ;; ----------------------------------------------------------------
      (auto-completion :variables
                       auto-completion-enable-sort-by-usage t
-                      auto-completion-enable-help-tooltip t
+                      auto-completion-enable-help-tooltip nil
                       auto-completion-enable-snippets-in-popup t
                       auto-completion-private-snippets-directory "~/.emacs/snippets")
      ;; c-c++
