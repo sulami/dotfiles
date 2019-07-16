@@ -106,6 +106,7 @@ values."
                                       gruvbox-theme
                                       ;; magithub
                                       ;; slime-company
+                                      spaceline
                                       ;; tramp-term
                                       )
    ;; A list of packages that cannot be updated.
