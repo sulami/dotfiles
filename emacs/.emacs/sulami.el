@@ -399,7 +399,7 @@ To be called from the outside using `emacsclient -a '' -e
   (add-hook 'python-mode-hook (lambda () (sulami/flycheck-disable-for-large-files 2000)))
 
   ;; Clear highlight with return
-  (define-key evil-normal-state-map (kbd "RET") 'sulami/isearch-nohighlight)
+  (define-key evil-normal-state-map (kbd "<ret>") 'sulami/isearch-nohighlight)
 
   ;; If inside a project, pop shells in the project root
   (define-key global-map (kbd "s-'") 'sulami/project-root-shell)
@@ -416,7 +416,7 @@ To be called from the outside using `emacsclient -a '' -e
                 (cons "M-b" 'term-send-backward-word)
                 (cons "C-c C-j" 'term-line-mode)
                 (cons "C-c C-k" 'term-char-mode)
-                (cons "M-DEL" 'term-send-backward-kill-word)
+                (cons "<M-delete>" 'term-send-backward-kill-word)
                 (cons "M-d" 'term-send-forward-kill-word)
                 (cons "<C-left>" 'term-send-backward-word)
                 (cons "<C-right>" 'term-send-forward-word)
@@ -425,15 +425,19 @@ To be called from the outside using `emacsclient -a '' -e
                 (cons "M-y" 'term-send-raw-meta)
                 (cons "C-y" 'term-send-raw))))
 
-  (require 'company)
-
-  ;; Use vim-style keys for autocompletion
-  (define-key company-active-map (kbd "C-n") 'company-select-next)
-  (define-key company-active-map (kbd "C-p") 'company-select-previous)
-  (define-key company-active-map (kbd "RET") 'company-complete-selection)
-
-  ;; Fix C-w when autocompleting
-  (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
+  (with-eval-after-load 'company
+    ;; Use vim-style keys for autocompletion
+    (define-key evil-insert-state-map (kbd "C-n") nil)
+    (define-key evil-insert-state-map (kbd "C-p") nil)
+    (define-key company-active-map (kbd "C-n") 'company-select-next)
+    (define-key company-active-map (kbd "C-p") 'company-select-previous)
+    (define-key company-active-map (kbd "<S-tab>") nil)
+    (define-key company-active-map (kbd "<tab>") 'company-complete-selection)
+    ;; Fuzzy completion for cider
+    (add-hook 'cider-repl-mode-hook #'cider-company-enable-fuzzy-completion)
+    (add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion)
+    ;; Fix C-w when autocompleting
+    (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word))
 
   ;; Set helm to fuzzy matching and fix c-w
   (require 'helm)
