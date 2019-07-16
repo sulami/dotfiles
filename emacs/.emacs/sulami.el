@@ -498,14 +498,19 @@ To be called from the outside using `emacsclient -a '' -e
 
   (setq file-name-handler-alist sulami/file-name-handler-alist)
 
+  ;; Ask before killing everything
+  (add-hook 'kill-emacs-query-functions
+            (lambda () (y-or-n-p "Do you really want to exit Emacs? "))
+            'append)
+
   ;; Spacemacs-specific config
   (when (sulami/is-spacemacs)
 
     ;; Disable current line highlight
     (spacemacs/toggle-highlight-current-line-globally-off)
 
-    ;; Ask before killing everything
-    (spacemacs/set-leader-keys "q q" 'spacemacs/save-buffers-kill-emacs)
+    ;; Actually ask before killing everything
+    (spacemacs/set-leader-keys "qq" 'spacemacs/save-buffers-kill-emacs)
 
     ;; Kill project and layout
     (spacemacs/set-leader-keys "pK" 'sulami/kill-project-layout)
