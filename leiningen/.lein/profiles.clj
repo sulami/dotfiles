@@ -1,9 +1,9 @@
-{:user {:plugins [[cider/cider-nrepl "0.20.0"]
+{:user {:plugins [[cider/cider-nrepl "0.21.1"]
                   [io.aviso/pretty "0.1.37"]
                   [lein-kibit "0.1.6"]]
         :dependencies [[org.clojars.sulami/prelude "0.2.0"]
                        [org.clojure/test.check "0.9.0"]
-                       [cider/cider-nrepl "0.20.0"]
+                       [cider/cider-nrepl "0.21.1"]
                        [io.aviso/pretty "0.1.37"]
                        [com.bhauman/rebel-readline "0.1.4"]
                        [criterium "0.4.4"]]
@@ -17,7 +17,7 @@
                         ["change" "version" "leiningen.release/bump-version" "release"]
                         ["vcs" "commit"]
                         ["vcs" "tag"]
-                        ["deploy"]]
+                        ["deploy" "clojars"]]
         :deploy-repositories [["releases" {:url "https://repo.clojars.org"
                                            :creds :gpg}]]
         :signing {:gpg-key "0xA1418106"}}}
