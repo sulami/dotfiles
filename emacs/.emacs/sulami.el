@@ -399,7 +399,7 @@ To be called from the outside using `emacsclient -a '' -e
   (add-hook 'python-mode-hook (lambda () (sulami/flycheck-disable-for-large-files 2000)))
 
   ;; Clear highlight with return
-  (define-key evil-normal-state-map (kbd "<ret>") 'sulami/isearch-nohighlight)
+  (define-key evil-normal-state-map (kbd "RET") 'sulami/isearch-nohighlight)
 
   ;; If inside a project, pop shells in the project root
   (define-key global-map (kbd "s-'") 'sulami/project-root-shell)
