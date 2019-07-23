@@ -503,6 +503,12 @@ To be called from the outside using `emacsclient -a '' -e
             (lambda () (y-or-n-p "Do you really want to exit Emacs? "))
             'append)
 
+  ;; Eshell config
+  (eshell/alias "g" "git $*")
+  (eshell/alias "dc" "docker-compose $*")
+  (eshell/alias "ffw" "find-file-other-window $1")
+  (eshell/alias "fff" "find-file-other-frame $1")
+
   ;; Spacemacs-specific config
   (when (sulami/is-spacemacs)
 
