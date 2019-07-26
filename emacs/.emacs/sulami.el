@@ -330,6 +330,8 @@ To be called from the outside using `emacsclient -a '' -e
    ;; Use aspell for spelling, with British spelling
    ispell-program-name "aspell"
    ispell-extra-args (quote ("--sug-mode=ultra" "--lang=en_GB-ise"))
+   ;; Eshell aliases
+   eshell-alias-file "~/.emacs/aliases"
    ;; Custom yasnippet directory
    yas-snippet-dirs (cons "~/.emacs/snippets/" yas-snippet-dirs)
    ;; Disable non-stack GHC in Flycheck
@@ -502,12 +504,6 @@ To be called from the outside using `emacsclient -a '' -e
   (add-hook 'kill-emacs-query-functions
             (lambda () (y-or-n-p "Do you really want to exit Emacs? "))
             'append)
-
-  ;; Eshell config
-  (eshell/alias "g" "git $*")
-  (eshell/alias "dc" "docker-compose $*")
-  (eshell/alias "ffw" "find-file-other-window $1")
-  (eshell/alias "fff" "find-file-other-frame $1")
 
   ;; Spacemacs-specific config
   (when (sulami/is-spacemacs)
