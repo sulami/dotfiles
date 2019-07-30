@@ -166,6 +166,43 @@ clipboard."
   (interactive)
   (kill-new (sulami/python-get-current-test)))
 
+;; CLOJURE
+
+(defun sulami/clojure-thread-last ()
+  "Unwraps an onion of functions into a thread-last macro.
+
+Place point on the outer-most opening parenthesis to start:
+|(f (g (h x))) => (->> x (h) (g) (f))"
+  (interactive)
+  (let ((start (point))
+        (depth 0))
+
+    (while (let ((pos (point)))
+             (sp-down-sexp)
+             (not (= pos (point))))
+      (setq depth (+ 1 depth)))
+
+    (goto-char start)
+    (sp-down-sexp)
+
+    (--dotimes depth
+      (sp-forward-barf-sexp)
+      (left-char)
+      (sp-kill-sexp)
+      (right-char))
+
+    (re-search-forward "\n" nil t)
+    (left-char)
+
+    (--each (-take depth kill-ring)
+      (insert (format " %s" it)))
+
+    (goto-char start)
+    (insert "(->>) ")
+    (goto-char (+ 1 start))
+    (sp-forward-slurp-sexp (+ 1 depth))
+    (goto-char start)))
+
 ;; INTERNALS
 
 (defun sulami/setup-frame (&optional frame)
@@ -549,6 +586,9 @@ To be called from the outside using `emacsclient -a '' -e
     ;; Shortcuts to run single Python tests
     (spacemacs/set-leader-keys-for-major-mode 'python-mode "tc" 'sulami/python-copy-current-test)
     (spacemacs/set-leader-keys-for-major-mode 'python-mode "tr" 'sulami/python-run-current-test)
+
+    ;; Shortcuts to refactor Clojure
+    (spacemacs/set-leader-keys-for-major-mode 'clojure-mode "rtl" 'sulami/clojure-thread-last)
 
     ;; Shortcut to open the test buffer
     (spacemacs/set-leader-keys "bt" 'sulami/open-test-buffer)
