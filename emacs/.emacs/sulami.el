@@ -8,6 +8,13 @@
       (message "Not running in Spacemacs, skipping"))
     rv))
 
+(defun sulami/is-macos ()
+  "Returns t if running on MacOS."
+  (let ((rv (boundp 'mac-font-panel-mode)))
+    (unless rv
+      (message "Not running on MacOS, skipping"))
+    rv))
+
 (defun sulami/layout-triple-fib ()
   "Open one window on the left and stacked on the right."
   (interactive)
@@ -541,6 +548,14 @@ To be called from the outside using `emacsclient -a '' -e
   (add-hook 'kill-emacs-query-functions
             (lambda () (y-or-n-p "Do you really want to exit Emacs? "))
             'append)
+
+  ;; MacOS-specific config
+  (when (sulami/is-macos)
+    ;; Fullscreen with ⌘-RET
+    (define-key global-map (kbd "<s-return>") 'toggle-frame-fullscreen)
+
+    ;; Open the Mac font panel
+    (define-key global-map (kbd "s-t") 'mac-font-panel-mode))
 
   ;; Spacemacs-specific config
   (when (sulami/is-spacemacs)
