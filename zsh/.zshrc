@@ -34,6 +34,7 @@ export XDG_CONFIG_HOME=$HOME
 #export GIT_PROMPT_EXECUTABLE="haskell"
 # Virtualenvwrapper support if available
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+export LEIN_FAST_TRAMPOLINE=y
 export WORKON_HOME=$HOME/.virtualenvs
 if which virtualenvwrapper_lazy.sh > /dev/null 2>&1; then
     source "$(which virtualenvwrapper_lazy.sh)"
