@@ -74,6 +74,7 @@ values."
      ;; racket
      restclient
      ;; ruby
+     rust
      ;; scheme
      (shell :variables
             shell-default-shell 'eshell
