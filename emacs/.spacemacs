@@ -125,11 +125,13 @@ values."
                                     fancy-battery
                                     flx-ido
                                     google-translate
+                                    highlight-parentheses
                                     ido-vertical-mode
                                     leuven-theme
                                     magit-gh-pulls
                                     magit-gitflow
                                     neotree
+                                    rainbow-delimiters
                                     smeargle)
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
