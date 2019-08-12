@@ -273,6 +273,24 @@ To be called from the outside using `emacsclient -a '' -e
     (erase-buffer)
     (spacemacs/frame-killer)))
 
+(defun sulami/projectile-replace ()
+  "Search and replace in the whole project."
+  (interactive)
+  (dired (projectile-project-root) "-alR")
+  (let ((file-regex (read-string "Select files with regex: "))
+        (from (read-string "Search for: "))
+        (to (read-string "Replace with: ")))
+    (dired-mark-files-regexp file-regex)
+    (dired-do-find-regexp-and-replace from to))
+  (projectile-save-project-buffers)
+  (with-current-buffer "*xref*"
+    (kill-buffer-and-window))
+  ; last open file
+  (delete-window)
+  ; cleanup dired
+  (dired-unmark-all-marks)
+  (kill-buffer))
+
 ;; CONFIG
 
 (defun sulami/init ()
