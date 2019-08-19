@@ -387,6 +387,8 @@ To be called from the outside using `emacsclient -a '' -e
    org-journal-dir "~/Documents/org-journal/"
    ;; All notes are agenda files
    org-agenda-files '("~/Documents/Notes/")
+   ;; Archived subtrees go into a shared archive file
+   org-archive-location "archive.org::"
    ;; Store junk files in /tmp
    open-junk-file-directory "/tmp/emacs-junk/%Y-%m-%d-%H%M%S."
    ;; Use aspell for spelling, with British spelling
