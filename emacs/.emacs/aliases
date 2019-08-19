@@ -1,4 +1,7 @@
+alias ff find-file $1
 alias fff find-file-other-frame $1
 alias ffw find-file-other-window $1
 alias dc docker-compose $*
 alias g git $*
+alias ll ls -l $*
+alias la ls -la $*
