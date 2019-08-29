@@ -1,0 +1,406 @@
+* Emacs
+** Better defaults
+*** Discard the custom file
+~custom.el~ is hidden state, all config is declarative.
+#+BEGIN_SRC emacs-lisp
+(setq custom-file (make-temp-file ""))
+#+END_SRC
+*** Hide Backups
+This way we lose everything backups if the whole machine crashes, but
+we don't accidentally leave backups around.
+#+BEGIN_SRC emacs-lisp
+(setq backup-directory-alist '(("." . "/tmp/emacs-backup")))
+#+END_SRC
+*** No trash
+#+BEGIN_SRC emacs-lisp
+(setq delete-by-moving-to-trash nil)
+#+END_SRC
+*** Remember recent files
+#+BEGIN_SRC emacs-lisp
+(when (require 'recentf)
+  (setq recentf-max-saved-items 255))
+#+END_SRC
+*** Be quiet on startup
+#+BEGIN_SRC emacs-lisp
+(setq inhibit-splash-screen t
+      inhibit-startup-screen t
+      inhibit-startup-message t)
+#+END_SRC
+*** Start the scratch buffer empty
+#+BEGIN_SRC emacs-lisp
+(setq initial-scratch-message "")
+#+END_SRC
+*** Spaces > tabs
+#+BEGIN_SRC emacs-lisp
+(setq-default indent-tabs-mode nil)
+#+END_SRC
+*** Show trailing whitespace
+#+BEGIN_SRC emacs-lisp
+(setq show-traling-whitespace t)
+#+END_SRC
+*** Highlight matching parens
+#+BEGIN_SRC emacs-lisp
+(show-paren-mode 1)
+#+END_SRC
+*** Scrolling
+These settings were lifted off the internet™ and make scrolling with pointing
+devices feel more reasonable.
+#+BEGIN_SRC emacs-lisp
+(setq mouse-wheel-progressive-speed nil
+      mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
+#+END_SRC
+*** No line wrapping
+At least as a default, much nicer when resizing windows.
+#+BEGIN_SRC emacs-lisp
+(set-default 'truncate-lines t)
+(setq line-move-visual nil)
+#+END_SRC
+*** UTF-8
+#+BEGIN_SRC emacs-lisp
+(setq-default buffer-file-coding-system 'utf-8)
+(setenv "LANG" "en_be.UTF-8")
+(prefer-coding-system 'utf-8)
+#+END_SRC
+*** Spelling
+Use ~aspell~ with British English.
+#+BEGIN_SRC emacs-lisp
+(setq ispell-program-name "aspell"
+      ispell-extra-args (quote ("--sug-mode=ultra" "--lang=en_GB-ise")))
+#+END_SRC
+*** Y/N for yes or no questions
+#+BEGIN_SRC emacs-lisp
+(fset 'yes-or-no-p 'y-or-n-p)
+#+END_SRC
+*** Ask before exiting
+#+BEGIN_SRC emacs-lisp
+(setq confirm-kill-emacs 'yes-or-no-p)
+#+END_SRC
+*** Frame title
+#+BEGIN_SRC emacs-lisp
+(setq frame-title-format
+      (list :eval '(let ((p-name (projectile-project-name)))
+		     (if (string-equal p-name "-")
+			 "Emacs"
+		       (concat "Emacs - " p-name)))))
+#+END_SRC
+*** Disable all the GUI
+#+BEGIN_SRC emacs-lisp
+(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+(if (fboundp 'tooltip-mode) (tooltip-mode -1))
+#+END_SRC
+** macOS
+Everything in here relates to macOS in some way.
+*** Swap the modifier keys
+The MacPorts build I'm using swaps the modifiers from what I'm used to, so I'm
+swapping them back.
+#+BEGIN_SRC emacs-lisp
+(setq mac-command-modifier 'super
+      mac-option-modifier 'meta)
+#+END_SRC
+*** Fix paste
+Especially Alfred likes to paste with ~⌘-v~, so that needs to work.
+#+BEGIN_SRC emacs-lisp
+(define-key global-map (kbd "s-v") 'yank)
+#+END_SRC
+*** Fullscreen with ⌘-Return
+#+BEGIN_SRC emacs-lisp
+(define-key global-map (kbd "<s-return>") 'toggle-frame-fullscreen)
+#+END_SRC
+*** Mac font panel
+#+BEGIN_SRC emacs-lisp
+(define-key global-map (kbd "s-t") 'mac-font-panel-mode)
+#+END_SRC
+** Package management
+*** use-package
+#+BEGIN_SRC emacs-lisp
+(setq straight-use-package-by-default t)
+#+END_SRC
+** Appearance
+*** Font
+Set the font to Fira Code and enable ligatures.
+#+BEGIN_SRC emacs-lisp
+(let ((font "Fira Code 14"))
+  (set-face-attribute 'default nil :font font)
+  (set-frame-font font nil t))
+;(mac-auto-operator-composition-mode)
+#+END_SRC
+*** Theme
+#+BEGIN_SRC emacs-lisp
+(use-package doom-themes
+  :defer t
+  :init
+  (setq doom-themes-enable-bold t
+        doom-themes-enable-italic t)
+  ;(load-theme 'doom-one t)
+  :config
+  (doom-themes-org-config))
+#+END_SRC
+*** All the icons
+#+BEGIN_SRC emacs-lisp
+(use-package all-the-icons
+  :defer t)
+#+END_SRC
+*** Modeline
+#+BEGIN_SRC emacs-lisp
+;(use-package doom-modeline
+; :defer t
+; :config
+; (setq doom-modeline-buffer-file-name-style 'relative-to-project
+; doom-modeline-buffer-encoding nil
+; doom-modeline-persp-name nil
+; doom-modeline-vcs-max-length 36)
+; :init
+; )
+#+END_SRC
+** Org mode
+*** TODO Plain source code blocks
+Need to disable ligatures in org-mode because it breaks the asterisks
+in org-indent-mode. Almost nothing here works yet.
+#+BEGIN_SRC emacs-lisp
+;(require 'color)
+;(set-face-attribute 'org-block nil :background
+                    ;(color-darken-name
+                     ;(face-attribute 'default :background) 0))
+;(defface org-block-begin-line
+  ;'((t (:underline "#A7A6AA" :foreground "#008ED1" :background "#EAEAFF")))
+  ;"Face used for the line delimiting the begin of source blocks.")
+;
+;(defface org-block-background
+  ;'((t (:background "#FFFFEA")))
+  ;"Face used for the source block background.")
+;
+;(defface org-block-end-line
+  ;'((t (:overline "#A7A6AA" :foreground "#008ED1" :background "#EAEAFF")))
+  ;"Face used for the line delimiting the end of source blocks.")
+
+(setq org-src-preserve-indentation nil)
+(setq org-edit-src-content-indentation 0)
+
+;(add-hook 'org-mode-hook
+;	  (lambda ()
+;	    (mac-auto-operator-composition-mode -1)))
+#+END_SRC
+*** Show emphasis markers
+#+BEGIN_SRC emacs-lisp
+(setq org-hide-emphasis-markers nil)
+#+END_SRC
+*** Indent-mode
+#+BEGIN_SRC emacs-lisp
+(setq org-indent-indentation-per-level 1)
+(add-hook 'org-mode-hook 'org-indent-mode)
+#+END_SRC
+*** Agenda
+
+*** Calendar
+Weeks start on Monday.
+#+BEGIN_SRC emacs-lisp
+(setq calendar-week-start-day 1)
+#+END_SRC
+** Eshell
+*** Aliases
+#+BEGIN_SRC emacs-lisp
+(setq eshell-alias-file "~/.emacs/aliases")
+#+END_SRC
+** Evil
+#+BEGIN_SRC emacs-lisp
+(use-package evil
+  :init
+  (setq evil-want-C-u-scroll t)
+  (setq evil-want-keybinding nil)
+  :config
+  (evil-mode))
+
+(use-package evil-collection
+  :config
+  (evil-collection-init))
+#+END_SRC
+** Hydra
+#+BEGIN_SRC emacs-lisp
+(use-package hydra
+  :after (evil)
+  :bind
+  (:map evil-normal-state-map
+   ("SPC t" . hydra-toggle-mode/body))
+  :config
+  (defhydra hydra-toggle-mode (:color blue)
+    "Toggle"
+    ("c" flycheck-mode "FlyCheck")
+    ("h" auto-highlight-symbol-mode "Highlight symbol")
+    ("l" toggle-truncate-lines "Line wrapping")
+    ("n" linum-mode "Line numbers")
+    ("s" flyspell-mode "FlySpell")
+    ("q" nil "Quit")))
+#+END_SRC
+** Ivy/Counsel/Swiper
+#+BEGIN_SRC emacs-lisp
+(use-package ivy
+  :init
+  (setq ivy-count-format "(%d/%d) " 
+        ivy-display-style 'fancy
+        ivy-initial-inputs-alist nil)
+  :config
+  (ivy-mode 1)
+  :bind
+  ("M-x" . counsel-M-x)
+  ("C-x C-f" . counsel-find-file))
+
+(use-package counsel
+  :init
+  (setq counsel-yank-pop-separator
+    (concat "\n\n"
+      (concat (apply 'concat (make-list 50 "---")) "\n")))
+  :bind
+  (("M-y" . counsel-yank-pop)
+   ("C-h f" . counsel-describe-function)
+   ("C-h v" . counsel-describe-variable)
+   :map org-mode-map
+   ("C-c  C-j" . counsel-org-goto)
+   ("C-c  C-q" . counsel-org-tag))
+  :config
+  (use-package smex))
+
+(use-package swiper
+  :custom
+  (counsel-grep-base-command
+   "rg -i -M 120 --no-heading --line-number --color never %s %s")
+  :bind
+  (("C-s" . swiper)))
+#+END_SRC
+*** TODO enable fuzzy matches
+** Company
+#+BEGIN_SRC emacs-lisp
+(use-package company
+  :config
+  (define-key evil-insert-state-map (kbd "C-n") nil)
+  (define-key evil-insert-state-map (kbd "C-p") nil)
+  (define-key company-active-map (kbd "C-n") 'company-select-next)
+  (define-key company-active-map (kbd "C-p") 'company-select-previous)
+  (define-key company-active-map (kbd "<S-tab>") nil)
+  (define-key company-active-map (kbd "<tab>") 'company-complete-selection)
+  (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
+  :hook
+  (after-init . global-company-mode))
+#+END_SRC
+** Yasnippet
+#+BEGIN_SRC emacs-lisp
+(use-package yasnippet
+  :config
+  (setq yas-snippet-dirs (cons "/Users/sulami/.emacs/snippets/" yas-snippet-dirs))
+  :hook
+  (after-init . yas-global-mode))
+
+(use-package yasnippet-snippets)
+#+END_SRC
+** Parentheses
+#+BEGIN_SRC emacs-lisp
+(use-package smartparens
+  :hook (prog-mode . smartparens-global-mode))
+  
+(use-package evil-cleverparens
+  :hook (prog-mode . evil-cleverparens-mode))
+#+END_SRC
+** Highlight symbol
+I only enable this every now and then.
+#+BEGIN_SRC emacs-lisp
+(use-package auto-highlight-symbol
+  :defer t)
+#+END_SRC
+** Projectile
+#+BEGIN_SRC emacs-lisp
+(use-package projectile
+  :init
+  (setq projectile-completion-system 'ivy)
+  :hook
+  (after-init . projectile-global-mode))
+
+(use-package counsel-projectile
+  :after (projectile)
+  :bind
+  ("C-c p s r" . counsel-projectile-rg)
+  (:map projectile-mode-map
+        ("C-c p p" . projectile-persp-switch-project)
+	("C-c p f" . projectile-find-file))
+  :init
+  (counsel-projectile-mode))
+#+END_SRC
+** Perspective
+#+BEGIN_SRC emacs-lisp
+(use-package perspective
+  :hook
+  (after-init . persp-mode))
+
+(use-package persp-projectile
+  :after
+  (perspective))
+#+END_SRC
+** Winum
+#+BEGIN_SRC emacs-lisp
+(use-package winum
+  ;; TODO keybinds
+  :hook
+  (after-init . winum-mode))
+#+END_SRC
+** Ripgrep
+#+BEGIN_SRC emacs-lisp
+(use-package rg)
+#+END_SRC
+** Magit
+#+BEGIN_SRC emacs-lisp
+(use-package magit
+  :defer t
+  :init
+  (setq magit-completing-read-function 'ivy-completing-read)
+  :bind
+  ;; TODO bind magit-status
+  )
+#+END_SRC
+** Flycheck
+#+BEGIN_SRC emacs-lisp
+(use-package flycheck
+;  :hook prog-mode
+)
+#+END_SRC
+** LSP
+#+BEGIN_SRC emacs-lisp
+(use-package lsp-mode
+  :disabled)
+(use-package lsp-company
+  :disabled)
+#+END_SRC
+** Clojure
+#+BEGIN_SRC emacs-lisp
+(use-package flycheck-clj-kondo
+  :hook clojure-mode)
+(use-package clojure-mode
+  :defer t
+  :config
+  (require 'flycheck-clj-kondo))
+(use-package cider
+  :defer t)
+#+END_SRC
+** Markdown
+#+BEGIN_SRC emacs-lisp
+(use-package markdown-mode
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)))
+#+END_SRC
+** YAML
+#+BEGIN_SRC emacs-lisp
+(use-package yaml-mode)
+#+END_SRC
+** Terminate
+This is here for benchmarking startup time.
+#+BEGIN_SRC emacs-lisp
+(message "Successfully loaded config")
+;(kill-emacs)
+#+END_SRC
+** TODO more modes
+*** Popwin
+*** Haskell
+*** Python
+*** SQL
+*** Protobuf
+*** Docker
+*** Restclient
