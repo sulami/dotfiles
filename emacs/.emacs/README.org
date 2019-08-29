@@ -210,9 +210,10 @@ Weeks start on Monday.
   (setq evil-want-C-u-scroll t)
   (setq evil-want-keybinding nil)
   :config
-  (evil-mode))
+  (evil-mode 1))
 
 (use-package evil-collection
+  :after (evil flycheck)
   :config
   (evil-collection-init))
 #+END_SRC
@@ -358,9 +359,7 @@ I only enable this every now and then.
 #+END_SRC
 ** Flycheck
 #+BEGIN_SRC emacs-lisp
-(use-package flycheck
-;  :hook prog-mode
-)
+(use-package flycheck)
 #+END_SRC
 ** LSP
 #+BEGIN_SRC emacs-lisp
