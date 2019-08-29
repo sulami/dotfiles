@@ -223,6 +223,7 @@ Weeks start on Monday.
   :after (evil)
   :bind
   (:map evil-normal-state-map
+   ("SPC h" . hydra-help-mode/body)
    ("SPC t" . hydra-toggle-mode/body))
   :config
   (defhydra hydra-toggle-mode (:color blue)
@@ -232,6 +233,10 @@ Weeks start on Monday.
     ("l" toggle-truncate-lines "Line wrapping")
     ("n" linum-mode "Line numbers")
     ("s" flyspell-mode "FlySpell")
+    ("q" nil "Quit"))
+  (defhydra hydra-help-mode (:color blue)
+    "Help"
+    ("a" counsel-apropos "Apropos")
     ("q" nil "Quit")))
 #+END_SRC
 ** Ivy/Counsel/Swiper
@@ -257,8 +262,8 @@ Weeks start on Monday.
    ("C-h f" . counsel-describe-function)
    ("C-h v" . counsel-describe-variable)
    :map org-mode-map
-   ("C-c  C-j" . counsel-org-goto)
-   ("C-c  C-q" . counsel-org-tag))
+   ("C-c C-j" . counsel-org-goto)
+   ("C-c C-q" . counsel-org-tag))
   :config
   (use-package smex))
 
