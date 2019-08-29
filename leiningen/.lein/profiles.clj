@@ -1,12 +1,10 @@
 {:user {:plugins [[cider/cider-nrepl "0.21.1"]
-                  [io.aviso/pretty "0.1.37"]
-                  [lein-kibit "0.1.6"]]
+                  [io.aviso/pretty "0.1.37"]]
         :dependencies [[org.clojars.sulami/prelude "0.2.0"]
                        [org.clojure/test.check "0.9.0"]
                        [cider/cider-nrepl "0.21.1"]
                        [io.aviso/pretty "0.1.37"]
-                       [com.bhauman/rebel-readline "0.1.4"]
-                       [criterium "0.4.4"]]
+                       [com.bhauman/rebel-readline "0.1.4"]]
         :middleware [cider-nrepl.plugin/middleware
                      io.aviso.lein-pretty/inject]
 
