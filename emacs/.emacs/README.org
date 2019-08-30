@@ -160,7 +160,6 @@ Set the font to Fira Code and enable ligatures.
 ; :init
 ; )
 #+END_SRC
-** Keybindings
 #+BEGIN_SRC emacs-lisp
 #+END_SRC
 ** Org mode
@@ -214,8 +213,9 @@ Weeks start on Monday.
 #+BEGIN_SRC emacs-lisp
 (use-package evil
   :init
-  (setq evil-want-C-u-scroll t)
-  (setq evil-want-keybinding nil)
+  (setq evil-want-C-u-scroll t
+        evil-want-Y-yank-to-eol t
+        evil-want-keybinding nil)
   :hook
   (after-init . evil-mode))
 
@@ -317,16 +317,57 @@ This is where most of the keybinds live.
   ;;     ("r" git-link-homepage "Repo")
   ;;     ("s" magit-status "Magit")))
 #+END_SRC
-** Ivy/Counsel/Swiper
+** General
+General allows me to use fancy prefix keybindings.
+
+I'm using a spacemacs-inspired system of a global leader key and a local leader
+key for major modes. Bindings are setup in the respective ~use-package~
+declarations.
+#+BEGIN_SRC emacs-lisp
+  (use-package general
+    :config
+    (general-auto-unbind-keys)
+    (defconst leader-key "SPC")
+    (defconst local-leader-key "SPC")
+    (general-create-definer leader-def
+                            :prefix leader-key
+                            :states '(normal visual))
+    (general-create-definer local-leader-def
+                            :prefix local-leader-key
+                            :states '(normal visual))
+    (leader-def
+     ;; Prefixes
+     "b" '(:ignore t :wk "buffer")
+     "f" '(:ignore t :wk "file")
+     "g" '(:ignore t :wk "git")
+     "h" '(:ignore t :wk "help")
+     "p" '(:ignore t :wk "project")
+     "s" '(:ignore t :wk "search")
+     "w" '(:ignore t :wk "window")
+     ;; General keybinds
+     ;; TODO:
+     ;; Open this file
+     ;; Reload this file
+     "h k" 'general-describe-keybindings))
+#+END_SRC
+** Which key
+#+BEGIN_SRC emacs-lisp
+(use-package which-key
+  :hook
+  (after-init . which-key-mode))
+#+END_SRC
+** Helm
 #+BEGIN_SRC emacs-lisp
 (use-package helm
   :init
   (setq helm-mode-fuzzy-match t)
-  :bind
-  ("M-x" . helm-M-x)
-  ("C-x C-f" . helm-find-files))
+  :general
+  (leader-def ":" 'helm-M-x)
+  (leader-def "f f" 'helm-find-files)
+  (leader-def "h a" 'helm-apropos))
 (use-package helm-swoop
-  :defer t)
+  :general
+  (leader-def "s s" 'helm-swoop))
 (use-package helm-rg
   :defer t)
 #+END_SRC
