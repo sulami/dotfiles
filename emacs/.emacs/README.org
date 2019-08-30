@@ -160,8 +160,6 @@ Set the font to Fira Code and enable ligatures.
 ; :init
 ; )
 #+END_SRC
-#+BEGIN_SRC emacs-lisp
-#+END_SRC
 ** Org mode
 *** TODO Plain source code blocks
 Need to disable ligatures in org-mode because it breaks the asterisks
@@ -209,113 +207,39 @@ Weeks start on Monday.
 #+BEGIN_SRC emacs-lisp
 (setq eshell-alias-file "~/.emacs/aliases")
 #+END_SRC
-** Evil
+** Custom functions
+*** Rename buffer file
 #+BEGIN_SRC emacs-lisp
-(use-package evil
-  :init
-  (setq evil-want-C-u-scroll t
-        evil-want-Y-yank-to-eol t
-        evil-want-keybinding nil)
-  :hook
-  (after-init . evil-mode))
-
-(use-package evil-collection
-  :defer t
-  :after (evil flycheck)
-  :config
-  (evil-collection-init))
+(defun sulami/rename-file-and-buffer ()
+    "Rename the current buffer and file it is visiting."
+    (interactive)
+    (let ((filename (buffer-file-name)))
+      (if (not (and filename (file-exists-p filename)))
+          (message "Buffer is not visiting a file!")
+        (let ((new-name (read-file-name "New name: " filename)))
+          (cond
+           ((vc-backend filename) (vc-rename-file filename new-name))
+           (t
+            (rename-file filename new-name t)
+            (set-visited-file-name new-name t t)))))))
 #+END_SRC
-** Hydra
-This is where most of the keybinds live.
+*** Switch to buffer shortcuts
 #+BEGIN_SRC emacs-lisp
-  ;; TODO add some intetion to the colours
-  ;; (use-package hydra
-  ;;   :disable
-  ;;   :after (evil)
-  ;;   :bind
-  ;;   (:map evil-normal-state-map
-  ;;    ("SPC" . hydra-leader-mode/body))
-  ;;   :config
-  ;;   (defhydra hydra-leader-mode (:color blue)
-  ;;     "Leader"
-  ;;     (":" helm-M-x "M-x")
-  ;;     ("<tab>" evil-buffer "Swap buffers")
-  ;;     ("b" hydra-buffers-mode/body "Buffers")
-  ;;     ("f" hydra-files-mode/body "Files")
-  ;;     ("g" hydra-git-mode/body "Git")
-  ;;     ("h" hydra-help-mode/body "Help")
-  ;;     ("s" hydra-search-mode/body "Search")
-  ;;     ("t" hydra-toggle-mode/body "Toggles")
-  ;;     ("w" hydra-windows-mode/body "Windows"))
-  ;;   (defhydra hydra-toggle-mode (:color blue)
-  ;;     "Toggles"
-  ;;     ("c" flycheck-mode "FlyCheck")
-  ;;     ("f" fci-mode "Fill column")
-  ;;     ("h" auto-highlight-symbol-mode "Highlight symbol")
-  ;;     ("l" toggle-truncate-lines "Line wrapping")
-  ;;     ("n" linum-mode "Line numbers")
-  ;;     ("s" flyspell-mode "FlySpell"))
-  ;;   (defhydra hydra-search-mode (:color blue)
-  ;;     "Search"
-  ;;     ("p" helm-projectile-rg "Search project")
-  ;;     ("s" helm-swoop "Swoop"))
-  ;;   (defhydra hydra-help-mode (:color blue)
-  ;;     "Help"
-  ;;     ("a" helm-apropos "Apropos")
-  ;;     ("m" helm-man-woman "Man"))
-  ;;   (defhydra hydra-windows-mode (:color blue)
-  ;;     "Windows"
-  ;;     ("/" evil-window-vsplit "Vertically" :column "Split")
-  ;;     ("-" evil-window-split "Horizontally")
-  ;;     ("=" balance-windows "Balance")
-  ;;     ("d" evil-window-delete "Close")
-  ;;     ("h" evil-window-move-far-left "Left" :column "Move")
-  ;;     ("j" evil-window-move-very-bottom "Down")
-  ;;     ("k" evil-window-move-very-top "Up")
-  ;;     ("l" evil-window-move-far-right "Right"))
-  ;;   (defhydra hydra-files-mode (:color blue)
-  ;;     "Files"
-  ;;     ("e" (lambda ()
-  ;;            (interactive)
-  ;;            (find-file "~/.emacs/README.org"))
-  ;;      "Open config")
-  ;;     ("f" helm-find-files "Find files")
-  ;;     ("p" helm-projectile "Project files")
-  ;;     ("r" (defun rename-file-and-buffer ()
-  ;;   "Rename the current buffer and file it is visiting."
-  ;;   (interactive)
-  ;;   (let ((filename (buffer-file-name)))
-  ;;     (if (not (and filename (file-exists-p filename)))
-  ;;         (message "Buffer is not visiting a file!")
-  ;;       (let ((new-name (read-file-name "New name: " filename)))
-  ;;         (cond
-  ;;          ((vc-backend filename) (vc-rename-file filename new-name))
-  ;;          (t
-  ;;           (rename-file filename new-name t)
-  ;;           (set-visited-file-name new-name t t)))))))
-  ;; "Rename file"))
-  ;;   (defhydra hydra-buffers-mode (:color blue)
-  ;;     "Buffers"
-  ;;     ("b" helm-buffers-list "Buffers")
-  ;;     ("d" kill-this-buffer "Kill")
-  ;;     ("m" (lambda ()
-  ;;            (interactive)
-  ;;            (switch-to-buffer "*messages*"))
-  ;;      "Messages")
-  ;;     ("s" (lambda ()
-  ;;            (interactive)
-  ;;            (switch-to-buffer "*scratch*"))
-  ;;      "Scratch"))
-  ;;   (defhydra hydra-git-mode (:color blue)
-  ;;     "Git"
-  ;;     ("l" git-link "Copy link")
-  ;;     ("o" (lambda ()
-  ;;            (interactive)
-  ;;            (let ((git-link-open-in-browser t))
-  ;;              (git-link "origin" (line-number-at-pos) (line-number-at-pos))))
-  ;;      "Open link")
-  ;;     ("r" git-link-homepage "Repo")
-  ;;     ("s" magit-status "Magit")))
+(defun sulami/open-scratch-buffer ()
+  "Open the scratch buffer."
+  (interactive)
+  (switch-to-buffer "*scratch*"))
+
+(defun sulami/open-message-buffer ()
+  "Open the message buffer."
+  (interactive)
+  (switch-to-buffer "*Messages*"))
+#+END_SRC
+*** Buffer line count
+#+BEGIN_SRC emacs-lisp
+(defun sulami/buffer-line-count ()
+  "Get the number of lines in the active buffer."
+  (count-lines 1 (point-max)))
 #+END_SRC
 ** General
 General allows me to use fancy prefix keybindings.
@@ -324,31 +248,78 @@ I'm using a spacemacs-inspired system of a global leader key and a local leader
 key for major modes. Bindings are setup in the respective ~use-package~
 declarations.
 #+BEGIN_SRC emacs-lisp
-  (use-package general
-    :config
-    (general-auto-unbind-keys)
-    (defconst leader-key "SPC")
-    (defconst local-leader-key "SPC")
-    (general-create-definer leader-def
-                            :prefix leader-key
-                            :states '(normal visual))
-    (general-create-definer local-leader-def
-                            :prefix local-leader-key
-                            :states '(normal visual))
-    (leader-def
-     ;; Prefixes
-     "b" '(:ignore t :wk "buffer")
-     "f" '(:ignore t :wk "file")
-     "g" '(:ignore t :wk "git")
-     "h" '(:ignore t :wk "help")
-     "p" '(:ignore t :wk "project")
-     "s" '(:ignore t :wk "search")
-     "w" '(:ignore t :wk "window")
-     ;; General keybinds
-     ;; TODO:
-     ;; Open this file
-     ;; Reload this file
-     "h k" 'general-describe-keybindings))
+(use-package general
+  :config
+  (general-auto-unbind-keys)
+  (general-evil-setup)
+  (defconst leader-key "SPC")
+  (general-create-definer leader-def
+                          :prefix leader-key
+                          :states '(normal visual))
+  (defconst local-leader-key ",")
+  (general-create-definer local-leader-def
+                          :prefix local-leader-key
+                          :states '(normal visual))
+  (leader-def
+   ;; Prefixes
+   "b" '(:ignore t :wk "buffer")
+   "f" '(:ignore t :wk "file")
+   "g" '(:ignore t :wk "git")
+   "h" '(:ignore t :wk "help")
+   "p" '(:ignore t :wk "project")
+   "s" '(:ignore t :wk "search")
+   "t" '(:ignore t :wk "toggle")
+   "w" '(:ignore t :wk "window")
+   ;; General keybinds
+   ;; TODO:
+   ;; Open this file
+   ;; Reload this file
+   "b d" 'kill-this-buffer
+   "b m" 'sulami/open-message-buffer
+   "b r" 'sulami/rename-file-and-buffer
+   "b s" 'sulami/open-scratch-buffer
+   "h k" 'general-describe-keybindings
+   "t l" 'toggle-truncate-lines
+   "t n" 'linum-mode))
+#+END_SRC
+** Evil
+#+BEGIN_SRC emacs-lisp
+(use-package evil
+  :after (general)
+  :init
+  (setq evil-want-C-u-scroll t
+        evil-want-C-i-jump t
+        evil-want-Y-yank-to-eol t
+        evil-want-keybinding nil)
+  :general
+  (leader-def
+   "w d" 'evil-window-delete
+   "w h" 'evil-window-move-far-left
+   "w j" 'evil-window-move-very-bottom
+   "w k" 'evil-window-move-very-top
+   "w l" 'evil-window-move-far-right
+   "w /" 'evil-window-vsplit
+   "w -" 'evil-window-split)
+  :hook
+  (after-init . evil-mode))
+
+(use-package evil-collection
+  :defer t
+  :after (evil flycheck)
+  :config
+  (evil-collection-init))
+
+(use-package evil-search-highlight-persist
+  :config
+  (defun sulami/isearch-nohighlight ()
+    "Remove search highlights if not in the isearch minor mode."
+    (interactive)
+    (when (not isearch-mode)
+      (evil-search-highlight-persist-remove-all)))
+  :general
+  (general-nmap "RET" 'sulami/isearch-nohighlight)
+  :hook
+  (after-init . global-evil-search-highlight-persist))
 #+END_SRC
 ** Which key
 #+BEGIN_SRC emacs-lisp
@@ -362,9 +333,12 @@ declarations.
   :init
   (setq helm-mode-fuzzy-match t)
   :general
-  (leader-def ":" 'helm-M-x)
-  (leader-def "f f" 'helm-find-files)
-  (leader-def "h a" 'helm-apropos))
+  (leader-def
+   ":" 'helm-M-x
+   "b b" 'helm-buffers-list
+   "f f" 'helm-find-files
+   "h a" 'helm-apropos
+   "h m" 'helm-man-woman))
 (use-package helm-swoop
   :general
   (leader-def "s s" 'helm-swoop))
@@ -394,6 +368,10 @@ declarations.
   :hook
   (after-init . yas-global-mode))
 
+(use-package helm-c-yasnippet
+  :general
+  (general-imap "C-y" 'helm-yas-complete))
+
 (use-package yasnippet-snippets
   :defer t
   :after (yasnippet))
@@ -410,20 +388,47 @@ declarations.
 I only enable this every now and then.
 #+BEGIN_SRC emacs-lisp
 (use-package auto-highlight-symbol
-  :defer t)
+  :general
+  (leader-def
+   "t h" 'auto-highlight-symbol-mode))
 #+END_SRC
 ** Projectile
 #+BEGIN_SRC emacs-lisp
 (use-package projectile
   :init
-  (setq projectile-completion-system 'ivy)
+  (setq projectile-completion-system 'helm)
+  :config
+  (defun sulami/projectile-replace ()
+    "Search and replace in the whole project."
+    (interactive)
+    (dired (projectile-project-root) "-alR")
+    (let ((file-regex (read-string "Select files with regex: "))
+          (from (read-string "Search for: "))
+          (to (read-string "Replace with: ")))
+      (dired-mark-files-regexp file-regex)
+      (dired-do-find-regexp-and-replace from to))
+    (projectile-save-project-buffers)
+    (with-current-buffer "*xref*"
+      (kill-buffer-and-window))
+    ; last open file
+    (delete-window)
+    ; cleanup dired
+    (dired-unmark-all-marks)
+    (kill-buffer))
+  :general
+  (leader-def
+   "p r" 'sulami/projectile-replace)
   :hook
   (after-init . projectile-global-mode))
 
 (use-package helm-projectile
   :defer t
   :config
-  (helm-projectile-on))
+  (helm-projectile-on)
+  :general
+  (leader-def
+   "f p" 'helm-projectile
+   "s p" 'helm-projectile-rg))
 #+END_SRC
 ** Perspective
 #+BEGIN_SRC emacs-lisp
@@ -456,21 +461,47 @@ I only enable this every now and then.
 ** Fill column indicator
 #+BEGIN_SRC emacs-lisp
 (use-package fill-column-indicator
-  :defer t)
+  :general
+  (leader-def
+   "t f" 'fci-mode))
 #+END_SRC
 ** Magit
 #+BEGIN_SRC emacs-lisp
 (use-package magit
-  :defer t
+  :general
+  (leader-def
+   "g s" 'magit-status)
   :init
   (setq magit-completing-read-function 'helm-completing-read-1))
 
 (use-package git-link
-  :defer t)
+  :init
+  (defun open-git-link-in-browser ()
+    (interactive)
+    (let ((git-link-open-in-browser t))
+      (git-link "origin" (line-number-at-pos) (line-number-at-pos))))
+  (defun open-git-repo-in-browser ()
+    (interactive)
+    (let ((git-link-open-in-browser t))
+      (git-link-homepage "origin")))
+  :general
+  (leader-def
+   "g l" 'git-link
+   "g L" 'open-git-link-in-browser
+   "g r" 'git-link-homepage
+   "g R" 'open-git-repo-in-browser))
 #+END_SRC
 ** Flycheck
 #+BEGIN_SRC emacs-lisp
 (use-package flycheck
+  :config
+  ;; Disable flycheck on-the-fly-checking if the line count exceeds 2000.
+  (setq flycheck-check-syntax-automatically
+        (if (> (sulami/buffer-line-count) 2000)
+            (delete 'idle-change flycheck-check-syntax-automatically)
+          (add-to-list 'flycheck-check-syntax-automatically 'idle-change)))
+  :general
+  (leader-def "t c" 'flycheck-mode)
   :hook
   (after-init . global-flycheck-mode))
 #+END_SRC
