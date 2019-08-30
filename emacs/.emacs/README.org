@@ -241,6 +241,20 @@ Weeks start on Monday.
   "Get the number of lines in the active buffer."
   (count-lines 1 (point-max)))
 #+END_SRC
+*** Open this file
+#+BEGIN_SRC emacs-lisp
+(defun sulami/open-emacs-config ()
+  "Opens the config file for our favourite OS."
+  (interactive)
+  (find-file sulami/emacs-config-file))
+#+END_SRC
+*** Reload this file
+#+BEGIN_SRC emacs-lisp
+(defun sulami/reload-emacs-config ()
+  "Loads the config file for our favourite OS."
+  (interactive)
+  (org-babel-load-file sulami/emacs-config-file))
+#+END_SRC
 ** General
 General allows me to use fancy prefix keybindings.
 
@@ -264,23 +278,28 @@ declarations.
    ;; Prefixes
    "b" '(:ignore t :wk "buffer")
    "f" '(:ignore t :wk "file")
+   "f e" '(:ignore t :wk "emacs")
    "g" '(:ignore t :wk "git")
    "h" '(:ignore t :wk "help")
+   "j" '(:ignore t :wk "jump")
    "p" '(:ignore t :wk "project")
    "s" '(:ignore t :wk "search")
    "t" '(:ignore t :wk "toggle")
    "w" '(:ignore t :wk "window")
    ;; General keybinds
-   ;; TODO:
    ;; Open this file
    ;; Reload this file
    "b d" 'kill-this-buffer
    "b m" 'sulami/open-message-buffer
    "b r" 'sulami/rename-file-and-buffer
    "b s" 'sulami/open-scratch-buffer
+   "f e e" 'sulami/open-emacs-config
+   "f e r" 'sulami/reload-emacs-config
    "h k" 'general-describe-keybindings
    "t l" 'toggle-truncate-lines
-   "t n" 'linum-mode))
+   "t n" 'linum-mode)
+  (general-define-key
+   "s-=" 'text-scale-adjust))
 #+END_SRC
 ** Evil
 #+BEGIN_SRC emacs-lisp
@@ -293,6 +312,7 @@ declarations.
         evil-want-keybinding nil)
   :general
   (leader-def
+   "<tab>" 'evil-switch-to-windows-last-buffer
    "w d" 'evil-window-delete
    "w h" 'evil-window-move-far-left
    "w j" 'evil-window-move-very-bottom
@@ -328,6 +348,7 @@ declarations.
   (after-init . which-key-mode))
 #+END_SRC
 ** Helm
+TODO do something about the terrible style
 #+BEGIN_SRC emacs-lisp
 (use-package helm
   :init
@@ -339,24 +360,30 @@ declarations.
    "f f" 'helm-find-files
    "h a" 'helm-apropos
    "h m" 'helm-man-woman))
+
 (use-package helm-swoop
   :general
-  (leader-def "s s" 'helm-swoop))
+  (leader-def
+   "s s" 'helm-swoop-without-pre-input
+   "s S" 'helm-swoop))
+
 (use-package helm-rg
   :defer t)
 #+END_SRC
 ** Company
 #+BEGIN_SRC emacs-lisp
 (use-package company
-  :config
-  (define-key evil-insert-state-map (kbd "C-n") nil)
-  (define-key evil-insert-state-map (kbd "C-p") nil)
-  (define-key company-active-map (kbd "C-n") 'company-select-next)
-  (define-key company-active-map (kbd "C-p") 'company-select-previous)
-  (define-key company-active-map (kbd "<S-tab>") nil)
-  (define-key company-active-map (kbd "<tab>") 'company-complete-selection)
-  (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
-  :after (evil)
+  :general
+  (general-imap
+   "C-n" nil
+   "C-p" nil)
+  (general-define-key
+    :keymaps 'company-active-map
+    "C-n" 'company-select-next
+    "C-p" 'company-select-previou
+    "<S-tab>" nil
+    "<tab>" 'company-complete-selection
+    "C-w" 'evil-delete-backward-word)
   :hook
   (after-init . global-company-mode))
 #+END_SRC
@@ -384,13 +411,30 @@ declarations.
 (use-package evil-cleverparens
   :hook (prog-mode . evil-cleverparens-mode))
 #+END_SRC
+** Dumb jump
+#+BEGIN_SRC emacs-lisp
+(use-package dumb-jump
+  :config
+  (setq dumb-jump-selector 'helm 
+        dumb-jump-force-searcher 'rg)
+  :general
+  (leader-def
+    "j j" 'dumb-jump-go
+    "j q" 'dumb-jump-quick-look
+    "j p" 'dumb-jump-go-prompt))
+#+END_SRC
+** Avy
+#+BEGIN_SRC emacs-lisp
+(use-package avy
+  :general
+  (general-nmap "s-n" 'avy-goto-word-or-subword-1))
+#+END_SRC
 ** Highlight symbol
 I only enable this every now and then.
 #+BEGIN_SRC emacs-lisp
 (use-package auto-highlight-symbol
   :general
-  (leader-def
-   "t h" 'auto-highlight-symbol-mode))
+  (leader-def "t h" 'auto-highlight-symbol-mode))
 #+END_SRC
 ** Projectile
 #+BEGIN_SRC emacs-lisp
@@ -427,7 +471,8 @@ I only enable this every now and then.
   (helm-projectile-on)
   :general
   (leader-def
-   "f p" 'helm-projectile
+   "p f" 'helm-projectile-find-file
+   "p p" 'helm-projectile-switch-project
    "s p" 'helm-projectile-rg))
 #+END_SRC
 ** Perspective
@@ -462,8 +507,7 @@ I only enable this every now and then.
 #+BEGIN_SRC emacs-lisp
 (use-package fill-column-indicator
   :general
-  (leader-def
-   "t f" 'fci-mode))
+  (leader-def "t f" 'fci-mode))
 #+END_SRC
 ** Magit
 #+BEGIN_SRC emacs-lisp
@@ -471,6 +515,7 @@ I only enable this every now and then.
   :general
   (leader-def
    "g s" 'magit-status)
+  ;; TODO magit-blame-addition + exit button
   :init
   (setq magit-completing-read-function 'helm-completing-read-1))
 
