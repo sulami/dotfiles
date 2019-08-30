@@ -1,5 +1,11 @@
 * Emacs
 ** Better defaults
+*** Use lexical binding in this file
+This org-mode file gets built into an elisp file, and we want this comment at
+the top for performance reasons.
+#+BEGIN_SRC emacs-lisp
+;; -*- lexical-binding: t; -*-
+#+END_SRC
 *** Discard the custom file
 ~custom.el~ is hidden state, all config is declarative.
 #+BEGIN_SRC emacs-lisp
@@ -154,6 +160,9 @@ Set the font to Fira Code and enable ligatures.
 ; :init
 ; )
 #+END_SRC
+** Keybindings
+#+BEGIN_SRC emacs-lisp
+#+END_SRC
 ** Org mode
 *** TODO Plain source code blocks
 Need to disable ligatures in org-mode because it breaks the asterisks
@@ -191,8 +200,6 @@ in org-indent-mode. Almost nothing here works yet.
 (setq org-indent-indentation-per-level 1)
 (add-hook 'org-mode-hook 'org-indent-mode)
 #+END_SRC
-*** Agenda
-
 *** Calendar
 Weeks start on Monday.
 #+BEGIN_SRC emacs-lisp
@@ -209,72 +216,120 @@ Weeks start on Monday.
   :init
   (setq evil-want-C-u-scroll t)
   (setq evil-want-keybinding nil)
-  :config
-  (evil-mode 1))
+  :hook
+  (after-init . evil-mode))
 
 (use-package evil-collection
+  :defer t
   :after (evil flycheck)
   :config
   (evil-collection-init))
 #+END_SRC
 ** Hydra
+This is where most of the keybinds live.
 #+BEGIN_SRC emacs-lisp
-(use-package hydra
-  :after (evil)
-  :bind
-  (:map evil-normal-state-map
-   ("SPC h" . hydra-help-mode/body)
-   ("SPC t" . hydra-toggle-mode/body))
-  :config
-  (defhydra hydra-toggle-mode (:color blue)
-    "Toggle"
-    ("c" flycheck-mode "FlyCheck")
-    ("h" auto-highlight-symbol-mode "Highlight symbol")
-    ("l" toggle-truncate-lines "Line wrapping")
-    ("n" linum-mode "Line numbers")
-    ("s" flyspell-mode "FlySpell")
-    ("q" nil "Quit"))
-  (defhydra hydra-help-mode (:color blue)
-    "Help"
-    ("a" counsel-apropos "Apropos")
-    ("q" nil "Quit")))
+  ;; TODO add some intetion to the colours
+  ;; (use-package hydra
+  ;;   :disable
+  ;;   :after (evil)
+  ;;   :bind
+  ;;   (:map evil-normal-state-map
+  ;;    ("SPC" . hydra-leader-mode/body))
+  ;;   :config
+  ;;   (defhydra hydra-leader-mode (:color blue)
+  ;;     "Leader"
+  ;;     (":" helm-M-x "M-x")
+  ;;     ("<tab>" evil-buffer "Swap buffers")
+  ;;     ("b" hydra-buffers-mode/body "Buffers")
+  ;;     ("f" hydra-files-mode/body "Files")
+  ;;     ("g" hydra-git-mode/body "Git")
+  ;;     ("h" hydra-help-mode/body "Help")
+  ;;     ("s" hydra-search-mode/body "Search")
+  ;;     ("t" hydra-toggle-mode/body "Toggles")
+  ;;     ("w" hydra-windows-mode/body "Windows"))
+  ;;   (defhydra hydra-toggle-mode (:color blue)
+  ;;     "Toggles"
+  ;;     ("c" flycheck-mode "FlyCheck")
+  ;;     ("f" fci-mode "Fill column")
+  ;;     ("h" auto-highlight-symbol-mode "Highlight symbol")
+  ;;     ("l" toggle-truncate-lines "Line wrapping")
+  ;;     ("n" linum-mode "Line numbers")
+  ;;     ("s" flyspell-mode "FlySpell"))
+  ;;   (defhydra hydra-search-mode (:color blue)
+  ;;     "Search"
+  ;;     ("p" helm-projectile-rg "Search project")
+  ;;     ("s" helm-swoop "Swoop"))
+  ;;   (defhydra hydra-help-mode (:color blue)
+  ;;     "Help"
+  ;;     ("a" helm-apropos "Apropos")
+  ;;     ("m" helm-man-woman "Man"))
+  ;;   (defhydra hydra-windows-mode (:color blue)
+  ;;     "Windows"
+  ;;     ("/" evil-window-vsplit "Vertically" :column "Split")
+  ;;     ("-" evil-window-split "Horizontally")
+  ;;     ("=" balance-windows "Balance")
+  ;;     ("d" evil-window-delete "Close")
+  ;;     ("h" evil-window-move-far-left "Left" :column "Move")
+  ;;     ("j" evil-window-move-very-bottom "Down")
+  ;;     ("k" evil-window-move-very-top "Up")
+  ;;     ("l" evil-window-move-far-right "Right"))
+  ;;   (defhydra hydra-files-mode (:color blue)
+  ;;     "Files"
+  ;;     ("e" (lambda ()
+  ;;            (interactive)
+  ;;            (find-file "~/.emacs/README.org"))
+  ;;      "Open config")
+  ;;     ("f" helm-find-files "Find files")
+  ;;     ("p" helm-projectile "Project files")
+  ;;     ("r" (defun rename-file-and-buffer ()
+  ;;   "Rename the current buffer and file it is visiting."
+  ;;   (interactive)
+  ;;   (let ((filename (buffer-file-name)))
+  ;;     (if (not (and filename (file-exists-p filename)))
+  ;;         (message "Buffer is not visiting a file!")
+  ;;       (let ((new-name (read-file-name "New name: " filename)))
+  ;;         (cond
+  ;;          ((vc-backend filename) (vc-rename-file filename new-name))
+  ;;          (t
+  ;;           (rename-file filename new-name t)
+  ;;           (set-visited-file-name new-name t t)))))))
+  ;; "Rename file"))
+  ;;   (defhydra hydra-buffers-mode (:color blue)
+  ;;     "Buffers"
+  ;;     ("b" helm-buffers-list "Buffers")
+  ;;     ("d" kill-this-buffer "Kill")
+  ;;     ("m" (lambda ()
+  ;;            (interactive)
+  ;;            (switch-to-buffer "*messages*"))
+  ;;      "Messages")
+  ;;     ("s" (lambda ()
+  ;;            (interactive)
+  ;;            (switch-to-buffer "*scratch*"))
+  ;;      "Scratch"))
+  ;;   (defhydra hydra-git-mode (:color blue)
+  ;;     "Git"
+  ;;     ("l" git-link "Copy link")
+  ;;     ("o" (lambda ()
+  ;;            (interactive)
+  ;;            (let ((git-link-open-in-browser t))
+  ;;              (git-link "origin" (line-number-at-pos) (line-number-at-pos))))
+  ;;      "Open link")
+  ;;     ("r" git-link-homepage "Repo")
+  ;;     ("s" magit-status "Magit")))
 #+END_SRC
 ** Ivy/Counsel/Swiper
 #+BEGIN_SRC emacs-lisp
-(use-package ivy
+(use-package helm
   :init
-  (setq ivy-count-format "(%d/%d) " 
-        ivy-display-style 'fancy
-        ivy-initial-inputs-alist nil)
-  :config
-  (ivy-mode 1)
+  (setq helm-mode-fuzzy-match t)
   :bind
-  ("M-x" . counsel-M-x)
-  ("C-x C-f" . counsel-find-file))
-
-(use-package counsel
-  :init
-  (setq counsel-yank-pop-separator
-    (concat "\n\n"
-      (concat (apply 'concat (make-list 50 "---")) "\n")))
-  :bind
-  (("M-y" . counsel-yank-pop)
-   ("C-h f" . counsel-describe-function)
-   ("C-h v" . counsel-describe-variable)
-   :map org-mode-map
-   ("C-c C-j" . counsel-org-goto)
-   ("C-c C-q" . counsel-org-tag))
-  :config
-  (use-package smex))
-
-(use-package swiper
-  :custom
-  (counsel-grep-base-command
-   "rg -i -M 120 --no-heading --line-number --color never %s %s")
-  :bind
-  (("C-s" . swiper)))
+  ("M-x" . helm-M-x)
+  ("C-x C-f" . helm-find-files))
+(use-package helm-swoop
+  :defer t)
+(use-package helm-rg
+  :defer t)
 #+END_SRC
-*** TODO enable fuzzy matches
 ** Company
 #+BEGIN_SRC emacs-lisp
 (use-package company
@@ -286,6 +341,7 @@ Weeks start on Monday.
   (define-key company-active-map (kbd "<S-tab>") nil)
   (define-key company-active-map (kbd "<tab>") 'company-complete-selection)
   (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
+  :after (evil)
   :hook
   (after-init . global-company-mode))
 #+END_SRC
@@ -297,7 +353,9 @@ Weeks start on Monday.
   :hook
   (after-init . yas-global-mode))
 
-(use-package yasnippet-snippets)
+(use-package yasnippet-snippets
+  :defer t
+  :after (yasnippet))
 #+END_SRC
 ** Parentheses
 #+BEGIN_SRC emacs-lisp
@@ -321,15 +379,10 @@ I only enable this every now and then.
   :hook
   (after-init . projectile-global-mode))
 
-(use-package counsel-projectile
-  :after (projectile)
-  :bind
-  ("C-c p s r" . counsel-projectile-rg)
-  (:map projectile-mode-map
-        ("C-c p p" . projectile-persp-switch-project)
-	("C-c p f" . projectile-find-file))
-  :init
-  (counsel-projectile-mode))
+(use-package helm-projectile
+  :defer t
+  :config
+  (helm-projectile-on))
 #+END_SRC
 ** Perspective
 #+BEGIN_SRC emacs-lisp
@@ -338,6 +391,7 @@ I only enable this every now and then.
   (after-init . persp-mode))
 
 (use-package persp-projectile
+  :defer t
   :after
   (perspective))
 #+END_SRC
@@ -345,37 +399,39 @@ I only enable this every now and then.
 #+BEGIN_SRC emacs-lisp
 (use-package winum
   :bind
-  (:map evil-normal-state-map
-        ("s-1" . winum-select-window-1)
-        ("s-2" . winum-select-window-2)
-        ("s-3" . winum-select-window-3)
-        ("s-4" . winum-select-window-4)
-        ("s-5" . winum-select-window-5)
-        ("s-6" . winum-select-window-6)
-        ("s-7" . winum-select-window-7)
-        ("s-8" . winum-select-window-8)
-        ("s-9" . winum-select-window-9)
-        ("s-0" . winum-select-window-0-or-10))
+  (("s-1" . winum-select-window-1)
+   ("s-2" . winum-select-window-2)
+   ("s-3" . winum-select-window-3)
+   ("s-4" . winum-select-window-4)
+   ("s-5" . winum-select-window-5)
+   ("s-6" . winum-select-window-6)
+   ("s-7" . winum-select-window-7)
+   ("s-8" . winum-select-window-8)
+   ("s-9" . winum-select-window-9)
+   ("s-0" . winum-select-window-0-or-10))
   :hook
   (after-init . winum-mode))
 #+END_SRC
-** Ripgrep
+** Fill column indicator
 #+BEGIN_SRC emacs-lisp
-(use-package rg)
+(use-package fill-column-indicator
+  :defer t)
 #+END_SRC
 ** Magit
 #+BEGIN_SRC emacs-lisp
 (use-package magit
   :defer t
   :init
-  (setq magit-completing-read-function 'ivy-completing-read)
-  :bind
-  ;; TODO bind magit-status
-  )
+  (setq magit-completing-read-function 'helm-completing-read-1))
+
+(use-package git-link
+  :defer t)
 #+END_SRC
 ** Flycheck
 #+BEGIN_SRC emacs-lisp
-(use-package flycheck)
+(use-package flycheck
+  :hook
+  (after-init . global-flycheck-mode))
 #+END_SRC
 ** LSP
 #+BEGIN_SRC emacs-lisp
@@ -393,7 +449,7 @@ I only enable this every now and then.
   :config
   (require 'flycheck-clj-kondo))
 (use-package cider
-  :defer t)
+  :hook clojure-mode)
 #+END_SRC
 ** Markdown
 #+BEGIN_SRC emacs-lisp
@@ -403,19 +459,15 @@ I only enable this every now and then.
 #+END_SRC
 ** YAML
 #+BEGIN_SRC emacs-lisp
-(use-package yaml-mode)
+(use-package yaml-mode
+  :mode (("\\.ya?ml\\'" . yaml-mode)))
 #+END_SRC
-** Terminate
-This is here for benchmarking startup time.
+** Protobuf
+#+BEGIN_SRC emacs-lisp
+(use-package protobuf-mode
+  :mode (("\\.proto\\'" . protobuf-mode)))
+#+END_SRC
+** Done
 #+BEGIN_SRC emacs-lisp
 (message "Successfully loaded config")
-;(kill-emacs)
 #+END_SRC
-** TODO more modes
-*** Popwin
-*** Haskell
-*** Python
-*** SQL
-*** Protobuf
-*** Docker
-*** Restclient
