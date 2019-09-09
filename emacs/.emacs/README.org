@@ -1,3 +1,4 @@
+#+STARTUP: content
 * Emacs
 ** Better defaults
 *** Use lexical binding in this file
@@ -24,6 +25,7 @@ we don't accidentally leave backups around.
 *** Remember recent files
 #+BEGIN_SRC emacs-lisp
 (when (require 'recentf)
+  (recentf-mode 1)
   (setq recentf-max-saved-items 255))
 #+END_SRC
 *** Be quiet on startup
@@ -32,6 +34,10 @@ we don't accidentally leave backups around.
       inhibit-startup-screen t
       inhibit-startup-message t)
 #+END_SRC
+*** Don't ring the bell
+#+begin_src emacs-lisp :tangle yes
+(setq ring-bell-function 'ignore)
+#+end_src
 *** Start the scratch buffer empty
 #+BEGIN_SRC emacs-lisp
 (setq initial-scratch-message "")
@@ -202,6 +208,16 @@ Weeks start on Monday.
 #+BEGIN_SRC emacs-lisp
 (setq calendar-week-start-day 1)
 #+END_SRC
+*** TODO org-chef
+#+begin_src emacs-lisp :tangle yes
+(use-package org-chef
+  :disabled)
+#+end_src
+*** TODO org-jira
+#+begin_src emacs-lisp :tangle yes
+(use-package org-jira
+  :disabled)
+#+end_src
 ** Eshell
 *** Aliases
 #+BEGIN_SRC emacs-lisp
@@ -287,16 +303,17 @@ declarations.
    "t" '(:ignore t :wk "toggle")
    "w" '(:ignore t :wk "window")
    ;; General keybinds
-   ;; Open this file
-   ;; Reload this file
    "b d" 'kill-this-buffer
    "b m" 'sulami/open-message-buffer
    "b r" 'sulami/rename-file-and-buffer
    "b s" 'sulami/open-scratch-buffer
    "f e e" 'sulami/open-emacs-config
    "f e r" 'sulami/reload-emacs-config
-   "h k" 'general-describe-keybindings
+   "h g" 'general-describe-keybindings
+   "h k" 'describe-key
+   "h l" 'view-lossage
    "t l" 'toggle-truncate-lines
+   "t s" 'flyspell-mode
    "t n" 'linum-mode)
   (general-define-key
    "s-=" 'text-scale-adjust))
@@ -348,27 +365,60 @@ declarations.
   (after-init . which-key-mode))
 #+END_SRC
 ** Helm
-TODO do something about the terrible style
 #+BEGIN_SRC emacs-lisp
-(use-package helm
+;(use-package helm
+  ;:init
+  ;(setq helm-mode-fuzzy-match t
+        ;helm-M-x-fuzzy-match t)
+  ;:general
+  ;(leader-def
+   ;":" 'helm-M-x
+   ;"b b" 'helm-buffers-list
+   ;"f f" 'helm-find-files
+   ;"f r" 'helm-recentf
+   ;"h a" 'helm-apropos
+   ;"h m" 'helm-man-woman))
+;
+;(use-package helm-swoop
+  ;:general
+  ;(leader-def
+   ;"s s" 'helm-swoop-without-pre-input
+   ;"s S" 'helm-swoop))
+;
+;(use-package helm-rg
+  ;:defer t)
+#+END_SRC
+** Ivy
+#+BEGIN_SRC emacs-lisp
+(use-package ivy
   :init
-  (setq helm-mode-fuzzy-match t)
+  (setq ivy-on-del-error-function #'ignore)
+  :hook
+  (after-init . ivy-mode))
+
+(use-package counsel
   :general
   (leader-def
-   ":" 'helm-M-x
-   "b b" 'helm-buffers-list
-   "f f" 'helm-find-files
-   "h a" 'helm-apropos
-   "h m" 'helm-man-woman))
+   ":" 'counsel-M-x
+   "b b" 'counsel-switch-buffer
+   "f f" 'counsel-find-file
+   "f r" 'counsel-recentf
+   "h a" 'counsel-apropos))
 
-(use-package helm-swoop
+(use-package swiper
+  :config
+  (defun sulami/ivy-with-thing-at-point (cmd)
+    (let ((ivy-initial-inputs-alist
+           (list
+            (cons cmd (thing-at-point 'symbol)))))
+      (funcall cmd)))
+  (defun sulami/swiper-thing-at-point ()
+    (interactive)
+    (sulami/ivy-with-thing-at-point 'swiper))
   :general
   (leader-def
-   "s s" 'helm-swoop-without-pre-input
-   "s S" 'helm-swoop))
-
-(use-package helm-rg
-  :defer t)
+   "s s" 'swiper
+   "s S" 'sulami/swiper-thing-at-point))
 #+END_SRC
 ** Company
 #+BEGIN_SRC emacs-lisp
@@ -392,6 +442,11 @@ TODO do something about the terrible style
 (use-package yasnippet
   :config
   (setq yas-snippet-dirs (cons "/Users/sulami/.emacs/snippets/" yas-snippet-dirs))
+  :general
+  (general-define-key 
+   :keymaps 'yas-minor-mode-map
+   "<tab>" nil
+   "TAB" nil)
   :hook
   (after-init . yas-global-mode))
 
@@ -465,15 +520,15 @@ I only enable this every now and then.
   :hook
   (after-init . projectile-global-mode))
 
-(use-package helm-projectile
+(use-package counsel-projectile
   :defer t
   :config
-  (helm-projectile-on)
   :general
   (leader-def
-   "p f" 'helm-projectile-find-file
-   "p p" 'helm-projectile-switch-project
-   "s p" 'helm-projectile-rg))
+   "p b" 'counsel-projectile-switch-to-buffer
+   "p f" 'counsel-projectile-find-file
+   "p p" 'counsel-projectile-switch-project
+   "s p" 'counsel-projectile-rg))
 #+END_SRC
 ** Perspective
 #+BEGIN_SRC emacs-lisp
@@ -509,6 +564,18 @@ I only enable this every now and then.
   :general
   (leader-def "t f" 'fci-mode))
 #+END_SRC
+** Focus
+#+begin_src emacs-lisp :tangle yes
+(use-package focus
+  :general
+  (leader-def "t f" 'focus-mode))
+#+end_src
+** Darkroom
+#+begin_src emacs-lisp :tangle yes
+(use-package darkroom
+  :general
+  (leader-def "t d" 'darkroom-tentative-mode))
+#+end_src
 ** Magit
 #+BEGIN_SRC emacs-lisp
 (use-package magit
@@ -567,6 +634,11 @@ I only enable this every now and then.
   (require 'flycheck-clj-kondo))
 (use-package cider
   :hook clojure-mode)
+#+END_SRC
+** Haskell
+#+BEGIN_SRC emacs-lisp
+(use-package haskell-mode
+  :defer t)
 #+END_SRC
 ** Markdown
 #+BEGIN_SRC emacs-lisp
