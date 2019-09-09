@@ -42,7 +42,7 @@ we don't accidentally leave backups around.
 #+END_SRC
 *** Show trailing whitespace
 #+BEGIN_SRC emacs-lisp
-(setq show-traling-whitespace t)
+(setq show-trailing-whitespace t)
 #+END_SRC
 *** Highlight matching parens
 #+BEGIN_SRC emacs-lisp
