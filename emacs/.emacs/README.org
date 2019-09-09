@@ -642,6 +642,10 @@ I only enable this every now and then.
   :init
   (setq magit-completing-read-function 'helm-completing-read-1))
 
+(use-package evil-magit
+  :hook (magit-mode . (lambda ()
+                        (require 'evil-magit))))
+
 (use-package git-link
   :init
   (defun open-git-link-in-browser ()
@@ -657,10 +661,7 @@ I only enable this every now and then.
    "g l" 'git-link
    "g L" 'open-git-link-in-browser
    "g r" 'git-link-homepage
-   "g R" 'open-git-repo-in-browser)
-  (:keymaps 'magit-status-mode-map
-   "j" 'evil-next-line
-   "k" 'evil-previous-line))
+   "g R" 'open-git-repo-in-browser))
 #+END_SRC
 ** Flycheck
 #+BEGIN_SRC emacs-lisp
