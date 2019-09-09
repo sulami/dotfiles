@@ -52,7 +52,7 @@ we don't accidentally leave backups around.
 #+END_SRC
 *** Show trailing whitespace
 #+BEGIN_SRC emacs-lisp
-(setq show-trailing-whitespace t)
+(setq-default show-trailing-whitespace t)
 #+END_SRC
 *** Highlight matching parens
 #+BEGIN_SRC emacs-lisp
@@ -310,7 +310,7 @@ declarations.
    "h" '(:ignore t :wk "help")
    "j" '(:ignore t :wk "jump")
    "k" '(:ignore t :wk "lisp")
-   "p" '(:ignore t :wk "project")
+   "p" '(:ignore t :wk "project/perspective")
    "s" '(:ignore t :wk "search")
    "t" '(:ignore t :wk "toggle")
    "w" '(:ignore t :wk "window")
@@ -419,6 +419,12 @@ declarations.
   :init
   (setq ivy-on-del-error-function #'ignore
         ivy-re-builders-alist '((t . ivy--regex-fuzzy)))
+  :config
+  (defun sulami/ivy-with-thing-at-point (cmd)
+    (let ((ivy-initial-inputs-alist
+           (list
+            (cons cmd (thing-at-point 'symbol)))))
+      (funcall cmd)))
   :general
   (:keymaps 'ivy-minibuffer-map
    "C-w" 'ivy-backward-kill-word)
@@ -436,11 +442,6 @@ declarations.
 
 (use-package swiper
   :config
-  (defun sulami/ivy-with-thing-at-point (cmd)
-    (let ((ivy-initial-inputs-alist
-           (list
-            (cons cmd (thing-at-point 'symbol)))))
-      (funcall cmd)))
   (defun sulami/swiper-thing-at-point ()
     (interactive)
     (sulami/ivy-with-thing-at-point 'swiper))
@@ -473,7 +474,9 @@ declarations.
   :general
   (:keymaps 'yas-minor-mode-map
    "<tab>" nil
-   "TAB" nil)
+   "TAB" nil
+   "<ret>" nil
+   "RET" nil)
   :hook
   (after-init . yas-global-mode))
 
@@ -490,6 +493,7 @@ declarations.
 (use-package smartparens
   :after (hydra)
   :init
+  (require 'smartparens-config)
   (defhydra hydra-wrap (:color blue)
     "wrap"
     ("(" sp-wrap-round)
@@ -513,7 +517,7 @@ declarations.
 #+BEGIN_SRC emacs-lisp
 (use-package dumb-jump
   :config
-  (setq dumb-jump-selector 'helm 
+  (setq dumb-jump-selector 'ivy
         dumb-jump-force-searcher 'rg)
   :general
   (leader-def
@@ -566,23 +570,32 @@ I only enable this every now and then.
 (use-package counsel-projectile
   :defer t
   :config
+  (defun sulami/projectile-rg-thing-at-point ()
+    (interactive)
+    (sulami/ivy-with-thing-at-point 'counsel-projectile-rg))
   :general
   (leader-def
    "p b" 'counsel-projectile-switch-to-buffer
    "p f" 'counsel-projectile-find-file
-   "p p" 'counsel-projectile-switch-project
-   "s p" 'counsel-projectile-rg))
+   "s p" 'counsel-projectile-rg
+   "s P" 'sulami/projectile-rg-thing-at-point))
 #+END_SRC
 ** Perspective
 #+BEGIN_SRC emacs-lisp
 (use-package perspective
+  :general
+  (leader-def
+    "p l" 'persp-switch
+    "p k" 'persp-kill)
   :hook
   (after-init . persp-mode))
 
 (use-package persp-projectile
   :defer t
-  :after
-  (perspective))
+  :after (perspective)
+  :general
+  (leader-def
+    "p p" 'projectile-persp-switch-project))
 #+END_SRC
 ** Winum
 #+BEGIN_SRC emacs-lisp
