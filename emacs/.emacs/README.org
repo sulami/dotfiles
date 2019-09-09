@@ -270,6 +270,18 @@ Weeks start on Monday.
   (interactive)
   (org-babel-load-file sulami/emacs-config-file))
 #+END_SRC
+*** Maximise a window
+#+begin_src emacs-lisp :tangle yes
+(defun sulami/toggle-maximise-window ()
+  "Toggles maximising the current window."
+  (interactive)
+  (let ((el-reg ?F))
+    (if (< winum--window-count 2)
+        (jump-to-register el-reg)
+      (progn
+        (window-configuration-to-register el-reg)
+        (delete-other-windows)))))
+#+end_src
 ** General
 General allows me to use fancy prefix keybindings.
 
@@ -297,12 +309,14 @@ declarations.
    "g" '(:ignore t :wk "git")
    "h" '(:ignore t :wk "help")
    "j" '(:ignore t :wk "jump")
+   "k" '(:ignore t :wk "lisp")
    "p" '(:ignore t :wk "project")
    "s" '(:ignore t :wk "search")
    "t" '(:ignore t :wk "toggle")
    "w" '(:ignore t :wk "window")
    ;; General keybinds
    "$" 'eshell
+   "b e" 'erase-buffer
    "b d" 'kill-this-buffer
    "b m" 'sulami/open-message-buffer
    "b r" 'sulami/rename-file-and-buffer
@@ -314,11 +328,18 @@ declarations.
    "h l" 'view-lossage
    "t l" 'toggle-truncate-lines
    "t s" 'flyspell-mode
-   "t n" 'linum-mode)
+   "t n" 'linum-mode
+   "w m" 'sulami/toggle-maximise-window)
   ;; FIXME this clashes atm
   (general-define-key
    "s-=" 'text-scale-adjust))
 #+END_SRC
+*** TODO Quick temporary global shortcuts
+** Hydra
+#+begin_src emacs-lisp :tangle yes
+(use-package hydra
+  :defer t)
+#+end_src
 ** Evil
 #+BEGIN_SRC emacs-lisp
 (use-package evil
@@ -396,7 +417,8 @@ declarations.
 #+BEGIN_SRC emacs-lisp
 (use-package ivy
   :init
-  (setq ivy-on-del-error-function #'ignore)
+  (setq ivy-on-del-error-function #'ignore
+        ivy-re-builders-alist '((t . ivy--regex-fuzzy)))
   :general
   (:keymaps 'ivy-minibuffer-map
    "C-w" 'ivy-backward-kill-word)
@@ -466,6 +488,22 @@ declarations.
 ** Parentheses
 #+BEGIN_SRC emacs-lisp
 (use-package smartparens
+  :after (hydra)
+  :init
+  (defhydra hydra-wrap (:color blue)
+    "wrap"
+    ("(" sp-wrap-round)
+    ("[" sp-wrap-square)
+    ("{" sp-wrap-curly))
+  (defhydra hydra-lisp ()
+    "lisp"
+    ("s" sp-forward-slurp-sexp "slurp")
+    ("S" sp-backward-slurp-sexp "slurp backwards")
+    ("b" sp-forward-barf-sexp "barf")
+    ("B" sp-backward-barf-sexp "barf backwards")
+    ("w" hydra-wrap/body "wrap" :color blue))
+  :general
+  (leader-def "k" 'hydra-lisp/body)
   :hook (prog-mode . smartparens-global-mode))
   
 (use-package evil-cleverparens
@@ -567,7 +605,7 @@ I only enable this every now and then.
 #+BEGIN_SRC emacs-lisp
 (use-package fill-column-indicator
   :general
-  (leader-def "t f" 'fci-mode))
+  (leader-def "t i" 'fci-mode))
 #+END_SRC
 ** Focus
 #+begin_src emacs-lisp :tangle yes
@@ -606,7 +644,10 @@ I only enable this every now and then.
    "g l" 'git-link
    "g L" 'open-git-link-in-browser
    "g r" 'git-link-homepage
-   "g R" 'open-git-repo-in-browser))
+   "g R" 'open-git-repo-in-browser)
+  (:keymaps 'magit-status-mode-map
+   "j" 'evil-next-line
+   "k" 'evil-previous-line))
 #+END_SRC
 ** Flycheck
 #+BEGIN_SRC emacs-lisp
@@ -627,6 +668,7 @@ I only enable this every now and then.
 #+begin_src emacs-lisp :tangle yes
 (local-leader-def
   :keymaps 'emacs-lisp-mode-map
+  "e" '(:ignore t :wk "eval")
   "e b" 'eval-buffer
   "e e" 'eval-sexp
   "e f" 'eval-defun
