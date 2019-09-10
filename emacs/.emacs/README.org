@@ -382,6 +382,9 @@ declarations.
   (general-nmap "RET" 'sulami/isearch-nohighlight)
   :hook
   (after-init . global-evil-search-highlight-persist))
+
+(use-package evil-commentary
+  :hook (after-init . evil-commentary-mode))
 #+END_SRC
 ** Which key
 #+BEGIN_SRC emacs-lisp
