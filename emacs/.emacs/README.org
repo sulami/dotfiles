@@ -394,7 +394,9 @@ declarations.
 (use-package ivy
   :init
   (setq ivy-on-del-error-function #'ignore
-        ivy-re-builders-alist '((t . ivy--regex-fuzzy)))
+        ivy-re-builders-alist '((counsel-projectile-find-file . ivy--regex-fuzzy)
+                                (counsel-apropos . ivy--regex-ignore-order)
+                                (t . ivy--regex-plus)))
   :config
   (defun sulami/ivy-with-thing-at-point (cmd)
     (let ((ivy-initial-inputs-alist
@@ -425,6 +427,11 @@ declarations.
   (leader-def
    "s s" 'swiper
    "s S" 'sulami/swiper-thing-at-point))
+
+(use-package flx
+  :init
+  (setq gc-cons-threshold 20000000)
+  :defer t)
 #+END_SRC
 ** Company
 #+BEGIN_SRC emacs-lisp
