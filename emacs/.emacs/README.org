@@ -279,6 +279,15 @@ Weeks start on Monday.
         (window-configuration-to-register el-reg)
         (delete-other-windows)))))
 #+end_src
+*** Run a shell command on a region
+#+begin_src emacs-lisp :tangle yes
+(defun sulami/shell-command-on-region (beg end)
+  (interactive "r")
+  (if (use-region-p)
+      (let ((cmd (read-shell-command "Command: ")))
+        (call-process-region beg end cmd t t))
+    (message "Select a region first")))
+#+end_src
 ** General
 General allows me to use fancy prefix keybindings.
 
@@ -313,6 +322,7 @@ declarations.
    "w" '(:ignore t :wk "window")
    ;; General keybinds
    "$" 'eshell
+   "|" 'sulami/shell-command-on-region
    "b e" 'erase-buffer
    "b d" 'kill-this-buffer
    "b m" 'sulami/open-message-buffer
@@ -326,6 +336,7 @@ declarations.
    "t l" 'toggle-truncate-lines
    "t s" 'flyspell-mode
    "t n" 'linum-mode
+   "w =" 'balance-windows
    "w m" 'sulami/toggle-maximise-window)
   ;; FIXME this clashes atm
   (general-define-key
@@ -412,7 +423,8 @@ declarations.
    "b b" 'counsel-switch-buffer
    "f f" 'counsel-find-file
    "f r" 'counsel-recentf
-   "h a" 'counsel-apropos))
+   "h a" 'counsel-apropos
+   "j i" 'counsel-semantic-or-imenu))
 
 (use-package swiper
   :config
@@ -482,11 +494,12 @@ declarations.
     ("S" sp-backward-slurp-sexp "slurp backwards")
     ("b" sp-forward-barf-sexp "barf")
     ("B" sp-backward-barf-sexp "barf backwards")
-    ("w" hydra-wrap/body "wrap" :color blue))
+    ("w" hydra-wrap/body "wrap" :color blue)
+    ("." nil "quit" :color blue))
   :general
   (leader-def "k" 'hydra-lisp/body)
   :hook (prog-mode . smartparens-global-mode))
-  
+
 (use-package evil-cleverparens
   :hook (prog-mode . evil-cleverparens-mode))
 #+END_SRC
