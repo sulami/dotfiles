@@ -149,9 +149,9 @@ Set the font to Fira Code and enable ligatures.
   :init
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
-  ;(load-theme 'doom-one t)
   :config
-  (doom-themes-org-config))
+  (doom-themes-org-config)
+  (load-theme 'doom-one t))
 #+END_SRC
 *** All the icons
 #+BEGIN_SRC emacs-lisp
@@ -160,15 +160,13 @@ Set the font to Fira Code and enable ligatures.
 #+END_SRC
 *** Modeline
 #+BEGIN_SRC emacs-lisp
-;(use-package doom-modeline
-; :defer t
-; :config
-; (setq doom-modeline-buffer-file-name-style 'relative-to-project
-; doom-modeline-buffer-encoding nil
-; doom-modeline-persp-name nil
-; doom-modeline-vcs-max-length 36)
-; :init
-; )
+(use-package doom-modeline
+ :hook (after-init . doom-modeline-mode)
+ :config
+ (setq doom-modeline-buffer-file-name-style 'relative-to-project
+       doom-modeline-buffer-encoding nil
+       doom-modeline-persp-name nil
+       doom-modeline-vcs-max-length 36))
 #+END_SRC
 ** Org mode
 *** TODO Plain source code blocks
