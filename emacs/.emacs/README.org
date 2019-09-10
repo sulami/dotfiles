@@ -691,7 +691,7 @@ I only enable this every now and then.
     "c" 'cider-connect
     "j" 'cider-jack-in
     "q" 'cider-quit
-    "r" 'cider-switch-to-repl-buffer
+    "s" 'cider-scratch
     "x" 'cider-ns-reload-all
     "e" '(:ignore t :wk "eval")
     "e b" 'cider-eval-buffer
@@ -701,8 +701,15 @@ I only enable this every now and then.
     "e r" 'cider-eval-region
     "h" '(:ignore t :wk "help")
     "h a" 'cider-apropos
+    "h d" 'cider-doc
     "h i" 'cider-inspect-last-result
+    "h w" 'cider-docview-clojuredocs-web
+    "r" '(:ignore t :wk "repl")
+    "r f" 'cider-insert-defun-in-repl
+    "r n" 'cider-insert-ns-form-in-repl
+    "r r" 'cider-switch-to-repl-buffer
     "t" '(:ignore t :wk "test")
+    "t b" 'cider-test-show-report
     "t n" 'cider-test-run-ns-tests
     "t p" 'cider-test-run-project-tests
     "t t" 'cider-test-run-test))
