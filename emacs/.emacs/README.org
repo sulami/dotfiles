@@ -1,4 +1,4 @@
-#+STARTUP: content
+#+STARTUP: show all
 * Emacs
 ** Better defaults
 *** Use lexical binding in this file
@@ -634,8 +634,8 @@ I only enable this every now and then.
   (setq magit-completing-read-function 'ivy-completing-read))
 
 (use-package evil-magit
-  :hook (magit-mode . (lambda ()
-                        (require 'evil-magit))))
+  :defer t
+  :hook (magit-mode . (lambda () (require 'evil-magit))))
 
 (use-package git-link
   :init
