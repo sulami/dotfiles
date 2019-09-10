@@ -675,14 +675,40 @@ I only enable this every now and then.
 #+END_SRC
 ** Clojure
 #+BEGIN_SRC emacs-lisp
-(use-package flycheck-clj-kondo
-  :hook clojure-mode)
 (use-package clojure-mode
   :defer t
+  :after (flycheck-clj-kondo)
   :config
   (require 'flycheck-clj-kondo))
+
 (use-package cider
-  :hook clojure-mode)
+  :hook (clojure-mode . cider-mode)
+  :init
+  (setq cider-auto-mode nil)
+  :general
+  (local-leader-def
+    :keymaps 'clojure-mode-map
+    "c" 'cider-connect
+    "j" 'cider-jack-in
+    "q" 'cider-quit
+    "r" 'cider-switch-to-repl-buffer
+    "x" 'cider-ns-reload-all
+    "e" '(:ignore t :wk "eval")
+    "e b" 'cider-eval-buffer
+    "e d" 'cider-debug-defun-at-point
+    "e e" 'cider-eval-sexp
+    "e f" 'cider-eval-defun-at-point
+    "e r" 'cider-eval-region
+    "h" '(:ignore t :wk "help")
+    "h a" 'cider-apropos
+    "h i" 'cider-inspect-last-result
+    "t" '(:ignore t :wk "test")
+    "t n" 'cider-test-run-ns-tests
+    "t p" 'cider-test-run-project-tests
+    "t t" 'cider-test-run-test))
+
+(use-package flycheck-clj-kondo
+  :defer t)
 #+END_SRC
 ** Haskell
 #+BEGIN_SRC emacs-lisp
