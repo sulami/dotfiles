@@ -360,8 +360,7 @@ declarations.
    "w l" 'evil-window-move-far-right
    "w /" 'evil-window-vsplit
    "w -" 'evil-window-split)
-  :hook
-  (after-init . evil-mode))
+  :hook (after-init . evil-mode))
 
 (use-package evil-collection
   :defer t
@@ -378,8 +377,7 @@ declarations.
       (evil-search-highlight-persist-remove-all)))
   :general
   (general-nmap "RET" 'sulami/isearch-nohighlight)
-  :hook
-  (after-init . global-evil-search-highlight-persist))
+  :hook (after-init . global-evil-search-highlight-persist))
 
 (use-package evil-commentary
   :hook (after-init . evil-commentary-mode))
@@ -387,8 +385,7 @@ declarations.
 ** Which key
 #+BEGIN_SRC emacs-lisp
 (use-package which-key
-  :hook
-  (after-init . which-key-mode))
+  :hook (after-init . which-key-mode))
 #+END_SRC
 ** Ivy
 #+BEGIN_SRC emacs-lisp
@@ -407,8 +404,7 @@ declarations.
   :general
   (:keymaps 'ivy-minibuffer-map
    "C-w" 'ivy-backward-kill-word)
-  :hook
-  (after-init . ivy-mode))
+  :hook (after-init . ivy-mode))
 
 (use-package counsel
   :general
@@ -447,8 +443,7 @@ declarations.
    "<S-tab>" nil
    "<tab>" 'company-complete-selection
    "C-w" 'evil-delete-backward-word)
-  :hook
-  (after-init . global-company-mode))
+  :hook (after-init . global-company-mode))
 #+END_SRC
 ** Yasnippet
 #+BEGIN_SRC emacs-lisp
@@ -461,8 +456,7 @@ declarations.
    "TAB" nil
    "<ret>" nil
    "RET" nil)
-  :hook
-  (after-init . yas-global-mode))
+  :hook (after-init . yas-global-mode))
 
 (use-package ivy-yasnippet
   :general
@@ -548,8 +542,7 @@ I only enable this every now and then.
   :general
   (leader-def
    "p r" 'sulami/projectile-replace)
-  :hook
-  (after-init . projectile-global-mode))
+  :hook (after-init . projectile-global-mode))
 
 (use-package counsel-projectile
   :defer t
@@ -571,8 +564,7 @@ I only enable this every now and then.
   (leader-def
     "p l" 'persp-switch
     "p k" 'persp-kill)
-  :hook
-  (after-init . persp-mode))
+  :hook (after-init . persp-mode))
 
 (use-package persp-projectile
   :defer t
@@ -595,8 +587,7 @@ I only enable this every now and then.
    ("s-8" . winum-select-window-8)
    ("s-9" . winum-select-window-9)
    ("s-0" . winum-select-window-0-or-10))
-  :hook
-  (after-init . winum-mode))
+  :hook (after-init . winum-mode))
 #+END_SRC
 ** Fill column indicator
 #+BEGIN_SRC emacs-lisp
@@ -659,8 +650,7 @@ I only enable this every now and then.
   (setq flycheck-global-modes '(not emacs-lisp-mode))
   :general
   (leader-def "t c" 'flycheck-mode)
-  :hook
-  (after-init . global-flycheck-mode))
+  :hook (after-init . global-flycheck-mode))
 #+END_SRC
 ** Elisp
 #+begin_src emacs-lisp :tangle yes
