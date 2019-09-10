@@ -572,6 +572,8 @@ I only enable this every now and then.
 ** Perspective
 #+BEGIN_SRC emacs-lisp
 (use-package perspective
+  :config
+  (setq persp-show-modestring nil)
   :general
   (leader-def
     "p l" 'persp-switch
