@@ -389,30 +389,6 @@ declarations.
   :hook
   (after-init . which-key-mode))
 #+END_SRC
-** Helm
-#+BEGIN_SRC emacs-lisp
-;(use-package helm
-  ;:init
-  ;(setq helm-mode-fuzzy-match t
-        ;helm-M-x-fuzzy-match t)
-  ;:general
-  ;(leader-def
-   ;":" 'helm-M-x
-   ;"b b" 'helm-buffers-list
-   ;"f f" 'helm-find-files
-   ;"f r" 'helm-recentf
-   ;"h a" 'helm-apropos
-   ;"h m" 'helm-man-woman))
-;
-;(use-package helm-swoop
-  ;:general
-  ;(leader-def
-   ;"s s" 'helm-swoop-without-pre-input
-   ;"s S" 'helm-swoop))
-;
-;(use-package helm-rg
-  ;:defer t)
-#+END_SRC
 ** Ivy
 #+BEGIN_SRC emacs-lisp
 (use-package ivy
@@ -480,9 +456,9 @@ declarations.
   :hook
   (after-init . yas-global-mode))
 
-(use-package helm-c-yasnippet
+(use-package ivy-yasnippet
   :general
-  (general-imap "C-y" 'helm-yas-complete))
+  (general-imap "C-y" 'ivy-yasnippet))
 
 (use-package yasnippet-snippets
   :defer t
@@ -542,7 +518,7 @@ I only enable this every now and then.
 #+BEGIN_SRC emacs-lisp
 (use-package projectile
   :init
-  (setq projectile-completion-system 'helm)
+  (setq projectile-completion-system 'ivy)
   :config
   (defun sulami/projectile-replace ()
     "Search and replace in the whole project."
@@ -640,7 +616,7 @@ I only enable this every now and then.
    "g s" 'magit-status)
   ;; TODO magit-blame-addition + exit button
   :init
-  (setq magit-completing-read-function 'helm-completing-read-1))
+  (setq magit-completing-read-function 'ivy-completing-read))
 
 (use-package evil-magit
   :hook (magit-mode . (lambda ()
