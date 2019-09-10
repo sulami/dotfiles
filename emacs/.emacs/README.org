@@ -438,7 +438,7 @@ declarations.
    "C-p" nil)
   (:keymaps 'company-active-map
    "C-n" 'company-select-next
-   "C-p" 'company-select-previou
+   "C-p" 'company-select-previous
    "<S-tab>" nil
    "<tab>" 'company-complete-selection
    "C-w" 'evil-delete-backward-word)
