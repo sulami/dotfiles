@@ -145,13 +145,12 @@ Set the font to Fira Code and enable ligatures.
 *** Theme
 #+BEGIN_SRC emacs-lisp
 (use-package doom-themes
-  :defer t
   :init
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
   :config
   (doom-themes-org-config)
-  (load-theme 'doom-one t))
+  :hook (after-init . (lambda () (load-theme 'doom-one t))))
 #+END_SRC
 *** All the icons
 #+BEGIN_SRC emacs-lisp
