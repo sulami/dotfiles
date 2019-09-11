@@ -1,4 +1,4 @@
-#+STARTUP: show all
+#+STARTUP: showall
 * Emacs
 ** Better defaults
 *** Use lexical binding in this file
@@ -22,6 +22,10 @@ we don't accidentally leave backups around.
 #+BEGIN_SRC emacs-lisp
 (setq delete-by-moving-to-trash nil)
 #+END_SRC
+*** Hide junk files
+#+begin_src emacs-lisp :tangle yes
+(setq open-junk-file-directory "/tmp/emacs-junk/%Y-%m-%d-%H%M%S.")
+#+end_src
 *** Remember recent files
 #+BEGIN_SRC emacs-lisp
 (when (require 'recentf)
@@ -34,6 +38,11 @@ we don't accidentally leave backups around.
       inhibit-startup-screen t
       inhibit-startup-message t)
 #+END_SRC
+*** Something something tramp
+#+begin_src emacs-lisp :tangle yes
+(setq tramp-ssh-controlmaster-options
+      "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o Control-Persist=no")
+#+end_src
 *** Don't ring the bell
 #+begin_src emacs-lisp :tangle yes
 (setq ring-bell-function 'ignore)
@@ -142,6 +151,15 @@ Allows for patching functions in packages.
 #+begin_src emacs-lisp :tangle yes
 (use-package el-patch)
 #+end_src
+*** Updating
+#+begin_src emacs-lisp :tangle yes
+(defun sulami/update-packages ()
+  "Prunes and updates packages, revalidates patches."
+  (straight-prune-build-directory)
+  (straight-fetch-all)
+  (straight-pull-all)
+  (el-patch-validate-all))
+#+end_src
 ** Appearance
 *** Font
 Set the font to Fira Code and enable ligatures.
@@ -160,6 +178,11 @@ Set the font to Fira Code and enable ligatures.
   :config
   (doom-themes-org-config)
   :hook (after-init . (lambda () (load-theme 'doom-one t))))
+  ;; Set the default colourscheme according to the time of day
+  ;; (let ((hour-of-day (read (format-time-string "%H"))))
+  ;;   (if (< 9 hour-of-day 18)
+  ;;       (load-theme 'light)
+  ;;     (load-theme 'dark)))
 #+END_SRC
 *** All the icons
 #+BEGIN_SRC emacs-lisp
@@ -213,6 +236,23 @@ in org-indent-mode. Almost nothing here works yet.
 (setq org-indent-indentation-per-level 1)
 (add-hook 'org-mode-hook 'org-indent-mode)
 #+END_SRC
+*** Enable spell checking
+#+begin_src emacs-lisp :tangle yes
+(add-hook 'org-mode-hook 'flyspell-mode)
+#+end_src
+*** Archive into a shared file
+#+begin_src emacs-lisp :tangle yes
+(setq org-archive-location "archive.org::")
+#+end_src
+*** Agenda
+#+begin_src emacs-lisp :tangle yes
+(setq org-agenda-files '("~/Documents/Notes/"
+                         "~/.emacs/README.org"))
+#+end_src
+*** Journal
+#+begin_src emacs-lisp :tangle yes
+(setq org-journal-dir "~/Documents/org-journal/")
+#+end_src
 *** Calendar
 Weeks start on Monday.
 #+BEGIN_SRC emacs-lisp
@@ -229,22 +269,38 @@ Weeks start on Monday.
   :disabled)
 #+end_src
 ** Custom functions
-*** Rename buffer file
+*** Config
+**** Open this file
+#+BEGIN_SRC emacs-lisp
+(defun sulami/open-emacs-config ()
+  "Opens the config file for our favourite OS."
+  (interactive)
+  (find-file sulami/emacs-config-file))
+#+END_SRC
+**** Reload this file
+#+BEGIN_SRC emacs-lisp
+(defun sulami/reload-emacs-config ()
+  "Loads the config file for our favourite OS."
+  (interactive)
+  (org-babel-load-file sulami/emacs-config-file))
+#+END_SRC
+*** Buffers
+**** Rename buffer file
 #+BEGIN_SRC emacs-lisp
 (defun sulami/rename-file-and-buffer ()
-    "Rename the current buffer and file it is visiting."
-    (interactive)
-    (let ((filename (buffer-file-name)))
-      (if (not (and filename (file-exists-p filename)))
-          (message "Buffer is not visiting a file!")
-        (let ((new-name (read-file-name "New name: " filename)))
-          (cond
-           ((vc-backend filename) (vc-rename-file filename new-name))
-           (t
-            (rename-file filename new-name t)
-            (set-visited-file-name new-name t t)))))))
+  "Rename the current buffer and file it is visiting."
+  (interactive)
+  (let ((filename (buffer-file-name)))
+    (if (not (and filename (file-exists-p filename)))
+        (message "Buffer is not visiting a file!")
+      (let ((new-name (read-file-name "New name: " filename)))
+        (cond
+         ((vc-backend filename) (vc-rename-file filename new-name))
+         (t
+          (rename-file filename new-name t)
+          (set-visited-file-name new-name t t)))))))
 #+END_SRC
-*** Switch to buffer shortcuts
+**** Switch to buffer shortcuts
 #+BEGIN_SRC emacs-lisp
 (defun sulami/open-scratch-buffer ()
   "Open the scratch buffer."
@@ -256,27 +312,26 @@ Weeks start on Monday.
   (interactive)
   (switch-to-buffer "*Messages*"))
 #+END_SRC
-*** Buffer line count
+**** Buffer line count
 #+BEGIN_SRC emacs-lisp
 (defun sulami/buffer-line-count ()
   "Get the number of lines in the active buffer."
   (count-lines 1 (point-max)))
 #+END_SRC
-*** Open this file
-#+BEGIN_SRC emacs-lisp
-(defun sulami/open-emacs-config ()
-  "Opens the config file for our favourite OS."
+**** Save buffer to junk
+#+begin_src emacs-lisp :tangle yes
+(defun sulami/save-to-junk ()
+  "Save the current buffer as a junk file."
   (interactive)
-  (find-file sulami/emacs-config-file))
-#+END_SRC
-*** Reload this file
-#+BEGIN_SRC emacs-lisp
-(defun sulami/reload-emacs-config ()
-  "Loads the config file for our favourite OS."
-  (interactive)
-  (org-babel-load-file sulami/emacs-config-file))
-#+END_SRC
-*** Maximise a window
+  (spacemacs/copy-whole-buffer-to-clipboard)
+  (kill-buffer)
+  (open-junk-file)
+  (insert (current-kill 0))
+  (save-buffer))
+#+end_src
+**** TODO Delete buffer file
+*** Windows
+**** Maximise a window
 #+begin_src emacs-lisp :tangle yes
 (defun sulami/toggle-maximise-window ()
   "Toggles maximising the current window."
@@ -288,6 +343,16 @@ Weeks start on Monday.
         (window-configuration-to-register el-reg)
         (delete-other-windows)))))
 #+end_src
+**** Triple fibonacci windows
+#+begin_src emacs-lisp :tangle yes
+(defun sulami/layout-triple-fib ()
+  "Open one window on the left and stacked on the right."
+  (interactive)
+  (delete-other-windows)
+  (split-window-horizontally)
+  (select-window (next-window))
+  (split-window-vertically))
+#+end_src
 *** Run a shell command on a region
 #+begin_src emacs-lisp :tangle yes
 (defun sulami/shell-command-on-region (beg end)
@@ -296,6 +361,23 @@ Weeks start on Monday.
       (let ((cmd (read-shell-command "Command: ")))
         (call-process-region beg end cmd t t))
     (message "Select a region first")))
+#+end_src
+*** Sprunge
+**** TODO Sprunge region
+**** TODO Sprunge buffer
+#+begin_src emacs-lisp :tangle yes
+(defun sulami/sprunge-buffer ()
+  "Sends the current buffer content to sprunge.us and copy the URL to the
+clipboard."
+  (interactive)
+  (call-process-region
+   (point-min) (point-max)
+   "curl -sF 'sprunge=<-' http://sprunge.us"
+   "*Sprunge*")
+  (with-current-buffer "*Sprunge*"
+    (message (concat "Sprunged to " (buffer-string)))
+    ;(spacemacs/copy-whole-buffer-to-clipboard)
+))
 #+end_src
 ** General
 General allows me to use fancy prefix keybindings.
@@ -325,6 +407,7 @@ declarations.
    "h" '(:ignore t :wk "help")
    "j" '(:ignore t :wk "jump")
    "k" '(:ignore t :wk "lisp")
+   "l" '(:ignore t :wk "lsp")
    "p" '(:ignore t :wk "project/perspective")
    "s" '(:ignore t :wk "search")
    "t" '(:ignore t :wk "toggle")
@@ -339,6 +422,7 @@ declarations.
    "b s" 'sulami/open-scratch-buffer
    "f e e" 'sulami/open-emacs-config
    "f e r" 'sulami/reload-emacs-config
+   "h d" 'describe-symbol
    "h g" 'general-describe-keybindings
    "h k" 'describe-key
    "h l" 'view-lossage
@@ -488,9 +572,15 @@ a symbol and how to search for them."
   :config
   (prescient-persist-mode))
 
+(use-package ivy-xref
+  :defer t
+  :init (if (< emacs-major-version 27)
+            (setq xref-show-xrefs-function #'ivy-xref-show-xrefs)
+          (setq xref-show-definitions-function #'ivy-xref-show-defs)))
+
 (use-package flx
   :defer t
-  :init
+  :config
   (setq gc-cons-threshold 20000000))
 #+END_SRC
 ** Company
@@ -498,7 +588,7 @@ a symbol and how to search for them."
 (use-package company
   :general
   (general-imap
-   "C-n" nil
+   "C-n" 'company-complete
    "C-p" nil)
   (:keymaps 'company-active-map
    "C-n" 'company-select-next
@@ -515,7 +605,7 @@ a symbol and how to search for them."
 #+BEGIN_SRC emacs-lisp
 (use-package yasnippet
   :config
-  (setq yas-snippet-dirs (cons "/Users/sulami/.emacs/snippets/" yas-snippet-dirs))
+  (setq yas-snippet-dirs (add-to-list #'yas-snippet-dirs "/Users/sulami/.emacs/snippets/"))
   :general
   (:keymaps 'yas-minor-mode-map
    "<tab>" nil
@@ -536,7 +626,7 @@ a symbol and how to search for them."
 #+BEGIN_SRC emacs-lisp
 (use-package smartparens
   :after (hydra)
-  :init
+  :config
   (require 'smartparens-config)
   (defhydra hydra-wrap (:color blue)
     "wrap"
@@ -556,7 +646,20 @@ a symbol and how to search for them."
   :hook (prog-mode . smartparens-global-mode))
 
 (use-package evil-cleverparens
+  :init
+  (setq evil-cleverparens-use-additional-movement-keys nil
+        evil-cleverparens-use-additional-bindings nil)
   :hook (prog-mode . evil-cleverparens-mode))
+
+;; Prevent evil-cleverparens from converting >/< to slurp/barf
+;; (defun sulami/evil-cp-modify-regular-bindings (&rest r)
+;;   (setq evil-cp-regular-bindings
+;;         (remove-if (lambda (key-string)
+;;                      (member key-string '("_" ">" "<")))
+;;                    evil-cp-regular-bindings
+;;                    :key 'car)))
+;; (advice-add 'evil-cp--enable-regular-bindings :before
+;;             #'sulami/evil-cp-modify-regular-bindings)
 #+END_SRC
 ** Dumb jump
 #+BEGIN_SRC emacs-lisp
@@ -616,13 +719,25 @@ I only enable this every now and then.
   :config
   (defun sulami/projectile-rg-thing-at-point ()
     (interactive)
-    (sulami/ivy-with-thing-at-point 'counsel-projectile-rg))
+    (let ((counsel-projectile-rg-initial-input (thing-at-point 'symbol)))
+      (counsel-projectile-rg)))
   :general
   (leader-def
    "p b" 'counsel-projectile-switch-to-buffer
    "p f" 'counsel-projectile-find-file
    "s p" 'counsel-projectile-rg
    "s P" 'sulami/projectile-rg-thing-at-point))
+
+;; (defun sulami/project-root-shell ()
+;;   "Pop the default shell in the project root if inside a project, otherwise in
+;; the default directory."
+;;   (interactive)
+;;   (when (sulami/is-spacemacs)
+;;     (if (projectile-project-p)
+;;         (projectile-with-default-dir (projectile-project-root)
+;;           (spacemacs/default-pop-shell))
+;;       (spacemacs/default-pop-shell))))
+
 #+END_SRC
 ** Perspective
 #+BEGIN_SRC emacs-lisp
@@ -631,16 +746,22 @@ I only enable this every now and then.
   (setq persp-show-modestring nil)
   :general
   (leader-def
-    "p l" 'persp-switch
-    "p k" 'persp-kill)
+    "p l" 'persp-switch)
   :hook (after-init . persp-mode))
 
 (use-package persp-projectile
   :defer t
   :after (perspective)
+  :init
+  (defun sulami/kill-project-perspective ()
+    "Kills the current project and then the perspective"
+    (interactive)
+    (projectile-kill-buffers)
+    (persp-kill (persp-name (persp-curr))))
   :general
   (leader-def
-    "p p" 'projectile-persp-switch-project))
+    "p p" 'projectile-persp-switch-project
+    "p k" 'sulami/kill-project-perspective))
 #+END_SRC
 ** Winum
 #+BEGIN_SRC emacs-lisp
@@ -683,8 +804,6 @@ I only enable this every now and then.
   (leader-def
     "g b" 'magit-blame-addition
     "g s" 'magit-status)
-  (:keymaps 'magit-status-mode-map
-   "SPC" nil)
   :init
   (setq magit-completing-read-function 'ivy-completing-read))
 
@@ -708,6 +827,15 @@ I only enable this every now and then.
    "g L" 'open-git-link-in-browser
    "g r" 'git-link-homepage
    "g R" 'open-git-repo-in-browser))
+
+;; TODO this should probably go somewhere else
+(defun sulami/magit-status-same-window ()
+  "Open the magit status in the current window."
+  (interactive)
+  (let ((magit-display-buffer-function
+         (lambda (buffer)
+           (display-buffer buffer '(display-buffer-same-window)))))
+    (magit-status)))
 #+END_SRC
 ** Flycheck
 #+BEGIN_SRC emacs-lisp
@@ -738,6 +866,12 @@ I only enable this every now and then.
 #+BEGIN_SRC emacs-lisp
 (setq eshell-alias-file "~/.emacs/aliases")
 #+END_SRC
+** Esup
+This allows me to benchmark Emacs startup.
+#+begin_src emacs-lisp :tangle yes
+(use-package esup
+  :disabled)
+#+end_src
 ** Restclient
 #+begin_src emacs-lisp :tangle yes
 (use-package restclient
@@ -750,12 +884,40 @@ I only enable this every now and then.
     "s" 'restclient-http-send-current-stay-in-window
     "S" 'restclient-http-send-current))
 #+end_src
+** Atomic
+#+begin_src emacs-lisp :tangle yes
+;; Bring up the atomic-chrome editing server
+;; (require 'atomic-chrome)
+;; (atomic-chrome-start-server)
+;; (setq atomic-chrome-default-major-mode 'markdown-mode
+;;       atomic-chrome-buffer-open-style 'frame)
+#+end_src
 ** LSP
 #+BEGIN_SRC emacs-lisp
 (use-package lsp-mode
-  :disabled)
-(use-package lsp-company
-  :disabled)
+  :defer t
+  :commands lsp
+  :config
+  (add-to-list 'lsp-language-id-configuration '(clojure-mode . "clojure-mode"))
+  :init
+  (setq lsp-enable-indentation nil)
+  :general
+  (leader-def
+    "l f" 'lsp-format-region
+    "l F" 'lsp-format-buffer
+    "l j" 'lsp-goto-implementation
+    "l q" 'lsp-shutdown-workspace
+    "l r" 'lsp-rename
+    "l R" 'lsp-restart-workspace
+    "l u" 'lsp-find-references))
+
+(use-package company-lsp
+  :defer t
+  :commands company-lsp)
+
+(use-package lsp-ui
+  :defer t
+  :commands lsp-ui-mode)
 #+END_SRC
 ** Clojure
 #+BEGIN_SRC emacs-lisp
@@ -800,11 +962,65 @@ I only enable this every now and then.
 
 (use-package flycheck-clj-kondo
   :defer t)
+
+;; TODO this should probably go somewhere else, if anywhere
+(defun sulami/clojure-thread-last ()
+  "Unwraps an onion of functions into a thread-last macro.
+
+Place point on the outer-most opening parenthesis to start:
+|(f (g (h x))) => (->> x (h) (g) (f))"
+  (interactive)
+  (let ((start (point))
+        (depth 0))
+
+    (while (let ((pos (point)))
+             (sp-down-sexp)
+             (not (= pos (point))))
+      (setq depth (+ 1 depth)))
+
+    (goto-char start)
+    (sp-down-sexp)
+
+    (--dotimes depth
+      (sp-forward-barf-sexp)
+      (left-char)
+      (sp-kill-sexp)
+      (right-char))
+
+    (re-search-forward "\n" nil t)
+    (left-char)
+
+    (--each (-take depth kill-ring)
+      (insert (format " %s" it)))
+
+    (goto-char start)
+    (insert "(->>) ")
+    (goto-char (+ 1 start))
+    (sp-forward-slurp-sexp (+ 1 depth))
+    (goto-char start)))
 #+END_SRC
 ** Haskell
 #+BEGIN_SRC emacs-lisp
 (use-package haskell-mode
   :defer t)
+
+;;; Fix indentation when using o/O in Haskell
+;(defun haskell-evil-open-above ()
+;  (interactive)
+;  (evil-digit-argument-or-evil-beginning-of-line)
+;  (haskell-indentation-newline-and-indent)
+;  (evil-previous-line)
+;  (haskell-indentation-indent-line)
+;  (evil-append-line nil))
+;
+;(defun haskell-evil-open-below ()
+;  (interactive)
+;  (evil-append-line nil)
+;  (haskell-indentation-newline-and-indent))
+;
+;(evil-define-key 'normal haskell-mode-map
+;  "o" 'haskell-evil-open-below
+;  "O" 'haskell-evil-open-above)
 #+END_SRC
 ** Markdown
 #+BEGIN_SRC emacs-lisp
@@ -817,6 +1033,11 @@ I only enable this every now and then.
 (use-package yaml-mode
   :mode (("\\.ya?ml\\'" . yaml-mode)))
 #+END_SRC
+** JSON
+#+begin_src emacs-lisp :tangle yes
+;; Indent by 2 spaces, if we ever get there
+(setq js2-basic-offset 2)
+#+end_src
 ** Protobuf
 #+BEGIN_SRC emacs-lisp
 (use-package protobuf-mode

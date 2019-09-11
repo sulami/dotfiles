@@ -3,7 +3,7 @@
 ;; Startup time optimisations stolen from doom-emacs (including the lexical
 ;; binding bit above)
 ;; Prevent GC during launch
-(setq gc-cons-threshold 402653184
+(setq gc-cons-threshold 500000000
       gc-cons-percentage 0.6)
 
 ;; We don't need file handlers during launch either
