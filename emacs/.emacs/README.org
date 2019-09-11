@@ -738,6 +738,18 @@ I only enable this every now and then.
 #+BEGIN_SRC emacs-lisp
 (setq eshell-alias-file "~/.emacs/aliases")
 #+END_SRC
+** Restclient
+#+begin_src emacs-lisp :tangle yes
+(use-package restclient
+  :mode (("\\.http\\'" . restclient-mode))
+  :general
+  (local-leader-def
+    :keymaps 'restclient-mode-map
+    "c" 'restclient-copy-curl-command
+    "r" 'restclient-http-send-current-raw
+    "s" 'restclient-http-send-current-stay-in-window
+    "S" 'restclient-http-send-current))
+#+end_src
 ** LSP
 #+BEGIN_SRC emacs-lisp
 (use-package lsp-mode
