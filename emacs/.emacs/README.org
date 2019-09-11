@@ -172,10 +172,19 @@ Set the font to Fira Code and enable ligatures.
 *** Theme
 #+BEGIN_SRC emacs-lisp
 (use-package doom-themes
+  :after (dash)
   :init
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
   :config
+  ;; Patch out the backgound colours from org-mode src blocks
+  (set-variable
+   'doom-themes-base-faces
+   (->> doom-themes-base-faces
+        (cl-remove-if (lambda (x) (equal (car x) 'org-block)))
+        ( cl-remove-if (lambda (x) (equal (car x) 'org-block-background)))
+        (cl-substitute-if '(org-block-begin-line :foreground comments)
+                          (lambda (x) (equal (car x) 'org-block-begin-line)))))
   (doom-themes-org-config)
   :hook (after-init . (lambda () (load-theme 'doom-one t))))
   ;; Set the default colourscheme according to the time of day
@@ -183,6 +192,8 @@ Set the font to Fira Code and enable ligatures.
   ;;   (if (< 9 hour-of-day 18)
   ;;       (load-theme 'light)
   ;;     (load-theme 'dark)))
+
+(use-package dash)
 #+END_SRC
 *** All the icons
 #+BEGIN_SRC emacs-lisp
