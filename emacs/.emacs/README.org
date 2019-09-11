@@ -378,10 +378,8 @@ declarations.
   :hook (after-init . evil-mode))
 
 (use-package evil-collection
-  :defer t
   :after (evil flycheck)
-  :config
-  (evil-collection-init))
+  :hook (evil-mode . evil-collection-init))
 
 (use-package evil-search-highlight-persist
   :config
@@ -392,10 +390,13 @@ declarations.
       (evil-search-highlight-persist-remove-all)))
   :general
   (general-nmap "RET" 'sulami/isearch-nohighlight)
-  :hook (after-init . global-evil-search-highlight-persist))
+  :hook (evil-mode . global-evil-search-highlight-persist))
 
 (use-package evil-commentary
-  :hook (after-init . evil-commentary-mode))
+  :hook (evil-mode . evil-commentary-mode))
+
+(use-package evil-surround
+  :hook (evil-mode . global-evil-surround-mode))
 #+END_SRC
 ** Which key
 #+BEGIN_SRC emacs-lisp
