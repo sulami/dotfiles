@@ -46,6 +46,10 @@ we don't accidentally leave backups around.
 #+begin_src emacs-lisp :tangle yes
 (setq initial-major-mode 'emacs-lisp-mode)
 #+end_src
+*** Switch to the help window
+#+begin_src emacs-lisp :tangle yes
+(setq help-window-select t)
+#+end_src
 *** Spaces > tabs
 #+BEGIN_SRC emacs-lisp
 (setq-default indent-tabs-mode nil)
@@ -343,7 +347,6 @@ declarations.
    "t n" 'linum-mode
    "w =" 'balance-windows
    "w m" 'sulami/toggle-maximise-window)
-  ;; FIXME this clashes atm
   (general-define-key
    "s-=" 'text-scale-adjust))
 #+END_SRC
@@ -458,8 +461,7 @@ a symbol and how to search for them."
                   (apropos (concat "\\`" pattern "\\'"))))
               ;; Patch
               (lambda (sym-name)
-                (describe-symbol (intern-soft sym-name))
-                (select-window (get-buffer-window "*Help*"))))
+                (describe-symbol (intern-soft sym-name))))
             :caller 'counsel-apropos))
   :general
   (leader-def
