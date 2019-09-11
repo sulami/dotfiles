@@ -642,17 +642,17 @@ I only enable this every now and then.
 ** Winum
 #+BEGIN_SRC emacs-lisp
 (use-package winum
-  :bind
-  (("s-1" . winum-select-window-1)
-   ("s-2" . winum-select-window-2)
-   ("s-3" . winum-select-window-3)
-   ("s-4" . winum-select-window-4)
-   ("s-5" . winum-select-window-5)
-   ("s-6" . winum-select-window-6)
-   ("s-7" . winum-select-window-7)
-   ("s-8" . winum-select-window-8)
-   ("s-9" . winum-select-window-9)
-   ("s-0" . winum-select-window-0-or-10))
+  :general
+  ("s-1" 'winum-select-window-1
+   "s-2" 'winum-select-window-2
+   "s-3" 'winum-select-window-3
+   "s-4" 'winum-select-window-4
+   "s-5" 'winum-select-window-5
+   "s-6" 'winum-select-window-6
+   "s-7" 'winum-select-window-7
+   "s-8" 'winum-select-window-8
+   "s-9" 'winum-select-window-9
+   "s-0" 'winum-select-window-0-or-10)
   :hook (after-init . winum-mode))
 #+END_SRC
 ** Fill column indicator
