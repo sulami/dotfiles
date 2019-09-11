@@ -133,6 +133,11 @@ Especially Alfred likes to paste with ~⌘-v~, so that needs to work.
 #+BEGIN_SRC emacs-lisp
 (setq straight-use-package-by-default t)
 #+END_SRC
+*** el-patch
+Allows for patching functions in packages.
+#+begin_src emacs-lisp :tangle yes
+(use-package el-patch)
+#+end_src
 ** Appearance
 *** Font
 Set the font to Fira Code and enable ligatures.
@@ -417,6 +422,42 @@ declarations.
   :hook (after-init . ivy-mode))
 
 (use-package counsel
+  :config/el-patch
+  ;; Patching counsel-apropos to skip the apropos step
+  (defun counsel-apropos ()
+  "Show all matching symbols.
+See `apropos' for further information on what is considered
+a symbol and how to search for them."
+  (interactive)
+  (ivy-read "Search for symbol (word list or regexp): " obarray
+            :predicate (lambda (sym)
+                         (or (fboundp sym)
+                             (boundp sym)
+                             (facep sym)
+                             (symbol-plist sym)))
+            :history 'counsel-apropos-history
+            :preselect (ivy-thing-at-point)
+            :sort t
+            :action
+            (el-patch-swap
+              ;; Original
+              (lambda (pattern)
+                (when (string= pattern "")
+                  (user-error "Please specify a pattern"))
+                ;; If the user selected a candidate form the list, we use
+                ;; a pattern which matches only the selected symbol.
+                (if (memq this-command '(ivy-immediate-done ivy-alt-done))
+                    ;; Regexp pattern are passed verbatim, other input is
+                    ;; split into words.
+                    (if (string= (regexp-quote pattern) pattern)
+                        (apropos (split-string pattern "[ \t]+" t))
+                      (apropos pattern))
+                  (apropos (concat "\\`" pattern "\\'"))))
+              ;; Patch
+              (lambda (sym-name)
+                (describe-symbol (intern-soft sym-name))
+                (select-window (get-buffer-window "*Help*"))))
+            :caller 'counsel-apropos))
   :general
   (leader-def
    ":" 'counsel-M-x
