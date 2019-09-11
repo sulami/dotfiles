@@ -436,10 +436,15 @@ declarations.
    "s s" 'swiper
    "s S" 'sulami/swiper-thing-at-point))
 
+(use-package ivy-prescient
+  :hook (ivy-mode . ivy-prescient-mode)
+  :config
+  (prescient-persist-mode))
+
 (use-package flx
+  :defer t
   :init
-  (setq gc-cons-threshold 20000000)
-  :defer t)
+  (setq gc-cons-threshold 20000000))
 #+END_SRC
 ** Company
 #+BEGIN_SRC emacs-lisp
@@ -455,6 +460,9 @@ declarations.
    "<tab>" 'company-complete-selection
    "C-w" 'evil-delete-backward-word)
   :hook (after-init . global-company-mode))
+
+(use-package company-prescient
+  :hook (company-mode . company-prescient-mode))
 #+END_SRC
 ** Yasnippet
 #+BEGIN_SRC emacs-lisp
