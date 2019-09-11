@@ -407,11 +407,13 @@ declarations.
 (use-package ivy
   :init
   (setq ivy-on-del-error-function #'ignore
+        ivy-count-format "(%d/%d) "
         ivy-re-builders-alist '((counsel-projectile-find-file . ivy--regex-fuzzy)
                                 (counsel-apropos . ivy--regex-ignore-order)
                                 (t . ivy--regex-plus)))
   :config
   (defun sulami/ivy-with-thing-at-point (cmd)
+    "Runs an ivy command with the thing at point."
     (let ((ivy-initial-inputs-alist
            (list
             (cons cmd (thing-at-point 'symbol)))))
@@ -465,7 +467,8 @@ a symbol and how to search for them."
    "f f" 'counsel-find-file
    "f r" 'counsel-recentf
    "h a" 'counsel-apropos
-   "j i" 'counsel-semantic-or-imenu))
+   "j i" 'counsel-semantic-or-imenu)
+   :hook (after-init . counsel-mode))
 
 (use-package swiper
   :config
