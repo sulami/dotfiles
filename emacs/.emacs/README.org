@@ -839,6 +839,8 @@ I only enable this every now and then.
 ** Magit
 #+BEGIN_SRC emacs-lisp
 (use-package magit
+  :custom
+  (magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1)
   :general
   (leader-def
     "g b" 'magit-blame-addition
@@ -866,15 +868,6 @@ I only enable this every now and then.
    "g L" 'open-git-link-in-browser
    "g r" 'git-link-homepage
    "g R" 'open-git-repo-in-browser))
-
-;; TODO this should probably go somewhere else
-(defun sulami/magit-status-same-window ()
-  "Open the magit status in the current window."
-  (interactive)
-  (let ((magit-display-buffer-function
-         (lambda (buffer)
-           (display-buffer buffer '(display-buffer-same-window)))))
-    (magit-status)))
 #+END_SRC
 ** Flycheck
 #+BEGIN_SRC emacs-lisp
