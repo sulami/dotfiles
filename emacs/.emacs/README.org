@@ -1,4 +1,6 @@
 #+STARTUP: showall
+#+FILETAGS: sideproject yak
+#+CATEGORY: Emacs
 * Emacs
 ** Better defaults
 *** Use lexical binding in this file
@@ -441,6 +443,7 @@ declarations.
    "w" '(:ignore t :wk "window")
    ;; General keybinds
    "$" 'eshell
+   "\\" 'indent-region
    "|" 'sulami/shell-command-on-region
    "b e" 'erase-buffer
    "b d" 'kill-this-buffer
@@ -461,7 +464,11 @@ declarations.
    "w =" 'balance-windows
    "w m" 'sulami/toggle-maximise-window)
   (general-define-key
-   "s-=" 'text-scale-adjust))
+   "s-=" 'text-scale-adjust)
+  ;; Org mode
+  (local-leader-def
+    :keymaps 'org-mode-map
+    "a" 'org-archive-subtree))
 #+END_SRC
 *** TODO Quick temporary global shortcuts
 ** Hydra
@@ -541,6 +548,7 @@ declarations.
   :hook (after-init . ivy-mode))
 
 (use-package counsel
+  :after (evil)
   :config/el-patch
   ;; Patching counsel-apropos to skip the apropos step
   (defun counsel-apropos ()
@@ -576,6 +584,13 @@ a symbol and how to search for them."
               (lambda (sym-name)
                 (describe-symbol (intern-soft sym-name))))
             :caller 'counsel-apropos))
+  :init
+  (defun sulami/imenu-goto-function (NAME POSITION &rest REST)
+    "Imenu goto function which pushes an evil jump position before
+    jumping."
+    (evil-set-jump)
+    (apply #'imenu-default-goto-function NAME POSITION REST))
+  (setq-default imenu-default-goto-function 'sulami/imenu-goto-function)
   :general
   (leader-def
    ":" 'counsel-M-x
