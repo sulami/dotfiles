@@ -712,6 +712,12 @@ a symbol and how to search for them."
   :general
   (general-nmap "s-n" 'avy-goto-word-or-subword-1))
 #+END_SRC
+** Highlight TODO
+#+begin_src emacs-lisp :tangle yes
+(use-package hl-todo
+  :defer t
+  :hook (after-init . global-hl-todo-mode))
+#+end_src
 ** Highlight symbol
 I only enable this every now and then.
 #+BEGIN_SRC emacs-lisp
