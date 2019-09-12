@@ -878,10 +878,9 @@ I only enable this every now and then.
         (if (> (sulami/buffer-line-count) 2000)
             (delete 'idle-change flycheck-check-syntax-automatically)
           (add-to-list 'flycheck-check-syntax-automatically 'idle-change)))
-  (setq flycheck-global-modes '(not emacs-lisp-mode))
   :general
   (leader-def "t c" 'flycheck-mode)
-  :hook (after-init . global-flycheck-mode))
+  :hook (clojure-mode . flycheck-mode))
 #+END_SRC
 ** Elisp
 #+begin_src emacs-lisp :tangle yes
@@ -960,6 +959,7 @@ This allows me to benchmark Emacs startup.
   (require 'flycheck-clj-kondo))
 
 (use-package cider
+  :defer t
   :hook (clojure-mode . cider-mode)
   :init
   (setq cider-auto-mode nil)
@@ -1063,7 +1063,7 @@ Place point on the outer-most opening parenthesis to start:
 ** YAML
 #+BEGIN_SRC emacs-lisp
 (use-package yaml-mode
-  :mode (("\\.ya?ml\\'" . yaml-mode)))
+  :defer t)
 #+END_SRC
 ** JSON
 #+begin_src emacs-lisp :tangle yes
@@ -1073,7 +1073,7 @@ Place point on the outer-most opening parenthesis to start:
 ** Protobuf
 #+BEGIN_SRC emacs-lisp
 (use-package protobuf-mode
-  :mode (("\\.proto\\'" . protobuf-mode)))
+  :defer t)
 #+END_SRC
 ** Done
 #+BEGIN_SRC emacs-lisp
@@ -1085,3 +1085,5 @@ Place point on the outer-most opening parenthesis to start:
                                pkg-count
                                startup-time)))))
 #+END_SRC
+** Packages to look into
+*** TODO el-macro
