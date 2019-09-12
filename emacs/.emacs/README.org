@@ -43,6 +43,11 @@ we don't accidentally leave backups around.
 (setq tramp-ssh-controlmaster-options
       "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o Control-Persist=no")
 #+end_src
+*** Remember where we were
+#+begin_src emacs-lisp :tangle yes
+(require 'saveplace)
+(save-place-mode 1)
+#+end_src
 *** Don't ring the bell
 #+begin_src emacs-lisp :tangle yes
 (setq ring-bell-function 'ignore)
