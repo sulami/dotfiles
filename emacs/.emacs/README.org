@@ -163,6 +163,11 @@ Allows for patching functions in packages.
 #+begin_src emacs-lisp :tangle yes
 (use-package el-patch)
 #+end_src
+*** Dash
+List library that comes in handy.
+#+begin_src emacs-lisp :tangle yes
+(use-package dash)
+#+end_src
 *** Updating
 #+begin_src emacs-lisp :tangle yes
 (defun sulami/update-packages ()
@@ -194,18 +199,16 @@ Set the font to Fira Code and enable ligatures.
    'doom-themes-base-faces
    (->> doom-themes-base-faces
         (cl-remove-if (lambda (x) (equal (car x) 'org-block)))
-        ( cl-remove-if (lambda (x) (equal (car x) 'org-block-background)))
+        (cl-remove-if (lambda (x) (equal (car x) 'org-block-background)))
         (cl-substitute-if '(org-block-begin-line :foreground comments)
                           (lambda (x) (equal (car x) 'org-block-begin-line)))))
   (doom-themes-org-config)
-  :hook (after-init . (lambda () (load-theme 'doom-one t))))
   ;; Set the default colourscheme according to the time of day
-  ;; (let ((hour-of-day (read (format-time-string "%H"))))
-  ;;   (if (< 9 hour-of-day 18)
-  ;;       (load-theme 'light)
-  ;;     (load-theme 'dark)))
-
-(use-package dash)
+  :hook (after-init . (lambda ()
+                        (let ((hour-of-day (read (format-time-string "%H"))))
+                          (if (< 8 hour-of-day 18)
+                              (load-theme 'doom-solarized-light t)
+                            (load-theme 'doom-one t))))))
 #+END_SRC
 *** All the icons
 #+BEGIN_SRC emacs-lisp
