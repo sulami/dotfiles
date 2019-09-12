@@ -226,6 +226,7 @@ Set the font to Fira Code and enable ligatures.
        doom-modeline-vcs-max-length 36))
 #+END_SRC
 ** Org mode
+*** TODO Capture
 *** TODO Plain source code blocks
 Need to disable ligatures in org-mode because it breaks the asterisks
 in org-indent-mode. Almost nothing here works yet.
@@ -264,7 +265,7 @@ in org-indent-mode. Almost nothing here works yet.
 #+END_SRC
 *** Enable spell checking
 #+begin_src emacs-lisp :tangle yes
-(add-hook 'org-mode-hook 'flyspell-mode)
+;(add-hook 'org-mode-hook 'flyspell-mode)
 #+end_src
 *** Archive into a shared file
 #+begin_src emacs-lisp :tangle yes
@@ -449,9 +450,11 @@ declarations.
    "f e e" 'sulami/open-emacs-config
    "f e r" 'sulami/reload-emacs-config
    "h d" 'describe-symbol
+   "h f" 'describe-function
    "h g" 'general-describe-keybindings
    "h k" 'describe-key
    "h l" 'view-lossage
+   "h v" 'describe-variable
    "t l" 'toggle-truncate-lines
    "t s" 'flyspell-mode
    "t n" 'linum-mode
@@ -581,7 +584,11 @@ a symbol and how to search for them."
    "f r" 'counsel-recentf
    "h a" 'counsel-apropos
    "j i" 'counsel-semantic-or-imenu)
-   :hook (after-init . counsel-mode))
+  (leader-def
+    :keymaps 'org-mode-map
+    ;; Override imenu for org-mode
+    "j i" 'counsel-org-goto)
+  :hook (after-init . counsel-mode))
 
 (use-package swiper
   :config
