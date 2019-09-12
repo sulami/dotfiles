@@ -611,6 +611,20 @@ a symbol and how to search for them."
             (setq xref-show-xrefs-function #'ivy-xref-show-xrefs)
           (setq xref-show-definitions-function #'ivy-xref-show-defs)))
 
+(use-package flyspell-correct-ivy
+  :defer t
+  :init
+  (setq flyspell-correct-interface #'flyspell-correct-ivy)
+  :general
+  (leader-def
+    "s c" 'flyspell-correct-wrapper
+    ;; FIXME This doesn't work yet
+    "s C" '((lambda ()
+              (interactive)
+              (let ((current-prefix-arg 4))
+                (call-interactively 'flyspell-correct-wrapper)))
+            :wk "flyspell-correct-wrapper-rapid")))
+
 (use-package flx
   :defer t
   :config
