@@ -657,6 +657,8 @@ a symbol and how to search for them."
 ** Company
 #+BEGIN_SRC emacs-lisp
 (use-package company
+  :init
+  (setq company-idle-delay .01)
   :general
   (general-imap
    "C-n" 'company-complete
