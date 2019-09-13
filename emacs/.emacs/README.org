@@ -488,6 +488,15 @@ declarations.
   :config
   ;; This conflicts with the local leader
   (unbind-key "," evil-motion-state-map)
+
+  (defun sulami/evil-set-jump-wrapper (cmd)
+    "Wraps a general command to call `evil-set-jump' before."
+    (let ((cmd-name (symbol-name cmd)))
+      `((lambda (&rest rest)
+          (interactive)
+          (evil-set-jump)
+          (apply (quote ,cmd) rest))
+        :wk ,cmd-name)))
   :general
   (leader-def
    "<tab>" 'evil-switch-to-windows-last-buffer
@@ -710,30 +719,30 @@ a symbol and how to search for them."
 (use-package evil-cleverparens
   :init
   (setq evil-cleverparens-use-additional-movement-keys nil
-        evil-cleverparens-use-additional-bindings nil)
+        evil-cleverparens-use-additional-bindings nil
+        evil-cleverparens-use-regular-insert t)
+  ;; Prevent evil-cleverparens from converting >/< to slurp/barf
+  (defun sulami/evil-cp-modify-regular-bindings (&rest r)
+    (setq evil-cp-regular-bindings
+          (remove-if (lambda (key-string)
+                       (member key-string '("_" ">" "<")))
+                     evil-cp-regular-bindings
+                     :key 'car)))
+  (advice-add 'evil-cp--enable-regular-bindings :before
+              #'sulami/evil-cp-modify-regular-bindings)
   :hook (prog-mode . evil-cleverparens-mode))
-
-;; Prevent evil-cleverparens from converting >/< to slurp/barf
-;; (defun sulami/evil-cp-modify-regular-bindings (&rest r)
-;;   (setq evil-cp-regular-bindings
-;;         (remove-if (lambda (key-string)
-;;                      (member key-string '("_" ">" "<")))
-;;                    evil-cp-regular-bindings
-;;                    :key 'car)))
-;; (advice-add 'evil-cp--enable-regular-bindings :before
-;;             #'sulami/evil-cp-modify-regular-bindings)
 #+END_SRC
 ** Dumb jump
 #+BEGIN_SRC emacs-lisp
 (use-package dumb-jump
+  :after (evil)
   :config
   (setq dumb-jump-selector 'ivy
         dumb-jump-force-searcher 'rg)
   :general
   (leader-def
-    "j j" 'dumb-jump-go
-    "j q" 'dumb-jump-quick-look
-    "j p" 'dumb-jump-go-prompt))
+    "j j" (sulami/evil-set-jump-wrapper 'dumb-jump-go)
+    "j p" (sulami/evil-set-jump-wrapper 'dumb-jump-go-prompt)))
 #+END_SRC
 ** Avy
 #+BEGIN_SRC emacs-lisp
@@ -1114,5 +1123,9 @@ Place point on the outer-most opening parenthesis to start:
                                pkg-count
                                startup-time)))))
 #+END_SRC
+** TODO Split up headings
+** TODO fix flycheck running off the modeline
 ** Packages to look into
-*** TODO el-macro
+** TODO el-macro
+*** TODO monroe
+lighter than cider
