@@ -228,7 +228,6 @@ Set the font to Fira Code and enable ligatures.
        doom-modeline-vcs-max-length 36))
 #+END_SRC
 ** Org mode
-*** TODO Capture
 *** TODO Plain source code blocks
 Need to disable ligatures in org-mode because it breaks the asterisks
 in org-indent-mode. Almost nothing here works yet.
@@ -275,8 +274,23 @@ in org-indent-mode. Almost nothing here works yet.
 #+end_src
 *** Agenda
 #+begin_src emacs-lisp :tangle yes
-(setq org-agenda-files '("~/Documents/Notes/"
+(setq org-directory "~/Documents/Notes/")
+(setq org-agenda-files '(org-directory
                          "~/.emacs/README.org"))
+#+end_src
+*** Capture
+#+begin_src emacs-lisp :tangle yes
+(setq org-capture-templates
+      '(("t" "Todo" entry
+         (file "todo.org")
+         "* TODO %?")
+        ("f" "File" entry
+         (file "todo.org")
+         "* TODO %?\n%a")
+        ("c" "Climbing journal" entry
+         (file "climbing.org")
+         "* %t\n%?"
+         :prepend t)))
 #+end_src
 *** Journal
 #+begin_src emacs-lisp :tangle yes
