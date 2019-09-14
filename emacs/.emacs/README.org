@@ -435,48 +435,50 @@ declarations.
   (general-evil-setup)
   (defconst leader-key "SPC")
   (general-create-definer leader-def
-                          :prefix leader-key
-                          :states '(normal visual))
+    :prefix leader-key
+    :states '(normal visual))
   (defconst local-leader-key ",")
   (general-create-definer local-leader-def
-                          :prefix local-leader-key
-                          :states '(normal visual))
+    :prefix local-leader-key
+    :states '(normal visual))
   (leader-def
-   ;; Prefixes
-   "b" '(:ignore t :wk "buffer")
-   "f" '(:ignore t :wk "file")
-   "f e" '(:ignore t :wk "emacs")
-   "g" '(:ignore t :wk "git")
-   "h" '(:ignore t :wk "help")
-   "j" '(:ignore t :wk "jump")
-   "k" '(:ignore t :wk "lisp")
-   "l" '(:ignore t :wk "lsp")
-   "p" '(:ignore t :wk "project/perspective")
-   "s" '(:ignore t :wk "search")
-   "t" '(:ignore t :wk "toggle")
-   "w" '(:ignore t :wk "window")
-   ;; General keybinds
-   "$" 'eshell
-   "\\" 'indent-region
-   "|" 'sulami/shell-command-on-region
-   "b e" 'erase-buffer
-   "b d" 'kill-this-buffer
-   "b m" 'sulami/open-message-buffer
-   "b r" 'sulami/rename-file-and-buffer
-   "b s" 'sulami/open-scratch-buffer
-   "f e e" 'sulami/open-emacs-config
-   "f e r" 'sulami/reload-emacs-config
-   "h d" 'describe-symbol
-   "h f" 'describe-function
-   "h g" 'general-describe-keybindings
-   "h k" 'describe-key
-   "h l" 'view-lossage
-   "h v" 'describe-variable
-   "t l" 'toggle-truncate-lines
-   "t s" 'flyspell-mode
-   "t n" 'linum-mode
-   "w =" 'balance-windows
-   "w m" 'sulami/toggle-maximise-window)
+    :keymaps 'override
+    ;; Prefixes
+    "b" '(:ignore t :wk "buffer")
+    "f" '(:ignore t :wk "file")
+    "f e" '(:ignore t :wk "emacs")
+    "g" '(:ignore t :wk "git")
+    "h" '(:ignore t :wk "help")
+    "j" '(:ignore t :wk "jump")
+    "k" '(:ignore t :wk "lisp")
+    "l" '(:ignore t :wk "lsp")
+    "p" '(:ignore t :wk "project/perspective")
+    "s" '(:ignore t :wk "search")
+    "t" '(:ignore t :wk "toggle")
+    "w" '(:ignore t :wk "window")
+    ;; General keybinds
+    "$" 'eshell
+    "\\" 'indent-region
+    "|" 'sulami/shell-command-on-region
+    "b e" 'erase-buffer
+    "b d" 'kill-this-buffer
+    "b m" 'sulami/open-message-buffer
+    "b r" 'sulami/rename-file-and-buffer
+    "b s" 'sulami/open-scratch-buffer
+    "f e e" 'sulami/open-emacs-config
+    "f e r" 'sulami/reload-emacs-config
+    "f d" 'dired
+    "h d" 'describe-symbol
+    "h f" 'describe-function
+    "h g" 'general-describe-keybindings
+    "h k" 'describe-key
+    "h l" 'view-lossage
+    "h v" 'describe-variable
+    "t l" 'toggle-truncate-lines
+    "t s" 'flyspell-mode
+    "t n" 'linum-mode
+    "w =" 'balance-windows
+    "w m" 'sulami/toggle-maximise-window)
   (general-define-key
    "s-=" 'text-scale-adjust)
   ;; Org mode
@@ -524,8 +526,8 @@ declarations.
   :hook (after-init . evil-mode))
 
 (use-package evil-collection
-  :after (evil flycheck)
-  :hook (evil-mode . evil-collection-init))
+  :after (evil)
+  :config (evil-collection-init))
 
 (use-package evil-search-highlight-persist
   :config
