@@ -216,6 +216,10 @@ Set the font to Fira Code and enable ligatures.
 #+BEGIN_SRC emacs-lisp
 (use-package all-the-icons
   :defer t)
+
+(use-package all-the-icons-dired
+  :defer t
+  :hook (dired-mode . all-the-icons-dired-mode))
 #+END_SRC
 *** Modeline
 #+BEGIN_SRC emacs-lisp
