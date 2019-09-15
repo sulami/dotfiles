@@ -473,7 +473,11 @@ declarations.
   ;; Org mode
   (local-leader-def
     :keymaps 'org-mode-map
-    "a" 'org-archive-subtree))
+    "a" 'org-archive-subtree)
+  ;; Dired
+  (general-define-key
+   :keymaps 'dired-mode-map
+   "<return>" 'dired-find-alternate-file))
 #+END_SRC
 *** TODO Quick temporary global shortcuts
 ** Hydra
@@ -940,6 +944,11 @@ I only enable this every now and then.
 #+BEGIN_SRC emacs-lisp
 (setq eshell-alias-file "~/.emacs/aliases")
 #+END_SRC
+** Dired
+*** Enable find-alternate-file
+#+begin_src emacs-lisp :tangle yes
+(put 'dired-find-alternate-file 'disabled nil)
+#+end_src
 ** Esup
 This allows me to benchmark Emacs startup.
 #+begin_src emacs-lisp :tangle yes
