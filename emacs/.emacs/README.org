@@ -452,6 +452,7 @@ declarations.
     "f e e" 'sulami/open-emacs-config
     "f e r" 'sulami/reload-emacs-config
     "f d" 'dired
+    "f R" 'sulami/rename-file-and-buffer
     "h d" 'describe-symbol
     "h f" 'describe-function
     "h g" 'general-describe-keybindings
