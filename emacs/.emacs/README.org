@@ -232,22 +232,6 @@ Set the font to Fira Code and enable ligatures.
 Need to disable ligatures in org-mode because it breaks the asterisks
 in org-indent-mode. Almost nothing here works yet.
 #+BEGIN_SRC emacs-lisp
-;(require 'color)
-;(set-face-attribute 'org-block nil :background
-                    ;(color-darken-name
-                     ;(face-attribute 'default :background) 0))
-;(defface org-block-begin-line
-  ;'((t (:underline "#A7A6AA" :foreground "#008ED1" :background "#EAEAFF")))
-  ;"Face used for the line delimiting the begin of source blocks.")
-;
-;(defface org-block-background
-  ;'((t (:background "#FFFFEA")))
-  ;"Face used for the source block background.")
-;
-;(defface org-block-end-line
-  ;'((t (:overline "#A7A6AA" :foreground "#008ED1" :background "#EAEAFF")))
-  ;"Face used for the line delimiting the end of source blocks.")
-
 (setq org-src-preserve-indentation nil)
 (setq org-edit-src-content-indentation 0)
 
@@ -666,9 +650,7 @@ a symbol and how to search for them."
             :wk "flyspell-correct-wrapper-rapid")))
 
 (use-package flx
-  :defer t
-  :config
-  (setq gc-cons-threshold 20000000))
+  :defer t)
 #+END_SRC
 ** Company
 #+BEGIN_SRC emacs-lisp
