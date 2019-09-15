@@ -797,7 +797,8 @@ I only enable this every now and then.
     (kill-buffer))
   :general
   (leader-def
-   "p r" 'sulami/projectile-replace)
+    "p r" 'sulami/projectile-replace
+    "p d" 'projectile-dired)
   :hook (after-init . projectile-global-mode))
 
 (use-package counsel-projectile
@@ -978,6 +979,7 @@ This allows me to benchmark Emacs startup.
 ** LSP
 #+BEGIN_SRC emacs-lisp
 (use-package lsp-mode
+  :disabled
   :defer t
   :commands lsp
   :config
@@ -995,10 +997,12 @@ This allows me to benchmark Emacs startup.
     "l u" 'lsp-find-references))
 
 (use-package company-lsp
+  :disabled
   :defer t
   :commands company-lsp)
 
 (use-package lsp-ui
+  :disabled
   :defer t
   :commands lsp-ui-mode)
 #+END_SRC
