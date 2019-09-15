@@ -1,4 +1,10 @@
-(setq open-junk-file-directory "/tmp/emacs-junk/%Y-%m-%d-%H%M%S.")
+;; -*- lexical-binding: t; -*-
+
+(setq custom-file (make-temp-file ""))
+
+(setq backup-directory-alist '(("." . "/tmp/emacs-backup")))
+
+(setq delete-by-moving-to-trash nil)
 
 (when (require 'recentf)
   (recentf-mode 1)

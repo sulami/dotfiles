@@ -6,36 +6,32 @@
 *** Use lexical binding in this file
 This org-mode file gets built into an elisp file, and we want this comment at
 the top for performance reasons.
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 ;; -*- lexical-binding: t; -*-
 #+END_SRC
 *** Discard the custom file
 ~custom.el~ is hidden state, all config is declarative.
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (setq custom-file (make-temp-file ""))
 #+END_SRC
 *** Hide Backups
 This way we lose everything backups if the whole machine crashes, but
 we don't accidentally leave backups around.
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (setq backup-directory-alist '(("." . "/tmp/emacs-backup")))
 #+END_SRC
 *** No trash
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (setq delete-by-moving-to-trash nil)
 #+END_SRC
-*** Hide junk files
-#+begin_src emacs-lisp :tangle yes
-(setq open-junk-file-directory "/tmp/emacs-junk/%Y-%m-%d-%H%M%S.")
-#+end_src
 *** Remember recent files
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (when (require 'recentf)
   (recentf-mode 1)
   (setq recentf-max-saved-items 255))
 #+END_SRC
 *** Be quiet on startup
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (setq inhibit-splash-screen t
       inhibit-startup-screen t
       inhibit-startup-message t)
@@ -55,7 +51,7 @@ we don't accidentally leave backups around.
 (setq ring-bell-function 'ignore)
 #+end_src
 *** Start the scratch buffer empty
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (setq initial-scratch-message "")
 #+END_SRC
 *** Default to Elisp
@@ -67,11 +63,11 @@ we don't accidentally leave backups around.
 (setq help-window-select t)
 #+end_src
 *** Spaces > tabs
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (setq-default indent-tabs-mode nil)
 #+END_SRC
 *** Show trailing whitespace
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (setq-default show-trailing-whitespace t)
 #+END_SRC
 *** Show empty lines
@@ -82,44 +78,44 @@ This shows vim-style tildes on the left fringe.
 (setcdr (assq 'empty-line fringe-indicator-alist) 'tilde)
 #+end_src
 *** Highlight matching parens
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (show-paren-mode 1)
 #+END_SRC
 *** Scrolling
 These settings were lifted off the internet™ and make scrolling with pointing
 devices feel more reasonable.
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (setq mouse-wheel-progressive-speed nil
       mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
 #+END_SRC
 *** No line wrapping
 At least as a default, much nicer when resizing windows.
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (set-default 'truncate-lines t)
 (setq line-move-visual nil)
 #+END_SRC
 *** UTF-8
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (setq-default buffer-file-coding-system 'utf-8)
 (setenv "LANG" "en_be.UTF-8")
 (prefer-coding-system 'utf-8)
 #+END_SRC
 *** Spelling
 Use ~aspell~ with British English.
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (setq ispell-program-name "aspell"
       ispell-extra-args (quote ("--sug-mode=ultra" "--lang=en_GB-ise")))
 #+END_SRC
 *** Y/N for yes or no questions
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (fset 'yes-or-no-p 'y-or-n-p)
 #+END_SRC
 *** Ask before exiting
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (setq confirm-kill-emacs 'yes-or-no-p)
 #+END_SRC
 *** Frame title
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (setq frame-title-format
       (list :eval '(let ((p-name (projectile-project-name)))
 		     (if (string-equal p-name "-")
@@ -127,7 +123,7 @@ Use ~aspell~ with British English.
 		       (concat "Emacs - " p-name)))))
 #+END_SRC
 *** Disable all the GUI
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
@@ -138,26 +134,26 @@ Everything in here relates to macOS in some way.
 *** Swap the modifier keys
 The MacPorts build I'm using swaps the modifiers from what I'm used to, so I'm
 swapping them back.
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (setq mac-command-modifier 'super
       mac-option-modifier 'meta)
 #+END_SRC
 *** Fix paste
 Especially Alfred likes to paste with ~⌘-v~, so that needs to work.
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (define-key global-map (kbd "s-v") 'yank)
 #+END_SRC
 *** Fullscreen with ⌘-Return
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (define-key global-map (kbd "<s-return>") 'toggle-frame-fullscreen)
 #+END_SRC
 *** Mac font panel
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (define-key global-map (kbd "s-t") 'mac-font-panel-mode)
 #+END_SRC
 ** Package management
 *** use-package
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (setq straight-use-package-by-default t)
 #+END_SRC
 *** el-patch
@@ -182,14 +178,14 @@ List library that comes in handy.
 ** Appearance
 *** Font
 Set the font to Fira Code and enable ligatures.
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (let ((font "Fira Code 14"))
   (set-face-attribute 'default nil :font font)
   (set-frame-font font nil t))
 ;(mac-auto-operator-composition-mode)
 #+END_SRC
 *** Theme
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package doom-themes
   :after (dash)
   :init
@@ -213,7 +209,7 @@ Set the font to Fira Code and enable ligatures.
                             (load-theme 'doom-one t))))))
 #+END_SRC
 *** All the icons
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package all-the-icons
   :defer t)
 
@@ -222,7 +218,7 @@ Set the font to Fira Code and enable ligatures.
   :hook (dired-mode . all-the-icons-dired-mode))
 #+END_SRC
 *** Modeline
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package doom-modeline
  :hook (after-init . doom-modeline-mode)
  :config
@@ -235,7 +231,7 @@ Set the font to Fira Code and enable ligatures.
 *** TODO Plain source code blocks
 Need to disable ligatures in org-mode because it breaks the asterisks
 in org-indent-mode. Almost nothing here works yet.
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (setq org-src-preserve-indentation nil)
 (setq org-edit-src-content-indentation 0)
 
@@ -244,11 +240,11 @@ in org-indent-mode. Almost nothing here works yet.
 ;	    (mac-auto-operator-composition-mode -1)))
 #+END_SRC
 *** Show emphasis markers
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (setq org-hide-emphasis-markers nil)
 #+END_SRC
 *** Indent-mode
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (setq org-indent-indentation-per-level 1)
 (add-hook 'org-mode-hook 'org-indent-mode)
 #+END_SRC
@@ -286,7 +282,7 @@ in org-indent-mode. Almost nothing here works yet.
 #+end_src
 *** Calendar
 Weeks start on Monday.
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (setq calendar-week-start-day 1)
 #+END_SRC
 *** TODO org-chef
@@ -302,14 +298,14 @@ Weeks start on Monday.
 ** Custom functions
 *** Config
 **** Open this file
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (defun sulami/open-emacs-config ()
   "Opens the config file for our favourite OS."
   (interactive)
   (find-file sulami/emacs-config-file))
 #+END_SRC
 **** Reload this file
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (defun sulami/reload-emacs-config ()
   "Loads the config file for our favourite OS."
   (interactive)
@@ -317,7 +313,7 @@ Weeks start on Monday.
 #+END_SRC
 *** Buffers
 **** Rename buffer file
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (defun sulami/rename-file-and-buffer ()
   "Rename the current buffer and file it is visiting."
   (interactive)
@@ -332,7 +328,7 @@ Weeks start on Monday.
           (set-visited-file-name new-name t t)))))))
 #+END_SRC
 **** Switch to buffer shortcuts
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (defun sulami/open-scratch-buffer ()
   "Open the scratch buffer."
   (interactive)
@@ -344,7 +340,7 @@ Weeks start on Monday.
   (switch-to-buffer "*Messages*"))
 #+END_SRC
 **** Buffer line count
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (defun sulami/buffer-line-count ()
   "Get the number of lines in the active buffer."
   (count-lines 1 (point-max)))
@@ -426,7 +422,7 @@ General allows me to use fancy prefix keybindings.
 I'm using a spacemacs-inspired system of a global leader key and a local leader
 key for major modes. Bindings are setup in the respective ~use-package~
 declarations.
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package general
   :config
   (general-auto-unbind-keys)
@@ -497,7 +493,7 @@ declarations.
   :defer t)
 #+end_src
 ** Evil
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package evil
   :after (general)
   :init
@@ -551,12 +547,12 @@ declarations.
   :hook (evil-mode . global-evil-surround-mode))
 #+END_SRC
 ** Which key
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package which-key
   :hook (after-init . which-key-mode))
 #+END_SRC
 ** Ivy
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package ivy
   :init
   (setq ivy-on-del-error-function #'ignore
@@ -673,7 +669,7 @@ a symbol and how to search for them."
   :defer t)
 #+END_SRC
 ** Company
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package company
   :init
   (setq company-idle-delay .01)
@@ -693,7 +689,7 @@ a symbol and how to search for them."
   :hook (company-mode . company-prescient-mode))
 #+END_SRC
 ** Yasnippet
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package yasnippet
   :config
   (setq yas-snippet-dirs (add-to-list #'yas-snippet-dirs "/Users/sulami/.emacs/snippets/"))
@@ -714,7 +710,7 @@ a symbol and how to search for them."
   :after (yasnippet))
 #+END_SRC
 ** Parentheses
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package smartparens
   :after (hydra)
   :config
@@ -753,7 +749,7 @@ a symbol and how to search for them."
   :hook (prog-mode . evil-cleverparens-mode))
 #+END_SRC
 ** Dumb jump
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package dumb-jump
   :after (evil)
   :config
@@ -765,7 +761,7 @@ a symbol and how to search for them."
     "j p" (sulami/evil-set-jump-wrapper 'dumb-jump-go-prompt)))
 #+END_SRC
 ** Avy
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package avy
   :general
   (general-nmap "s-n" 'avy-goto-word-or-subword-1))
@@ -778,13 +774,13 @@ a symbol and how to search for them."
 #+end_src
 ** Highlight symbol
 I only enable this every now and then.
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package auto-highlight-symbol
   :general
   (leader-def "t h" 'auto-highlight-symbol-mode))
 #+END_SRC
 ** Projectile
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package projectile
   :init
   (setq projectile-completion-system 'ivy)
@@ -838,7 +834,7 @@ I only enable this every now and then.
 
 #+END_SRC
 ** Perspective
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package perspective
   :config
   (setq persp-show-modestring nil)
@@ -862,7 +858,7 @@ I only enable this every now and then.
     "p k" 'sulami/kill-project-perspective))
 #+END_SRC
 ** Winum
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package winum
   :general
   ("s-1" 'winum-select-window-1
@@ -878,7 +874,7 @@ I only enable this every now and then.
   :hook (after-init . winum-mode))
 #+END_SRC
 ** Fill column indicator
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package fill-column-indicator
   :general
   (leader-def "t i" 'fci-mode))
@@ -896,7 +892,7 @@ I only enable this every now and then.
   (leader-def "t d" 'darkroom-tentative-mode))
 #+end_src
 ** Magit
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package magit
   :custom
   (magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1)
@@ -929,7 +925,7 @@ I only enable this every now and then.
    "g R" 'open-git-repo-in-browser))
 #+END_SRC
 ** Flycheck
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package flycheck
   :config
   ;; Disable flycheck on-the-fly-checking if the line count exceeds 2000.
@@ -953,7 +949,7 @@ I only enable this every now and then.
 #+end_src
 ** Eshell
 *** Aliases
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (setq eshell-alias-file "~/.emacs/aliases")
 #+END_SRC
 ** Dired
@@ -988,7 +984,7 @@ This allows me to benchmark Emacs startup.
 ;;       atomic-chrome-buffer-open-style 'frame)
 #+end_src
 ** LSP
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package lsp-mode
   :disabled
   :defer t
@@ -1018,7 +1014,7 @@ This allows me to benchmark Emacs startup.
   :commands lsp-ui-mode)
 #+END_SRC
 ** Clojure
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package clojure-mode
   :defer t
   :after (flycheck-clj-kondo)
@@ -1099,7 +1095,7 @@ Place point on the outer-most opening parenthesis to start:
     (goto-char start)))
 #+END_SRC
 ** Haskell
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package haskell-mode
   :defer t)
 
@@ -1122,13 +1118,13 @@ Place point on the outer-most opening parenthesis to start:
 ;  "O" 'haskell-evil-open-above)
 #+END_SRC
 ** Markdown
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package markdown-mode
   :mode (("README\\.md\\'" . gfm-mode)
          ("\\.md\\'" . markdown-mode)))
 #+END_SRC
 ** YAML
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package yaml-mode
   :defer t)
 #+END_SRC
@@ -1138,12 +1134,12 @@ Place point on the outer-most opening parenthesis to start:
 (setq js2-basic-offset 2)
 #+end_src
 ** Protobuf
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package protobuf-mode
   :defer t)
 #+END_SRC
 ** Done
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle yes
 (add-hook 'emacs-startup-hook
           (lambda ()
             (let ((pkg-count (length (hash-table-keys straight--success-cache)))
