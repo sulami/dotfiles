@@ -1017,7 +1017,7 @@ This allows me to benchmark Emacs startup.
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package clojure-mode
   :defer t
-  :after (flycheck-clj-kondo)
+  :requires (flycheck-clj-kondo)
   :config
   (require 'flycheck-clj-kondo))
 
@@ -1055,8 +1055,7 @@ This allows me to benchmark Emacs startup.
     "t p" 'cider-test-run-project-tests
     "t t" 'cider-test-run-test))
 
-(use-package flycheck-clj-kondo
-  :defer t)
+(use-package flycheck-clj-kondo)
 
 ;; TODO this should probably go somewhere else, if anywhere
 (defun sulami/clojure-thread-last ()
