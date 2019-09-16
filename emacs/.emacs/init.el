@@ -14,6 +14,10 @@
 (setq package-enable-at-startup nil
       package--init-file-ensured t)
 
+;; Don't check packages for rebuild on startup
+(setq straight-check-for-modifications '(find-when-checking
+                                         check-on-save))
+
 ;; Bootstrap straight
 (defvar bootstrap-version)
 (let ((bootstrap-file
