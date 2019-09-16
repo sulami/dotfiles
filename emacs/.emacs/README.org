@@ -36,6 +36,10 @@ we don't accidentally leave backups around.
       inhibit-startup-screen t
       inhibit-startup-message t)
 #+END_SRC
+*** Don't tell me about keybindings
+#+begin_src emacs-lisp :tangle yes
+(setq suggest-key-bindings nil)
+#+end_src
 *** Something something tramp
 #+begin_src emacs-lisp :tangle yes
 (setq tramp-ssh-controlmaster-options
