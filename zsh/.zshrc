@@ -6,8 +6,6 @@ zstyle :compinstall filename '$HOME/.zshrc'
 autoload -Uz compinit
 compinit
 
-# source ~/.zsh/sandboxd
-
 if which emacsclient > /dev/null 2>&1; then
     export EDITOR="emacsclient -c -nw"
     export VISUAL="emacsclient -c"
@@ -19,16 +17,10 @@ else
     export VISUAL=vim
 fi
 export LC_ALL=en_US.UTF-8
-export BROWSER=firefox
-export PATH=/usr/local/bin:$PATH:$HOME/.local/bin:$HOME/.cabal/bin
 PYTHON_3_VERSION=$(python3 -c "import sys; print('{}.{}'.format(sys.version_info.major, sys.version_info.minor))")
 export PATH=$PATH:$HOME/Library/Python/${PYTHON_3_VERSION}/bin
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig
-export GOPATH=$HOME/build/go
 export GOMAXPROCS=8
-export GITSERVER=pi@peerwire.dtdns.net
-export GITURL=ssh://${GITSERVER}/srv/git
-export XDG_CONFIG_HOME=$HOME
 # Git prompt import
 #source $HOME/dotfiles/zsh/zsh-git-prompt/zshrc.sh
 #export GIT_PROMPT_EXECUTABLE="haskell"
@@ -39,12 +31,6 @@ export WORKON_HOME=$HOME/.virtualenvs
 if which virtualenvwrapper_lazy.sh > /dev/null 2>&1; then
     source "$(which virtualenvwrapper_lazy.sh)"
 fi
-
-# If on Arch, source the pkgfile command-not-found script that tells us
-# where to find a binary that is not installed.
-# if [[ $(uname) == "Linux" ]]; then
-#     source /usr/share/doc/pkgfile/command-not-found.zsh
-# fi
 
 # Activate syntax highlighting
 source "$HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
@@ -130,6 +116,9 @@ alias snd_restart="pulseaudio -k && pulseaudio --start && xfce4-panel -r && \
 alias tspv='tmux split-window -v -c "$PWD"'
 alias tsph='tmux split-window -h -c "$PWD"'
 alias dc='docker-compose'
+function edit() {
+    emacs -q -l ~/.emacs/sulami.el $* > /dev/null & ; disown
+}
 
 # KEYBINDS
 typeset -A key
@@ -219,7 +208,6 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 export LESS=-r
 export GROFF_NO_SGR=1
-
 
 # Evaluate system PATH
 if [ -x /usr/libexec/path_helper ]; then
