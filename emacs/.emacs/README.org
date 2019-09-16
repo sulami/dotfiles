@@ -259,8 +259,8 @@ in org-indent-mode. Almost nothing here works yet.
 *** Agenda
 #+begin_src emacs-lisp :tangle yes
 (setq org-directory "~/Documents/Notes/")
-(setq org-agenda-files '(org-directory
-                         "~/.emacs/README.org"))
+(setq org-agenda-files (list org-directory
+                             "~/.emacs/README.org"))
 #+end_src
 *** Capture
 #+begin_src emacs-lisp :tangle yes
