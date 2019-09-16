@@ -186,7 +186,7 @@ Set the font to Fira Code and enable ligatures.
 (let ((font "Fira Code 14"))
   (set-face-attribute 'default nil :font font)
   (set-frame-font font nil t))
-;(mac-auto-operator-composition-mode)
+(mac-auto-operator-composition-mode)
 #+END_SRC
 *** Theme
 #+BEGIN_SRC emacs-lisp :tangle yes
@@ -232,16 +232,16 @@ Set the font to Fira Code and enable ligatures.
        doom-modeline-vcs-max-length 36))
 #+END_SRC
 ** Org mode
-*** TODO Plain source code blocks
-Need to disable ligatures in org-mode because it breaks the asterisks
-in org-indent-mode. Almost nothing here works yet.
+*** Plain source code blocks
 #+BEGIN_SRC emacs-lisp :tangle yes
-(setq org-src-preserve-indentation nil)
-(setq org-edit-src-content-indentation 0)
-
-;(add-hook 'org-mode-hook
-;	  (lambda ()
-;	    (mac-auto-operator-composition-mode -1)))
+(setq org-src-preserve-indentation nil
+      org-edit-src-content-indentation 0)
+#+END_SRC
+*** Disable ligatures in org-mode
+#+BEGIN_SRC emacs-lisp :tangle yes
+(add-hook 'org-mode-hook
+	  (lambda ()
+	    (mac-auto-operator-composition-mode -1)))
 #+END_SRC
 *** Show emphasis markers
 #+BEGIN_SRC emacs-lisp :tangle yes
@@ -1155,5 +1155,5 @@ Place point on the outer-most opening parenthesis to start:
 ** TODO fix flycheck running off the modeline
 ** Packages to look into
 ** TODO el-macro
-*** TODO monroe
+** TODO monroe
 lighter than cider

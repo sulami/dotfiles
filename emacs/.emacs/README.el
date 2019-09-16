@@ -14,6 +14,8 @@
       inhibit-startup-screen t
       inhibit-startup-message t)
 
+(setq suggest-key-bindings nil)
+
 (setq tramp-ssh-controlmaster-options
       "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o Control-Persist=no")
 
@@ -91,7 +93,7 @@
 (let ((font "Fira Code 14"))
   (set-face-attribute 'default nil :font font)
   (set-frame-font font nil t))
-;(mac-auto-operator-composition-mode)
+(mac-auto-operator-composition-mode)
 
 (use-package doom-themes
   :after (dash)
@@ -130,12 +132,12 @@
        doom-modeline-persp-name nil
        doom-modeline-vcs-max-length 36))
 
-(setq org-src-preserve-indentation nil)
-(setq org-edit-src-content-indentation 0)
+(setq org-src-preserve-indentation nil
+      org-edit-src-content-indentation 0)
 
-;(add-hook 'org-mode-hook
-;	  (lambda ()
-;	    (mac-auto-operator-composition-mode -1)))
+(add-hook 'org-mode-hook
+	  (lambda ()
+	    (mac-auto-operator-composition-mode -1)))
 
 (setq org-hide-emphasis-markers nil)
 
@@ -147,8 +149,8 @@
 (setq org-archive-location "archive.org::")
 
 (setq org-directory "~/Documents/Notes/")
-(setq org-agenda-files '(org-directory
-                         "~/.emacs/README.org"))
+(setq org-agenda-files (list org-directory
+                             "~/.emacs/README.org"))
 
 (setq org-capture-templates
       '(("t" "Todo" entry
@@ -763,11 +765,11 @@ a symbol and how to search for them."
     "s" 'restclient-http-send-current-stay-in-window
     "S" 'restclient-http-send-current))
 
-;; Bring up the atomic-chrome editing server
-;; (require 'atomic-chrome)
-;; (atomic-chrome-start-server)
-;; (setq atomic-chrome-default-major-mode 'markdown-mode
-;;       atomic-chrome-buffer-open-style 'frame)
+(use-package atomic-chrome
+  :init
+  (setq atomic-chrome-default-major-mode 'markdown-mode
+        atomic-chrome-buffer-open-style 'frame)
+  :hook (after-init . atomic-chrome-start-server))
 
 (use-package lsp-mode
   :disabled
@@ -799,7 +801,7 @@ a symbol and how to search for them."
 
 (use-package clojure-mode
   :defer t
-  :after (flycheck-clj-kondo)
+  :requires (flycheck-clj-kondo)
   :config
   (require 'flycheck-clj-kondo))
 
@@ -837,8 +839,7 @@ a symbol and how to search for them."
     "t p" 'cider-test-run-project-tests
     "t t" 'cider-test-run-test))
 
-(use-package flycheck-clj-kondo
-  :defer t)
+(use-package flycheck-clj-kondo)
 
 ;; TODO this should probably go somewhere else, if anywhere
 (defun sulami/clojure-thread-last ()
