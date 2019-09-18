@@ -98,8 +98,9 @@ defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool 
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
 defaults write -g WebKitDeveloperExtras -bool true
 
-# Hide the document icon in Emacs
+# Defancy Emacs (also faster here than inside Emacs)
 defaults write org.gnu.Emacs HideDocumentIcon -bool true
+defaults write org.gnu.Emacs ToolBar -string no
 
 # Add a context menu item for showing the Web Inspector in web views
 defaults write -g WebKitDeveloperExtras -bool true
