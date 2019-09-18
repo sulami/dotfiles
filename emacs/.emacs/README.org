@@ -986,11 +986,12 @@ This allows me to benchmark Emacs startup.
 #+end_src
 ** Atomic
 #+begin_src emacs-lisp :tangle yes
-;; Bring up the atomic-chrome editing server
-;; (require 'atomic-chrome)
-;; (atomic-chrome-start-server)
-;; (setq atomic-chrome-default-major-mode 'markdown-mode
-;;       atomic-chrome-buffer-open-style 'frame)
+(use-package atomic-chrome
+  :disabled
+  :init
+  (setq atomic-chrome-default-major-mode 'markdown-mode
+        atomic-chrome-buffer-open-style 'frame)
+  :hook (after-init . atomic-chrome-start-server))
 #+end_src
 ** LSP
 #+BEGIN_SRC emacs-lisp :tangle yes
