@@ -262,9 +262,10 @@ Set the font to Fira Code and enable ligatures.
 #+end_src
 *** Agenda
 #+begin_src emacs-lisp :tangle yes
-(setq org-directory "~/Documents/Notes/")
-(setq org-agenda-files (list org-directory
-                             "~/.emacs/README.org"))
+(setq org-directory "~/Documents/Notes/"
+      org-agenda-files (list org-directory
+                             "~/.emacs/README.org")
+      org-agenda-tag-filter-preset '("-archived"))
 #+end_src
 *** Capture
 #+begin_src emacs-lisp :tangle yes
