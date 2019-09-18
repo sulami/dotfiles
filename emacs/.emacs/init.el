@@ -18,6 +18,9 @@
 (setq straight-check-for-modifications '(find-when-checking
                                          check-on-save))
 
+;; Prefer newer bytecode
+(setq load-prefer-newer t)
+
 ;; Bootstrap straight
 (defvar bootstrap-version)
 (let ((bootstrap-file
