@@ -482,6 +482,7 @@ declarations.
     "h l" 'view-lossage
     "h v" 'describe-variable
     "t l" 'toggle-truncate-lines
+    "t r" 'refill-mode
     "t s" 'flyspell-mode
     "t n" 'linum-mode
     "w =" 'balance-windows
@@ -903,6 +904,7 @@ I only enable this every now and then.
 ** Darkroom
 #+begin_src emacs-lisp :tangle yes
 (use-package darkroom
+  :disabled
   :general
   (leader-def "t d" 'darkroom-tentative-mode))
 #+end_src
@@ -971,6 +973,12 @@ I only enable this every now and then.
 *** Enable find-alternate-file
 #+begin_src emacs-lisp :tangle yes
 (put 'dired-find-alternate-file 'disabled nil)
+#+end_src
+** Helpful
+#+begin_src emacs-lisp :tangle yes
+;; TODO needs to be linked up to general & counsel
+(use-package helpful
+  :disabled)
 #+end_src
 ** Esup
 This allows me to benchmark Emacs startup.
@@ -1170,13 +1178,6 @@ which can be annoying.
 I'd like to have emacsclient open in a new, clean frame, and clean up
 upon termination.
 ** Packages to look into
-*** TODO el-macro
-*** TODO monroe
-lighter than cider
-https://github.com/sanel/monroe
-*** TODO Helpful
-better help buffers
-https://github.com/Wilfred/helpful
 *** TODO forge
 github stuff. seems to use sqlite, which I'm dubious about
 *** TODO vdiff
