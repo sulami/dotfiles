@@ -1021,10 +1021,7 @@ This allows me to benchmark Emacs startup.
 ** Clojure
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package clojure-mode
-  :defer t
-  :requires (flycheck-clj-kondo)
-  :config
-  (require 'flycheck-clj-kondo))
+  :defer t)
 
 (use-package cider
   :defer t
@@ -1060,7 +1057,9 @@ This allows me to benchmark Emacs startup.
     "t p" 'cider-test-run-project-tests
     "t t" 'cider-test-run-test))
 
-(use-package flycheck-clj-kondo)
+(use-package flycheck-clj-kondo
+  :defer t
+  :hook (clojure-mode . (lambda () (require 'flycheck-clj-kondo))))
 
 ;; TODO this should probably go somewhere else, if anywhere
 (defun sulami/clojure-thread-last ()
@@ -1154,7 +1153,8 @@ Place point on the outer-most opening parenthesis to start:
 #+END_SRC
 ** TODO Split up headings
 ** TODO fix flycheck running off the modeline
+** TODO disable smartparens strict mode when resolving conflicts
 ** Packages to look into
-** TODO el-macro
-** TODO monroe
+*** TODO el-macro
+*** TODO monroe
 lighter than cider
