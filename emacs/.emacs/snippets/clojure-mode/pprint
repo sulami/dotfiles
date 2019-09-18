@@ -2,4 +2,4 @@
 # name: pprint
 # key: pp
 # --
-(clojure.pprint/pprint $0)
+(do (print (str '$1 ": ")) (clojure.pprint/pprint $1))
