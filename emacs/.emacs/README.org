@@ -497,7 +497,6 @@ declarations.
    :keymaps 'dired-mode-map
    "<return>" 'dired-find-alternate-file))
 #+END_SRC
-*** TODO Quick temporary global shortcuts
 ** Hydra
 #+begin_src emacs-lisp :tangle yes
 (use-package hydra
@@ -739,6 +738,11 @@ a symbol and how to search for them."
     ("B" sp-backward-barf-sexp "barf backwards")
     ("w" hydra-wrap/body "wrap" :color blue)
     ("." nil "quit" :color blue))
+  ;; Disable smartparens strict mode when there is a merge conflict
+  (add-hook 'smerge-mode-hook
+            (lambda ()
+              (smartparens-strict-mode -1)
+              (evil-cleverparens-mode -1)))
   :general
   (leader-def "k" 'hydra-lisp/body)
   :hook (prog-mode . smartparens-global-mode))
@@ -1159,9 +1163,22 @@ Place point on the outer-most opening parenthesis to start:
                                startup-time)))))
 #+END_SRC
 ** TODO Split up headings
-** TODO fix flycheck running off the modeline
-** TODO disable smartparens strict mode when resolving conflicts
+** TODO figure out company completion inside snippet expansion
+~tab~ does both jump to the next placeholder and select a completion,
+which can be annoying.
+** TODO emacsclient setup
+I'd like to have emacsclient open in a new, clean frame, and clean up
+upon termination.
 ** Packages to look into
 *** TODO el-macro
 *** TODO monroe
 lighter than cider
+https://github.com/sanel/monroe
+*** TODO Helpful
+better help buffers
+https://github.com/Wilfred/helpful
+*** TODO forge
+github stuff. seems to use sqlite, which I'm dubious about
+*** TODO vdiff
+like vdiff. was a bit dodgy when I tried it last time, got half-stuck
+inside the mode
