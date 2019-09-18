@@ -959,7 +959,7 @@ I only enable this every now and then.
 ** Eshell
 *** Aliases
 #+BEGIN_SRC emacs-lisp :tangle yes
-(setq eshell-alias-file "~/.emacs/aliases")
+(setq eshell-aliases-file "~/.emacs/aliases")
 #+END_SRC
 ** Dired
 *** Enable find-alternate-file
