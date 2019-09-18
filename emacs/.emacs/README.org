@@ -110,6 +110,10 @@ Use ~aspell~ with British English.
 (setq ispell-program-name "aspell"
       ispell-extra-args (quote ("--sug-mode=ultra" "--lang=en_GB-ise")))
 #+END_SRC
+*** Enable erase buffer
+#+begin_src emacs-lisp :tangle yes
+(put 'erase-buffer 'disabled nil)
+#+end_src
 *** Y/N for yes or no questions
 #+BEGIN_SRC emacs-lisp :tangle yes
 (fset 'yes-or-no-p 'y-or-n-p)
