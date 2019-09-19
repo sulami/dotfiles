@@ -369,17 +369,6 @@ Weeks start on Monday, and who thought MDY was a good idea?
   "Get the number of lines in the active buffer."
   (count-lines 1 (point-max)))
 #+END_SRC
-**** Save buffer to junk
-#+begin_src emacs-lisp :tangle yes
-(defun sulami/save-to-junk ()
-  "Save the current buffer as a junk file."
-  (interactive)
-  (spacemacs/copy-whole-buffer-to-clipboard)
-  (kill-buffer)
-  (open-junk-file)
-  (insert (current-kill 0))
-  (save-buffer))
-#+end_src
 **** Delete buffer file
 #+begin_src emacs-lisp :tangle yes
 (defun sulami/delete-file-and-buffer ()
@@ -390,6 +379,13 @@ Weeks start on Monday, and who thought MDY was a good idea?
                                            file-name))))
     (delete-file file-name)
     (kill-buffer)))
+#+end_src
+**** Copy buffer
+#+begin_src emacs-lisp :tangle yes
+(defun sulami/copy-buffer ()
+  "Copies the entire buffer to the kill-ring."
+  (interactive)
+  (copy-region-as-kill 1 (point-max)))
 #+end_src
 *** Windows
 **** Maximise a window
@@ -461,6 +457,7 @@ declarations.
     "$" 'eshell
     "\\" 'indent-region
     "|" 'sulami/shell-command-on-region
+    "b c" 'sulami/copy-buffer
     "b e" 'erase-buffer
     "b d" 'kill-this-buffer
     "b m" 'sulami/open-message-buffer
