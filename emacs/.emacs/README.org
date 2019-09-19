@@ -287,14 +287,11 @@ Set the font to Fira Code and enable ligatures.
          "* %t\n%?"
          :prepend t)))
 #+end_src
-*** Journal
-#+begin_src emacs-lisp :tangle yes
-(setq org-journal-dir "~/Documents/org-journal/")
-#+end_src
 *** Calendar
-Weeks start on Monday.
+Weeks start on Monday, and who thought MDY was a good idea?
 #+BEGIN_SRC emacs-lisp :tangle yes
-(setq calendar-week-start-day 1)
+(setq calendar-week-start-day 1
+      calendar-date-style 'iso)
 #+END_SRC
 *** TODO org-chef
 #+begin_src emacs-lisp :tangle yes
