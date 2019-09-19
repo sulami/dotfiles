@@ -537,6 +537,21 @@ declarations.
           (evil-set-jump)
           (apply (quote ,cmd) rest))
         :wk ,cmd-name)))
+
+  (defun sulami/evil-shift-left-visual ()
+    "`evil-shift-left`, but keeps the selection."
+    (interactive)
+    (call-interactively 'evil-shift-left)
+    (evil-normal-state)
+    (evil-visual-restore))
+
+  (defun sulami/evil-shift-right-visual ()
+    "`evil-shift-right`, but keeps the selection."
+    (interactive)
+    (call-interactively 'evil-shift-right)
+    (evil-normal-state)
+    (evil-visual-restore))
+
   :general
   (leader-def
    "<tab>" 'evil-switch-to-windows-last-buffer
@@ -547,6 +562,9 @@ declarations.
    "w l" 'evil-window-move-far-right
    "w /" 'evil-window-vsplit
    "w -" 'evil-window-split)
+  (general-vmap
+    ">" 'sulami/evil-shift-right-visual
+    "<" 'sulami/evil-shift-left-visual)
   :hook (after-init . evil-mode))
 
 (use-package evil-collection
