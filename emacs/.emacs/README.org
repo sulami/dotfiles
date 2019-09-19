@@ -723,6 +723,8 @@ a symbol and how to search for them."
    "C-n" 'company-select-next
    "C-p" 'company-select-previous
    "<S-tab>" nil
+   "<backtab>" nil
+   "TAB" 'company-complete-selection
    "<tab>" 'company-complete-selection
    "C-w" 'evil-delete-backward-word)
   :hook (after-init . global-company-mode))
