@@ -196,6 +196,22 @@ Set the font to Fira Code and enable ligatures.
 #+END_SRC
 *** Theme
 #+BEGIN_SRC emacs-lisp :tangle yes
+(defun sulami/disable-all-themes ()
+  "Disables all custom themes."
+  (interactive)
+  (mapc #'disable-theme custom-enabled-themes))
+
+(defun sulami/load-theme-advice (theme &optional no-confirm no-enable)
+  "Disable all themes before loading a new one.
+
+Prevents mixing of themes, where one theme doesn't override all faces
+of another theme."
+  (sulami/disable-all-themes))
+
+(advice-add 'load-theme
+            :before
+            #'sulami/load-theme-advice)
+
 (use-package doom-themes
   :after (dash)
   :init
@@ -214,7 +230,7 @@ Set the font to Fira Code and enable ligatures.
   ;; Set the default colourscheme according to the time of day
   :hook (after-init . (lambda ()
                         (let ((hour-of-day (read (format-time-string "%H"))))
-                          (if (< 8 hour-of-day 18)
+                          (if (<= 8 hour-of-day 18)
                               (load-theme 'doom-solarized-light t)
                             (load-theme 'doom-one t))))))
 #+END_SRC
