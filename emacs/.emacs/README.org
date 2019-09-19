@@ -1061,6 +1061,12 @@ This allows me to benchmark Emacs startup.
   :hook (clojure-mode . cider-mode)
   :init
   (setq cider-auto-mode nil)
+  :config
+  (defun sulami/cider-debug-defun-at-point ()
+    "Set an implicit breakpoint and load the function at point."
+    (interactive)
+    (let ((current-prefix-arg '(4)))
+      (call-interactively 'cider-eval-defun-at-point)))
   :general
   (local-leader-def
     :keymaps 'clojure-mode-map
@@ -1071,18 +1077,19 @@ This allows me to benchmark Emacs startup.
     "x" 'cider-ns-reload-all
     "e" '(:ignore t :wk "eval")
     "e b" 'cider-eval-buffer
-    "e d" 'cider-debug-defun-at-point
-    "e e" 'cider-eval-sexp
+    "e d" 'sulami/cider-debug-defun-at-point
+    "e e" 'cider-eval-last-sexp
     "e f" 'cider-eval-defun-at-point
     "e r" 'cider-eval-region
     "h" '(:ignore t :wk "help")
     "h a" 'cider-apropos
+    "h A" 'cider-apropos-documentation
     "h d" 'cider-doc
     "h i" 'cider-inspect-last-result
     "h w" 'cider-docview-clojuredocs-web
     "r" '(:ignore t :wk "repl")
     "r f" 'cider-insert-defun-in-repl
-    "r n" 'cider-insert-ns-form-in-repl
+    "r n" 'cider-repl-set-ns
     "r r" 'cider-switch-to-repl-buffer
     "t" '(:ignore t :wk "test")
     "t b" 'cider-test-show-report
