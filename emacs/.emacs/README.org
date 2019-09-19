@@ -491,7 +491,6 @@ declarations.
     "h d" 'describe-symbol
     "h f" 'describe-function
     "h g" 'general-describe-keybindings
-    "h k" 'describe-key
     "h l" 'view-lossage
     "h v" 'describe-variable
     "t l" 'toggle-truncate-lines
@@ -649,7 +648,7 @@ a symbol and how to search for them."
                   (apropos (concat "\\`" pattern "\\'"))))
               ;; Patch
               (lambda (sym-name)
-                (describe-symbol (intern-soft sym-name))))
+                (helpful-symbol (intern-soft sym-name))))
             :caller 'counsel-apropos))
   :init
   (defun sulami/imenu-goto-function (NAME POSITION &rest REST)
@@ -1009,9 +1008,11 @@ I only enable this every now and then.
 #+end_src
 ** Helpful
 #+begin_src emacs-lisp :tangle yes
-;; TODO needs to be linked up to general & counsel
 (use-package helpful
-  :disabled)
+  :commands (helpful-symbol helpful-key)
+  :general
+  (leader-def
+    "h k" 'helpful-key))
 #+end_src
 ** Esup
 This allows me to benchmark Emacs startup.
