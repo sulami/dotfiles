@@ -423,23 +423,6 @@ Weeks start on Monday, and who thought MDY was a good idea?
         (call-process-region beg end cmd t t))
     (message "Select a region first")))
 #+end_src
-*** Sprunge
-**** TODO Sprunge region
-**** TODO Sprunge buffer
-#+begin_src emacs-lisp :tangle yes
-(defun sulami/sprunge-buffer ()
-  "Sends the current buffer content to sprunge.us and copy the URL to the
-clipboard."
-  (interactive)
-  (call-process-region
-   (point-min) (point-max)
-   "curl -sF 'sprunge=<-' http://sprunge.us"
-   "*Sprunge*")
-  (with-current-buffer "*Sprunge*"
-    (message (concat "Sprunged to " (buffer-string)))
-    ;(spacemacs/copy-whole-buffer-to-clipboard)
-))
-#+end_src
 ** General
 General allows me to use fancy prefix keybindings.
 
