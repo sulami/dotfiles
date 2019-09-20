@@ -433,13 +433,15 @@ declarations.
   (defconst leader-key "SPC")
   (general-create-definer leader-def
     :prefix leader-key
+    :keymaps 'override
     :states '(normal visual))
   (defconst local-leader-key ",")
   (general-create-definer local-leader-def
     :prefix local-leader-key
+    :keymaps 'override
     :states '(normal visual))
   (leader-def
-    :keymaps 'override
+    "" '(nil :wk "my lieutenant general prefix")
     ;; Prefixes
     "b" '(:ignore t :wk "buffer")
     "f" '(:ignore t :wk "file")
@@ -484,6 +486,7 @@ declarations.
   ;; Org mode
   (local-leader-def
     :keymaps 'org-mode-map
+    :states '(normal)
     "a" 'org-archive-subtree)
   ;; Dired
   (general-define-key
@@ -533,6 +536,7 @@ declarations.
 
   :general
   (leader-def
+   "TAB" 'evil-switch-to-windows-last-buffer
    "<tab>" 'evil-switch-to-windows-last-buffer
    "w d" 'evil-window-delete
    "w h" 'evil-window-move-far-left
@@ -646,6 +650,7 @@ a symbol and how to search for them."
    "h a" 'counsel-apropos
    "j i" 'counsel-semantic-or-imenu)
   (leader-def
+    :states 'normal
     :keymaps 'org-mode-map
     ;; Override imenu for org-mode
     "j i" 'counsel-org-goto)
@@ -696,7 +701,7 @@ a symbol and how to search for them."
   (setq company-idle-delay .01)
   :general
   (general-imap
-   "C-n" 'company-complete
+   "C-n" nil
    "C-p" nil)
   (:keymaps 'company-active-map
    "C-n" 'company-select-next
@@ -792,7 +797,7 @@ a symbol and how to search for them."
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package avy
   :general
-  (general-nmap "s-n" 'avy-goto-word-or-subword-1))
+  (general-nvmap "s-n" 'avy-goto-word-or-subword-1))
 #+END_SRC
 ** Highlight TODO
 #+begin_src emacs-lisp :tangle yes
@@ -1093,6 +1098,7 @@ This allows me to benchmark Emacs startup.
     "r r" 'cider-switch-to-repl-buffer
     "t" '(:ignore t :wk "test")
     "t b" 'cider-test-show-report
+    "t f" 'cider-test-rerun-failed-tests
     "t n" 'cider-test-run-ns-tests
     "t p" 'cider-test-run-project-tests
     "t t" 'cider-test-run-test))
