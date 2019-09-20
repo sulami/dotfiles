@@ -456,7 +456,6 @@ declarations.
     "t" '(:ignore t :wk "toggle")
     "w" '(:ignore t :wk "window")
     ;; General keybinds
-    "$" 'eshell
     "\\" 'indent-region
     "|" 'sulami/shell-command-on-region
     "b e" 'erase-buffer
@@ -835,8 +834,19 @@ I only enable this every now and then.
     ; cleanup dired
     (dired-unmark-all-marks)
     (kill-buffer))
+
+    (defun sulami/project-root-shell ()
+      "Opens eshell, if possible in the project root."
+      (interactive)
+      (if (projectile-project-p)
+          (let* ((eshell-buffer-name (concat "*eshell-" (projectile-project-name) "*")))
+            (projectile-with-default-dir (projectile-project-root)
+              (eshell)))
+        (eshell)))
+
   :general
   (leader-def
+    "$" 'sulami/project-root-shell
     "p r" 'sulami/projectile-replace
     "p d" 'projectile-dired)
   :hook (after-init . projectile-global-mode))
@@ -854,16 +864,6 @@ I only enable this every now and then.
    "p f" 'counsel-projectile-find-file
    "s p" 'counsel-projectile-rg
    "s P" 'sulami/projectile-rg-thing-at-point))
-
-;; (defun sulami/project-root-shell ()
-;;   "Pop the default shell in the project root if inside a project, otherwise in
-;; the default directory."
-;;   (interactive)
-;;   (when (sulami/is-spacemacs)
-;;     (if (projectile-project-p)
-;;         (projectile-with-default-dir (projectile-project-root)
-;;           (spacemacs/default-pop-shell))
-;;       (spacemacs/default-pop-shell))))
 
 #+END_SRC
 ** Perspective
