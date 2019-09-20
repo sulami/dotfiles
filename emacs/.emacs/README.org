@@ -1176,6 +1176,8 @@ Place point on the outer-most opening parenthesis to start:
 ** Markdown
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package markdown-mode
+  :config
+  (add-hook 'markdown-mode-hook 'orgtbl-mode)
   :mode (("README\\.md\\'" . gfm-mode)
          ("\\.md\\'" . markdown-mode)))
 #+END_SRC
