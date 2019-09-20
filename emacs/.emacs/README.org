@@ -500,7 +500,6 @@ declarations.
 ** Evil
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package evil
-  :after (general)
   :init
   (setq evil-want-C-u-scroll t
         evil-want-C-i-jump t
@@ -551,7 +550,10 @@ declarations.
 
 (use-package evil-collection
   :after (evil)
-  :config (evil-collection-init))
+  :config
+  (setq evil-collection-mode-list
+        (delete 'company evil-collection-mode-list))
+  (evil-collection-init))
 
 (use-package evil-search-highlight-persist
   :config
@@ -699,16 +701,14 @@ a symbol and how to search for them."
   :init
   (setq company-idle-delay .01)
   :general
-  (general-imap
-   "C-n" nil
-   "C-p" nil)
-  (:keymaps 'company-active-map
+  (general-define-key
+   :keymaps 'company-active-map
+   "<tab>" 'company-complete-selection
+   "TAB" 'company-complete-selection
+   "<ret>" nil
+   "RET" nil
    "C-n" 'company-select-next
    "C-p" 'company-select-previous
-   "<S-tab>" nil
-   "<backtab>" nil
-   "TAB" 'company-complete-selection
-   "<tab>" 'company-complete-selection
    "C-w" 'evil-delete-backward-word)
   :hook (after-init . global-company-mode))
 
