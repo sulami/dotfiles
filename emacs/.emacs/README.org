@@ -230,9 +230,9 @@ of another theme."
   ;; Set the default colourscheme according to the time of day
   :hook (after-init . (lambda ()
                         (let ((hour-of-day (read (format-time-string "%H"))))
-                          (if (<= 8 hour-of-day 18)
+                          (if (<= 8 hour-of-day 17)
                               (load-theme 'doom-solarized-light t)
-                            (load-theme 'doom-one t))))))
+                            (load-theme 'doom-solarized-dark t))))))
 #+END_SRC
 *** All the icons
 #+BEGIN_SRC emacs-lisp :tangle yes
