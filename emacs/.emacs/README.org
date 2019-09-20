@@ -419,6 +419,13 @@ Weeks start on Monday, and who thought MDY was a good idea?
         (call-process-region beg end cmd t t))
     (message "Select a region first")))
 #+end_src
+*** Sort words
+#+begin_src emacs-lisp :tangle yes
+(defun sulami/sort-words (beg end)
+  "Sorts words in region."
+  (interactive "r")
+  (sort-regexp-fields nil "\\w+" "\\&" beg end))
+#+end_src
 ** General
 General allows me to use fancy prefix keybindings.
 
