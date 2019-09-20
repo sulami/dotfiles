@@ -457,12 +457,12 @@ declarations.
     "$" 'eshell
     "\\" 'indent-region
     "|" 'sulami/shell-command-on-region
-    "b c" 'sulami/copy-buffer
     "b e" 'erase-buffer
     "b d" 'kill-this-buffer
     "b m" 'sulami/open-message-buffer
     "b r" 'sulami/rename-file-and-buffer
     "b s" 'sulami/open-scratch-buffer
+    "b y" 'sulami/copy-buffer
     "f e e" 'sulami/open-emacs-config
     "f e r" 'sulami/reload-emacs-config
     "f d" 'dired
