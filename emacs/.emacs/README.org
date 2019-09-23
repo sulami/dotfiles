@@ -287,7 +287,7 @@ of another theme."
 (setq org-directory "~/Documents/Notes/"
       org-agenda-files (list org-directory
                              "~/.emacs/README.org")
-      org-agenda-tag-filter-preset '("-archived"))
+      org-agenda-tag-filter-preset '("-archived" "-noagenda"))
 #+end_src
 *** Capture
 #+begin_src emacs-lisp :tangle yes
@@ -300,7 +300,7 @@ of another theme."
          "* TODO %?\n%a")
         ("c" "Climbing journal" entry
          (file "climbing.org")
-         "* %t\n%?"
+         "* %u\n%?"
          :prepend t)))
 #+end_src
 *** Refile
