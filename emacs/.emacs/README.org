@@ -1031,7 +1031,12 @@ This allows me to benchmark Emacs startup.
   :init
   (setq atomic-chrome-default-major-mode 'markdown-mode
         atomic-chrome-buffer-open-style 'frame)
-  :hook (after-init . atomic-chrome-start-server))
+  :general
+  (local-leader-def
+    :keymaps 'atomic-chrome-edit-mode-map
+    "q" 'atomic-chrome-close-current-buffer)
+  :hook ((after-init . atomic-chrome-start-server)
+         (atomic-chrome-edit-done . delete-frame)))
 #+end_src
 ** LSP
 #+BEGIN_SRC emacs-lisp :tangle yes
