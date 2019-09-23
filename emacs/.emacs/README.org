@@ -303,6 +303,12 @@ of another theme."
          "* %t\n%?"
          :prepend t)))
 #+end_src
+*** Refile
+This allows me to refile from the GTD inbox to the top-level of a file.
+#+begin_src emacs-lisp :tangle yes
+(setq org-refile-targets '((org-agenda-files :tag . "n0nexistent"))
+      org-refile-use-outline-path 'file)
+#+end_src
 *** Calendar
 Weeks start on Monday, and who thought MDY was a good idea?
 #+BEGIN_SRC emacs-lisp :tangle yes
@@ -493,7 +499,8 @@ declarations.
   (local-leader-def
     :keymaps 'org-mode-map
     :states '(normal)
-    "a" 'org-archive-subtree)
+    "a" 'org-archive-subtree
+    "r" 'org-refile)
   ;; Dired
   (general-define-key
    :keymaps 'dired-mode-map
@@ -1217,14 +1224,9 @@ Place point on the outer-most opening parenthesis to start:
                                startup-time)))))
 #+END_SRC
 ** TODO Split up headings
-** TODO figure out company completion inside snippet expansion
-~tab~ does both jump to the next placeholder and select a completion,
-which can be annoying.
 ** TODO emacsclient setup
 I'd like to have emacsclient open in a new, clean frame, and clean up
 upon termination.
-** TODO file away org-mode subtrees into files via prompt
-So that I can get stuff from my inbox into better files.
 ** Packages to look into
 *** TODO forge
 github stuff. seems to use sqlite, which I'm dubious about
