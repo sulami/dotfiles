@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: meeting notes
+# key: meeting
+# --
+** ${1:Meeting Name} `(format-time-string (org-time-stamp-format nil t))`
+$0
