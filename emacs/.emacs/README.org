@@ -315,11 +315,6 @@ Weeks start on Monday, and who thought MDY was a good idea?
 (setq calendar-week-start-day 1
       calendar-date-style 'iso)
 #+END_SRC
-*** TODO org-chef
-#+begin_src emacs-lisp :tangle yes
-(use-package org-chef
-  :disabled)
-#+end_src
 *** TODO org-jira
 #+begin_src emacs-lisp :tangle yes
 (use-package org-jira
@@ -432,6 +427,17 @@ Weeks start on Monday, and who thought MDY was a good idea?
   (interactive "r")
   (sort-regexp-fields nil "\\w+" "\\&" beg end))
 #+end_src
+*** Toggle narrowing
+#+begin_src emacs-lisp :tangle yes
+(defun sulami/toggle-narrow ()
+  "Toggles `narrow-to-defun' or `org-narrow-to-subtree'."
+  (interactive)
+  (if (buffer-narrowed-p)
+      (widen)
+    (if (eq major-mode 'org-mode)
+        (org-narrow-to-subtree)
+      (narrow-to-defun))))
+#+end_src
 ** General
 General allows me to use fancy prefix keybindings.
 
@@ -491,6 +497,7 @@ declarations.
     "t r" 'refill-mode
     "t s" 'flyspell-mode
     "t n" 'linum-mode
+    "t N" 'sulami/toggle-narrow
     "w =" 'balance-windows
     "w m" 'sulami/toggle-maximise-window)
   (general-define-key
