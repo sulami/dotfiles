@@ -1173,6 +1173,11 @@ Place point on the outer-most opening parenthesis to start:
 ;  "o" 'haskell-evil-open-below
 ;  "O" 'haskell-evil-open-above)
 #+END_SRC
+** Rust
+#+begin_src emacs-lisp :tangle yes
+(use-package rust-mode
+  :defer t)
+#+end_src
 ** Markdown
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package markdown-mode
