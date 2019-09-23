@@ -246,12 +246,12 @@ of another theme."
 *** Modeline
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package doom-modeline
- :hook (after-init . doom-modeline-mode)
- :config
- (setq doom-modeline-buffer-file-name-style 'relative-to-project
-       doom-modeline-buffer-encoding nil
-       doom-modeline-persp-name nil
-       doom-modeline-vcs-max-length 36))
+  :hook (after-init . doom-modeline-mode)
+  :config
+  (setq doom-modeline-buffer-file-name-style 'relative-to-project
+        doom-modeline-buffer-encoding nil
+        doom-modeline-persp-name nil
+        doom-modeline-vcs-max-length 36))
 #+END_SRC
 ** Org mode
 *** Plain source code blocks
@@ -1213,6 +1213,8 @@ which can be annoying.
 ** TODO emacsclient setup
 I'd like to have emacsclient open in a new, clean frame, and clean up
 upon termination.
+** TODO file away org-mode subtrees into files via prompt
+So that I can get stuff from my inbox into better files.
 ** Packages to look into
 *** TODO forge
 github stuff. seems to use sqlite, which I'm dubious about
