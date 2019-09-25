@@ -579,6 +579,13 @@ declarations.
         (delete 'company evil-collection-mode-list))
   (evil-collection-init))
 
+(use-package evil-org
+  :after org
+  :config
+  (require 'evil-org-agenda)
+  (evil-org-agenda-set-keys)
+  :hook ((org-mode . evil-org-mode)))
+
 (use-package evil-search-highlight-persist
   :config
   (defun sulami/isearch-nohighlight ()
