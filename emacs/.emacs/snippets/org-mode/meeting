@@ -3,4 +3,5 @@
 # key: meeting
 # --
 ** ${1:Meeting Name} `(format-time-string (org-time-stamp-format nil t))`
+Attendees: $2
 $0
