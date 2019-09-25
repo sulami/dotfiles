@@ -201,7 +201,7 @@ Set the font to Fira Code and enable ligatures.
   (interactive)
   (mapc #'disable-theme custom-enabled-themes))
 
-(defun sulami/load-theme-advice (theme &optional no-confirm no-enable)
+(defun sulami/before-load-theme-advice (theme &optional no-confirm no-enable)
   "Disable all themes before loading a new one.
 
 Prevents mixing of themes, where one theme doesn't override all faces
@@ -210,7 +210,18 @@ of another theme."
 
 (advice-add 'load-theme
             :before
-            #'sulami/load-theme-advice)
+            #'sulami/before-load-theme-advice)
+
+(defun sulami/after-load-theme-advice (theme &optional no-confirm no-enable)
+  "Unsets backgrounds for some org-mode faces."
+  (set-face-background 'outline-1 nil)
+  (set-face-background 'org-block nil)
+  (set-face-background 'org-block-begin-line nil)
+  (set-face-background 'org-block-end-line nil))
+
+(advice-add 'load-theme
+            :after
+            #'sulami/after-load-theme-advice)
 
 (use-package doom-themes
   :after (dash)
@@ -218,14 +229,6 @@ of another theme."
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
   :config
-  ;; Patch out the backgound colours from org-mode src blocks
-  (set-variable
-   'doom-themes-base-faces
-   (->> doom-themes-base-faces
-        (cl-remove-if (lambda (x) (equal (car x) 'org-block)))
-        (cl-remove-if (lambda (x) (equal (car x) 'org-block-background)))
-        (cl-substitute-if '(org-block-begin-line :foreground comments)
-                          (lambda (x) (equal (car x) 'org-block-begin-line)))))
   (doom-themes-org-config)
   ;; Set the default colourscheme according to the time of day
   :hook (after-init . (lambda ()
@@ -1234,6 +1237,7 @@ Place point on the outer-most opening parenthesis to start:
 ** TODO emacsclient setup
 I'd like to have emacsclient open in a new, clean frame, and clean up
 upon termination.
+** TODO disable trailing whitespace in shells/repls/output buffers
 ** Packages to look into
 *** TODO forge
 github stuff. seems to use sqlite, which I'm dubious about
