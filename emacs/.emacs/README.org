@@ -873,20 +873,22 @@ I only enable this every now and then.
     (dired-unmark-all-marks)
     (kill-buffer))
 
-    (defun sulami/project-root-shell ()
+    (defun sulami/toggle-project-root-shell ()
       "Opens eshell, if possible in the project root."
       (interactive)
-      (if (projectile-project-p)
-          (let* ((eshell-buffer-name (concat "*eshell-" (projectile-project-name) "*")))
-            (projectile-with-default-dir (projectile-project-root)
-              (eshell)))
-        (eshell)))
+      (if (eq major-mode 'eshell-mode)
+          (evil-switch-to-windows-last-buffer)
+        (if (projectile-project-p)
+            (let* ((eshell-buffer-name (concat "*eshell-" (projectile-project-name) "*")))
+              (projectile-with-default-dir (projectile-project-root)
+                (eshell)))
+          (eshell))))
 
   :general
   (leader-def
-    "$" 'sulami/project-root-shell
     "p r" 'sulami/projectile-replace
     "p d" 'projectile-dired)
+  ("s-'" 'sulami/toggle-project-root-shell)
   :hook (after-init . projectile-global-mode))
 
 (use-package counsel-projectile
