@@ -71,8 +71,15 @@ we don't accidentally leave backups around.
 (setq-default indent-tabs-mode nil)
 #+END_SRC
 *** Show trailing whitespace
+It's disabled by default, and then gets enabled for all file-based
+buffer modes, so not for REPLS and shells.
 #+BEGIN_SRC emacs-lisp :tangle yes
-(setq-default show-trailing-whitespace t)
+(setq-default show-trailing-whitespace nil)
+(defun sulami/show-trailing-whitespace ()
+  "Just sets `show-trailing-whitespace'."
+  (setq show-trailing-whitespace t))
+(add-hook 'prog-mode-hook 'sulami/show-trailing-whitespace)
+(add-hook 'text-mode-hook 'sulami/show-trailing-whitespace)
 #+END_SRC
 *** Show empty lines
 This shows vim-style tildes on the left fringe.
@@ -1244,7 +1251,6 @@ Place point on the outer-most opening parenthesis to start:
 ** TODO emacsclient setup
 I'd like to have emacsclient open in a new, clean frame, and clean up
 upon termination.
-** TODO disable trailing whitespace in shells/repls/output buffers
 ** Packages to look into
 *** TODO forge
 github stuff. seems to use sqlite, which I'm dubious about
