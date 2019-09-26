@@ -511,7 +511,9 @@ declarations.
     "w =" 'balance-windows
     "w m" 'sulami/toggle-maximise-window)
   (general-define-key
-   "s-=" 'text-scale-adjust)
+   "s-=" (lambda () (interactive) (text-scale-increase 0.5))
+   "s--" (lambda () (interactive) (text-scale-decrease 0.5))
+   "s-0" (lambda () (interactive) (text-scale-increase 0)))
   ;; Org mode
   (local-leader-def
     :keymaps 'org-mode-map
