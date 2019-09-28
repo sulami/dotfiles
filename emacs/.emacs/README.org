@@ -487,6 +487,8 @@ declarations.
     ;; General keybinds
     "\\" 'indent-region
     "|" 'sulami/shell-command-on-region
+    "a a" 'org-agenda
+    "a c" 'org-capture
     "b e" 'erase-buffer
     "b d" 'kill-this-buffer
     "b m" 'sulami/open-message-buffer
