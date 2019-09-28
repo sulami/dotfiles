@@ -40,10 +40,24 @@ we don't accidentally leave backups around.
 #+begin_src emacs-lisp :tangle yes
 (setq suggest-key-bindings nil)
 #+end_src
-*** Something something tramp
+*** Make Tramp great again
 #+begin_src emacs-lisp :tangle yes
 (setq tramp-ssh-controlmaster-options
-      "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o Control-Persist=no")
+      "-o ControlMaster=auto -o ControlPath='tramp.%%C'")
+
+;; Various speedups
+;; from https://www.gnu.org/software/emacs/manual/html_node/tramp/Frequently-Asked-Questions.html
+(setq remote-file-name-inhibit-cache 3600
+      tramp-completion-reread-directory-timeout nil
+      vc-ignore-dir-regexp (format "%s\\|%s"
+                                   vc-ignore-dir-regexp
+                                   tramp-file-name-regexp)
+      tramp-verbose 0)
+
+;; Save backup files locally
+;; from https://stackoverflow.com/a/47021266
+(add-to-list 'backup-directory-alist
+             (cons tramp-file-name-regexp "/tmp/emacs-backup/"))
 #+end_src
 *** Remember where we were
 #+begin_src emacs-lisp :tangle yes
@@ -741,7 +755,8 @@ a symbol and how to search for them."
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package company
   :init
-  (setq company-idle-delay .01)
+  (setq company-idle-delay .01
+        company-global-modes '(not eshell-mode))
   :general
   (general-define-key
    :keymaps 'company-active-map
@@ -877,16 +892,21 @@ I only enable this every now and then.
     (dired-unmark-all-marks)
     (kill-buffer))
 
-    (defun sulami/toggle-project-root-shell ()
-      "Opens eshell, if possible in the project root."
-      (interactive)
-      (if (eq major-mode 'eshell-mode)
-          (evil-switch-to-windows-last-buffer)
-        (if (projectile-project-p)
-            (let* ((eshell-buffer-name (concat "*eshell-" (projectile-project-name) "*")))
-              (projectile-with-default-dir (projectile-project-root)
-                (eshell)))
-          (eshell))))
+  (defun sulami/toggle-project-root-shell ()
+    "Opens eshell, if possible in the project root."
+    (interactive)
+    (if (eq major-mode 'eshell-mode)
+        (evil-switch-to-windows-last-buffer)
+      (if (projectile-project-p)
+          (let* ((eshell-buffer-name (concat "*eshell-" (projectile-project-name) "*")))
+            (projectile-with-default-dir (projectile-project-root)
+              (eshell)))
+        (eshell))))
+
+  ;; Don't do projectile stuff on remote files
+  ;; from https://github.com/syl20bnr/spacemacs/issues/11381#issuecomment-481239700
+  (defadvice projectile-project-root (around ignore-remote first activate)
+    (unless (file-remote-p default-directory) ad-do-it))
 
   :general
   (leader-def
