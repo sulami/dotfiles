@@ -217,6 +217,9 @@ Set the font to Fira Code and enable ligatures.
 #+END_SRC
 *** Theme
 #+BEGIN_SRC emacs-lisp :tangle yes
+;; I like to live dangerously
+(setq custom-safe-themes t)
+
 (defun sulami/disable-all-themes ()
   "Disables all custom themes."
   (interactive)
