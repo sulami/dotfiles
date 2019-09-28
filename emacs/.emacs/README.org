@@ -486,6 +486,7 @@ declarations.
   (leader-def
     "" '(nil :wk "my lieutenant general prefix")
     ;; Prefixes
+    "a" '(:ignore t :wk "app")
     "b" '(:ignore t :wk "buffer")
     "f" '(:ignore t :wk "file")
     "f e" '(:ignore t :wk "emacs")
@@ -706,11 +707,9 @@ a symbol and how to search for them."
    "f r" 'counsel-recentf
    "h a" 'counsel-apropos
    "j i" 'counsel-semantic-or-imenu)
-  (leader-def
-    :states 'normal
+  (local-leader-def
     :keymaps 'org-mode-map
-    ;; Override imenu for org-mode
-    "j i" 'counsel-org-goto)
+    "j" 'counsel-org-goto)
   :hook (after-init . counsel-mode))
 
 (use-package swiper
@@ -947,8 +946,11 @@ I only enable this every now and then.
   (defun sulami/kill-project-perspective ()
     "Kills the current project and then the perspective"
     (interactive)
-    (projectile-kill-buffers)
-    (persp-kill (persp-name (persp-curr))))
+    (when (projectile-project-p)
+      (projectile-kill-buffers))
+    (let ((pname (persp-name (persp-curr))))
+      (persp-kill pname)
+      (message "Killed perspective %s" pname)))
   :general
   (leader-def
     "p p" 'projectile-persp-switch-project
@@ -966,8 +968,7 @@ I only enable this every now and then.
    "s-6" 'winum-select-window-6
    "s-7" 'winum-select-window-7
    "s-8" 'winum-select-window-8
-   "s-9" 'winum-select-window-9
-   "s-0" 'winum-select-window-0-or-10)
+   "s-9" 'winum-select-window-9)
   :hook (after-init . winum-mode))
 #+END_SRC
 ** Fill column indicator
