@@ -947,13 +947,15 @@ I only enable this every now and then.
   :after (perspective)
   :init
   (defun sulami/kill-project-perspective ()
-    "Kills the current project and then the perspective"
+    "Kills the current project and then the perspective."
     (interactive)
     (when (projectile-project-p)
       (projectile-kill-buffers))
     (let ((pname (persp-name (persp-curr))))
-      (persp-kill pname)
-      (message "Killed perspective %s" pname)))
+      (when (and (not (eq "main" pname))
+                 (yes-or-no-p (format "Kill perspective %s?"pname)))
+        (persp-kill pname)
+        (message "Killed perspective %s" pname))))
   :general
   (leader-def
     "p p" 'projectile-persp-switch-project
