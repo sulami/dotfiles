@@ -84,6 +84,10 @@ we don't accidentally leave backups around.
 #+BEGIN_SRC emacs-lisp :tangle yes
 (setq-default indent-tabs-mode nil)
 #+END_SRC
+*** Sentences end with a single space
+#+begin_src emacs-lisp :tangle yes
+(setq sentence-end-double-space nil)
+#+end_src
 *** Show trailing whitespace
 It's disabled by default, and then gets enabled for all file-based
 buffer modes, so not for REPLS and shells.
