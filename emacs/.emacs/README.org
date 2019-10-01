@@ -42,7 +42,8 @@ we don't accidentally leave backups around.
 #+end_src
 *** Make Tramp great again
 #+begin_src emacs-lisp :tangle yes
-(setq tramp-ssh-controlmaster-options
+(setq tramp-default-method "ssh"
+      tramp-ssh-controlmaster-options
       "-o ControlMaster=auto -o ControlPath='tramp.%%C'")
 
 ;; Various speedups
