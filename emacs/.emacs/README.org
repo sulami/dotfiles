@@ -521,6 +521,9 @@ declarations.
     "|" 'sulami/shell-command-on-region
     "a a" 'org-agenda
     "a c" 'org-capture
+    "a C" 'calc
+    "a s" 'shell
+    "a t" 'ansi-term
     "b e" 'erase-buffer
     "b d" 'kill-this-buffer
     "b m" 'sulami/open-message-buffer
