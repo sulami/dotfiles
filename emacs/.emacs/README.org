@@ -553,7 +553,9 @@ declarations.
     :keymaps 'org-mode-map
     :states '(normal)
     "a" 'org-archive-subtree
-    "r" 'org-refile)
+    "d" 'org-deadline
+    "r" '(org-refile :wk "org-refile")
+    "s" 'org-schedule)
   ;; Dired
   (general-define-key
    :keymaps 'dired-mode-map
@@ -726,7 +728,8 @@ a symbol and how to search for them."
    "j i" 'counsel-semantic-or-imenu)
   (local-leader-def
     :keymaps 'org-mode-map
-    "j" 'counsel-org-goto)
+    "j" 'counsel-org-goto
+    "t" '(counsel-org-tag :wk "counsel-org-tag"))
   :hook (after-init . counsel-mode))
 
 (use-package swiper
