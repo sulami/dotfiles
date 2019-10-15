@@ -334,10 +334,10 @@ of another theme."
 #+begin_src emacs-lisp :tangle yes
 (setq org-capture-templates
       '(("t" "Todo" entry
-         (file "todo.org")
+         (file "inbox.org")
          "* TODO %?")
         ("f" "File" entry
-         (file "todo.org")
+         (file "inbox.org")
          "* TODO %?\n%a")
         ("c" "Climbing journal" entry
          (file "climbing.org")
@@ -350,6 +350,13 @@ This allows me to refile from the GTD inbox to the top-level of a file.
 (setq org-refile-targets '((org-agenda-files :tag . "n0nexistent"))
       org-refile-use-outline-path 'file)
 #+end_src
+*** Open the inbox
+#+BEGIN_SRC emacs-lisp :tangle yes
+(defun sulami/open-org-inbox ()
+  "Opens the inbox file."
+  (interactive)
+  (find-file "~/Documents/Notes/inbox.org"))
+#+END_SRC
 *** Calendar
 Weeks start on Monday, and who thought MDY was a good idea?
 #+BEGIN_SRC emacs-lisp :tangle yes
@@ -522,6 +529,7 @@ declarations.
     "a a" 'org-agenda
     "a c" 'org-capture
     "a C" 'calc
+    "a i" 'sulami/open-org-inbox
     "a s" 'shell
     "a t" 'ansi-term
     "b e" 'erase-buffer
