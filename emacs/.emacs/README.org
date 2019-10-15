@@ -1079,6 +1079,15 @@ I only enable this every now and then.
 #+BEGIN_SRC emacs-lisp :tangle yes
 (setq eshell-aliases-file "~/.emacs/aliases")
 #+END_SRC
+** Ediff
+*** Don't create a new frame for the control window
+#+begin_src emacs-lisp :tangle yes
+(setq ediff-window-setup-function 'ediff-setup-windows-plain)
+#+end_src
+*** Split horizontally by default
+#+begin_src emacs-lisp :tangle yes
+(setq ediff-split-window-function 'split-window-horizontally)
+#+end_src
 ** Dired
 *** Enable find-alternate-file
 #+begin_src emacs-lisp :tangle yes
