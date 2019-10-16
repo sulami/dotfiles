@@ -703,6 +703,7 @@ a symbol and how to search for them."
                              (symbol-plist sym)))
             :history 'counsel-apropos-history
             :preselect (ivy-thing-at-point)
+            :sort t
             :action
             (el-patch-swap
               ;; Original
@@ -1034,10 +1035,6 @@ I only enable this every now and then.
     "g s" 'magit-status)
   :init
   (setq magit-completing-read-function 'ivy-completing-read))
-
-(use-package forge
-  :disabled
-  :after magit)
 
 (use-package evil-magit
   :defer t
