@@ -569,6 +569,8 @@ declarations.
     :states '(normal)
     "a" 'org-archive-subtree
     "d" 'org-deadline
+    "f" 'org-fill-paragraph
+    "l" 'org-insert-link
     "r" '(org-refile :wk "org-refile")
     "s" 'org-schedule)
   ;; Dired
