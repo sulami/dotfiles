@@ -1089,6 +1089,10 @@ I only enable this every now and then.
 (setq eshell-aliases-file "~/.emacs/aliases")
 #+END_SRC
 ** Ediff
+*** Ignore whitespace changes
+#+begin_src emacs-lisp :tangle yes
+(setq ediff-diff-options "-w")
+#+end_src
 *** Don't create a new frame for the control window
 #+begin_src emacs-lisp :tangle yes
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
