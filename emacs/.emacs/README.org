@@ -706,7 +706,6 @@ a symbol and how to search for them."
                              (symbol-plist sym)))
             :history 'counsel-apropos-history
             :preselect (ivy-thing-at-point)
-            :sort t
             :action
             (el-patch-swap
               ;; Original
