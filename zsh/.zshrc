@@ -6,15 +6,18 @@ zstyle :compinstall filename '$HOME/.zshrc'
 autoload -Uz compinit
 compinit
 
-if which emacsclient > /dev/null 2>&1; then
-    export EDITOR="emacsclient -c -nw"
-    export VISUAL="emacsclient -c"
+if [[ -e /Applications/Emacs.app/Contents/MacOS/Emacs ]]; then
+    export VISUAL="emacsclient -a /Applications/Emacs.app/Contents/MacOS/Emacs"
+    export EDITOR="$VISUAL"
 elif which nvim > /dev/null 2>&1; then
     export EDITOR=nvim
     export VISUAL=nvim
-else
+elif which vim > /dev/null 2>&1; then
     export EDITOR=vim
     export VISUAL=vim
+else
+    export EDITOR=vi
+    export VISUAL=vi
 fi
 export LC_ALL=en_US.UTF-8
 PYTHON_3_VERSION=$(python3 -c "import sys; print('{}.{}'.format(sys.version_info.major, sys.version_info.minor))")
