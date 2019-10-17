@@ -55,6 +55,9 @@ we don't accidentally leave backups around.
                                    tramp-file-name-regexp)
       tramp-verbose 0)
 
+;; Disable the history file on remote hosts
+(setq tramp-histfile-override t)
+
 ;; Save backup files locally
 ;; from https://stackoverflow.com/a/47021266
 (add-to-list 'backup-directory-alist
