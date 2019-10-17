@@ -338,7 +338,7 @@ of another theme."
 (setq org-capture-templates
       '(("t" "Todo" entry
          (file "inbox.org")
-         "* TODO %?")
+         "* TODO %?\n%u")
         ("f" "File" entry
          (file "inbox.org")
          "* TODO %?\n%a")
