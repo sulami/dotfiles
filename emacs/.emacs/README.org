@@ -690,7 +690,6 @@ declarations.
   :hook (after-init . ivy-mode))
 
 (use-package counsel
-  :after (evil)
   :config/el-patch
   ;; Patching counsel-apropos to skip the apropos step
   (defun counsel-apropos ()
@@ -735,7 +734,6 @@ a symbol and how to search for them."
   (setq-default imenu-default-goto-function 'sulami/imenu-goto-function)
   :general
   (leader-def
-   ":" 'counsel-M-x
    "b b" 'counsel-switch-buffer
    "f f" 'counsel-find-file
    "f r" 'counsel-recentf
