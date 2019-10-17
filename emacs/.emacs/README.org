@@ -210,7 +210,6 @@ List library that comes in handy.
 (defun sulami/update-packages ()
   "Prunes and updates packages, revalidates patches."
   (straight-prune-build-directory)
-  (straight-fetch-all)
   (straight-pull-all)
   (el-patch-validate-all))
 #+end_src
