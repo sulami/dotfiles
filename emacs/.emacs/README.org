@@ -305,8 +305,8 @@ of another theme."
 *** Disable ligatures in org-mode
 #+BEGIN_SRC emacs-lisp :tangle yes
 (add-hook 'org-mode-hook
-	  (lambda ()
-	    (mac-auto-operator-composition-mode -1)))
+          (lambda ()
+            (auto-composition-mode -1)))
 #+END_SRC
 *** Show emphasis markers
 #+BEGIN_SRC emacs-lisp :tangle yes
