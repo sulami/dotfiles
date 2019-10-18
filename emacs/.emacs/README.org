@@ -571,7 +571,8 @@ declarations.
     "f" 'org-fill-paragraph
     "l" 'org-insert-link
     "r" '(org-refile :wk "org-refile")
-    "s" 'org-schedule)
+    "s" 'org-schedule
+    "S" 'org-babel-switch-to-session)
   ;; Dired
   (general-define-key
    :keymaps 'dired-mode-map
