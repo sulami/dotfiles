@@ -1333,9 +1333,3 @@ Place point on the outer-most opening parenthesis to start:
 ** TODO emacsclient setup
 I'd like to have emacsclient open in a new, clean frame, and clean up
 upon termination.
-** Packages to look into
-*** TODO forge
-github stuff. seems to use sqlite, which I'm dubious about
-*** TODO vdiff
-like vdiff. was a bit dodgy when I tried it last time, got half-stuck
-inside the mode
