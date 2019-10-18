@@ -16,6 +16,15 @@
                         ["vcs" "commit"]
                         ["vcs" "tag"]
                         ["deploy" "clojars"]]
+
+        :jvm-opts ["-XX:-OmitStackTraceInFastThrow"]
+
         :deploy-repositories [["releases" {:url "https://repo.clojars.org"
                                            :creds :gpg}]]
-        :signing {:gpg-key "0xA1418106"}}}
+        :signing {:gpg-key "0xA1418106"}}
+
+ :emacs {:plugins [[cider/cider-nrepl "0.22.0"]]
+         :dependencies [[cider/cider-nrepl "0.22.0"]]
+         :middleware [cider-nrepl.plugin/middleware]}
+
+ :sulami {:dependencies [[org.clojars.sulami/prelude "0.2.0"]]}}
