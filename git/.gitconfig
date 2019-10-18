@@ -1,83 +1,85 @@
 [core]
-	editor = $EDITOR
+  editor = $EDITOR
 [user]
-	name = Robin Schroer
-	email = sulami@peerwire.org
-	signingkey = A1418106
+  name = Robin Schroer
+  email = sulami@peerwire.org
+  signingkey = A1418106
 [push]
-	default = simple
+  default = simple
 [credential]
-	helper = cache --timeout=86400
+  helper = cache --timeout=86400
 [alias]
-	st = status
-	sh = show
-	shs = show --stat
-	di = diff
-	ds = diff --stat
-	dh = diff HEAD --cached
-	dhs = diff HEAD --cached --stat
-	cl = clone
-	br = branch
-	co = checkout
-	cob = checkout -b
-	add = add --all
-	aa = add --all .
-	ap = add --all -p
-	cm = commit
-	cmm = commit -m
-	ca = commit -a
-	cam = commit -am
-	rh = reset --hard
-	rsh = reset --soft HEAD^
-	pu = push --follow-tags
-	poh = push origin HEAD --follow-tags
-	pom = push origin master --follow-tags
-	fe = fetch --all --prune
-	rup = remote update
-	puo = pull origin master
-	ff = merge --ff
-	noff = merge --no-ff
-	cp = cherry-pick
-	cpn = cherry-pick -n
-	l = log --decorate --graph --oneline
-	ll = log --decorate --graph --stat
-	sm = submodule
-	sts = stash save
-	stl = stash list
-	stsh = stash show -p
-	stap = stash apply
-	stpp = stash pop
-	stdr = stash drop
-	start = !git init && git commit --allow-empty -m \"In the beginning there was darkness\"
-	cleanup = !git br --merged | sed -E 's:^\\* |  ::' | grep -v '^\\(develop\\|master\\|HEAD\\)$' | xargs git br -D
-	cleanup-remote = !git br -r --merged | sed -E 's:^\\* |  ::' | sed 's:^origin/::' | grep -v '^\\(develop\\|master\\|HEAD\\)' | xargs git push origin --delete
+  st = status
+  sh = show
+  shs = show --stat
+  di = diff
+  ds = diff --stat
+  dh = diff HEAD --cached
+  dhs = diff HEAD --cached --stat
+  cl = clone
+  br = branch
+  co = checkout
+  cob = checkout -b
+  add = add --all
+  aa = add --all .
+  ap = add --all -p
+  cm = commit
+  cmm = commit -m
+  ca = commit -a
+  cam = commit -am
+  rh = reset --hard
+  rsh = reset --soft HEAD^
+  pu = push --follow-tags
+  poh = push origin HEAD --follow-tags
+  pom = push origin master --follow-tags
+  fe = fetch --all --prune
+  rup = remote update
+  puo = pull origin master
+  ff = merge --ff
+  noff = merge --no-ff
+  cp = cherry-pick
+  cpn = cherry-pick -n
+  l = log --decorate --graph --oneline
+  ll = log --decorate --graph --stat
+  sm = submodule
+  sts = stash save
+  stl = stash list
+  stsh = stash show -p
+  stap = stash apply
+  stpp = stash pop
+  stdr = stash drop
+  start = !git init && git commit --allow-empty -m \"In the beginning there was darkness\"
+  cleanup = !git br --merged | sed -E 's:^\\* |  ::' | grep -v '^\\(develop\\|master\\|HEAD\\)$' | xargs git br -D
+  cleanup-remote = !git br -r --merged | sed -E 's:^\\* |  ::' | sed 's:^origin/::' | grep -v '^\\(develop\\|master\\|HEAD\\)' | xargs git push origin --delete
+  pmm = pull origin master:master
+  rtm = !git pmm && git rebase
 [commit]
-	gpgsign = true
+  gpgsign = true
 [merge]
-	tool = vimdiff
+  tool = vimdiff
 [sendemail]
-	smtpencryption = tls
-	smtpserver = mail.pawnmail.com
-	smtpuser = sulami@peerwire.org
-	smtpserverport = 587
+  smtpencryption = tls
+  smtpserver = mail.pawnmail.com
+  smtpuser = sulami@peerwire.org
+  smtpserverport = 587
 [include]
-	path = ~/.gitconfig.secret
+  path = ~/.gitconfig.secret
 [github]
-	user = sulami
+  user = sulami
 [gpg]
-	program = gpg
+  program = gpg
 [fetch]
-	prune = true
+  prune = true
 [pull]
-	rebase = true
+  rebase = true
 [rebase]
-	autoStash = true
+  autoStash = true
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 [branch]
-   sort=-committerdate
+  sort=-committerdate
 [rerere]
-	enabled = true
+  enabled = true
