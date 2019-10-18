@@ -1030,6 +1030,14 @@ I only enable this every now and then.
 (use-package magit
   :custom
   (magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1)
+  :config
+  (defun sulami/magit-pull-master ()
+    (interactive)
+    (magit-git-command-topdir "git pull origin master:master")
+    (bury-buffer))
+  (transient-append-suffix 'magit-pull "e" '(sulami/magit-pull-master
+                                             :key "m"
+                                             :description "Pull master"))
   :general
   (leader-def
     "g b" 'magit-blame-addition
