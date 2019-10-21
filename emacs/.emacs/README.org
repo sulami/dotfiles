@@ -293,6 +293,10 @@ of another theme."
 (setq org-src-preserve-indentation nil
       org-edit-src-content-indentation 0)
 #+END_SRC
+*** Open source code blocks in the same window
+#+begin_src emacs-lisp :tangle yes
+(setq org-src-window-setup 'current-window)
+#+end_src
 *** Enable babel for more languages
 #+begin_src emacs-lisp :tangle yes
 (org-babel-do-load-languages
