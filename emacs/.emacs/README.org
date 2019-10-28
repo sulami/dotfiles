@@ -1098,6 +1098,18 @@ I only enable this every now and then.
 #+BEGIN_SRC emacs-lisp :tangle yes
 (setq eshell-aliases-file "~/.emacs/aliases")
 #+END_SRC
+*** Completion
+Eshell doesn't do context-aware autocompletion by default and defaults
+to completing filenames instead. Luckily we can easily define custom
+completion handlers for commands.
+**** Sudo
+#+begin_src emacs-lisp :tangle yes
+(defun pcomplete/sudo ()
+  "Completion rules for the `sudo' command."
+  (let ((pcomplete-ignore-case t))
+    (pcomplete-here (funcall pcomplete-command-completion-function))
+    (while (pcomplete-here (pcomplete-entries)))))
+#+end_src
 ** Ediff
 *** Ignore whitespace changes
 #+begin_src emacs-lisp :tangle yes
