@@ -1038,8 +1038,7 @@ I only enable this every now and then.
   :config
   (defun sulami/magit-pull-master ()
     (interactive)
-    (magit-git-command-topdir "git pull origin master:master")
-    (bury-buffer))
+    (magit-git-command-topdir "git pull origin master:master"))
   (transient-append-suffix 'magit-pull "e" '(sulami/magit-pull-master
                                              :key "m"
                                              :description "Pull master"))
