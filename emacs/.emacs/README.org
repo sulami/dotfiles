@@ -1240,6 +1240,7 @@ This allows me to benchmark Emacs startup.
     "t" '(:ignore t :wk "test")
     "t b" 'cider-test-show-report
     "t f" 'cider-test-rerun-failed-tests
+    "t l" 'cider-test-run-loaded-tests
     "t n" 'cider-test-run-ns-tests
     "t p" 'cider-test-run-project-tests
     "t t" 'cider-test-run-test))
