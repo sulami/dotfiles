@@ -3,8 +3,9 @@ HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
 zstyle :compinstall filename '$HOME/.zshrc'
+fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit
-compinit
+compinit -i
 
 if [[ -e /Applications/Emacs.app/Contents/MacOS/Emacs ]]; then
     export VISUAL="emacsclient -a /Applications/Emacs.app/Contents/MacOS/Emacs"
