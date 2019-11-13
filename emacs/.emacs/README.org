@@ -748,6 +748,8 @@ a symbol and how to search for them."
     :keymaps 'org-mode-map
     "j" 'counsel-org-goto
     "t" '(counsel-org-tag :wk "counsel-org-tag"))
+  (general-nmap
+    "M-y" 'counsel-yank-pop)
   :hook (after-init . counsel-mode))
 
 (use-package swiper
