@@ -248,7 +248,8 @@ of another theme."
   (set-face-background 'outline-1 nil)
   (set-face-background 'org-block nil)
   (set-face-background 'org-block-begin-line nil)
-  (set-face-background 'org-block-end-line nil))
+  (set-face-background 'org-block-end-line nil)
+  (set-face-background 'org-quote nil))
 
 (advice-add 'load-theme
             :after
