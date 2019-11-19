@@ -307,6 +307,10 @@ of another theme."
    (python . t)
    (clojure . t)))
 #+end_src
+*** Use drawers for source block evaluation
+#+begin_src emacs-lisp :tangle yes
+(add-to-list 'org-babel-default-header-args '(:results . "replace drawer"))
+#+end_src
 *** Disable ligatures in org-mode
 #+BEGIN_SRC emacs-lisp :tangle yes
 (add-hook 'org-mode-hook
