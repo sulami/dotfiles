@@ -1054,6 +1054,7 @@ I only enable this every now and then.
   (transient-append-suffix 'magit-pull "e" '(sulami/magit-pull-master
                                              :key "m"
                                              :description "Pull master"))
+  (add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell)
   :general
   (leader-def
     "g b" 'magit-blame-addition
