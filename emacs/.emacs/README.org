@@ -755,6 +755,9 @@ a symbol and how to search for them."
     "t" '(counsel-org-tag :wk "counsel-org-tag"))
   (general-nmap
     "M-y" 'counsel-yank-pop)
+  (general-imap
+    :keymaps 'shell-mode-map
+    "C-r" 'counsel-shell-history)
   :hook (after-init . counsel-mode))
 
 (use-package swiper
