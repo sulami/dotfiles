@@ -4,6 +4,7 @@ alias fff find-file-other-frame $1
 alias drun docker run -it $*
 alias dc docker-compose $*
 alias dcud docker-compose up -d
+alias dcd docker-compose down -v --remove-orphans
 alias dclf docker-compose logs --tail=1 -f $*
 alias g git $*
 alias ll ls -l $*
