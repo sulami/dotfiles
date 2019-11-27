@@ -211,7 +211,8 @@ List library that comes in handy.
   "Prunes and updates packages, revalidates patches."
   (straight-prune-build-directory)
   (straight-pull-all)
-  (el-patch-validate-all))
+  (el-patch-validate-all)
+  (straight-freeze-versions))
 #+end_src
 ** Appearance
 *** Font
