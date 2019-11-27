@@ -284,7 +284,8 @@ of another theme."
 (use-package doom-modeline
   :hook (after-init . doom-modeline-mode)
   :config
-  (setq doom-modeline-buffer-file-name-style 'relative-to-project
+  (setq doom-modeline-modal-icon nil
+        doom-modeline-buffer-file-name-style 'relative-to-project
         doom-modeline-buffer-encoding nil
         doom-modeline-persp-name nil
         doom-modeline-vcs-max-length 36))
