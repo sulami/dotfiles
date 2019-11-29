@@ -51,6 +51,7 @@
   start = !git init && git commit --allow-empty -m \"In the beginning there was darkness\"
   cleanup = !git br --merged | sed -E 's:^\\* |  ::' | grep -v '^\\(develop\\|master\\|HEAD\\)$' | xargs git br -D
   cleanup-remote = !git br -r --merged | sed -E 's:^\\* |  ::' | sed 's:^origin/::' | grep -v '^\\(develop\\|master\\|HEAD\\)' | xargs git push origin --delete
+  authors = !git ls-tree -r -z --name-only HEAD -- * | xargs -0 -n1 git blame --line-porcelain HEAD | grep  "^author[^-]" | sort | uniq -c | sort -nr
   pmm = pull origin master:master
   rtm = !git pmm && git rebase
 [commit]

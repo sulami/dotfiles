@@ -1,3 +1,8 @@
+# M-x shell
+if [[ "dumb" == "$TERM" ]]; then
+    export PAGER='cat'
+fi
+
 # BASIC STUFF
 HISTFILE=~/.histfile
 HISTSIZE=10000
@@ -21,29 +26,26 @@ else
     export VISUAL=vi
 fi
 export LC_ALL=en_US.UTF-8
-PYTHON_3_VERSION=$(python3 -c "import sys; print('{}.{}'.format(sys.version_info.major, sys.version_info.minor))")
-export PATH=$PATH:$HOME/Library/Python/${PYTHON_3_VERSION}/bin
-export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig
-export GOMAXPROCS=8
+
 # Git prompt import
 #source $HOME/dotfiles/zsh/zsh-git-prompt/zshrc.sh
 #export GIT_PROMPT_EXECUTABLE="haskell"
+
+export GOMAXPROCS=8
+
+PYTHON_3_VERSION=$(python3 -c "import sys; print('{}.{}'.format(sys.version_info.major, sys.version_info.minor))")
+export PATH=$PATH:$HOME/Library/Python/${PYTHON_3_VERSION}/bin
 # Virtualenvwrapper support if available
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-export LEIN_FAST_TRAMPOLINE=y
 export WORKON_HOME=$HOME/.virtualenvs
 if which virtualenvwrapper_lazy.sh > /dev/null 2>&1; then
     source "$(which virtualenvwrapper_lazy.sh)"
 fi
 
+export LEIN_FAST_TRAMPOLINE=y
+
 # Activate syntax highlighting
 source "$HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-
-# Source my custom functions
-for file in $HOME/.zsh/functions/*.sh;
-{
-    source $file
-}
 
 # PROMPT
 autoload -U colors && colors
@@ -85,43 +87,38 @@ if [[ $(uname) == "Linux" ]]; then
     alias ll='ls -l --color=auto'
     alias la='ls -la --color=auto'
 else
-    # ...BSD ls not.
+    # ...BSD ls does not.
     alias ls='ls -F'
     alias ll='ls -l'
     alias la='ls -la'
 fi
-alias v="$EDITOR"
-# alias v='vim'
-alias nv='nvim'
-alias g='git'
+
+# Often used options
+alias v='$EDITOR $*'
+alias g='git $*'
 compdef g='git'
-alias make='time make -j2'
-alias py='ipython'
-alias bp='bpython'
-alias gc="$HOME/dotfiles/scripts/ghci-color"
-alias psg='ps aux | grep'
-alias gitauthors='git ls-tree -r -z --name-only HEAD -- * | xargs -0 -n1 git \
-    blame --line-porcelain HEAD | grep  "^author " | sort | uniq -c | sort -nr'
-alias gitsearch='git rev-list --all | pv | xargs git grep -F'
-alias size='du -sh * | sort -rh'
-alias rsync='rsync -aP --stats'
-alias wget='wget -c'
-alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
-alias imgur='imgur-screenshot'
-alias pc='sudo pacman'
-# compdef pc='pacman'
-alias yrt='sudo yaourt'
-# compdef yrt='pacman'
-alias em='sudo emerge --ask'
-alias btrfs='sudo btrfs'
-alias temps="sensors | grep -v 'N/A'"
-alias snd_restart="pulseaudio -k && pulseaudio --start && xfce4-panel -r && \
-    killall xfce4-volumed-pulse && xfce4-volumed-pulse"
-alias tspv='tmux split-window -v -c "$PWD"'
-alias tsph='tmux split-window -h -c "$PWD"'
-alias dc='docker-compose'
+alias make='time make -j2 $*'
+alias psg='ps aux | grep $*'
+alias rsync='rsync -aP --stats $*'
+alias wget='wget -c $*'
+alias drun='docker run -it $*'
+alias dc='docker-compose $*'
+alias dcud='docker-compose up -d'
+alias dcd='docker-compose down -v --remove-orphans'
+alias dclf='docker-compose logs --tail=1 -f $*'
+
+# Copy aliases over to eshell
+alias | gsed 's/^alias //' | gsed -E "s/^([^=]+)='(.+?)'$/\1=\2/" | gsed "s/'\\\\''/'/g" | gsed "s/'\\\\$/'/;" | gsed -E 's/^([^=]+)=(.+)$/alias \1 \2/' > ~/.emacs/aliases
+
+# Starts up a new emacs session and decouples it from the shell.
 function edit() {
     emacs -q -l ~/.emacs/sulami.el $* > /dev/null & ; disown
+}
+
+# Makes a new dir and cds to it.
+mcd()
+{
+    mkdir -p "$1" && cd "$1"
 }
 
 # KEYBINDS
