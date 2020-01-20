@@ -1326,6 +1326,13 @@ Place point on the outer-most opening parenthesis to start:
 (use-package rust-mode
   :defer t)
 #+end_src
+** Docker
+Docker & tramp integration allows for using ~/docker:container~ as a
+tramp target.
+#+begin_src emacs-lisp :tangle yes
+(use-package docker-tramp
+  :defer t)
+#+end_src
 ** Markdown
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package markdown-mode
