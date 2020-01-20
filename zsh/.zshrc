@@ -113,7 +113,7 @@ alias | gsed 's/^alias //' | gsed -E "s/^([^=]+)='(.+?)'$/\1=\2/" | gsed "s/'\\\
 
 # Starts up a new emacs session and decouples it from the shell.
 function edit() {
-    emacs -q -l ~/.emacs/sulami.el $* > /dev/null & ; disown
+    emacs $* > /dev/null & ; disown
 }
 
 # Makes a new dir and cds to it.
