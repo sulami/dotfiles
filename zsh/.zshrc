@@ -12,8 +12,8 @@ fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit
 compinit -i
 
-if [[ -e /Applications/Emacs.app/Contents/MacOS/Emacs ]]; then
-    export VISUAL="emacsclient -a /Applications/Emacs.app/Contents/MacOS/Emacs"
+if which emacs > /dev/null 2>&1; then
+    export VISUAL="$(which emacsclient) -c -a $(which emacs)"
     export EDITOR="$VISUAL"
 elif which nvim > /dev/null 2>&1; then
     export EDITOR=nvim
