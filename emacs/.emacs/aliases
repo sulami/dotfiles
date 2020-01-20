@@ -1,7 +1,8 @@
 alias dc docker-compose $*
 alias dcd docker-compose down -v --remove-orphans
-alias dclf docker-compose logs --tail=1 -f $*
-alias dcud docker-compose up -d
+alias dclf docker-compose logs --tail=10 -f $*
+alias dcud docker-compose up --build -d
+alias dps docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Status}}"
 alias drun docker run -it $*
 alias g git $*
 alias la ls -la

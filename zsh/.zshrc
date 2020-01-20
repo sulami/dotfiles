@@ -101,11 +101,12 @@ alias make='time make -j2 $*'
 alias psg='ps aux | grep $*'
 alias rsync='rsync -aP --stats $*'
 alias wget='wget -c $*'
+alias dps='docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Status}}"'
 alias drun='docker run -it $*'
 alias dc='docker-compose $*'
-alias dcud='docker-compose up -d'
+alias dcud='docker-compose up --build -d'
 alias dcd='docker-compose down -v --remove-orphans'
-alias dclf='docker-compose logs --tail=1 -f $*'
+alias dclf='docker-compose logs --tail=10 -f $*'
 
 # Copy aliases over to eshell
 alias | gsed 's/^alias //' | gsed -E "s/^([^=]+)='(.+?)'$/\1=\2/" | gsed "s/'\\\\''/'/g" | gsed "s/'\\\\$/'/;" | gsed -E 's/^([^=]+)=(.+)$/alias \1 \2/' > ~/.emacs/aliases
