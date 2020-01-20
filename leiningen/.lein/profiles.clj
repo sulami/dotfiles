@@ -1,15 +1,4 @@
-{:user {:plugins [[cider/cider-nrepl "0.21.1"]
-                  [io.aviso/pretty "0.1.37"]]
-        :dependencies [[org.clojars.sulami/prelude "0.2.0"]
-                       [org.clojure/test.check "0.9.0"]
-                       [cider/cider-nrepl "0.21.1"]
-                       [io.aviso/pretty "0.1.37"]
-                       [com.bhauman/rebel-readline "0.1.4"]]
-        :middleware [cider-nrepl.plugin/middleware
-                     io.aviso.lein-pretty/inject]
-
-        :aliases {"rebl" ["run" "-m" "rebel-readline.main"]
-                  "retl" ["trampoline" "run" "-m" "rebel-readline.main"]}
+{:user {:pedantic? :ranges
 
         :release-tasks [["vcs" "assert-committed"]
                         ["change" "version" "leiningen.release/bump-version" "release"]
@@ -22,6 +11,14 @@
         :deploy-repositories [["releases" {:url "https://repo.clojars.org"
                                            :creds :gpg}]]
         :signing {:gpg-key "0xA1418106"}}
+
+ :repl {:dependencies [[com.bhauman/rebel-readline "0.1.4"]]
+        :aliases {"rebl" ["run" "-m" "rebel-readline.main"]
+                  "retl" ["trampoline" "run" "-m" "rebel-readline.main"]}}
+
+ :pretty {:plugins [[io.aviso/pretty "0.1.37"]]
+          :dependencies [[io.aviso/pretty "0.1.37" :exclusions [org.clojure/clojure]]]
+          :middleware [io.aviso.lein-pretty/inject]}
 
  :emacs {:plugins [[cider/cider-nrepl "0.22.0"]]
          :dependencies [[cider/cider-nrepl "0.22.0"]]
