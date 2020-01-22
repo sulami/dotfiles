@@ -20,6 +20,8 @@
           :dependencies [[io.aviso/pretty "0.1.37" :exclusions [org.clojure/clojure]]]
           :middleware [io.aviso.lein-pretty/inject]}
 
+ :bench {:dependencies [[criterium "0.4.5"]]}
+
  :emacs {:plugins [[cider/cider-nrepl "0.22.0"]]
          :dependencies [[cider/cider-nrepl "0.22.0"]]
          :middleware [cider-nrepl.plugin/middleware]}
