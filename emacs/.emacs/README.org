@@ -376,6 +376,11 @@ Weeks start on Monday, and who thought MDY was a good idea?
 (setq calendar-week-start-day 1
       calendar-date-style 'iso)
 #+END_SRC
+*** org-gfm
+This gives me org-mode->github flavoured markdown export.
+#+begin_src emacs-lisp :tangle yes
+(use-package ox-gfm)
+#+end_src
 *** TODO org-jira
 #+begin_src emacs-lisp :tangle yes
 (use-package org-jira
