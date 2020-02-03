@@ -569,7 +569,7 @@ declarations.
     "t l" 'toggle-truncate-lines
     "t r" 'refill-mode
     "t s" 'flyspell-mode
-    "t n" 'linum-mode
+    "t n" (lambda () (interactive) (setq display-line-numbers (not display-line-numbers)))
     "t N" 'sulami/toggle-narrow
     "w =" 'balance-windows
     "w m" 'sulami/toggle-maximise-window)
