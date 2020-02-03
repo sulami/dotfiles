@@ -594,11 +594,6 @@ declarations.
    :keymaps 'dired-mode-map
    "<return>" 'dired-find-alternate-file))
 #+END_SRC
-** Hydra
-#+begin_src emacs-lisp :tangle yes
-(use-package hydra
-  :defer t)
-#+end_src
 ** Evil
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package evil
@@ -849,47 +844,17 @@ a symbol and how to search for them."
 #+END_SRC
 ** Parentheses
 #+BEGIN_SRC emacs-lisp :tangle yes
-(use-package smartparens
-  :after (hydra)
+(use-package lispyville
   :config
-  (require 'smartparens-config)
-  (defhydra hydra-wrap (:color blue)
-    "wrap"
-    ("(" sp-wrap-round)
-    ("[" sp-wrap-square)
-    ("{" sp-wrap-curly))
-  (defhydra hydra-lisp ()
-    "lisp"
-    ("s" sp-forward-slurp-sexp "slurp")
-    ("S" sp-backward-slurp-sexp "slurp backwards")
-    ("b" sp-forward-barf-sexp "barf")
-    ("B" sp-backward-barf-sexp "barf backwards")
-    ("w" hydra-wrap/body "wrap" :color blue)
-    ("." nil "quit" :color blue))
-  ;; Disable smartparens strict mode when there is a merge conflict
-  (add-hook 'smerge-mode-hook
-            (lambda ()
-              (smartparens-strict-mode -1)
-              (evil-cleverparens-mode -1)))
-  :general
-  (leader-def "k" 'hydra-lisp/body)
-  :hook (prog-mode . smartparens-global-mode))
-
-(use-package evil-cleverparens
-  :init
-  (setq evil-cleverparens-use-additional-movement-keys nil
-        evil-cleverparens-use-additional-bindings nil
-        evil-cleverparens-use-regular-insert t)
-  ;; Prevent evil-cleverparens from converting >/< to slurp/barf
-  (defun sulami/evil-cp-modify-regular-bindings (&rest r)
-    (setq evil-cp-regular-bindings
-          (remove-if (lambda (key-string)
-                       (member key-string '("_" ">" "<")))
-                     evil-cp-regular-bindings
-                     :key 'car)))
-  (advice-add 'evil-cp--enable-regular-bindings :before
-              #'sulami/evil-cp-modify-regular-bindings)
-  :hook (prog-mode . evil-cleverparens-mode))
+  (lispyville-set-key-theme '(operators
+                              c-w
+                              additional-motions
+                              commentary
+                              slurp/barf-lispy
+                              additional-wrap))
+  :hook
+  ((lispy-mode . lispyville-mode)
+   (prog-mode . lispy-mode)))
 #+END_SRC
 ** Dumb jump
 #+BEGIN_SRC emacs-lisp :tangle yes
