@@ -844,6 +844,21 @@ a symbol and how to search for them."
 #+END_SRC
 ** Parentheses
 #+BEGIN_SRC emacs-lisp :tangle yes
+(use-package lispy
+  :general
+  (general-imap
+    "(" 'lispy-parens
+    ")" 'lispy-right-nostring
+    "[" 'lispy-brackets
+    "]" 'lispy-right-nostring
+    "{" 'lispy-braces
+    "}" 'lispy-right-nostring
+    "\"" 'lispy-quotes)
+  :config
+  (lispy-set-key-theme '(lispy c-digits))
+  :hook
+  (prog-mode . lispy-mode))
+
 (use-package lispyville
   :config
   (lispyville-set-key-theme '(operators
@@ -853,8 +868,7 @@ a symbol and how to search for them."
                               slurp/barf-lispy
                               additional-wrap))
   :hook
-  ((lispy-mode . lispyville-mode)
-   (prog-mode . lispy-mode)))
+  (lispy-mode . lispyville-mode))
 #+END_SRC
 ** Dumb jump
 #+BEGIN_SRC emacs-lisp :tangle yes
