@@ -504,6 +504,14 @@ This gives me org-mode->github flavoured markdown export.
         (org-narrow-to-subtree)
       (narrow-to-defun))))
 #+end_src
+*** Toggle line numbers
+This one is faster than ~linum-mode~.
+#+begin_src emacs-lisp :tangle yes
+(defun sulami/toggle-line-numbers ()
+  "Toggles buffer line number display."
+  (interactive)
+  (setq display-line-numbers (not display-line-numbers)))
+#+end_src
 ** General
 General allows me to use fancy prefix keybindings.
 
@@ -569,7 +577,7 @@ declarations.
     "t l" 'toggle-truncate-lines
     "t r" 'refill-mode
     "t s" 'flyspell-mode
-    "t n" (lambda () (interactive) (setq display-line-numbers (not display-line-numbers)))
+    "t n" 'sulami/toggle-line-numbers
     "t N" 'sulami/toggle-narrow
     "w =" 'balance-windows
     "w m" 'sulami/toggle-maximise-window)
