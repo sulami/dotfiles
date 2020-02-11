@@ -1348,10 +1348,16 @@ tramp target.
 ** Markdown
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package markdown-mode
-  :config
-  (add-hook 'markdown-mode-hook 'orgtbl-mode)
+  :defer t
+  :init
+  (setq markdown-fontify-code-blocks-natively t)
+  :hook
+  (markdown-mode . orgtbl-mode)
   :mode (("README\\.md\\'" . gfm-mode)
          ("\\.md\\'" . markdown-mode)))
+
+(use-package edit-indirect
+  :defer t)
 #+END_SRC
 ** YAML
 #+BEGIN_SRC emacs-lisp :tangle yes
