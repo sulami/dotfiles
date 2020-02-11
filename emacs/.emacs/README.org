@@ -1366,7 +1366,17 @@ tramp target.
 ** Protobuf
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package protobuf-mode
-  :defer t)
+  :defer t
+  :init
+  (defun sulami/init-protobuf-imenu ()
+    "Sets up imenu support for Protobuf.
+
+Stolen from Spacemacs."
+    (setq
+     imenu-generic-expression
+     '((nil "^[[:space:]]*\\(message\\|service\\|enum\\)[[:space:]]+\\([[:alnum:]]+\\)" 2))))
+  :hook
+  (protobuf-mode . sulami/init-protobuf-imenu))
 #+END_SRC
 ** Done
 #+BEGIN_SRC emacs-lisp :tangle yes
