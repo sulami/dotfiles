@@ -212,7 +212,8 @@ List library that comes in handy.
   (straight-prune-build-directory)
   (straight-pull-all)
   (el-patch-validate-all)
-  (straight-freeze-versions))
+  (straight-freeze-versions)
+  (byte-recompile-directory "~/.emacs.d" nil 'force))
 #+end_src
 ** Appearance
 *** Font
