@@ -610,7 +610,8 @@ declarations.
   (setq evil-want-C-u-scroll t
         evil-want-C-i-jump t
         evil-want-Y-yank-to-eol t
-        evil-want-keybinding nil)
+        evil-want-keybinding nil
+        evil-ex-visual-char-range t)
   :config
   ;; This conflicts with the local leader
   (unbind-key "," evil-motion-state-map)
