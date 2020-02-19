@@ -701,6 +701,7 @@ declarations.
   (setq ivy-on-del-error-function #'ignore
         ivy-count-format "(%d/%d) "
         ivy-re-builders-alist '((counsel-projectile-find-file . ivy--regex-fuzzy)
+                                (counsel-recentf . ivy--regex-fuzzy)
                                 (counsel-apropos . ivy--regex-ignore-order)
                                 (t . ivy--regex-plus)))
   :config
