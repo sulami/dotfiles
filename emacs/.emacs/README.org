@@ -961,6 +961,8 @@ I only enable this every now and then.
 
 (use-package counsel-projectile
   :defer t
+  :init
+  (setq projectile-switch-project-action 'counsel-projectile-find-file)
   :config
   (defun sulami/projectile-rg-thing-at-point ()
     (interactive)
