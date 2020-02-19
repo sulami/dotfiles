@@ -659,7 +659,10 @@ declarations.
   :after (evil)
   :config
   (setq evil-collection-mode-list
-        (delete 'company evil-collection-mode-list))
+        (->> evil-collection-mode-list
+             (delete 'company)
+             (delete 'gnus)
+             (delete 'lispy)))
   (evil-collection-init))
 
 (use-package evil-org
@@ -853,23 +856,9 @@ a symbol and how to search for them."
   :defer t
   :after (yasnippet))
 #+END_SRC
-** Parentheses
+** Lispy
+Keeps my parentheses balanced.
 #+BEGIN_SRC emacs-lisp :tangle yes
-(use-package lispy
-  :general
-  (general-imap
-    "(" 'lispy-parens
-    ")" 'lispy-right-nostring
-    "[" 'lispy-brackets
-    "]" 'lispy-right-nostring
-    "{" 'lispy-braces
-    "}" 'lispy-right-nostring
-    "\"" 'lispy-quotes)
-  :config
-  (lispy-set-key-theme '(lispy c-digits))
-  :hook
-  (prog-mode . lispy-mode))
-
 (use-package lispyville
   :config
   (lispyville-set-key-theme '(operators
@@ -878,8 +867,19 @@ a symbol and how to search for them."
                               commentary
                               slurp/barf-lispy
                               additional-wrap))
+  :general
+  (general-imap
+    :keymaps 'lispyville-mode-map
+    "(" 'lispy-parens
+    "[" 'lispy-brackets
+    "{" 'lispy-braces
+    "\"" 'lispy-quotes
+    ")" 'lispy-right-nostring
+    "]" 'lispy-right-nostring
+    "}" 'lispy-right-nostring)
   :hook
-  (lispy-mode . lispyville-mode))
+  ((prog-mode . lispyville-mode)
+   (monroe-mode . lispyville-mode)))
 #+END_SRC
 ** Dumb jump
 #+BEGIN_SRC emacs-lisp :tangle yes
