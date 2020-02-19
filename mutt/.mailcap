@@ -1,1 +1,0 @@
-text/html; lynx -dump %s; copiousoutput; nametemplate=%s.html

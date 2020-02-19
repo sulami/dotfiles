@@ -9,7 +9,6 @@ https://github.com/sulami/dotfiles~. Then run:
 stow -v emacs
 stow -v git
 stow -v leiningen
-stow -v mutt
 stow -v tmux
 stow -v vim
 stow -v zsh
