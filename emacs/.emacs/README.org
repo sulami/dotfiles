@@ -759,7 +759,8 @@ a symbol and how to search for them."
    "f f" 'counsel-find-file
    "f r" 'counsel-recentf
    "h a" 'counsel-apropos
-   "j i" 'counsel-semantic-or-imenu)
+   "j i" 'counsel-semantic-or-imenu
+   "j e" 'counsel-flycheck)
   (local-leader-def
     :keymaps 'org-mode-map
     "j" 'counsel-org-goto
