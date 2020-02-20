@@ -4,7 +4,7 @@
 ;; This config is a shim that is loading README.org. Everything here
 ;; is necessary setup to get the tangling and loading working, and
 ;; also minimise startup speed. This currently starts up on my machine
-;; in about 0.7s.
+;; in about 0.3s.
 
 ;; Startup time optimisations stolen from doom-emacs (including the lexical
 ;; binding bit above)
