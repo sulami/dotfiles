@@ -574,6 +574,7 @@ declarations.
     "h f" 'describe-function
     "h g" 'general-describe-keybindings
     "h l" 'view-lossage
+    "h m" 'woman
     "h v" 'describe-variable
     "t l" 'toggle-truncate-lines
     "t r" 'refill-mode
