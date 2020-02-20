@@ -1033,13 +1033,6 @@ I only enable this every now and then.
   :general
   (leader-def "t f" 'focus-mode))
 #+end_src
-** Darkroom
-#+begin_src emacs-lisp :tangle yes
-(use-package darkroom
-  :disabled
-  :general
-  (leader-def "t d" 'darkroom-tentative-mode))
-#+end_src
 ** Magit
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package magit
