@@ -711,7 +711,12 @@ declarations.
       (funcall cmd)))
   :general
   (:keymaps 'ivy-minibuffer-map
-   "C-w" 'ivy-backward-kill-word)
+            "C-w" 'ivy-backward-kill-word
+            "C-<return>" 'ivy-call
+            "S-<return>" 'ivy-dispatching-done
+            "C-S-<return>" 'ivy-dispatching-call)
+  ;; Also good to know:
+  ;; "S-<space>" filters the list based on current input
   :hook (after-init . ivy-mode))
 
 (use-package counsel
