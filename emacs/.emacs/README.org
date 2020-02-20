@@ -667,9 +667,6 @@ declarations.
 
 (use-package evil-org
   :after org
-  :config
-  (require 'evil-org-agenda)
-  (evil-org-agenda-set-keys)
   :hook ((org-mode . evil-org-mode)))
 
 (use-package evil-search-highlight-persist
