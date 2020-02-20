@@ -1159,8 +1159,13 @@ This allows me to benchmark Emacs startup.
     "S" 'restclient-http-send-current))
 #+end_src
 ** Atomic
+Atomic starts a server which a browser plugin like [[https://github.com/GhostText/GhostText][GhostText]] can
+connect to so I can edit text inside Emacs. I rarely use it, so it's
+disabled for now to avoid the overhead of running the server.
+
 #+begin_src emacs-lisp :tangle yes
 (use-package atomic-chrome
+  :disabled
   :init
   (setq atomic-chrome-default-major-mode 'markdown-mode
         atomic-chrome-buffer-open-style 'frame)
