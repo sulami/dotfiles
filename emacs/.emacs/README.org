@@ -127,6 +127,10 @@ At least as a default, much nicer when resizing windows.
 (set-default 'truncate-lines t)
 (setq line-move-visual nil)
 #+END_SRC
+*** Enable code folding
+#+begin_src emacs-lisp :tangle yes
+(add-hook 'prog-mode-hook 'hs-minor-mode)
+#+end_src
 *** UTF-8
 #+BEGIN_SRC emacs-lisp :tangle yes
 (setq-default buffer-file-coding-system 'utf-8)
