@@ -547,7 +547,7 @@ declarations.
     "k" '(:ignore t :wk "lisp")
     "l" '(:ignore t :wk "lsp")
     "p" '(:ignore t :wk "project/perspective")
-    "s" '(:ignore t :wk "search")
+    "s" '(:ignore t :wk "search/spell")
     "t" '(:ignore t :wk "toggle")
     "w" '(:ignore t :wk "window")
     ;; General keybinds
@@ -803,11 +803,12 @@ a symbol and how to search for them."
   :general
   (leader-def
     "s c" 'flyspell-correct-wrapper
-    ;; FIXME This doesn't work yet
     "s C" '((lambda ()
               (interactive)
-              (let ((current-prefix-arg 4))
-                (call-interactively 'flyspell-correct-wrapper)))
+              (let ((current-prefix-arg '(4)))
+                (save-excursion
+                  (goto-char (point-max))
+                  (call-interactively 'flyspell-correct-wrapper))))
             :wk "flyspell-correct-wrapper-rapid")))
 
 (use-package flx
