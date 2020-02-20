@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: inspect
+# key: inspect
+# --
+(#(do (print "inspect: ") (clojure.pprint/pprint %) %))
