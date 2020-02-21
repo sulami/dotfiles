@@ -1,0 +1,6 @@
+# key: props
+# name: properties
+# --
+:PROPERTIES:
+:${1:property}: $0
+:PROPERTIES:
