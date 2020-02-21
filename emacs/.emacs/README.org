@@ -362,6 +362,12 @@ of another theme."
          "* %u\n%?"
          :prepend t)))
 #+end_src
+*** Export
+Set some sane default options for exporting.
+#+begin_src emacs-lisp :tangle yes
+(setq org-export-with-toc nil
+      org-export-initial-scope 'subtree)
+#+end_src
 *** Refile
 This allows me to refile from the GTD inbox to the top-level of a file.
 #+begin_src emacs-lisp :tangle yes
@@ -593,6 +599,7 @@ declarations.
     :states '(normal)
     "a" 'org-archive-subtree
     "d" 'org-deadline
+    "e" '(org-export-dispatch :wk "org-export-dispatch")
     "f" 'org-fill-paragraph
     "l" 'org-insert-link
     "r" '(org-refile :wk "org-refile")
