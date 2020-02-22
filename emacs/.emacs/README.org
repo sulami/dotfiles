@@ -718,9 +718,10 @@ declarations.
   :general
   (:keymaps 'ivy-minibuffer-map
             "C-w" 'ivy-backward-kill-word
-            "C-<return>" 'ivy-call
-            "S-<return>" 'ivy-dispatching-done
-            "C-S-<return>" 'ivy-dispatching-call)
+            "C-<return>" 'ivy-call               ;; Select this and keep selecting
+            "S-<return>" 'ivy-dispatching-done   ;; Run an action
+            "C-S-<return>" 'ivy-dispatching-call ;; Run an action and keep selecting
+            "C-SPC" 'ivy-immediate-done)         ;; Use input instead of selection
   ;; Also good to know:
   ;; "S-<space>" filters the list based on current input
   :hook (after-init . ivy-mode))
