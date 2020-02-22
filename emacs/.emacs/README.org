@@ -354,9 +354,12 @@ of another theme."
       '(("t" "Todo" entry
          (file "inbox.org")
          "* TODO %?\n%u")
+        ("h" "Thought" entry
+         (file "inbox.org")
+         "* %?\n%u\n")
         ("f" "File" entry
          (file "inbox.org")
-         "* TODO %?\n%a")
+         "* %?\n%a")
         ("c" "Climbing journal" entry
          (file "climbing.org")
          "* %u\n%?"
