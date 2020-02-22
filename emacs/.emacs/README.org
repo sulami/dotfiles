@@ -348,6 +348,11 @@ of another theme."
                              "~/.emacs/README.org")
       org-agenda-tag-filter-preset '("-archived" "-noagenda"))
 #+end_src
+*** Tags
+Autocomplete tags using all agenda files.
+#+begin_src emacs-lisp :tangle yes
+(setq org-complete-tags-always-offer-all-agenda-tags t)
+#+end_src
 *** Capture
 #+begin_src emacs-lisp :tangle yes
 (setq org-capture-templates
