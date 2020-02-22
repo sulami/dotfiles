@@ -335,7 +335,7 @@ of another theme."
 #+END_SRC
 *** Enable spell checking
 #+begin_src emacs-lisp :tangle yes
-;(add-hook 'org-mode-hook 'flyspell-mode)
+(add-hook 'org-mode-hook 'flyspell-mode)
 #+end_src
 *** Archive into a shared file
 #+begin_src emacs-lisp :tangle yes
