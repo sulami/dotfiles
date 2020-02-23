@@ -584,6 +584,7 @@ declarations.
     "f D" 'sulami/delete-file-and-buffer
     "f R" 'sulami/rename-file-and-buffer
     "h d" 'describe-symbol
+    "h e" 'info-emacs-manual
     "h f" 'describe-function
     "h g" 'general-describe-keybindings
     "h l" 'view-lossage
