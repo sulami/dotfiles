@@ -692,7 +692,9 @@ declarations.
     (when (not isearch-mode)
       (evil-search-highlight-persist-remove-all)))
   :general
-  (general-nmap "RET" 'sulami/isearch-nohighlight)
+  (general-nmap
+    :keymaps '(text-mode-map prog-mode-map)
+    "RET" 'sulami/isearch-nohighlight)
   :hook (evil-mode . global-evil-search-highlight-persist))
 
 (use-package evil-commentary
