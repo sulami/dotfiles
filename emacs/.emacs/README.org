@@ -682,8 +682,11 @@ declarations.
   (evil-collection-init))
 
 (use-package evil-org
-  :after org
-  :hook ((org-mode . evil-org-mode)))
+  :after (org)
+  :config
+  (require 'evil-org-agenda)
+  :hook ((org-mode . evil-org-mode)
+         (org-agenda-mode . evil-org-agenda-set-keys)))
 
 (use-package evil-search-highlight-persist
   :config
