@@ -1,5 +1,5 @@
 #+STARTUP: showall
-#+FILETAGS: sideproject yak
+#+FILETAGS: side_project yak
 #+CATEGORY: Emacs
 * Emacs
 ** Better defaults
@@ -1226,14 +1226,8 @@ disabled for now to avoid the overhead of running the server.
     "l u" 'lsp-find-references))
 
 (use-package company-lsp
-  :disabled
   :defer t
   :commands company-lsp)
-
-(use-package lsp-ui
-  :disabled
-  :defer t
-  :commands lsp-ui-mode)
 #+END_SRC
 ** Clojure
 #+BEGIN_SRC emacs-lisp :tangle yes
