@@ -1,0 +1,10 @@
+# key: notes
+# name: notes
+# --
+* ${1:title}
+:PROPERTIES:
+:Author: $2
+:Published: $3
+:Consumed: $4
+:END:
+$0
