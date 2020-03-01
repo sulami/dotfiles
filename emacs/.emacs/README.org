@@ -590,6 +590,7 @@ declarations.
     "h l" 'view-lossage
     "h m" 'woman
     "h v" 'describe-variable
+    "t a" 'auto-fill-mode
     "t l" 'toggle-truncate-lines
     "t r" 'refill-mode
     "t s" 'flyspell-mode
