@@ -1378,9 +1378,16 @@ tramp target.
 (use-package markdown-mode
   :defer t
   :init
-  (setq markdown-fontify-code-blocks-natively t)
+  (setq markdown-fontify-code-blocks-natively t
+        markdown-hide-markup t)
   :hook
-  (markdown-mode . orgtbl-mode)
+  ((markdown-mode . orgtbl-mode)
+   (markdown-mode . flyspell-mode))
+  :general
+  (local-leader-def
+    :keymaps 'markdown-mode-map
+    "l" 'markdown-insert-link
+    "m" 'markdown-toggle-markup-hiding)
   :mode (("README\\.md\\'" . gfm-mode)
          ("\\.md\\'" . markdown-mode)))
 
