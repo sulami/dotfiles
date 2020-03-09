@@ -337,10 +337,15 @@ of another theme."
 #+begin_src emacs-lisp :tangle yes
 (add-hook 'org-mode-hook 'flyspell-mode)
 #+end_src
-*** Archive into a shared file
+*** Archiving
+- archive into one shared file
+- mark todos as done
+- auto-save
 #+begin_src emacs-lisp :tangle yes
 (setq org-archive-location "archive.org::"
       org-archive-mark-done t)
+
+(advice-add 'org-archive-subtree :after 'org-save-all-org-buffers)
 #+end_src
 *** Agenda
 #+begin_src emacs-lisp :tangle yes
@@ -379,9 +384,13 @@ Set some sane default options for exporting.
 #+end_src
 *** Refile
 This allows me to refile from the GTD inbox to the top-level of a file.
+
+Also, just like when archiving, we auto-save when refiling.
 #+begin_src emacs-lisp :tangle yes
 (setq org-refile-targets '((org-agenda-files :tag . "n0nexistent"))
       org-refile-use-outline-path 'file)
+
+(advice-add 'org-refile :after 'org-save-all-org-buffers)
 #+end_src
 *** Open the inbox
 #+BEGIN_SRC emacs-lisp :tangle yes
