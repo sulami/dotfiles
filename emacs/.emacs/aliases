@@ -5,9 +5,6 @@ alias dcud docker-compose up --build -d
 alias dps docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Status}}"
 alias drun docker run -it $*
 alias g git $*
-alias la ls -la
-alias ll ls -l
-alias ls ls -F
 alias make time make -j2 $*
 alias psg ps aux | grep $*
 alias rsync rsync -aP --stats $*

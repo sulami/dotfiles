@@ -80,19 +80,6 @@ setopt noglobdots
 setopt noshwordsplit
 setopt unset
 
-# ALIASES
-if [[ $(uname) == "Linux" ]]; then
-    # GNU ls has coloring capabilities...
-    alias ls='ls -F --color=auto'
-    alias ll='ls -l --color=auto'
-    alias la='ls -la --color=auto'
-else
-    # ...BSD ls does not.
-    alias ls='ls -F'
-    alias ll='ls -l'
-    alias la='ls -la'
-fi
-
 # Often used options
 alias v='$EDITOR $*'
 alias g='git $*'
