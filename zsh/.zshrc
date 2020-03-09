@@ -155,37 +155,6 @@ bindkey -M viins '^w' backward-kill-word
 # bind hmenu
 # bindkey -s '^h' 'hmenu\n'
 
-# Set the colourscheme according to the time of day
-#if [[ -z "$TMUX" ]]; then
-#  HOUR="$(date +'%H')"
-#  if [[ 6 -lt $HOUR && $HOUR -lt 20 ]]; then
-#    $HOME/.dynamic-colors/bin/dynamic-colors switch solarized-light
-#  else
-#    $HOME/.dynamic-colors/bin/dynamic-colors switch solarized-dark
-#  fi
-#fi
-
-# X-less colours
-if [ "$TERM" = "linux" ]; then
-    echo -en "\e]P0121212" #black
-    echo -en "\e]P83B3B3B" #darkgrey
-    echo -en "\e]P1CF6A4C" #darkred
-    echo -en "\e]P9CF6A4C" #red
-    echo -en "\e]P299AD6A" #darkgreen
-    echo -en "\e]PA99AD6A" #green
-    echo -en "\e]P3D8AD4C" #brown
-    echo -en "\e]PBD8AD4C" #yellow
-    echo -en "\e]P4579BC5" #darkblue
-    echo -en "\e]PC579BC5" #blue
-    echo -en "\e]P5A037B0" #darkmagenta
-    echo -en "\e]PDA037B0" #magenta
-    echo -en "\e]P671B9F8" #darkcyan
-    echo -en "\e]PE71B9F8" #cyan
-    echo -en "\e]P7ADADAD" #lightgrey
-    echo -en "\e]PFADADAD" #white
-    clear #for background artifacting
-fi
-
 # Colored manpages
 export MANPAGER='less'
 export LESS_TERMCAP_mb=$'\E[01;31m'
