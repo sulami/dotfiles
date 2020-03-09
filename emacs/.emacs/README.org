@@ -614,7 +614,8 @@ declarations.
     "l" 'org-insert-link
     "r" '(org-refile :wk "org-refile")
     "s" 'org-schedule
-    "S" 'org-babel-switch-to-session)
+    "S" 'org-babel-switch-to-session
+    "T" 'org-babel-tangle)
   ;; Dired
   (general-define-key
    :keymaps 'dired-mode-map
