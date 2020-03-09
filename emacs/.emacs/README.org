@@ -339,7 +339,8 @@ of another theme."
 #+end_src
 *** Archive into a shared file
 #+begin_src emacs-lisp :tangle yes
-(setq org-archive-location "archive.org::")
+(setq org-archive-location "archive.org::"
+      org-archive-mark-done t)
 #+end_src
 *** Agenda
 #+begin_src emacs-lisp :tangle yes
