@@ -897,8 +897,19 @@ a symbol and how to search for them."
 #+END_SRC
 ** Lispy
 Keeps my parentheses balanced.
+
+I use [[https://github.com/noctuid/lispyville][LispyVille]] for all Lisp major modes, as it does some additional
+magic around spacing, comments, and more.
+
+All other modes just use ~electric-pair-mode~, which is built into
+Emacs already, for automatically matching parentheses, and
+[[https://github.com/luxbock/evil-cleverparens][evil-cleverparens]] for keeping parentheses balanced. The main reason
+for this divide being the whitespace changes done by LispyVille
+interfering with non-lisp syntax.
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package lispyville
+  :custom
+  (lispy-close-quotes-at-end-p t)
   :config
   (lispyville-set-key-theme '(operators
                               c-w
@@ -915,10 +926,24 @@ Keeps my parentheses balanced.
     "\"" 'lispy-quotes
     ")" 'lispy-right-nostring
     "]" 'lispy-right-nostring
-    "}" 'lispy-right-nostring)
+    "}" 'lispy-right-nostring
+    "DEL" 'lispy-delete-backward-or-splice-or-slurp)
   :hook
-  ((prog-mode . lispyville-mode)
+  ((lispyville-mode . (lambda () (electric-pair-mode -1)))
+   (lispyville-mode . (lambda () (evil-cleverparens-mode -1)))
+   (emacs-lisp-mode . lispyville-mode)
+   (lisp-mode . lispyville-mode)
+   (scheme-mode . lispyville-mode)
+   (clojure-mode . lispyville-mode)
+   (cider-repl-mode . lispyville-mode)
    (monroe-mode . lispyville-mode)))
+
+(use-package evil-cleverparens
+  :hook
+  ((text-mode . evil-cleverparens-mode)
+   (text-mode . electric-pair-mode)
+   (prog-mode . evil-cleverparens-mode)
+   (prog-mode . electric-pair-mode)))
 #+END_SRC
 ** Dumb jump
 #+BEGIN_SRC emacs-lisp :tangle yes
