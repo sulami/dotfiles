@@ -895,7 +895,7 @@ a symbol and how to search for them."
   :defer t
   :after (yasnippet))
 #+END_SRC
-** Lispy
+** Parentheses
 Keeps my parentheses balanced.
 
 I use [[https://github.com/noctuid/lispyville][LispyVille]] for all Lisp major modes, as it does some additional
@@ -929,8 +929,7 @@ interfering with non-lisp syntax.
     "}" 'lispy-right-nostring
     "DEL" 'lispy-delete-backward-or-splice-or-slurp)
   :hook
-  ((lispyville-mode . (lambda () (electric-pair-mode -1)))
-   (lispyville-mode . (lambda () (evil-cleverparens-mode -1)))
+  ((lispyville-mode . (lambda () (evil-cleverparens-mode -1)))
    (emacs-lisp-mode . lispyville-mode)
    (lisp-mode . lispyville-mode)
    (scheme-mode . lispyville-mode)
@@ -941,9 +940,9 @@ interfering with non-lisp syntax.
 (use-package evil-cleverparens
   :hook
   ((text-mode . evil-cleverparens-mode)
-   (text-mode . electric-pair-mode)
+   (text-mode . electric-pair-local-mode)
    (prog-mode . evil-cleverparens-mode)
-   (prog-mode . electric-pair-mode)))
+   (prog-mode . electric-pair-local-mode)))
 #+END_SRC
 ** Dumb jump
 #+BEGIN_SRC emacs-lisp :tangle yes
