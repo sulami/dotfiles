@@ -508,7 +508,7 @@ This gives me org-mode->github flavoured markdown export.
   (interactive "r")
   (if (use-region-p)
       (let ((cmd (read-shell-command "Command: ")))
-        (call-process-region beg end cmd t t))
+        (shell-command-on-region beg end cmd t t))
     (message "Select a region first")))
 #+end_src
 *** Sort words
