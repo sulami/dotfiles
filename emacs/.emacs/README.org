@@ -446,14 +446,20 @@ This gives me org-mode->github flavoured markdown export.
 **** Switch to buffer shortcuts
 #+BEGIN_SRC emacs-lisp :tangle yes
 (defun sulami/open-scratch-buffer ()
-  "Open the scratch buffer."
+  "Opens the scratch buffer."
   (interactive)
   (switch-to-buffer "*scratch*"))
 
 (defun sulami/open-message-buffer ()
-  "Open the message buffer."
+  "Opens the message buffer."
   (interactive)
   (switch-to-buffer "*Messages*"))
+
+(defun sulami/open-minibuffer ()
+  "Focusses the minibuffer, if active."
+  (interactive)
+  (when (active-minibuffer-window)
+    (select-window (minibuffer-window))))
 #+END_SRC
 **** Buffer line count
 #+BEGIN_SRC emacs-lisp :tangle yes
@@ -586,6 +592,7 @@ declarations.
     "b e" 'erase-buffer
     "b d" 'kill-this-buffer
     "b m" 'sulami/open-message-buffer
+    "b ." 'sulami/open-minibuffer
     "b r" 'sulami/rename-file-and-buffer
     "b s" 'sulami/open-scratch-buffer
     "b y" 'sulami/copy-buffer
