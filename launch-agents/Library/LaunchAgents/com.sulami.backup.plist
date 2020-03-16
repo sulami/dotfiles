@@ -9,6 +9,11 @@
     <string>/Users/sulami/.restic/backup.rb</string>
     <string>backup-and-cleanup</string>
   </array>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/bin:/usr/bin:/usr/local/bin</string>
+  </dict>
   <key>ExitTimeOut</key>
   <integer>120</integer>
   <key>StartCalendarInterval</key>
@@ -20,5 +25,9 @@
   </dict>
   <key>ProcessType</key>
   <string>Background</string>
+  <key>StandardOutPath</key>
+  <string>/tmp/com.sulami.backup.stdout</string>
+  <key>StandardErrorPath</key>
+  <string>/tmp/com.sulami.backup.stderr</string>
 </dict>
 </plist>
