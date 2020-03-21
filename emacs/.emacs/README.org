@@ -3,6 +3,10 @@
 #+CATEGORY: Emacs
 #+FILETAGS: side_project yak
 #+STARTUP: showall
+* Who Am I?
+#+begin_src emacs-lisp :tangle yes
+(setq user-full-name "Robin Schroer")
+#+end_src
 * Better defaults
 ** Use lexical binding in this file
 This org-mode file gets built into an elisp file, and we want this comment at
