@@ -341,11 +341,9 @@ of another theme."
 #+end_src
 ** Archiving
 - archive into one shared file
-- mark todos as done
 - auto-save
 #+begin_src emacs-lisp :tangle yes
-(setq org-archive-location "archive.org::"
-      org-archive-mark-done t)
+(setq org-archive-location "archive.org::")
 
 (advice-add 'org-archive-subtree :after 'org-save-all-org-buffers)
 #+end_src
