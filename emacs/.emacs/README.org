@@ -302,6 +302,13 @@ of another theme."
         doom-modeline-vcs-max-length 36))
 #+END_SRC
 * Org mode
+** Footnotes
+Define them at the end of the current outline section, and
+automatically renumber them when they're modified.
+#+begin_src emacs-lisp :tangle yes
+(setq org-footnote-section nil
+      org-footnote-auto-adjust t)
+#+end_src
 ** Plain source code blocks
 #+BEGIN_SRC emacs-lisp :tangle yes
 (setq org-src-preserve-indentation nil
