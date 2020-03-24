@@ -1209,6 +1209,10 @@ completion handlers for commands.
 #+begin_src emacs-lisp :tangle yes
 (put 'dired-find-alternate-file 'disabled nil)
 #+end_src
+** Always show me current data
+#+begin_src emacs-lisp :tangle yes
+(add-hook 'dired-mode-hook 'auto-revert-mode)
+#+end_src
 * Helpful
 #+begin_src emacs-lisp :tangle yes
 (use-package helpful
