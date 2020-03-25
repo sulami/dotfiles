@@ -192,9 +192,9 @@ Especially Alfred likes to paste with ~⌘-v~, so that needs to work.
 #+BEGIN_SRC emacs-lisp :tangle yes
 (define-key global-map (kbd "s-v") 'yank)
 #+END_SRC
-** Fullscreen with ⌘-Return
+** Maximise with ⌘-Return
 #+BEGIN_SRC emacs-lisp :tangle yes
-(define-key global-map (kbd "<s-return>") 'toggle-frame-fullscreen)
+(define-key global-map (kbd "<s-return>") 'toggle-frame-maximized)
 #+END_SRC
 ** Mac font panel
 #+BEGIN_SRC emacs-lisp :tangle yes
