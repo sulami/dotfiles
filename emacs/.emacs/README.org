@@ -885,6 +885,7 @@ shell.
 (use-package company
   :init
   (setq company-idle-delay .01
+        company-dabbrev-downcase nil
         company-global-modes '(not eshell-mode
                                    shell-mode
                                    term-mode))
