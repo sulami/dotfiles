@@ -602,6 +602,7 @@ declarations.
     "a t" 'ansi-term
     "b e" 'erase-buffer
     "b d" 'kill-this-buffer
+    "b D" 'kill-buffer-and-window
     "b m" 'sulami/open-message-buffer
     "b ." 'sulami/open-minibuffer
     "b r" 'sulami/rename-file-and-buffer
