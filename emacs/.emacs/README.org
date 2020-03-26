@@ -749,6 +749,7 @@ declarations.
   :init
   (setq ivy-on-del-error-function #'ignore
         ivy-count-format "(%d/%d) "
+        ivy-display-functions-alist '((t))
         ivy-re-builders-alist '((counsel-projectile-find-file . ivy--regex-fuzzy)
                                 (counsel-recentf . ivy--regex-fuzzy)
                                 (counsel-apropos . ivy--regex-ignore-order)
@@ -1191,6 +1192,23 @@ I only enable this every now and then.
 Eshell doesn't do context-aware autocompletion by default and defaults
 to completing filenames instead. Luckily we can easily define custom
 completion handlers for commands.
+*** Disable the completion buffer
+This swaps the terrible popup buffer that eshell opens when I hit
+=TAB= for a ivy-based completion.
+
+I also disable company-mode in eshell, because it doesn't play nice
+with TRAMP.
+
+The binding has to happen here in a hook because ~eshell-mode-map~
+isn't available before eshell is started.
+#+begin_src emacs-lisp :tangle yes
+(add-hook
+ 'eshell-mode-hook
+ (lambda ()
+   (setq completion-at-point-functions '(comint-completion-at-point t))
+   (define-key eshell-mode-map (kbd "TAB") 'completion-at-point)
+   (define-key eshell-mode-map (kbd "<tab>") 'completion-at-point)))
+#+end_src
 *** Sudo
 #+begin_src emacs-lisp :tangle yes
 (defun pcomplete/sudo ()
