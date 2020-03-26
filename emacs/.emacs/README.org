@@ -873,17 +873,27 @@ a symbol and how to search for them."
   :defer t)
 #+END_SRC
 * Company
+Company does completion via a dropdown that automatically pops up
+while typing. I can select a match if I want to, but ignore the
+dropdown if I don't.
+
+It is disabled in shell-modes, as it crawls directories for
+completion, which is bad if you're using TRAMP to connect to a remote
+shell.
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package company
   :init
   (setq company-idle-delay .01
-        company-global-modes '(not eshell-mode))
+        company-global-modes '(not eshell-mode
+                                   shell-mode
+                                   term-mode))
+  :config
   :general
-  (general-define-key
-   :keymaps 'company-active-map
+  (:keymaps 'company-active-map
    "<tab>" 'company-complete-selection
    "TAB" 'company-complete-selection
    "<ret>" nil
+   "<return>" nil
    "RET" nil
    "C-n" 'company-select-next
    "C-p" 'company-select-previous
