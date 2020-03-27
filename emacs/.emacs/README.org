@@ -364,6 +364,7 @@ automatically renumber them when they're modified.
 (setq org-directory "~/Documents/Notes/"
       org-agenda-files (list org-directory
                              "~/.emacs/README.org")
+      org-archive-subtree-add-inherited-tags t
       org-agenda-tag-filter-preset '("-archived" "-noagenda"))
 #+end_src
 ** Tags
