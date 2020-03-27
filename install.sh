@@ -4,7 +4,7 @@
 defaults write -g ApplePressAndHoldEnabled -bool false
 
 # Mimic UNIX terminal key repetition
-defaults write -g InitialKeyRepeat -int 25
+defaults write -g InitialKeyRepeat -int 12
 defaults write -g KeyRepeat -int 2
 
 # Disable window animations
