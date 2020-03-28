@@ -1382,7 +1382,7 @@ The big IDE-like integration for Clojure.
       (call-interactively 'cider-eval-defun-at-point)))
   :general
   (local-leader-def
-    :keymaps 'clojure-mode-map
+    :keymaps 'cider-mode-map
     "c" 'cider-connect
     "j" 'cider-jack-in
     "q" 'cider-quit
