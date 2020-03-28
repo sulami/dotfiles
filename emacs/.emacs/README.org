@@ -1105,15 +1105,15 @@ I only enable this every now and then.
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package winum
   :general
-  ("s-1" 'winum-select-window-1
-   "s-2" 'winum-select-window-2
-   "s-3" 'winum-select-window-3
-   "s-4" 'winum-select-window-4
-   "s-5" 'winum-select-window-5
-   "s-6" 'winum-select-window-6
-   "s-7" 'winum-select-window-7
-   "s-8" 'winum-select-window-8
-   "s-9" 'winum-select-window-9)
+  ("M-1" 'winum-select-window-1
+   "M-2" 'winum-select-window-2
+   "M-3" 'winum-select-window-3
+   "M-4" 'winum-select-window-4
+   "M-5" 'winum-select-window-5
+   "M-6" 'winum-select-window-6
+   "M-7" 'winum-select-window-7
+   "M-8" 'winum-select-window-8
+   "M-9" 'winum-select-window-9)
   :hook (after-init . winum-mode))
 #+END_SRC
 * Fill column indicator
