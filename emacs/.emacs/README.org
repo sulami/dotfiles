@@ -967,7 +967,8 @@ interfering with non-lisp syntax.
    (scheme-mode . lispyville-mode)
    (clojure-mode . lispyville-mode)
    (cider-repl-mode . lispyville-mode)
-   (monroe-mode . lispyville-mode)))
+   (monroe-mode . lispyville-mode)
+   (inf-clojure-mode . lispyville-mode)))
 
 (use-package evil-cleverparens
   :hook
@@ -1427,6 +1428,36 @@ The smaller integration for Clojure. Sometimes less buggy.
     "r" '(:ignore t :wk "repl")
     "r n" 'monroe-eval-namespace
     "r r" 'monroe-switch-to-repl))
+#+end_src
+** inf-clojure
+This uses the Emacs inferior lisp mode, which turns out to be quite
+lightweight, and well integrated.
+#+begin_src emacs-lisp :tangle yes
+(use-package inf-clojure
+  :defer t
+  :general
+  (local-leader-def
+    :keymaps 'inf-clojure-minor-mode-map
+    "c" 'inf-clojure-connect
+    "j" 'inf-clojure
+    "q" 'inf-clojure-quit
+    "e" '(:ignore t :wk "eval")
+    "e b" 'inf-clojure-eval-buffer
+    "e e" 'inf-clojure-eval-last-sexp
+    "e f" 'inf-clojure-eval-defun
+    "e r" 'inf-clojure-eval-region
+    "h" '(:ignore t :wk "help")
+    "h a" 'inf-clojure-apropos
+    "h d" 'inf-clojure-show-var-documentation
+    "h m" 'inf-clojure-macroexpand
+    "h s" 'inf-clojure-show-var-source
+    "r" '(:ignore t :wk "repl")
+    "r n" 'inf-clojure-set-ns
+    "r r" 'inf-clojure-switch-to-repl)
+  :hook
+  ((inf-clojure-mode . eldoc-mode)
+   (inf-clojure-minor-mode . eldoc-mode)
+   (clojure-mode . inf-clojure-minor-mode)))
 #+end_src
 * Haskell
 #+BEGIN_SRC emacs-lisp :tangle yes
