@@ -1193,7 +1193,7 @@ I only enable this every now and then.
   :keymaps 'emacs-lisp-mode-map
   "e" '(:ignore t :wk "eval")
   "e b" 'eval-buffer
-  "e e" 'eval-sexp
+  "e e" 'eval-last-sexp
   "e f" 'eval-defun
   "e r" 'eval-region)
 #+end_src
