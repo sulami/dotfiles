@@ -5,7 +5,9 @@
 #+STARTUP: showall
 * Who Am I?
 #+begin_src emacs-lisp :tangle yes
-(setq user-full-name "Robin Schroer")
+(setq user-full-name "Robin Schroer"
+      user-login-name "sulami"
+      user-mail-address "sulami@peerwire.org")
 #+end_src
 * Better defaults
 ** Use lexical binding in this file
