@@ -1382,6 +1382,7 @@ Place point on the outer-most opening parenthesis to start:
 The big IDE-like integration for Clojure.
 #+begin_src emacs-lisp :tangle yes
 (use-package cider
+  :disabled
   :defer t
   :hook (clojure-mode . cider-mode)
   :init
@@ -1446,6 +1447,7 @@ This uses the Emacs inferior lisp mode, which turns out to be quite
 lightweight, and well integrated.
 #+begin_src emacs-lisp :tangle yes
 (use-package inf-clojure
+  :disabled
   :defer t
   :general
   (local-leader-def
