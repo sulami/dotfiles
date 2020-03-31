@@ -1115,6 +1115,16 @@ I only enable this every now and then.
    "s-7" 'winum-select-window-7
    "s-8" 'winum-select-window-8
    "s-9" 'winum-select-window-9)
+  (leader-def
+    "w 1" 'winum-select-window-1
+    "w 2" 'winum-select-window-2
+    "w 3" 'winum-select-window-3
+    "w 4" 'winum-select-window-4
+    "w 5" 'winum-select-window-5
+    "w 6" 'winum-select-window-6
+    "w 7" 'winum-select-window-7
+    "w 8" 'winum-select-window-8
+    "w 9" 'winum-select-window-9)
   :hook (after-init . winum-mode))
 #+END_SRC
 * Fill column indicator
