@@ -15,29 +15,16 @@
         :signing {:gpg-key "0xA1418106"}}
 
  :repl {:dependencies [[com.bhauman/rebel-readline "RELEASE"]
-                       [com.gfredericks/user.clj "RELEASE"]
                        [org.clojure/core.async "RELEASE"]
                        [org.clojure/core.logic "RELEASE"]
                        [org.clojure/test.check "RELEASE"]
-                       [com.clojure-goes-fast/clj-java-decompiler "RELEASE"]
-                       [com.clojure-goes-fast/clj-memory-meter "RELEASE"]
-                       [com.clojure-goes-fast/clj-async-profiler "RELEASE"]
-                       [com.clojure-goes-fast/jvm-alloc-rate-meter "RELEASE"]
-                       [com.clojure-goes-fast/jvm-hiccup-meter "RELEASE"]
-                       [io.aviso/pretty "RELEASE"]
-                       [mvxcvi/puget "RELEASE"]
-                       [com.hypirion/clj-xchart "RELEASE"]
-                       [org.clojure/clojure "RELEASE"]
-                       [generateme/fastmath "RELEASE"]
-                       [clj-commons/pomegranate "RELEASE"]]
+                       [criterium "RELEASE"]]
         :aliases {"rebl" ["run" "-m" "rebel-readline.main"]
                   "retl" ["trampoline" "run" "-m" "rebel-readline.main"]}}
 
  :pretty {:plugins [[io.aviso/pretty "RELEASE"]]
           :dependencies [[io.aviso/pretty "RELEASE" :exclusions [org.clojure/clojure]]]
           :middleware [io.aviso.lein-pretty/inject]}
-
- :bench {:dependencies [[criterium "RELEASE"]]}
 
  :emacs {:plugins [[cider/cider-nrepl "RELEASE"]]
          :dependencies [[cider/cider-nrepl "RELEASE"]]
