@@ -512,16 +512,6 @@ This gives me org-mode->github flavoured markdown export.
         (window-configuration-to-register el-reg)
         (delete-other-windows)))))
 #+end_src
-*** Triple fibonacci windows
-#+begin_src emacs-lisp :tangle yes
-(defun sulami/layout-triple-fib ()
-  "Open one window on the left and stacked on the right."
-  (interactive)
-  (delete-other-windows)
-  (split-window-horizontally)
-  (select-window (next-window))
-  (split-window-vertically))
-#+end_src
 ** Run a shell command on a region
 #+begin_src emacs-lisp :tangle yes
 (defun sulami/shell-command-on-region (beg end)
