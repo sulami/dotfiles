@@ -1143,14 +1143,8 @@ I only enable this every now and then.
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package fill-column-indicator
   :general
-  (leader-def "t i" 'fci-mode))
+  (leader-def "t f" 'fci-mode))
 #+END_SRC
-* Focus
-#+begin_src emacs-lisp :tangle yes
-(use-package focus
-  :general
-  (leader-def "t f" 'focus-mode))
-#+end_src
 * Magit
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package magit
