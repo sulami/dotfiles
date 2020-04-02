@@ -1141,12 +1141,13 @@ I only enable this every now and then.
   :custom
   (magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1)
   :config
-  (defun sulami/magit-pull-master ()
+  (defun sulami/magit-rebase-master ()
     (interactive)
-    (magit-git-command-topdir "git pull origin master:master"))
-  (transient-append-suffix 'magit-pull "e" '(sulami/magit-pull-master
+    (magit-git-command-topdir "git pull origin master:master")
+    (magit-rebase-branch "master" '()))
+  (transient-append-suffix 'magit-rebase "e" '(sulami/magit-rebase-master
                                              :key "m"
-                                             :description "Pull master"))
+                                             :description "Pull & rebase master"))
   (add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell)
   :general
   (leader-def
