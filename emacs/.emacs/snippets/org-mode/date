@@ -1,0 +1,4 @@
+# key: date
+# name: date
+# --
+#+DATE: `(format-time-string "%Y-%m-%d")`
