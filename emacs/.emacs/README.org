@@ -1331,47 +1331,20 @@ disabled for now to avoid the overhead of running the server.
 * Clojure
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package clojure-mode
-  :defer t)
+  :defer t
+  :general
+  (local-leader-def
+    :keymaps 'clojure-mode-map
+    "R" '(:ignore t :wk "refactor")
+    "R a" 'clojure-align
+    "R l" 'clojure-move-to-let
+    "R t" 'clojure-thread-first-all
+    "R T" 'clojure-thread-last-all
+    "R u" 'clojure-unwind-all))
 
 (use-package flycheck-clj-kondo
   :defer t
   :hook (clojure-mode . (lambda () (require 'flycheck-clj-kondo))))
-
-;; TODO this should probably go somewhere else, if anywhere
-(defun sulami/clojure-thread-last ()
-  "Unwraps an onion of functions into a thread-last macro.
-
-Place point on the outer-most opening parenthesis to start:
-|(f (g (h x))) => (->> x (h) (g) (f))"
-  (interactive)
-  (let ((start (point))
-        (depth 0))
-
-    (while (let ((pos (point)))
-             (sp-down-sexp)
-             (not (= pos (point))))
-      (setq depth (+ 1 depth)))
-
-    (goto-char start)
-    (sp-down-sexp)
-
-    (--dotimes depth
-      (sp-forward-barf-sexp)
-      (left-char)
-      (sp-kill-sexp)
-      (right-char))
-
-    (re-search-forward "\n" nil t)
-    (left-char)
-
-    (--each (-take depth kill-ring)
-      (insert (format " %s" it)))
-
-    (goto-char start)
-    (insert "(->>) ")
-    (goto-char (+ 1 start))
-    (sp-forward-slurp-sexp (+ 1 depth))
-    (goto-char start)))
 #+END_SRC
 ** CIDER
 The big IDE-like integration for Clojure.
