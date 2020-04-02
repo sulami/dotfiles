@@ -1468,6 +1468,19 @@ lightweight, and well integrated.
    (inf-clojure-minor-mode . eldoc-mode)
    (clojure-mode . inf-clojure-minor-mode)))
 #+end_src
+* Common Lisp
+#+begin_src emacs-lisp :tangle yes
+(use-package slime
+  :defer t
+  :commands (slime)
+  :config
+  (setq inferior-lisp-program "sbcl"))
+#+end_src
+* Racket
+#+begin_src emacs-lisp :tangle yes
+(use-package racket-mode
+  :defer t)
+#+end_src
 * Haskell
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package haskell-mode
