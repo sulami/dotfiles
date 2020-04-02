@@ -79,6 +79,7 @@ setopt longlistjobs
 setopt noglobdots
 setopt noshwordsplit
 setopt unset
+setopt sharehistory
 
 # Often used options
 alias v='$EDITOR $*'
