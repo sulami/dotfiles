@@ -1290,6 +1290,13 @@ This allows me to benchmark Emacs startup.
 (use-package esup
   :disabled)
 #+end_src
+* ERC
+#+begin_src emacs-lisp :tangle yes
+(use-package erc
+  :custom
+  (erc-hide-list '("JOIN" "PART" "QUIT"))
+  (erc-lurker-hide-list '("JOIN" "PART" "QUIT")))
+#+end_src
 * Restclient
 #+begin_src emacs-lisp :tangle yes
 (use-package restclient
