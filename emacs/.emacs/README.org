@@ -822,10 +822,26 @@ a symbol and how to search for them."
     "t" '(counsel-org-tag :wk "counsel-org-tag"))
   (general-nmap
     "M-y" 'counsel-yank-pop)
+  ;; Shell
+  (local-leader-def
+    :keymaps 'shell-mode-map
+    "h" 'counsel-shell-history)
   (general-imap
     :keymaps 'shell-mode-map
     "C-r" 'counsel-shell-history)
-  :hook (after-init . counsel-mode))
+  :config
+  ;; Eshell only defines its locally keymap when you launch it, so we
+  ;; have to add bindings with a hook.
+  (defun sulami/counsel-setup-eshell-bindings ()
+    (local-leader-def
+      :keymaps 'eshell-mode-map
+      "h" 'counsel-esh-history)
+    (general-imap
+      :keymaps 'eshell-mode-map
+      "C-r" 'counsel-esh-history))
+  :hook
+  ((after-init . counsel-mode)
+   (eshell-mode . sulami/counsel-setup-eshell-bindings)))
 
 (use-package swiper
   :config
