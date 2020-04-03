@@ -1336,7 +1336,8 @@ disabled for now to avoid the overhead of running the server.
   :config
   (add-to-list 'lsp-language-id-configuration '(clojure-mode . "clojure-mode"))
   :init
-  (setq lsp-enable-indentation nil)
+  (setq lsp-enable-indentation nil
+        lsp-enable-symbol-highlighting nil)
   :general
   (leader-def
     "l f" 'lsp-format-region
