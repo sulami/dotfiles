@@ -1591,7 +1591,3 @@ Stolen from Spacemacs."
                                pkg-count
                                startup-time)))))
 #+END_SRC
-* TODO Split up headings
-* TODO emacsclient setup
-I'd like to have emacsclient open in a new, clean frame, and clean up
-upon termination.
