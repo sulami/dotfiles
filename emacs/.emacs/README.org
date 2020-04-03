@@ -976,7 +976,8 @@ interfering with non-lisp syntax.
    (clojure-mode . lispyville-mode)
    (cider-repl-mode . lispyville-mode)
    (monroe-mode . lispyville-mode)
-   (inf-clojure-mode . lispyville-mode)))
+   (inf-clojure-mode . lispyville-mode)
+   (racket-mode . lispyville-mode)))
 
 (use-package evil-cleverparens
   :hook
