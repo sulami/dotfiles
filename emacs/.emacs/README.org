@@ -305,6 +305,11 @@ of another theme."
         doom-modeline-vcs-max-length 36))
 #+END_SRC
 * Org mode
+** Add more workflow states
+#+begin_src emacs-lisp :tangle yes
+(setq org-todo-keywords
+      '((sequence "TODO" "WIP" "WAITING" "|" "DONE" "CANCELLED")))
+#+end_src
 ** Footnotes
 Define them at the end of the current outline section, and
 automatically renumber them when they're modified.
