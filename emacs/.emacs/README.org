@@ -1468,6 +1468,26 @@ start up a socket repl, which is not nREPL.
   ((inf-clojure-mode . eldoc-mode)
    (inf-clojure-minor-mode . eldoc-mode)))
 #+end_src
+** HugSQL
+HugSQL is a Clojure ORM which adds some special syntax to SQL.
+
+This declaration is only here for config encapsulation, it doesn't
+actually install a package.
+
+In this case we install a fix to make imenu work in HugSQL files.
+#+begin_src emacs-lisp :tangle yes
+(use-package hugsql
+  :straight nil
+  :defer t
+  :init
+  (defun sulami/init-hugsql-imenu ()
+    (when (string-suffix-p ".hug.sql" (buffer-file-name))
+      (setq
+       imenu-generic-expression
+       '((nil "^--[[:space:]]:name[[:space:]]+\\([[:alnum:]-]+\\)" 1)))))
+  :hook
+  (sql-mode . sulami/init-hugsql-imenu))
+#+end_src
 * Common Lisp
 #+begin_src emacs-lisp :tangle yes
 (use-package slime
