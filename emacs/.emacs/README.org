@@ -1380,9 +1380,7 @@ disabled for now to avoid the overhead of running the server.
 The big IDE-like integration for Clojure.
 #+begin_src emacs-lisp :tangle yes
 (use-package cider
-  :disabled
   :defer t
-  :hook (clojure-mode . cider-mode)
   :init
   (setq cider-auto-mode nil)
   :config
@@ -1442,10 +1440,10 @@ The smaller integration for Clojure. Sometimes less buggy.
 #+end_src
 ** inf-clojure
 This uses the Emacs inferior lisp mode, which turns out to be quite
-lightweight, and well integrated.
+lightweight, and well integrated. The downside is that you need to
+start up a socket repl, which is not nREPL.
 #+begin_src emacs-lisp :tangle yes
 (use-package inf-clojure
-  :disabled
   :defer t
   :general
   (local-leader-def
@@ -1468,8 +1466,7 @@ lightweight, and well integrated.
     "r r" 'inf-clojure-switch-to-repl)
   :hook
   ((inf-clojure-mode . eldoc-mode)
-   (inf-clojure-minor-mode . eldoc-mode)
-   (clojure-mode . inf-clojure-minor-mode)))
+   (inf-clojure-minor-mode . eldoc-mode)))
 #+end_src
 * Common Lisp
 #+begin_src emacs-lisp :tangle yes
