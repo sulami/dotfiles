@@ -45,7 +45,9 @@ fi
 export LEIN_FAST_TRAMPOLINE=y
 
 # Activate syntax highlighting
-source "$HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+if [[ "dumb" != "$TERM" ]]; then
+    source "$HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+fi
 
 # PROMPT
 autoload -U colors && colors
