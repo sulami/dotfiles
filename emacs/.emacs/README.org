@@ -813,17 +813,23 @@ a symbol and how to search for them."
     (evil-set-jump)
     (apply #'imenu-default-goto-function NAME POSITION REST))
   (setq-default imenu-default-goto-function 'sulami/imenu-goto-function)
+
+  (defun sulami/counsel-org-goto-or-semantic-or-imenu ()
+    "Jumps somewhere, like `imenu', but prefers `counsel-org-goto'."
+    (interactive)
+    (if (equal 'org-mode major-mode)
+        (counsel-org-goto)
+      (counsel-semantic-or-imenu)))
   :general
   (leader-def
    "b b" 'counsel-switch-buffer
    "f f" 'counsel-find-file
    "f r" 'counsel-recentf
    "h a" 'counsel-apropos
-   "j i" 'counsel-semantic-or-imenu
+   "j i" 'sulami/counsel-org-goto-or-semantic-or-imenu
    "j e" 'counsel-flycheck)
   (local-leader-def
     :keymaps 'org-mode-map
-    "j" 'counsel-org-goto
     "t" '(counsel-org-tag :wk "counsel-org-tag"))
   (general-nmap
     "M-y" 'counsel-yank-pop)
