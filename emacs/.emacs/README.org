@@ -1496,32 +1496,25 @@ In this case we install a fix to make imenu work in HugSQL files.
 #+end_src
 * Common Lisp
 #+begin_src emacs-lisp :tangle yes
-(use-package slime
+(use-package sly
   :defer t
-  :commands (slime)
-  :config
-  (setq inferior-lisp-program "sbcl")
-  (slime-setup '(slime-fancy slime-company))
+  :commands (sly)
+  :custom
+  (inferior-lisp-program "sbcl")
   :general
   (local-leader-def
-    :keymaps 'slime-mode-map
-    "s" 'slime
-    "q" 'slime-quit-lisp
+    :keymaps 'sly-mode-map
+    "s" 'sly
+    "q" 'sly-quit-lisp
     "e" '(:ignore t :wk "eval")
-    "e b" 'slime-eval-buffer
-    "e e" 'slime-eval-last-expression
-    "e f" 'slime-eval-defun
-    "e r" 'slime-eval-region
+    "e b" 'sly-eval-buffer
+    "e e" 'sly-eval-last-expression
+    "e f" 'sly-eval-defun
+    "e r" 'sly-eval-region
     "h" '(:ignore t :wk "help")
-    "h a" 'slime-apropos
-    "h d" 'slime-documentation
-    "h i" 'slime-inspect
-    "r" '(:ignore t :wk "repl")
-    "r r" 'slime-switch-to-output-buffer))
-
-(use-package slime-company
-  :defer t
-  :after slime)
+    "h a" 'sly-apropos
+    "h d" 'sly-documentation
+    "h i" 'sly-inspect))
 #+end_src
 * Racket
 #+begin_src emacs-lisp :tangle yes
