@@ -1307,6 +1307,9 @@ This allows me to benchmark Emacs startup.
 * ERC
 #+begin_src emacs-lisp :tangle yes
 (use-package erc
+  :straight nil
+  :defer t
+  :commands (erc)
   :custom
   (erc-hide-list '("JOIN" "PART" "QUIT"))
   (erc-lurker-hide-list '("JOIN" "PART" "QUIT")))
