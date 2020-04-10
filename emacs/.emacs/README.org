@@ -612,9 +612,7 @@ declarations.
     "f d" 'dired
     "f D" 'sulami/delete-file-and-buffer
     "f R" 'sulami/rename-file-and-buffer
-    "h d" 'describe-symbol
     "h e" 'info-emacs-manual
-    "h f" 'describe-function
     "h g" 'general-describe-keybindings
     "h l" 'view-lossage
     "h m" 'woman
@@ -1296,6 +1294,8 @@ isn't available before eshell is started.
   :commands (helpful-symbol helpful-key)
   :general
   (leader-def
+    "h d" 'helpful-symbol
+    "h f" 'helpful-function
     "h k" 'helpful-key))
 #+end_src
 * Esup
