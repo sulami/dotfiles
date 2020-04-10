@@ -428,7 +428,8 @@ Weeks start on Monday, and who thought MDY was a good idea?
 ** org-gfm
 This gives me org-mode->github flavoured markdown export.
 #+begin_src emacs-lisp :tangle yes
-(use-package ox-gfm)
+(use-package ox-gfm
+  :defer t)
 #+end_src
 * Custom functions
 ** Config
