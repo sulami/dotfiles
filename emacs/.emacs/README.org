@@ -1288,6 +1288,44 @@ isn't available before eshell is started.
 #+begin_src emacs-lisp :tangle yes
 (add-hook 'dired-mode-hook 'auto-revert-mode)
 #+end_src
+* Woman
+#+begin_src emacs-lisp :tangle yes
+(use-package man
+  :straight nil
+  :after (woman)
+  ;; :defer t
+  ;; :commands (woman)
+  :config/el-patch
+  (defun woman (&optional topic re-cache)
+  "Browse UN*X man page for TOPIC (Without using external Man program).
+The major browsing mode used is essentially the standard Man mode.
+Choose the filename for the man page using completion, based on the
+topic selected from the directories specified in `woman-manpath' and
+`woman-path'.  The directory expansions and topics are cached for
+speed.  With a prefix argument, force the caches to be
+updated (e.g. to re-interpret the current directory).
+
+Used non-interactively, arguments are optional: if given then TOPIC
+should be a topic string and non-nil RE-CACHE forces re-caching."
+    (interactive (list nil current-prefix-arg))
+    ;; The following test is for non-interactive calls via gnudoit etc.
+    (if (or (not (stringp topic)) (string-match-p "\\S " topic))
+        (let ((file-name (woman-file-name topic re-cache)))
+          (if file-name
+              (el-patch-swap
+                (woman-find-file file-name)
+                (condition-case nil
+                    (woman-find-file file-name)
+                  (error (progn
+                           (message "WoMan failed to format %s, falling back to `man'..." file-name)
+                           (kill-buffer (alist-get file-name woman-buffer-alist))
+                           (pop-to-buffer (man file-name))))))
+            (message
+             "WoMan Error: No matching manual files found in search path")
+            (ding)))
+      (message "WoMan Error: No topic specified in non-interactive call")
+      (ding))))
+#+end_src
 * Helpful
 #+begin_src emacs-lisp :tangle yes
 (use-package helpful
