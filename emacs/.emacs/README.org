@@ -3,6 +3,12 @@
 #+CATEGORY: Emacs
 #+FILETAGS: side_project yak
 #+STARTUP: overview
+* Use lexical binding in this file
+This org-mode file gets built into an elisp file, and we want this comment at
+the top for performance reasons.
+#+BEGIN_SRC emacs-lisp :tangle yes
+;; -*- lexical-binding: t; -*-
+#+END_SRC
 * Who Am I?
 #+begin_src emacs-lisp :tangle yes
 (setq user-full-name "Robin Schroer"
@@ -10,12 +16,6 @@
       user-mail-address "sulami@peerwire.org")
 #+end_src
 * Better defaults
-** Use lexical binding in this file
-This org-mode file gets built into an elisp file, and we want this comment at
-the top for performance reasons.
-#+BEGIN_SRC emacs-lisp :tangle yes
-;; -*- lexical-binding: t; -*-
-#+END_SRC
 ** Discard the custom file
 ~custom.el~ is hidden state, all config is declarative.
 #+BEGIN_SRC emacs-lisp :tangle yes
