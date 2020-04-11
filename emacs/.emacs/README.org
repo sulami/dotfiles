@@ -1301,8 +1301,8 @@ isn't available before eshell is started.
 (use-package man
   :straight nil
   :after (woman)
-  ;; :defer t
-  ;; :commands (woman)
+  :defer t
+  :commands (woman)
   :config/el-patch
   (defun woman (&optional topic re-cache)
   "Browse UN*X man page for TOPIC (Without using external Man program).
