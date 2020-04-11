@@ -84,6 +84,10 @@ we don't accidentally leave backups around.
 #+BEGIN_SRC emacs-lisp :tangle yes
 (setq initial-scratch-message "")
 #+END_SRC
+** Enable winner-mode
+#+begin_src emacs-lisp :tangle yes
+(add-hook 'after-init-hook 'winner-mode)
+#+end_src
 ** Default to Elisp
 #+begin_src emacs-lisp :tangle yes
 (setq initial-major-mode 'emacs-lisp-mode)
