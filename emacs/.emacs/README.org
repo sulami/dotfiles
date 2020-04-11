@@ -231,11 +231,10 @@ List library that comes in handy.
 ** Font
 Set the font to Fira Code and enable ligatures.
 #+BEGIN_SRC emacs-lisp :tangle yes
-(when (display-graphic-p)
-  (let ((font "Fira Code 14"))
-    (set-face-attribute 'default nil :font font)
-    (set-frame-font font nil t))
-  (mac-auto-operator-composition-mode))
+(let ((font "Fira Code 14"))
+  (set-face-attribute 'default nil :font font)
+  (set-frame-font font nil t))
+(mac-auto-operator-composition-mode)
 #+END_SRC
 ** Theme
 #+BEGIN_SRC emacs-lisp :tangle yes
@@ -961,6 +960,7 @@ for this divide being the whitespace changes done by LispyVille
 interfering with non-lisp syntax.
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package lispyville
+  :defer t
   :custom
   (lispy-close-quotes-at-end-p t)
   :config
@@ -993,6 +993,7 @@ interfering with non-lisp syntax.
    (racket-mode . lispyville-mode)))
 
 (use-package evil-cleverparens
+  :defer t
   :hook
   ((text-mode . evil-cleverparens-mode)
    (text-mode . electric-pair-local-mode)
