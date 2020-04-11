@@ -2,7 +2,7 @@
 #+AUTHOR: Robin Schroer
 #+CATEGORY: Emacs
 #+FILETAGS: side_project yak
-#+STARTUP: showall
+#+STARTUP: overview
 * Who Am I?
 #+begin_src emacs-lisp :tangle yes
 (setq user-full-name "Robin Schroer"
