@@ -1018,8 +1018,13 @@ changes.
 #+begin_src emacs-lisp :tangle yes
 (use-package wgrep
   :defer t
+  :commands (wgrep-change-to-wgrep-mode)
   :config
-  (setq wgrep-auto-save-buffer t))
+  (setq wgrep-auto-save-buffer t)
+  :general
+  (local-leader-def
+    :keymaps 'grep-mode-map
+    "w" 'wgrep-change-to-wgrep-mode))
 #+end_src
 * Avy
 #+BEGIN_SRC emacs-lisp :tangle yes
