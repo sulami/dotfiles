@@ -117,8 +117,9 @@ defaults write com.apple.ActivityMonitor ShowCategory -int 0
 # Don't hide ~/Library
 chflags nohidden ~/Library
 
-# Set dark theme
+# Set dark theme & enable a toggle
 sudo defaults write /Library/Preferences/.GlobalPreferences AppleInterfaceTheme Dark
+sudo defaults write /Library/Preferences/.GlobalPreferences.plist _HIEnableThemeSwitchHotKey -bool true
 
 # Install homebrew
 which brew || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
