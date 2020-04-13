@@ -1,0 +1,16 @@
+# -*- mode: sh -*-
+
+# Unbind cmd-q
+cmd - q : true
+
+# Quick open
+cmd + ctrl - e : open /Applications/Emacs.app
+cmd + ctrl - s : open /Applications/Slack.app
+
+# Browser tab navigation
+cmd + ctrl - 0x21 : skhd --key "ctrl + shift - tab"
+cmd + ctrl - 0x1E : skhd --key "ctrl - tab"
+
+# Navigate macOS spaces
+cmd + ctrl - h : skhd --key "ctrl - left"
+cmd + ctrl - n : skhd --key "ctrl - right"
