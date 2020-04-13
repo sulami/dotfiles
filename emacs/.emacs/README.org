@@ -1362,8 +1362,16 @@ This allows me to benchmark Emacs startup.
   :defer t
   :commands (erc)
   :custom
+  (erc-join-buffer 'bury)
   (erc-hide-list '("JOIN" "PART" "QUIT"))
-  (erc-lurker-hide-list '("JOIN" "PART" "QUIT")))
+  (erc-lurker-hide-list '("JOIN" "PART" "QUIT"))
+  (erc-rename-buffers t)
+  (erc-interpret-mirc-color t)
+  (erc-timestamp-only-if-changed-flag nil)
+  (erc-timestamp-format "%H:%M ")
+  (erc-fill-prefix nil)
+  (erc-fill-function 'erc-fill-variable)
+  (erc-insert-timestamp-function 'erc-insert-timestamp-left))
 #+end_src
 * Restclient
 #+begin_src emacs-lisp :tangle yes
