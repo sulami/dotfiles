@@ -516,14 +516,16 @@ This gives me org-mode->github flavoured markdown export.
 *** Maximise a window
 #+begin_src emacs-lisp :tangle yes
 (defun sulami/toggle-maximise-window ()
-  "Toggles maximising the current window."
+  "Toggles maximising the current window.
+
+From: https://gist.github.com/mads-hartmann/3402786"
   (interactive)
-  (let ((el-reg ?F))
-    (if (< winum--window-count 2)
-        (jump-to-register el-reg)
-      (progn
-        (window-configuration-to-register el-reg)
-        (delete-other-windows)))))
+  (if (and (= 1 (length (window-list)))
+           (assoc ?_ register-alist))
+      (jump-to-register ?_)
+    (progn
+      (window-configuration-to-register ?_)
+      (delete-other-windows))))
 #+end_src
 ** Run a shell command on a region
 #+begin_src emacs-lisp :tangle yes
