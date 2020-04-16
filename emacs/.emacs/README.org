@@ -1624,9 +1624,9 @@ tramp target.
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package markdown-mode
   :defer t
-  :init
-  (setq markdown-fontify-code-blocks-natively t
-        markdown-hide-markup t)
+  :custom
+  (markdown-fontify-code-blocks-natively t)
+  (markdown-hide-markup t)
   :hook
   ((markdown-mode . orgtbl-mode)
    (markdown-mode . flyspell-mode))
