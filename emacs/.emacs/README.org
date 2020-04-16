@@ -1199,6 +1199,7 @@ I only enable this every now and then.
   :custom
   (magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1)
   (magit-git-executable "/usr/local/bin/git")
+  (magit-completing-read-function 'ivy-completing-read)
   :config
   (defun sulami/magit-rebase-master ()
     (interactive)
