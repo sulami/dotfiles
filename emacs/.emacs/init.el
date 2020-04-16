@@ -48,11 +48,17 @@
 (eval-when-compile
   (require 'use-package))
 
+;; Load up org-mode early on to get a current upstream instead of the
+;; packaged version.
+(use-package org
+  :straight t)
+
 ;; Eval the actual config
-(require 'org-install)
-(require 'ob-tangle)
-(defconst sulami/emacs-config-file "/Users/sulami/.emacs/README.org")
-(org-babel-load-file sulami/emacs-config-file)
+(with-eval-after-load 'org
+  (require 'org-install)
+  (require 'ob-tangle)
+  (defconst sulami/emacs-config-file "/Users/sulami/.emacs/README.org")
+  (org-babel-load-file sulami/emacs-config-file))
 
 ;; Reset file handlers & GC settings after we're done loading
 (add-hook 'emacs-startup-hook
