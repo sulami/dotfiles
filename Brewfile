@@ -14,7 +14,6 @@ brew "circleci"
 brew "cloc"
 brew "rlwrap"
 brew "clojure"
-brew "clojure-lsp"
 brew "clojurescript"
 brew "coreutils"
 brew "docker", link: false
