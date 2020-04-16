@@ -1400,9 +1400,28 @@ Spaced repetition in org-mode.
   (org-drill-adjust-intervals-for-early-and-late-repetitions-p t)
   (org-drill-hide-item-headings-p t))
 #+end_src
+* Verb
+#+begin_src emacs-lisp :tangle yes
+(use-package verb
+  :defer t
+  :general
+  (local-leader-def
+    :keymaps 'org-mode-map
+    "h" '(:ignore t :wk "http")
+    "h s" 'verb-send-request-on-point-other-window-stay
+    "h S" 'verb-send-request-on-point-other-window
+    "h q" 'verb-send-request-on-point-no-window
+    "h r" 'verb-re-send-request
+    "h v" 'verb-set-var
+    "h y" 'verb-export-request-on-point)
+  (general-nmap
+    :keymaps 'verb-response-body-mode-map
+    "q" 'verb-kill-response-buffer-and-window))
+#+end_src
 * Restclient
 #+begin_src emacs-lisp :tangle yes
 (use-package restclient
+  :disabled
   :mode (("\\.http\\'" . restclient-mode))
   :general
   (local-leader-def
