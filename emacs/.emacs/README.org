@@ -238,7 +238,8 @@ Set the font to Fira Code and enable ligatures.
 (let ((font "Fira Code 14"))
   (set-face-attribute 'default nil :font font)
   (set-frame-font font nil t))
-(mac-auto-operator-composition-mode)
+(when (boundp 'mac-auto-operator-composition-mode)
+  (mac-auto-operator-composition-mode))
 #+END_SRC
 ** Theme
 #+BEGIN_SRC emacs-lisp :tangle yes
