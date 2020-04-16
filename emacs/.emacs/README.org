@@ -562,6 +562,18 @@ This one is faster than ~linum-mode~.
   (interactive)
   (setq display-line-numbers (not display-line-numbers)))
 #+end_src
+** Find the font face used
+This one is quite useful for debugging syntax highlighting. It's
+adapted from [[https://stackoverflow.com/questions/1242352/get-font-face-under-cursor-in-emacs][here]].
+#+begin_src emacs-lisp :tangle yes
+(defun sulami/what-face (pos)
+  (interactive "d")
+  (let ((face (or (get-char-property pos 'read-face-name)
+                  (get-char-property pos 'face))))
+    (if face
+        (message "Face: %s" face)
+      (message "No face at %d" pos))))
+#+end_src
 * General
 General allows me to use fancy prefix keybindings.
 
