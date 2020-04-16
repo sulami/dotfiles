@@ -398,6 +398,9 @@ Autocomplete tags using all agenda files.
         ("f" "File" entry
          (file "inbox.org")
          "* %?\n%a")
+        ("j" "Japanese vocabulary" entry
+         (file+headline "japanese.org" "Vocabulary")
+         "* %^{English} :drill:\n:PROPERTIES:\n:DRILL_CARD_TYPE: twosided\n:END:\n** English\n%\\1\n** Japanese\n%?")
         ("c" "Climbing journal" entry
          (file "climbing.org")
          "* %u\n%?"
@@ -1387,6 +1390,15 @@ This allows me to benchmark Emacs startup.
   (erc-fill-prefix nil)
   (erc-fill-function 'erc-fill-variable)
   (erc-insert-timestamp-function 'erc-insert-timestamp-left))
+#+end_src
+* org-drill
+Spaced repetition in org-mode.
+#+begin_src emacs-lisp :tangle yes
+(use-package org-drill
+  :custom
+  (org-drill-add-random-noise-to-intervals-p t)
+  (org-drill-adjust-intervals-for-early-and-late-repetitions-p t)
+  (org-drill-hide-item-headings-p t))
 #+end_src
 * Restclient
 #+begin_src emacs-lisp :tangle yes
