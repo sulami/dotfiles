@@ -650,7 +650,9 @@ declarations.
   ;; Also good to know:
   ;; "S-<space>" filters the list based on current input
   :hook (after-init . ivy-mode))
-
+#+END_SRC
+** Counsel
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package counsel
   :config/el-patch
   ;; Patching counsel-apropos to skip the apropos step
@@ -733,7 +735,9 @@ a symbol and how to search for them."
   :hook
   ((after-init . counsel-mode)
    (eshell-mode . sulami/counsel-setup-eshell-bindings)))
-
+#+END_SRC
+** Swiper
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package swiper
   :config
   (defun sulami/swiper-thing-at-point ()
@@ -743,18 +747,24 @@ a symbol and how to search for them."
   (leader-def
    "s s" 'swiper
    "s S" 'sulami/swiper-thing-at-point))
-
+#+END_SRC
+** ivy-prescient
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package ivy-prescient
   :hook (ivy-mode . ivy-prescient-mode)
   :config
   (prescient-persist-mode))
-
+#+END_SRC
+** ivy-xref
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package ivy-xref
   :defer t
   :init (if (< emacs-major-version 27)
             (setq xref-show-xrefs-function #'ivy-xref-show-xrefs)
           (setq xref-show-definitions-function #'ivy-xref-show-defs)))
-
+#+END_SRC
+** flyspell-correct-ivy
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package flyspell-correct-ivy
   :defer t
   :init
@@ -769,7 +779,9 @@ a symbol and how to search for them."
                   (goto-char (point-max))
                   (call-interactively 'flyspell-correct-wrapper))))
             :wk "flyspell-correct-wrapper-rapid")))
-
+#+END_SRC
+** flx
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package flx
   :defer t)
 #+END_SRC
