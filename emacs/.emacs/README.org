@@ -1394,7 +1394,11 @@ This allows me to benchmark Emacs startup.
   (erc-timestamp-format "%H:%M ")
   (erc-fill-prefix nil)
   (erc-fill-function 'erc-fill-variable)
-  (erc-insert-timestamp-function 'erc-insert-timestamp-left))
+  (erc-insert-timestamp-function 'erc-insert-timestamp-left)
+  :general
+  (local-leader-def
+    :keymaps 'erc-mode-map
+    "t" 'erc-track-switch-buffer))
 #+end_src
 * org-drill
 Spaced repetition in org-mode.
