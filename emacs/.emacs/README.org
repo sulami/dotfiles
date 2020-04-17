@@ -530,7 +530,7 @@ declarations.
    "<return>" 'dired-find-alternate-file))
 #+END_SRC
 * Evil
-#+BEGIN_SRC emacs-lisp :tangle yes
+#+begin_src emacs-lisp :tangle yes
 (use-package evil
   :init
   (setq evil-want-C-u-scroll t
@@ -580,7 +580,9 @@ declarations.
     ">" 'sulami/evil-shift-right-visual
     "<" 'sulami/evil-shift-left-visual)
   :hook (after-init . evil-mode))
-
+#+end_src
+** evil-collection
+#+begin_src emacs-lisp :tangle yes
 (use-package evil-collection
   :after (evil)
   :config
@@ -590,14 +592,18 @@ declarations.
              (delete 'gnus)
              (delete 'lispy)))
   (evil-collection-init))
-
+#+end_src
+** evil-org
+#+begin_src emacs-lisp :tangle yes
 (use-package evil-org
   :after (org)
   :config
   (require 'evil-org-agenda)
   :hook ((org-mode . evil-org-mode)
          (org-agenda-mode . evil-org-agenda-set-keys)))
-
+#+end_src
+** evil-search-highlight-persist
+#+begin_src emacs-lisp :tangle yes
 (use-package evil-search-highlight-persist
   :config
   (defun sulami/isearch-nohighlight ()
@@ -610,13 +616,17 @@ declarations.
     :keymaps '(text-mode-map prog-mode-map)
     "RET" 'sulami/isearch-nohighlight)
   :hook (evil-mode . global-evil-search-highlight-persist))
-
+#+end_src
+** evil-commentary
+#+begin_src emacs-lisp :tangle yes
 (use-package evil-commentary
   :hook (evil-mode . evil-commentary-mode))
-
+#+end_src
+** evil-surround
+#+begin_src emacs-lisp :tangle yes
 (use-package evil-surround
   :hook (evil-mode . global-evil-surround-mode))
-#+END_SRC
+#+end_src
 * Which key
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package which-key
