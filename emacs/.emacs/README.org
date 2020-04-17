@@ -311,136 +311,6 @@ of another theme."
         doom-modeline-persp-name nil
         doom-modeline-vcs-max-length 36))
 #+END_SRC
-* Org mode
-** Add more workflow states
-#+begin_src emacs-lisp :tangle yes
-(setq org-todo-keywords
-      '((sequence "TODO" "WIP" "WAITING" "|" "DONE" "CANCELLED")))
-#+end_src
-** Footnotes
-Define them at the end of the current outline section, and
-automatically renumber them when they're modified.
-#+begin_src emacs-lisp :tangle yes
-(setq org-footnote-section nil
-      org-footnote-auto-adjust t)
-#+end_src
-** Plain source code blocks
-#+BEGIN_SRC emacs-lisp :tangle yes
-(setq org-src-preserve-indentation nil
-      org-edit-src-content-indentation 0)
-#+END_SRC
-** Open source code blocks in the same window
-#+begin_src emacs-lisp :tangle yes
-(setq org-src-window-setup 'current-window)
-#+end_src
-** Enable babel for more languages
-#+begin_src emacs-lisp :tangle yes
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((emacs-lisp . t)
-   (shell . t)
-   (python . t)
-   (clojure . t)))
-#+end_src
-** Use drawers for source block evaluation
-#+begin_src emacs-lisp :tangle yes
-(add-to-list 'org-babel-default-header-args '(:results . "replace drawer"))
-#+end_src
-** Disable ligatures in org-mode
-#+BEGIN_SRC emacs-lisp :tangle yes
-(add-hook 'org-mode-hook
-          (lambda ()
-            (auto-composition-mode -1)))
-#+END_SRC
-** Show emphasis markers
-#+BEGIN_SRC emacs-lisp :tangle yes
-(setq org-hide-emphasis-markers nil)
-#+END_SRC
-** Indent-mode
-#+BEGIN_SRC emacs-lisp :tangle yes
-(setq org-indent-indentation-per-level 1)
-(add-hook 'org-mode-hook 'org-indent-mode)
-#+END_SRC
-** Enable spell checking
-#+begin_src emacs-lisp :tangle yes
-(add-hook 'org-mode-hook 'flyspell-mode)
-#+end_src
-** Archiving
-- archive into one shared file
-- auto-save
-#+begin_src emacs-lisp :tangle yes
-(setq org-archive-location "archive.org::")
-
-(advice-add 'org-archive-subtree :after 'org-save-all-org-buffers)
-#+end_src
-** Agenda
-#+begin_src emacs-lisp :tangle yes
-(setq org-directory "~/Documents/Notes/"
-      org-agenda-files (list org-directory
-                             "~/.emacs/README.org")
-      org-archive-subtree-add-inherited-tags t
-      org-agenda-tag-filter-preset '("-archived" "-noagenda"))
-#+end_src
-** Tags
-Autocomplete tags using all agenda files.
-#+begin_src emacs-lisp :tangle yes
-(setq org-complete-tags-always-offer-all-agenda-tags t)
-#+end_src
-** Capture
-#+begin_src emacs-lisp :tangle yes
-(setq org-capture-templates
-      '(("t" "Todo" entry
-         (file "inbox.org")
-         "* TODO %?\n%u")
-        ("h" "Thought" entry
-         (file "inbox.org")
-         "* %?\n%u\n")
-        ("f" "File" entry
-         (file "inbox.org")
-         "* %?\n%a")
-        ("j" "Japanese vocabulary" entry
-         (file+headline "japanese.org" "Vocabulary")
-         "* %^{English} :drill:\n:PROPERTIES:\n:DRILL_CARD_TYPE: twosided\n:END:\n** English\n%\\1\n** Japanese\n%?")
-        ("c" "Climbing journal" entry
-         (file "climbing.org")
-         "* %u\n%?"
-         :prepend t)))
-#+end_src
-** Export
-Set some sane default options for exporting.
-#+begin_src emacs-lisp :tangle yes
-(setq org-export-with-toc nil
-      org-export-initial-scope 'subtree)
-#+end_src
-** Refile
-This allows me to refile from the GTD inbox to the top-level of a file.
-
-Also, just like when archiving, we auto-save when refiling.
-#+begin_src emacs-lisp :tangle yes
-(setq org-refile-targets '((org-agenda-files :tag . "n0nexistent"))
-      org-refile-use-outline-path 'file)
-
-(advice-add 'org-refile :after 'org-save-all-org-buffers)
-#+end_src
-** Open the inbox
-#+BEGIN_SRC emacs-lisp :tangle yes
-(defun sulami/open-org-inbox ()
-  "Opens the inbox file."
-  (interactive)
-  (find-file "~/Documents/Notes/inbox.org"))
-#+END_SRC
-** Calendar
-Weeks start on Monday, and who thought MDY was a good idea?
-#+BEGIN_SRC emacs-lisp :tangle yes
-(setq calendar-week-start-day 1
-      calendar-date-style 'iso)
-#+END_SRC
-** org-gfm
-This gives me org-mode->github flavoured markdown export.
-#+begin_src emacs-lisp :tangle yes
-(use-package ox-gfm
-  :defer t)
-#+end_src
 * Custom functions
 ** Config
 *** Open this file
@@ -654,19 +524,6 @@ declarations.
    "s-=" (lambda () (interactive) (text-scale-increase 0.5))
    "s--" (lambda () (interactive) (text-scale-decrease 0.5))
    "s-0" (lambda () (interactive) (text-scale-increase 0)))
-  ;; Org mode
-  (local-leader-def
-    :keymaps 'org-mode-map
-    :states '(normal)
-    "a" 'org-archive-subtree
-    "d" 'org-deadline
-    "e" '(org-export-dispatch :wk "org-export-dispatch")
-    "f" 'org-fill-paragraph
-    "l" 'org-insert-link
-    "r" '(org-refile :wk "org-refile")
-    "s" 'org-schedule
-    "S" 'org-babel-switch-to-session
-    "T" 'org-babel-tangle)
   ;; Dired
   (general-define-key
    :keymaps 'dired-mode-map
@@ -1193,6 +1050,153 @@ I only enable this every now and then.
   :general
   (leader-def "t f" 'fci-mode))
 #+END_SRC
+* Org mode
+#+begin_src emacs-lisp :tangle yes
+(use-package org
+  :general
+  (local-leader-def
+    :keymaps 'org-mode-map
+    :states '(normal)
+    "a" 'org-archive-subtree
+    "d" 'org-deadline
+    "e" '(org-export-dispatch :wk "org-export-dispatch")
+    "f" 'org-fill-paragraph
+    "l" 'org-insert-link
+    "L" 'org-store-link
+    "r" '(org-refile :wk "org-refile")
+    "s" 'org-schedule
+    "S" 'org-babel-switch-to-session
+    "T" 'org-babel-tangle))
+#+end_src
+** Add more workflow states
+#+begin_src emacs-lisp :tangle yes
+(setq org-todo-keywords
+      '((sequence "TODO" "WIP" "WAITING" "|" "DONE" "CANCELLED")))
+#+end_src
+** Footnotes
+Define them at the end of the current outline section, and
+automatically renumber them when they're modified.
+#+begin_src emacs-lisp :tangle yes
+(setq org-footnote-section nil
+      org-footnote-auto-adjust t)
+#+end_src
+** Plain source code blocks
+#+BEGIN_SRC emacs-lisp :tangle yes
+(setq org-src-preserve-indentation nil
+      org-edit-src-content-indentation 0)
+#+END_SRC
+** Open source code blocks in the same window
+#+begin_src emacs-lisp :tangle yes
+(setq org-src-window-setup 'current-window)
+#+end_src
+** Enable babel for more languages
+#+begin_src emacs-lisp :tangle yes
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (shell . t)
+   (python . t)
+   (clojure . t)))
+#+end_src
+** Use drawers for source block evaluation
+#+begin_src emacs-lisp :tangle yes
+(add-to-list 'org-babel-default-header-args '(:results . "replace drawer"))
+#+end_src
+** Disable ligatures in org-mode
+#+BEGIN_SRC emacs-lisp :tangle yes
+(add-hook 'org-mode-hook
+          (lambda ()
+            (auto-composition-mode -1)))
+#+END_SRC
+** Show emphasis markers
+#+BEGIN_SRC emacs-lisp :tangle yes
+(setq org-hide-emphasis-markers nil)
+#+END_SRC
+** Indent-mode
+#+BEGIN_SRC emacs-lisp :tangle yes
+(setq org-indent-indentation-per-level 1)
+(add-hook 'org-mode-hook 'org-indent-mode)
+#+END_SRC
+** Enable spell checking
+#+begin_src emacs-lisp :tangle yes
+(add-hook 'org-mode-hook 'flyspell-mode)
+#+end_src
+** Archiving
+- archive into one shared file
+- auto-save
+#+begin_src emacs-lisp :tangle yes
+(setq org-archive-location "archive.org::")
+
+(advice-add 'org-archive-subtree :after 'org-save-all-org-buffers)
+#+end_src
+** Agenda
+#+begin_src emacs-lisp :tangle yes
+(setq org-directory "~/Documents/Notes/"
+      org-agenda-files (list org-directory
+                             "~/.emacs/README.org")
+      org-archive-subtree-add-inherited-tags t
+      org-agenda-tag-filter-preset '("-archived" "-noagenda"))
+#+end_src
+** Tags
+Autocomplete tags using all agenda files.
+#+begin_src emacs-lisp :tangle yes
+(setq org-complete-tags-always-offer-all-agenda-tags t)
+#+end_src
+** Capture
+#+begin_src emacs-lisp :tangle yes
+(setq org-capture-templates
+      '(("t" "Todo" entry
+         (file "inbox.org")
+         "* TODO %?\n%u")
+        ("h" "Thought" entry
+         (file "inbox.org")
+         "* %?\n%u\n")
+        ("f" "File" entry
+         (file "inbox.org")
+         "* %?\n%a")
+        ("j" "Japanese vocabulary" entry
+         (file+headline "japanese.org" "Vocabulary")
+         "* %^{English} :drill:\n:PROPERTIES:\n:DRILL_CARD_TYPE: twosided\n:END:\n** English\n%\\1\n** Japanese\n%?")
+        ("c" "Climbing journal" entry
+         (file "climbing.org")
+         "* %u\n%?"
+         :prepend t)))
+#+end_src
+** Export
+Set some sane default options for exporting.
+#+begin_src emacs-lisp :tangle yes
+(setq org-export-with-toc nil
+      org-export-initial-scope 'subtree)
+#+end_src
+** Refile
+This allows me to refile from the GTD inbox to the top-level of a file.
+
+Also, just like when archiving, we auto-save when refiling.
+#+begin_src emacs-lisp :tangle yes
+(setq org-refile-targets '((org-agenda-files :tag . "n0nexistent"))
+      org-refile-use-outline-path 'file)
+
+(advice-add 'org-refile :after 'org-save-all-org-buffers)
+#+end_src
+** Open the inbox
+#+BEGIN_SRC emacs-lisp :tangle yes
+(defun sulami/open-org-inbox ()
+  "Opens the inbox file."
+  (interactive)
+  (find-file "~/Documents/Notes/inbox.org"))
+#+END_SRC
+** Calendar
+Weeks start on Monday, and who thought MDY was a good idea?
+#+BEGIN_SRC emacs-lisp :tangle yes
+(setq calendar-week-start-day 1
+      calendar-date-style 'iso)
+#+END_SRC
+** org-gfm
+This gives me org-mode->github flavoured markdown export.
+#+begin_src emacs-lisp :tangle yes
+(use-package ox-gfm
+  :defer t)
+#+end_src
 * Magit
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package magit
