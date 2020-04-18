@@ -102,6 +102,9 @@ defaults write -g WebKitDeveloperExtras -bool true
 defaults write org.gnu.Emacs HideDocumentIcon -bool true
 defaults write org.gnu.Emacs ToolBar -string no
 
+# Disable swipe gestures for Emacs
+defaults write org.gnu.Emacs AppleEnableSwipeNavigateWithScrolls -bool FALSE
+
 # Add a context menu item for showing the Web Inspector in web views
 defaults write -g WebKitDeveloperExtras -bool true
 
