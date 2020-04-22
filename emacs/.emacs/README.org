@@ -1430,7 +1430,7 @@ Spaced repetition in org-mode.
   :custom
   (org-drill-add-random-noise-to-intervals-p t)
   (org-drill-adjust-intervals-for-early-and-late-repetitions-p t)
-  (org-drill-hide-item-headings-p t))
+  (org-drill-learn-fraction 0.4))
 #+end_src
 * Verb
 #+begin_src emacs-lisp :tangle yes
