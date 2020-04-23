@@ -1471,19 +1471,6 @@ Spaced repetition in org-mode.
     :keymaps 'verb-response-body-mode-map
     "q" 'verb-kill-response-buffer-and-window))
 #+end_src
-* Restclient
-#+begin_src emacs-lisp :tangle yes
-(use-package restclient
-  :disabled
-  :mode (("\\.http\\'" . restclient-mode))
-  :general
-  (local-leader-def
-    :keymaps 'restclient-mode-map
-    "c" 'restclient-copy-curl-command
-    "r" 'restclient-http-send-current-raw
-    "s" 'restclient-http-send-current-stay-in-window
-    "S" 'restclient-http-send-current))
-#+end_src
 * Atomic
 Atomic starts a server which a browser plugin like [[https://github.com/GhostText/GhostText][GhostText]] can
 connect to so I can edit text inside Emacs. I rarely use it, so it's
