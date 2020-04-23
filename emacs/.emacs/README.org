@@ -1180,7 +1180,7 @@ Autocomplete tags using all agenda files.
          "* %?\n%a")
         ("j" "Japanese vocabulary" entry
          (file+headline "japanese.org" "Vocabulary")
-         "* Drill :drill:\n:PROPERTIES:\n:DRILL_CARD_TYPE: twosided\n:END:\n** English\n%^{English}\n** Japanese\n%?")
+         "* Drill :drill:\n:PROPERTIES:\n:DRILL_CARD_TYPE: twosided\n:END:\n** English\n%?\n** Japanese\n%^{Japanese}")
         ("c" "Climbing journal" entry
          (file "climbing.org")
          "* %u\n%?"
