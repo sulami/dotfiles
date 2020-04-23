@@ -305,12 +305,28 @@ of another theme."
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package doom-modeline
   :hook (after-init . doom-modeline-mode)
-  :config
-  (setq doom-modeline-modal-icon nil
-        doom-modeline-buffer-file-name-style 'relative-to-project
-        doom-modeline-buffer-encoding nil
-        doom-modeline-persp-name nil
-        doom-modeline-vcs-max-length 36))
+  :custom
+  (doom-modeline-icon nil)
+  (doom-modeline-modal-icon nil)
+  (doom-modeline-height 10)
+  (doom-modeline-buffer-file-name-style 'relative-to-project)
+  (doom-modeline-buffer-encoding nil)
+  (doom-modeline-persp-name nil)
+  (doom-modeline-vcs-max-length 36)
+  :config/el-patch
+  (defun doom-modeline--font-height ()
+    "Calculate the actual char height of the mode-line."
+    (let ((height (face-attribute 'mode-line :height)))
+      ;; WORKAROUND: Fix tall issue of 27 on Linux
+      ;; @see https://github.com/seagle0128/doom-modeline/issues/271
+      (round
+       (* (if (and (>= emacs-major-version 27)
+                   (not (eq system-type 'darwin)))
+              1.0
+            (if doom-modeline-icon 1.68 (el-patch-swap 1.25 1.0)))
+          (cond ((integerp height) (/ height 10))
+                ((floatp height) (* height (frame-char-height)))
+                (t (frame-char-height))))))))
 #+END_SRC
 * Custom functions
 ** Config
