@@ -1400,7 +1400,8 @@ should be a topic string and non-nil RE-CACHE forces re-caching."
 This allows me to benchmark Emacs startup.
 #+begin_src emacs-lisp :tangle yes
 (use-package esup
-  :disabled)
+  :defer t
+  :commands (esup))
 #+end_src
 * ERC
 #+begin_src emacs-lisp :tangle yes
