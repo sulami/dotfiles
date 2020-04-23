@@ -1428,6 +1428,8 @@ This allows me to benchmark Emacs startup.
 Spaced repetition in org-mode.
 #+begin_src emacs-lisp :tangle yes
 (use-package org-drill
+  :defer
+  :commands (org-drill)
   :custom
   (org-drill-add-random-noise-to-intervals-p t)
   (org-drill-adjust-intervals-for-early-and-late-repetitions-p t)
