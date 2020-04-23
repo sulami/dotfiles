@@ -25,8 +25,9 @@ the top for performance reasons.
 This way we lose everything backups if the whole machine crashes, but
 we don't accidentally leave backups around.
 #+BEGIN_SRC emacs-lisp :tangle yes
-(setq backup-directory-alist '(("." . "/tmp/emacs-backup"))
-      auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
+(setq backup-directory-alist '(("." . "/tmp/emacs-backup/"))
+      auto-save-file-name-transforms '((".*" "/tmp/emacs-auto-save/" t))
+      create-lockfiles nil)
 #+END_SRC
 ** No trash
 #+BEGIN_SRC emacs-lisp :tangle yes
