@@ -524,7 +524,7 @@ declarations.
     "f d" 'dired
     "f D" 'sulami/delete-file-and-buffer
     "f R" 'sulami/rename-file-and-buffer
-    "h e" 'info-emacs-manual
+    "h e" 'info-display-manual
     "h g" 'general-describe-keybindings
     "h l" 'view-lossage
     "h m" 'woman
