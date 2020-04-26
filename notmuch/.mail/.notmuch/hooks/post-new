@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
+# Manual post-processing.
+notmuch tag --batch <<EOF
+# +inbox the inbox.
++inbox -- path:fastmail/INBOX/** or path:circleci-gmail/Inbox/**
+
+# -unread spam.
+-unread +spam -- path:fastmail/Spam/**
+
+# +sent send mail.
+-unread +sent -- path:fastmail/Sent/** or path:"circleci-gmail/[Gmail]/Sent Mail/**"
+
+# +draft drafts.
+-unread +draft -- path:fastail/Drafts/**
+
+# +circleci my work account.
++circleci -- path:circleci-gmail/**
+
+# +jira JIRA notifications.
++jira -- from:jira@circleci.atlassian.net
+
+# -unread what has been filtered by Gmail already.
+-unread +calendar -- path:circleci-gmail/Calendar/**
+-unread +rollbar -- path:circleci-gmail/Rollbar/**
+-unread +datadog -- path:circleci-gmail/DataDog/**
+-unread +ops -- path:circleci-gmail/Ops/**
+-unread +oxbot -- path:"circleci-gmail/Ox Bot/**"
+EOF
