@@ -12,3 +12,5 @@ alias run-help man
 alias v $EDITOR $*
 alias wget wget -c $*
 alias which-command whence
+alias ff find-file $1
+alias ffw find-file-other-window $1

@@ -100,6 +100,8 @@ alias dclf='docker-compose logs --tail=10 -f $*'
 
 # Copy aliases over to eshell
 alias | gsed 's/^alias //' | gsed -E "s/^([^=]+)='(.+?)'$/\1=\2/" | gsed "s/'\\\\''/'/g" | gsed "s/'\\\\$/'/;" | gsed -E 's/^([^=]+)=(.+)$/alias \1 \2/' > ~/.emacs/aliases
+echo 'alias ff find-file $1' >> ~/.emacs/aliases
+echo 'alias ffw find-file-other-window $1' >> ~/.emacs/aliases
 
 # Starts up a new emacs session and decouples it from the shell.
 function edit() {
