@@ -1166,7 +1166,8 @@ automatically renumber them when they're modified.
 - archive into one shared file
 - auto-save
 #+begin_src emacs-lisp :tangle yes
-(setq org-archive-location "archive.org::")
+(setq org-archive-location "archive.org::"
+      org-archive-subtree-add-inherited-tags t)
 
 (advice-add 'org-archive-subtree :after 'org-save-all-org-buffers)
 #+end_src
@@ -1174,9 +1175,40 @@ automatically renumber them when they're modified.
 #+begin_src emacs-lisp :tangle yes
 (setq org-directory "~/Documents/Notes/"
       org-agenda-files (list org-directory
-                             "~/.emacs/README.org")
-      org-archive-subtree-add-inherited-tags t
-      org-agenda-tag-filter-preset '("-archived" "-noagenda"))
+                             "~/.emacs/README.org"
+                             "~/.org-jira/")
+      org-enforce-todo-dependencies t
+      org-agenda-tag-filter-preset '("-archived" "-noagenda")
+      org-agenda-dim-blocked-tasks t)
+#+end_src
+** org-super-agenda
+#+begin_src emacs-lisp :tangle yes
+(use-package org-super-agenda
+  :defer t
+  :config
+  ;; Don't break evil navigation
+  (setq org-super-agenda-header-map (make-sparse-keymap))
+  (defun sulami/work-agenda ()
+    (interactive)
+    (let ((org-super-agenda-groups
+           '((:name "Today"
+                    :scheduled today)
+             (:name "Code Reviews"
+                    :and (:tag "jira"
+                          :tag "review")
+                    :order 102)
+             (:name "Waiting"
+                    :todo "WAITING"
+                    :order 7)
+             (:name "JIRA"
+                    :tag "jira"
+                    :order 101)
+             (:name "In Flight"
+                    :todo "WIP"
+                    :order 5))))
+      (org-tags-view t "@work")))
+  :hook
+  (after-init . org-super-agenda-mode))
 #+end_src
 ** Tags
 Autocomplete tags using all agenda files.
