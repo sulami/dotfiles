@@ -1218,22 +1218,25 @@ Autocomplete tags using all agenda files.
 ** Capture
 #+begin_src emacs-lisp :tangle yes
 (setq org-capture-templates
-      '(("t" "Todo" entry
-         (file "inbox.org")
-         "* TODO %?\n%u")
-        ("h" "Thought" entry
-         (file "inbox.org")
-         "* %?\n%u\n")
-        ("f" "File" entry
-         (file "inbox.org")
-         "* %?\n%a")
-        ("j" "Japanese vocabulary" entry
-         (file+headline "japanese.org" "Vocabulary")
-         "* Drill :drill:\n:PROPERTIES:\n:DRILL_CARD_TYPE: twosided\n:END:\n** English\n%?\n** Japanese\n%^{Japanese}")
+      '(("b" "Blog idea" entry
+         (file "blog.org")
+         "* %^{title}\n%u\n%?")
         ("c" "Climbing journal" entry
          (file "climbing.org")
          "* %u\n%?"
-         :prepend t)))
+         :prepend t)
+        ("f" "File link" entry
+         (file "inbox.org")
+         "* %^{title}\n%a\n%?")
+        ("j" "Japanese vocabulary" entry
+         (file+headline "japanese.org" "Vocabulary")
+         "* Drill :drill:\n:PROPERTIES:\n:DRILL_CARD_TYPE: twosided\n:END:\n** English\n%?\n** Japanese\n%^{Japanese}")
+        ("n" "Note" entry
+         (file "inbox.org")
+         "* %^{title}\n%u\n%?")
+        ("t" "Todo" entry
+         (file "inbox.org")
+         "* TODO %^{title}\n%u\n%?")))
 #+end_src
 ** Export
 Set some sane default options for exporting.
