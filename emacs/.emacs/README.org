@@ -1179,7 +1179,8 @@ automatically renumber them when they're modified.
                              "~/.org-jira/")
       org-enforce-todo-dependencies t
       org-agenda-tag-filter-preset '("-archived" "-noagenda")
-      org-agenda-dim-blocked-tasks t)
+      org-agenda-dim-blocked-tasks t
+      org-agenda-window-setup 'current-window)
 #+end_src
 ** org-super-agenda
 #+begin_src emacs-lisp :tangle yes
