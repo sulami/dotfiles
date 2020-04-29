@@ -29,6 +29,11 @@ we don't accidentally leave backups around.
       auto-save-file-name-transforms '((".*" "/tmp/emacs-auto-save/" t))
       create-lockfiles nil)
 #+END_SRC
+** Revert changed files
+This reloads changed files which are open in Emacs but not edited.
+#+begin_src emacs-lisp :tangle yes
+(setq revert-without-query '(".*"))
+#+end_src
 ** No trash
 #+BEGIN_SRC emacs-lisp :tangle yes
 (setq delete-by-moving-to-trash nil)
