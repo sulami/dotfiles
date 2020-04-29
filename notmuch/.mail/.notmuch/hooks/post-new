@@ -5,27 +5,31 @@ IFS=$'\n\t'
 # Manual post-processing.
 notmuch tag --batch <<EOF
 # +inbox the inbox.
-+inbox -- path:fastmail/INBOX/** or path:circleci-gmail/Inbox/**
+# +inbox -- path:fastmail/INBOX/**
 
-# -unread spam.
--unread +spam -- path:fastmail/Spam/**
+# Spam
++spam -- path:fastmail/Spam/**
 
-# +sent send mail.
--unread +sent -- path:fastmail/Sent/** or path:"circleci-gmail/[Gmail]/Sent Mail/**"
+# +Sent mail.
+# -unread +sent -- path:fastmail/Sent/** or path:"circleci-gmail/[Gmail]/Sent Mail/**"
+# -unread -- tag:sent
 
 # +draft drafts.
--unread +draft -- path:fastail/Drafts/**
+# -unread -- tag:draft
 
 # +circleci my work account.
 +circleci -- path:circleci-gmail/**
+
+# +github Github notifications.
++github -- from:notifications@github.com
 
 # +jira JIRA notifications.
 +jira -- from:jira@circleci.atlassian.net
 
 # -unread what has been filtered by Gmail already.
--unread +calendar -- path:circleci-gmail/Calendar/**
--unread +rollbar -- path:circleci-gmail/Rollbar/**
--unread +datadog -- path:circleci-gmail/DataDog/**
--unread +ops -- path:circleci-gmail/Ops/**
--unread +oxbot -- path:"circleci-gmail/Ox Bot/**"
+-unread -inbox +calendar -- path:circleci-gmail/Calendar/**
+-unread -inbox +rollbar -- path:circleci-gmail/Rollbar/**
+-unread -inbox +datadog -- path:circleci-gmail/DataDog/**
+-unread -inbox +ops -- path:circleci-gmail/Ops/**
+-unread -inbox +oxbot -- path:"circleci-gmail/Ox Bot/**"
 EOF

@@ -52,7 +52,7 @@ other_email=robins@circleci.com
 #
 
 [new]
-tags=unread
+tags=unread;inbox;
 ignore=.mbsyncstate;.mbsyncstate.journal;.mbsyncstate.lock;.mbsyncstate.new;.uidvalidity;.isyncuidmap.db
 
 # Search configuration
