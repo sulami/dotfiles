@@ -1483,6 +1483,48 @@ This allows me to benchmark Emacs startup.
     :keymaps 'erc-mode-map
     "t" 'erc-track-switch-buffer))
 #+end_src
+* Email
+This is my email setup. I fetch email into a local maildir, which is
+available offline, and also much faster.
+#+begin_src emacs-lisp :tangle yes
+(setq message-directory "~/.mail"
+      messsage-signature "-- \nRobin"
+      message-kill-buffer-on-exit t
+      message-send-mail-function 'message-send-mail-with-sendmail
+      message-sendmail-envelope-from 'header
+      sendmail-program "msmtp"
+      mail-specify-envelope-from t
+      mail-envelope-from 'header)
+#+end_src
+** Notmuch
+[[https://notmuchmail.org/][notmuch]] is a performant email tagging system, which I use to sort and
+view emails in my local maildir.
+#+begin_src emacs-lisp :tangle yes
+(use-package notmuch
+  :defer t
+  :custom
+  (notmuch-search-oldest-first nil)
+  (notmuch-always-prompt-for-sender t)
+  (notmuch-mua-cite-function 'message-cite-original-without-signature)
+  (notmuch-fcc-dirs '((".*@peerwire.org" . "fastmail/Sent")
+                      ("robins@circleci.com" . "circleci-gmail/[Gmail]/Sent Mail")))
+  :config
+  (defun notmuch-inbox ()
+    (interactive)
+    (notmuch-search "tag:inbox"))
+  (defun notmuch-unread ()
+    (interactive)
+    (notmuch-search "tag:unread"))
+  :general
+  (leader-def
+    "a m" '(:ignore t :wk "mail")
+    "a m i" 'notmuch-inbox
+    "a m m" 'notmuch
+    "a m n" 'notmuch-mua-new-mail
+    "a m r" 'notmuch-poll
+    "a m s" 'notmuch-search
+    "a m u" 'notmuch-unread))
+#+end_src
 * org-drill
 Spaced repetition in org-mode.
 #+begin_src emacs-lisp :tangle yes
