@@ -1171,7 +1171,7 @@ automatically renumber them when they're modified.
 - archive into one shared file
 - auto-save
 #+begin_src emacs-lisp :tangle yes
-(setq org-archive-location "archive.org::"
+(setq org-archive-location "~/Documents/Notes/archive.org::"
       org-archive-subtree-add-inherited-tags t)
 
 (advice-add 'org-archive-subtree :after 'org-save-all-org-buffers)
