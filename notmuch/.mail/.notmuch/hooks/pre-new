@@ -8,29 +8,35 @@ notmuch search --output=files --format=text0 --exclude=false -- tag:deleted and 
 # Delete spam older than 4 weeks.
 notmuch search --output=files --format=text0 --exclude=false -- tag:spam and date:..4w | xargs -0 rm || true
 
-# Move to the right folders according to tags.
+# Move to the right folders according to tags, so that other mail
+# clients don't just have a gigantic inbox.
+
 # Make sure we have updated paths.
-# notmuch new --no-hooks
+notmuch new --no-hooks
 
 # Fastmail
 
-# Anything to inbox.
-# notmuch search --output=files --format=text0 -- folder:fastmail and not folder:fastmail/INBOX and tag:inbox | xargs -0 mv ~/.mail/fastmail/INBOX/new/
-# # Archive from inbox.
-# notmuch search --output=files --format=text0 -- folder:fastmail/INBOX and not tag:inbox | xargs -0tI {} mv -n {} ~/.mail/fastmail/Archive/new/
-# # Spam.
-# notmuch search --output=files --format=text0 -- folder:fastmail and not folder:fastmail/Spam and tag:spam | xargs -0tI {} mv -n {} ~/.mail/fastmail/Spam/new/
-# # Trash.
-# notmuch search --output=files --format=text0 -- folder:fastmail and not folder:fastmail/Trash and tag:deleted | xargs -0tI {} mv -n {} ~/.mail/fastmail/Trash/new/
+# Spam.
+notmuch search --output=files --format=text0 -- path:"fastmail/INBOX/**" tag:spam | xargs -0tI {} mv -n {} ~/.mail/fastmail/Spam/new/
+# Trash.
+notmuch search --output=files --format=text0 -- path:"fastmail/INBOX/**" and tag:deleted | xargs -0tI {} mv -n {} ~/.mail/fastmail/Trash/new/
+# Archive from inbox.
+notmuch search --output=files --format=text0 -- path:"fastmail/INBOX/**" and not tag:inbox | xargs -0tI {} mv -n {} ~/.mail/fastmail/Archive/new/
 
 # CircleCI Gmail
-# notmuch search --output=files --format=text0 -- folder:'fastmail' and not folder:fastmail/INBOX and tag:inbox | xargs -0 mv ~/.mail/fastmail/INBOX/new/
-# # Archive from inbox.
-# notmuch search --output=files --format=text0 -- tag:circleci and path:circleci-gmail/Inbox and not tag:inbox | xargs -0tI {} mv -n {} ~/.mail/fastmail/Archive/new/
-# # Spam.
-# notmuch search --output=files --format=text0 -- folder:'fastmail' and not folder:'fastmail/Spam' and tag:spam | xargs -0tI {} mv -n {} ~/.mail/fastmail/Spam/new/
-# # Trash.
-# notmuch search --output=files --format=text0 -- folder:'fastmail' and not folder:'fastmail/Trash' and tag:deleted | xargs -0tI {} mv -n {} ~/.mail/fastmail/Trash/new/
+
+# Spam.
+notmuch search --output=files --format=text0 -- path:"circleci-gmail/Inbox/**" tag:spam | xargs -0tI {} mv -n {} ~/.mail/circleci-gmail/\[Gmail\]/Spam/new/
+# Trash.
+notmuch search --output=files --format=text0 -- path:"circleci-gmail/Inbox/**" and tag:deleted | xargs -0tI {} mv -n {} ~/.mail/circleci-gmail/\[Gmail\]/Trash/new/
+# The various tags.
+notmuch search --output=files --format=text0 -- path:"circleci-gmail/Inbox/**" and tag:calendar | xargs -0tI {} mv -n {} ~/.mail/circleci-gmail/Calendar/new/
+notmuch search --output=files --format=text0 -- path:"circleci-gmail/Inbox/**" and tag:datadog | xargs -0tI {} mv -n {} ~/.mail/circleci-gmail/DataDog/new/
+notmuch search --output=files --format=text0 -- path:"circleci-gmail/Inbox/**" and tag:ops | xargs -0tI {} mv -n {} ~/.mail/circleci-gmail/Ops/new/
+notmuch search --output=files --format=text0 -- path:"circleci-gmail/Inbox/**" and tag:oxbot | xargs -0tI {} mv -n {} ~/.mail/circleci-gmail/Ox\ Bot/new/
+notmuch search --output=files --format=text0 -- path:"circleci-gmail/Inbox/**" and tag:rollbar | xargs -0tI {} mv -n {} ~/.mail/circleci-gmail/Rollbar/new/
+# Archive from inbox.
+notmuch search --output=files --format=text0 -- path:"circleci-gmail/Inbox/**" and not tag:inbox | xargs -0tI {} mv -n {} ~/.mail/circleci-gmail/\[Gmail\]/All\ Mail/new/
 
 # Make sure we have updated paths.
-# notmuch new --no-hooks
+notmuch new --no-hooks
