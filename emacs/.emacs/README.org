@@ -408,6 +408,21 @@ of another theme."
   (interactive)
   (copy-region-as-kill 1 (point-max)))
 #+end_src
+*** Revert all org-mode buffers
+Because I sync most of my org-mode files with my phone, writing to
+them without making sure they are current can overwrite changes I've
+made. A simple solution is just to attempt to re-read all org-mode
+files before certain operations, like refiling.
+#+begin_src emacs-lisp :tangle yes
+(defun sulami/org-revert-all-org-buffers ()
+  "Reverts all unmodified org-mode buffers."
+  (dolist (buffer (buffer-list))
+    (with-current-buffer buffer
+      (when (and (derived-mode-p 'org-mode)
+                 (buffer-file-name)
+                 (not (buffer-modified-p)))
+        (revert-buffer)))))
+#+end_src
 ** Windows
 *** Maximise a window
 #+begin_src emacs-lisp :tangle yes
@@ -1174,6 +1189,8 @@ automatically renumber them when they're modified.
 (setq org-archive-location "~/Documents/Notes/archive.org::"
       org-archive-subtree-add-inherited-tags t)
 
+(advice-add 'org-refile :before 'sulami/org-revert-all-org-buffers)
+
 (advice-add 'org-archive-subtree :after 'org-save-all-org-buffers)
 #+end_src
 ** Agenda
@@ -1257,6 +1274,8 @@ Also, just like when archiving, we auto-save when refiling.
 #+begin_src emacs-lisp :tangle yes
 (setq org-refile-targets '((org-agenda-files :tag . "n0nexistent"))
       org-refile-use-outline-path 'file)
+
+(advice-add 'org-refile :before 'sulami/org-revert-all-org-buffers)
 
 (advice-add 'org-refile :after 'org-save-all-org-buffers)
 #+end_src
