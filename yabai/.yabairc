@@ -1,0 +1,23 @@
+# -*- mode: sh -*-
+
+# yabai -m config layout float
+yabai -m config layout bsp
+
+# Split ratio
+yabai -m config split_ratio 0.5
+
+# Mouse actions (fn +)
+yabai -m config mouse_action1 resize
+yabai -m config mouse_action2 move
+
+# Shadows only for floating windows.
+yabai -m config window_shadow float
+
+# Rules
+yabai -m rule --add title="^Open$" manage=off
+yabai -m rule --add app="^Activity Monitor$" manage=off
+yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add label=zoom app="^(Z|z)oom(.us)$" space=3
+yabai -m rule --add label=ff-pip app="^Firefox Developer Edition$" title="^Picture-in-Picture$" manage=off sticky=on
+yabai -m rule --add app="^Firefox Developer Edition$" title="^Opening .+$" manage=off
+yabai -m rule --add app="^Calendar$" manage=off
