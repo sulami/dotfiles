@@ -1132,7 +1132,8 @@ I only enable this every now and then.
 ** Add more workflow states
 #+begin_src emacs-lisp :tangle yes
 (setq org-todo-keywords
-      '((sequence "TODO" "WIP" "WAITING" "|" "DONE" "CANCELLED")))
+      '((sequence "TODO(t)" "WIP(p)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)"))
+      org-use-fast-todo-selection t)
 #+end_src
 ** Footnotes
 Define them at the end of the current outline section, and
