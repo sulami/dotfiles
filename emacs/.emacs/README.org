@@ -1293,6 +1293,11 @@ Weeks start on Monday, and who thought MDY was a good idea?
 (setq calendar-week-start-day 1
       calendar-date-style 'iso)
 #+END_SRC
+** Time tracking
+Always persist org-clock data to disk, in case Emacs crashes.
+#+begin_src emacs-lisp :tangle yes
+(setq org-clock-persist t)
+#+end_src
 ** org-gfm
 This gives me org-mode->github flavoured markdown export.
 #+begin_src emacs-lisp :tangle yes
