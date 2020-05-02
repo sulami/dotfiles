@@ -1212,25 +1212,42 @@ automatically renumber them when they're modified.
   :config
   ;; Don't break evil navigation
   (setq org-super-agenda-header-map (make-sparse-keymap))
-  (defun sulami/work-agenda ()
+  (defun sulami/dynamic-agenda ()
     (interactive)
-    (let ((org-super-agenda-groups
-           '((:name "Today"
-                    :scheduled today)
-             (:name "Code Reviews"
-                    :and (:tag "jira"
-                          :tag "review")
-                    :order 102)
-             (:name "Waiting"
-                    :todo "WAITING"
-                    :order 7)
-             (:name "JIRA"
-                    :tag "jira"
-                    :order 101)
-             (:name "In Flight"
-                    :todo "WIP"
-                    :order 5))))
-      (org-tags-view t "@work")))
+    (let* ((weekday? (->> (current-time)
+                          (format-time-string "%u")
+                          (read)
+                          (> 5)))
+           (org-super-agenda-groups
+            (cl-concatenate
+             'list
+             '((:name "Overdue"
+                      :scheduled past
+                      :deadline past)
+               (:name "Today"
+                      :scheduled today
+                      :deadline today))
+             (when weekday?
+               '((:name "Code Reviews"
+                        :and (:tag "jira"
+                                   :tag "review")
+                        :order 102)))
+             '((:name "Waiting"
+                      :todo "WAITING"
+                      :order 7))
+             (when weekday?
+               '((:name "JIRA"
+                        :tag "jira"
+                        :order 101)))
+             '((:name "In Flight"
+                      :todo "WIP"
+                      :order 5)
+               (:discard (:anything t)))))
+           (query-string (concat "-inbox-notes"
+                                 (if weekday?
+                                     "-yak-side_project"
+                                   "-@work"))))
+      (org-tags-view t query-string)))
   :hook
   (after-init . org-super-agenda-mode))
 #+end_src
