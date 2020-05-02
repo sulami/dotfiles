@@ -1218,15 +1218,27 @@ automatically renumber them when they're modified.
                           (format-time-string "%u")
                           (read)
                           (> 5)))
+           (org-agenda-overriding-header (concat "Dynamic Agenda"
+                                                 (if weekday?
+                                                     " (week)"
+                                                   " (weekend)")))
            (org-super-agenda-groups
             (cl-concatenate
              'list
-             '((:name "Overdue"
+             `((:name "Overdue"
                       :scheduled past
                       :deadline past)
                (:name "Today"
                       :scheduled today
-                      :deadline today))
+                      :deadline today)
+               (:name "Tomorrow"
+                      :scheduled (before ,(format-time-string "%Y-%m-%d"
+                                                              (time-add (* 60 60 24 2)
+                                                                        (current-time))))
+                      :deadline (before ,(format-time-string "%Y-%m-%d"
+                                                             (time-add (* 60 60 24 2)
+                                                                       (current-time))))
+                      :order 8))
              (when weekday?
                '((:name "Code Reviews"
                         :and (:tag "jira"
