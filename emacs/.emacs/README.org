@@ -1264,6 +1264,9 @@ automatically renumber them when they're modified.
                                      "-yak-side_project"
                                    "-@work"))))
       (org-tags-view t query-string)))
+  :general
+  (leader-def
+    "a A" 'sulami/dynamic-agenda)
   :hook
   (after-init . org-super-agenda-mode))
 #+end_src
