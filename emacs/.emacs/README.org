@@ -1280,7 +1280,8 @@ Autocomplete tags using all agenda files.
 (setq org-capture-templates
       '(("b" "Blog idea" entry
          (file "blog.org")
-         "* %^{title}\n%u\n%?")
+         "* %^{title}\n%u\n%?"
+         :prepend t)
         ("c" "Climbing journal" entry
          (file "climbing.org")
          "* %u\n%?"
