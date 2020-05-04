@@ -1135,6 +1135,10 @@ I only enable this every now and then.
       '((sequence "TODO(t)" "WIP(p)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)"))
       org-use-fast-todo-selection t)
 #+end_src
+** Save when I change a workflow state
+#+begin_src emacs-lisp :tangle yes
+(add-hook 'org-trigger-hook 'save-buffer)
+#+end_src
 ** Footnotes
 Define them at the end of the current outline section, and
 automatically renumber them when they're modified.
