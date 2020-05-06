@@ -1247,20 +1247,11 @@ automatically renumber them when they're modified.
                       :deadline (before ,(format-time-string "%Y-%m-%d"
                                                              (time-add (* 60 60 24 2)
                                                                        (current-time))))
-                      :order 8))
-             (when weekday?
-               '((:name "Code Reviews"
-                        :and (:tag "jira"
-                                   :tag "review")
-                        :order 102)))
-             '((:name "Waiting"
+                      :order 8)
+               (:name "Waiting"
                       :todo "WAITING"
-                      :order 7))
-             (when weekday?
-               '((:name "JIRA"
-                        :tag "jira"
-                        :order 101)))
-             '((:name "In Flight"
+                      :order 7)
+               (:name "In Flight"
                       :todo "WIP"
                       :order 5)
                (:discard (:anything t)))))
