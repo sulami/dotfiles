@@ -20,4 +20,5 @@ yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add label=zoom app="^(Z|z)oom(.us)$" space=3
 yabai -m rule --add label=ff-pip app="^Firefox Developer Edition$" title="^Picture-in-Picture$" manage=off sticky=on
 yabai -m rule --add app="^Firefox Developer Edition$" title="^Opening .+$" manage=off
+yabai -m rule --add app="^Firefox Developer Edition$" title="^Launch Application$" manage=off
 yabai -m rule --add app="^Calendar$" manage=off
