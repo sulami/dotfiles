@@ -1343,7 +1343,8 @@ Always persist org-clock data to disk, in case Emacs crashes.
 This gives me org-mode->github flavoured markdown export.
 #+begin_src emacs-lisp :tangle yes
 (use-package ox-gfm
-  :defer t)
+  :defer 3
+  :after org)
 #+end_src
 ** org-drill
 Spaced repetition in org-mode.
