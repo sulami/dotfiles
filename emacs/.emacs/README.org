@@ -1125,6 +1125,7 @@ I only enable this every now and then.
     "l" 'org-insert-link
     "L" 'org-store-link
     "r" '(org-refile :wk "org-refile")
+    "R" 'sulami/org-refile-in-current-file
     "s" 'org-schedule
     "S" 'org-babel-switch-to-session
     "T" 'org-babel-tangle
@@ -1308,6 +1309,13 @@ Also, just like when archiving, we auto-save when refiling.
 #+begin_src emacs-lisp :tangle yes
 (setq org-refile-targets '((org-agenda-files :tag . "n0nexistent"))
       org-refile-use-outline-path 'file)
+
+(defun sulami/org-refile-in-current-file ()
+  "Refile the current subtree to a top-level heading in this file."
+  (interactive)
+  (let ((org-refile-targets '((nil :level . 1)))
+        (org-refile-use-outline-path nil))
+    (org-refile)))
 
 (advice-add 'org-refile :before 'sulami/org-revert-all-org-buffers)
 
