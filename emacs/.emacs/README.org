@@ -1341,12 +1341,12 @@ This gives me org-mode->github flavoured markdown export.
 Spaced repetition in org-mode.
 #+begin_src emacs-lisp :tangle yes
 (use-package org-drill
-  :defer
+  :defer t
   :commands (org-drill)
   :custom
   (org-drill-add-random-noise-to-intervals-p t)
   (org-drill-adjust-intervals-for-early-and-late-repetitions-p t)
-  (org-drill-learn-fraction 0.4))
+  (org-drill-learn-fraction 0.3))
 #+end_src
 * Magit
 #+BEGIN_SRC emacs-lisp :tangle yes
