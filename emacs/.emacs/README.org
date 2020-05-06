@@ -1127,7 +1127,12 @@ I only enable this every now and then.
     "r" '(org-refile :wk "org-refile")
     "s" 'org-schedule
     "S" 'org-babel-switch-to-session
-    "T" 'org-babel-tangle))
+    "T" 'org-babel-tangle
+    "w" 'org-todo
+    "W" '((lambda ()
+            (interactive)
+            (org-todo '(4)))
+          :wk "org-todo (with note)")))
 #+end_src
 ** Add more workflow states
 #+begin_src emacs-lisp :tangle yes
