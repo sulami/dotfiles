@@ -18,6 +18,7 @@ brew "clojurescript"
 brew "coreutils"
 brew "docker", link: false
 brew "docker-compose", link: false
+brew "fd"
 brew "git"
 brew "gnupg"
 brew "gnu-sed"
