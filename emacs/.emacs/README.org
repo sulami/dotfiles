@@ -1584,8 +1584,8 @@ view emails in my local maildir.
   (notmuch-search-oldest-first nil)
   (notmuch-always-prompt-for-sender t)
   (notmuch-mua-cite-function 'message-cite-original-without-signature)
-  (notmuch-fcc-dirs '((".*@peerwire.org" . "fastmail/Sent")
-                      ("robins@circleci.com" . "circleci-gmail/[Gmail]/Sent Mail")))
+  (notmuch-fcc-dirs '((".*@peerwire.org" . "fastmail/Sent +sent -inbox -unread")
+                      ("robins@circleci.com" . "\"circleci-gmail/[Gmail]/Sent Mail\" +sent -inbox -unread")))
   :config
   (defun notmuch-inbox ()
     (interactive)
