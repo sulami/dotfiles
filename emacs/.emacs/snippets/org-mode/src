@@ -1,6 +1,6 @@
 # key: src
 # name: source
 # --
-#+begin_src $1
+#+begin_src ${1:emacs-lisp}
 $0
 #+end_src
