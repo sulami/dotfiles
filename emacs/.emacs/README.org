@@ -1878,6 +1878,12 @@ In this case we install a fix to make imenu work in HugSQL files.
 (use-package rust-mode
   :defer t)
 #+end_src
+* LLVM
+I look at LLVM assembly more than is healthy, and some colour helps
+there.
+#+begin_src emacs-lisp :tangle yes
+(load "~/.emacs/lisp/llvm-mode")
+#+end_src
 * Docker
 Docker & tramp integration allows for using ~/docker:container~ as a
 tramp target.
