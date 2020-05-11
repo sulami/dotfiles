@@ -3,24 +3,29 @@
 #+CATEGORY: Emacs
 #+FILETAGS: side_project yak
 #+STARTUP: overview
+
 * Use lexical binding in this file
 This org-mode file gets built into an elisp file, and we want this comment at
 the top for performance reasons.
 #+BEGIN_SRC emacs-lisp :tangle yes
 ;; -*- lexical-binding: t; -*-
 #+END_SRC
+
 * Who Am I?
 #+begin_src emacs-lisp :tangle yes
 (setq user-full-name "Robin Schroer"
       user-login-name "sulami"
       user-mail-address "sulami@peerwire.org")
 #+end_src
+
 * Better defaults
+
 ** Discard the custom file
 ~custom.el~ is hidden state, all config is declarative.
 #+BEGIN_SRC emacs-lisp :tangle yes
 (setq custom-file (make-temp-file ""))
 #+END_SRC
+
 ** Hide Backups
 This way we lose everything backups if the whole machine crashes, but
 we don't accidentally leave backups around.
@@ -29,31 +34,37 @@ we don't accidentally leave backups around.
       auto-save-file-name-transforms '((".*" "/tmp/emacs-auto-save/" t))
       create-lockfiles nil)
 #+END_SRC
+
 ** Revert changed files
 This reloads changed files which are open in Emacs but not edited.
 #+begin_src emacs-lisp :tangle yes
 (setq revert-without-query '(".*"))
 #+end_src
+
 ** No trash
 #+BEGIN_SRC emacs-lisp :tangle yes
 (setq delete-by-moving-to-trash nil)
 #+END_SRC
+
 ** Remember recent files
 #+BEGIN_SRC emacs-lisp :tangle yes
 (when (require 'recentf)
   (recentf-mode 1)
   (setq recentf-max-saved-items 255))
 #+END_SRC
+
 ** Be quiet on startup
 #+BEGIN_SRC emacs-lisp :tangle yes
 (setq inhibit-splash-screen t
       inhibit-startup-screen t
       inhibit-startup-message t)
 #+END_SRC
+
 ** Don't tell me about keybindings
 #+begin_src emacs-lisp :tangle yes
 (setq suggest-key-bindings nil)
 #+end_src
+
 ** Make Tramp great again
 #+begin_src emacs-lisp :tangle yes
 (setq tramp-default-method "ssh"
@@ -77,39 +88,48 @@ This reloads changed files which are open in Emacs but not edited.
 (add-to-list 'backup-directory-alist
              (cons tramp-file-name-regexp "/tmp/emacs-backup/"))
 #+end_src
+
 ** Remember where we were
 #+begin_src emacs-lisp :tangle yes
 (require 'saveplace)
 (save-place-mode 1)
 #+end_src
+
 ** Don't ring the bell
 #+begin_src emacs-lisp :tangle yes
 (setq ring-bell-function 'ignore)
 #+end_src
+
 ** Start the scratch buffer empty
 #+BEGIN_SRC emacs-lisp :tangle yes
 (setq initial-scratch-message "")
 #+END_SRC
+
 ** Enable winner-mode
 #+begin_src emacs-lisp :tangle yes
 (add-hook 'after-init-hook 'winner-mode)
 #+end_src
+
 ** Default to Elisp
 #+begin_src emacs-lisp :tangle yes
 (setq initial-major-mode 'emacs-lisp-mode)
 #+end_src
+
 ** Switch to the help window
 #+begin_src emacs-lisp :tangle yes
 (setq help-window-select t)
 #+end_src
+
 ** Spaces > tabs
 #+BEGIN_SRC emacs-lisp :tangle yes
 (setq-default indent-tabs-mode nil)
 #+END_SRC
+
 ** Sentences end with a single space
 #+begin_src emacs-lisp :tangle yes
 (setq sentence-end-double-space nil)
 #+end_src
+
 ** Show trailing whitespace
 It's disabled by default, and then gets enabled for all file-based
 buffer modes, so not for REPLS and shells.
@@ -121,6 +141,7 @@ buffer modes, so not for REPLS and shells.
 (add-hook 'prog-mode-hook 'sulami/show-trailing-whitespace)
 (add-hook 'text-mode-hook 'sulami/show-trailing-whitespace)
 #+END_SRC
+
 ** Show empty lines
 This shows vim-style tildes on the left fringe.
 #+begin_src emacs-lisp :tangle yes
@@ -128,10 +149,12 @@ This shows vim-style tildes on the left fringe.
 (define-fringe-bitmap 'tilde [0 0 0 113 219 142 0 0] nil nil 'center)
 (setcdr (assq 'empty-line fringe-indicator-alist) 'tilde)
 #+end_src
+
 ** Highlight matching parens
 #+BEGIN_SRC emacs-lisp :tangle yes
 (show-paren-mode 1)
 #+END_SRC
+
 ** Scrolling
 These settings were lifted off the internet™ and make scrolling with pointing
 devices feel more reasonable.
@@ -139,16 +162,19 @@ devices feel more reasonable.
 (setq mouse-wheel-progressive-speed nil
       mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
 #+END_SRC
+
 ** No line wrapping
 At least as a default, much nicer when resizing windows.
 #+BEGIN_SRC emacs-lisp :tangle yes
 (set-default 'truncate-lines t)
 (setq line-move-visual nil)
 #+END_SRC
+
 ** Enable code folding
 #+begin_src emacs-lisp :tangle yes
 (add-hook 'prog-mode-hook 'hs-minor-mode)
 #+end_src
+
 ** UTF-8
 #+BEGIN_SRC emacs-lisp :tangle yes
 (setq-default buffer-file-coding-system 'utf-8)
@@ -156,24 +182,29 @@ At least as a default, much nicer when resizing windows.
 (setenv "LC_ALL" "en_US.UTF-8")
 (prefer-coding-system 'utf-8)
 #+END_SRC
+
 ** Spelling
 Use ~aspell~ with British English.
 #+BEGIN_SRC emacs-lisp :tangle yes
 (setq ispell-program-name "aspell"
       ispell-extra-args (quote ("--sug-mode=ultra" "--lang=en_GB-ise")))
 #+END_SRC
+
 ** Enable erase buffer
 #+begin_src emacs-lisp :tangle yes
 (put 'erase-buffer 'disabled nil)
 #+end_src
+
 ** Y/N for yes or no questions
 #+BEGIN_SRC emacs-lisp :tangle yes
 (fset 'yes-or-no-p 'y-or-n-p)
 #+END_SRC
+
 ** Ask before exiting
 #+BEGIN_SRC emacs-lisp :tangle yes
 (setq confirm-kill-emacs 'yes-or-no-p)
 #+END_SRC
+
 ** Frame title
 #+BEGIN_SRC emacs-lisp :tangle yes
 (setq frame-title-format
@@ -182,6 +213,7 @@ Use ~aspell~ with British English.
 			 "Emacs"
 		       (concat "Emacs - " p-name)))))
 #+END_SRC
+
 ** Disable all the GUI
 #+BEGIN_SRC emacs-lisp :tangle yes
 (if (and (fboundp 'tool-bar-mode)
@@ -191,8 +223,10 @@ Use ~aspell~ with British English.
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (if (fboundp 'tooltip-mode) (tooltip-mode -1))
 #+END_SRC
+
 * macOS
 Everything in here relates to macOS in some way.
+
 ** Swap the modifier keys
 The MacPorts build I'm using swaps the modifiers from what I'm used to, so I'm
 swapping them back.
@@ -200,34 +234,42 @@ swapping them back.
 (setq mac-command-modifier 'super
       mac-option-modifier 'meta)
 #+END_SRC
+
 ** Fix paste
 Especially Alfred likes to paste with ~⌘-v~, so that needs to work.
 #+BEGIN_SRC emacs-lisp :tangle yes
 (define-key global-map (kbd "s-v") 'yank)
 #+END_SRC
+
 ** Maximise with ⌘-Return
 #+BEGIN_SRC emacs-lisp :tangle yes
 (define-key global-map (kbd "<s-return>") 'toggle-frame-maximized)
 #+END_SRC
+
 ** Mac font panel
 #+BEGIN_SRC emacs-lisp :tangle yes
 (define-key global-map (kbd "s-t") 'mac-font-panel-mode)
 #+END_SRC
+
 * Package management
+
 ** use-package
 #+BEGIN_SRC emacs-lisp :tangle yes
 (setq straight-use-package-by-default t)
 #+END_SRC
+
 ** el-patch
 Allows for patching functions in packages.
 #+begin_src emacs-lisp :tangle yes
 (use-package el-patch)
 #+end_src
+
 ** Dash
 List library that comes in handy.
 #+begin_src emacs-lisp :tangle yes
 (use-package dash)
 #+end_src
+
 ** Updating
 #+begin_src emacs-lisp :tangle yes
 (defun sulami/update-packages ()
@@ -238,7 +280,9 @@ List library that comes in handy.
   (straight-freeze-versions)
   (byte-recompile-directory "~/.emacs.d/straight/build" nil 'force))
 #+end_src
+
 * Appearance
+
 ** Font
 Set the font to Fira Code and enable ligatures.
 #+BEGIN_SRC emacs-lisp :tangle yes
@@ -248,6 +292,7 @@ Set the font to Fira Code and enable ligatures.
 (when (boundp 'mac-auto-operator-composition-mode)
   (mac-auto-operator-composition-mode))
 #+END_SRC
+
 ** Theme
 #+BEGIN_SRC emacs-lisp :tangle yes
 ;; I like to live dangerously
@@ -296,6 +341,7 @@ of another theme."
                                 (load-theme 'doom-solarized-light t)
                               (load-theme 'doom-solarized-dark t)))))))
 #+END_SRC
+
 ** All the icons
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package all-the-icons
@@ -307,6 +353,7 @@ of another theme."
   :if window-system
   :hook (dired-mode . all-the-icons-dired-mode))
 #+END_SRC
+
 ** Modeline
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package doom-modeline
@@ -334,8 +381,11 @@ of another theme."
                 ((floatp height) (* height (frame-char-height)))
                 (t (frame-char-height))))))))
 #+END_SRC
+
 * Custom functions
+
 ** Config
+
 *** Open this file
 #+BEGIN_SRC emacs-lisp :tangle yes
 (defun sulami/open-emacs-config ()
@@ -343,6 +393,7 @@ of another theme."
   (interactive)
   (find-file sulami/emacs-config-file))
 #+END_SRC
+
 *** Reload this file
 #+BEGIN_SRC emacs-lisp :tangle yes
 (defun sulami/reload-emacs-config ()
@@ -350,7 +401,9 @@ of another theme."
   (interactive)
   (org-babel-load-file sulami/emacs-config-file))
 #+END_SRC
+
 ** Buffers
+
 *** Rename buffer file
 #+BEGIN_SRC emacs-lisp :tangle yes
 (defun sulami/rename-file-and-buffer ()
@@ -366,6 +419,7 @@ of another theme."
           (rename-file filename new-name t)
           (set-visited-file-name new-name t t)))))))
 #+END_SRC
+
 *** Switch to buffer shortcuts
 #+BEGIN_SRC emacs-lisp :tangle yes
 (defun sulami/open-scratch-buffer ()
@@ -384,12 +438,14 @@ of another theme."
   (when (active-minibuffer-window)
     (select-window (minibuffer-window))))
 #+END_SRC
+
 *** Buffer line count
 #+BEGIN_SRC emacs-lisp :tangle yes
 (defun sulami/buffer-line-count ()
   "Get the number of lines in the active buffer."
   (count-lines 1 (point-max)))
 #+END_SRC
+
 *** Delete buffer file
 #+begin_src emacs-lisp :tangle yes
 (defun sulami/delete-file-and-buffer ()
@@ -401,6 +457,7 @@ of another theme."
     (delete-file file-name)
     (kill-buffer)))
 #+end_src
+
 *** Copy buffer
 #+begin_src emacs-lisp :tangle yes
 (defun sulami/copy-buffer ()
@@ -408,6 +465,7 @@ of another theme."
   (interactive)
   (copy-region-as-kill 1 (point-max)))
 #+end_src
+
 *** Revert all org-mode buffers
 Because I sync most of my org-mode files with my phone, writing to
 them without making sure they are current can overwrite changes I've
@@ -423,7 +481,9 @@ files before certain operations, like refiling.
                  (not (buffer-modified-p)))
         (revert-buffer)))))
 #+end_src
+
 ** Windows
+
 *** Maximise a window
 #+begin_src emacs-lisp :tangle yes
 (defun sulami/toggle-maximise-window ()
@@ -438,6 +498,7 @@ From: https://gist.github.com/mads-hartmann/3402786"
       (window-configuration-to-register ?_)
       (delete-other-windows))))
 #+end_src
+
 ** Run a shell command on a region
 #+begin_src emacs-lisp :tangle yes
 (defun sulami/shell-command-on-region (beg end)
@@ -447,6 +508,7 @@ From: https://gist.github.com/mads-hartmann/3402786"
         (shell-command-on-region beg end cmd t t))
     (message "Select a region first")))
 #+end_src
+
 ** Sort words
 #+begin_src emacs-lisp :tangle yes
 (defun sulami/sort-words (beg end)
@@ -454,6 +516,7 @@ From: https://gist.github.com/mads-hartmann/3402786"
   (interactive "r")
   (sort-regexp-fields nil "\\w+" "\\&" beg end))
 #+end_src
+
 ** Toggle narrowing
 #+begin_src emacs-lisp :tangle yes
 (defun sulami/toggle-narrow ()
@@ -465,6 +528,7 @@ From: https://gist.github.com/mads-hartmann/3402786"
         (org-narrow-to-subtree)
       (narrow-to-defun))))
 #+end_src
+
 ** Toggle line numbers
 This one is faster than ~linum-mode~.
 #+begin_src emacs-lisp :tangle yes
@@ -473,6 +537,7 @@ This one is faster than ~linum-mode~.
   (interactive)
   (setq display-line-numbers (not display-line-numbers)))
 #+end_src
+
 ** Find the font face used
 This one is quite useful for debugging syntax highlighting. It's
 adapted from [[https://stackoverflow.com/questions/1242352/get-font-face-under-cursor-in-emacs][here]].
@@ -485,6 +550,7 @@ adapted from [[https://stackoverflow.com/questions/1242352/get-font-face-under-c
         (message "Face: %s" face)
       (message "No face at %d" pos))))
 #+end_src
+
 * General
 General allows me to use fancy prefix keybindings.
 
@@ -566,6 +632,7 @@ declarations.
    :keymaps 'dired-mode-map
    "<return>" 'dired-find-alternate-file))
 #+END_SRC
+
 * Evil
 #+begin_src emacs-lisp :tangle yes
 (use-package evil
@@ -618,6 +685,7 @@ declarations.
     "<" 'sulami/evil-shift-left-visual)
   :hook (after-init . evil-mode))
 #+end_src
+
 ** evil-collection
 #+begin_src emacs-lisp :tangle yes
 (use-package evil-collection
@@ -630,6 +698,7 @@ declarations.
              (delete 'lispy)))
   (evil-collection-init))
 #+end_src
+
 ** evil-org
 #+begin_src emacs-lisp :tangle yes
 (use-package evil-org
@@ -639,6 +708,7 @@ declarations.
   :hook ((org-mode . evil-org-mode)
          (org-agenda-mode . evil-org-agenda-set-keys)))
 #+end_src
+
 ** evil-search-highlight-persist
 #+begin_src emacs-lisp :tangle yes
 (use-package evil-search-highlight-persist
@@ -654,21 +724,25 @@ declarations.
     "RET" 'sulami/isearch-nohighlight)
   :hook (evil-mode . global-evil-search-highlight-persist))
 #+end_src
+
 ** evil-commentary
 #+begin_src emacs-lisp :tangle yes
 (use-package evil-commentary
   :hook (evil-mode . evil-commentary-mode))
 #+end_src
+
 ** evil-surround
 #+begin_src emacs-lisp :tangle yes
 (use-package evil-surround
   :hook (evil-mode . global-evil-surround-mode))
 #+end_src
+
 * Which key
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package which-key
   :hook (after-init . which-key-mode))
 #+END_SRC
+
 * Ivy
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package ivy
@@ -698,6 +772,7 @@ declarations.
   ;; "S-<space>" filters the list based on current input
   :hook (after-init . ivy-mode))
 #+END_SRC
+
 ** Counsel
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package counsel
@@ -783,6 +858,7 @@ a symbol and how to search for them."
   ((after-init . counsel-mode)
    (eshell-mode . sulami/counsel-setup-eshell-bindings)))
 #+END_SRC
+
 ** Swiper
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package swiper
@@ -795,6 +871,7 @@ a symbol and how to search for them."
    "s s" 'swiper
    "s S" 'sulami/swiper-thing-at-point))
 #+END_SRC
+
 ** ivy-prescient
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package ivy-prescient
@@ -802,6 +879,7 @@ a symbol and how to search for them."
   :config
   (prescient-persist-mode))
 #+END_SRC
+
 ** ivy-xref
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package ivy-xref
@@ -810,6 +888,7 @@ a symbol and how to search for them."
             (setq xref-show-xrefs-function #'ivy-xref-show-xrefs)
           (setq xref-show-definitions-function #'ivy-xref-show-defs)))
 #+END_SRC
+
 ** flyspell-correct-ivy
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package flyspell-correct-ivy
@@ -827,11 +906,13 @@ a symbol and how to search for them."
                   (call-interactively 'flyspell-correct-wrapper))))
             :wk "flyspell-correct-wrapper-rapid")))
 #+END_SRC
+
 ** flx
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package flx
   :defer t)
 #+END_SRC
+
 * Company
 Company does completion via a dropdown that automatically pops up
 while typing. I can select a match if I want to, but ignore the
@@ -864,6 +945,7 @@ shell.
 (use-package company-prescient
   :hook (company-mode . company-prescient-mode))
 #+END_SRC
+
 * Yasnippet
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package yasnippet
@@ -885,8 +967,10 @@ shell.
   :defer t
   :after (yasnippet))
 #+END_SRC
+
 * Parentheses
 Keeps my parentheses balanced.
+
 ** Lispyville
 I use [[https://github.com/noctuid/lispyville][LispyVille]] for all Lisp major modes, as it does some additional
 magic around spacing, comments, and more.
@@ -924,6 +1008,7 @@ magic around spacing, comments, and more.
    (inf-clojure-mode . lispyville-mode)
    (racket-mode . lispyville-mode)))
 #+end_src
+
 ** evil-cleverparens
 All other modes just use ~electric-pair-mode~, which is built into
 Emacs already, for automatically matching parentheses, and
@@ -939,6 +1024,7 @@ interfering with non-lisp syntax.
    (prog-mode . evil-cleverparens-mode)
    (prog-mode . electric-pair-local-mode)))
 #+end_src
+
 * Dumb jump
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package dumb-jump
@@ -951,6 +1037,7 @@ interfering with non-lisp syntax.
     "j j" (sulami/evil-set-jump-wrapper 'dumb-jump-go)
     "j p" (sulami/evil-set-jump-wrapper 'dumb-jump-go-prompt)))
 #+END_SRC
+
 * Wgrep
 This allows running ~rgrep~ and then writing to the result buffer,
 modifying the files matched in place. Quite useful for sweeping
@@ -966,18 +1053,21 @@ changes.
     :keymaps 'grep-mode-map
     "w" 'wgrep-change-to-wgrep-mode))
 #+end_src
+
 * Avy
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package avy
   :general
   (general-nvmap "s-n" 'avy-goto-word-or-subword-1))
 #+END_SRC
+
 * Highlight TODO
 #+begin_src emacs-lisp :tangle yes
 (use-package hl-todo
   :defer t
   :hook (after-init . global-hl-todo-mode))
 #+end_src
+
 * Highlight symbol
 I only enable this every now and then.
 #+BEGIN_SRC emacs-lisp :tangle yes
@@ -985,6 +1075,7 @@ I only enable this every now and then.
   :general
   (leader-def "t h" 'auto-highlight-symbol-mode))
 #+END_SRC
+
 * Projectile
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package projectile
@@ -1049,6 +1140,7 @@ I only enable this every now and then.
    "s P" 'sulami/projectile-rg-thing-at-point))
 
 #+END_SRC
+
 * Perspective
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package perspective
@@ -1079,6 +1171,7 @@ I only enable this every now and then.
     "p p" 'projectile-persp-switch-project
     "p k" 'sulami/kill-project-perspective))
 #+END_SRC
+
 * Winum
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package winum
@@ -1104,12 +1197,14 @@ I only enable this every now and then.
     "w 9" 'winum-select-window-9)
   :hook (after-init . winum-mode))
 #+END_SRC
+
 * Fill column indicator
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package fill-column-indicator
   :general
   (leader-def "t f" 'fci-mode))
 #+END_SRC
+
 * Org mode
 #+begin_src emacs-lisp :tangle yes
 (use-package org
@@ -1134,16 +1229,19 @@ I only enable this every now and then.
             (org-todo '(4)))
           :wk "org-todo (with note)")))
 #+end_src
+
 ** Add more workflow states
 #+begin_src emacs-lisp :tangle yes
 (setq org-todo-keywords
       '((sequence "TODO(t)" "WIP(p)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)"))
       org-use-fast-todo-selection t)
 #+end_src
+
 ** Save when I change a workflow state
 #+begin_src emacs-lisp :tangle yes
 (add-hook 'org-trigger-hook 'save-buffer)
 #+end_src
+
 ** Footnotes
 Define them at the end of the current outline section, and
 automatically renumber them when they're modified.
@@ -1151,15 +1249,18 @@ automatically renumber them when they're modified.
 (setq org-footnote-section nil
       org-footnote-auto-adjust t)
 #+end_src
+
 ** Plain source code blocks
 #+BEGIN_SRC emacs-lisp :tangle yes
 (setq org-src-preserve-indentation nil
       org-edit-src-content-indentation 0)
 #+END_SRC
+
 ** Open source code blocks in the same window
 #+begin_src emacs-lisp :tangle yes
 (setq org-src-window-setup 'current-window)
 #+end_src
+
 ** Enable babel for more languages
 #+begin_src emacs-lisp :tangle yes
 (org-babel-do-load-languages
@@ -1169,29 +1270,35 @@ automatically renumber them when they're modified.
    (python . t)
    (clojure . t)))
 #+end_src
+
 ** Use drawers for source block evaluation
 #+begin_src emacs-lisp :tangle yes
 (add-to-list 'org-babel-default-header-args '(:results . "replace drawer"))
 #+end_src
+
 ** Disable ligatures in org-mode
 #+BEGIN_SRC emacs-lisp :tangle yes
 (add-hook 'org-mode-hook
           (lambda ()
             (auto-composition-mode -1)))
 #+END_SRC
+
 ** Show emphasis markers
 #+BEGIN_SRC emacs-lisp :tangle yes
 (setq org-hide-emphasis-markers nil)
 #+END_SRC
+
 ** Indent-mode
 #+BEGIN_SRC emacs-lisp :tangle yes
 (setq org-indent-indentation-per-level 1)
 (add-hook 'org-mode-hook 'org-indent-mode)
 #+END_SRC
+
 ** Enable spell checking
 #+begin_src emacs-lisp :tangle yes
 (add-hook 'org-mode-hook 'flyspell-mode)
 #+end_src
+
 ** Archiving
 - archive into one shared file
 - auto-save
@@ -1203,6 +1310,7 @@ automatically renumber them when they're modified.
 
 (advice-add 'org-archive-subtree :after 'org-save-all-org-buffers)
 #+end_src
+
 ** Agenda
 #+begin_src emacs-lisp :tangle yes
 (setq org-directory "~/Documents/Notes/"
@@ -1214,6 +1322,7 @@ automatically renumber them when they're modified.
       org-agenda-dim-blocked-tasks t
       org-agenda-window-setup 'current-window)
 #+end_src
+
 ** org-super-agenda
 #+begin_src emacs-lisp :tangle yes
 (use-package org-super-agenda
@@ -1266,11 +1375,13 @@ automatically renumber them when they're modified.
   :hook
   (after-init . org-super-agenda-mode))
 #+end_src
+
 ** Tags
 Autocomplete tags using all agenda files.
 #+begin_src emacs-lisp :tangle yes
 (setq org-complete-tags-always-offer-all-agenda-tags t)
 #+end_src
+
 ** Capture
 #+begin_src emacs-lisp :tangle yes
 (setq org-capture-templates
@@ -1295,12 +1406,14 @@ Autocomplete tags using all agenda files.
          (file "inbox.org")
          "* TODO %^{title}\n%u\n%?")))
 #+end_src
+
 ** Export
 Set some sane default options for exporting.
 #+begin_src emacs-lisp :tangle yes
 (setq org-export-with-toc nil
       org-export-initial-scope 'subtree)
 #+end_src
+
 ** Refile
 This allows me to refile from the GTD inbox to the top-level of a file.
 
@@ -1320,6 +1433,7 @@ Also, just like when archiving, we auto-save when refiling.
 
 (advice-add 'org-refile :after 'org-save-all-org-buffers)
 #+end_src
+
 ** Open the inbox
 #+BEGIN_SRC emacs-lisp :tangle yes
 (defun sulami/open-org-inbox ()
@@ -1327,17 +1441,20 @@ Also, just like when archiving, we auto-save when refiling.
   (interactive)
   (find-file "~/Documents/Notes/inbox.org"))
 #+END_SRC
+
 ** Calendar
 Weeks start on Monday, and who thought MDY was a good idea?
 #+BEGIN_SRC emacs-lisp :tangle yes
 (setq calendar-week-start-day 1
       calendar-date-style 'iso)
 #+END_SRC
+
 ** Time tracking
 Always persist org-clock data to disk, in case Emacs crashes.
 #+begin_src emacs-lisp :tangle yes
 (setq org-clock-persist t)
 #+end_src
+
 ** org-gfm
 This gives me org-mode->github flavoured markdown export.
 #+begin_src emacs-lisp :tangle yes
@@ -1345,6 +1462,7 @@ This gives me org-mode->github flavoured markdown export.
   :defer 3
   :after org)
 #+end_src
+
 ** org-drill
 Spaced repetition in org-mode.
 #+begin_src emacs-lisp :tangle yes
@@ -1356,6 +1474,7 @@ Spaced repetition in org-mode.
   (org-drill-adjust-intervals-for-early-and-late-repetitions-p t)
   (org-drill-learn-fraction 0.3))
 #+end_src
+
 * Magit
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package magit
@@ -1404,6 +1523,7 @@ Spaced repetition in org-mode.
    "g r" 'git-link-homepage
    "g R" 'open-git-repo-in-browser))
 #+END_SRC
+
 * Flycheck
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package flycheck
@@ -1417,6 +1537,7 @@ Spaced repetition in org-mode.
   (leader-def "t c" 'flycheck-mode)
   :hook (clojure-mode . flycheck-mode))
 #+END_SRC
+
 * Elisp
 #+begin_src emacs-lisp :tangle yes
 (local-leader-def
@@ -1427,15 +1548,19 @@ Spaced repetition in org-mode.
   "e f" 'eval-defun
   "e r" 'eval-region)
 #+end_src
+
 * Eshell
+
 ** Aliases
 #+BEGIN_SRC emacs-lisp :tangle yes
 (setq eshell-aliases-file "~/.emacs/aliases")
 #+END_SRC
+
 ** Completion
 Eshell doesn't do context-aware autocompletion by default and defaults
 to completing filenames instead. Luckily we can easily define custom
 completion handlers for commands.
+
 *** Disable the completion buffer
 This swaps the terrible popup buffer that eshell opens when I hit
 =TAB= for a ivy-based completion.
@@ -1453,6 +1578,7 @@ isn't available before eshell is started.
    (define-key eshell-mode-map (kbd "TAB") 'completion-at-point)
    (define-key eshell-mode-map (kbd "<tab>") 'completion-at-point)))
 #+end_src
+
 *** Sudo
 #+begin_src emacs-lisp :tangle yes
 (defun pcomplete/sudo ()
@@ -1461,28 +1587,36 @@ isn't available before eshell is started.
     (pcomplete-here (funcall pcomplete-command-completion-function))
     (while (pcomplete-here (pcomplete-entries)))))
 #+end_src
+
 * Ediff
+
 ** Ignore whitespace changes
 #+begin_src emacs-lisp :tangle yes
 (setq ediff-diff-options "-w")
 #+end_src
+
 ** Don't create a new frame for the control window
 #+begin_src emacs-lisp :tangle yes
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 #+end_src
+
 ** Split horizontally by default
 #+begin_src emacs-lisp :tangle yes
 (setq ediff-split-window-function 'split-window-horizontally)
 #+end_src
+
 * Dired
+
 ** Enable find-alternate-file
 #+begin_src emacs-lisp :tangle yes
 (put 'dired-find-alternate-file 'disabled nil)
 #+end_src
+
 ** Always show me current data
 #+begin_src emacs-lisp :tangle yes
 (add-hook 'dired-mode-hook 'auto-revert-mode)
 #+end_src
+
 * Woman
 #+begin_src emacs-lisp :tangle yes
 (use-package man
@@ -1521,6 +1655,7 @@ should be a topic string and non-nil RE-CACHE forces re-caching."
       (message "WoMan Error: No topic specified in non-interactive call")
       (ding))))
 #+end_src
+
 * Helpful
 #+begin_src emacs-lisp :tangle yes
 (use-package helpful
@@ -1531,6 +1666,7 @@ should be a topic string and non-nil RE-CACHE forces re-caching."
     "h f" 'helpful-function
     "h k" 'helpful-key))
 #+end_src
+
 * Esup
 This allows me to benchmark Emacs startup.
 #+begin_src emacs-lisp :tangle yes
@@ -1538,6 +1674,7 @@ This allows me to benchmark Emacs startup.
   :defer t
   :commands (esup))
 #+end_src
+
 * ERC
 #+begin_src emacs-lisp :tangle yes
 (use-package erc
@@ -1560,6 +1697,7 @@ This allows me to benchmark Emacs startup.
     :keymaps 'erc-mode-map
     "t" 'erc-track-switch-buffer))
 #+end_src
+
 * Email
 This is my email setup. I fetch email into a local maildir, which is
 available offline, and also much faster.
@@ -1573,6 +1711,7 @@ available offline, and also much faster.
       mail-specify-envelope-from t
       mail-envelope-from 'header)
 #+end_src
+
 ** Notmuch
 [[https://notmuchmail.org/][notmuch]] is a performant email tagging system, which I use to sort and
 view emails in my local maildir.
@@ -1602,6 +1741,7 @@ view emails in my local maildir.
     "a m s" 'notmuch-search
     "a m u" 'notmuch-unread))
 #+end_src
+
 * Verb
 #+begin_src emacs-lisp :tangle yes
 (use-package verb
@@ -1636,6 +1776,7 @@ brew install cmake libtool
   (leader-def
     "a t" 'vterm))
 #+end_src
+
 * Atomic
 Atomic starts a server which a browser plugin like [[https://github.com/GhostText/GhostText][GhostText]] can
 connect to so I can edit text inside Emacs. I rarely use it, so it's
@@ -1654,6 +1795,7 @@ disabled for now to avoid the overhead of running the server.
   :hook ((after-init . atomic-chrome-start-server)
          (atomic-chrome-edit-done . delete-frame)))
 #+end_src
+
 * LSP
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package lsp-mode
@@ -1679,6 +1821,7 @@ disabled for now to avoid the overhead of running the server.
   :defer t
   :commands company-lsp)
 #+END_SRC
+
 * Clojure
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package clojure-mode
@@ -1697,6 +1840,7 @@ disabled for now to avoid the overhead of running the server.
   :defer t
   :hook (clojure-mode . (lambda () (require 'flycheck-clj-kondo))))
 #+END_SRC
+
 ** CIDER
 The big IDE-like integration for Clojure.
 #+begin_src emacs-lisp :tangle yes
@@ -1742,6 +1886,7 @@ The big IDE-like integration for Clojure.
     "t p" 'cider-test-run-project-tests
     "t t" 'cider-test-run-test))
 #+end_src
+
 ** Monroe
 The smaller integration for Clojure. Sometimes less buggy.
 #+begin_src emacs-lisp :tangle yes
@@ -1773,6 +1918,7 @@ The smaller integration for Clojure. Sometimes less buggy.
     "t n" 'sulami/monroe-run-ns-tests
     "t t" 'sulami/monroe-run-test))
 #+end_src
+
 ** inf-clojure
 This uses the Emacs inferior lisp mode, which turns out to be quite
 lightweight, and well integrated. The downside is that you need to
@@ -1803,6 +1949,7 @@ start up a socket repl, which is not nREPL.
   ((inf-clojure-mode . eldoc-mode)
    (inf-clojure-minor-mode . eldoc-mode)))
 #+end_src
+
 ** HugSQL
 HugSQL is a Clojure ORM which adds some special syntax to SQL.
 
@@ -1823,6 +1970,7 @@ In this case we install a fix to make imenu work in HugSQL files.
   :hook
   (sql-mode . sulami/init-hugsql-imenu))
 #+end_src
+
 * Common Lisp
 #+begin_src emacs-lisp :tangle yes
 (use-package sly
@@ -1845,11 +1993,13 @@ In this case we install a fix to make imenu work in HugSQL files.
     "h d" 'sly-documentation
     "h i" 'sly-inspect))
 #+end_src
+
 * Racket
 #+begin_src emacs-lisp :tangle yes
 (use-package racket-mode
   :defer t)
 #+end_src
+
 * Haskell
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package haskell-mode
@@ -1873,17 +2023,20 @@ In this case we install a fix to make imenu work in HugSQL files.
 ;  "o" 'haskell-evil-open-below
 ;  "O" 'haskell-evil-open-above)
 #+END_SRC
+
 * Rust
 #+begin_src emacs-lisp :tangle yes
 (use-package rust-mode
   :defer t)
 #+end_src
+
 * LLVM
 I look at LLVM assembly more than is healthy, and some colour helps
 there.
 #+begin_src emacs-lisp :tangle yes
 (load "~/.emacs/lisp/llvm-mode")
 #+end_src
+
 * Docker
 Docker & tramp integration allows for using ~/docker:container~ as a
 tramp target.
@@ -1891,6 +2044,7 @@ tramp target.
 (use-package docker-tramp
   :defer t)
 #+end_src
+
 * Markdown
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package markdown-mode
@@ -1912,16 +2066,19 @@ tramp target.
 (use-package edit-indirect
   :defer t)
 #+END_SRC
+
 * YAML
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package yaml-mode
   :defer t)
 #+END_SRC
+
 * JSON
 #+begin_src emacs-lisp :tangle yes
 ;; Indent by 2 spaces, if we ever get there
 (setq js2-basic-offset 2)
 #+end_src
+
 * Protobuf
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package protobuf-mode
@@ -1937,6 +2094,7 @@ Stolen from Spacemacs."
   :hook
   (protobuf-mode . sulami/init-protobuf-imenu))
 #+END_SRC
+
 * Done
 #+BEGIN_SRC emacs-lisp :tangle yes
 (add-hook 'emacs-startup-hook
