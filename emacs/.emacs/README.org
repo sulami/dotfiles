@@ -359,8 +359,7 @@ of another theme."
 (use-package doom-modeline
   :hook (after-init . doom-modeline-mode)
   :custom
-  (doom-modeline-major-mode-icon nil)
-  (doom-modeline-modal-icon nil)
+  (doom-modeline-icon nil)
   (doom-modeline-height 10)
   (doom-modeline-buffer-file-name-style 'relative-to-project)
   (doom-modeline-buffer-encoding nil)
