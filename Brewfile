@@ -15,6 +15,7 @@ brew "cloc"
 brew "rlwrap"
 brew "clojure"
 brew "clojurescript"
+brew "cmake"
 brew "coreutils"
 brew "docker", link: false
 brew "docker-compose", link: false
@@ -30,6 +31,7 @@ brew "iftop"
 brew "isync", restart_service: true
 brew "jq"
 brew "leiningen"
+brew "libtool"
 brew "llvm"
 brew "llvm@8"
 brew "maven"

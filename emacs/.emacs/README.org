@@ -530,7 +530,6 @@ declarations.
     "a C" 'calc
     "a i" 'sulami/open-org-inbox
     "a s" 'shell
-    "a t" 'ansi-term
     "b e" 'erase-buffer
     "b d" 'kill-this-buffer
     "b D" 'kill-buffer-and-window
@@ -1620,6 +1619,22 @@ view emails in my local maildir.
   (general-nmap
     :keymaps 'verb-response-body-mode-map
     "q" 'verb-kill-response-buffer-and-window))
+#+end_src
+* vterm
+vterm is a terminal emulator which is way faster than anything built
+into Emacs. It copes well with huge amounts of output and weird escape
+sequences. Prior to installation run:
+#+begin_src sh
+brew install cmake libtool
+#+end_src
+
+#+begin_src emacs-lisp :tangle yes
+(use-package vterm
+  :defer t
+  :commands (vterm)
+  :general
+  (leader-def
+    "a t" 'vterm))
 #+end_src
 * Atomic
 Atomic starts a server which a browser plugin like [[https://github.com/GhostText/GhostText][GhostText]] can
