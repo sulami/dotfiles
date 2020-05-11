@@ -66,6 +66,9 @@ This reloads changed files which are open in Emacs but not edited.
 #+end_src
 
 ** Make Tramp great again
+These are just fixes to make TRAMP work and be reasonably fast. Mostly
+sourced from the internet, I don't pretend to know how this actually
+works.
 #+begin_src emacs-lisp :tangle yes
 (setq tramp-default-method "ssh"
       tramp-ssh-controlmaster-options
@@ -106,6 +109,7 @@ This reloads changed files which are open in Emacs but not edited.
 #+END_SRC
 
 ** Enable winner-mode
+This allows me to use ~winner-undo~ if I accidentally delete a window.
 #+begin_src emacs-lisp :tangle yes
 (add-hook 'after-init-hook 'winner-mode)
 #+end_src
@@ -150,7 +154,9 @@ This shows vim-style tildes on the left fringe.
 (setcdr (assq 'empty-line fringe-indicator-alist) 'tilde)
 #+end_src
 
-** Highlight matching parens
+** Highlight matching parentheses
+I prefer this over using rainbow parentheses, which make it difficult
+to see what's actually happening.
 #+BEGIN_SRC emacs-lisp :tangle yes
 (show-paren-mode 1)
 #+END_SRC
@@ -206,6 +212,8 @@ Use ~aspell~ with British English.
 #+END_SRC
 
 ** Frame title
+Set the frame title to the current project name. This is useful if I
+have several frames/Emacsen open and want to switch between them.
 #+BEGIN_SRC emacs-lisp :tangle yes
 (setq frame-title-format
       (list :eval '(let ((p-name (projectile-project-name)))
@@ -254,6 +262,7 @@ Especially Alfred likes to paste with ~⌘-v~, so that needs to work.
 * Package management
 
 ** use-package
+Default =straight= to install anything ~use-package~ defines.
 #+BEGIN_SRC emacs-lisp :tangle yes
 (setq straight-use-package-by-default t)
 #+END_SRC
@@ -270,7 +279,7 @@ List library that comes in handy.
 (use-package dash)
 #+end_src
 
-** Updating
+** Updating all packages
 #+begin_src emacs-lisp :tangle yes
 (defun sulami/update-packages ()
   "Prunes and updates packages, revalidates patches."
@@ -285,6 +294,7 @@ List library that comes in handy.
 
 ** Font
 Set the font to Fira Code and enable ligatures.
+
 #+BEGIN_SRC emacs-lisp :tangle yes
 (let ((font "Fira Code 14"))
   (set-face-attribute 'default nil :font font)
@@ -294,6 +304,11 @@ Set the font to Fira Code and enable ligatures.
 #+END_SRC
 
 ** Theme
+I use =doom-themes=, mostly =doom-solarized-light= & =doom-gruvbox=.
+
+There are some fixes to prevent themes from clashing, and I also
+disable most backgrounds as I find them distracting.
+
 #+BEGIN_SRC emacs-lisp :tangle yes
 ;; I like to live dangerously
 (setq custom-safe-themes t)
@@ -343,6 +358,9 @@ of another theme."
 #+END_SRC
 
 ** All the icons
+Adds some icons. I use them mainly in ~dired~, where they help provide
+an overview.
+
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package all-the-icons
   :defer t
@@ -355,6 +373,9 @@ of another theme."
 #+END_SRC
 
 ** Modeline
+I use =doom-modeline=, without any icons, and patched to be regular
+height.
+
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package doom-modeline
   :hook (after-init . doom-modeline-mode)
@@ -472,6 +493,7 @@ Because I sync most of my org-mode files with my phone, writing to
 them without making sure they are current can overwrite changes I've
 made. A simple solution is just to attempt to re-read all org-mode
 files before certain operations, like refiling.
+
 #+begin_src emacs-lisp :tangle yes
 (defun sulami/org-revert-all-org-buffers ()
   "Reverts all unmodified org-mode buffers."
@@ -635,6 +657,10 @@ declarations.
 #+END_SRC
 
 * Evil
+This provides vim-style modal editing. There is quite a bit of
+boilerplate to make it work with the various components, but I really
+can't stand the default Emacs keybindings.
+
 #+begin_src emacs-lisp :tangle yes
 (use-package evil
   :init
@@ -688,6 +714,10 @@ declarations.
 #+end_src
 
 ** evil-collection
+This adds evil-keybindings for /a lot/ of popular modes.
+
+I have to disable some because they clash with my own.
+
 #+begin_src emacs-lisp :tangle yes
 (use-package evil-collection
   :after (evil)
@@ -701,6 +731,8 @@ declarations.
 #+end_src
 
 ** evil-org
+Evil-keybindings for org/agenda.
+
 #+begin_src emacs-lisp :tangle yes
 (use-package evil-org
   :after (org)
@@ -711,6 +743,11 @@ declarations.
 #+end_src
 
 ** evil-search-highlight-persist
+This persists the search highlight after using =/=, so that I can see
+all the matches. I bound =RET= to ~:noh~, which I stole from Gary
+Bernhardt a long time ago. It conflicts with some bindings in some
+modes, but I'm used to it.
+
 #+begin_src emacs-lisp :tangle yes
 (use-package evil-search-highlight-persist
   :config
@@ -727,24 +764,35 @@ declarations.
 #+end_src
 
 ** evil-commentary
+=vim-commentary= but for evil.
+
 #+begin_src emacs-lisp :tangle yes
 (use-package evil-commentary
   :hook (evil-mode . evil-commentary-mode))
 #+end_src
 
 ** evil-surround
+=vim-surround= but for evil.
+
 #+begin_src emacs-lisp :tangle yes
 (use-package evil-surround
   :hook (evil-mode . global-evil-surround-mode))
 #+end_src
 
 * Which key
+This shows all available keybindings when I hit a key. Sometimes
+useful.
+
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package which-key
   :hook (after-init . which-key-mode))
 #+END_SRC
 
 * Ivy
+Ivy is the selection tool that I use for most selection tasks. It uses
+the minibuffer to present a list which can be filtered. It's fast,
+powerful and customisable, I highly recommend it.
+
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package ivy
   :init
@@ -775,6 +823,8 @@ declarations.
 #+END_SRC
 
 ** Counsel
+Counsel provides ivy-based replacements for other commands.
+
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package counsel
   :config/el-patch
@@ -861,6 +911,9 @@ a symbol and how to search for them."
 #+END_SRC
 
 ** Swiper
+Swiper uses Ivy to search the current buffer, and jumps a preview to
+the position of the selected match.
+
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package swiper
   :config
@@ -874,6 +927,9 @@ a symbol and how to search for them."
 #+END_SRC
 
 ** ivy-prescient
+This memorises my selection for different ivy completions and presents
+those first in subsequent queries.
+
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package ivy-prescient
   :hook (ivy-mode . ivy-prescient-mode)
@@ -882,6 +938,8 @@ a symbol and how to search for them."
 #+END_SRC
 
 ** ivy-xref
+Ivy support for xref.
+
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package ivy-xref
   :defer t
@@ -891,6 +949,8 @@ a symbol and how to search for them."
 #+END_SRC
 
 ** flyspell-correct-ivy
+Flyspell corrections, but in ivy.
+
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package flyspell-correct-ivy
   :defer t
@@ -909,6 +969,8 @@ a symbol and how to search for them."
 #+END_SRC
 
 ** flx
+flx provides fuzzy matching as a library.
+
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package flx
   :defer t)
@@ -948,6 +1010,9 @@ shell.
 #+END_SRC
 
 * Yasnippet
+Snippets. I have a few custom ones. =yasnippet-snippets= is a huge
+bundle of useful snippets for all kinds of modes.
+
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package yasnippet
   :config
@@ -1027,6 +1092,9 @@ interfering with non-lisp syntax.
 #+end_src
 
 * Dumb jump
+Uses ~rg~ to jump to definition. Zero setup. Not always correct, but
+usually good enough. Much less of a hassle than LSP.
+
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package dumb-jump
   :after (evil)
@@ -1056,6 +1124,8 @@ changes.
 #+end_src
 
 * Avy
+This allows me to jump to any point on the screen.
+
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package avy
   :general
@@ -1063,6 +1133,8 @@ changes.
 #+END_SRC
 
 * Highlight TODO
+Highlights certain keywords in comments, like =TODO= and =FIXME=.
+
 #+begin_src emacs-lisp :tangle yes
 (use-package hl-todo
   :defer t
@@ -1071,6 +1143,7 @@ changes.
 
 * Highlight symbol
 I only enable this every now and then.
+
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package auto-highlight-symbol
   :general
@@ -1078,6 +1151,8 @@ I only enable this every now and then.
 #+END_SRC
 
 * Projectile
+Manages projects (usually git repositories, but flexible).
+
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package projectile
   :init
@@ -1174,6 +1249,8 @@ I only enable this every now and then.
 #+END_SRC
 
 * Winum
+Number windows and allow me to switch to them.
+
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package winum
   :general
