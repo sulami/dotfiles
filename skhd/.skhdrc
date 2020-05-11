@@ -1,4 +1,4 @@
-# -*- mode: sh -*-
+# -*- mode: conf -*-
 
 # Unbind cmd-q (rcmd is bound further down)
 lcmd - q : true
