@@ -259,6 +259,17 @@ Especially Alfred likes to paste with ~⌘-v~, so that needs to work.
 (define-key global-map (kbd "s-t") 'mac-font-panel-mode)
 #+END_SRC
 
+** Fix frame focus
+The MacPorts Emacs version I'm using has the peculiar behaviour that
+requires ~menu-bar-mode~ to be enabled in order to focus the current
+frame when switching workspaces.
+#+begin_src emacs-lisp :tangle yes
+;; Use `mac-font-panel-mode' as a proxy to find out if this is the
+;; MacPorts version.
+(when (fboundp 'mac-font-panel-mode)
+  (menu-bar-mode 1))
+#+end_src
+
 * Package management
 
 ** use-package
