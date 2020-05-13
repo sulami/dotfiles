@@ -3,9 +3,6 @@
 # yabai -m config layout float
 yabai -m config layout bsp
 
-# Split ratio
-yabai -m config split_ratio 0.5
-
 # Mouse actions (fn +)
 yabai -m config mouse_action1 resize
 yabai -m config mouse_action2 move
@@ -22,3 +19,22 @@ yabai -m rule --add label=ff-pip app="^Firefox Developer Edition$" title="^Pictu
 yabai -m rule --add app="^Firefox Developer Edition$" title="^Opening .+$" manage=off
 yabai -m rule --add app="^Firefox Developer Edition$" title="^Launch Application$" manage=off
 yabai -m rule --add app="^Calendar$" manage=off
+
+# Hack in automatic v-stack layout. Requires jq.
+# +------+    +---+--+     +---+--+
+# |      |    |   |  |     |   |  |
+# |      | => |   |  |  => |   +--+
+# |      |    |   |  |     |   |  |
+# +------+    +---+--+     +---+--+
+
+yabai -m config auto_balance off
+yabai -m config split_ratio 0.6
+yabai -m signal --add \
+      label=new-window-tile \
+      event=window_created \
+      action='yabai -m window $YABAI_WINDOW_ID --warp last; \
+              if [[ `yabai -m query --windows --space | jq -r "length"` = 2 ]] && [[ `yabai -m query --windows --window $YABAI_WINDOW_ID | jq -r ".split"` = "horizontal" ]]; then \
+                yabai -m window --toggle split; \
+              elif [[ `yabai -m query --windows --space | jq -r "length"` != 2 ]] && [[ `yabai -m query --windows --window $YABAI_WINDOW_ID | jq -r ".split"` = "vertical" ]]; then \
+                yabai -m window --toggle split; \
+              fi;'
