@@ -506,7 +506,7 @@ made. A simple solution is just to attempt to re-read all org-mode
 files before certain operations, like refiling.
 
 #+begin_src emacs-lisp :tangle yes
-(defun sulami/org-revert-all-org-buffers ()
+(defun sulami/org-revert-all-org-buffers (&rest _)
   "Reverts all unmodified org-mode buffers."
   (dolist (buffer (buffer-list))
     (with-current-buffer buffer
@@ -1472,6 +1472,9 @@ Autocomplete tags using all agenda files.
 #+end_src
 
 ** Capture
+My capture templates. Also reload buffers before attempting to capture
+to avoid overwriting iCloud changes.
+
 #+begin_src emacs-lisp :tangle yes
 (setq org-capture-templates
       '(("b" "Blog idea" entry
@@ -1494,6 +1497,8 @@ Autocomplete tags using all agenda files.
         ("t" "Todo" entry
          (file "inbox.org")
          "* TODO %^{title}\n%u\n%?")))
+
+(advice-add 'org-capture :before 'sulami/org-revert-all-org-buffers)
 #+end_src
 
 ** Export
