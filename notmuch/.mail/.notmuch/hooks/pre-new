@@ -16,10 +16,12 @@ notmuch new --no-hooks
 
 # Fastmail
 
-# Spam.
-notmuch search --output=files --format=text0 -- path:"fastmail/INBOX/**" tag:spam | xargs -0tI {} mv -n {} ~/.mail/fastmail/Spam/new/
 # Trash.
 notmuch search --output=files --format=text0 -- path:"fastmail/INBOX/**" and tag:deleted | xargs -0tI {} mv -n {} ~/.mail/fastmail/Trash/new/
+# Spam.
+notmuch search --output=files --format=text0 -- path:"fastmail/INBOX/**" tag:spam | xargs -0tI {} mv -n {} ~/.mail/fastmail/Spam/new/
+# Recruiter email.
+notmuch search --output=files --format=text0 -- path:"fastmail/INBOX/**" and tag:recruiting | xargs -0tI {} mv -n {} ~/.mail/fastmail/Recruitment/new/
 # Archive from inbox.
 notmuch search --output=files --format=text0 -- path:"fastmail/INBOX/**" and not tag:inbox | xargs -0tI {} mv -n {} ~/.mail/fastmail/Archive/new/
 
