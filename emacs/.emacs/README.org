@@ -1547,8 +1547,10 @@ Weeks start on Monday, and who thought MDY was a good idea?
 Always persist org-clock data to disk, in case Emacs crashes.
 #+begin_src emacs-lisp :tangle yes
 (setq org-clock-persist t)
-#+end_src
 
+(advice-add 'org-clock-in :after 'org-save-all-org-buffers)
+(advice-add 'org-clock-out :after 'org-save-all-org-buffers)
+#+end_src
 ** org-gfm
 This gives me org-mode->github flavoured markdown export.
 #+begin_src emacs-lisp :tangle yes
