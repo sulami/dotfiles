@@ -21,6 +21,7 @@
  ("elisp-refs" . "0a254e6a4dc7fa12857f8334fe6eefa72e49d1c9")
  ("emacs-async" . "86aef2c38e7d35e8509b7feeee3e989d825eba91")
  ("emacs-doom-themes" . "8d5ddbbb72752fdd981407bdc2e33d917675e919")
+ ("emacs-libvterm" . "3decc51156e1b022955dc1333c3e358e20d94228")
  ("emacs-memoize" . "51b075935ca7070f62fae1d69fe0ff7d8fa56fdd")
  ("emacs-which-key" . "8b49ae978cceca65967f3544c236f32964ddbed0")
  ("emacs-winum" . "c5455e866e8a5f7eab6a7263e2057aff5f1118b9")
