@@ -1797,7 +1797,6 @@ This is my email setup. I fetch email into a local maildir, which is
 available offline, and also much faster.
 #+begin_src emacs-lisp :tangle yes
 (setq message-directory "~/.mail"
-      messsage-signature "-- \nRobin"
       message-kill-buffer-on-exit t
       message-send-mail-function 'message-send-mail-with-sendmail
       message-sendmail-envelope-from 'header
