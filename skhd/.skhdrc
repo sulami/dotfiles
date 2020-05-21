@@ -29,7 +29,7 @@ rcmd - i    : skhd --key "6"
 rcmd - l    : skhd --key "7"
 rcmd - u    : skhd --key "8"
 rcmd - y    : skhd --key "9"
-rcmd - left : skhd --key "0"
+rcmd - 0x2C : skhd --key "0"
 
 # Arrows
 rcmd - f    : skhd --key "up"
