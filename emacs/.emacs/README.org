@@ -1855,6 +1855,13 @@ view emails in my local maildir.
     :keymaps 'verb-response-body-mode-map
     "q" 'verb-kill-response-buffer-and-window))
 #+end_src
+* Literate Calc Mode
+This is my own package, which does live inline calculations. Quite
+handy, if you ask me.
+#+begin_src emacs-lisp :tangle yes
+(use-package literate-calc-mode
+  :defer t)
+#+end_src
 * vterm
 vterm is a terminal emulator which is way faster than anything built
 into Emacs. It copes well with huge amounts of output and weird escape
