@@ -1305,8 +1305,11 @@ Number windows and allow me to switch to them.
     "d" 'org-deadline
     "e" '(org-export-dispatch :wk "org-export-dispatch")
     "f" 'org-fill-paragraph
+    "i" 'org-clock-in
+    "I" 'org-clock-in-last
     "l" 'org-insert-link
     "L" 'org-store-link
+    "o" 'org-clock-out
     "r" '(org-refile :wk "org-refile")
     "R" 'sulami/org-refile-in-current-file
     "s" 'org-schedule
@@ -1545,10 +1548,13 @@ Weeks start on Monday, and who thought MDY was a good idea?
 
 ** Time tracking
 Always persist org-clock data to disk, in case Emacs crashes.
+Also only show the current clock period in the mode line.
 #+begin_src emacs-lisp :tangle yes
-(setq org-clock-persist t)
+(setq org-clock-persist t
+      org-clock-mode-line-total 'current)
 
 (advice-add 'org-clock-in :after 'org-save-all-org-buffers)
+(advice-add 'org-clock-in-last :after 'org-save-all-org-buffers)
 (advice-add 'org-clock-out :after 'org-save-all-org-buffers)
 #+end_src
 ** org-gfm
