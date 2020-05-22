@@ -1427,7 +1427,7 @@ automatically renumber them when they're modified.
     (let* ((weekday? (->> (current-time)
                           (format-time-string "%u")
                           (read)
-                          (> 5)))
+                          (> 6)))
            (org-agenda-overriding-header (concat "Dynamic Agenda"
                                                  (if weekday?
                                                      " (week)"
