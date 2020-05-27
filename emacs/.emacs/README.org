@@ -618,6 +618,8 @@ declarations.
     "j" '(:ignore t :wk "jump")
     "k" '(:ignore t :wk "lisp")
     "l" '(:ignore t :wk "lsp")
+    "m" '(:ignore t :wk "mail")
+    "o" '(:ignore t :wk "org")
     "p" '(:ignore t :wk "project/perspective")
     "s" '(:ignore t :wk "search/spell")
     "t" '(:ignore t :wk "toggle")
@@ -625,10 +627,7 @@ declarations.
     ;; General keybinds
     "\\" 'indent-region
     "|" 'sulami/shell-command-on-region
-    "a a" 'org-agenda
-    "a c" 'org-capture
     "a C" 'calc
-    "a i" 'sulami/open-org-inbox
     "a s" 'shell
     "b e" 'erase-buffer
     "b d" 'kill-this-buffer
@@ -648,6 +647,9 @@ declarations.
     "h l" 'view-lossage
     "h m" 'woman
     "h v" 'describe-variable
+    "o a" 'org-agenda
+    "o c" 'org-capture
+    "o i" 'sulami/open-org-inbox
     "t a" 'auto-fill-mode
     "t l" 'toggle-truncate-lines
     "t r" 'refill-mode
@@ -1841,13 +1843,12 @@ view emails in my local maildir.
     (notmuch-search "tag:unread"))
   :general
   (leader-def
-    "a m" '(:ignore t :wk "mail")
-    "a m i" 'notmuch-inbox
-    "a m m" 'notmuch
-    "a m n" 'notmuch-mua-new-mail
-    "a m r" 'notmuch-poll
-    "a m s" 'notmuch-search
-    "a m u" 'notmuch-unread))
+    "m i" 'notmuch-inbox
+    "m m" 'notmuch
+    "m n" 'notmuch-mua-new-mail
+    "m r" 'notmuch-poll
+    "m s" 'notmuch-search
+    "m u" 'notmuch-unread))
 #+end_src
 
 * Verb
