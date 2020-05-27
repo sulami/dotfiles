@@ -981,6 +981,18 @@ Flyspell corrections, but in ivy.
             :wk "flyspell-correct-wrapper-rapid")))
 #+END_SRC
 
+** counsel-org-clock
+Enables me to clock into a task using ivy.
+
+#+begin_src emacs-lisp :tangle yes
+(use-package counsel-org-clock
+  :defer t
+  :commands (counsel-org-clock-context)
+  :general
+  (leader-def
+    "o C" 'counsel-org-clock-context))
+#+end_src
+
 ** flx
 flx provides fuzzy matching as a library.
 
