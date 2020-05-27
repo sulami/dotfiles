@@ -1551,7 +1551,8 @@ Always persist org-clock data to disk, in case Emacs crashes.
 Also only show the current clock period in the mode line.
 #+begin_src emacs-lisp :tangle yes
 (setq org-clock-persist t
-      org-clock-mode-line-total 'current)
+      org-clock-mode-line-total 'current
+      org-clock-out-when-done t)
 
 (advice-add 'org-clock-in :after 'org-save-all-org-buffers)
 (advice-add 'org-clock-in-last :after 'org-save-all-org-buffers)
