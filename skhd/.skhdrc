@@ -12,8 +12,8 @@ cmd + ctrl - 0x21 : skhd --key "ctrl + shift - tab"
 cmd + ctrl - 0x1E : skhd --key "ctrl - tab"
 
 # Navigate macOS spaces
-# cmd + ctrl - h : skhd --key "ctrl - left"
-# cmd + ctrl - n : skhd --key "ctrl - right"
+cmd + ctrl - h : skhd --key "ctrl - left"
+cmd + ctrl - n : skhd --key "ctrl - right"
 
 #
 # Atreus Emulation L1 (Right command)
