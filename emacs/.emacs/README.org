@@ -1548,12 +1548,17 @@ Weeks start on Monday, and who thought MDY was a good idea?
 #+END_SRC
 
 ** Time tracking
-Always persist org-clock data to disk, in case Emacs crashes.
-Also only show the current clock period in the mode line.
+- Always persist org-clock data to disk, in case Emacs crashes
+- Only show the current clock period in the mode line
+- Clock out when completing a task
+- Keep a longer history for clocking into recent tasks
+- Save org buffers after clocking in/out
+
 #+begin_src emacs-lisp :tangle yes
 (setq org-clock-persist t
       org-clock-mode-line-total 'current
-      org-clock-out-when-done t)
+      org-clock-out-when-done t
+      org-clock-history-length 35)
 
 (advice-add 'org-clock-in :after 'org-save-all-org-buffers)
 (advice-add 'org-clock-in-last :after 'org-save-all-org-buffers)
