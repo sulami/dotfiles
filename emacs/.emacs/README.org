@@ -990,7 +990,7 @@ Enables me to clock into a task using ivy.
   :commands (counsel-org-clock-context)
   :general
   (leader-def
-    "o C" 'counsel-org-clock-context))
+    "o h" 'counsel-org-clock-context))
 #+end_src
 
 ** flx
