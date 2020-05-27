@@ -1027,7 +1027,7 @@ bundle of useful snippets for all kinds of modes.
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package yasnippet
   :config
-  (setq yas-snippet-dirs (add-to-list #'yas-snippet-dirs "/Users/sulami/.emacs/snippets/"))
+  (setq yas-snippet-dirs (add-to-list #'yas-snippet-dirs "~/.emacs/snippets/"))
   :general
   (:keymaps 'yas-minor-mode-map
    "<tab>" nil
