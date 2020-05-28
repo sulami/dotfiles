@@ -1418,6 +1418,14 @@ automatically renumber them when they're modified.
 (advice-add 'org-archive-subtree :after 'org-save-all-org-buffers)
 #+end_src
 
+** org-ql
+org-ql is a fast query language for org-mode. I mainly use it to build
+my agenda.
+
+#+begin_src emacs-lisp :tangle yes
+(use-package org-ql
+  :defer t)
+#+end_src
 ** Agenda
 #+begin_src emacs-lisp :tangle yes
 (setq org-directory "~/Documents/Notes/"
@@ -1427,60 +1435,31 @@ automatically renumber them when they're modified.
       org-enforce-todo-dependencies t
       org-agenda-tag-filter-preset '("-archived" "-noagenda")
       org-agenda-dim-blocked-tasks t
-      org-agenda-window-setup 'current-window)
-#+end_src
-
-** org-super-agenda
-#+begin_src emacs-lisp :tangle yes
-(use-package org-super-agenda
-  :defer t
-  :config
-  ;; Don't break evil navigation
-  (setq org-super-agenda-header-map (make-sparse-keymap))
-  (defun sulami/dynamic-agenda ()
-    (interactive)
-    (let* ((weekday? (->> (current-time)
-                          (format-time-string "%u")
-                          (read)
-                          (> 6)))
-           (org-agenda-overriding-header (concat "Dynamic Agenda"
-                                                 (if weekday?
-                                                     " (week)"
-                                                   " (weekend)")))
-           (org-super-agenda-groups
-            (cl-concatenate
-             'list
-             `((:name "Overdue"
-                      :scheduled past
-                      :deadline past)
-               (:name "Today"
-                      :scheduled today
-                      :deadline today)
-               (:name "Tomorrow"
-                      :scheduled (before ,(format-time-string "%Y-%m-%d"
-                                                              (time-add (* 60 60 24 2)
-                                                                        (current-time))))
-                      :deadline (before ,(format-time-string "%Y-%m-%d"
-                                                             (time-add (* 60 60 24 2)
-                                                                       (current-time))))
-                      :order 8)
-               (:name "Waiting"
-                      :todo "WAITING"
-                      :order 7)
-               (:name "In Flight"
-                      :todo "WIP"
-                      :order 5)
-               (:discard (:anything t)))))
-           (query-string (concat "-inbox-notes"
-                                 (if weekday?
-                                     "-yak-side_project"
-                                   "-@work"))))
-      (org-tags-view t query-string)))
-  :general
-  (leader-def
-    "a A" 'sulami/dynamic-agenda)
-  :hook
-  (after-init . org-super-agenda-mode))
+      org-agenda-window-setup 'current-window
+      org-agenda-block-separator ""
+      org-scheduled-past-days 0
+      org-agenda-custom-commands
+      (quote
+       ((" " "Agenda"
+         ((agenda ""
+                  ((org-agenda-overriding-header "Today's Schedule")
+                   (org-agenda-span 'day)))
+          (org-ql-block '(and (not (done))
+                              (ts-active :to "-1"))
+                        ((org-ql-block-header "Overdue Items")))
+          (org-ql-block '(todo "WIP")
+                        ((org-ql-block-header "Currently In Progress")))
+          (org-ql-block '(and (todo "WAITING")
+                              (not (ts-active)))
+                        ((org-ql-block-header "Waiting for Someone")))
+          (org-ql-block '(and (tags "@work")
+                              (todo "TODO")
+                              (not (ts-active)))
+                        ((org-ql-block-header "Work Items to Pick Up")))
+          (org-ql-block '(and (ts :on "+1")
+                              (not (done)))
+                        ((org-ql-block-header "Coming Up Tomorrow")))
+          )))))
 #+end_src
 
 ** Tags
