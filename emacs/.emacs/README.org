@@ -1346,6 +1346,8 @@ Number windows and allow me to switch to them.
 
 ** Save when I change a workflow state
 #+begin_src emacs-lisp :tangle yes
+(setq org-log-into-drawer t)
+
 (add-hook 'org-trigger-hook 'save-buffer)
 #+end_src
 
