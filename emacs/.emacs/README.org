@@ -1589,6 +1589,8 @@ Spaced repetition in org-mode.
 #+end_src
 
 * Magit
+This is probably the single best interface for Git out there.
+
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package magit
   :custom
@@ -1619,6 +1621,12 @@ Spaced repetition in org-mode.
   :defer t
   :hook (magit-mode . (lambda () (require 'evil-magit))))
 
+#+END_SRC
+
+** Git link
+This package gets me the link to a git repository or line in a file.
+
+#+begin_src emacs-lisp :tangle yes
 (use-package git-link
   :init
   (defun open-git-link-in-browser ()
@@ -1635,9 +1643,12 @@ Spaced repetition in org-mode.
    "g L" 'open-git-link-in-browser
    "g r" 'git-link-homepage
    "g R" 'open-git-repo-in-browser))
-#+END_SRC
+#+end_src
 
 * Flycheck
+Flycheck does automatic linting. I enable it mostly manually, as I
+don't have a lot of linters setup.
+
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package flycheck
   :config
@@ -1651,7 +1662,9 @@ Spaced repetition in org-mode.
   :hook (clojure-mode . flycheck-mode))
 #+END_SRC
 
-* Elisp
+* Emacs Lisp
+Just some bindings for interacting with Emacs Lisp.
+
 #+begin_src emacs-lisp :tangle yes
 (local-leader-def
   :keymaps 'emacs-lisp-mode-map
@@ -1663,8 +1676,14 @@ Spaced repetition in org-mode.
 #+end_src
 
 * Eshell
+Eshell is my main shell these days, mostly because it integrates so
+well with Emacs. On rare occasions I use a terminal emulator (usually
+also inside Emacs) with zsh.
 
 ** Aliases
+This just loads my aliases. They are auto-generated from my zsh
+aliases, so that the two are always in sync.
+
 #+BEGIN_SRC emacs-lisp :tangle yes
 (setq eshell-aliases-file "~/.emacs/aliases")
 #+END_SRC
@@ -1683,6 +1702,7 @@ with TRAMP.
 
 The binding has to happen here in a hook because ~eshell-mode-map~
 isn't available before eshell is started.
+
 #+begin_src emacs-lisp :tangle yes
 (add-hook
  'eshell-mode-hook
@@ -1702,6 +1722,8 @@ isn't available before eshell is started.
 #+end_src
 
 * Ediff
+Just diffing. I don't have any strong opinions on it, ediff does the
+job. I'm sure there are cool features I'm not aware of.
 
 ** Ignore whitespace changes
 #+begin_src emacs-lisp :tangle yes
@@ -1721,6 +1743,12 @@ isn't available before eshell is started.
 * Dired
 
 ** Enable find-alternate-file
+This causes =RET= to open the target in the current buffer, instead of
+a new buffer. As a result, when traversing directories I don't get one
+buffer per step, which quickly gets annoying.
+
+At some point I need to rebind =^= as well.
+
 #+begin_src emacs-lisp :tangle yes
 (put 'dired-find-alternate-file 'disabled nil)
 #+end_src
@@ -1731,6 +1759,14 @@ isn't available before eshell is started.
 #+end_src
 
 * Woman
+~man~ and ~woman~ are manual page readers for emacs. ~man~ just calls
+the system =man= and shows the results in a buffer, while ~woman~ is a
+full man page parser in Emacs Lisp. ~woman~ is much faster, but does
+not support all formats of man pages. To solve this issue, I'm
+patching ~woman~ to fall back to ~man~ if it fails to render, which is
+still fast because it doesn't require ~man~ to build a man page index,
+as we just pass it the correct file already.
+
 #+begin_src emacs-lisp :tangle yes
 (use-package man
   :straight nil
@@ -1770,6 +1806,9 @@ should be a topic string and non-nil RE-CACHE forces re-caching."
 #+end_src
 
 * Helpful
+Helpful provides better =*Help*= buffers, with niceties such as "where
+is this symbol referenced", and the full source code.
+
 #+begin_src emacs-lisp :tangle yes
 (use-package helpful
   :commands (helpful-symbol helpful-key)
@@ -1782,6 +1821,7 @@ should be a topic string and non-nil RE-CACHE forces re-caching."
 
 * Esup
 This allows me to benchmark Emacs startup.
+
 #+begin_src emacs-lisp :tangle yes
 (use-package esup
   :defer t
@@ -1789,6 +1829,10 @@ This allows me to benchmark Emacs startup.
 #+end_src
 
 * ERC
+IRC. I don't use IRC a lot, but every now and then. As such I like ERC
+because it works reasonably well out of the box, and I don't need to
+yak shave an awful lot.
+
 #+begin_src emacs-lisp :tangle yes
 (use-package erc
   :straight nil
@@ -1814,6 +1858,7 @@ This allows me to benchmark Emacs startup.
 * Email
 This is my email setup. I fetch email into a local maildir, which is
 available offline, and also much faster.
+
 #+begin_src emacs-lisp :tangle yes
 (setq message-directory "~/.mail"
       message-kill-buffer-on-exit t
@@ -1827,6 +1872,7 @@ available offline, and also much faster.
 ** Notmuch
 [[https://notmuchmail.org/][notmuch]] is a performant email tagging system, which I use to sort and
 view emails in my local maildir.
+
 #+begin_src emacs-lisp :tangle yes
 (use-package notmuch
   :defer t
@@ -1854,6 +1900,10 @@ view emails in my local maildir.
 #+end_src
 
 * Verb
+Verb is an extension to org-mode to run HTTP requests in a literate
+manner. It has all kinds of useful features to build a request library
+which can be programmed.
+
 #+begin_src emacs-lisp :tangle yes
 (use-package verb
   :defer t
@@ -1871,17 +1921,21 @@ view emails in my local maildir.
     :keymaps 'verb-response-body-mode-map
     "q" 'verb-kill-response-buffer-and-window))
 #+end_src
+
 * Literate Calc Mode
 This is my own package, which does live inline calculations. Quite
 handy, if you ask me.
+
 #+begin_src emacs-lisp :tangle yes
 (use-package literate-calc-mode
   :defer t)
+
 #+end_src
 * vterm
 vterm is a terminal emulator which is way faster than anything built
 into Emacs. It copes well with huge amounts of output and weird escape
 sequences. Prior to installation run:
+
 #+begin_src sh
 brew install cmake libtool
 #+end_src
@@ -1941,6 +1995,9 @@ disabled for now to avoid the overhead of running the server.
 #+END_SRC
 
 * Clojure
+Clojure is the language I work with at =$DAYJOB=, so it has quite a
+lot of configuration.
+
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package clojure-mode
   :defer t
@@ -1961,6 +2018,7 @@ disabled for now to avoid the overhead of running the server.
 
 ** CIDER
 The big IDE-like integration for Clojure.
+
 #+begin_src emacs-lisp :tangle yes
 (use-package cider
   :defer t
@@ -2007,6 +2065,7 @@ The big IDE-like integration for Clojure.
 
 ** Monroe
 The smaller integration for Clojure. Sometimes less buggy.
+
 #+begin_src emacs-lisp :tangle yes
 (use-package monroe
   :defer t
@@ -2041,6 +2100,7 @@ The smaller integration for Clojure. Sometimes less buggy.
 This uses the Emacs inferior lisp mode, which turns out to be quite
 lightweight, and well integrated. The downside is that you need to
 start up a socket repl, which is not nREPL.
+
 #+begin_src emacs-lisp :tangle yes
 (use-package inf-clojure
   :defer t
@@ -2075,6 +2135,7 @@ This declaration is only here for config encapsulation, it doesn't
 actually install a package.
 
 In this case we install a fix to make imenu work in HugSQL files.
+
 #+begin_src emacs-lisp :tangle yes
 (use-package hugsql
   :straight nil
@@ -2090,6 +2151,10 @@ In this case we install a fix to make imenu work in HugSQL files.
 #+end_src
 
 * Common Lisp
+One of my favourite recreational languages. I use =sly= instead of
+=slime= because it's supposedly better. I don't have much of an
+opinion, it works.
+
 #+begin_src emacs-lisp :tangle yes
 (use-package sly
   :defer t
@@ -2113,12 +2178,20 @@ In this case we install a fix to make imenu work in HugSQL files.
 #+end_src
 
 * Racket
+I use Racket for quite a bit of scripting, due to its rich standard
+library. I don't need any fancy configuration though, the major mode
+comes with reasonable defaults. This does not have the usual =eval=
+bindings, because I usually don't use Racket REPLs.
+
 #+begin_src emacs-lisp :tangle yes
 (use-package racket-mode
   :defer t)
 #+end_src
 
 * Haskell
+I used to write a lot more Haskell, but I still have some. The major
+mode has reasonable defaults, so that's all I need for now.
+
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package haskell-mode
   :defer t)
@@ -2143,6 +2216,9 @@ In this case we install a fix to make imenu work in HugSQL files.
 #+END_SRC
 
 * Rust
+I don't actually really use Rust beyond experiments, so not much
+config here.
+
 #+begin_src emacs-lisp :tangle yes
 (use-package rust-mode
   :defer t)
@@ -2150,7 +2226,9 @@ In this case we install a fix to make imenu work in HugSQL files.
 
 * LLVM
 I look at LLVM assembly more than is healthy, and some colour helps
-there.
+there. This mode is taken from the LLVM source tree and included in my
+repo directly, as there's no easy way of getting it otherwise.
+
 #+begin_src emacs-lisp :tangle yes
 (load "~/.emacs/lisp/llvm-mode")
 #+end_src
@@ -2158,12 +2236,16 @@ there.
 * Docker
 Docker & tramp integration allows for using ~/docker:container~ as a
 tramp target.
+
 #+begin_src emacs-lisp :tangle yes
 (use-package docker-tramp
   :defer t)
 #+end_src
 
 * Markdown
+I think it's vastly inferior to org-mode, but I still have to use it.
+Mostly just try to make it look & work like org-mode.
+
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package markdown-mode
   :defer t
@@ -2186,6 +2268,8 @@ tramp target.
 #+END_SRC
 
 * YAML
+Sometimes I'm a YAML-engineer, too.
+
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package yaml-mode
   :defer t)
@@ -2198,6 +2282,9 @@ tramp target.
 #+end_src
 
 * Protobuf
+We use quite a lot of protobuffers at =$DAYJOB=, so the mode is
+useful.
+
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package protobuf-mode
   :defer t
