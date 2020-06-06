@@ -2030,6 +2030,8 @@ The big IDE-like integration for Clojure.
     (interactive)
     (let ((current-prefix-arg '(4)))
       (call-interactively 'cider-eval-defun-at-point)))
+  :custom
+  (cider-show-error-buffer nil)
   :general
   (local-leader-def
     :keymaps 'cider-mode-map
