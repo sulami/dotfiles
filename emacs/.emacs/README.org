@@ -368,21 +368,6 @@ of another theme."
                               (load-theme 'doom-solarized-dark t)))))))
 #+END_SRC
 
-** All the icons
-Adds some icons. I use them mainly in ~dired~, where they help provide
-an overview.
-
-#+BEGIN_SRC emacs-lisp :tangle yes
-(use-package all-the-icons
-  :defer t
-  :if window-system)
-
-(use-package all-the-icons-dired
-  :defer t
-  :if window-system
-  :hook (dired-mode . all-the-icons-dired-mode))
-#+END_SRC
-
 ** Modeline
 I use =doom-modeline=, without any icons, and patched to be regular
 height.
@@ -1048,9 +1033,13 @@ bundle of useful snippets for all kinds of modes.
    "TAB" nil
    "<ret>" nil
    "RET" nil)
-  :hook (after-init . yas-global-mode))
+  :hook
+  ((text-mode . yas-minor-mode)
+   (prog-mode . yas-minor-mode)))
 
 (use-package ivy-yasnippet
+  :defer t
+  :after (yasnippet)
   :general
   (general-imap "C-y" 'ivy-yasnippet))
 
