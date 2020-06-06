@@ -27,6 +27,9 @@
 ;; Prefer newer bytecode
 (setq load-prefer-newer t)
 
+;; Enable debug-on-error during launch
+(setq debug-on-error t)
+
 ;; Bootstrap straight
 (defvar bootstrap-version)
 (let ((bootstrap-file
@@ -65,4 +68,5 @@
           (lambda ()
             (setq file-name-handler-alist sulami--file-name-handler-alist)
             (setq gc-cons-threshold 16777216
-                  gc-cons-percentage 0.1)))
+                  gc-cons-percentage 0.1)
+            (setq debug-on-error nil)))
