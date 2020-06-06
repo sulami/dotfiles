@@ -1420,9 +1420,7 @@ my agenda.
 ** Agenda
 #+begin_src emacs-lisp :tangle yes
 (setq org-directory "~/Documents/Notes/"
-      org-agenda-files (list org-directory
-                             "~/.emacs/README.org"
-                             "~/.org-jira/")
+      org-agenda-files (list org-directory)
       org-enforce-todo-dependencies t
       org-agenda-tag-filter-preset '("-archived" "-noagenda")
       org-agenda-dim-blocked-tasks t
@@ -1454,8 +1452,7 @@ my agenda.
                         ((org-ql-block-header "Work Items to Pick Up")))
           (org-ql-block '(and (ts :on "+1")
                               (not (done)))
-                        ((org-ql-block-header "Coming Up Tomorrow")))
-          )))))
+                        ((org-ql-block-header "Coming Up Tomorrow"))))))))
 #+end_src
 
 ** Tags
