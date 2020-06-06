@@ -1,0 +1,4 @@
+# key: jira
+# name: jira
+# --
+** TODO [[[https://circleci.atlassian.net/browse/CIRCLE-$1][CIRCLE-${1:Number}]]] $0 :jira:
