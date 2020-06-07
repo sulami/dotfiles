@@ -1,3 +1,4 @@
 emacs/.emacs/README.el
 /leiningen/.lein/repl-history
 /leiningen/.lein/self-installs/
+*.elc
