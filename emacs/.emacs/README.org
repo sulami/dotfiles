@@ -2229,12 +2229,6 @@ Sometimes I'm a YAML-engineer, too.
   :defer t)
 #+END_SRC
 
-* JSON
-#+begin_src emacs-lisp :tangle yes
-;; Indent by 2 spaces, if we ever get there
-(setq js2-basic-offset 2)
-#+end_src
-
 * Protobuf
 We use quite a lot of protobuffers at =$DAYJOB=, so the mode is
 useful.
