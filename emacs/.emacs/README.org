@@ -1283,13 +1283,6 @@ Number windows and allow me to switch to them.
   :hook (after-init . winum-mode))
 #+END_SRC
 
-* Fill column indicator
-#+BEGIN_SRC emacs-lisp :tangle yes
-(use-package fill-column-indicator
-  :general
-  (leader-def "t f" 'fci-mode))
-#+END_SRC
-
 * Org mode
 #+begin_src emacs-lisp :tangle yes
 (use-package org
