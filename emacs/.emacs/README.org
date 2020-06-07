@@ -1138,15 +1138,6 @@ changes.
     "w" 'wgrep-change-to-wgrep-mode))
 #+end_src
 
-* Avy
-This allows me to jump to any point on the screen.
-
-#+BEGIN_SRC emacs-lisp :tangle yes
-(use-package avy
-  :general
-  (general-nvmap "s-n" 'avy-goto-word-or-subword-1))
-#+END_SRC
-
 * Highlight TODO
 Highlights certain keywords in comments, like =TODO= and =FIXME=.
 
