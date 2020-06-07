@@ -2122,24 +2122,6 @@ mode has reasonable defaults, so that's all I need for now.
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package haskell-mode
   :defer t)
-
-;;; Fix indentation when using o/O in Haskell
-;(defun haskell-evil-open-above ()
-;  (interactive)
-;  (evil-digit-argument-or-evil-beginning-of-line)
-;  (haskell-indentation-newline-and-indent)
-;  (evil-previous-line)
-;  (haskell-indentation-indent-line)
-;  (evil-append-line nil))
-;
-;(defun haskell-evil-open-below ()
-;  (interactive)
-;  (evil-append-line nil)
-;  (haskell-indentation-newline-and-indent))
-;
-;(evil-define-key 'normal haskell-mode-map
-;  "o" 'haskell-evil-open-below
-;  "O" 'haskell-evil-open-above)
 #+END_SRC
 
 * Rust
