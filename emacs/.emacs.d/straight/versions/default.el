@@ -51,7 +51,6 @@
  ("ht.el" . "fff8c43f0e03d5b98deb9f988522b839ce2ca253")
  ("hydra" . "87873d788891029d9e44fa5458321d6a05849b94")
  ("iedit" . "0fb3d380866664c3ab543acede606d343c257406")
- ("inf-clojure" . "c30f90e1e15e13d41bada69e23bbb2354c9a5dd2")
  ("ivy-xref" . "3d4c35fe2b243d948d8fe02a1f0d76a249d63de9")
  ("ivy-yasnippet" . "ebf05761cd890bccd8072051f988dae7ab11c9ce")
  ("let-alist" . "ef3c02fa292b6e32769945bbbfb7f2e5ac574b64")
