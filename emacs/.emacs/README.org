@@ -1002,7 +1002,6 @@ shell.
         company-global-modes '(not eshell-mode
                                    shell-mode
                                    term-mode))
-  :config
   :general
   (:keymaps 'company-active-map
    "<tab>" 'company-complete-selection
@@ -1349,8 +1348,7 @@ automatically renumber them when they're modified.
  'org-babel-load-languages
  '((emacs-lisp . t)
    (shell . t)
-   (python . t)
-   (clojure . t)))
+   (python . t)))
 #+end_src
 
 ** Use drawers for source block evaluation
@@ -1564,9 +1562,9 @@ This is probably the single best interface for Git out there.
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package magit
   :custom
-  (magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1)
+  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
   (magit-git-executable "/usr/local/bin/git")
-  (magit-completing-read-function 'ivy-completing-read)
+  (magit-completing-read-function #'ivy-completing-read)
   :config
   (defun sulami/magit-rebase-master ()
     (interactive)
@@ -1575,17 +1573,15 @@ This is probably the single best interface for Git out there.
   (transient-append-suffix 'magit-rebase "e" '(sulami/magit-rebase-master
                                              :key "m"
                                              :description "Pull & rebase master"))
-  (add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell)
   :general
   (leader-def
     "g b" 'magit-blame-addition
     "g s" 'magit-status)
-  :init
-  (setq magit-completing-read-function 'ivy-completing-read)
   :hook
   ((shell-mode . with-editor-export-editor)
    (term-mode . with-editor-export-editor)
-   (eshell-mode . with-editor-export-editor)))
+   (eshell-mode . with-editor-export-editor)
+   (git-commit-setup . git-commit-turn-on-flyspell)))
 
 (use-package evil-magit
   :defer t
