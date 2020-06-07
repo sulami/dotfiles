@@ -666,7 +666,8 @@ can't stand the default Emacs keybindings.
         evil-want-C-i-jump t
         evil-want-Y-yank-to-eol t
         evil-want-keybinding nil
-        evil-ex-visual-char-range t)
+        evil-ex-visual-char-range t
+        evil-move-beyond-eol t)
   :config
   ;; This conflicts with the local leader
   (unbind-key "," evil-motion-state-map)
