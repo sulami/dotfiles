@@ -1920,25 +1920,6 @@ brew install cmake libtool
     "a t" 'vterm))
 #+end_src
 
-* Atomic
-Atomic starts a server which a browser plugin like [[https://github.com/GhostText/GhostText][GhostText]] can
-connect to so I can edit text inside Emacs. I rarely use it, so it's
-disabled for now to avoid the overhead of running the server.
-
-#+begin_src emacs-lisp :tangle yes
-(use-package atomic-chrome
-  :disabled
-  :init
-  (setq atomic-chrome-default-major-mode 'markdown-mode
-        atomic-chrome-buffer-open-style 'frame)
-  :general
-  (local-leader-def
-    :keymaps 'atomic-chrome-edit-mode-map
-    "q" 'atomic-chrome-close-current-buffer)
-  :hook ((after-init . atomic-chrome-start-server)
-         (atomic-chrome-edit-done . delete-frame)))
-#+end_src
-
 * LSP
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package lsp-mode
