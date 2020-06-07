@@ -602,7 +602,6 @@ declarations.
     "h" '(:ignore t :wk "help")
     "j" '(:ignore t :wk "jump")
     "k" '(:ignore t :wk "lisp")
-    "l" '(:ignore t :wk "lsp")
     "m" '(:ignore t :wk "mail")
     "o" '(:ignore t :wk "org")
     "p" '(:ignore t :wk "project/perspective")
@@ -1919,32 +1918,6 @@ brew install cmake libtool
   (leader-def
     "a t" 'vterm))
 #+end_src
-
-* LSP
-#+BEGIN_SRC emacs-lisp :tangle yes
-(use-package lsp-mode
-  :disabled
-  :defer t
-  :commands lsp
-  :config
-  (add-to-list 'lsp-language-id-configuration '(clojure-mode . "clojure-mode"))
-  :init
-  (setq lsp-enable-indentation nil
-        lsp-enable-symbol-highlighting nil)
-  :general
-  (leader-def
-    "l f" 'lsp-format-region
-    "l F" 'lsp-format-buffer
-    "l j" 'lsp-goto-implementation
-    "l q" 'lsp-shutdown-workspace
-    "l r" 'lsp-rename
-    "l R" 'lsp-restart-workspace
-    "l u" 'lsp-find-references))
-
-(use-package company-lsp
-  :defer t
-  :commands company-lsp)
-#+END_SRC
 
 * Clojure
 Clojure is the language I work with at =$DAYJOB=, so it has quite a
