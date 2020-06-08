@@ -1001,10 +1001,7 @@ shell.
 (use-package company
   :init
   (setq company-idle-delay .01
-        company-dabbrev-downcase nil
-        company-global-modes '(not eshell-mode
-                                   shell-mode
-                                   term-mode))
+        company-dabbrev-downcase nil)
   :general
   (:keymaps 'company-active-map
    "<tab>" 'company-complete-selection
@@ -1015,7 +1012,7 @@ shell.
    "C-n" 'company-select-next
    "C-p" 'company-select-previous
    "C-w" 'evil-delete-backward-word)
-  :hook (after-init . global-company-mode))
+  :hook (prog-mode . company-mode))
 
 (use-package company-prescient
   :hook (company-mode . company-prescient-mode))
