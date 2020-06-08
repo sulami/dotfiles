@@ -48,9 +48,12 @@ This reloads changed files which are open in Emacs but not edited.
 
 ** Remember recent files
 #+BEGIN_SRC emacs-lisp :tangle yes
-(when (require 'recentf)
-  (recentf-mode 1)
-  (setq recentf-max-saved-items 255))
+(use-package recentf
+  :straight nil
+  :custom
+  (recentf-max-saved-items 255)
+  :hook
+  (after-init . recentf-mode))
 #+END_SRC
 
 ** Be quiet on startup
