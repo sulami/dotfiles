@@ -1024,14 +1024,14 @@ bundle of useful snippets for all kinds of modes.
 
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package yasnippet
-  :config
-  (setq yas-snippet-dirs (add-to-list #'yas-snippet-dirs "~/.emacs/snippets/"))
   :general
   (:keymaps 'yas-minor-mode-map
    "<tab>" nil
    "TAB" nil
    "<ret>" nil
    "RET" nil)
+  :config
+  (yas-reload-all)
   :hook
   ((text-mode . yas-minor-mode)
    (prog-mode . yas-minor-mode)))
