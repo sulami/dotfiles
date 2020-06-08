@@ -969,18 +969,6 @@ Flyspell corrections, but in ivy.
             :wk "flyspell-correct-wrapper-rapid")))
 #+END_SRC
 
-** counsel-org-clock
-Enables me to clock into a task using ivy.
-
-#+begin_src emacs-lisp :tangle yes
-(use-package counsel-org-clock
-  :defer t
-  :commands (counsel-org-clock-context)
-  :general
-  (leader-def
-    "o h" 'counsel-org-clock-context))
-#+end_src
-
 ** flx
 flx provides fuzzy matching as a library.
 
@@ -1293,11 +1281,8 @@ Number windows and allow me to switch to them.
     "d" 'org-deadline
     "e" '(org-export-dispatch :wk "org-export-dispatch")
     "f" 'org-fill-paragraph
-    "i" 'org-clock-in
-    "I" 'org-clock-in-last
     "l" 'org-insert-link
     "L" 'org-store-link
-    "o" 'org-clock-out
     "r" '(org-refile :wk "org-refile")
     "R" 'sulami/org-refile-in-current-file
     "s" 'org-schedule
@@ -1516,27 +1501,6 @@ Weeks start on Monday, and who thought MDY was a good idea?
       calendar-date-style 'iso)
 #+END_SRC
 
-** Time tracking
-- Always persist org-clock data to disk, in case Emacs crashes
-- Only show the current clock period in the mode line
-- Clock out when completing a task
-- Keep a longer history for clocking into recent tasks
-- Save org buffers after clocking in/out
-
-#+begin_src emacs-lisp :tangle yes
-(setq org-clock-persist t
-      org-clock-mode-line-total 'current
-      org-clock-out-when-done t
-      org-clock-history-length 35)
-
-(defun sulami/org-save-all-org-buffers (&rest _)
-  "Variadic variant of `org-save-all-org-buffers'"
-  (org-save-all-org-buffers))
-
-(advice-add 'org-clock-in :after #'sulami/org-save-all-org-buffers)
-(advice-add 'org-clock-in-last :after #'sulami/org-save-all-org-buffers)
-(advice-add 'org-clock-out :after #'sulami/org-save-all-org-buffers)
-#+end_src
 ** org-gfm
 This gives me org-mode->github flavoured markdown export.
 #+begin_src emacs-lisp :tangle yes

@@ -8,7 +8,6 @@
  ("cider" . "9a4d6d9c1e2e1380e7afd762674a229ef1cd8485")
  ("clojure-mode" . "da9f1ec717dac1194404b4a4562dba6bd9a4ee3a")
  ("company-mode" . "36e650acd681a3a15a96e3c074471e86bdeeb4d8")
- ("counsel-org-clock" . "ddf6b89652e4dbc0be5e8719213e7673c83959f1")
  ("counsel-projectile" . "77392cbbc42e98fc137b43f1db1b111ba6e2dd75")
  ("dash.el" . "ea4a4cc7cce7c3b93862a22df8bca8b83052ccbf")
  ("docker-tramp.el" . "8e2b671eff7a81af43b76d9dfcf94ddaa8333a23")
