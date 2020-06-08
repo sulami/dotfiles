@@ -93,7 +93,7 @@
  ("smartparens" . "555626a43f9bb1985aa9a0eb675f2b88b29702c8")
  ("spinner" . "2daa167bec1c7566d662d48613a94453536b524a")
  ("straight.el" . "a7f94876b2bf96d2595706270be6630ecc94f0d3")
- ("swiper" . "8d840b2e8680e2768edb794c9ccecf975f6ba4cf")
+ ("swiper" . "0eebf240bfe656990ba36fbcf8341713b8fb69b3")
  ("transient" . "88d935c7cb9f175871c4cfea7eef2c0514d03b06")
  ("ts.el" . "df48734ef046547c1aa0de0f4c07d11964ef1f7f")
  ("undo-tree" . "5b6df03781495d8a25695d846b0cce496d3d3058")
