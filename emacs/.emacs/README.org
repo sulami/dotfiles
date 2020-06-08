@@ -1149,6 +1149,8 @@ I only enable this every now and then.
 
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package auto-highlight-symbol
+  :custom
+  (ahs-idle-interval 0.1)
   :general
   (leader-def "t h" 'auto-highlight-symbol-mode))
 #+END_SRC
