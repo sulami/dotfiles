@@ -97,6 +97,9 @@ alias dc='docker-compose $*'
 alias dcud='docker-compose up --build -d'
 alias dcd='docker-compose down -v --remove-orphans'
 alias dclf='docker-compose logs --tail=10 -f $*'
+alias pause_docker="docker ps | awk '/Up/ {print \$1}' | xargs docker pause"
+alias unpause_docker="docker ps | awk '/(Paused)/ {print \$1}' | xargs docker unpause"
+
 
 # Copy aliases over to eshell
 alias | gsed 's/^alias //' | gsed -E "s/^([^=]+)='(.+?)'$/\1=\2/" | gsed "s/'\\\\''/'/g" | gsed "s/'\\\\$/'/;" | gsed -E 's/^([^=]+)=(.+)$/alias \1 \2/' > ~/.emacs/aliases
