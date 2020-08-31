@@ -1700,10 +1700,10 @@ view emails in my local maildir.
   :config
   (defun notmuch-inbox ()
     (interactive)
-    (notmuch-search "tag:inbox"))
+    (notmuch-search "tag:inbox" t))
   (defun notmuch-unread ()
     (interactive)
-    (notmuch-search "tag:unread"))
+    (notmuch-search "tag:unread" t))
   :general
   (leader-def
     "m i" 'notmuch-inbox
