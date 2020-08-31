@@ -757,10 +757,7 @@ modes, but I'm used to it.
     (interactive)
     (when (not isearch-mode)
       (evil-search-highlight-persist-remove-all)))
-  :general
-  (general-nmap
-    :keymaps '(text-mode-map prog-mode-map)
-    "RET" 'sulami/isearch-nohighlight)
+  (evil-ex-define-cmd "noh[lsearch]" #'sulami/isearch-nohighlight)
   :hook (evil-mode . global-evil-search-highlight-persist))
 #+end_src
 
