@@ -4,8 +4,8 @@
 lcmd - q : true
 
 # Browser tab navigation
-cmd + ctrl - 0x21 : skhd --key "ctrl + shift - tab"
-cmd + ctrl - 0x1E : skhd --key "ctrl - tab"
+cmd + ctrl - t : skhd --key "ctrl + shift - tab"
+cmd + ctrl - d : skhd --key "ctrl - tab"
 
 # Navigate macOS spaces
 cmd + ctrl - h : skhd --key "ctrl - left"
