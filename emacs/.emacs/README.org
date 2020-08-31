@@ -1377,86 +1377,10 @@ automatically renumber them when they're modified.
 (advice-add 'org-archive-subtree :after 'org-save-all-org-buffers)
 #+end_src
 
-** org-ql
-org-ql is a fast query language for org-mode. I mainly use it to build
-my agenda.
-
-#+begin_src emacs-lisp :tangle yes
-(use-package org-ql
-  :defer t)
-#+end_src
-** Agenda
-#+begin_src emacs-lisp :tangle yes
-(setq org-directory "~/Documents/Notes/"
-      org-agenda-files (list org-directory)
-      org-enforce-todo-dependencies t
-      org-agenda-tag-filter-preset '("-archived" "-noagenda")
-      org-agenda-dim-blocked-tasks t
-      org-agenda-window-setup 'current-window
-      org-agenda-block-separator ""
-      org-scheduled-past-days 0
-      org-agenda-sorting-strategy
-      '((agenda time-up priority-down category-keep)
-        (todo priority-down category-keep)
-        (tags priority-down category-keep)
-        (search category-keep))
-      org-agenda-custom-commands
-      (quote
-       ((" " "Agenda"
-         ((agenda ""
-                  ((org-agenda-overriding-header "Today's Schedule")
-                   (org-agenda-span 'day)))
-          (org-ql-block '(and (not (done))
-                              (ts-active :to "-1"))
-                        ((org-ql-block-header "Overdue Items")))
-          (org-ql-block '(todo "WIP")
-                        ((org-ql-block-header "Currently In Progress")))
-          (org-ql-block '(and (todo "WAITING")
-                              (not (ts-active)))
-                        ((org-ql-block-header "Waiting for Someone")))
-          (org-ql-block '(and (tags "@work")
-                              (todo "TODO")
-                              (not (ts-active)))
-                        ((org-ql-block-header "Work Items to Pick Up")))
-          (org-ql-block '(and (ts :on "+1")
-                              (not (done)))
-                        ((org-ql-block-header "Coming Up Tomorrow"))))))))
-#+end_src
-
 ** Tags
 Autocomplete tags using all agenda files.
 #+begin_src emacs-lisp :tangle yes
 (setq org-complete-tags-always-offer-all-agenda-tags t)
-#+end_src
-
-** Capture
-My capture templates. Also reload buffers before attempting to capture
-to avoid overwriting iCloud changes.
-
-#+begin_src emacs-lisp :tangle yes
-(setq org-capture-templates
-      '(("b" "Blog idea" entry
-         (file "blog.org")
-         "* %^{title}\n%u\n%?"
-         :prepend t)
-        ("c" "Climbing journal" entry
-         (file "climbing.org")
-         "* %u\n%?"
-         :prepend t)
-        ("f" "File link" entry
-         (file "inbox.org")
-         "* %^{title}\n%a\n%?")
-        ("j" "Japanese vocabulary" entry
-         (file+headline "japanese.org" "Vocabulary")
-         "* Drill :drill:\n:PROPERTIES:\n:DRILL_CARD_TYPE: twosided\n:END:\n** English\n%?\n** Japanese\n%^{Japanese}")
-        ("n" "Note" entry
-         (file "inbox.org")
-         "* %^{title}\n%u\n%?")
-        ("t" "Todo" entry
-         (file "inbox.org")
-         "* TODO %^{title}\n%u\n%?")))
-
-(advice-add 'org-capture :before 'sulami/org-revert-all-org-buffers)
 #+end_src
 
 ** Export
@@ -1465,34 +1389,6 @@ Set some sane default options for exporting.
 (setq org-export-with-toc nil
       org-export-initial-scope 'subtree)
 #+end_src
-
-** Refile
-This allows me to refile from the GTD inbox to the top-level of a file.
-
-Also, just like when archiving, we auto-save when refiling.
-#+begin_src emacs-lisp :tangle yes
-(setq org-refile-targets '((org-agenda-files :tag . "n0nexistent"))
-      org-refile-use-outline-path 'file)
-
-(defun sulami/org-refile-in-current-file ()
-  "Refile the current subtree to a top-level heading in this file."
-  (interactive)
-  (let ((org-refile-targets '((nil :level . 1)))
-        (org-refile-use-outline-path nil))
-    (org-refile)))
-
-(advice-add 'org-refile :before 'sulami/org-revert-all-org-buffers)
-
-(advice-add 'org-refile :after 'org-save-all-org-buffers)
-#+end_src
-
-** Open the inbox
-#+BEGIN_SRC emacs-lisp :tangle yes
-(defun sulami/open-org-inbox ()
-  "Opens the inbox file."
-  (interactive)
-  (find-file "~/Documents/Notes/inbox.org"))
-#+END_SRC
 
 ** Calendar
 Weeks start on Monday, and who thought MDY was a good idea?
@@ -1507,18 +1403,6 @@ This gives me org-mode->github flavoured markdown export.
 (use-package ox-gfm
   :defer 3
   :after org)
-#+end_src
-
-** org-drill
-Spaced repetition in org-mode.
-#+begin_src emacs-lisp :tangle yes
-(use-package org-drill
-  :defer t
-  :commands (org-drill)
-  :custom
-  (org-drill-add-random-noise-to-intervals-p t)
-  (org-drill-adjust-intervals-for-early-and-late-repetitions-p t)
-  (org-drill-learn-fraction 0.3))
 #+end_src
 
 * Magit
