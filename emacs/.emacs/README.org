@@ -780,6 +780,15 @@ modes, but I'm used to it.
   :hook (evil-mode . global-evil-surround-mode))
 #+end_src
 
+** evil-numbers
+#+begin_src emacs-lisp :tangle yes
+(use-package evil-numbers
+  :defer t
+  :general
+  (general-nvmap
+    "C-a" 'evil-numbers/inc-at-pt
+    "C-z" 'evil-numbers/dec-at-pt))
+#+end_src
 * Which key
 This shows all available keybindings when I hit a key. Sometimes
 useful.
