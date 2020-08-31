@@ -1976,7 +1976,6 @@ Mostly just try to make it look & work like org-mode.
   :defer t
   :custom
   (markdown-fontify-code-blocks-natively t)
-  (markdown-hide-markup t)
   :hook
   ((markdown-mode . orgtbl-mode)
    (markdown-mode . flyspell-mode))
