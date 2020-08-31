@@ -1779,7 +1779,10 @@ lot of configuration.
     "R l" 'clojure-move-to-let
     "R t" 'clojure-thread-first-all
     "R T" 'clojure-thread-last-all
-    "R u" 'clojure-unwind-all))
+    "R u" 'clojure-unwind-all)
+  :config
+  (define-clojure-indent
+    (database/speculate 1)))
 
 (use-package flycheck-clj-kondo
   :defer t
