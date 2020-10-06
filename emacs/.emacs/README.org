@@ -1107,7 +1107,7 @@ usually good enough. Much less of a hassle than LSP.
   :after (evil)
   :config
   (setq dumb-jump-selector 'ivy
-        dumb-jump-force-searcher 'rg)
+        dumb-jump-prefer-searcher 'rg)
   :general
   (leader-def
     "j j" (sulami/evil-set-jump-wrapper 'dumb-jump-go)
