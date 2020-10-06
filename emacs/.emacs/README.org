@@ -3,6 +3,7 @@
 #+CATEGORY: Emacs
 #+FILETAGS: side_project yak
 #+STARTUP: overview
+#+PROPERTY: header-args :results silent
 
 * Use lexical binding in this file
 This org-mode file gets built into an elisp file, and we want this comment at
