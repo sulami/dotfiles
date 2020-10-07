@@ -1282,6 +1282,21 @@ Number windows and allow me to switch to them.
 * Org mode
 #+begin_src emacs-lisp :tangle yes
 (use-package org
+  :config
+  (defun sulami/org-return ()
+    "`org-return' with better plain list handling.
+
+If inside a plain list, insert a new list item. If the current list
+item is empty, remove it instead. Essentially imitating Google Docs."
+    (interactive)
+    (if (org-at-item-p)
+        (let* ((begin (org-in-item-p))
+               (struct (org-list-struct))
+               (end (org-list-get-item-end begin struct)))
+          (if (< (- end begin) 4) ; Empty list item.
+              (org-list-delete-item begin struct)
+            (org-meta-return)))
+      (org-return)))
   :general
   (local-leader-def
     :keymaps 'org-mode-map
@@ -1301,7 +1316,11 @@ Number windows and allow me to switch to them.
     "W" '((lambda ()
             (interactive)
             (org-todo '(4)))
-          :wk "org-todo (with note)")))
+          :wk "org-todo (with note)"))
+  ;; Fix plain lists.
+  (general-imap
+    :keymaps 'org-mode-map
+    "RET" 'sulami/org-return))
 #+end_src
 
 ** Add more workflow states
