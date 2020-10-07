@@ -1958,6 +1958,23 @@ config here.
   :defer t)
 #+end_src
 
+* Typescript
+#+begin_src emacs-lisp :tangle yes
+(use-package typescript-mode
+  :defer t
+  :custom
+  (typescript-indent-level 2))
+
+(use-package tide
+  :defer t
+  :config
+  (defun sulami/tide-setup ()
+    (tide-setup)
+    (flycheck-mode +1)
+    (eldoc-mode +1))
+  :hook
+  (typescript-mode . sulami/tide-setup))
+#+end_src
 * LLVM
 I look at LLVM assembly more than is healthy, and some colour helps
 there. This mode is taken from the LLVM source tree and included in my
