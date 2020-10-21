@@ -28,6 +28,6 @@
   <key>StandardOutPath</key>
   <string>/tmp/com.sulami.backup.stdout</string>
   <key>StandardErrorPath</key>
-  <string>/tmp/com.sulami.backup.stderr</string>
+  <string>/Users/sulami/Desktop/BACKUP_STDERR</string>
 </dict>
 </plist>
