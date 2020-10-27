@@ -505,6 +505,13 @@ files before certain operations, like refiling.
         (revert-buffer)))))
 #+end_src
 
+*** Open the build directory
+#+begin_src emacs-lisp :tangle yes
+(defun sulami/open-build-dir ()
+  (interactive)
+  (find-file "~/build"))
+#+end_src
+
 ** Windows
 
 *** Maximise a window
@@ -625,6 +632,7 @@ declarations.
     "b r" 'sulami/rename-file-and-buffer
     "b s" 'sulami/open-scratch-buffer
     "b y" 'sulami/copy-buffer
+    "f b" 'sulami/open-build-dir
     "f e e" 'sulami/open-emacs-config
     "f e r" 'sulami/reload-emacs-config
     "f d" 'dired
