@@ -1833,8 +1833,6 @@ The big IDE-like integration for Clojure.
 #+begin_src emacs-lisp :tangle yes
 (use-package cider
   :defer t
-  :init
-  (setq cider-auto-mode nil)
   :config
   (defun sulami/cider-debug-defun-at-point ()
     "Set an implicit breakpoint and load the function at point."
@@ -1883,6 +1881,7 @@ The smaller integration for Clojure. Sometimes less buggy.
 
 #+begin_src emacs-lisp :tangle yes
 (use-package monroe
+  :disabled
   :defer t
   :config
   (defun sulami/monroe-run-test ()
