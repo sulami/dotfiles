@@ -1834,7 +1834,9 @@ The big IDE-like integration for Clojure.
     (let ((current-prefix-arg '(4)))
       (call-interactively 'cider-eval-defun-at-point)))
   :custom
-  (cider-show-error-buffer nil)
+  (cider-show-error-buffer nil
+   cider-repl-display-help-banner nil
+   cider-redirect-server-output-to-repl nil)
   :general
   (local-leader-def
     :keymaps 'cider-mode-map
