@@ -180,4 +180,15 @@ if [ -x /usr/libexec/path_helper ]; then
     eval `/usr/libexec/path_helper -s`
 fi
 
+# GPG Agent
+
+if test -f ~/.gpg-agent-info -a -n "$(pgrep gpg-agent)"; then
+  source ~/.gpg-agent-info
+  export GPG_AGENT_INFO
+  export SSH_AUTH_SOCK
+  export SSH_AGENT_PID
+else
+  eval $(gpg-agent --daemon)
+fi
+
 if [ -e /Users/sulami/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/sulami/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
