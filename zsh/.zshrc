@@ -68,7 +68,7 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 
 # OPTIONS
-bindkey -v
+bindkey -e
 setopt beep
 setopt no_listbeep
 setopt no_histbeep
