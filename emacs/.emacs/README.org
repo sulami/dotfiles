@@ -1448,7 +1448,7 @@ This is probably the single best interface for Git out there.
 (use-package magit
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
-  (magit-git-executable "/usr/local/bin/git")
+  (magit-git-executable "~/.nix-profile/bin/git")
   (magit-completing-read-function #'ivy-completing-read)
   :config
   (defun sulami/magit-rebase-master ()
@@ -2055,6 +2055,11 @@ Sometimes I'm a YAML-engineer, too.
   :defer t)
 #+END_SRC
 
+* Nix
+#+begin_src emacs-lisp :tangle yes
+(use-package nix-mode
+  :defer t)
+#+end_src
 * Protobuf
 We use quite a lot of protobuffers at =$DAYJOB=, so the mode is
 useful.
