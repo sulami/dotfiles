@@ -10,7 +10,8 @@
 
         :jvm-opts ["-XX:-OmitStackTraceInFastThrow"
                    ;; For inf-clojure, start a socket REPL (not nREPL) on the server.
-                   "-Dclojure.server.repl={:port 5555 :accept clojure.core.server/repl}"]
+                   ;; "-Dclojure.server.repl={:port 5555 :accept clojure.core.server/repl}"
+                   ]
 
         :deploy-repositories [["releases" {:url "https://repo.clojars.org"
                                            :creds :gpg}]]
