@@ -1862,7 +1862,8 @@ The big IDE-like integration for Clojure.
     "h A" 'cider-apropos-documentation
     "h d" 'cider-doc
     "h i" 'cider-inspect-last-result
-    "h w" 'cider-docview-clojuredocs-web
+    "h w" 'cider-clojuredocs
+    "h W" 'cider-clojuredocs-web
     "r" '(:ignore t :wk "repl")
     "r f" 'cider-insert-defun-in-repl
     "r n" 'cider-repl-set-ns
