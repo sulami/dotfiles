@@ -1,0 +1,55 @@
+pkgs:
+
+with pkgs;
+[
+  adoptopenjdk-jre-hotspot-bin-8
+  aspell
+  aspellDicts.en
+  circleci-cli
+  # clj-kondo
+  leiningen
+  cloc
+  clojure
+  clojure-lsp
+  cmake
+  docker
+  docker-compose
+  emacsMacport
+  fd
+  fira-code
+  git
+  gnupg
+  gnused
+  grpcurl
+  isync
+  iterm2
+  jq
+  msmtp
+  mtr
+  netcat
+  ngrok
+  notmuch
+  pandoc
+  pass
+  pinentry_mac
+  poetry
+  pv
+  racket-minimal
+  restic
+  ripgrep
+  rlwrap
+  ruby
+  sbcl
+  skhd
+  slack
+  stack
+  stow
+  tmux
+  tree
+  nodePackages.typescript
+  unrar
+  vim
+  watch
+  wget
+  zsh
+]
