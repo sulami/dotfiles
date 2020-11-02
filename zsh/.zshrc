@@ -182,13 +182,11 @@ fi
 
 # GPG Agent
 
-if test -f ~/.gpg-agent-info -a -n "$(pgrep gpg-agent)"; then
-  source ~/.gpg-agent-info
-  export GPG_AGENT_INFO
-  export SSH_AUTH_SOCK
-  export SSH_AGENT_PID
+if test -e "$(gpgconf --list-dirs agent-ssh-socket)" -a -n "$(pgrep gpg-agent)"; then
+    export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 else
-  eval $(gpg-agent --daemon)
+    eval $(gpg-agent --daemon)
+    export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 fi
 
 if [ -e /Users/sulami/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/sulami/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
