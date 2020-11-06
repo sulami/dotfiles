@@ -1,6 +1,6 @@
 {:user {:pedantic? :ranges
 
-        :java-cmd "/Users/sulami/.nix-profile/bin/java"
+        :java-cmd "/run/current-system/sw/bin/java"
 
         :release-tasks [["vcs" "assert-committed"]
                         ["change" "version" "leiningen.release/bump-version" "release"]

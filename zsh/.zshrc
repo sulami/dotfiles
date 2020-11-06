@@ -190,3 +190,5 @@ else
 fi
 
 if [ -e /Users/sulami/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/sulami/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+if [ -e /etc/static/zshrc ]; then . /etc/static/zshrc; fi # Nix-darwin

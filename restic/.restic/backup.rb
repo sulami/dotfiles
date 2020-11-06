@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
-pass_bin = '/usr/local/bin/pass'
-restic_bin = '/usr/local/bin/restic'
+pass_bin = '/run/current-system/sw/bin/pass'
+restic_bin = '/run/current-system/sw/bin/restic'
 restic_source = '/Users/sulami/Documents /Users/sulami/Pictures --exclude=".DS_Store"'
 retention_policy = '--keep-daily 14 --keep-weekly 4 --keep-monthly 12 --keep-yearly 5'
 
