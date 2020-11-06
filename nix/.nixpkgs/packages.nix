@@ -2,12 +2,11 @@ pkgs:
 
 with pkgs;
 [
-  adoptopenjdk-jre-hotspot-bin-8
+  # clj-kondo
+  adoptopenjdk-hotspot-bin-8
   aspell
   aspellDicts.en
   circleci-cli
-  # clj-kondo
-  leiningen
   cloc
   clojure
   clojure-lsp
@@ -24,10 +23,13 @@ with pkgs;
   isync
   iterm2
   jq
+  leiningen
+  miller
   msmtp
   mtr
   netcat
   ngrok
+  nodePackages.typescript
   notmuch
   pandoc
   pass
@@ -46,7 +48,6 @@ with pkgs;
   stow
   tmux
   tree
-  nodePackages.typescript
   unrar
   vim
   watch
