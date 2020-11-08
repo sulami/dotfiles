@@ -6,6 +6,7 @@
   signingkey = A1418106
 [push]
   default = simple
+  gpgsign = if-asked
 [credential]
   helper = cache --timeout=86400
 [alias]
