@@ -16,7 +16,7 @@ the top for performance reasons.
 #+begin_src emacs-lisp :tangle yes
 (setq user-full-name "Robin Schroer"
       user-login-name "sulami"
-      user-mail-address "sulami@peerwire.org")
+      user-mail-address "emacs@sulami.xyz")
 #+end_src
 
 * Better defaults
@@ -1733,7 +1733,8 @@ view emails in my local maildir.
   (notmuch-search-oldest-first nil)
   (notmuch-always-prompt-for-sender t)
   (notmuch-mua-cite-function 'message-cite-original-without-signature)
-  (notmuch-fcc-dirs '((".*@peerwire.org" . "fastmail/Sent +sent -inbox -unread")
+  (notmuch-fcc-dirs '((".*@sulami.xyz" . "fastmail/Sent +sent -inbox -unread")
+                      (".*@peerwire.org" . "fastmail/Sent +sent -inbox -unread")
                       ("robins@circleci.com" . "\"circleci-gmail/[Gmail]/Sent Mail\" +sent -inbox -unread")))
   :config
   (defun notmuch-inbox ()
