@@ -33,8 +33,8 @@ path=/Users/sulami/.mail
 
 [user]
 name=Robin Schroer
-primary_email=sulami@peerwire.org
-other_email=robins@circleci.com
+primary_email=mail@sulami.xyz
+other_email=sulami@peerwire.org;robins@circleci.com
 
 # Configuration for "notmuch new"
 #
