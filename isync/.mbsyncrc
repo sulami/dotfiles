@@ -1,4 +1,7 @@
 # -*- mode: conf -*-
+
+# Fastmail
+
 IMAPAccount fastmail
 Host mail.messagingengine.com
 SSLType IMAPS
@@ -23,9 +26,11 @@ Slave :fastmail-local:
 Patterns *
 Create Slave
 Sync All
-Expunge Both
+Expunge None
 SyncState *
+CopyArrivalDate yes
 
+# CircleCI Gmail
 
 IMAPAccount circleci-gmail
 Host imap.gmail.com
@@ -60,3 +65,4 @@ Sync All
 Expunge Both
 # Save the synchronization state files in the relevant directory
 SyncState *
+CopyArrivalDate yes
