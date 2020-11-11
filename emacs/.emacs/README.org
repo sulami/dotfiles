@@ -653,7 +653,8 @@ declarations.
     "t n" 'sulami/toggle-line-numbers
     "t N" 'sulami/toggle-narrow
     "w =" 'balance-windows
-    "w m" 'sulami/toggle-maximise-window)
+    "w m" 'sulami/toggle-maximise-window
+    "w u" 'winner-undo)
   (general-define-key
    "s-m" 'suspend-frame
    "s-=" (lambda () (interactive) (text-scale-increase 0.5))
