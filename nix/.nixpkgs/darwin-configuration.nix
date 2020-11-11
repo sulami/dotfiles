@@ -11,6 +11,7 @@ in {
 
   environment.variables = {
     JAVA_HOME = "/run/current-system/sw";
+    ASPELL_CONF = "dict-dir ${pkgs.aspellDicts.en}/lib/aspell";
   };
 
   # Use a custom configuration.nix location.
