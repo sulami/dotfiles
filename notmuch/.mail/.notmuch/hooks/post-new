@@ -21,7 +21,7 @@ notmuch tag --batch <<EOF
 
 # +github Github notifications.
 +github -- from:notifications@github.com
-+github +resolved -- from:notifications@github.com and ("Merged" or "Closed")
++github +resolved -- from:notifications@github.com and ("Merged #" or "Closed #")
 
 # +jira JIRA notifications.
 +jira -- from:jira@circleci.atlassian.net
