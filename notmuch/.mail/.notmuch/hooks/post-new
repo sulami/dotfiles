@@ -11,7 +11,7 @@ notmuch tag --batch <<EOF
 +spam -- path:fastmail/Spam/**
 
 # +Sent mail.
--inbox -unread +sent -- path:fastmail/Sent/** or path:"circleci-gmail/[Gmail]/Sent Mail/**"
+-inbox -unread -draft +sent -- path:fastmail/Sent/** or path:"circleci-gmail/[Gmail]/Sent Mail/**"
 
 # +draft drafts.
 # -unread -- tag:draft
