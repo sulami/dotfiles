@@ -53,4 +53,6 @@ with pkgs;
   watch
   wget
   zsh
+] ++ [
+  (import ./packages/titlecase.nix {})
 ]
