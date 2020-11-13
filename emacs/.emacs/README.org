@@ -1991,6 +1991,17 @@ config here.
   :defer t)
 #+end_src
 
+* Web
+#+begin_src emacs-lisp :tangle yes
+(use-package web-mode
+  :defer t
+  :custom
+  (web-mode-code-indent-offset 2)
+  (web-mode-markup-indent-offset 2)
+  :config
+  (add-to-list 'auto-mode-alist '("\\.tsx" . web-mode)))
+#+end_src
+
 * Typescript
 #+begin_src emacs-lisp :tangle yes
 (use-package typescript-mode
@@ -2006,6 +2017,7 @@ config here.
     (flycheck-mode +1)
     (eldoc-mode +1))
   :hook
+  ;; TODO activate tide in tsx files, which are web-mode
   (typescript-mode . sulami/tide-setup))
 #+end_src
 * LLVM
