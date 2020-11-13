@@ -55,4 +55,5 @@ with pkgs;
   zsh
 ] ++ [
   (import ./packages/titlecase.nix {})
+  (import ./packages/zprint.nix {})
 ]
