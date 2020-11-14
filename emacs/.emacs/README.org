@@ -1301,10 +1301,30 @@ item is empty, remove it instead. Essentially imitating Google Docs."
     (if (org-at-item-p)
         (let* ((begin (org-in-item-p))
                (struct (org-list-struct))
-               (end (org-list-get-item-end begin struct)))
-          (if (< (- end begin) 4) ; Empty list item.
-              (org-list-delete-item begin struct)
-            (org-meta-return)))
+               (end (org-list-get-item-end begin struct))
+               (indent (org-list-get-ind begin struct))
+               (bullet (org-list-get-bullet begin struct))
+               (checkbox (org-list-get-checkbox begin struct))
+               (type (org-list-get-list-type begin
+                                             struct
+                                             (org-list-prevs-alist struct)))
+               ;; Different factors alter the amount of whitespace.
+               (whitespace (+ 1
+                              (if checkbox 1 0)
+                              (if (equal 'descriptive type) 3 0)
+                              (if (and checkbox
+                                       (equal 'descriptive type))
+                                1 0))))
+          (if (zerop (- end
+                        begin
+                        indent
+                        (length bullet)
+                        (length checkbox)
+                        whitespace))
+              (progn (org-list-delete-item begin struct)
+                     (insert "\n")
+                     (backward-char))
+            (evil-org-open-below 0)))
       (org-return)))
   :general
   (local-leader-def
