@@ -236,6 +236,15 @@ have several frames/Emacsen open and want to switch between them.
 (if (fboundp 'tooltip-mode) (tooltip-mode -1))
 #+END_SRC
 
+** Setup SSH via GPG-Agent
+
+This assumes GPG-Agent is already running. Otherwise start it with
+~gpg-agent --daemon~.
+
+#+begin_src emacs-lisp :tangle yes
+(setenv "SSH_AUTH_SOCK" (shell-command-to-string "gpgconf --list-dirs agent-ssh-socket"))
+#+end_src
+
 * macOS
 Everything in here relates to macOS in some way.
 
