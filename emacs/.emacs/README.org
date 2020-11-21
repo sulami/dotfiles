@@ -1732,6 +1732,7 @@ yak shave an awful lot.
   (erc-fill-prefix nil)
   (erc-fill-function 'erc-fill-variable)
   (erc-insert-timestamp-function 'erc-insert-timestamp-left)
+  (erc-autojoin-channels-alist '(("freenode.net" "#nixers_net" "#circleci")))
   :general
   (local-leader-def
     :keymaps 'erc-mode-map
