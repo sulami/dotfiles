@@ -2,6 +2,16 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+# Strip UIDs from filenames when moving mails so that mbsync doesn't
+# get confused.
+mv_without_uid () {
+    while IFS= read -r name; do
+        new_name="$(basename $name | awk -F ',' '{print $1}')"
+        target="$1"
+        mv -n "$name" "$1/new/$new_name"
+    done
+}
+
 # Delete deleted emails older than 4 weeks.
 notmuch search --output=files --format=text0 --exclude=false -- tag:deleted and date:..4w | xargs -0 rm || true
 
@@ -17,28 +27,28 @@ notmuch new --no-hooks
 # Fastmail
 
 # Trash.
-notmuch search --output=files --format=text0 -- path:"fastmail/INBOX/**" and tag:deleted | xargs -0tI {} mv -n {} ~/.mail/fastmail/Trash/new/
+notmuch search --output=files -- path:"fastmail/INBOX/**" and tag:deleted | mv_without_uid ~/.mail/fastmail/Trash
 # Spam.
-notmuch search --output=files --format=text0 -- path:"fastmail/INBOX/**" tag:spam | xargs -0tI {} mv -n {} ~/.mail/fastmail/Spam/new/
+notmuch search --output=files -- path:"fastmail/INBOX/**" tag:spam | mv_without_uid ~/.mail/fastmail/Spam
 # Recruiter email.
-notmuch search --output=files --format=text0 -- path:"fastmail/INBOX/**" and tag:recruiting | xargs -0tI {} mv -n {} ~/.mail/fastmail/Recruitment/new/
+notmuch search --output=files -- path:"fastmail/INBOX/**" and tag:recruiting | mv_without_uid ~/.mail/fastmail/Recruitment
 # Archive from inbox.
-notmuch search --output=files --format=text0 -- path:"fastmail/INBOX/**" and not tag:inbox | xargs -0tI {} mv -n {} ~/.mail/fastmail/Archive/new/
+notmuch search --output=files -- path:"fastmail/INBOX/**" and not tag:inbox | mv_without_uid ~/.mail/fastmail/Archive
 
 # CircleCI Gmail
 
 # Spam.
-notmuch search --output=files --format=text0 -- path:"circleci-gmail/Inbox/**" tag:spam | xargs -0tI {} mv -n {} ~/.mail/circleci-gmail/\[Gmail\]/Spam/new/
+notmuch search --output=files -- path:"circleci-gmail/Inbox/**" tag:spam | mv_without_uid ~/.mail/circleci-gmail/\[Gmail\]/Spam
 # Trash.
-notmuch search --output=files --format=text0 -- path:"circleci-gmail/Inbox/**" and tag:deleted | xargs -0tI {} mv -n {} ~/.mail/circleci-gmail/\[Gmail\]/Trash/new/
+notmuch search --output=files -- path:"circleci-gmail/Inbox/**" and tag:deleted | mv_without_uid ~/.mail/circleci-gmail/\[Gmail\]/Trash
 # The various tags.
-notmuch search --output=files --format=text0 -- path:"circleci-gmail/Inbox/**" and tag:calendar | xargs -0tI {} mv -n {} ~/.mail/circleci-gmail/Calendar/new/
-notmuch search --output=files --format=text0 -- path:"circleci-gmail/Inbox/**" and tag:datadog | xargs -0tI {} mv -n {} ~/.mail/circleci-gmail/DataDog/new/
-notmuch search --output=files --format=text0 -- path:"circleci-gmail/Inbox/**" and tag:ops | xargs -0tI {} mv -n {} ~/.mail/circleci-gmail/Ops/new/
-notmuch search --output=files --format=text0 -- path:"circleci-gmail/Inbox/**" and tag:oxbot | xargs -0tI {} mv -n {} ~/.mail/circleci-gmail/Ox\ Bot/new/
-notmuch search --output=files --format=text0 -- path:"circleci-gmail/Inbox/**" and tag:rollbar | xargs -0tI {} mv -n {} ~/.mail/circleci-gmail/Rollbar/new/
+notmuch search --output=files -- path:"circleci-gmail/Inbox/**" and tag:calendar | mv_without_uid ~/.mail/circleci-gmail/Calendar
+notmuch search --output=files -- path:"circleci-gmail/Inbox/**" and tag:datadog | mv_without_uid ~/.mail/circleci-gmail/DataDog
+notmuch search --output=files -- path:"circleci-gmail/Inbox/**" and tag:ops | mv_without_uid ~/.mail/circleci-gmail/Ops
+notmuch search --output=files -- path:"circleci-gmail/Inbox/**" and tag:oxbot | mv_without_uid ~/.mail/circleci-gmail/Ox\ Bot
+notmuch search --output=files -- path:"circleci-gmail/Inbox/**" and tag:rollbar | mv_without_uid ~/.mail/circleci-gmail/Rollbar
 # Archive from inbox.
-notmuch search --output=files --format=text0 -- path:"circleci-gmail/Inbox/**" and not tag:inbox | xargs -0tI {} mv -n {} ~/.mail/circleci-gmail/\[Gmail\]/All\ Mail/new/
+notmuch search --output=files -- path:"circleci-gmail/Inbox/**" and not tag:inbox | mv_without_uid ~/.mail/circleci-gmail/\[Gmail\]/All\ Mail
 
 # Make sure we have updated paths.
 notmuch new --no-hooks

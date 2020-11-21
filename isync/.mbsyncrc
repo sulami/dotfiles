@@ -26,7 +26,7 @@ Slave :fastmail-local:
 Patterns *
 Create Slave
 Sync All
-Expunge None
+Expunge Both
 SyncState *
 CopyArrivalDate yes
 
