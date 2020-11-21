@@ -1722,6 +1722,8 @@ yak shave an awful lot.
   :defer t
   :commands (erc)
   :custom
+  (erc-nick "sulami")
+  (erc-password (string-trim (shell-command-to-string "pass freenode/password")))
   (erc-join-buffer 'bury)
   (erc-hide-list '("JOIN" "PART" "QUIT"))
   (erc-lurker-hide-list '("JOIN" "PART" "QUIT"))
