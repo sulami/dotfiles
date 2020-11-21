@@ -242,7 +242,7 @@ This assumes GPG-Agent is already running. Otherwise start it with
 ~gpg-agent --daemon~.
 
 #+begin_src emacs-lisp :tangle yes
-(setenv "SSH_AUTH_SOCK" (shell-command-to-string "gpgconf --list-dirs agent-ssh-socket"))
+(setenv "SSH_AUTH_SOCK" (string-trim (shell-command-to-string "gpgconf --list-dirs agent-ssh-socket")))
 #+end_src
 
 * macOS
