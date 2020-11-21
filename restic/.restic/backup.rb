@@ -10,6 +10,8 @@ ENV['B2_ACCOUNT_KEY'] = `#{pass_bin} backblaze-b2/account-key`.strip
 ENV['RESTIC_REPOSITORY'] = `#{pass_bin} restic/target`.strip
 ENV['RESTIC_PASSWORD'] = `#{pass_bin} restic/password`.strip
 
+puts Time.now
+
 case ARGV
 when ['backup']
   puts `#{restic_bin} backup --host Robins-MacBook-Pro.local #{restic_source}`

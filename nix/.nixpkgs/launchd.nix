@@ -9,6 +9,7 @@
       StartInterval = 5 * 60;
       RunAtLoad = true;
       KeepAlive = false;
+      StandardOutPath = "/tmp/mail.stdout";
       StandardErrorPath = "${home_directory}/Desktop/MAIL_STDERR";
       EnvironmentVariables = {
         "PATH" = "${pkgs.pass}/bin:$PATH";
@@ -26,12 +27,12 @@
   };
 
   backup = {
-    command = "${home_directory}/dotfiles/restic/.restic/backup.rb";
+    command = "${home_directory}/dotfiles/restic/.restic/backup.rb backup-and-cleanup";
     serviceConfig = {
       ProcessType = "Background";
       LowPriorityIO = true;
       StartInterval = 24 * 60 * 60;
-      RunAtLoad = false;
+      StandardOutPath = "/tmp/backup.stdout";
       StandardErrorPath = "${home_directory}/Desktop/BACKUP_STDERR";
     };
   };
