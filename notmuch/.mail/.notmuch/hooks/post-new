@@ -2,31 +2,43 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-# Manual post-processing.
+# Manual post-processing. This is mostly just adding tags for things
+# that have been moved on the mail host.
+
+# Everything new starts out with +inbox +unread by default. Anything
+# that is in a non-inbox folder should be "-inbox +folder" to show up
+# in the right places only.
+
 notmuch tag --batch <<EOF
-# +inbox the inbox.
-# +inbox -- path:fastmail/INBOX/**
+# Archive
+-inbox -unread -- path:fastmail/Archive/** or path:"circleci-gmail/[Gmail]/All Mail/**"
+
+# Deleted
+-inbox -unread +deleted -- path:fastmail/Trash/** or path:"circleci-gmail/[Gmail]/Trash/**"
 
 # Spam
-+spam -- path:fastmail/Spam/**
+-inbox -unread +spam -- path:fastmail/Spam/** or path "circleci-gmail/[Gmail]/Spam/**"
 
-# +Sent mail.
+# Recruiting
+-inbox -unread +recruiting -- path:fastmail/Recruitment/**
+
+# Sent
 -inbox -unread -draft +sent -- path:fastmail/Sent/** or path:"circleci-gmail/[Gmail]/Sent Mail/**"
 
-# +draft drafts.
+# Drafts
 # -unread -- tag:draft
 
-# +circleci my work account.
+# CircleCI
 +circleci -- path:circleci-gmail/**
 
-# +github Github notifications.
+# GitHub
 +github -- from:notifications@github.com
 +github +resolved -- from:notifications@github.com and ("Merged #" or "Closed #")
 
-# +jira JIRA notifications.
+# JIRA
 +jira -- from:jira@circleci.atlassian.net
 
-# -unread what has been filtered by Gmail already.
+# Gmail filters
 -unread -inbox +calendar -- path:circleci-gmail/Calendar/**
 -unread -inbox +rollbar -- path:circleci-gmail/Rollbar/**
 -unread -inbox +datadog -- path:circleci-gmail/DataDog/**
