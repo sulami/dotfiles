@@ -766,24 +766,6 @@ Evil-keybindings for org/agenda.
          (org-agenda-mode . evil-org-agenda-set-keys)))
 #+end_src
 
-** evil-search-highlight-persist
-This persists the search highlight after using =/=, so that I can see
-all the matches. I bound =RET= to ~:noh~, which I stole from Gary
-Bernhardt a long time ago. It conflicts with some bindings in some
-modes, but I'm used to it.
-
-#+begin_src emacs-lisp :tangle yes
-(use-package evil-search-highlight-persist
-  :config
-  (defun sulami/isearch-nohighlight ()
-    "Remove search highlights if not in the isearch minor mode."
-    (interactive)
-    (when (not isearch-mode)
-      (evil-search-highlight-persist-remove-all)))
-  (evil-ex-define-cmd "noh[lsearch]" #'sulami/isearch-nohighlight)
-  :hook (evil-mode . global-evil-search-highlight-persist))
-#+end_src
-
 ** evil-commentary
 =vim-commentary= but for evil.
 
