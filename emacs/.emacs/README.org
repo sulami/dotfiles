@@ -1919,7 +1919,9 @@ The big IDE-like integration for Clojure.
     "t l" 'cider-test-run-loaded-tests
     "t n" 'cider-test-run-ns-tests
     "t p" 'cider-test-run-project-tests
-    "t t" 'cider-test-run-test))
+    "t t" 'cider-test-run-test)
+  :hook
+  (cider-repl-mode . company-mode))
 #+end_src
 
 ** Monroe
