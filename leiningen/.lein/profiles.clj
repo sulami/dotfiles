@@ -15,7 +15,7 @@
                                            :creds :gpg}]]
         :signing {:gpg-key "0xA1418106"}}
 
- :repl {:dependencies [[com.bhauman/rebel-readline "RELEASE"]
+ :rebl {:dependencies [[com.bhauman/rebel-readline "RELEASE"]
                        [org.clojure/core.async "RELEASE"]
                        [org.clojure/core.logic "RELEASE"]
                        [org.clojure/test.check "RELEASE"]
