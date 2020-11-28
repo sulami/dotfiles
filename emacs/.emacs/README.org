@@ -2041,12 +2041,14 @@ config here.
   :defer t
   :config
   (defun sulami/tide-setup ()
-    (tide-setup)
-    (flycheck-mode +1)
-    (eldoc-mode +1))
+    (when (equal "tsx"
+                 (file-name-extension buffer-file-name))
+      (tide-setup)
+      (flycheck-mode +1)
+      (eldoc-mode +1)))
   :hook
-  ;; TODO activate tide in tsx files, which are web-mode
-  (typescript-mode . sulami/tide-setup))
+  ((typescript-mode . sulami/tide-setup)
+   (web-mode . sulami/tide-setup)))
 #+end_src
 * LLVM
 I look at LLVM assembly more than is healthy, and some colour helps
