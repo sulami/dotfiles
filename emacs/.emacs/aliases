@@ -4,6 +4,7 @@ alias dclf docker-compose logs --tail=10 -f $*
 alias dcud docker-compose up --build -d
 alias dps docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Status}}"
 alias drun docker run -it $*
+alias em open -na /run/current-system/Applications/Emacs.app
 alias g git $*
 alias make time make -j2 $*
 alias pause_docker docker ps | awk '/Up/ {print $1}' | xargs docker pause
