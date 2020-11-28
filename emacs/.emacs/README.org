@@ -1847,7 +1847,8 @@ lot of configuration.
     "R u" 'clojure-unwind-all)
   :config
   (define-clojure-indent
-    (database/speculate 1)))
+    (database/speculate 1)
+    (car/wcar 1)))
 
 (use-package flycheck-clj-kondo
   :defer t
