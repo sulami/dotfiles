@@ -2026,8 +2026,8 @@ config here.
   :custom
   (web-mode-code-indent-offset 2)
   (web-mode-markup-indent-offset 2)
-  :config
-  (add-to-list 'auto-mode-alist '("\\.tsx" . web-mode)))
+  :mode
+  ("\\.tsx" . web-mode))
 #+end_src
 
 * Typescript
