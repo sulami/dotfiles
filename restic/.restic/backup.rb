@@ -2,7 +2,7 @@
 
 pass_bin = '/run/current-system/sw/bin/pass'
 restic_bin = '/run/current-system/sw/bin/restic'
-restic_source = '/Users/sulami/Documents /Users/sulami/Pictures --exclude=".DS_Store"'
+restic_source = '/Users/sulami/Documents /Users/sulami/Pictures /Users/sulami/.mail --exclude=".DS_Store"'
 retention_policy = '--keep-daily 14 --keep-weekly 4 --keep-monthly 12 --keep-yearly 5'
 
 ENV['B2_ACCOUNT_ID'] = `#{pass_bin} backblaze-b2/account-id`.strip
