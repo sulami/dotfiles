@@ -903,7 +903,8 @@ a symbol and how to search for them."
    "f r" 'counsel-recentf
    "h a" 'counsel-apropos
    "j i" 'sulami/counsel-org-goto-or-semantic-or-imenu
-   "j e" 'counsel-flycheck)
+   "j e" 'counsel-flycheck
+   "j m" 'counsel-evil-marks)
   (local-leader-def
     :keymaps 'org-mode-map
     "t" '(counsel-org-tag :wk "counsel-org-tag"))
