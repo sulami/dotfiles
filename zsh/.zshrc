@@ -26,22 +26,7 @@ else
     export VISUAL=vi
 fi
 export LC_ALL=en_US.UTF-8
-
-# Git prompt import
-#source $HOME/dotfiles/zsh/zsh-git-prompt/zshrc.sh
-#export GIT_PROMPT_EXECUTABLE="haskell"
-
 export GOMAXPROCS=8
-
-PYTHON_3_VERSION=$(python3 -c "import sys; print('{}.{}'.format(sys.version_info.major, sys.version_info.minor))")
-export PATH=$PATH:$HOME/Library/Python/${PYTHON_3_VERSION}/bin
-# Virtualenvwrapper support if available
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-export WORKON_HOME=$HOME/.virtualenvs
-if which virtualenvwrapper_lazy.sh > /dev/null 2>&1; then
-    source "$(which virtualenvwrapper_lazy.sh)"
-fi
-
 export LEIN_FAST_TRAMPOLINE=y
 
 # Activate syntax highlighting
@@ -93,10 +78,9 @@ alias psg='ps aux | grep $*'
 alias rsync='rsync -aP --stats $*'
 alias wget='wget -c $*'
 alias dps='docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Status}}"'
-alias drun='docker run -it $*'
 alias dc='docker-compose $*'
-alias dcud='docker-compose up --build -d'
-alias dcd='docker-compose down -v --remove-orphans'
+compdef dc='docker-compose'
+alias dcud='docker-compose up -d $*'
 alias dclf='docker-compose logs --tail=10 -f $*'
 alias pause_docker="docker ps | awk '/Up/ {print \$1}' | xargs docker pause"
 alias unpause_docker="docker ps | awk '/(Paused)/ {print \$1}' | xargs docker unpause"
@@ -105,11 +89,6 @@ alias unpause_docker="docker ps | awk '/(Paused)/ {print \$1}' | xargs docker un
 alias | gsed 's/^alias //' | gsed -E "s/^([^=]+)='(.+?)'$/\1=\2/" | gsed "s/'\\\\''/'/g" | gsed "s/'\\\\$/'/;" | gsed -E 's/^([^=]+)=(.+)$/alias \1 \2/' > ~/.emacs/aliases
 echo 'alias ff find-file $1' >> ~/.emacs/aliases
 echo 'alias ffw find-file-other-window $1' >> ~/.emacs/aliases
-
-# Starts up a new emacs session and decouples it from the shell.
-function edit() {
-    emacs $* > /dev/null & ; disown
-}
 
 # Makes a new dir and cds to it.
 mcd()
@@ -141,6 +120,7 @@ bindkey '\E[1;5D' backward-word
 bindkey '\E[1;5C' forward-word
 # Add incremental backwards search
 bindkey '^r' history-incremental-search-backward
+
 # Return to background program by hitting ^z again, thanks to grml
 function zsh-fg() {
     if (( ${#jobstates} )); then
@@ -154,14 +134,6 @@ function zsh-fg() {
 }
 zle -N zsh-fg
 bindkey '^z' zsh-fg
-# fix not being able to delete past entry point (vim: set backspace)
-bindkey -M viins '^h' backward-delete-char
-bindkey -M viins '^?' backward-delete-char
-bindkey -M viins '^w' backward-kill-word
-# bind jk to exit insert mode, just like vim
-#bindkey -M viins 'jk' vi-cmd-mode
-# bind hmenu
-# bindkey -s '^h' 'hmenu\n'
 
 # Colored manpages
 export MANPAGER='less'
@@ -181,7 +153,6 @@ if [ -x /usr/libexec/path_helper ]; then
 fi
 
 # GPG Agent
-
 if test -e "$(gpgconf --list-dirs agent-ssh-socket)" -a -n "$(pgrep gpg-agent)"; then
     export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 else

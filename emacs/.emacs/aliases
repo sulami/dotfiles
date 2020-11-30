@@ -1,9 +1,7 @@
 alias dc docker-compose $*
-alias dcd docker-compose down -v --remove-orphans
 alias dclf docker-compose logs --tail=10 -f $*
-alias dcud docker-compose up --build -d
+alias dcud docker-compose up -d $*
 alias dps docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Status}}"
-alias drun docker run -it $*
 alias em open -na /run/current-system/Applications/Emacs.app
 alias g git $*
 alias make time make -j2 $*
