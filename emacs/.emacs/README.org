@@ -1097,8 +1097,7 @@ magic around spacing, comments, and more.
     "}" 'lispy-right-nostring
     "DEL" 'lispy-delete-backward-or-splice-or-slurp)
   :hook
-  ((lispyville-mode . (lambda () (evil-cleverparens-mode -1)))
-   (emacs-lisp-mode . lispyville-mode)
+  ((emacs-lisp-mode . lispyville-mode)
    (lisp-mode . lispyville-mode)
    (scheme-mode . lispyville-mode)
    (clojure-mode . lispyville-mode)
@@ -1107,19 +1106,17 @@ magic around spacing, comments, and more.
    (racket-mode . lispyville-mode)))
 #+end_src
 
-** evil-cleverparens
+** Electric Pair Mode
 All other modes just use ~electric-pair-mode~, which is built into
-Emacs already, for automatically matching parentheses, and
-[[https://github.com/luxbock/evil-cleverparens][evil-cleverparens]] for keeping parentheses balanced. The main reason
+Emacs already, for automatically matching parentheses. The main reason
 for this divide being the whitespace changes done by LispyVille
 interfering with non-lisp syntax.
+
 #+begin_src emacs-lisp :tangle yes
-(use-package evil-cleverparens
-  :defer t
+(use-package electric-pair-mode
+  :straight nil
   :hook
-  ((text-mode . evil-cleverparens-mode)
-   (text-mode . electric-pair-local-mode)
-   (prog-mode . evil-cleverparens-mode)
+  ((text-mode . electric-pair-local-mode)
    (prog-mode . electric-pair-local-mode)))
 #+end_src
 
