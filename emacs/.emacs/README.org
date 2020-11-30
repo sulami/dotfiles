@@ -107,6 +107,14 @@ works.
 (setq ring-bell-function 'ignore)
 #+end_src
 
+** Don't blink the cursor
+
+I find this mostly distracting.
+
+#+begin_src emacs-lisp :tangle yes
+(blink-cursor-mode -1)
+#+end_src
+
 ** Start the scratch buffer empty
 #+BEGIN_SRC emacs-lisp :tangle yes
 (setq initial-scratch-message "")
