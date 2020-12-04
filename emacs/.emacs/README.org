@@ -2069,6 +2069,14 @@ repo directly, as there's no easy way of getting it otherwise.
 #+end_src
 
 * Docker
+
+#+begin_src emacs-lisp :tangle yes
+(use-package dockerfile-mode
+  :defer t)
+#+end_src
+
+** Docker-Tramp
+
 Docker & tramp integration allows for using ~/docker:container~ as a
 tramp target.
 
