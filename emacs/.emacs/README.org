@@ -838,6 +838,8 @@ useful.
   ;; (selectrum-prescient-mode +1)
 )
 
+(use-package consult
+  :defer t)
 
 ;; (use-package embark)
 #+end_src
