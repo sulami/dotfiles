@@ -825,6 +825,8 @@ useful.
 #+begin_src emacs-lisp :tangle yes
 (use-package selectrum
   ;; :disabled
+  :custom
+  (selectrum-count-style 'current/matches)
   :config
   (selectrum-mode +1)
   ;; Load addons.
