@@ -845,9 +845,13 @@ useful.
 
 (use-package mini-frame
   :custom
+  (resize-mini-frames t)
   (mini-frame-show-parameters '((top . 10)
                                 (width . 0.7)
-                                (left . 0.5))))
+                                (left . 0.5)))
+  :config
+  (defun noop () (interactive))
+  (mini-frame-mode))
 
 ;; (use-package embark)
 #+end_src
