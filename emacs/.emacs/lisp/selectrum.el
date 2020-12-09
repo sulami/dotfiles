@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t -*-
 ;; These are taken from
 ;; https://github.com/raxod502/selectrum/wiki/Useful-Commands#isearch
 
