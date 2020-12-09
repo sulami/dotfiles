@@ -1737,6 +1737,8 @@ yak shave an awful lot.
   (erc-insert-timestamp-function 'erc-insert-timestamp-left)
   (erc-autojoin-channels-alist '(("freenode.net" "#nixers_net" "#circleci")))
   :config
+  (add-to-list 'erc-modules 'keep-place)
+  (add-to-list 'erc-modules 'spelling)
   (defun sulami/erc ()
     (erc :server "irc.freenode.net"
          :port 6667
