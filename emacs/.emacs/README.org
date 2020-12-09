@@ -639,7 +639,7 @@ declarations.
     ;; General keybinds
     "\\" 'indent-region
     "|" 'sulami/shell-command-on-region
-    "a C" 'calc
+    "a c" 'calc
     "a s" 'shell
     "b e" 'erase-buffer
     "b d" 'kill-this-buffer
