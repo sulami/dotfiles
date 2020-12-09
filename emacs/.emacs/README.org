@@ -1722,7 +1722,7 @@ yak shave an awful lot.
 (use-package erc
   :straight nil
   :defer t
-  :commands (erc)
+  :commands (erc sulami/erc)
   :custom
   (erc-nick "sulami")
   (erc-join-buffer 'bury)
@@ -1735,11 +1735,13 @@ yak shave an awful lot.
   (erc-fill-prefix nil)
   (erc-fill-function 'erc-fill-variable)
   (erc-insert-timestamp-function 'erc-insert-timestamp-left)
-  (erc-autojoin-channels-alist '(("freenode.net" "#nixers_net" "#circleci")))
+  (erc-autojoin-channels-alist '(("freenode.net" "#nixers_net" "#circleci")
+                                 ("irc.circleci.com" "#general")))
   :config
   (add-to-list 'erc-modules 'keep-place)
   (add-to-list 'erc-modules 'spelling)
   (defun sulami/erc ()
+    (interactive)
     (erc :server "irc.freenode.net"
          :port 6667
          :nick "sulami"
