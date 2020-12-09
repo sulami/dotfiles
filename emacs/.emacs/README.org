@@ -1725,7 +1725,6 @@ yak shave an awful lot.
   :commands (erc)
   :custom
   (erc-nick "sulami")
-  (erc-password (string-trim (shell-command-to-string "pass freenode/password")))
   (erc-join-buffer 'bury)
   (erc-hide-list '("JOIN" "PART" "QUIT"))
   (erc-lurker-hide-list '("JOIN" "PART" "QUIT"))
@@ -1737,6 +1736,16 @@ yak shave an awful lot.
   (erc-fill-function 'erc-fill-variable)
   (erc-insert-timestamp-function 'erc-insert-timestamp-left)
   (erc-autojoin-channels-alist '(("freenode.net" "#nixers_net" "#circleci")))
+  :config
+  (defun sulami/erc ()
+    (erc :server "irc.freenode.net"
+         :port 6667
+         :nick "sulami"
+         :password (string-trim (shell-command-to-string "pass freenode/password")))
+    (erc :server "irc.circleci.com"
+         :port 6667
+         :nick "robins"
+         :password (string-trim (shell-command-to-string "pass circleci/irc/password"))))
   :general
   (local-leader-def
     :keymaps 'erc-mode-map
