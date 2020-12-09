@@ -841,6 +841,12 @@ useful.
 (use-package consult
   :defer t)
 
+(use-package mini-frame
+  :custom
+  (mini-frame-show-parameters '((top . 10)
+                                (width . 0.7)
+                                (left . 0.5))))
+
 ;; (use-package embark)
 #+end_src
 
