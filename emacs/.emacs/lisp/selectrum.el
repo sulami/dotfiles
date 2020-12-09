@@ -21,6 +21,23 @@
                      (length args)))
      (abort-recursive-edit)))
 
+;; Yank Insert
+
+(defun yank-ring-read ()
+  "Open kill ring menu and return chosen text."
+  (completing-read "Ring: "
+                   (cl-remove-duplicates kill-ring :test #'equal :from-end t)
+                   nil ':require-match))
+
+(defun yank-ring-insert (text)
+  "Choose TEXT from the kill ring and insert it."
+  (interactive (list (yank-ring-read)))
+  (setq yank-window-start (window-start))
+  (push-mark)
+  (insert-for-yank text)
+  (setq this-command 'yank)
+  nil)
+
 ;; Swiper
 
 (defvar selectrum-swiper-history nil "Submission history for `selectrum-swiper'.")
