@@ -1751,9 +1751,8 @@ yak shave an awful lot.
          :nick "robins"
          :password (string-trim (shell-command-to-string "pass circleci/irc/password"))))
   :general
-  (local-leader-def
-    :keymaps 'erc-mode-map
-    "t" 'erc-track-switch-buffer))
+  (leader-def
+    "a i" 'erc-track-switch-buffer))
 #+end_src
 
 * Email
