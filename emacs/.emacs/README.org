@@ -1204,10 +1204,9 @@ Manages projects (usually git repositories, but flexible).
     (cond
      ((eq major-mode 'eshell-mode)
       (evil-switch-to-windows-last-buffer))
-     ((projectile-project-p)
-      (let ((eshell-buffer-name (concat "*eshell-" (projectile-project-name) "*")))
-        (projectile-with-default-dir (projectile-project-root)
-          (eshell))))
+     ((projectile-project-p (f-dirname (or (buffer-file-name)
+                                           "")))
+      (call-interactively #'projectile-run-eshell))
      ((eshell))))
 
   ;; Don't do projectile stuff on remote files
