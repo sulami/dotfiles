@@ -70,7 +70,7 @@ setopt sharehistory
 
 # Often used options
 alias v='$EDITOR $*'
-alias em='open -na /run/current-system/Applications/Emacs.app'
+alias em='open -na /run/current-system/Applications/Emacs.app --args --chdir=$(pwd) $*'
 alias g='git $*'
 compdef g='git'
 alias make='time make -j2 $*'
