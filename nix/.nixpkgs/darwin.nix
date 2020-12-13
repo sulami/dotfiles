@@ -30,7 +30,7 @@
     autohide            = true;
     expose-group-by-app = false;
     mru-spaces          = false;
-    tilesize            = 92;
+    tilesize            = 48;
   };
 
   system.defaults.spaces.spans-displays = false;
