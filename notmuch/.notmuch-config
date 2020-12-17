@@ -34,7 +34,9 @@ path=/Users/sulami/.mail
 [user]
 name=Robin Schroer
 primary_email=mail@sulami.xyz
-other_email=sulami@peerwire.org;robins@circleci.com
+other_email=sulami@peerwire.org;robins@circleci.com;git@sulami.xyz;blog@sulami.xyz
+# Only addresses listed here will be set automatically as From: when
+# replying, so those are the most common ones.
 
 # Configuration for "notmuch new"
 #
