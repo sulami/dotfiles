@@ -1798,7 +1798,9 @@ view emails in my local maildir.
     "m n" 'notmuch-mua-new-mail
     "m r" 'notmuch-poll
     "m s" 'notmuch-search
-    "m u" 'notmuch-unread))
+    "m u" 'notmuch-unread)
+  :hook
+  (notmuch-message-mode . flyspell-mode))
 #+end_src
 
 * Verb
