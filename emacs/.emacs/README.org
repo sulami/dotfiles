@@ -2043,6 +2043,15 @@ config here.
   :defer t)
 #+end_src
 
+* Go
+
+Every now and then I do have to look at some Go code, sadly.
+
+#+begin_src emacs-lisp :tangle yes
+(use-package go-mode
+  :defer t)
+#+end_src
+
 * Web
 #+begin_src emacs-lisp :tangle yes
 (use-package web-mode
