@@ -938,6 +938,8 @@ a symbol and how to search for them."
     (general-imap
       :keymaps 'eshell-mode-map
       "C-r" 'counsel-esh-history))
+  ;; When switching projects, default to finding a file.
+  (setcar counsel-projectile-switch-project-action 2)
   :hook
   ((after-init . counsel-mode)
    (eshell-mode . sulami/counsel-setup-eshell-bindings)))
