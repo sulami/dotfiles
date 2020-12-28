@@ -1466,6 +1466,30 @@ Weeks start on Monday, and who thought MDY was a good idea?
       calendar-date-style 'iso)
 #+END_SRC
 
+** Capture
+
+My capture templates. Also reload buffers before attempting to capture
+to avoid overwriting iCloud changes.
+
+#+begin_src emacs-lisp :tangle yes
+(setq org-capture-templates
+      '(("b" "Blog idea" entry
+         (file "blog.org")
+         "* %^{title}\n%u\n%?"
+         :prepend t)
+        ("f" "File link" entry
+         (file "inbox.org")
+         "* %^{title}\n%a\n%?")
+        ("n" "Note" entry
+         (file "inbox.org")
+         "* %^{title}\n%u\n%?")
+        ("t" "Thought" entry
+         (file "inbox.org")
+         "* TODO %^{title}\n%u\n%?")))
+
+(advice-add 'org-capture :before 'sulami/org-revert-all-org-buffers)
+#+end_src
+
 ** org-gfm
 This gives me org-mode->github flavoured markdown export.
 #+begin_src emacs-lisp :tangle yes
