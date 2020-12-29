@@ -1507,6 +1507,7 @@ This is probably the single best interface for Git out there.
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
   (magit-git-executable "/run/current-system/sw/bin/git")
   (magit-completing-read-function #'ivy-completing-read)
+  (sulami/project-directory "~/build")
   :config
   (defun sulami/magit-rebase-master ()
     (interactive)
@@ -1515,6 +1516,12 @@ This is probably the single best interface for Git out there.
   (transient-append-suffix 'magit-rebase "e" '(sulami/magit-rebase-master
                                              :key "m"
                                              :description "Pull & rebase master"))
+  (defun sulami/clone-repo (url)
+    "Clone the repo at URL into `sulami/project-directory'"
+    (interactive "sURL: ")
+    (let* ((repo-name (magit-clone--url-to-name url))
+           (target-dir (concat sulami/project-directory "/" repo-name)))
+      (magit-clone-regular url target-dir nil)))
   :general
   (leader-def
     "g b" 'magit-blame-addition
@@ -2059,6 +2066,7 @@ mode has reasonable defaults, so that's all I need for now.
 #+END_SRC
 
 * Rust
+
 I don't actually really use Rust beyond experiments, so not much
 config here.
 
