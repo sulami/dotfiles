@@ -1,5 +1,6 @@
 [core]
   editor = $EDITOR
+  excludesfile = ~/.gitexclude
 [user]
   name = Robin Schroer
   email = git@sulami.xyz
