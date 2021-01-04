@@ -8,9 +8,6 @@ SSLType IMAPS
 User sulami@peerwire.org
 PassCmd "pass fastmail/password"
 Port 992
-# Port 992 has a "flat" hierarchy; use with
-# mail_location = maildir:~/.Maildir/:LAYOUT=fs:INBOX=~/.Maildir/INBOX
-# in dovecot (see also MaildirStore.Inbox below)
 
 IMAPStore fastmail-remote
 Account fastmail
@@ -38,31 +35,22 @@ User robins@circleci.com
 PassCmd "pass circleci/gmail/password"
 SSLType IMAPS
 AuthMechs PLAIN
-# The following line should work. If get certificate errors, uncomment the two following lines and read the "Troubleshooting" section.
-# CertificateFile /etc/ssl/certs/ca-certificates.crt
-#CertificateFile ~/.cert/imap.gmail.com.pem
-#CertificateFile ~/.cert/Equifax_Secure_CA.pem
 
 IMAPStore circleci-gmail-remote
 Account circleci-gmail
 
 MaildirStore circleci-gmail-local
 Subfolders Verbatim
-# The trailing "/" is important
+# The trailing "/" is meaningful
 Path ~/.mail/circleci-gmail/
 Inbox ~/.mail/circleci-gmail/Inbox
 
 Channel circleci-gmail
 Master :circleci-gmail-remote:
 Slave :circleci-gmail-local:
-# Exclude everything under the internal [Gmail] folder, except the interesting folders
-# Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Starred" "[Gmail]/All Mail"
-# Or include everything
 Patterns *
-# Automatically create missing mailboxes, both locally and on the server
-Create Both
+Create Slave
 Sync All
 Expunge Both
-# Save the synchronization state files in the relevant directory
 SyncState *
 CopyArrivalDate yes
