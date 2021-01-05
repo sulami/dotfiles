@@ -938,8 +938,6 @@ a symbol and how to search for them."
     (general-imap
       :keymaps 'eshell-mode-map
       "C-r" 'counsel-esh-history))
-  ;; When switching projects, default to finding a file.
-  (setcar counsel-projectile-switch-project-action 2)
   :hook
   ((after-init . counsel-mode)
    (eshell-mode . sulami/counsel-setup-eshell-bindings)))
@@ -1220,7 +1218,9 @@ Manages projects (usually git repositories, but flexible).
   (leader-def
     "p c" 'projectile-compile-project
     "p r" 'sulami/projectile-replace
-    "p d" 'projectile-dired)
+    "p d" 'projectile-dired
+    "p b" 'counsel-projectile-switch-to-buffer
+    "p p" 'counsel-projectile-switch-project)
   ("s-'" 'sulami/toggle-project-root-shell)
   :hook (after-init . projectile-global-mode))
 
@@ -1233,43 +1233,14 @@ Manages projects (usually git repositories, but flexible).
     (interactive)
     (let ((counsel-projectile-rg-initial-input (thing-at-point 'symbol)))
       (counsel-projectile-rg)))
+  ;; When switching projects, default to finding a file.
+  (setcar counsel-projectile-switch-project-action 2)
   :general
   (leader-def
    "p f" 'counsel-projectile-find-file
    "s p" 'counsel-projectile-rg
    "s P" 'sulami/projectile-rg-thing-at-point))
 
-#+END_SRC
-
-* Perspective
-#+BEGIN_SRC emacs-lisp :tangle yes
-(use-package perspective
-  :config
-  (setq persp-show-modestring nil)
-  :general
-  (leader-def
-    "p l" 'persp-switch
-    "p b" 'persp-counsel-switch-buffer)
-  :hook (after-init . persp-mode))
-
-(use-package persp-projectile
-  :defer t
-  :after (perspective)
-  :init
-  (defun sulami/kill-project-perspective ()
-    "Kills the current project and then the perspective."
-    (interactive)
-    (when (projectile-project-p)
-      (projectile-kill-buffers))
-    (let ((pname (persp-name (persp-curr))))
-      (when (and (not (eq "main" pname))
-                 (yes-or-no-p (format "Kill perspective %s?"pname)))
-        (persp-kill pname)
-        (message "Killed perspective %s" pname))))
-  :general
-  (leader-def
-    "p p" 'projectile-persp-switch-project
-    "p k" 'sulami/kill-project-perspective))
 #+END_SRC
 
 * Winum
