@@ -361,13 +361,28 @@ of another theme."
             :before
             #'sulami/before-load-theme-advice)
 
+(defun sulami/set-face-straight-underline (face)
+  "Remove FACE's :underline style, if it's set"
+  (let ((old-attr (face-attribute face :underline)))
+    (when (eq 'cons (type-of old-attr))
+      (set-face-attribute face nil :underline (nth 3 old-attr)))))
+
 (defun sulami/after-load-theme-advice (theme &optional no-confirm no-enable)
-  "Unsets backgrounds for some org-mode faces."
+  "Unsets backgrounds for some org-mode faces.
+
+Also changes squiggly underlines to straight ones."
+  (require 'flycheck)
   (set-face-background 'outline-1 nil)
   (set-face-background 'org-block nil)
   (set-face-background 'org-block-begin-line nil)
   (set-face-background 'org-block-end-line nil)
-  (set-face-background 'org-quote nil))
+  (set-face-background 'org-quote nil)
+  (cl-loop for face in '(flyspell-incorrect
+                         flyspell-duplicate
+                         flycheck-error
+                         flycheck-warning
+                         flycheck-info)
+           do (sulami/set-face-straight-underline face)))
 
 (advice-add 'load-theme
             :after
