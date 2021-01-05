@@ -40,7 +40,7 @@ notmuch search --output=files -- path:"fastmail/INBOX/**" and not tag:inbox | mv
 # Spam.
 notmuch search --output=files -- path:"circleci-gmail/Inbox/**" tag:spam | mv_without_uid ~/.mail/circleci-gmail/\[Gmail\]/Spam
 # Trash.
-notmuch search --output=files -- path:"circleci-gmail/Inbox/**" and tag:deleted | mv_without_uid ~/.mail/circleci-gmail/\[Gmail\]/Trash
+notmuch search --output=files -- path:"circleci-gmail/Inbox/**" and tag:deleted | mv_without_uid ~/.mail/circleci-gmail/\[Gmail\]/Bin
 # The various tags.
 notmuch search --output=files -- path:"circleci-gmail/Inbox/**" and tag:calendar | mv_without_uid ~/.mail/circleci-gmail/Calendar
 notmuch search --output=files -- path:"circleci-gmail/Inbox/**" and tag:datadog | mv_without_uid ~/.mail/circleci-gmail/DataDog

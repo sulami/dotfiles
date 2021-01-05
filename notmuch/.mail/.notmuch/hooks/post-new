@@ -14,7 +14,7 @@ notmuch tag --batch <<EOF
 -inbox -unread -- path:fastmail/Archive/** or path:"circleci-gmail/[Gmail]/All Mail/**"
 
 # Deleted
--inbox -unread +deleted -- path:fastmail/Trash/** or path:"circleci-gmail/[Gmail]/Trash/**"
+-inbox -unread +deleted -- path:fastmail/Trash/** or path:"circleci-gmail/[Gmail]/Bin/**"
 
 # Spam
 -inbox -unread +spam -- path:fastmail/Spam/** or path "circleci-gmail/[Gmail]/Spam/**"
