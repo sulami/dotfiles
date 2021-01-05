@@ -11,7 +11,8 @@ IFS=$'\n\t'
 
 notmuch tag --batch <<EOF
 # Archive
--inbox -unread -- path:fastmail/Archive/** or path:"circleci-gmail/[Gmail]/All Mail/**"
+-inbox -unread -- path:fastmail/Archive/**
+-inbox -unread -- path:"circleci-gmail/[Gmail]/All Mail/**" and not path:"circleci-gmail/Inbox/**"
 
 # Deleted
 -inbox -unread +deleted -- path:fastmail/Trash/** or path:"circleci-gmail/[Gmail]/Bin/**"
