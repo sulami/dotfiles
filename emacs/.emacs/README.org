@@ -1292,6 +1292,7 @@ Number windows and allow me to switch to them.
 (use-package org
   :custom
   (calendar-date-style 'iso "YYYY-MM-DD")
+  (org-directory "~/Documents/Notes")
   (calendar-week-start-day 1 "Weeks start on Monday")
   (org-complete-tags-always-offer-all-agenda-tags t "Autocomplete tags")
   (org-edit-src-content-indentation 0 "Do not indent src blocks")
@@ -1440,8 +1441,8 @@ to avoid overwriting iCloud changes.
          (file "inbox.org")
          "* %^{title}\n%u\n%?")
         ("t" "Thought" entry
-         (file "inbox.org")
-         "* TODO %^{title}\n%u\n%?")))
+         (file "thoughts.org")
+         "* %^{title}\n%u\n%?")))
 
 (advice-add 'org-capture :before 'sulami/org-revert-all-org-buffers)
 #+end_src
