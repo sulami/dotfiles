@@ -1287,8 +1287,23 @@ Number windows and allow me to switch to them.
 #+END_SRC
 
 * Org mode
+
 #+begin_src emacs-lisp :tangle yes
 (use-package org
+  :custom
+  (calendar-date-style 'iso "YYYY-MM-DD")
+  (calendar-week-start-day 1 "Weeks start on Monday")
+  (org-complete-tags-always-offer-all-agenda-tags t "Autocomplete tags")
+  (org-edit-src-content-indentation 0 "Do not indent src blocks")
+  (org-export-initial-scope 'subtree "Default export to the current subtree")
+  (org-export-with-toc nil "Omit the TOC when exporting")
+  (org-footnote-auto-adjust t "Automatically renumber footnotes")
+  (org-footnote-section nil "Footnotes go into the section they are referenced in")
+  (org-hide-emphasis-markers nil "Show emphasis markers")
+  (org-log-into-drawer t "Log workflow changes into a drawer")
+  (org-src-preserve-indentation nil "Remove leading whitespace when editing src blocks")
+  (org-src-window-setup 'current-window "Show src editing in the current window")
+  (org-use-fast-todo-selection t "Use fast selection for workflow states")
   :config
   (defun sulami/org-return ()
     "`org-return' with better plain list handling.
@@ -1347,40 +1362,28 @@ item is empty, remove it instead. Essentially imitating Google Docs."
   ;; Fix plain lists.
   (general-imap
     :keymaps 'org-mode-map
-    "RET" 'sulami/org-return))
+    "RET" 'sulami/org-return)
+  :hook
+  ((org-mode . auto-fill-mode)
+   (org-mode . flyspell-mode)
+   (org-mode . org-indent-mode)))
 #+end_src
 
 ** Add more workflow states
+
 #+begin_src emacs-lisp :tangle yes
-(setq org-todo-keywords
-      '((sequence "TODO(t)" "WIP(p)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)"))
-      org-use-fast-todo-selection t)
+(setq org-todo-keywords '((sequence "TODO(t)"
+                                    "WIP(p)"
+                                    "WAITING(w)"
+                                    "|"
+                                    "DONE(d)"
+                                    "CANCELLED(c)")))
 #+end_src
 
 ** Save when I change a workflow state
-#+begin_src emacs-lisp :tangle yes
-(setq org-log-into-drawer t)
 
+#+begin_src emacs-lisp :tangle yes
 (add-hook 'org-trigger-hook 'save-buffer)
-#+end_src
-
-** Footnotes
-Define them at the end of the current outline section, and
-automatically renumber them when they're modified.
-#+begin_src emacs-lisp :tangle yes
-(setq org-footnote-section nil
-      org-footnote-auto-adjust t)
-#+end_src
-
-** Plain source code blocks
-#+BEGIN_SRC emacs-lisp :tangle yes
-(setq org-src-preserve-indentation nil
-      org-edit-src-content-indentation 0)
-#+END_SRC
-
-** Open source code blocks in the same window
-#+begin_src emacs-lisp :tangle yes
-(setq org-src-window-setup 'current-window)
 #+end_src
 
 ** Enable babel for more languages
@@ -1398,31 +1401,18 @@ automatically renumber them when they're modified.
 #+end_src
 
 ** Disable ligatures in org-mode
+
 #+BEGIN_SRC emacs-lisp :tangle yes
 (add-hook 'org-mode-hook
           (lambda ()
             (auto-composition-mode -1)))
 #+END_SRC
 
-** Show emphasis markers
-#+BEGIN_SRC emacs-lisp :tangle yes
-(setq org-hide-emphasis-markers nil)
-#+END_SRC
-
-** Indent-mode
-#+BEGIN_SRC emacs-lisp :tangle yes
-(setq org-indent-indentation-per-level 1)
-(add-hook 'org-mode-hook 'org-indent-mode)
-#+END_SRC
-
-** Enable spell checking
-#+begin_src emacs-lisp :tangle yes
-(add-hook 'org-mode-hook 'flyspell-mode)
-#+end_src
-
 ** Archiving
+
 - archive into one shared file
 - auto-save
+
 #+begin_src emacs-lisp :tangle yes
 (setq org-archive-location "~/Documents/Notes/archive.org::"
       org-archive-subtree-add-inherited-tags t)
@@ -1431,26 +1421,6 @@ automatically renumber them when they're modified.
 
 (advice-add 'org-archive-subtree :after 'org-save-all-org-buffers)
 #+end_src
-
-** Tags
-Autocomplete tags using all agenda files.
-#+begin_src emacs-lisp :tangle yes
-(setq org-complete-tags-always-offer-all-agenda-tags t)
-#+end_src
-
-** Export
-Set some sane default options for exporting.
-#+begin_src emacs-lisp :tangle yes
-(setq org-export-with-toc nil
-      org-export-initial-scope 'subtree)
-#+end_src
-
-** Calendar
-Weeks start on Monday, and who thought MDY was a good idea?
-#+BEGIN_SRC emacs-lisp :tangle yes
-(setq calendar-week-start-day 1
-      calendar-date-style 'iso)
-#+END_SRC
 
 ** Capture
 
@@ -1477,7 +1447,9 @@ to avoid overwriting iCloud changes.
 #+end_src
 
 ** org-gfm
+
 This gives me org-mode->github flavoured markdown export.
+
 #+begin_src emacs-lisp :tangle yes
 (use-package ox-gfm
   :defer 3
