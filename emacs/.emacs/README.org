@@ -102,6 +102,12 @@ works.
 (save-place-mode 1)
 #+end_src
 
+** Always follow symbolic links
+
+#+begin_src emacs-lisp :tangle yes
+(setq vc-follow-symlinks t)
+#+end_src
+
 ** Don't ring the bell
 #+begin_src emacs-lisp :tangle yes
 (setq ring-bell-function 'ignore)
@@ -166,6 +172,16 @@ This shows vim-style tildes on the left fringe.
 (setcdr (assq 'empty-line fringe-indicator-alist) 'tilde)
 #+end_src
 
+** Enable so-long-mode
+
+This disables expensive modes when a buffer has very long lines to
+prevent performance issues.
+
+#+begin_src emacs-lisp :tangle yes
+(if (version<= "27.1" emacs-version)
+    (global-so-long-mode 1))
+#+end_src
+
 ** Highlight matching parentheses
 I prefer this over using rainbow parentheses, which make it difficult
 to see what's actually happening.
@@ -202,10 +218,15 @@ At least as a default, much nicer when resizing windows.
 #+END_SRC
 
 ** Spelling
+
 Use ~aspell~ with British English.
+
 #+BEGIN_SRC emacs-lisp :tangle yes
 (setq ispell-program-name "aspell"
-      ispell-extra-args (quote ("--sug-mode=ultra" "--lang=en_GB-ise")))
+      ispell-extra-args (quote ("--sug-mode=ultra" "--lang=en_GB-ise"))
+      flyspell-sort-corrections nil
+      flyspell-issue-message-flag nil)
+
 #+END_SRC
 
 ** Enable erase buffer
@@ -1619,6 +1640,7 @@ job. I'm sure there are cool features I'm not aware of.
 * Dired
 
 ** Enable find-alternate-file
+
 This causes =RET= to open the target in the current buffer, instead of
 a new buffer. As a result, when traversing directories I don't get one
 buffer per step, which quickly gets annoying.
@@ -1630,8 +1652,21 @@ At some point I need to rebind =^= as well.
 #+end_src
 
 ** Always show me current data
+
 #+begin_src emacs-lisp :tangle yes
 (add-hook 'dired-mode-hook 'auto-revert-mode)
+#+end_src
+
+** Use human-readable formats
+
+#+begin_src emacs-lisp :tangle yes
+(setq-default dired-listing-switches "-alh")
+#+end_src
+
+** Copy recursively by default
+
+#+begin_src emacs-lisp :tangle yes
+(setq dired-recursive-copies 'always)
 #+end_src
 
 * Woman
