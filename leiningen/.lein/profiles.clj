@@ -13,15 +13,20 @@
 
         :deploy-repositories [["releases" {:url "https://repo.clojars.org"
                                            :creds :gpg}]]
-        :signing {:gpg-key "0xA1418106"}}
+        :signing {:gpg-key "0xA1418106"}
+
+        :aliases {"rebl" ["with-profile" "+rebl"
+                          "run" "-m" "rebel-readline.main"]
+                  "retl" ["with-profile" "+rebl"
+                          "trampoline" "run" "-m" "rebel-readline.main"]}}
+
+ :deps {:plugins [[circleci/deps-plus "0.1.0-SNAPSHOT"]]}
 
  :rebl {:dependencies [[com.bhauman/rebel-readline "RELEASE"]
                        [org.clojure/core.async "RELEASE"]
                        [org.clojure/core.logic "RELEASE"]
                        [org.clojure/test.check "RELEASE"]
-                       [criterium "RELEASE"]]
-        :aliases {"rebl" ["run" "-m" "rebel-readline.main"]
-                  "retl" ["trampoline" "run" "-m" "rebel-readline.main"]}}
+                       [criterium "RELEASE"]]}
 
  :pretty {:plugins [[io.aviso/pretty "RELEASE"]]
           :dependencies [[io.aviso/pretty "RELEASE" :exclusions [org.clojure/clojure]]]
