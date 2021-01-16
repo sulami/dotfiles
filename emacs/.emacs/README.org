@@ -1352,11 +1352,12 @@ item is empty, remove it instead. Essentially imitating Google Docs."
                                              (org-list-prevs-alist struct)))
                ;; Different factors alter the amount of whitespace.
                (whitespace (+ 1
+                              (if (= end (point-max)) -1 0)
                               (if checkbox 1 0)
                               (if (equal 'descriptive type) 3 0)
                               (if (and checkbox
                                        (equal 'descriptive type))
-                                1 0))))
+                                  1 0))))
           (if (zerop (- end
                         begin
                         indent
