@@ -1626,6 +1626,27 @@ isn't available before eshell is started.
     (while (pcomplete-here (pcomplete-entries)))))
 #+end_src
 
+** Timestamps
+
+I like having timestamps in my shell history, so that I can use the
+history for logs later on.
+
+#+begin_src emacs-lisp :tangle yes
+(defun sulami/eshell-insert-timestamp ()
+  (when eshell-mode
+    (save-excursion
+      (goto-char eshell-last-input-start)
+      (let ((ts (format-time-string "[%F %T] ")))
+        (insert ts)
+        (put-text-property eshell-last-input-start
+                           (+ eshell-last-input-start
+                              (length ts))
+                           'face
+                           'eshell-prompt)))))
+
+(add-hook 'eshell-pre-command-hook #'sulami/eshell-insert-timestamp)
+#+end_src
+
 * Ediff
 Just diffing. I don't have any strong opinions on it, ediff does the
 job. I'm sure there are cool features I'm not aware of.
