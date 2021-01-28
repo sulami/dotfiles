@@ -1326,6 +1326,7 @@ Number windows and allow me to switch to them.
   (org-edit-src-content-indentation 0 "Do not indent src blocks")
   (org-export-initial-scope 'subtree "Default export to the current subtree")
   (org-export-with-toc nil "Omit the TOC when exporting")
+  (org-export-with-author nil "Omit the author when exporting")
   (org-footnote-auto-adjust t "Automatically renumber footnotes")
   (org-footnote-section nil "Footnotes go into the section they are referenced in")
   (org-hide-emphasis-markers nil "Show emphasis markers")
