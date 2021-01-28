@@ -2138,6 +2138,18 @@ Every now and then I do have to look at some Go code, sadly.
   ((typescript-mode . sulami/tide-setup)
    (web-mode . sulami/tide-setup)))
 #+end_src
+* SQL
+
+I'm using the builtin SQL-mode, but I want it set to highlight for
+PostgreSQL specifically.
+
+#+begin_src emacs-lisp :tangle yes
+(use-package sql
+  :straight nil
+  :custom
+  (sql-product 'postgres))
+#+end_src
+
 * LLVM
 I look at LLVM assembly more than is healthy, and some colour helps
 there. This mode is taken from the LLVM source tree and included in my
