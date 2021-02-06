@@ -774,20 +774,21 @@ can't stand the default Emacs keybindings.
 
   :general
   (leader-def
-   "TAB" 'evil-switch-to-windows-last-buffer
-   "<tab>" 'evil-switch-to-windows-last-buffer
-   "w d" 'evil-window-delete
-   "w h" 'evil-window-move-far-left
-   "w j" 'evil-window-move-very-bottom
-   "w k" 'evil-window-move-very-top
-   "w l" 'evil-window-move-far-right
-   "w /" 'evil-window-vsplit
-   "w -" 'evil-window-split)
+   "TAB" #'evil-switch-to-windows-last-buffer
+   "<tab>" #'evil-switch-to-windows-last-buffer
+   "w d" #'evil-window-delete
+   "w h" #'evil-window-move-far-left
+   "w j" #'evil-window-move-very-bottom
+   "w k" #'evil-window-move-very-top
+   "w l" #'evil-window-move-far-right
+   "w /" #'evil-window-vsplit
+   "w -" #'evil-window-split)
   (general-imap
-    "C-w" 'evil-delete-backward-word)
+    "C-w" #'evil-delete-backward-word
+    "C-k" #'evil-insert-digraph)
   (general-vmap
-    ">" 'sulami/evil-shift-right-visual
-    "<" 'sulami/evil-shift-left-visual)
+    ">" #'sulami/evil-shift-right-visual
+    "<" #'sulami/evil-shift-left-visual)
   :hook (after-init . evil-mode))
 #+end_src
 
