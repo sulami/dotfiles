@@ -99,7 +99,7 @@ defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebK
 defaults write -g WebKitDeveloperExtras -bool true
 
 # Defancy Emacs (also faster here than inside Emacs)
-defaults write org.gnu.Emacs HideDocumentIcon -bool true
+defaults write org.gnu.Emacs HideDocumentIcon YES
 defaults write org.gnu.Emacs ToolBar -string no
 
 # Disable swipe gestures for Emacs
