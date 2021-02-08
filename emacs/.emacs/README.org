@@ -1497,7 +1497,7 @@ This is probably the single best interface for Git out there.
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
   (magit-git-executable "/run/current-system/sw/bin/git")
   (magit-completing-read-function #'ivy-completing-read)
-  (sulami/project-directory "~/build")
+  (sulami/project-directory "~/src")
   :config
   (defun sulami/magit-rebase-master ()
     (interactive)
