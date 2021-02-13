@@ -565,11 +565,12 @@ files before certain operations, like refiling.
         (revert-buffer)))))
 #+end_src
 
-*** Open the build directory
+*** Open the source directory
+
 #+begin_src emacs-lisp :tangle yes
-(defun sulami/open-build-dir ()
+(defun sulami/open-source-dir ()
   (interactive)
-  (find-file "~/build"))
+  (find-file sulami/source-directory))
 #+end_src
 
 ** Windows
@@ -692,7 +693,7 @@ declarations.
     "b r" 'sulami/rename-file-and-buffer
     "b s" 'sulami/open-scratch-buffer
     "b y" 'sulami/copy-buffer
-    "f b" 'sulami/open-build-dir
+    "f s" 'sulami/open-source-dir
     "f e e" 'sulami/open-emacs-config
     "f e r" 'sulami/reload-emacs-config
     "f d" 'dired
@@ -1497,7 +1498,7 @@ This is probably the single best interface for Git out there.
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
   (magit-git-executable "/run/current-system/sw/bin/git")
   (magit-completing-read-function #'ivy-completing-read)
-  (sulami/project-directory "~/src")
+  (sulami/source-directory "~/src")
   :config
   (defun sulami/magit-rebase-master ()
     (interactive)
@@ -1507,10 +1508,10 @@ This is probably the single best interface for Git out there.
                                              :key "m"
                                              :description "Pull & rebase master"))
   (defun sulami/clone-repo (url)
-    "Clone the repo at URL into `sulami/project-directory'"
+    "Clone the repo at URL into `sulami/source-directory'"
     (interactive "sURL: ")
     (let* ((repo-name (magit-clone--url-to-name url))
-           (target-dir (concat sulami/project-directory "/" repo-name)))
+           (target-dir (concat sulami/source-directory "/" repo-name)))
       (magit-clone-regular url target-dir nil)))
   :general
   (leader-def
