@@ -31,6 +31,7 @@ with pkgs;
   ngrok
   nodePackages.typescript
   notmuch
+  oil
   pandoc
   pass
   pinentry_mac
