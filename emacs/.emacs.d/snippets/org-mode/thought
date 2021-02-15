@@ -1,0 +1,7 @@
+# name: thought
+# key: thoguht
+# --
+* $1
+`(format-time-string (org-time-stamp-format nil t))`
+
+$0
