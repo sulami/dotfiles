@@ -1557,12 +1557,18 @@ don't have a lot of linters setup.
 
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package flycheck
+  :after (nix-sandbox)
   :config
   ;; Disable flycheck on-the-fly-checking if the line count exceeds 2000.
   (setq flycheck-check-syntax-automatically
         (if (> (sulami/buffer-line-count) 2000)
             (delete 'idle-change flycheck-check-syntax-automatically)
-          (add-to-list 'flycheck-check-syntax-automatically 'idle-change)))
+          (add-to-list 'flycheck-check-syntax-automatically 'idle-change))
+        ;; Resolve checker commands in Nix environments.
+        flycheck-command-wrapper-function
+        (lambda (command) (apply 'nix-shell-command (nix-current-sandbox) command))
+        flycheck-executable-find
+        (lambda (cmd) (nix-executable-find (nix-current-sandbox) cmd)))
   :custom
   (flycheck-emacs-lisp-load-path 'inherit)
   :general
@@ -2140,6 +2146,19 @@ Every now and then I do have to look at some Go code, sadly.
   :hook
   ((typescript-mode . sulami/tide-setup)
    (web-mode . sulami/tide-setup)))
+
+(use-package prettier-js
+  :defer t
+  :after (nix-sandbox)
+  :config
+  (defun sulami/prettier-js-setup ()
+    (setq prettier-js-command
+          (nix-executable-find (nix-current-sandbox)
+                               "prettier"))
+    (prettier-js-mode +1))
+  :hook
+  ((typescript-mode . sulami/prettier-js-setup)
+   (web-mode . sulami/prettier-js-setup)))
 #+end_src
 * SQL
 
@@ -2212,8 +2231,17 @@ Sometimes I'm a YAML-engineer, too.
 #+END_SRC
 
 * Nix
+
+There are two distinct parts here:
+
+- =nix-mode= :: Provides support for editing Nix expressions
+- =nix-sandbox= :: Used to make other commands Nix-aware
+
 #+begin_src emacs-lisp :tangle yes
 (use-package nix-mode
+  :defer t)
+
+(use-package nix-sandbox
   :defer t)
 #+end_src
 * Protobuf
