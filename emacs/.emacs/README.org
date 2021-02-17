@@ -2123,6 +2123,12 @@ config here.
 #+begin_src emacs-lisp :tangle yes
 (use-package rust-mode
   :defer t)
+
+(use-package flycheck-rust
+  :defer t
+  :after (flycheck)
+  :hook
+  (flycheck-mode . flycheck-rust-setup))
 #+end_src
 
 * Go
