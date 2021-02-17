@@ -1896,8 +1896,26 @@ handy, if you ask me.
 #+begin_src emacs-lisp :tangle yes
 (use-package literate-calc-mode
   :defer t)
-
 #+end_src
+
+* JIRA
+
+Use the builtin =bug-reference-mode= to automatically convert JIRA
+ticket references into clickable links. Adapted from [[https://www.monotux.tech/posts/2021/02/bug-reference-mode/][monotux]].
+
+#+begin_src emacs-lisp :tangle yes
+(use-package bug-reference
+  :straight nil
+  :config
+  (defun sulami/bug-reference-setup ()
+    (setq bug-reference-bug-regexp "\\(\\)\\(\\(CIRCLE\\|BACKPLANE\\|SRE\\|SERVER\\)-[0-9]\\{4,5\\}\\)"
+          bug-reference-url-format "https://circleci.atlassian.net/browse/%s"))
+  :hook
+  ((bug-reference-mode . sulami/bug-reference-setup)
+   (org-mode . bug-reference-mode)
+   (clojure-mode . bug-reference-mode)))
+#+end_src
+
 * vterm
 vterm is a terminal emulator which is way faster than anything built
 into Emacs. It copes well with huge amounts of output and weird escape
