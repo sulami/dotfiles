@@ -1,5 +1,5 @@
-{ stdenv ? (import <nixpkgs> {}).stdenv
-, fetchzip ? (import <nixpkgs> {}).fetchzip}:
+{ pkgs ? (import <nixpkgs> {})
+, stdenv ? pkgs.stdenv}:
 
 let appName = "clj-kondo";
     version = "2020.11.07";
@@ -19,7 +19,7 @@ in stdenv.mkDerivation {
 
   phases = ["installPhase"];
 
-  src = fetchzip {
+  src = pkgs.fetchzip {
     url = "https://github.com/borkdude/clj-kondo/releases/download/v${version}/clj-kondo-${version}-${platform}-amd64.zip";
     sha256 = "${sha256}";
   };
@@ -32,7 +32,7 @@ in stdenv.mkDerivation {
 
   meta = {
     description = "";
-    license = stdenv.lib.licenses.epl10;
+    license = pkgs.lib.licenses.epl10;
     homepage = "https://github.com/borkdude/clj-kondo";
     platforms = [
       "x86_64-linux"

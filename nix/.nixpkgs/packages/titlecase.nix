@@ -1,5 +1,5 @@
-{ stdenv ? (import <nixpkgs> {}).stdenv
-, fetchurl ? (import <nixpkgs> {}).fetchurl }:
+{ pkgs ? (import <nixpkgs> {})
+, stdenv ? pkgs.stdenv}:
 
 let appName = "titlecase";
     version = "1.1.0";
@@ -23,7 +23,7 @@ in stdenv.mkDerivation {
   pname = appName;
   version = version;
 
-  src = fetchurl {
+  src = pkgs.fetchurl {
     url = "https://releases.wezm.net/${appName}/${version}/${appName}-${version}-${platform}.tar.gz";
     sha256 = "${sha256}";
   };
@@ -38,7 +38,7 @@ in stdenv.mkDerivation {
 
   meta = {
     description = "A tool and Rust crate for transforming text into Title Case";
-    license = stdenv.lib.licenses.mit;
+    license = pkgs.lib.licenses.mit;
     homepage = "https://github.com/wezm/titlecase";
     platforms = [
       "x86_64-linux"

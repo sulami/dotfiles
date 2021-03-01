@@ -55,7 +55,7 @@ with pkgs;
   wget
   zsh
 ] ++ [
-  (import ./packages/clj-kondo.nix {})
-  (import ./packages/titlecase.nix {})
-  (import ./packages/zprint.nix {})
+  (import ./packages/clj-kondo.nix { pkgs = pkgs; })
+  (import ./packages/titlecase.nix { pkgs = pkgs; })
+  (import ./packages/zprint.nix { pkgs = pkgs; })
 ]

@@ -1,5 +1,5 @@
-{ stdenv ? (import <nixpkgs> {}).stdenv
-, fetchurl ? (import <nixpkgs> {}).fetchurl }:
+{ pkgs ? (import <nixpkgs> {})
+, stdenv ? pkgs.stdenv}:
 
 let appName = "zprint";
     version = "1.0.2";
@@ -18,7 +18,7 @@ in stdenv.mkDerivation {
 
   phases = ["installPhase"];
 
-  src = fetchurl {
+  src = pkgs.fetchurl {
     url = "https://github.com/kkinnear/${appName}/releases/download/${version}/${binary}-${version}";
     sha256 = "${sha256}";
   };
@@ -31,7 +31,7 @@ in stdenv.mkDerivation {
 
   meta = {
     description = "Library to reformat Clojure and Clojurescript source code and s-expressions";
-    license = stdenv.lib.licenses.mit;
+    license = pkgs.lib.licenses.mit;
     homepage = "https://github.com/kkinnear/zprint";
     platforms = [
       "x86_64-linux"
