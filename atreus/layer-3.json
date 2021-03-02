@@ -1,0 +1,239 @@
+{
+  "keymap": [
+    {
+      "keyCode": 17492,
+      "label": "0",
+      "extraLabel": "MoveTo"
+    },
+    {
+      "keyCode": 20548,
+      "label": "Middle",
+      "extraLabel": "M. Btn"
+    },
+    {
+      "keyCode": 20481,
+      "label": "Up",
+      "extraLabel": "Mouse"
+    },
+    {
+      "keyCode": 65535,
+      "label": "",
+      "verbose": "Transparent"
+    },
+    {
+      "keyCode": 65535,
+      "label": "",
+      "verbose": "Transparent"
+    },
+    {
+      "keyCode": 0,
+      "label": "Blocked",
+      "verbose": "Disabled"
+    },
+    {
+      "keyCode": 0,
+      "label": "Blocked",
+      "verbose": "Disabled"
+    },
+    {
+      "keyCode": 82,
+      "label": "↑"
+    },
+    {
+      "keyCode": 64,
+      "label": "F7"
+    },
+    {
+      "keyCode": 65,
+      "label": "F8"
+    },
+    {
+      "keyCode": 66,
+      "label": "F9"
+    },
+    {
+      "keyCode": 67,
+      "label": "F10"
+    },
+    {
+      "keyCode": 20546,
+      "label": "Right",
+      "extraLabel": "M. Btn"
+    },
+    {
+      "keyCode": 20484,
+      "label": "Left",
+      "extraLabel": "Mouse"
+    },
+    {
+      "keyCode": 20482,
+      "label": "Down",
+      "extraLabel": "Mouse"
+    },
+    {
+      "keyCode": 20488,
+      "label": "Right",
+      "extraLabel": "Mouse"
+    },
+    {
+      "keyCode": 20545,
+      "label": "Left",
+      "extraLabel": "M. Btn"
+    },
+    {
+      "keyCode": 0,
+      "label": "Blocked",
+      "verbose": "Disabled"
+    },
+    {
+      "keyCode": 0,
+      "label": "Blocked",
+      "verbose": "Disabled"
+    },
+    {
+      "keyCode": 81,
+      "label": "↓"
+    },
+    {
+      "keyCode": 61,
+      "label": "F4"
+    },
+    {
+      "keyCode": 62,
+      "label": "F5"
+    },
+    {
+      "keyCode": 63,
+      "label": "F6"
+    },
+    {
+      "keyCode": 68,
+      "label": "F11"
+    },
+    {
+      "keyCode": 17493,
+      "label": "1",
+      "extraLabel": "MoveTo"
+    },
+    {
+      "keyCode": 20517,
+      "label": "NW",
+      "extraLabel": "M. Warp",
+      "verbose": "North-West"
+    },
+    {
+      "keyCode": 20521,
+      "label": "NE",
+      "extraLabel": "M. Warp",
+      "verbose": "North-East"
+    },
+    {
+      "keyCode": 19682,
+      "label": "Mute",
+      "extraLabel": "Media"
+    },
+    {
+      "keyCode": 23786,
+      "label": "Vol-",
+      "extraLabel": "Media",
+      "verbose": "Volume down"
+    },
+    {
+      "keyCode": 23785,
+      "label": "Vol+",
+      "extraLabel": "Media",
+      "verbose": "Volume up"
+    },
+    {
+      "keyCode": 22710,
+      "label": "Track-",
+      "extraLabel": "Media",
+      "verbose": "Prev. track"
+    },
+    {
+      "keyCode": 22709,
+      "label": "Track+",
+      "extraLabel": "Media",
+      "verbose": "Next track"
+    },
+    {
+      "keyCode": 58,
+      "label": "F1"
+    },
+    {
+      "keyCode": 59,
+      "label": "F2"
+    },
+    {
+      "keyCode": 60,
+      "label": "F3"
+    },
+    {
+      "keyCode": 69,
+      "label": "F12"
+    },
+    {
+      "keyCode": 0,
+      "label": "Blocked",
+      "verbose": "Disabled"
+    },
+    {
+      "keyCode": 20518,
+      "label": "SW",
+      "extraLabel": "M. Warp",
+      "verbose": "South-West"
+    },
+    {
+      "keyCode": 20522,
+      "label": "SE",
+      "extraLabel": "M. Warp",
+      "verbose": "South-East"
+    },
+    {
+      "keyCode": 20576,
+      "label": "End",
+      "extraLabel": "M. Warp"
+    },
+    {
+      "keyCode": 65535,
+      "label": "",
+      "verbose": "Transparent"
+    },
+    {
+      "keyCode": 65535,
+      "label": "",
+      "verbose": "Transparent"
+    },
+    {
+      "keyCode": 65535,
+      "label": "",
+      "verbose": "Transparent"
+    },
+    {
+      "keyCode": 65535,
+      "label": "",
+      "verbose": "Transparent"
+    },
+    {
+      "keyCode": 24576,
+      "label": "#0",
+      "extraLabel": "Macro"
+    },
+    {
+      "keyCode": 71,
+      "label": "ScrlLK",
+      "verbose": "Scroll Lock"
+    },
+    {
+      "keyCode": 72,
+      "label": "Pause"
+    },
+    {
+      "keyCode": 22733,
+      "label": "Play",
+      "extraLabel": "Media",
+      "verbose": "Play / pause"
+    }
+  ],
+  "palette": []
+}
