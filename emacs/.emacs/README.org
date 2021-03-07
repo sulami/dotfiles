@@ -685,6 +685,7 @@ declarations.
     "|" 'sulami/shell-command-on-region
     "a c" 'calc
     "a s" 'shell
+    "b b" 'switch-to-buffer
     "b e" 'erase-buffer
     "b d" 'kill-this-buffer
     "b D" 'kill-buffer-and-window
@@ -693,6 +694,7 @@ declarations.
     "b r" 'sulami/rename-file-and-buffer
     "b s" 'sulami/open-scratch-buffer
     "b y" 'sulami/copy-buffer
+    "f f" 'find-file
     "f s" 'sulami/open-source-dir
     "f e e" 'sulami/open-emacs-config
     "f e r" 'sulami/reload-emacs-config
@@ -865,194 +867,105 @@ useful.
   :hook (after-init . which-key-mode))
 #+END_SRC
 
-* Ivy
-Ivy is the selection tool that I use for most selection tasks. It uses
-the minibuffer to present a list which can be filtered. It's fast,
-powerful and customisable, I highly recommend it.
+* Selectrum
 
-#+BEGIN_SRC emacs-lisp :tangle yes
-(use-package ivy
-  :init
-  (setq ivy-on-del-error-function #'ignore
-        ivy-count-format "(%d/%d) "
-        ivy-display-functions-alist '((t))
-        ivy-re-builders-alist '((counsel-projectile-find-file . ivy--regex-fuzzy)
-                                (counsel-recentf . ivy--regex-fuzzy)
-                                (counsel-apropos . ivy--regex-ignore-order)
-                                (t . ivy--regex-plus)))
-  :config
-  (defun sulami/ivy-with-thing-at-point (cmd)
-    "Runs an ivy command with the thing at point."
-    (let ((ivy-initial-inputs-alist
-           (list
-            (cons cmd (thing-at-point 'symbol)))))
-      (funcall cmd)))
-  :general
-  (:keymaps 'ivy-minibuffer-map
-            "C-w" 'ivy-backward-kill-word
-            "C-<return>" 'ivy-call               ;; Select this and keep selecting
-            "S-<return>" 'ivy-dispatching-done   ;; Run an action
-            "C-S-<return>" 'ivy-dispatching-call ;; Run an action and keep selecting
-            "M-SPC" 'ivy-immediate-done)         ;; Use input instead of selection
-  ;; Also good to know:
-  ;; "S-<space>" filters the list based on current input
-  :hook (after-init . ivy-mode))
-#+END_SRC
+Selectrum is a great narrowing and selection tool, intended to
+replace Ivy & Helm.
 
-** Counsel
-Counsel provides ivy-based replacements for other commands.
+#+begin_src emacs-lisp :tangle yes
+(use-package selectrum
+  :custom
+  (selectrum-count-style 'current/matches)
+  :hook
+  (after-init . selectrum-mode))
+#+end_src
 
-#+BEGIN_SRC emacs-lisp :tangle yes
-(use-package counsel
-  :config/el-patch
-  ;; Patching counsel-apropos to skip the apropos step
-  (defun counsel-apropos ()
-  "Show all matching symbols.
-See `apropos' for further information on what is considered
-a symbol and how to search for them."
-  (interactive)
-  (ivy-read "Search for symbol (word list or regexp): " obarray
-            :predicate (lambda (sym)
-                         (or (fboundp sym)
-                             (boundp sym)
-                             (facep sym)
-                             (symbol-plist sym)))
-            :history 'counsel-apropos-history
-            :preselect (ivy-thing-at-point)
-            :action
-            (el-patch-swap
-              ;; Original
-              (lambda (pattern)
-                (when (string= pattern "")
-                  (user-error "Please specify a pattern"))
-                ;; If the user selected a candidate form the list, we use
-                ;; a pattern which matches only the selected symbol.
-                (if (memq this-command '(ivy-immediate-done ivy-alt-done))
-                    ;; Regexp pattern are passed verbatim, other input is
-                    ;; split into words.
-                    (if (string= (regexp-quote pattern) pattern)
-                        (apropos (split-string pattern "[ \t]+" t))
-                      (apropos pattern))
-                  (apropos (concat "\\`" pattern "\\'"))))
-              ;; Patch
-              (lambda (sym-name)
-                (helpful-symbol (intern-soft sym-name))))
-            :caller 'counsel-apropos))
-  :init
-  (defun sulami/imenu-goto-function (NAME POSITION &rest REST)
-    "Imenu goto function which pushes an evil jump position before
-    jumping."
-    (evil-set-jump)
-    (apply #'imenu-default-goto-function NAME POSITION REST))
-  (setq-default imenu-default-goto-function 'sulami/imenu-goto-function)
+** Consult
 
-  (defun sulami/counsel-org-goto-or-semantic-or-imenu ()
-    "Jumps somewhere, like `imenu', but prefers `counsel-org-goto'."
-    (interactive)
-    (if (equal 'org-mode major-mode)
-        (counsel-org-goto)
-      (counsel-semantic-or-imenu)))
-  :general
-  (leader-def
-   "b b" 'counsel-switch-buffer
-   "f f" 'counsel-find-file
-   "f r" 'counsel-recentf
-   "h a" 'counsel-apropos
-   "j i" 'sulami/counsel-org-goto-or-semantic-or-imenu
-   "j e" 'counsel-flycheck
-   "j m" 'counsel-evil-marks)
-  (local-leader-def
-    :keymaps 'org-mode-map
-    "t" '(counsel-org-tag :wk "counsel-org-tag"))
-  (general-nmap
-    "M-y" 'counsel-yank-pop)
-  ;; Shell
-  (local-leader-def
-    :keymaps 'shell-mode-map
-    "h" 'counsel-shell-history)
-  (general-imap
-    :keymaps 'shell-mode-map
-    "C-r" 'counsel-shell-history)
+Consult is counsel for selectrum, in that it adds selectrum support
+for various commands that do not use ~read-string~ normally.
+
+#+begin_src emacs-lisp :tangle yes
+(use-package consult
+  :defer t
+  :straight
+  '(consult
+    :type git
+    :host github
+    :repo "minad/consult"
+    :branch "main")
   :config
   ;; Eshell only defines its locally keymap when you launch it, so we
   ;; have to add bindings with a hook.
-  (defun sulami/counsel-setup-eshell-bindings ()
-    (local-leader-def
-      :keymaps 'eshell-mode-map
-      "h" 'counsel-esh-history)
+  (defun sulami/consult-setup-eshell-bindings ()
     (general-imap
       :keymaps 'eshell-mode-map
-      "C-r" 'counsel-esh-history))
+      "C-r" 'consult-history))
+  :general
+  (leader-def
+    "f r" 'consult-recent-file
+    "j e" 'consult-flycheck
+    "j i" 'consult-imenu
+    "j I" 'consult-project-imenu
+    "j o" 'consult-outline
+    "s s" 'consult-line
+    "s S" 'consult-line-symbol-at-point)
+  (general-imap
+    "M-y" 'consult-yank-pop)
+  (general-nmap
+    "M-y" 'consult-yank-pop)
+  (general-imap
+    :keymaps 'shell-mode-map
+    "C-r" 'consult-history)
   :hook
-  ((after-init . counsel-mode)
-   (eshell-mode . sulami/counsel-setup-eshell-bindings)))
-#+END_SRC
+  ((eshell-mode . sulami/consult-setup-eshell-bindings)))
+#+end_src
 
-** Swiper
-Swiper uses Ivy to search the current buffer, and jumps a preview to
-the position of the selected match.
+** Prescient
 
-#+BEGIN_SRC emacs-lisp :tangle yes
-(use-package swiper
-  :config
-  (defun sulami/swiper-thing-at-point ()
-    (interactive)
-    (sulami/ivy-with-thing-at-point 'swiper))
+Prescient remembers recent selections and sorts them to the top.
+
+#+begin_src emacs-lisp :tangle yes
+(use-package selectrum-prescient
+  :hook
+  ((after-init . selectrum-prescient-mode)
+   (after-init . prescient-persist-mode)))
+#+end_src
+
+** Orderless
+
+Orderless provides a minibuffer completion style that is "whitespace
+separated words in any order." Very useful if you don't know exactly
+what you're looking for.
+
+#+begin_src emacs-lisp :tangle yes
+(use-package orderless
+  :defer t
+  :custom
+  (completion-styles '(orderless)))
+#+end_src
+
+** Marginalia
+
+Marginilia provides extra information about completions in the
+minibuffer.
+
+#+begin_src emacs-lisp :tangle yes
+(use-package marginalia
+  :defer t
+  :hook
+  (after-init . marginalia-mode))
+#+end_src
+
+** Flyspell-correct
+
+#+begin_src emacs-lisp :tangle yes
+(use-package flyspell-correct
+  :defer t
   :general
   (leader-def
-   "s s" 'swiper
-   "s S" 'sulami/swiper-thing-at-point))
-#+END_SRC
-
-** ivy-prescient
-This memorises my selection for different ivy completions and presents
-those first in subsequent queries.
-
-#+BEGIN_SRC emacs-lisp :tangle yes
-(use-package ivy-prescient
-  :hook (ivy-mode . ivy-prescient-mode)
-  :config
-  (prescient-persist-mode))
-#+END_SRC
-
-** ivy-xref
-Ivy support for xref.
-
-#+BEGIN_SRC emacs-lisp :tangle yes
-(use-package ivy-xref
-  :defer t
-  :init (if (< emacs-major-version 27)
-            (setq xref-show-xrefs-function #'ivy-xref-show-xrefs)
-          (setq xref-show-definitions-function #'ivy-xref-show-defs)))
-#+END_SRC
-
-** flyspell-correct-ivy
-Flyspell corrections, but in ivy.
-
-#+BEGIN_SRC emacs-lisp :tangle yes
-(use-package flyspell-correct-ivy
-  :defer t
-  :init
-  (setq flyspell-correct-interface #'flyspell-correct-ivy)
-  :general
-  (leader-def
-    "s c" 'flyspell-correct-wrapper
-    "s C" '((lambda ()
-              (interactive)
-              (let ((current-prefix-arg '(4)))
-                (save-excursion
-                  (goto-char (point-max))
-                  (call-interactively 'flyspell-correct-wrapper))))
-            :wk "flyspell-correct-wrapper-rapid")))
-#+END_SRC
-
-** flx
-flx provides fuzzy matching as a library.
-
-#+BEGIN_SRC emacs-lisp :tangle yes
-(use-package flx
-  :defer t)
-#+END_SRC
+    "s c" 'flyspell-correct-at-point))
+#+end_src
 
 * Company
 Company does completion via a dropdown that automatically pops up
@@ -1090,6 +1003,8 @@ bundle of useful snippets for all kinds of modes.
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package yasnippet
   :general
+  (general-imap
+    "C-y" 'yas-insert-snippet)
   (:keymaps 'yas-minor-mode-map
    "<tab>" nil
    "TAB" nil
@@ -1101,12 +1016,6 @@ bundle of useful snippets for all kinds of modes.
   ((text-mode . yas-minor-mode)
    (prog-mode . yas-minor-mode)))
 
-(use-package ivy-yasnippet
-  :defer t
-  :after (yasnippet)
-  :general
-  (general-imap "C-y" 'ivy-yasnippet))
-
 (use-package yasnippet-snippets
   :defer t
   :after (yasnippet))
@@ -1116,8 +1025,13 @@ bundle of useful snippets for all kinds of modes.
 Keeps my parentheses balanced.
 
 ** Lispyville
+
 I use [[https://github.com/noctuid/lispyville][LispyVille]] for all Lisp major modes, as it does some additional
 magic around spacing, comments, and more.
+
+N.B. This currently pulls in a lot of dependencies for no good reason,
+including swiper & hydra.
+
 #+begin_src emacs-lisp :tangle yes
 (use-package lispyville
   :defer t
@@ -1173,8 +1087,7 @@ usually good enough. Much less of a hassle than LSP.
 (use-package dumb-jump
   :after (evil)
   :config
-  (setq dumb-jump-selector 'ivy
-        dumb-jump-prefer-searcher 'rg)
+  (setq dumb-jump-prefer-searcher 'rg)
   :general
   (leader-def
     "j j" (sulami/evil-set-jump-wrapper 'dumb-jump-go)
@@ -1223,28 +1136,20 @@ I only enable this every now and then.
 * Projectile
 Manages projects (usually git repositories, but flexible).
 
-#+BEGIN_SRC emacs-lisp :tangle yes
+#+begin_src emacs-lisp :tangle yes
 (use-package projectile
-  :init
-  (setq projectile-completion-system 'ivy)
+  :custom
+  (projectile-switch-project-action 'projectile-find-file)
+  (projectile-completion-system 'default)
   :config
-  (defun sulami/projectile-replace ()
-    "Search and replace in the whole project."
+  (defun sulami/projectile-rg ()
     (interactive)
-    (dired (projectile-project-root) "-alR")
-    (let ((file-regex (read-string "Select files with regex: "))
-          (from (read-string "Search for: "))
-          (to (read-string "Replace with: ")))
-      (dired-mark-files-regexp file-regex)
-      (dired-do-find-regexp-and-replace from to))
-    (projectile-save-project-buffers)
-    (with-current-buffer "*xref*"
-      (kill-buffer-and-window))
-    ; last open file
-    (delete-window)
-    ; cleanup dired
-    (dired-unmark-all-marks)
-    (kill-buffer))
+    (consult-ripgrep (projectile-project-root)))
+
+  (defun sulami/projectile-rg-thing-at-point ()
+    (interactive)
+    (consult-ripgrep (projectile-project-root)
+                     (thing-at-point)))
 
   (defun sulami/toggle-project-root-shell ()
     "Opens eshell, if possible in the project root."
@@ -1267,29 +1172,14 @@ Manages projects (usually git repositories, but flexible).
     "p c" 'projectile-compile-project
     "p r" 'sulami/projectile-replace
     "p d" 'projectile-dired
-    "p b" 'counsel-projectile-switch-to-buffer
-    "p p" 'counsel-projectile-switch-project)
+    "p b" 'projectile-switch-to-buffer
+    "p p" 'projectile-switch-project
+    "p f" 'projectile-find-file
+    "s p" 'sulami/projectile-rg
+    "s P" 'sulami/projectile-rg-thing-at-point)
   ("s-'" 'sulami/toggle-project-root-shell)
   :hook (after-init . projectile-global-mode))
-
-(use-package counsel-projectile
-  :defer t
-  :init
-  (setq projectile-switch-project-action 'counsel-projectile-find-file)
-  :config
-  (defun sulami/projectile-rg-thing-at-point ()
-    (interactive)
-    (let ((counsel-projectile-rg-initial-input (thing-at-point 'symbol)))
-      (counsel-projectile-rg)))
-  ;; When switching projects, default to finding a file.
-  (setcar counsel-projectile-switch-project-action 2)
-  :general
-  (leader-def
-   "p f" 'counsel-projectile-find-file
-   "s p" 'counsel-projectile-rg
-   "s P" 'sulami/projectile-rg-thing-at-point))
-
-#+END_SRC
+#+end_src
 
 * Winum
 Number windows and allow me to switch to them.
@@ -1500,7 +1390,6 @@ This is probably the single best interface for Git out there.
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
   (magit-git-executable "/run/current-system/sw/bin/git")
-  (magit-completing-read-function #'ivy-completing-read)
   (sulami/source-directory "~/src")
   :config
   (defun sulami/magit-rebase-master ()
@@ -1612,7 +1501,7 @@ completion handlers for commands.
 
 *** Disable the completion buffer
 This swaps the terrible popup buffer that eshell opens when I hit
-=TAB= for a ivy-based completion.
+=TAB= for a ~read-string~ completion.
 
 I also disable company-mode in eshell, because it doesn't play nice
 with TRAMP.
