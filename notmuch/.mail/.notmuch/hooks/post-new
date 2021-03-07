@@ -36,8 +36,9 @@ notmuch tag --batch <<EOF
 +github -- from:notifications@github.com
 +github +resolved -- from:notifications@github.com and ("^Merged #" or "^Closed #")
 
-# JIRA
+# Atlassian
 +jira -- from:jira@circleci.atlassian.net
++confluence -- from:confluence@circleci.atlassian.net
 
 # Gmail filters
 -unread -inbox +calendar -- path:circleci-gmail/Calendar/**
