@@ -715,7 +715,9 @@ declarations.
     "t s" 'flyspell-mode
     "t n" 'sulami/toggle-line-numbers
     "t N" 'sulami/toggle-narrow
+    "t w" 'whitespace-mode
     "w =" 'balance-windows
+    "w f" 'make-frame
     "w m" 'sulami/toggle-maximise-window
     "w u" 'winner-undo)
   (general-define-key
@@ -1408,6 +1410,7 @@ This is probably the single best interface for Git out there.
   :general
   (leader-def
     "g b" 'magit-blame-addition
+    "g h" 'magit-log
     "g s" 'magit-status)
   :hook
   ((shell-mode . with-editor-export-editor)
