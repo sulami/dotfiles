@@ -2012,40 +2012,6 @@ The big IDE-like integration for Clojure.
   (cider-repl-mode . company-mode))
 #+end_src
 
-** Monroe
-The smaller integration for Clojure. Sometimes less buggy.
-
-#+begin_src emacs-lisp :tangle yes
-(use-package monroe
-  :disabled
-  :defer t
-  :config
-  (defun sulami/monroe-run-test ()
-    (interactive)
-    (save-excursion
-      (beginning-of-defun)
-      (evil-forward-WORD-begin)
-      (let ((test-name (symbol-name (symbol-at-point))))
-        (monroe-input-sender nil (format "(%s)" test-name)))))
-  (defun sulami/monroe-run-ns-tests ()
-    (interactive)
-    (monroe-input-sender nil "(clojure.test/test-ns *ns*)"))
-  :general
-  (local-leader-def
-    :keymaps 'clojure-mode-map
-    "c" 'monroe
-    "e" '(:ignore t :wk "eval")
-    "e b" 'monroe-eval-buffer
-    "e f" 'monroe-eval-defun
-    "e r" 'monroe-eval-region
-    "r" '(:ignore t :wk "repl")
-    "r n" 'monroe-eval-namespace
-    "r r" 'monroe-switch-to-repl
-    "t" '(:ignore t :wk "test")
-    "t n" 'sulami/monroe-run-ns-tests
-    "t t" 'sulami/monroe-run-test))
-#+end_src
-
 ** HugSQL
 HugSQL is a Clojure ORM which adds some special syntax to SQL.
 
