@@ -896,6 +896,8 @@ for various commands that do not use ~read-string~ normally.
     :host github
     :repo "minad/consult"
     :branch "main")
+  :custom
+  (consult-preview-key nil)
   :config
   ;; Eshell only defines its locally keymap when you launch it, so we
   ;; have to add bindings with a hook.
