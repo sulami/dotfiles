@@ -1153,7 +1153,7 @@ Manages projects (usually git repositories, but flexible).
   (defun sulami/projectile-rg-thing-at-point ()
     (interactive)
     (consult-ripgrep (projectile-project-root)
-                     (thing-at-point)))
+                     (thing-at-point 'symbol t)))
 
   (defun sulami/toggle-project-root-shell ()
     "Opens eshell, if possible in the project root."
