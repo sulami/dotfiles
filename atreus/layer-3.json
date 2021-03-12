@@ -36,8 +36,9 @@
       "verbose": "Disabled"
     },
     {
-      "keyCode": 82,
-      "label": "↑"
+      "keyCode": 75,
+      "label": "PgUp",
+      "verbose": "Page Up"
     },
     {
       "keyCode": 64,
@@ -91,8 +92,9 @@
       "verbose": "Disabled"
     },
     {
-      "keyCode": 81,
-      "label": "↓"
+      "keyCode": 78,
+      "label": "PgDn",
+      "verbose": "Page Down"
     },
     {
       "keyCode": 61,
