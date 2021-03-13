@@ -9,7 +9,6 @@ with pkgs;
   circleci-cli
   cloc
   clojure
-  clojure-lsp
   cmake
   docker
   docker-compose
