@@ -12,19 +12,18 @@ fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit
 compinit -i
 
-if which emacs > /dev/null 2>&1; then
-    export VISUAL="$(which emacsclient) -c -a $(which emacs)"
-    export EDITOR="$VISUAL"
+if [ -f /var/run/current-system/Applications/Emacs.app/Contents/MacOS/Emacs ]; then
+    export EDITOR=/var/run/current-system/Applications/Emacs.app/Contents/MacOS/Emacs
+elif which emacs > /dev/null 2>&1; then
+    export EDITOR="$(which emacsclient) -c -a $(which emacs)"
 elif which nvim > /dev/null 2>&1; then
     export EDITOR=nvim
-    export VISUAL=nvim
 elif which vim > /dev/null 2>&1; then
     export EDITOR=vim
-    export VISUAL=vim
 else
     export EDITOR=vi
-    export VISUAL=vi
 fi
+export VISUAL="$EDITOR"
 export LC_ALL=en_US.UTF-8
 export GOMAXPROCS=8
 export LEIN_FAST_TRAMPOLINE=y
