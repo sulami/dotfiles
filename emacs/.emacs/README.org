@@ -1090,8 +1090,9 @@ usually good enough. Much less of a hassle than LSP.
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package dumb-jump
   :after (evil)
-  :config
-  (setq dumb-jump-prefer-searcher 'rg)
+  :custom
+  (dumb-jump-prefer-searcher 'rg)
+  (dumb-jump-selector 'completing-read)
   :general
   (leader-def
     "j j" (sulami/evil-set-jump-wrapper 'dumb-jump-go)
