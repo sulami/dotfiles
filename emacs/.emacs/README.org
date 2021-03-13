@@ -1254,6 +1254,8 @@ item is empty, remove it instead. Essentially imitating Google Docs."
                ;; Different factors alter the amount of whitespace.
                (whitespace (+ 1
                               (if (= end (point-max)) -1 0)
+                              (if (= end (point-max) (1+ (point)))
+                                  1 0)
                               (if checkbox 1 0)
                               (if (equal 'descriptive type) 3 0)
                               (if (and checkbox
