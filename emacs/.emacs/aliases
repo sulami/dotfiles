@@ -2,6 +2,7 @@ alias dc docker-compose $*
 alias dclf docker-compose logs --tail=10 -f $*
 alias dcud docker-compose up -d $*
 alias dps docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Status}}"
+alias e $EDITOR $*
 alias em open -na /run/current-system/Applications/Emacs.app --args --chdir=$(pwd) $*
 alias g git $*
 alias make time make -j2 $*

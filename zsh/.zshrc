@@ -68,6 +68,7 @@ setopt unset
 setopt sharehistory
 
 # Often used options
+alias e='$EDITOR $*'
 alias v='$EDITOR $*'
 alias em='open -na /run/current-system/Applications/Emacs.app --args --chdir=$(pwd) $*'
 alias g='git $*'
