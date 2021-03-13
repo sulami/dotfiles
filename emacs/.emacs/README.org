@@ -2151,13 +2151,3 @@ Stolen from Spacemacs."
   (protobuf-mode . sulami/init-protobuf-imenu))
 #+END_SRC
 
-* Done
-#+BEGIN_SRC emacs-lisp :tangle yes
-(add-hook 'emacs-startup-hook
-          (lambda ()
-            (let ((pkg-count (length (hash-table-keys straight--success-cache)))
-                  (startup-time (float-time (time-subtract after-init-time before-init-time))))
-              (message (format "Startup complete, loaded %d packages in %.2fs"
-                               pkg-count
-                               startup-time)))))
-#+END_SRC
