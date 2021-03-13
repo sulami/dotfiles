@@ -19,6 +19,7 @@ with pkgs;
   gnupg
   gnused
   grpcurl
+  httpie
   isync
   iterm2
   jq
@@ -51,7 +52,6 @@ with pkgs;
   unrar
   vim
   watch
-  wget
   zsh
 ] ++ [
   (import ./packages/babashka.nix { pkgs = pkgs; })
