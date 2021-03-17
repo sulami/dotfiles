@@ -3,7 +3,7 @@
 let constants = import ./constants.nix;
     darwin_config = import ./darwin.nix;
 in {
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = constants.nix_config;
 
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
