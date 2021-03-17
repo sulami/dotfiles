@@ -853,11 +853,15 @@ Evil-keybindings for org/agenda.
 #+end_src
 * Undo-fu
 
-This just provides linear undo/redo.
+This just provides linear undo/redo. As an added bonus, it also does
+"undo in region".
 
 #+begin_src emacs-lisp :tangle yes
 (use-package undo-fu
-  :defer t)
+  :defer t
+  :custom
+  (undo-fu-allow-undo-in-region t)
+  (undo-fu-ignore-keyboard-quit t))
 #+end_src
 
 * Which key
