@@ -52,6 +52,7 @@ with pkgs;
   unrar
   vim
   watch
+  yq
   zsh
 ] ++ [
   (import ./packages/babashka.nix { pkgs = pkgs; })
