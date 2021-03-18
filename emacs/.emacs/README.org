@@ -1477,7 +1477,9 @@ don't have a lot of linters setup.
   (flycheck-emacs-lisp-load-path 'inherit)
   :general
   (leader-def "t c" 'flycheck-mode)
-  :hook (clojure-mode . flycheck-mode))
+  :hook
+  ((clojure-mode . flycheck-mode)
+   (rust-mode . flycheck-mode)))
 #+END_SRC
 
 * Emacs Lisp
