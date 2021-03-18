@@ -2145,8 +2145,7 @@ There are two distinct parts here:
 (use-package nix-mode
   :defer t)
 
-(use-package nix-sandbox
-  :defer t)
+(use-package nix-sandbox)
 #+end_src
 * Protobuf
 We use quite a lot of protobuffers at =$DAYJOB=, so the mode is
