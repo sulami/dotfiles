@@ -15,10 +15,10 @@ notmuch tag --batch <<EOF
 -inbox -unread -- path:"circleci-gmail/[Gmail]/All Mail/**" and not path:"circleci-gmail/Inbox/**"
 
 # Deleted
--inbox -unread +deleted -- path:fastmail/Trash/** or path:"circleci-gmail/[Gmail]/Bin/**"
+-inbox +deleted -- path:fastmail/Trash/** or path:"circleci-gmail/[Gmail]/Bin/**"
 
 # Spam
--inbox -unread +spam -- path:fastmail/Spam/** or path "circleci-gmail/[Gmail]/Spam/**"
+-inbox +spam -- path:fastmail/Spam/** or path "circleci-gmail/[Gmail]/Spam/**"
 
 # Recruiting
 -inbox -unread +recruiting -- path:fastmail/Recruitment/**
@@ -41,9 +41,9 @@ notmuch tag --batch <<EOF
 +confluence -- from:confluence@circleci.atlassian.net
 
 # Gmail filters
--unread -inbox +calendar -- path:circleci-gmail/Calendar/**
--unread -inbox +rollbar -- path:circleci-gmail/Rollbar/**
--unread -inbox +datadog -- path:circleci-gmail/DataDog/**
--unread -inbox +ops -- path:circleci-gmail/Ops/**
--unread -inbox +oxbot -- path:"circleci-gmail/Ox Bot/**"
+-inbox +calendar -- path:circleci-gmail/Calendar/**
+-inbox +rollbar -- path:circleci-gmail/Rollbar/**
+-inbox +datadog -- path:circleci-gmail/DataDog/**
+-inbox +ops -- path:circleci-gmail/Ops/**
+-inbox +oxbot -- path:"circleci-gmail/Ox Bot/**"
 EOF
