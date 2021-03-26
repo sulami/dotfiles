@@ -34,10 +34,11 @@ notmuch tag --batch <<EOF
 
 # GitHub
 +github -- from:notifications@github.com
-+github +resolved -- from:notifications@github.com and ("^Merged #" or "^Closed #")
++resolved -- tag:github and ("^Merged #" or "^Closed #")
 
 # Atlassian
 +jira -- from:jira@circleci.atlassian.net
+-inbox -- tag:jira and not ("commented on" or "mentioned you on")
 +confluence -- from:confluence@circleci.atlassian.net
 
 # Gmail filters
