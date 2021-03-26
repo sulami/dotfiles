@@ -891,6 +891,9 @@ replace Ivy & Helm.
 Consult is counsel for selectrum, in that it adds selectrum support
 for various commands that do not use ~read-string~ normally.
 
+=consult-flycheck= cannot be autoloaded via =consult=, so it needs to
+be loaded separately.
+
 #+begin_src emacs-lisp :tangle yes
 (use-package consult
   :defer t
@@ -912,7 +915,6 @@ for various commands that do not use ~read-string~ normally.
   :general
   (leader-def
     "f r" 'consult-recent-file
-    "j e" 'consult-flycheck
     "j i" 'consult-imenu
     "j I" 'consult-project-imenu
     "j o" 'consult-outline
@@ -926,6 +928,11 @@ for various commands that do not use ~read-string~ normally.
     "C-r" 'consult-history)
   :hook
   ((eshell-mode . sulami/consult-setup-eshell-bindings)))
+
+(use-package consult-flycheck
+  :general
+  (leader-def
+    "j e" 'consult-flycheck))
 #+end_src
 
 ** Prescient
