@@ -916,8 +916,7 @@ for various commands that do not use ~read-string~ normally.
     "j i" 'consult-imenu
     "j I" 'consult-project-imenu
     "j o" 'consult-outline
-    "s s" 'consult-line
-    "s S" 'consult-line-symbol-at-point)
+    "s s" 'consult-line)
   (general-imap
     "M-y" 'consult-yank-pop)
   (general-nmap
