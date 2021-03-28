@@ -51,6 +51,7 @@
  ("hl-todo" . "4d18ccde596aef84ef278aa60144390ab41f0046")
  ("hydra" . "2d553787aca1aceb3e6927e426200e9bb9f056f1")
  ("iedit" . "db9ef01c6eefed83e2447ae3d4903ad3773c6dcd")
+ ("kubel" . "0c118987feee05059629073228d966502f5d0e93")
  ("let-alist" . "b299c78897cc307f9d5521927376fbd06a26f123")
  ("lispy" . "5c8a59ae7dd3dd342e7c86a8c0acdbd13e2989f3")
  ("lispyville" . "0f13f26cd6aa71f9fd852186ad4a00c4294661cd")

@@ -2103,6 +2103,12 @@ tramp target.
   :defer t)
 #+end_src
 
+* Kubernetes
+
+#+begin_src emacs-lisp :tangle yes
+(use-package kubel)
+#+end_src
+
 * Markdown
 I think it's vastly inferior to org-mode, but I still have to use it.
 Mostly just try to make it look & work like org-mode.
