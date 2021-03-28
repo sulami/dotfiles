@@ -1282,6 +1282,20 @@ item is empty, remove it instead. Essentially imitating Google Docs."
                      (backward-char))
             (evil-org-open-below 0)))
       (org-return)))
+  :config/el-patch
+  (defun org-link-escape (link)
+    "Backslash-escape sensitive characters in string LINK."
+    (el-patch-wrap 3 0
+      (replace-regexp-in-string
+       " "
+       "%20"
+       (replace-regexp-in-string
+        (rx (seq (group (zero-or-more "\\")) (group (or string-end (any "[]")))))
+        (lambda (m)
+          (concat (match-string 1 m)
+	          (match-string 1 m)
+	          (and (/= (match-beginning 2) (match-end 2)) "\\")))
+        link nil t 1))))
   :general
   (local-leader-def
     :keymaps 'org-mode-map
