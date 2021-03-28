@@ -959,18 +959,6 @@ what you're looking for.
   (completion-styles '(orderless)))
 #+end_src
 
-** Marginalia
-
-Marginilia provides extra information about completions in the
-minibuffer.
-
-#+begin_src emacs-lisp :tangle yes
-(use-package marginalia
-  :defer t
-  :hook
-  (after-init . marginalia-mode))
-#+end_src
-
 ** Flyspell-correct
 
 #+begin_src emacs-lisp :tangle yes

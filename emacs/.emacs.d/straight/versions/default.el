@@ -56,7 +56,6 @@
  ("lispyville" . "0f13f26cd6aa71f9fd852186ad4a00c4294661cd")
  ("literate-calc-mode.el" . "a50e897a816cb5580ad6ec867eeaae212e0e4798")
  ("magit" . "359d0f2ffbb0719e4b79ab4c2e0acddfb2b9aa88")
- ("marginalia" . "58f397dd20330a4083474f094b0eb5331f1b76bc")
  ("markdown-mode" . "dcad5572a30fce51b97963d3c869cce227c223a1")
  ("melpa" . "4ae56fd7c24a37769aeaba2de086a126d6ff23d3")
  ("nix-emacs" . "977b9a505ffc8b33b70ec7742f90e469b3168297")
