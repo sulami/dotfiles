@@ -1923,7 +1923,8 @@ The big IDE-like integration for Clojure.
     "t p" 'cider-test-run-project-tests
     "t t" 'cider-test-run-test)
   :hook
-  (cider-repl-mode . company-mode))
+  ((clojure-mode . cider-mode)
+   (cider-repl-mode . company-mode)))
 #+end_src
 
 ** HugSQL
