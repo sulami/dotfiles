@@ -45,6 +45,7 @@ with pkgs;
   sbcl
   skhd
   slack
+  socat
   stack
   stow
   tmux
