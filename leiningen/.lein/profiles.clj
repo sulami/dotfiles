@@ -26,7 +26,9 @@
                        [org.clojure/core.async "RELEASE"]
                        [org.clojure/core.logic "RELEASE"]
                        [org.clojure/test.check "RELEASE"]
-                       [criterium "RELEASE"]]}
+                       [clj-time "RELEASE"]
+                       [criterium "RELEASE"]
+                       [com.rpl/specter "RELEASE"]]}
 
  :pretty {:plugins [[io.aviso/pretty "RELEASE"]]
           :dependencies [[io.aviso/pretty "RELEASE" :exclusions [org.clojure/clojure]]]
