@@ -1411,13 +1411,6 @@ This is probably the single best interface for Git out there.
   (magit-git-executable "/run/current-system/sw/bin/git")
   (sulami/source-directory "~/src")
   :config
-  (defun sulami/magit-rebase-master ()
-    (interactive)
-    (magit-git-command-topdir "git pull origin master:master")
-    (magit-rebase-branch "master" '()))
-  (transient-append-suffix 'magit-rebase "e" '(sulami/magit-rebase-master
-                                             :key "m"
-                                             :description "Pull & rebase master"))
   (defun sulami/clone-repo (url)
     "Clone the repo at URL into `sulami/source-directory'"
     (interactive "sURL: ")
