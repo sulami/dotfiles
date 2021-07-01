@@ -27,7 +27,6 @@ with pkgs;
   miller
   msmtp
   mtr
-  netcat
   ngrok
   nodePackages.typescript
   notmuch
