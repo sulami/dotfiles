@@ -56,6 +56,7 @@
   authors = !git ls-tree -r -z --name-only HEAD -- * | xargs -0 -n1 git blame --line-porcelain HEAD | grep  "^author[^-]" | sort | uniq -c | sort -nr
   pmm = pull origin master:master
   rtm = !git pmm && git rebase
+  pr = "!f() { if [ $# -lt 1 ]; then echo \"Usage: git pr <id> [<remote>]  # assuming <remote>[=origin] is on GitHub\"; else git checkout -q \"$(git rev-parse --verify HEAD)\" && git fetch -fv \"${2:-origin}\" pull/\"$1\"/head:pr/\"$1\" && git checkout pr/\"$1\"; fi; }; f"
 [commit]
   gpgsign = true
 [merge]
