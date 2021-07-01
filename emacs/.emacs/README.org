@@ -1706,17 +1706,17 @@ yak shave an awful lot.
   (erc-fill-prefix nil)
   (erc-fill-function 'erc-fill-variable)
   (erc-insert-timestamp-function 'erc-insert-timestamp-left)
-  (erc-autojoin-channels-alist '(("freenode.net" "#nixers_net" "#circleci")
+  (erc-autojoin-channels-alist '(("irc.libera.chat" "#nixers_net")
                                  ("irc.circleci.com" "#general")))
   :config
   (add-to-list 'erc-modules 'keep-place)
   (add-to-list 'erc-modules 'spelling)
   (defun sulami/erc ()
     (interactive)
-    (erc :server "irc.freenode.net"
+    (erc :server "irc.libera.chat"
          :port 6667
          :nick "sulami"
-         :password (string-trim (shell-command-to-string "pass freenode/password")))
+         :password (string-trim (shell-command-to-string "pass libera/password")))
     (erc :server "irc.circleci.com"
          :port 6667
          :nick "robins"
