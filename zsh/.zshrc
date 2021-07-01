@@ -35,7 +35,9 @@ fi
 
 # PROMPT
 autoload -U colors && colors
-RPS1="%(?..%{$fg_bold[red]%}%?%{$reset_color%} <)"
+# This was a right-side non-zero return code.
+# RPS1="%(?..%{$fg_bold[red]%}%?%{$reset_color%} <)"
+RPS1=""
 # Adapt prompt when entering/leaving normal mode, and also color the
 # prompt red if we are privileged. For this to work, this needs to be
 # installed as global config.
