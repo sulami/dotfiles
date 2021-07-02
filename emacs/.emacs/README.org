@@ -222,11 +222,15 @@ At least as a default, much nicer when resizing windows.
 Use ~aspell~ with British English.
 
 #+BEGIN_SRC emacs-lisp :tangle yes
-(setq ispell-program-name "aspell"
-      ispell-extra-args (quote ("--sug-mode=ultra" "--lang=en_GB-ise"))
-      flyspell-sort-corrections nil
-      flyspell-issue-message-flag nil)
-
+(use-package flyspell
+  :straight nil
+  :custom
+  (ispell-program-name "aspell")
+  (ispell-extra-args (quote ("--sug-mode=ultra" "--lang=en_GB-ise")))
+  (flyspell-sort-corrections nil)
+  (flyspell-issue-message-flag nil)
+  :hook
+  (prog-mode . flyspell-prog-mode))
 #+END_SRC
 
 ** Enable erase buffer
