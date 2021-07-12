@@ -206,7 +206,19 @@ At least as a default, much nicer when resizing windows.
 
 ** Enable code folding
 #+begin_src emacs-lisp :tangle yes
-(add-hook 'prog-mode-hook 'hs-minor-mode)
+(use-package code-folding
+  :straight nil
+  :config
+  (defun sulami/close-defun-fold ()
+    "Hide the top-level definition at point."
+    (interactive)
+    (beginning-of-defun)
+    (hs-hide-block))
+  :general
+  (general-nmap
+    "z C" #'sulami/close-defun-fold)
+  :hook
+  (prog-mode . hs-minor-mode))
 #+end_src
 
 ** UTF-8
