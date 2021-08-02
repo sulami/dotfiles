@@ -1170,7 +1170,7 @@ Manages projects (usually git repositories, but flexible).
     (consult-ripgrep (projectile-project-root)
                      (thing-at-point 'symbol t)))
 
-  (defun sulami/toggle-project-root-shell ()
+  (defun sulami/toggle-project-root-eshell ()
     "Opens eshell, if possible in the project root."
     (interactive)
     (cond
@@ -1180,6 +1180,32 @@ Manages projects (usually git repositories, but flexible).
                                            "")))
       (call-interactively #'projectile-run-eshell))
      ((eshell))))
+
+  (defun sulami/toggle-project-root-shell ()
+    "Opens shell, if possible in the project root."
+    (interactive)
+    (cond
+     ((eq major-mode 'shell-mode)
+      (evil-switch-to-windows-last-buffer))
+     ((projectile-project-p (f-dirname (or (buffer-file-name)
+                                           "")))
+      (call-interactively #'projectile-run-shell))
+     ((shell))))
+
+  (defun sulami/toggle-project-root-term ()
+    "Opens vterm, if possible in the project root."
+    (interactive)
+    (cond
+     ((eq major-mode 'vterm-mode)
+      (evil-switch-to-windows-last-buffer))
+     ((projectile-project-p (f-dirname (or (buffer-file-name)
+                                           "")))
+      (let ((default-directory (projectile-project-root))
+            (buf-name (concat "*vterm " (projectile-project-name) "*")))
+        (if (get-buffer buf-name)
+            (switch-to-buffer buf-name)
+          (vterm buf-name))))
+     ((vterm))))
 
   ;; Don't do projectile stuff on remote files
   ;; from https://github.com/syl20bnr/spacemacs/issues/11381#issuecomment-481239700
@@ -1194,9 +1220,11 @@ Manages projects (usually git repositories, but flexible).
     "p b" 'projectile-switch-to-buffer
     "p p" 'projectile-switch-project
     "p f" 'projectile-find-file
+    "p s" 'sulami/toggle-project-root-shell
+    "p t" 'sulami/toggle-project-root-term
     "s p" 'sulami/projectile-rg
     "s P" 'sulami/projectile-rg-thing-at-point)
-  ("s-'" 'sulami/toggle-project-root-shell)
+  ("s-'" 'sulami/toggle-project-root-eshell)
   :hook (after-init . projectile-global-mode))
 #+end_src
 
