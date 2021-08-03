@@ -1471,11 +1471,6 @@ This is probably the single best interface for Git out there.
    (term-mode . with-editor-export-editor)
    (eshell-mode . with-editor-export-editor)
    (git-commit-setup . git-commit-turn-on-flyspell)))
-
-(use-package evil-magit
-  :defer t
-  :hook (magit-mode . (lambda () (require 'evil-magit))))
-
 #+END_SRC
 
 ** Git link
