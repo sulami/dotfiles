@@ -204,23 +204,6 @@ At least as a default, much nicer when resizing windows.
 (setq line-move-visual nil)
 #+END_SRC
 
-** Enable code folding
-#+begin_src emacs-lisp :tangle yes
-(use-package code-folding
-  :straight nil
-  :config
-  (defun sulami/close-defun-fold ()
-    "Hide the top-level definition at point."
-    (interactive)
-    (beginning-of-defun)
-    (hs-hide-block))
-  :general
-  (general-nmap
-    "z C" #'sulami/close-defun-fold)
-  :hook
-  (prog-mode . hs-minor-mode))
-#+end_src
-
 ** UTF-8
 #+BEGIN_SRC emacs-lisp :tangle yes
 (setq-default buffer-file-coding-system 'utf-8)
@@ -1095,6 +1078,25 @@ interfering with non-lisp syntax.
   :hook
   ((text-mode . electric-pair-local-mode)
    (prog-mode . electric-pair-local-mode)))
+#+end_src
+
+* Code folding
+
+#+begin_src emacs-lisp :tangle yes
+  (use-package code-folding
+    :disabled
+    :straight nil
+    :config
+    (defun sulami/close-defun-fold ()
+      "Hide the top-level definition at point."
+      (interactive)
+      (beginning-of-defun)
+      (hs-hide-block))
+    :general
+    (general-nmap
+      "z C" #'sulami/close-defun-fold)
+    :hook
+    (prog-mode . hs-minor-mode))
 #+end_src
 
 * Dumb jump
