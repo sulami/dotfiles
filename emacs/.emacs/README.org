@@ -148,6 +148,12 @@ This allows me to use ~winner-undo~ if I accidentally delete a window.
 (setq-default indent-tabs-mode nil)
 #+END_SRC
 
+** Tabs are 4 spaces
+
+#+begin_src emacs-lisp :tangle yes
+(setq-default tab-width 4)
+#+end_src
+
 ** Sentences end with a single space
 #+begin_src emacs-lisp :tangle yes
 (setq sentence-end-double-space nil)
