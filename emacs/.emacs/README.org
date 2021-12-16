@@ -16,7 +16,8 @@ the top for performance reasons.
 #+begin_src emacs-lisp :tangle yes
 (setq user-full-name "Robin Schroer"
       user-login-name "sulami"
-      user-mail-address "emacs@sulami.xyz")
+      user-mail-address "emacs@sulami.xyz"
+      sulami/source-directory "~/src")
 #+end_src
 
 * Better defaults
@@ -1455,7 +1456,6 @@ This is probably the single best interface for Git out there.
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
   (magit-git-executable "/run/current-system/sw/bin/git")
-  (sulami/source-directory "~/src")
   :config
   (defun sulami/clone-repo (url)
     "Clone the repo at URL into `sulami/source-directory'"
