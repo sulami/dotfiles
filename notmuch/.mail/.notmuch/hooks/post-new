@@ -19,6 +19,7 @@ notmuch tag --batch <<EOF
 
 # Spam
 -inbox +spam -- path:fastmail/Spam/** or path "circleci-gmail/[Gmail]/Spam/**"
+-inbox +spam -- tag:circleci and subject:users and /samples?/ and thanks and sendgrid
 
 # Recruiting
 -inbox -unread +recruiting -- path:fastmail/Recruitment/**
