@@ -41,6 +41,7 @@ notmuch tag --batch <<EOF
 +jira -- from:jira@circleci.atlassian.net
 -inbox -- tag:jira and not ("commented on" or "mentioned you on")
 +confluence -- from:confluence@circleci.atlassian.net
+-inbox +deleted -- tag:confluence and "edited this page" and not ("inline comment" or "inline comments")
 
 # Gmail filters
 -inbox +calendar -- path:circleci-gmail/Calendar/**
