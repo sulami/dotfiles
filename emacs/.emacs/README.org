@@ -2176,6 +2176,13 @@ tramp target.
 (use-package kubel)
 #+end_src
 
+* Terraform
+
+#+begin_src emacs-lisp :tangle yes
+(use-package terraform-mode
+  :defer t)
+#+end_src
+
 * Markdown
 I think it's vastly inferior to org-mode, but I still have to use it.
 Mostly just try to make it look & work like org-mode.
