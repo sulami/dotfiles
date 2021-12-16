@@ -1889,7 +1889,18 @@ ticket references into clickable links. Adapted from [[https://www.monotux.tech/
   :straight nil
   :config
   (defun sulami/bug-reference-setup ()
-    (setq bug-reference-bug-regexp "\\(\\)\\(\\(CIRCLE\\|BACKPLANE\\|SRE\\|SERVER\\)-[0-9]\\{4,5\\}\\)"
+    (setq bug-reference-bug-regexp (rx (group)
+                                       (group
+                                        (or "CIRCLE"
+                                            "BACKPLANE"
+                                            "SRE"
+                                            "SERVER"
+                                            "INFRA"
+                                            "PIPE"
+                                            "ORCH"
+                                            "PER")
+                                        "-"
+                                        (repeat 3 5 digit)))
           bug-reference-url-format "https://circleci.atlassian.net/browse/%s"))
   :hook
   ((bug-reference-mode . sulami/bug-reference-setup)
