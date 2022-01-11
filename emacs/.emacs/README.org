@@ -1917,7 +1917,8 @@ ticket references into clickable links. Adapted from [[https://www.monotux.tech/
                                             "INFRA"
                                             "PIPE"
                                             "ORCH"
-                                            "PER")
+                                            "PER"
+                                            "TASKS")
                                         "-"
                                         (repeat 3 5 digit)))
           bug-reference-url-format "https://circleci.atlassian.net/browse/%s"))
