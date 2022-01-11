@@ -648,6 +648,18 @@ adapted from [[https://stackoverflow.com/questions/1242352/get-font-face-under-c
       (message "No face at %d" pos))))
 #+end_src
 
+** Create a random UUID
+
+I need random UUIDs all the time. This generates one and places it in
+the clipboard, ready for pasting. Heavily dependent on macOS.
+
+#+begin_src emacs-lisp :tangle yes
+(defun sulami/random-uuid ()
+  (interactive)
+  (let ((uuid (shell-command-to-string "uuidgen | tr '[:upper:]' '[:lower:]' | tee /dev/tty | pbcopy")))
+    (message "Generated UUID: %s" (s-trim uuid))))
+#+end_src
+
 * General
 General allows me to use fancy prefix keybindings.
 
