@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: date
-# key: date
+# name: today
+# key: today
 # --
 #+date: `(format-time-string "%F")`
