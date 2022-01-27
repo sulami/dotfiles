@@ -1,5 +1,9 @@
 # -*- mode: conf -*-
 
+Create Both
+Expunge Both
+CopyArrivalDate yes
+
 # Fastmail
 
 IMAPAccount fastmail
@@ -18,14 +22,10 @@ Path ~/.mail/fastmail/
 Inbox ~/.mail/fastmail/INBOX
 
 Channel fastmail
-Master :fastmail-remote:
-Slave :fastmail-local:
+Far :fastmail-remote:
+Near :fastmail-local:
 Patterns *
-Create Slave
-Sync All
-Expunge Both
 SyncState *
-CopyArrivalDate yes
 
 # CircleCI Gmail
 
@@ -35,6 +35,7 @@ User robins@circleci.com
 PassCmd "pass circleci/gmail/password"
 SSLType IMAPS
 AuthMechs PLAIN
+Timeout 300
 
 IMAPStore circleci-gmail-remote
 Account circleci-gmail
@@ -46,11 +47,8 @@ Path ~/.mail/circleci-gmail/
 Inbox ~/.mail/circleci-gmail/Inbox
 
 Channel circleci-gmail
-Master :circleci-gmail-remote:
-Slave :circleci-gmail-local:
-Patterns *
-Create Slave
-Sync All
-Expunge Both
+Far :circleci-gmail-remote:
+Near :circleci-gmail-local:
+Patterns * ![Gmail]* "[Gmail]/All Mail" "[Gmail]/Bin"
 SyncState *
-CopyArrivalDate yes
+Expunge None
