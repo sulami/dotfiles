@@ -42,8 +42,7 @@ RPS1=""
 # prompt red if we are privileged. For this to work, this needs to be
 # installed as global config.
 function zle-line-init zle-keymap-select {
-    # hostname:pwd(git status)
-    PPREFIX="%{$fg_bold[magenta]%}%1~%{$reset_color%}"
+    PPREFIX="%(?..<%{$fg_bold[red]%}%?%{$reset_color%}> )%{$fg_bold[magenta]%}%1~%{$reset_color%}"
     # Mode-dependent symbol
     PRMPT="${${KEYMAP/vicmd/N}/(main|viins)/λ}"
     # Put it all together, color the symbol if there are bg jobs
