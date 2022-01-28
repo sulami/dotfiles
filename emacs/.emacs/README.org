@@ -1561,6 +1561,26 @@ Eshell is my main shell these days, mostly because it integrates so
 well with Emacs. On rare occasions I use a terminal emulator (usually
 also inside Emacs) with zsh.
 
+** Prompt
+
+#+begin_src emacs-lisp :tangle yes
+(setq eshell-prompt-function
+      (lambda ()
+        (concat
+         (when (not (eshell-exit-success-p))
+           (concat
+            "<"
+            (propertize (number-to-string eshell-last-command-status)
+                        'face `(:foreground "red"))
+            "> "))
+         (abbreviate-file-name (eshell/pwd))
+         " λ "))
+      eshell-prompt-regexp
+      (rx (opt "<" (1+ digit) "> ")
+          (1+ anything)
+          " λ "))
+#+end_src
+
 ** Aliases
 This just loads my aliases. They are auto-generated from my zsh
 aliases, so that the two are always in sync.
