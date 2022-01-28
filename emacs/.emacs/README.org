@@ -309,7 +309,7 @@ Especially Alfred likes to paste with ~⌘-v~, so that needs to work.
 ** Mac font panel
 
 #+BEGIN_SRC emacs-lisp :tangle yes
-(define-key global-map (kbd "s-t") 'mac-font-panel-mode)
+(define-key global-map (kbd "s-f") #'mac-font-panel-mode)
 #+END_SRC
 
 ** Fix frame focus
@@ -607,6 +607,7 @@ From: https://gist.github.com/mads-hartmann/3402786"
 #+end_src
 
 ** Sort words
+
 #+begin_src emacs-lisp :tangle yes
 (defun sulami/sort-words (beg end)
   "Sorts words in region."
@@ -1235,7 +1236,6 @@ Manages projects (usually git repositories, but flexible).
   :general
   (leader-def
     "p c" 'projectile-compile-project
-    "p r" 'sulami/projectile-replace
     "p d" 'projectile-dired
     "p b" 'projectile-switch-to-buffer
     "p p" 'projectile-switch-project
