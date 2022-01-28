@@ -1981,6 +1981,33 @@ brew install cmake libtool
     "a t" 'vterm))
 #+end_src
 
+* LSP
+
+LSP (Language Server Protocol) is a system which enables static
+analysis of code and provides various IDE-like features.
+
+#+begin_src emacs-lisp :tangle yes
+(use-package lsp-mode
+  :general
+  (leader-def
+    "a l" #'lsp))
+#+end_src
+
+* Tree-sitter
+
+Tree-sitter is a library for parsing source code, which can be used to
+generate faster and better syntax highlighting than the traditional
+regexp-based approach.
+
+#+begin_src emacs-lisp :tangle yes
+(use-package tree-sitter
+  :hook
+  ((after-init . global-tree-sitter-mode)
+   (tree-sitter-after-on . tree-sitter-hl-mode)))
+
+(use-package tree-sitter-langs)
+#+end_src
+
 * Clojure
 Clojure is the language I work with at =$DAYJOB=, so it has quite a
 lot of configuration.
