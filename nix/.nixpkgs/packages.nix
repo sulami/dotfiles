@@ -19,6 +19,8 @@ with pkgs;
   git
   gnupg
   gnused
+  go
+  gopls
   grpcurl
   isync
   iterm2
