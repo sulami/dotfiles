@@ -1990,6 +1990,8 @@ analysis of code and provides various IDE-like features.
 
 #+begin_src emacs-lisp :tangle yes
 (use-package lsp-mode
+  :custom
+  (lsp-enable-symbol-highlighting nil)
   :general
   (leader-def
     "a l" #'lsp))
