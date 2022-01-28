@@ -579,6 +579,21 @@ files before certain operations, like refiling.
   (find-file sulami/source-directory))
 #+end_src
 
+*** Toggle a terminal
+
+#+begin_src emacs-lisp :tangle yes
+(defun sulami/toggle-term ()
+  "Opens global vterm, or switches to last buffer."
+  (interactive)
+  (let ((buf-name "*vterm*"))
+    (cond
+     ((eq major-mode 'vterm-mode)
+      (evil-switch-to-windows-last-buffer))
+     ((get-buffer buf-name)
+      (switch-to-buffer buf-name))
+     ((vterm buf-name)))))
+#+end_src
+
 ** Windows
 
 *** Maximise a window
@@ -740,7 +755,8 @@ declarations.
     "w m" 'sulami/toggle-maximise-window
     "w u" 'winner-undo)
   (general-define-key
-   "s-m" 'suspend-frame
+   "s-m" #'suspend-frame
+   "s-t" #'sulami/toggle-term
    "s-=" (lambda () (interactive) (text-scale-increase 0.5))
    "s--" (lambda () (interactive) (text-scale-decrease 0.5))
    "s-0" (lambda () (interactive) (text-scale-increase 0)))
