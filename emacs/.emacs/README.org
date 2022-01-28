@@ -432,10 +432,12 @@ Also changes squiggly underlines to straight ones."
   ;; Set the default colourscheme according to the time of day
   :hook (after-init . (lambda ()
                         (when (display-graphic-p)
-                          (let ((hour-of-day (read (format-time-string "%H"))))
-                            (if (<= 8 hour-of-day 17)
-                                (load-theme 'doom-solarized-light t)
-                              (load-theme 'doom-solarized-dark t)))))))
+                          (let* ((hour-of-day (read (format-time-string "%H")))
+                                 (theme (if (<= 8 hour-of-day 17)
+                                            'doom-solarized-light
+                                          'doom-solarized-dark)))
+                            (load-theme theme t)
+                            (sulami/after-load-theme-advice theme))))))
 #+END_SRC
 
 ** Modeline
