@@ -1103,7 +1103,6 @@ interfering with non-lisp syntax.
 
 #+begin_src emacs-lisp :tangle yes
   (use-package code-folding
-    :disabled
     :straight nil
     :config
     (defun sulami/close-defun-fold ()
