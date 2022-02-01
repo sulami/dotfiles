@@ -1253,16 +1253,17 @@ Manages projects (usually git repositories, but flexible).
 
   :general
   (leader-def
-    "p c" 'projectile-compile-project
-    "p d" 'projectile-dired
-    "p b" 'projectile-switch-to-buffer
-    "p p" 'projectile-switch-project
-    "p f" 'projectile-find-file
-    "p s" 'sulami/toggle-project-root-shell
-    "p t" 'sulami/toggle-project-root-term
-    "s p" 'sulami/projectile-rg
-    "s P" 'sulami/projectile-rg-thing-at-point)
-  ("s-'" 'sulami/toggle-project-root-eshell)
+    "p c" #'projectile-compile-project
+    "p d" #'projectile-dired
+    "p b" #'projectile-switch-to-buffer
+    "p p" #'projectile-switch-project
+    "p f" #'projectile-find-file
+    "p k" #'projectile-kill-buffers
+    "p s" #'sulami/toggle-project-root-shell
+    "p t" #'sulami/toggle-project-root-term
+    "s p" #'sulami/projectile-rg
+    "s P" #'sulami/projectile-rg-thing-at-point)
+  ("s-'" #'sulami/toggle-project-root-eshell)
   :hook (after-init . projectile-global-mode))
 #+end_src
 
