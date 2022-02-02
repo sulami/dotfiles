@@ -172,11 +172,14 @@ buffer modes, so not for REPLS and shells.
 #+END_SRC
 
 ** Show empty lines
+
 This shows vim-style tildes on the left fringe.
+
 #+begin_src emacs-lisp :tangle yes
-(setq-default indicate-empty-lines t)
-(define-fringe-bitmap 'tilde [0 0 0 113 219 142 0 0] nil nil 'center)
-(setcdr (assq 'empty-line fringe-indicator-alist) 'tilde)
+(when (display-graphic-p)
+  (setq-default indicate-empty-lines t)
+  (define-fringe-bitmap 'tilde [0 0 0 113 219 142 0 0] nil nil 'center)
+  (setcdr (assq 'empty-line fringe-indicator-alist) 'tilde))
 #+end_src
 
 ** Enable so-long-mode
@@ -397,9 +400,10 @@ of another theme."
 
 (defun sulami/set-face-straight-underline (face)
   "Remove FACE's :underline style, if it's set"
-  (let ((old-attr (face-attribute face :underline)))
-    (when (eq 'cons (type-of old-attr))
-      (set-face-attribute face nil :underline (nth 3 old-attr)))))
+  (when (display-graphic-p)
+    (let ((old-attr (face-attribute face :underline)))
+      (when (eq 'cons (type-of old-attr))
+        (set-face-attribute face nil :underline (nth 3 old-attr))))))
 
 (defun sulami/after-load-theme-advice (theme &optional no-confirm no-enable)
   "Unsets backgrounds for some org-mode faces.
