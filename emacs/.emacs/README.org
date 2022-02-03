@@ -1503,11 +1503,19 @@ This is probably the single best interface for Git out there.
     (let* ((repo-name (magit-clone--url-to-name url))
            (target-dir (concat sulami/source-directory "/" repo-name)))
       (magit-clone-regular url target-dir nil)))
+  (defun sulami/reset-repo ()
+    "Reset the current repo to its default state"
+    (interactive)
+    (if (magit-branch-p "main")
+        (magit-checkout "main")
+      (magit-checkout "master"))
+    (magit-pull-from-upstream nil))
   :general
   (leader-def
-    "g b" 'magit-blame-addition
-    "g h" 'magit-log
-    "g s" 'magit-status)
+    "g b" #'magit-blame-addition
+    "g h" #'magit-log
+    "g n" #'sulami/reset-repo
+    "g s" #'magit-status)
   :hook
   ((shell-mode . with-editor-export-editor)
    (term-mode . with-editor-export-editor)
