@@ -19,7 +19,7 @@ with pkgs;
   git
   gnupg
   gnused
-  go
+  go_1_17
   gopls
   grpcurl
   isync
