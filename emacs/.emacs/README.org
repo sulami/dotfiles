@@ -795,15 +795,6 @@ can't stand the default Emacs keybindings.
   ;; This conflicts with the local leader
   (unbind-key "," evil-motion-state-map)
 
-  (defun sulami/evil-set-jump-wrapper (cmd)
-    "Wraps a general command to call `evil-set-jump' before."
-    (let ((cmd-name (symbol-name cmd)))
-      `((lambda (&rest rest)
-          (interactive)
-          (evil-set-jump)
-          (apply (quote ,cmd) rest))
-        :wk ,cmd-name)))
-
   (defun sulami/evil-shift-left-visual ()
     "`evil-shift-left`, but keeps the selection."
     (interactive)
@@ -1147,14 +1138,21 @@ usually good enough. Much less of a hassle than LSP.
 
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package dumb-jump
-  :after (evil)
+  :after (evil lsp-mode)
   :custom
   (dumb-jump-prefer-searcher 'rg)
   (dumb-jump-selector 'completing-read)
+  :config
+  (defun sulami/goto-definition ()
+    "Universal goto definition."
+    (interactive)
+    (evil-set-jump)
+    (if lsp-mode
+        (lsp-find-definition)
+      (dumb-jump-go)))
   :general
   (leader-def
-    "j j" (sulami/evil-set-jump-wrapper 'dumb-jump-go)
-    "j p" (sulami/evil-set-jump-wrapper 'dumb-jump-go-prompt)))
+    "j j" #'sulami/goto-definition))
 #+END_SRC
 
 * Wgrep
