@@ -2006,7 +2006,15 @@ analysis of code and provides various IDE-like features.
   (lsp-enable-symbol-highlighting nil)
   :general
   (leader-def
-    "a l" #'lsp))
+    "l j" #'lsp-find-definition
+    "l l" #'lsp
+    "l q" #'lsp-disconnect
+    "l r" #'lsp-find-references
+    "l R" #'lsp-rename)
+  :hook
+  ((clojure-mode . lsp)
+   (go-mode . lsp)
+   (typescript-mode . lsp)))
 #+end_src
 
 * Tree-sitter
