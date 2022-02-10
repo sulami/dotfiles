@@ -31,6 +31,7 @@ with pkgs;
   mtr
   ngrok
   nodePackages.typescript
+  nodePackages.typescript-language-server
   notmuch
   oil
   pandoc
