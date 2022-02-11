@@ -937,7 +937,8 @@ be loaded separately.
     :branch "main")
   :custom
   (consult-preview-key nil)
-  (xrefs-show-xrefs-function #'consult-xref)
+  (xref-show-xrefs-function #'consult-xref)
+  (xref-show-definitions-function #'consult-xref)
   :config
   ;; Eshell only defines its locally keymap when you launch it, so we
   ;; have to add bindings with a hook.
