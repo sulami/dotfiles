@@ -53,7 +53,7 @@ This reloads changed files which are open in Emacs but not edited.
 (use-package recentf
   :straight nil
   :custom
-  (recentf-max-saved-items 255)
+  (recentf-max-saved-items 1024)
   :hook
   (after-init . recentf-mode))
 #+END_SRC
