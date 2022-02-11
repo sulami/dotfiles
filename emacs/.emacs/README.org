@@ -1661,7 +1661,7 @@ history for logs later on.
   (when eshell-mode
     (save-excursion
       (goto-char eshell-last-input-start)
-      (let ((ts (format-time-string "[%F %T] ")))
+      (let ((ts (format-time-string "[%FT%TZ] " nil t)))
         (insert ts)
         (put-text-property eshell-last-input-start
                            (+ eshell-last-input-start
