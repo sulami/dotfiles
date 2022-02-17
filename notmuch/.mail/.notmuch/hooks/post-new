@@ -37,6 +37,9 @@ notmuch tag --batch <<EOF
 +github -- from:notifications@github.com
 +resolved -- tag:github and ("^Merged #" or "^Closed #")
 
+# GitLab
++gitlab -- from:gitlab@mg.gitlab.com
+
 # Atlassian
 +jira -- from:jira@circleci.atlassian.net
 -inbox -- tag:jira and not ("commented on" or "mentioned you on")
