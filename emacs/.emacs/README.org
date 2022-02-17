@@ -1904,6 +1904,22 @@ view emails in my local maildir.
   (defun notmuch-unread ()
     (interactive)
     (notmuch-search "tag:unread" t))
+  (defun sulami/notmuch-search-open-pr ()
+    "Open the pull request referenced in an email."
+    (interactive)
+    (when (and (eq major-mode 'notmuch-search-mode)
+               (-contains? (notmuch-search-get-tags)
+                           "github"))
+      (let ((subject (substring-no-properties (notmuch-search-find-subject)))
+            (regexp (rx string-start
+                        "[" (group-n 1 (+? anychar)) "]"
+                        (* anychar)
+                        "(PR #" (group-n 2 (+ digit)) ")"
+                        string-end)))
+        (string-match regexp subject)
+        (let ((project-slug (match-string 1 subject))
+              (pr-number (match-string 2 subject)))
+          (browse-url (format "https://github.com/%s/pull/%s" project-slug pr-number))))))
   :general
   (leader-def
     "m i" 'notmuch-inbox
