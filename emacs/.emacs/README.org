@@ -2032,7 +2032,7 @@ analysis of code and provides various IDE-like features.
   :hook
   ((clojure-mode . lsp)
    (go-mode . lsp)
-   (typescript-mode . lsp)))
+   (tide-mode . lsp)))
 #+end_src
 
 * Tree-sitter
