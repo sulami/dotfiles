@@ -4,18 +4,19 @@ with pkgs;
 [
   # clj-kondo
   adoptopenjdk-hotspot-bin-8
+  arduino-cli
   aspell
   aspellDicts.en
+  avrdude
   circleci-cli
-  cloc
   clojure
   clojure-lsp
   cmake
   docker
   docker-compose
   emacsMacport
+  entr
   fd
-  fira-code
   git
   gnupg
   gnused
@@ -23,7 +24,6 @@ with pkgs;
   gopls
   grpcurl
   isync
-  iterm2
   jq
   leiningen
   miller
@@ -33,26 +33,24 @@ with pkgs;
   nodePackages.typescript
   nodePackages.typescript-language-server
   notmuch
-  oil
   pandoc
   pass
+  pkgs.pkgsCross.avr.buildPackages.gcc
   pinentry_mac
   poetry
   pv
-  racket-minimal
   restic
   ripgrep
   rlwrap
   ruby
-  sbcl
+  rustup
   skhd
   slack
   socat
   stack
   stow
-  tmux
+  tokei
   tree
-  unrar
   vim
   watch
   xh

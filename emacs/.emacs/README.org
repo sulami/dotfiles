@@ -365,11 +365,11 @@ List library that comes in handy.
 Set the font to Fira Code and enable ligatures.
 
 #+BEGIN_SRC emacs-lisp :tangle yes
-(let ((font "Fira Code 14"))
+(let ((font "EssentialPragmataPro 16"))
   (set-face-attribute 'default nil :font font)
   (set-frame-font font nil t))
-(when (boundp 'mac-auto-operator-composition-mode)
-  (mac-auto-operator-composition-mode))
+;; (when (boundp 'mac-auto-operator-composition-mode)
+;;   (mac-auto-operator-composition-mode))
 #+END_SRC
 
 ** Theme
@@ -763,6 +763,7 @@ declarations.
   (general-define-key
    "s-m" #'suspend-frame
    "s-t" #'sulami/toggle-term
+   "s-u" #'universal-argument
    "s-=" (lambda () (interactive) (text-scale-increase 0.5))
    "s--" (lambda () (interactive) (text-scale-decrease 0.5))
    "s-0" (lambda () (interactive) (text-scale-increase 0)))
@@ -1011,6 +1012,7 @@ dropdown if I don't.
 It is disabled in shell-modes, as it crawls directories for
 completion, which is bad if you're using TRAMP to connect to a remote
 shell.
+
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package company
   :init
