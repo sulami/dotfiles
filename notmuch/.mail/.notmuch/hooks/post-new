@@ -39,6 +39,7 @@ notmuch tag --batch <<EOF
 
 # GitLab
 +gitlab -- from:gitlab@mg.gitlab.com
++resolved -- tag:gitlab and "was merged"
 
 # Atlassian
 +jira -- from:jira@circleci.atlassian.net
