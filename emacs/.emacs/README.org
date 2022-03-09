@@ -1020,6 +1020,7 @@ shell.
         company-dabbrev-downcase nil)
   :general
   (:keymaps 'company-active-map
+   "<escape>" 'company-abort
    "<tab>" 'company-complete-selection
    "TAB" 'company-complete-selection
    "<ret>" nil
@@ -1032,6 +1033,9 @@ shell.
 
 (use-package company-prescient
   :hook (company-mode . company-prescient-mode))
+
+(use-package company-lsp
+  :defer t)
 #+END_SRC
 
 * Yasnippet
@@ -2023,17 +2027,31 @@ analysis of code and provides various IDE-like features.
 (use-package lsp-mode
   :custom
   (lsp-enable-symbol-highlighting nil)
+  (lsp-idle-delay 0.6)
+  (lsp-rust-server 'rust-analyzer)
+  (lsp-rust-analyzer-cargo-watch-command "clippy")
+  (lsp-rust-analyzer-proc-macro-enable t)
+  :config
+  (defun sulami/find-references ()
+    (interactive)
+    (if lsp-mode
+        (lsp-find-references)
+      (let ((xref-prompt-for-identifier nil))
+        (xref-find-references (symbol-name (symbol-at-point))))))
   :general
   (leader-def
     "l i" #'lsp-find-implementation
     "l j" #'lsp-find-definition
     "l l" #'lsp
     "l q" #'lsp-disconnect
-    "l r" #'lsp-find-references
-    "l R" #'lsp-rename)
+    "l Q" #'lsp-workspace-restart
+    "l r" #'sulami/find-references
+    "l R" #'lsp-rename
+    "l t" #'lsp-find-type-definition)
   :hook
   ((clojure-mode . lsp)
    (go-mode . lsp)
+   (rustic-mode . lsp)
    (tide-mode . lsp)))
 #+end_src
 
@@ -2206,8 +2224,30 @@ I don't actually really use Rust beyond experiments, so not much
 config here.
 
 #+begin_src emacs-lisp :tangle yes
-(use-package rust-mode
-  :defer t)
+(use-package rustic
+  :defer t
+  :after (rust-mode)
+  :custom
+  (rustic-format-on-save t)
+  :config
+  ;; (remove-hook 'rust-before-save-hook 'rust-before-save-hook)
+  ;; (remove-hook 'rust-after-save-hook 'rust-after-save-hook)
+  ;; I don't have lsp-modeline.
+  :config/el-patch
+  (defun rustic-lsp-mode-setup ()
+    "When changing the `lsp-rust-server', it's also necessary to update the priorities
+with `lsp-rust-switch-server'."
+    (require 'lsp-rust)
+    (el-patch-remove (require 'lsp-modeline))
+    ;; TODO: Do we still need this ? Seems to break stuff (hlissner/doom-emacs/issues/4070)
+    ;; (lsp-workspace-folders-add (rustic-buffer-workspace))
+    (setq lsp-rust-server rustic-lsp-server)
+    (setq lsp-rust-analyzer-server-command rustic-analyzer-command)
+    (lsp-rust-switch-server rustic-lsp-server))
+  :general
+  (local-leader-def
+    "c" #'rustic-compile
+    "r" #'rustic-cargo-run))
 
 (use-package flycheck-rust
   :defer t
