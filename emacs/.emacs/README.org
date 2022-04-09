@@ -365,7 +365,7 @@ List library that comes in handy.
 Set the font to Fira Code and enable ligatures.
 
 #+BEGIN_SRC emacs-lisp :tangle yes
-(let ((font "EssentialPragmataPro 16"))
+(let ((font "PragmataPro Mono 16"))
   (set-face-attribute 'default nil :font font)
   (set-frame-font font nil t))
 ;; (when (boundp 'mac-auto-operator-composition-mode)
