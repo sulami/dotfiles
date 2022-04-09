@@ -1990,6 +1990,7 @@ ticket references into clickable links. Adapted from [[https://www.monotux.tech/
                                             "PIPE"
                                             "ORCH"
                                             "PER"
+                                            "API"
                                             "TASKS")
                                         "-"
                                         (repeat 3 5 digit)))
