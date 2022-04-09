@@ -2228,9 +2228,8 @@ config here.
 (use-package rustic
   :defer t
   :after (rust-mode)
-  :custom
-  (rustic-format-on-save t)
   :config
+  (setq rustic-format-on-save t)
   ;; (remove-hook 'rust-before-save-hook 'rust-before-save-hook)
   ;; (remove-hook 'rust-after-save-hook 'rust-after-save-hook)
   ;; I don't have lsp-modeline.
