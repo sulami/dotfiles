@@ -57,9 +57,7 @@ with pkgs;
   yq
   zsh
 ] ++ [
-  (import ./packages/babashka.nix { pkgs = pkgs; })
   (import ./packages/clj-kondo.nix { pkgs = pkgs; })
-  # (import ./packages/esp-rs.nix { pkgs = pkgs; })
   (import ./packages/titlecase.nix { pkgs = pkgs; })
   (import ./packages/zprint.nix { pkgs = pkgs; })
 ]

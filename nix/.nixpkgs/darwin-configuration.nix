@@ -5,8 +5,6 @@ let constants = import ./constants.nix;
 in {
   nixpkgs.config = constants.nix_config;
 
-  # List packages installed in system profile. To search by name, run:
-  # $ nix-env -qaP | grep wget
   environment.systemPackages = import ./packages.nix pkgs;
 
   environment.variables = {
