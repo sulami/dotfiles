@@ -2246,6 +2246,7 @@ with `lsp-rust-switch-server'."
     (lsp-rust-switch-server rustic-lsp-server))
   :general
   (local-leader-def
+    :keymaps 'rustic-mode-map
     "c" #'rustic-compile
     "r" #'rustic-cargo-run))
 
