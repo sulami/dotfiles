@@ -1011,9 +1011,11 @@ shell.
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package company
   :init
-  (setq company-idle-delay .01
+  (setq company-idle-delay nil
         company-dabbrev-downcase nil)
   :general
+  (general-imap
+    "C-n" #'company-complete)
   (:keymaps 'company-active-map
    "<escape>" 'company-abort
    "<tab>" 'company-complete-selection
