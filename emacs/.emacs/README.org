@@ -1498,7 +1498,6 @@ This is probably the single best interface for Git out there.
 (use-package magit
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
-  (magit-git-executable "/run/current-system/sw/bin/git")
   :config
   (defun sulami/clone-repo (url)
     "Clone the repo at URL into `sulami/source-directory'"
