@@ -1,4 +1,4 @@
-alias dc docker-compose $*
+alias dc docker compose $*
 alias dclf docker-compose logs --tail=10 -f $*
 alias dcud docker-compose up -d $*
 alias dps docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Status}}"
