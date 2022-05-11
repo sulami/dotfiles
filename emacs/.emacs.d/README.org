@@ -2395,16 +2395,6 @@ Sometimes I'm a YAML-engineer, too.
   (yaml-mode . sulami/yaml-setup))
 #+END_SRC
 
-* PDF
-
-=pdf-tools= is an alternative to =docview= which uses [[https://poppler.freedesktop.org/][Poppler]] to
-render PDFs, which is much better for all kinds of reasons.
-
-#+begin_src emacs-lisp :tangle yes
-(use-package pdf-tools
-  :defer t)
-#+end_src
-
 * Nix
 
 There are two distinct parts here:
