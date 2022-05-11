@@ -439,7 +439,7 @@ Also changes squiggly underlines to straight ones."
                           (let* ((hour-of-day (read (format-time-string "%H")))
                                  (theme (if (<= 8 hour-of-day 17)
                                             'doom-solarized-light
-                                          'doom-solarized-dark)))
+                                          'doom-solarized-dark-high-contrast)))
                             (load-theme theme t)
                             (sulami/after-load-theme-advice theme))))))
 #+END_SRC
