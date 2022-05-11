@@ -1011,7 +1011,8 @@ shell.
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package company
   :init
-  (setq company-idle-delay nil
+  (setq company-idle-delay 0.1
+        company-format-margin-function #'company-text-icons-margin
         company-dabbrev-downcase nil)
   :general
   (general-imap
