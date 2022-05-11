@@ -1,7 +1,7 @@
 * Dotfiles
 Home sweet home.
 
-If you are looking for my Emacs config, [[file:emacs/.emacs/README.org][look no further]].
+If you are looking for my Emacs config, [[file:emacs/.emacs.d][look no further]].
 
 ** Installation
 Clone this repository to ~$HOME/dotfiles~ with ~git clone --recurse-submodules
