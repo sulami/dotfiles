@@ -2032,6 +2032,8 @@ analysis of code and provides various IDE-like features.
   (lsp-rust-server 'rust-analyzer)
   (lsp-rust-analyzer-cargo-watch-command "clippy")
   (lsp-rust-analyzer-proc-macro-enable t)
+  (lsp-headerline-breadcrumb-enable nil)
+  (lsp-lens-enable nil)
   :config
   (defun sulami/find-references ()
     (interactive)
