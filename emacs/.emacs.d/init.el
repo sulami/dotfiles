@@ -62,7 +62,7 @@
 (with-eval-after-load 'org
   (require 'org-install)
   (require 'ob-tangle)
-  (defconst sulami/emacs-config-file "~/.emacs/README.org")
+  (defconst sulami/emacs-config-file "~/.emacs.d/README.org")
   (org-babel-load-file sulami/emacs-config-file))
 
 ;; Reset file handlers & GC settings after we're done loading.

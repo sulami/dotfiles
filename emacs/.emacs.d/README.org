@@ -1619,7 +1619,7 @@ This just loads my aliases. They are auto-generated from my zsh
 aliases, so that the two are always in sync.
 
 #+BEGIN_SRC emacs-lisp :tangle yes
-(setq eshell-aliases-file "~/.emacs/aliases")
+(setq eshell-aliases-file "~/.emacs.d/aliases")
 #+END_SRC
 
 ** Completion
