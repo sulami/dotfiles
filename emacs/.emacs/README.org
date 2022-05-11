@@ -1931,6 +1931,9 @@ view emails in my local maildir.
     "m r" 'notmuch-poll
     "m s" 'notmuch-search
     "m u" 'notmuch-unread)
+  (local-leader-def
+    :keymaps 'notmuch-search-mode-map
+    "o" #'sulami/notmuch-search-open-pr)
   :hook
   (notmuch-message-mode . flyspell-mode))
 #+end_src
