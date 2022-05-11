@@ -2328,15 +2328,6 @@ PostgreSQL specifically.
   (sql-product 'postgres))
 #+end_src
 
-* LLVM
-I look at LLVM assembly more than is healthy, and some colour helps
-there. This mode is taken from the LLVM source tree and included in my
-repo directly, as there's no easy way of getting it otherwise.
-
-#+begin_src emacs-lisp :tangle yes
-(load "~/.emacs/lisp/llvm-mode")
-#+end_src
-
 * Docker
 
 #+begin_src emacs-lisp :tangle yes
