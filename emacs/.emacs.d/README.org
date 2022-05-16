@@ -2034,6 +2034,7 @@ analysis of code and provides various IDE-like features.
   (lsp-rust-analyzer-proc-macro-enable t)
   (lsp-headerline-breadcrumb-enable nil)
   (lsp-lens-enable nil)
+  (lsp-modeline-code-actions-enable nil)
   :config
   (defun sulami/find-references ()
     (interactive)
