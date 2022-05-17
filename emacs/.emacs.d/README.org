@@ -328,6 +328,16 @@ frame when switching workspaces.
   (menu-bar-mode 1))
 #+end_src
 
+** Get the macOS theme
+
+#+begin_src emacs-lisp :tangle yes
+(defun sulami/macos-dark-theme-p ()
+  "Return non-nil if on macOS and currently in dark theme."
+  (when (fboundp 'mac-application-state)
+    (equal "NSAppearanceNameDarkAqua"
+           (plist-get (mac-application-state) :appearance))))
+#+end_src
+
 * Package management
 
 ** use-package
@@ -382,6 +392,9 @@ disable most backgrounds as I find them distracting.
 ;; I like to live dangerously
 (setq custom-safe-themes t)
 
+(defconst sulami/light-theme 'doom-solarized-light)
+(defconst sulami/dark-theme 'doom-solarized-dark-high-contrast)
+
 (defun sulami/disable-all-themes ()
   "Disables all custom themes."
   (interactive)
@@ -434,14 +447,30 @@ Also changes squiggly underlines to straight ones."
   :config
   (doom-themes-org-config)
   ;; Set the default colourscheme according to the time of day
-  :hook (after-init . (lambda ()
-                        (when (display-graphic-p)
-                          (let* ((hour-of-day (read (format-time-string "%H")))
-                                 (theme (if (<= 8 hour-of-day 17)
-                                            'doom-solarized-light
-                                          'doom-solarized-dark-high-contrast)))
-                            (load-theme theme t)
-                            (sulami/after-load-theme-advice theme))))))
+  :hook
+  (after-init . (lambda ()
+                  (when (display-graphic-p)
+                    (let* ((hour-of-day (read (format-time-string "%H")))
+                           (theme (if (or (not (sulami/macos-dark-theme-p))
+                                          (<= 8 hour-of-day 17))
+                                      sulami/light-theme
+                                    sulami/dark-theme)))
+                      (load-theme theme t)
+                      (sulami/after-load-theme-advice theme))))))
+
+(use-package mac-auto-theme
+  :straight nil
+  :no-require t
+  :if (fboundp 'mac-application-state)
+  :after (doom-themes)
+  :hook
+  (mac-effective-appearance-change . (lambda ()
+                                       (when (display-graphic-p)
+                                         (load-theme
+                                          (if (sulami/macos-dark-theme-p)
+                                              sulami/dark-theme
+                                            sulami/light-theme)
+                                          t)))))
 #+END_SRC
 
 ** Modeline
