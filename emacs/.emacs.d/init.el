@@ -58,11 +58,19 @@
 (use-package org
   :straight t)
 
+;; Load f.el, which is needed below to expand the path of the actual
+;; config file. `org-babel-load-file' implicitly follows a symlink,
+;; but then renders the result next to the actual file, and proceeds
+;; to fail to load the file next to the symlink. By fixing the config
+;; path to be the actual file, we avoid this confusion.
+(use-package f
+  :straight t)
+
 ;; Eval the actual config
 (with-eval-after-load 'org
   (require 'org-install)
   (require 'ob-tangle)
-  (defconst sulami/emacs-config-file "~/.emacs.d/README.org")
+  (defconst sulami/emacs-config-file (f-canonical "~/.emacs.d/README.org"))
   (org-babel-load-file sulami/emacs-config-file))
 
 ;; Reset file handlers & GC settings after we're done loading.
