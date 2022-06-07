@@ -2064,6 +2064,7 @@ analysis of code and provides various IDE-like features.
   (lsp-headerline-breadcrumb-enable nil)
   (lsp-lens-enable nil)
   (lsp-modeline-code-actions-enable nil)
+  (lsp-auto-execute-action nil)
   :config
   (defun sulami/find-references ()
     (interactive)
@@ -2073,6 +2074,7 @@ analysis of code and provides various IDE-like features.
         (xref-find-references (symbol-name (symbol-at-point))))))
   :general
   (leader-def
+    "l a" #'lsp-execute-code-action
     "l i" #'lsp-find-implementation
     "l j" #'lsp-find-definition
     "l l" #'lsp
