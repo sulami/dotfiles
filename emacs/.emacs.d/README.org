@@ -707,8 +707,9 @@ the clipboard, ready for pasting. Heavily dependent on macOS.
 #+begin_src emacs-lisp :tangle yes
 (defun sulami/random-uuid ()
   (interactive)
-  (let ((uuid (shell-command-to-string "uuidgen | tr '[:upper:]' '[:lower:]' | tee /dev/tty | pbcopy")))
-    (message "Generated UUID: %s" (s-trim uuid))))
+  (let ((uuid (s-trim (shell-command-to-string "uuidgen | tr '[:upper:]' '[:lower:]'"))))
+    (kill-new uuid)
+    (message "Generated UUID: %s" uuid)))
 #+end_src
 
 * General
