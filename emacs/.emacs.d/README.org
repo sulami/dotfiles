@@ -931,22 +931,20 @@ useful.
   :hook (after-init . which-key-mode))
 #+END_SRC
 
-* Selectrum
+* Vertico
 
-Selectrum is a great narrowing and selection tool, intended to
-replace Ivy & Helm.
+Vertico, the successor to Selectrum, is a great narrowing and
+selection tool, intended to replace Ivy & Helm.
 
 #+begin_src emacs-lisp :tangle yes
-(use-package selectrum
-  :custom
-  (selectrum-count-style 'current/matches)
+(use-package vertico
   :hook
-  (after-init . selectrum-mode))
+  (after-init . vertico-mode))
 #+end_src
 
 ** Consult
 
-Consult is counsel for selectrum, in that it adds selectrum support
+Consult is counsel for vertico, in that it adds vertico support
 for various commands that do not use ~read-string~ normally.
 
 =consult-flycheck= cannot be autoloaded via =consult=, so it needs to
@@ -993,17 +991,6 @@ be loaded separately.
   :general
   (leader-def
     "j e" 'consult-flycheck))
-#+end_src
-
-** Prescient
-
-Prescient remembers recent selections and sorts them to the top.
-
-#+begin_src emacs-lisp :tangle yes
-(use-package selectrum-prescient
-  :hook
-  ((after-init . selectrum-prescient-mode)
-   (after-init . prescient-persist-mode)))
 #+end_src
 
 ** Orderless
