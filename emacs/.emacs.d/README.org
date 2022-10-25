@@ -938,8 +938,17 @@ selection tool, intended to replace Ivy & Helm.
 
 #+begin_src emacs-lisp :tangle yes
 (use-package vertico
+  :custom
+  (completion-in-region-function #'consult-completion-in-region)
   :hook
   (after-init . vertico-mode))
+
+** Marginalia
+
+#+begin_src emacs-lisp :tangle yes
+(use-package marginalia
+  :hook
+  (vertico-mode . marginalia-mode))
 #+end_src
 
 ** Consult
@@ -1003,7 +1012,7 @@ what you're looking for.
 (use-package orderless
   :defer t
   :custom
-  (completion-styles '(orderless)))
+  (completion-styles '(orderless basic)))
 #+end_src
 
 ** Flyspell-correct
@@ -1227,12 +1236,14 @@ Manages projects (usually git repositories, but flexible).
   :config
   (defun sulami/projectile-rg ()
     (interactive)
-    (consult-ripgrep (projectile-project-root)))
+    (let ((vertico-count 30))
+      (consult-ripgrep (projectile-project-root))))
 
   (defun sulami/projectile-rg-thing-at-point ()
     (interactive)
-    (consult-ripgrep (projectile-project-root)
-                     (thing-at-point 'symbol t)))
+    (let ((vertico-count 30))
+      (consult-ripgrep (projectile-project-root)
+                       (thing-at-point 'symbol t))))
 
   (defun sulami/toggle-project-root-eshell ()
     "Opens eshell, if possible in the project root."
