@@ -1057,9 +1057,6 @@ shell.
 
 (use-package company-prescient
   :hook (company-mode . company-prescient-mode))
-
-(use-package company-lsp
-  :defer t)
 #+END_SRC
 
 * Yasnippet
