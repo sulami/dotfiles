@@ -2053,40 +2053,7 @@ LSP (Language Server Protocol) is a system which enables static
 analysis of code and provides various IDE-like features.
 
 #+begin_src emacs-lisp :tangle yes
-(use-package lsp-mode
-  :custom
-  (lsp-enable-symbol-highlighting nil)
-  (lsp-idle-delay 0.6)
-  (lsp-rust-server 'rust-analyzer)
-  (lsp-rust-analyzer-cargo-watch-command "clippy")
-  (lsp-rust-analyzer-proc-macro-enable t)
-  (lsp-headerline-breadcrumb-enable nil)
-  (lsp-lens-enable nil)
-  (lsp-modeline-code-actions-enable nil)
-  (lsp-auto-execute-action nil)
-  :config
-  (defun sulami/find-references ()
-    (interactive)
-    (if lsp-mode
-        (lsp-find-references)
-      (let ((xref-prompt-for-identifier nil))
-        (xref-find-references (symbol-name (symbol-at-point))))))
-  :general
-  (leader-def
-    "l a" #'lsp-execute-code-action
-    "l i" #'lsp-find-implementation
-    "l j" #'lsp-find-definition
-    "l l" #'lsp
-    "l q" #'lsp-disconnect
-    "l Q" #'lsp-workspace-restart
-    "l r" #'sulami/find-references
-    "l R" #'lsp-rename
-    "l t" #'lsp-find-type-definition)
-  :hook
-  ((clojure-mode . lsp)
-   (go-mode . lsp)
-   (rustic-mode . lsp)
-   (tide-mode . lsp)))
+(use-package eglot)
 #+end_src
 
 * Tree-sitter
@@ -2263,20 +2230,8 @@ config here.
   :after (rust-mode)
   :config
   (setq rustic-format-on-save t)
-  ;; (remove-hook 'rust-before-save-hook 'rust-before-save-hook)
-  ;; (remove-hook 'rust-after-save-hook 'rust-after-save-hook)
-  ;; I don't have lsp-modeline.
-  :config/el-patch
-  (defun rustic-lsp-mode-setup ()
-    "When changing the `lsp-rust-server', it's also necessary to update the priorities
-with `lsp-rust-switch-server'."
-    (require 'lsp-rust)
-    (el-patch-remove (require 'lsp-modeline))
-    ;; TODO: Do we still need this ? Seems to break stuff (hlissner/doom-emacs/issues/4070)
-    ;; (lsp-workspace-folders-add (rustic-buffer-workspace))
-    (setq lsp-rust-server rustic-lsp-server)
-    (setq lsp-rust-analyzer-server-command rustic-analyzer-command)
-    (lsp-rust-switch-server rustic-lsp-server))
+  (setq rustic-lsp-client 'eglot)
+  (setq rustic-rustfmt-args "--edition 2021")
   :general
   (local-leader-def
     :keymaps 'rustic-mode-map
