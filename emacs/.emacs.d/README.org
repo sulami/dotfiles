@@ -375,7 +375,7 @@ List library that comes in handy.
 Set the font to Fira Code and enable ligatures.
 
 #+BEGIN_SRC emacs-lisp :tangle yes
-(let ((font "PragmataPro Mono 16"))
+(let ((font "PragmataPro Mono 14"))
   (set-face-attribute 'default nil :font font)
   (set-frame-font font nil t))
 ;; (when (boundp 'mac-auto-operator-composition-mode)
@@ -1537,9 +1537,7 @@ This is probably the single best interface for Git out there.
   (defun sulami/reset-repo ()
     "Reset the current repo to its default state"
     (interactive)
-    (if (magit-branch-p "main")
-        (magit-checkout "main")
-      (magit-checkout "master"))
+    (magit-checkout (magit-main-branch))
     (magit-pull-from-upstream nil))
   :general
   (leader-def
@@ -2392,7 +2390,8 @@ There are two distinct parts here:
 (use-package nix-mode
   :defer t)
 
-(use-package nix-sandbox)
+(use-package nix-sandbox
+  :disabled)
 #+end_src
 * Protobuf
 We use quite a lot of protobuffers at =$DAYJOB=, so the mode is
