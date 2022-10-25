@@ -20,7 +20,7 @@
                   "retl" ["with-profile" "+rebl"
                           "trampoline" "run" "-m" "rebel-readline.main"]}}
 
- :deps {:plugins [[circleci/deps-plus "0.1.0-SNAPSHOT"]]}
+ :deps {:plugins [[com.circleci/deps-plus "0.1.0-SNAPSHOT"]]}
 
  :rebl {:dependencies [[com.bhauman/rebel-readline "RELEASE"]
                        [org.clojure/core.async "RELEASE"]
