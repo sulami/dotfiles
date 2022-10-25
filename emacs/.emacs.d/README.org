@@ -794,6 +794,7 @@ declarations.
    "s-=" (lambda () (interactive) (text-scale-increase 0.5))
    "s--" (lambda () (interactive) (text-scale-decrease 0.5))
    "s-0" (lambda () (interactive) (text-scale-increase 0)))
+  (general-nmap "g r" #'xref-find-references)
   ;; Dired
   (general-define-key
    :keymaps 'dired-mode-map
@@ -1026,38 +1027,18 @@ what you're looking for.
     "s c" 'flyspell-correct-at-point))
 #+end_src
 
-* Company
-Company does completion via a dropdown that automatically pops up
+* Corfu
+
+Corfu does completion via a dropdown that automatically pops up
 while typing. I can select a match if I want to, but ignore the
 dropdown if I don't.
 
-It is disabled in shell-modes, as it crawls directories for
-completion, which is bad if you're using TRAMP to connect to a remote
-shell.
-
 #+BEGIN_SRC emacs-lisp :tangle yes
-(use-package company
-  :init
-  (setq company-idle-delay 0.1
-        company-format-margin-function #'company-text-icons-margin
-        company-dabbrev-downcase nil)
-  :general
-  (general-imap
-    "C-n" #'company-complete)
-  (:keymaps 'company-active-map
-   "<escape>" 'company-abort
-   "<tab>" 'company-complete-selection
-   "TAB" 'company-complete-selection
-   "<ret>" nil
-   "<return>" nil
-   "RET" nil
-   "C-n" 'company-select-next
-   "C-p" 'company-select-previous
-   "C-w" 'evil-delete-backward-word)
-  :hook (prog-mode . company-mode))
-
-(use-package company-prescient
-  :hook (company-mode . company-prescient-mode))
+(use-package corfu
+  :custom
+  (corfu-auto t)
+  (corfu-quit-no-match 'separator)
+  :hook (prog-mode . corfu-mode))
 #+END_SRC
 
 * Yasnippet
@@ -1171,10 +1152,8 @@ usually good enough. Much less of a hassle than LSP.
   :custom
   (dumb-jump-prefer-searcher 'rg)
   (dumb-jump-selector 'completing-read)
-  :general
-
-  (leader-def
-    "j j" #'dumb-jump-go))
+  :config
+  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 #+END_SRC
 
 * Wgrep
@@ -1647,9 +1626,6 @@ completion handlers for commands.
 *** Disable the completion buffer
 This swaps the terrible popup buffer that eshell opens when I hit
 =TAB= for a ~read-string~ completion.
-
-I also disable company-mode in eshell, because it doesn't play nice
-with TRAMP.
 
 The binding has to happen here in a hook because ~eshell-mode-map~
 isn't available before eshell is started.
@@ -2135,8 +2111,7 @@ The big IDE-like integration for Clojure.
     "t p" 'cider-test-run-project-tests
     "t t" 'cider-test-run-test)
   :hook
-  ((clojure-mode . cider-mode)
-   (cider-repl-mode . company-mode)))
+  ((clojure-mode . cider-mode)))
 #+end_src
 
 ** HugSQL
