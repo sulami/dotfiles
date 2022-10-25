@@ -942,6 +942,7 @@ selection tool, intended to replace Ivy & Helm.
   (completion-in-region-function #'consult-completion-in-region)
   :hook
   (after-init . vertico-mode))
+#+end_src
 
 ** Marginalia
 
@@ -1166,21 +1167,14 @@ usually good enough. Much less of a hassle than LSP.
 
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package dumb-jump
-  :after (evil lsp-mode)
+  :after (evil)
   :custom
   (dumb-jump-prefer-searcher 'rg)
   (dumb-jump-selector 'completing-read)
-  :config
-  (defun sulami/goto-definition ()
-    "Universal goto definition."
-    (interactive)
-    (evil-set-jump)
-    (if lsp-mode
-        (lsp-find-definition)
-      (dumb-jump-go)))
   :general
+
   (leader-def
-    "j j" #'sulami/goto-definition))
+    "j j" #'dumb-jump-go))
 #+END_SRC
 
 * Wgrep
