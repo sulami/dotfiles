@@ -2020,7 +2020,10 @@ LSP (Language Server Protocol) is a system which enables static
 analysis of code and provides various IDE-like features.
 
 #+begin_src emacs-lisp :tangle yes
-(use-package eglot)
+(use-package eglot
+  :custom
+  (eldoc-echo-area-use-multiline-p 6)
+  (eldoc-echo-area-display-truncation-message nil))
 #+end_src
 
 * Tree-sitter
