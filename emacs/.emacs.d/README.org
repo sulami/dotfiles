@@ -755,7 +755,6 @@ declarations.
     "|" 'sulami/shell-command-on-region
     "a c" 'calc
     "a s" 'shell
-    "b b" 'switch-to-buffer
     "b e" 'erase-buffer
     "b d" 'kill-this-buffer
     "b D" 'kill-buffer-and-window
@@ -941,6 +940,10 @@ selection tool, intended to replace Ivy & Helm.
 (use-package vertico
   :custom
   (completion-in-region-function #'consult-completion-in-region)
+  :general
+  (leader-def
+    "b b" #'consult-buffer
+    "p b" #'consult-project-buffer)
   :hook
   (after-init . vertico-mode))
 #+end_src
@@ -1261,7 +1264,6 @@ Manages projects (usually git repositories, but flexible).
   (leader-def
     "p c" #'projectile-compile-project
     "p d" #'projectile-dired
-    "p b" #'projectile-switch-to-buffer
     "p p" #'projectile-switch-project
     "p f" #'projectile-find-file
     "p k" #'projectile-kill-buffers
