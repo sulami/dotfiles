@@ -2020,10 +2020,20 @@ LSP (Language Server Protocol) is a system which enables static
 analysis of code and provides various IDE-like features.
 
 #+begin_src emacs-lisp :tangle yes
+(defun sulami/eldoc-documentation-adaptive ()
+  "An `eldoc-documentation-functions' function which uses the
+-default variant by default to keep the minibuffer small by only
+showing signatures, but uses -enthusiast if the *eldoc* buffer is
+open."
+  (if (eldoc--echo-area-prefer-doc-buffer-p t)
+      (eldoc-documentation-enthusiast)
+    (eldoc-documentation-default)))
+
 (use-package eglot
   :custom
-  (eldoc-echo-area-use-multiline-p 6)
-  (eldoc-echo-area-display-truncation-message nil))
+  (eldoc-echo-area-display-truncation-message nil)
+  (eldoc-echo-area-prefer-doc-buffer t)
+  (eldoc-documentation-strategy sulami/eldoc-documentation-adaptive))
 #+end_src
 
 * Tree-sitter
