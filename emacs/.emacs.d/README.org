@@ -738,6 +738,7 @@ declarations.
     ;; Prefixes
     "a" '(:ignore t :wk "app")
     "b" '(:ignore t :wk "buffer")
+    "d" '(:ignore t :wk "dired")
     "f" '(:ignore t :wk "file")
     "f e" '(:ignore t :wk "emacs")
     "g" '(:ignore t :wk "git")
@@ -763,11 +764,11 @@ declarations.
     "b r" 'sulami/rename-file-and-buffer
     "b s" 'sulami/open-scratch-buffer
     "b y" 'sulami/copy-buffer
+    "d d" #'dired
+    "d s" #'sulami/open-source-dir
     "f f" 'find-file
-    "f s" 'sulami/open-source-dir
     "f e e" 'sulami/open-emacs-config
     "f e r" 'sulami/reload-emacs-config
-    "f d" 'dired
     "f D" 'sulami/delete-file-and-buffer
     "f R" 'sulami/rename-file-and-buffer
     "h e" 'info-display-manual
@@ -1262,8 +1263,8 @@ Manages projects (usually git repositories, but flexible).
 
   :general
   (leader-def
+    "d p" #'projectile-dired
     "p c" #'projectile-compile-project
-    "p d" #'projectile-dired
     "p p" #'projectile-switch-project
     "p f" #'projectile-find-file
     "p k" #'projectile-kill-buffers
