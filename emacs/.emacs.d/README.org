@@ -393,7 +393,7 @@ disable most backgrounds as I find them distracting.
 (setq custom-safe-themes t)
 
 (defconst sulami/light-theme 'doom-solarized-light)
-(defconst sulami/dark-theme 'doom-solarized-dark-high-contrast)
+(defconst sulami/dark-theme 'doom-gruvbox)
 
 (defun sulami/disable-all-themes ()
   "Disables all custom themes."
