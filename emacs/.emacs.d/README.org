@@ -2207,7 +2207,9 @@ config here.
 #+begin_src emacs-lisp :tangle yes
 (use-package rustic
   :defer t
-  :after (rust-mode)
+  :after (rust-mode flycheck)
+  :init
+  (add-to-list 'flycheck-checkers 'rustic-clippy)
   :config
   (setq rustic-format-on-save t)
   (setq rustic-lsp-client 'eglot)
