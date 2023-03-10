@@ -2248,7 +2248,8 @@ Every now and then I do have to look at some Go code, sadly.
   (web-mode-code-indent-offset 2)
   (web-mode-markup-indent-offset 2)
   :mode
-  ("\\.tsx" . web-mode))
+  (("\\.tsx" . web-mode)
+   ("\\.vue" . web-mode)))
 #+end_src
 
 * Typescript
