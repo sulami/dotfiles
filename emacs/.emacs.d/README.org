@@ -712,6 +712,20 @@ the clipboard, ready for pasting. Heavily dependent on macOS.
     (message "Generated UUID: %s" uuid)))
 #+end_src
 
+** Copy the path & line at point
+
+This is useful to run Rspec tests.
+
+#+begin_src emacs-lisp :tangle yes
+(defun sulami/rspec-path ()
+  (interactive)
+  (let ((fp (f-relative buffer-file-name (projectile-project-root)))
+        (ln (1+ (current-line))))
+    (-> (format "%s:%d" fp ln)
+        (message)
+        (kill-new))))
+#+end_src
+
 * General
 General allows me to use fancy prefix keybindings.
 
