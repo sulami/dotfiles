@@ -283,6 +283,14 @@ This assumes GPG-Agent is already running. Otherwise start it with
 (setenv "SSH_AUTH_SOCK" (string-trim (shell-command-to-string "gpgconf --list-dirs agent-ssh-socket")))
 #+end_src
 
+** Enable recursive minibuffers
+
+For example to yank while entering into the minibuffer.
+
+#+begin_src emacs-lisp :tangle yes
+(setq enable-recursive-minibuffers t)
+#+end_src
+
 * macOS
 Everything in here relates to macOS in some way.
 
