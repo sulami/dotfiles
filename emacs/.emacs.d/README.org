@@ -1168,6 +1168,14 @@ interfering with non-lisp syntax.
     (prog-mode . hs-minor-mode))
 #+end_src
 
+* Exec Path From Shell
+
+#+begin_src emacs-lisp :tangle yes
+(use-package exec-path-from-shell
+  :init
+  (exec-path-from-shell-initialize))
+#+end_src
+
 * Dumb jump
 Uses ~rg~ to jump to definition. Zero setup. Not always correct, but
 usually good enough. Much less of a hassle than LSP.
@@ -1181,6 +1189,13 @@ usually good enough. Much less of a hassle than LSP.
   :config
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 #+END_SRC
+
+* Deadgrep
+
+#+begin_src emacs-lisp :tangle yes
+(use-package deadgrep
+  :defer t)
+#+end_src
 
 * Wgrep
 This allows running ~rgrep~ and then writing to the result buffer,
@@ -1513,6 +1528,25 @@ This gives me org-mode->github flavoured markdown export.
 (use-package ox-gfm
   :defer 3
   :after org)
+#+end_src
+
+** org-present
+
+Useful to do simple screen share presentations.
+
+#+begin_src emacs-lisp :tangle yes
+(use-package org-present
+  :hook
+  ((org-present-mode . (lambda ()
+                         (org-present-big)
+                         (org-display-inline-images)
+                         (org-present-hide-cursor)
+                         (org-present-read-only)))
+   (org-present-mode-quit . (lambda ()
+                              (org-present-small)
+                              (org-remove-inline-images)
+                              (org-present-show-cursor)
+                              (org-present-read-write)))))
 #+end_src
 
 * Magit
@@ -2307,6 +2341,13 @@ Every now and then I do have to look at some Go code, sadly.
   ((typescript-mode . sulami/prettier-js-setup)
    (web-mode . sulami/prettier-js-setup)))
 #+end_src
+* CSV
+
+#+begin_src emacs-lisp :tangle yes
+(use-package csv-mode
+  :defer t)
+#+end_src
+
 * SQL
 
 I'm using the builtin SQL-mode, but I want it set to highlight for
