@@ -1749,6 +1749,16 @@ job. I'm sure there are cool features I'm not aware of.
 
 * Dired
 
+** Dired+
+
+This brings some nice quality of life extensions to dired.
+
+#+begin_src emacs-lisp :tangle yes
+(use-package dired+
+  :custom
+  (diredp-hide-details-initially-flag nil))
+#+end_src
+
 ** Enable find-alternate-file
 
 This causes =RET= to open the target in the current buffer, instead of
