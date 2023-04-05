@@ -1,20 +1,16 @@
-# M-x shell
-if [[ "dumb" == "$TERM" ]]; then
-    export PAGER='cat'
-fi
-
 # BASIC STUFF
 HISTFILE=~/.histfile
 HISTSIZE=100000
 SAVEHIST=100000
-zstyle :compinstall filename '$HOME/.zshrc'
-fpath=(~/.zsh/completion $fpath)
-autoload -Uz compinit
-compinit -i
+autoload -U colors && colors
+autoload -Uz compinit && compinit -i
 
-if [ -f /var/run/current-system/Applications/Emacs.app/Contents/MacOS/Emacs ]; then
-    export EDITOR=/var/run/current-system/Applications/Emacs.app/Contents/MacOS/Emacs
-elif which emacs > /dev/null 2>&1; then
+# Activate syntax highlighting
+if [[ "dumb" != "$TERM" ]]; then
+    source "$HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+fi
+
+if which emacs > /dev/null 2>&1; then
     export EDITOR="$(which emacsclient) -c -a $(which emacs)"
 elif which nvim > /dev/null 2>&1; then
     export EDITOR=nvim
@@ -28,13 +24,22 @@ export LC_ALL=en_US.UTF-8
 export GOMAXPROCS=8
 export LEIN_FAST_TRAMPOLINE=y
 
-# Activate syntax highlighting
-if [[ "dumb" != "$TERM" ]]; then
-    source "$HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-fi
+# Colored manpages
+export MANPAGER='less'
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;47;34m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
+export LESS=-r
+export GROFF_NO_SGR=1
 
-# PROMPT
-autoload -U colors && colors
+# M-x shell
+if [[ "dumb" == "$TERM" ]]; then
+    export PAGER='cat'
+fi
 
 # OPTIONS
 bindkey -e
@@ -53,25 +58,17 @@ setopt unset
 setopt sharehistory
 
 # Often used options
-alias e='$EDITOR $*'
-alias v='$EDITOR $*'
-alias em='open -na /run/current-system/Applications/Emacs.app --args --chdir=$(pwd) $*'
 alias ls='exa -F'
 alias ll='ls -l'
 alias la='ll -a'
 alias g='git $*'
 compdef g='git'
-alias make='time make -j2 $*'
 alias psg='ps aux | grep $*'
 alias rsync='rsync -aP --stats $*'
-alias wget='wget -c $*'
 alias dps='docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Status}}"'
 alias dc='docker compose $*'
 alias dcud='docker-compose up -d $*'
 alias dclf='docker-compose logs --tail=10 -f $*'
-alias pause_docker="docker ps | awk '/Up/ {print \$1}' | xargs docker pause"
-alias unpause_docker="docker ps | awk '/(Paused)/ {print \$1}' | xargs docker unpause"
-alias switch_yubikey='gpg-connect-agent "scd serialno" "learn --force" /bye'
 
 # Copy aliases over to eshell
 alias | gsed 's/^alias //' | gsed -E "s/^([^=]+)='(.+?)'$/\1=\2/" | gsed "s/'\\\\''/'/g" | gsed "s/'\\\\$/'/;" | gsed -E 's/^([^=]+)=(.+)$/alias \1 \2/' > ~/.emacs.d/aliases
@@ -83,31 +80,6 @@ mcd()
 {
     mkdir -p "$1" && cd "$1"
 }
-
-# KEYBINDS
-typeset -A key
-key[Home]=${terminfo[khome]}
-key[End]=${terminfo[kend]}
-key[Insert]=${terminfo[kich1]}
-key[Delete]=${terminfo[kdch1]}
-key[Up]=${terminfo[kcuu1]}
-key[Down]=${terminfo[kcud1]}
-key[Left]=${terminfo[kcub1]}
-key[Right]=${terminfo[kcuf1]}
-key[PageUp]=${terminfo[kpp]}
-key[PageDown]=${terminfo[knp]}
-[[ -n "${key[Home]}"    ]]  && bindkey  "${key[Home]}"    beginning-of-line
-[[ -n "${key[End]}"     ]]  && bindkey  "${key[End]}"     end-of-line
-[[ -n "${key[Insert]}"  ]]  && bindkey  "${key[Insert]}"  overwrite-mode
-[[ -n "${key[Delete]}"  ]]  && bindkey  "${key[Delete]}"  delete-char
-[[ -n "${key[Up]}"      ]]  && bindkey  "${key[Up]}"      up-line-or-history
-[[ -n "${key[Down]}"    ]]  && bindkey  "${key[Down]}"    down-line-or-history
-[[ -n "${key[Left]}"    ]]  && bindkey  "${key[Left]}"    backward-char
-[[ -n "${key[Right]}"   ]]  && bindkey  "${key[Right]}"   forward-char
-bindkey '\E[1;5D' backward-word
-bindkey '\E[1;5C' forward-word
-# Add incremental backwards search
-bindkey '^r' history-incremental-search-backward
 
 # Return to background program by hitting ^z again, thanks to grml
 function zsh-fg() {
@@ -123,19 +95,6 @@ function zsh-fg() {
 zle -N zsh-fg
 bindkey '^z' zsh-fg
 
-# Colored manpages
-export MANPAGER='less'
-export LESS_TERMCAP_mb=$'\E[01;31m'
-export LESS_TERMCAP_md=$'\E[01;31m'
-export LESS_TERMCAP_me=$'\E[0m'
-export LESS_TERMCAP_se=$'\E[0m'
-export LESS_TERMCAP_so=$'\E[01;47;34m'
-export LESS_TERMCAP_ue=$'\E[0m'
-export LESS_TERMCAP_us=$'\E[01;32m'
-export LESS=-r
-export GROFF_NO_SGR=1
-
-# Evaluate system PATH
 if [ -x /usr/libexec/path_helper ]; then
     eval `/usr/libexec/path_helper -s`
 fi
@@ -148,13 +107,7 @@ else
     export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 fi
 
-if [ -e /Users/sulami/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/sulami/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-
-if [ -e /etc/static/zshrc ]; then . /etc/static/zshrc; fi # Nix-darwin
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
+source /opt/homebrew/opt/asdf/libexec/asdf.sh
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+export PATH="/opt/homebrew/opt/mysql-client@5.7/bin:$PATH"
