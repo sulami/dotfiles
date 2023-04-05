@@ -5,8 +5,8 @@ fi
 
 # BASIC STUFF
 HISTFILE=~/.histfile
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=100000
+SAVEHIST=100000
 zstyle :compinstall filename '$HOME/.zshrc'
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit
@@ -72,7 +72,7 @@ setopt sharehistory
 alias e='$EDITOR $*'
 alias v='$EDITOR $*'
 alias em='open -na /run/current-system/Applications/Emacs.app --args --chdir=$(pwd) $*'
-alias ls='exa'
+alias ls='exa -F'
 alias ll='ls -l'
 alias la='ll -a'
 alias g='git $*'
