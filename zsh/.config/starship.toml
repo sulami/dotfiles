@@ -1,0 +1,21 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+format = """
+$status$cmd_duration$directory$character"""
+
+[status]
+disabled = false
+format = '\[[$symbol$status]($style)\] '
+
+[cmd_duration]
+min_time = 1_000  # ms
+format = '\(took [$duration]($style)\) '
+
+[directory]
+truncate_to_repo = true
+style = 'bold purple'
+
+[character]
+success_symbol = '[λ](bold)'
+error_symbol = '[λ](bold)'

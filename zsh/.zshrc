@@ -35,22 +35,6 @@ fi
 
 # PROMPT
 autoload -U colors && colors
-# This was a right-side non-zero return code.
-# RPS1="%(?..%{$fg_bold[red]%}%?%{$reset_color%} <)"
-RPS1=""
-# Adapt prompt when entering/leaving normal mode, and also color the
-# prompt red if we are privileged. For this to work, this needs to be
-# installed as global config.
-function zle-line-init zle-keymap-select {
-    PPREFIX="%(?..<%{$fg_bold[red]%}%?%{$reset_color%}> )%{$fg_bold[magenta]%}%1~%{$reset_color%}"
-    # Mode-dependent symbol
-    PRMPT="${${KEYMAP/vicmd/N}/(main|viins)/λ}"
-    # Put it all together, color the symbol if there are bg jobs
-    PS1="$PPREFIX %1(j.%{$fg[cyan]%}$PRMPT%{$reset_color%}.$PRMPT) "
-    zle reset-prompt
-}
-zle -N zle-line-init
-zle -N zle-keymap-select
 
 # OPTIONS
 bindkey -e
