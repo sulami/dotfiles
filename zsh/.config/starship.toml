@@ -6,7 +6,7 @@ $status$cmd_duration$directory$character"""
 
 [status]
 disabled = false
-format = '\[[$symbol$status]($style)\] '
+format = '<[$status]($style)> '
 
 [cmd_duration]
 min_time = 1_000  # ms
@@ -17,5 +17,5 @@ truncate_to_repo = true
 style = 'bold purple'
 
 [character]
-success_symbol = '[λ](bold)'
-error_symbol = '[λ](bold)'
+success_symbol = 'λ'
+error_symbol = 'λ'
