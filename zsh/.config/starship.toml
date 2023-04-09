@@ -2,7 +2,7 @@
 
 add_newline = true
 format = """
-$status$cmd_duration$directory$character"""
+$status$cmd_duration$directory$character$custom"""
 
 [status]
 disabled = false
@@ -19,3 +19,10 @@ style = 'bold purple'
 [character]
 success_symbol = 'λ'
 error_symbol = 'λ'
+
+[custom.vterm_marker]
+format = '$output'
+command = 'printf "\e]51;A$(whoami)@$(hostname):$(pwd)\e\\"'
+description = 'vterm prompt marker'
+when = true
+style = ''
