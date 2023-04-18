@@ -673,13 +673,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.14509803921568629</real>
+				<real>0.22352941176470589</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.14509803921568629</real>
+				<real>0.22352941176470589</real>
 				<key>Red Component</key>
-				<real>0.14509803921568629</real>
+				<real>0.22745098039215686</real>
 			</dict>
 			<key>Custom Command</key>
 			<string>No</string>
