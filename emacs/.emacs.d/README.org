@@ -731,6 +731,29 @@ This is useful to run Rspec tests.
         (kill-new))))
 #+end_src
 
+** Fill/unfill paragraph
+
+Fills the current paragraph. If used again, "unfills" it, for pasting
+in places that doesn't like hard line breaks, such as GitHub. "Taken
+from [[https://gist.github.com/heikkil/a3edf506046c84f6f508edbaf005810a][here]].
+
+#+begin_src emacs-lisp :tangle yes
+(defun sulami/fill-or-unfill ()
+  "Like `fill-paragraph', but unfill if used twice."
+  (interactive)
+  (let ((fill-column
+         (if (eq last-command #'sulami/fill-or-unfill)
+             (progn (setq this-command nil)
+                    (point-max))
+           fill-column)))
+    (if (eq major-mode 'org-mode)
+        (call-interactively #' org-fill-paragraph)
+      (call-interactively #'fill-paragraph))))
+
+(general-def
+  "M-q" #'sulami/fill-or-unfill)
+#+end_src
+
 * General
 General allows me to use fancy prefix keybindings.
 
