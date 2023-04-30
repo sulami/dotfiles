@@ -656,12 +656,9 @@ From: https://gist.github.com/mads-hartmann/3402786"
 
 ** Run a shell command on a region
 #+begin_src emacs-lisp :tangle yes
-(defun sulami/shell-command-on-region (beg end)
-  (interactive "r")
-  (if (use-region-p)
-      (let ((cmd (read-shell-command "Command: ")))
-        (shell-command-on-region beg end cmd t t))
-    (message "Select a region first")))
+(defun sulami/shell-command-on-region (beg end cmd)
+  (interactive "r\nsCommand: ")
+  (shell-command-on-region beg end cmd t t))
 #+end_src
 
 ** Sort words
