@@ -1198,9 +1198,11 @@ usually good enough. Much less of a hassle than LSP.
 #+end_src
 
 * Wgrep
+
 This allows running ~rgrep~ and then writing to the result buffer,
 modifying the files matched in place. Quite useful for sweeping
 changes.
+
 #+begin_src emacs-lisp :tangle yes
 (use-package wgrep
   :defer t
@@ -2473,3 +2475,23 @@ Stolen from Spacemacs."
   (protobuf-mode . sulami/init-protobuf-imenu))
 #+END_SRC
 
+
+* Copilot
+
+I feel slightly weird about this, but it's essentially supercharged
+completion, and can often save me a lot of time.
+
+#+begin_src emacs-lisp :tangle yes
+(use-package copilot
+  :straight (:host github :repo "zerolfx/copilot.el" :files ("dist" "*.el"))
+  :ensure t
+  :custom
+  (copilot-idle-delay 1)
+  :general
+  (general-imap
+    :keymaps 'copilot-mode-map
+    "C-j" #'copilot-complete
+    "C-<return>" #'copilot-accept-completion)
+  :hook
+  (prog-mode . copilot-mode))
+#+end_src
