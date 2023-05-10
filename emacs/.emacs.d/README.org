@@ -749,9 +749,6 @@ from [[https://gist.github.com/heikkil/a3edf506046c84f6f508edbaf005810a][here]].
     (if (eq major-mode 'org-mode)
         (call-interactively #' org-fill-paragraph)
       (call-interactively #'fill-paragraph))))
-
-(general-def
-  "M-q" #'sulami/fill-or-unfill)
 #+end_src
 
 * General
@@ -836,6 +833,7 @@ declarations.
    "s-=" (lambda () (interactive) (text-scale-increase 0.5))
    "s--" (lambda () (interactive) (text-scale-decrease 0.5))
    "s-0" (lambda () (interactive) (text-scale-increase 0)))
+   "M-q" #'sulami/fill-or-unfill
   (general-nmap "g r" #'xref-find-references)
   ;; Dired
   (general-define-key
