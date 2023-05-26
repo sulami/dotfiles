@@ -1110,6 +1110,36 @@ bundle of useful snippets for all kinds of modes.
   :after (yasnippet))
 #+END_SRC
 
+* Popper
+
+Popper deals with all those temporary popup windows.
+
+#+begin_src emacs-lisp :tangle yes
+(use-package popper
+  :after (projectile)
+  :init
+  (setq popper-reference-buffers
+        '("\\*Messages\\*"
+          "\\*Async Shell Command\\*"
+          help-mode
+          helpful-mode
+          compilation-mode
+          "\\*vterm\\*"
+          rustic-compilation-mode
+          rustic-cargo-run-mode
+          rustic-cargo-test-mode
+          rustic-rustfmt-mode))
+  (setq popper-display-control t
+        popper-display-function #'display-buffer-use-least-recent-window)
+  (popper-mode +1)
+  (popper-echo-mode +1)
+  :custom
+  (popper-group-function #'popper-group-by-projectile)
+  :general
+  ("s-p" #'popper-toggle-latest
+   "s-g" #'popper-cycle))
+#+end_src
+
 * Parentheses
 Keeps my parentheses balanced.
 
@@ -2492,7 +2522,6 @@ Stolen from Spacemacs."
   :hook
   (protobuf-mode . sulami/init-protobuf-imenu))
 #+END_SRC
-
 
 * Copilot
 
