@@ -2339,7 +2339,9 @@ config here.
   (local-leader-def
     :keymaps 'rustic-mode-map
     "c" #'rustic-compile
-    "r" #'rustic-cargo-run))
+    "r" #'rustic-cargo-run
+    "t" #'rustic-cargo-test-dwim
+    "T" #'rustic-cargo-run-nextest))
 
 (use-package flycheck-rust
   :defer t
