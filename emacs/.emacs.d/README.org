@@ -2151,7 +2151,11 @@ open."
   :custom
   (eldoc-echo-area-display-truncation-message nil)
   (eldoc-echo-area-prefer-doc-buffer t)
-  (eldoc-documentation-strategy sulami/eldoc-documentation-adaptive))
+  (eldoc-documentation-strategy sulami/eldoc-documentation-adaptive)
+  :general
+  (local-leader-def 'eglot-mode-map
+    "l" '(:ignore t :wk "lsp")
+    "l r" #'eglot-rename))
 #+end_src
 
 * Tree-sitter
