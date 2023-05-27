@@ -1123,6 +1123,7 @@ Popper deals with all those temporary popup windows.
           "\\*Async Shell Command\\*"
           help-mode
           helpful-mode
+          backtrace-mode
           compilation-mode
           "\\*vterm\\*"
           rustic-compilation-mode
