@@ -2549,3 +2549,40 @@ completion, and can often save me a lot of time.
   :hook
   (prog-mode . copilot-mode))
 #+end_src
+
+* org-roam
+
+#+begin_src emacs-lisp :tangle yes
+(use-package org-roam
+  :init
+  (setq org-roam-directory "~/Documents/Notes/org-roam")
+  (setq org-roam-mode-sections (list #'org-roam-backlinks-section
+                                     #'org-roam-reflinks-section
+                                     ;; #'org-roam-unlinked-references-section
+                                     ))
+  (setq org-roam-completion-everywhere t)
+  :general
+  (leader-def
+    "o" '(:ignore t :which-key "org")
+    "o c" #'org-roam-capture
+    "o f" #'org-roam-node-find
+    "o t" #'org-roam-dailies-goto-today
+    "o T" #'org-roam-dailies-goto-tomorrow
+    "o y" #'org-roam-dailies-goto-yesterday
+    "o d" #'org-roam-dailies-goto-date
+    "o g" #'org-roam-graph
+    "o S" #'org-roam-db-sync)
+  (local-leader-def :keymaps 'org-mode-map
+    "r" '(:ignore t :which-key "roam")
+    "r i" #'org-roam-node-insert
+    "r t" #'org-roam-tag-add
+    "r T" #'org-roam-tag-remove
+    "r a" #'org-roam-alias-add
+    "r A" #'org-roam-alias-remove
+    "r r" #'org-roam-ref-add
+    "r R" #'org-roam-ref-remove
+    "r b" #'org-roam-buffer)
+  :hook (after-init . org-roam-db-autosync-mode))
+
+(use-package org-roam-ui)
+#+end_src
