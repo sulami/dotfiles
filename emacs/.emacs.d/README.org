@@ -1082,7 +1082,7 @@ dropdown if I don't.
   :custom
   (corfu-auto t)
   (corfu-quit-no-match 'separator)
-  :hook (prog-mode . corfu-mode))
+  :hook (after-init . global-corfu-mode))
 #+END_SRC
 
 * Yasnippet
