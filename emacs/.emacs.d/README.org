@@ -597,23 +597,6 @@ height.
   (copy-region-as-kill 1 (point-max)))
 #+end_src
 
-*** Revert all org-mode buffers
-Because I sync most of my org-mode files with my phone, writing to
-them without making sure they are current can overwrite changes I've
-made. A simple solution is just to attempt to re-read all org-mode
-files before certain operations, like refiling.
-
-#+begin_src emacs-lisp :tangle yes
-(defun sulami/org-revert-all-org-buffers (&rest _)
-  "Reverts all unmodified org-mode buffers."
-  (dolist (buffer (buffer-list))
-    (with-current-buffer buffer
-      (when (and (derived-mode-p 'org-mode)
-                 (buffer-file-name)
-                 (not (buffer-modified-p)))
-        (revert-buffer)))))
-#+end_src
-
 *** Open the source directory
 
 #+begin_src emacs-lisp :tangle yes
@@ -1541,10 +1524,6 @@ item is empty, remove it instead. Essentially imitating Google Docs."
 #+begin_src emacs-lisp :tangle yes
 (setq org-archive-location "~/Documents/Notes/archive.org::"
       org-archive-subtree-add-inherited-tags t)
-
-(advice-add 'org-refile :before 'sulami/org-revert-all-org-buffers)
-
-(advice-add 'org-archive-subtree :after 'org-save-all-org-buffers)
 #+end_src
 
 ** Capture
@@ -1567,8 +1546,6 @@ to avoid overwriting iCloud changes.
         ("t" "Thought" entry
          (file "thoughts.org")
          "* %^{title}\n%u\n%?")))
-
-(advice-add 'org-capture :before 'sulami/org-revert-all-org-buffers)
 #+end_src
 
 ** org-gfm
