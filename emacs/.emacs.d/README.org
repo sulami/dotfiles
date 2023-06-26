@@ -1457,7 +1457,6 @@ item is empty, remove it instead. Essentially imitating Google Docs."
     "f" 'org-fill-paragraph
     "l" 'org-insert-link
     "L" 'org-store-link
-    "r" '(org-refile :wk "org-refile")
     "R" 'sulami/org-refile-in-current-file
     "s" 'org-schedule
     "S" 'org-babel-switch-to-session
