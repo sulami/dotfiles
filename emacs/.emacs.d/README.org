@@ -2548,16 +2548,18 @@ completion, and can often save me a lot of time.
     "o d" #'org-roam-dailies-goto-date
     "o g" #'org-roam-graph
     "o S" #'org-roam-db-sync)
-  (local-leader-def :keymaps 'org-mode-map
+  (local-leader-def
+    :keymaps 'org-mode-map
     "r" '(:ignore t :which-key "roam")
     "r i" #'org-roam-node-insert
+    "r I" #'org-id-get-create
     "r t" #'org-roam-tag-add
     "r T" #'org-roam-tag-remove
     "r a" #'org-roam-alias-add
     "r A" #'org-roam-alias-remove
     "r r" #'org-roam-ref-add
     "r R" #'org-roam-ref-remove
-    "r b" #'org-roam-buffer)
+    "r b" #'org-roam-buffer-toggle)
   :hook (after-init . org-roam-db-autosync-mode))
 
 (use-package org-roam-ui)
