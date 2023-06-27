@@ -2,6 +2,10 @@
 # name: meeting
 # key: meeting
 # --
-* ${1:Meeting Name} `(format-time-string (org-time-stamp-format nil))`
+** ${1:Meeting Name} `(format-time-string (org-time-stamp-format nil))` :meeting:
+:PROPERTIES:
+:ID:       `(org-id-new)`
+:END:
 Attendees: $2
+
 $0

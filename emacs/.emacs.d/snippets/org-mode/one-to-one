@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: one-to-one
+# key: one
+# --
+** 121 - $1 `(format-time-string (org-time-stamp-format nil))` :meeting:
+:PROPERTIES:
+:ID:       `(org-id-new)`
+:END:
+Attendees: $1, Robin
+
+$0
