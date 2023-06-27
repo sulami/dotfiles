@@ -1396,6 +1396,8 @@ Number windows and allow me to switch to them.
   (org-src-window-setup 'current-window "Show src editing in the current window")
   (org-use-fast-todo-selection t "Use fast selection for workflow states")
   :config
+  ;; Open file links in same window.
+  (setf (cdr (assoc 'file org-link-frame-setup)) 'find-file)
   (defun sulami/org-return ()
     "`org-return' with better plain list handling.
 
