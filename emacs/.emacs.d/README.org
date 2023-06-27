@@ -1632,6 +1632,22 @@ This package gets me the link to a git repository or line in a file.
    "g R" 'open-git-repo-in-browser))
 #+end_src
 
+** Changelog
+
+This is a convenience function to generate a changelog for a PR.
+
+#+begin_src emacs-lisp :tangle yes
+(defun sulami/magit-changelog ()
+  "Generate a git changelog and copy it to the kill ring"
+  (interactive)
+  (kill-new
+   (format "Best reviewed commit-by-commit:\n\n%s"
+           (shell-command-to-string
+            (format "git log %s..HEAD --reverse --pretty=format:'%s'"
+                    (magit-main-branch)
+                    "### %h %s%n%n%b")))))
+#+end_src
+
 * Flycheck
 Flycheck does automatic linting. I enable it mostly manually, as I
 don't have a lot of linters setup.
