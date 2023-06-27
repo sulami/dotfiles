@@ -1776,6 +1776,26 @@ job. I'm sure there are cool features I'm not aware of.
 (setq ediff-split-window-function 'split-window-horizontally)
 #+end_src
 
+** Pick both sides
+
+Stolen from [[https://github.com/stig/dotfiles/blob/trunk/Emacs.org#ediff-picking-both-sides-in-a-conflict][Stig]].
+
+#+begin_src emacs-lisp :tangle yes
+(defun sulami/ediff-copy-both-to-C ()
+  (interactive)
+  (ediff-copy-diff ediff-current-difference nil 'C nil
+                   (concat
+                    (ediff-get-region-contents ediff-current-difference 'A ediff-control-buffer)
+                    (ediff-get-region-contents
+                     ediff-current-difference 'B
+                     ediff-control-buffer))))
+
+(defun sulami/add-d-to-ediff-mode-map ()
+  (define-key ediff-mode-map "d" #'sulami/ediff-copy-both-to-C))
+
+(add-hook 'ediff-keymap-setup-hook #'sulami/add-d-to-ediff-mode-map)
+#+end_src
+
 * Dired
 
 ** Dired+
