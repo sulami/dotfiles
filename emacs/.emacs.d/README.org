@@ -2575,6 +2575,15 @@ completion, and can often save me a lot of time.
                                      ;; #'org-roam-unlinked-references-section
                                      ))
   (setq org-roam-completion-everywhere t)
+  (setq org-roam-capture-templates
+        '(("d" "default" plain "%?"
+           :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
+                              "#+title: ${title}\n")
+           :unnarrowed t)
+          ("b" "book" plain "%?"
+           :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
+                              ":PROPERTIES:\n:Author: \n:Published: \n:Consumed: \n:END:\n#+title: ${title}\n#+filetags: :book:\n\n")
+           :unnarrowed t)))
   :general
   (leader-def
     "o" '(:ignore t :which-key "org")
