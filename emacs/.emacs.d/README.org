@@ -2606,7 +2606,9 @@ completion, and can often save me a lot of time.
     "r A" #'org-roam-alias-remove
     "r r" #'org-roam-ref-add
     "r R" #'org-roam-ref-remove
-    "r b" #'org-roam-buffer-toggle)
+    "r b" #'org-roam-buffer-toggle
+    "r n" #'org-roam-dailies-goto-next-note
+    "r p" #'org-roam-dailies-goto-previous-note)
   :hook (after-init . org-roam-db-autosync-mode))
 
 (use-package org-roam-ui)
