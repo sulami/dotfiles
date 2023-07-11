@@ -1390,11 +1390,12 @@ Number windows and allow me to switch to them.
   (org-export-with-author nil "Omit the author when exporting")
   (org-footnote-auto-adjust t "Automatically renumber footnotes")
   (org-footnote-section nil "Footnotes go into the section they are referenced in")
-  (org-hide-emphasis-markers nil "Show emphasis markers")
+  (org-hide-emphasis-markers t "Hide emphasis markers")
   (org-log-into-drawer t "Log workflow changes into a drawer")
   (org-src-preserve-indentation nil "Remove leading whitespace when editing src blocks")
   (org-src-window-setup 'current-window "Show src editing in the current window")
   (org-use-fast-todo-selection t "Use fast selection for workflow states")
+  (org-preview-latex-image-directory "~/.cache/org-latex/" "Store latex previews in cache")
   :config
   ;; Open file links in same window.
   (setf (cdr (assoc 'file org-link-frame-setup)) 'find-file)
