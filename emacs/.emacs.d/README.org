@@ -2425,6 +2425,21 @@ Every now and then I do have to look at some Go code, sadly.
   ((typescript-mode . sulami/prettier-js-setup)
    (web-mode . sulami/prettier-js-setup)))
 #+end_src
+
+* Ruby
+
+The primary language at =$DAYJOB=. =rspec-mode= adds =imenu= support
+for RSpec.
+
+#+begin_src emacs-lisp :tangle yes
+(use-package rspec-mode
+  :general
+  (local-leader-def
+    :keymaps 'rspec-mode-map
+    "t" #'rspec-verify-single
+    "T" #'rspec-verify-all))
+#+end_src
+
 * CSV
 
 #+begin_src emacs-lisp :tangle yes
