@@ -68,7 +68,6 @@
 
 ;; Eval the actual config
 (with-eval-after-load 'org
-  (require 'org-install)
   (require 'ob-tangle)
   (defconst sulami/emacs-config-file (f-canonical "~/.emacs.d/README.org"))
   (org-babel-load-file sulami/emacs-config-file))
