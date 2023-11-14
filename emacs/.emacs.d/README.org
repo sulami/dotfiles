@@ -2468,16 +2468,6 @@ PostgreSQL specifically.
   :defer t)
 #+end_src
 
-** Docker-Tramp
-
-Docker & tramp integration allows for using ~/docker:container~ as a
-tramp target.
-
-#+begin_src emacs-lisp :tangle yes
-(use-package docker-tramp
-  :defer t)
-#+end_src
-
 * Kubernetes
 
 #+begin_src emacs-lisp :tangle yes
