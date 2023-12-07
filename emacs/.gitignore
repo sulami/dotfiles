@@ -1,8 +1,4 @@
-# Ignore all the cruft.
-.emacs.d
-
-# Include what we actually manage.
-!.emacs.d/init.el
-!.emacs.d/README.org
-!.emacs.d/aliases/**
-!.emacs.d/snippets/**
+# Ignore rendered config
+.emacs.d/README.el
+# Ignore straight working directories
+.emacs.d/straight
