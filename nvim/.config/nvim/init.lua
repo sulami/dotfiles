@@ -5,6 +5,11 @@ vim.keymap.set({'v', 'n'}, '>', '>gv')
 -- Use the system clipboard.
 vim.opt.clipboard = 'unnamedplus'
 
+-- Make underscores word boundaries.
+vim.api.nvim_exec([[
+  set iskeyword-=_
+]], false)
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
