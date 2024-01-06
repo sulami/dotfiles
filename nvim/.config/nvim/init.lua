@@ -10,6 +10,11 @@ vim.api.nvim_exec([[
   set iskeyword-=_
 ]], false)
 
+-- Hard-wrap at column 80.
+vim.api.nvim_exec([[
+  set textwidth=80
+]], false)
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
