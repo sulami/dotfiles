@@ -48,9 +48,7 @@ local plugins = {
     "kylechui/nvim-surround",
     event = "VeryLazy",
     config = function()
-      require("nvim-surround").setup({
-		    -- Configuration here, or leave empty to use defaults
-		  })
+      require("nvim-surround").setup({})
 	  end
   },
 }
@@ -60,6 +58,7 @@ if vim.g.vscode then
   lazy.setup(plugins)
 else
   -- Plain neovim config, load more plugins.
+  table.insert(plugins, 'nvim-treesitter/nvim-treesitter')
   table.insert(plugins, {
     'numToStr/Comment.nvim',
     opts = {
@@ -74,4 +73,24 @@ else
     }
   })
   lazy.setup(plugins)
+
+  vim.g.mapleader = ' ';
+
+  local telescope_builtin = require('telescope.builtin');
+  vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files, {})
+  vim.keymap.set('n', '<leader>ps', telescope_builtin.live_grep, {})
+  vim.keymap.set('n', '<leader>bb', telescope_builtin.buffers, {})
+  vim.keymap.set('n', '<leader>hh', telescope_builtin.help_tags, {})
+  vim.keymap.set('n', '<leader>fr', telescope_builtin.oldfiles, {})
+  vim.keymap.set('n', '<leader>ll', telescope_builtin.lsp_references, {})
+  vim.keymap.set('n', '<leader>jj', telescope_builtin.lsp_document_symbols, {})
+  vim.keymap.set('n', '<leader>jJ', telescope_builtin.lsp_workspace_symbols, {})
+
+  local treesitter = require('nvim-treesitter.configs');
+  treesitter.setup({
+    ensure_installed = { 'lua', 'rust', 'ruby' },
+    highlight = {
+      enable = true,
+    },
+  });
 end
