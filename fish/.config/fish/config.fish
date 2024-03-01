@@ -23,4 +23,12 @@ if status is-interactive
     end
 
     eval "$(zoxide init fish)"
+
+    # GPG Agent
+    if test -e "$(gpgconf --list-dirs agent-ssh-socket)" -a -n "$(pgrep gpg-agent)"
+        set -gx SSH_AUTH_SOCK "$(gpgconf --list-dirs agent-ssh-socket)"
+    else
+        eval $(gpg-agent --daemon)
+        set -gx SSH_AUTH_SOCK "$(gpgconf --list-dirs agent-ssh-socket)"
+    end
 end
