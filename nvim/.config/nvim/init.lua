@@ -46,6 +46,8 @@ local plugins = {
       require("nvim-surround").setup({})
 	  end
   },
+  "neovim/nvim-lspconfig",
+  "hrsh7th/nvim-cmp",
 }
 
 if vim.g.vscode then
@@ -56,9 +58,6 @@ else
   table.insert(plugins, 'nvim-treesitter/nvim-treesitter')
   table.insert(plugins, {
     'numToStr/Comment.nvim',
-    opts = {
-      -- add any options here
-    },
     lazy = false,
   })
   table.insert(plugins, {
@@ -67,6 +66,9 @@ else
       'nvim-lua/plenary.nvim'
     }
   })
+  table.insert(plugins, 'neovim/nvim-lspconfig')
+  table.insert(plugins, 'hrsh7th/nvim-cmp')
+  table.insert(plugins, 'hrsh7th/cmp-nvim-lsp')
   lazy.setup(plugins)
 
   vim.g.mapleader = ' ';
@@ -88,4 +90,17 @@ else
       enable = true,
     },
   });
+
+  local lspconfig = require('lspconfig')
+  lspconfig.rust_analyzer.setup({})
+
+  local cmp = require('cmp');
+  cmp.setup({
+    mapping = cmp.mapping.preset.insert({
+      ['<TAB>'] = cmp.mapping.confirm(),
+    }),
+    sources = cmp.config.sources({
+      { name = 'nvim_lsp' },
+    })
+  })
 end
