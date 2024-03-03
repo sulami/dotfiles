@@ -5,28 +5,23 @@ vim.keymap.set({'v', 'n'}, '>', '>gv')
 -- Use the system clipboard.
 vim.opt.clipboard = 'unnamedplus'
 
+-- Completion
+vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
+
 -- Make underscores word boundaries.
-vim.api.nvim_exec([[
-  set iskeyword-=_
-]], false)
+vim.opt.iskeyword:remove({'_'})
 
 -- Hard-wrap at column 80.
-vim.api.nvim_exec([[
-  set textwidth=80
-]], false)
+vim.opt.textwidth = 80
 
 -- Setup smartcase for searching.
-vim.api.nvim_exec([[
-  set ignorecase
-  set smartcase
-]], false)
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 -- Tabs are two spaces.
-vim.api.nvim_exec([[
-  set expandtab
-  set tabstop=2
-  set shiftwidth=2
-]], false)
+vim.opt.expandtab = true
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
