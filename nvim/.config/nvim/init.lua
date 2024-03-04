@@ -2,6 +2,9 @@
 vim.keymap.set({'v', 'n'}, '<', '<gv')
 vim.keymap.set({'v', 'n'}, '>', '>gv')
 
+-- Return in normal mode removes search highlights.
+vim.keymap.set({'n'}, '<return>', ':noh<return>')
+
 -- Use the system clipboard.
 vim.opt.clipboard = 'unnamedplus'
 
