@@ -61,6 +61,7 @@ else
   table.insert(plugins, 'nvim-treesitter/nvim-treesitter')
   table.insert(plugins, {
     'numToStr/Comment.nvim',
+    opts = {},
     lazy = false,
   })
   table.insert(plugins, {
@@ -91,6 +92,7 @@ else
     ensure_installed = { 'lua', 'rust', 'ruby' },
     highlight = {
       enable = true,
+      disable = { "vimhelp" }
     },
   });
 
