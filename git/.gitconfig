@@ -8,6 +8,7 @@
 [push]
   default = simple
   gpgsign = if-asked
+  autoSetupRemote = true
 [credential]
   helper = cache --timeout=86400
 [alias]
