@@ -22,6 +22,22 @@ if status is-interactive
       mkdir -p $argv | cd $argv
     end
 
+    function spinout
+      if test -z "$argv[1]"
+        echo "Error: No branch name supplied"
+        return 1
+      end
+      if test -n "$(git status --porcelain)"
+        echo "Error: Worktree is dirty"
+        return 1
+      end
+      set CURRENT_BRANCH (git rev-parse --abbrev-ref HEAD)
+      git checkout -b $argv[1]
+      git checkout $CURRENT_BRANCH
+      git reset --hard origin/$CURRENT_BRANCH
+      git checkout $argv[1]
+    end
+
     eval "$(zoxide init fish)"
 
     # GPG Agent
