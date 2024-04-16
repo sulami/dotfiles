@@ -19,7 +19,7 @@ if status is-interactive
     end
 
     function mcd
-      mkdir -p $argv | cd $argv
+      mkdir -p $argv && cd $argv
     end
 
     function spinout
