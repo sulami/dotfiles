@@ -26,6 +26,7 @@ set incsearch               " search while typing
 set ignorecase              " ignore case
 set smartcase               " if everything is lowercase
 set gdefault                " add g to search/replace by default
+set clipboard=unnamed       " use the system clipboard
 set noswapfile              " no clutter
 set backup                  " save backups
 set backupdir=/tmp          " keep backups in /tmp
