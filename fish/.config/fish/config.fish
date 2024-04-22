@@ -8,7 +8,7 @@ if status is-interactive
     fish_add_path /opt/homebrew/bin
     fish_add_path /opt/homebrew/sbin
 
-    alias ls='exa -F'
+    alias ls='eza -F'
     alias ll='ls -l'
     alias la='ll -a'
     alias g='git'
