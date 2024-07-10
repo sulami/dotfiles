@@ -38,7 +38,11 @@ if status is-interactive
       git checkout $argv[1]
     end
 
+    # Zoxide
     eval "$(zoxide init fish)"
+
+    # Flox
+    eval "$(flox activate --dir ~)"
 
     # GPG Agent
     if test -e "$(gpgconf --list-dirs agent-ssh-socket)" -a -n "$(pgrep gpg-agent)"
