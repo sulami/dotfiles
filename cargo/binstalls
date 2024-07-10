@@ -1,15 +1,5 @@
-bat
 cargo-edit
 cargo-nextest
 cargo-release
 cargo-update
-exa
 flamegraph
-fzf
-hyperfine
-just
-starship
-tokei
-xh
-xh
-zoxide
