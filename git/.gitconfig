@@ -35,6 +35,7 @@
   rh = reset --hard
   rsh = reset --soft HEAD^
   pu = push --follow-tags
+  puf = push --follow-tags --force-with-lease
   poh = push origin HEAD --follow-tags
   pom = push origin master --follow-tags
   fe = fetch --all --prune
