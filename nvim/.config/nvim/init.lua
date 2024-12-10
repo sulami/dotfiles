@@ -49,6 +49,11 @@ local plugins = {
       require("nvim-surround").setup({})
 	  end
   },
+  {
+    'numToStr/Comment.nvim',
+    opts = {},
+    lazy = false,
+  },
   "neovim/nvim-lspconfig",
   "hrsh7th/nvim-cmp",
 }
@@ -60,11 +65,6 @@ else
   -- Plain neovim config, load more plugins.
   table.insert(plugins, 'nvim-treesitter/nvim-treesitter')
   table.insert(plugins, {
-    'numToStr/Comment.nvim',
-    opts = {},
-    lazy = false,
-  })
-  table.insert(plugins, {
     'nvim-telescope/telescope.nvim',
     dependencies = {
       'nvim-lua/plenary.nvim'
@@ -73,6 +73,13 @@ else
   table.insert(plugins, 'neovim/nvim-lspconfig')
   table.insert(plugins, 'hrsh7th/nvim-cmp')
   table.insert(plugins, 'hrsh7th/cmp-nvim-lsp')
+  table.insert(plugins, 'hrsh7th/cmp-nvim-lua')
+  table.insert(plugins, {
+    'rebelot/kanagawa.nvim',
+    config = function()
+      vim.cmd('colorscheme kanagawa')
+    end
+  })
   lazy.setup(plugins)
 
   vim.g.mapleader = ' ';
@@ -106,6 +113,7 @@ else
     }),
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
+      { name = 'nvim_lua' },
     })
   })
 end
