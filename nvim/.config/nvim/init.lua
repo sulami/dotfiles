@@ -11,6 +11,10 @@ vim.opt.clipboard = 'unnamedplus'
 -- Completion
 vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
 
+-- Spell check
+vim.opt.spelllang = 'en_ca'
+vim.opt.spell = true
+
 -- Make underscores word boundaries.
 vim.opt.iskeyword:remove({'_'})
 
@@ -66,9 +70,7 @@ else
   table.insert(plugins, 'nvim-treesitter/nvim-treesitter')
   table.insert(plugins, {
     'nvim-telescope/telescope.nvim',
-    dependencies = {
-      'nvim-lua/plenary.nvim'
-    }
+    dependencies = { 'nvim-lua/plenary.nvim' }
   })
   table.insert(plugins, 'neovim/nvim-lspconfig')
   table.insert(plugins, 'hrsh7th/nvim-cmp')
