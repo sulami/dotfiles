@@ -34,7 +34,9 @@ vim.opt.shiftwidth = 2
 vim.api.nvim_create_autocmd({ "BufReadPost" }, {
     pattern = { "*" },
     callback = function()
+      if not string.match(vim.api.nvim_buf_get_name(0), 'COMMIT_EDITMSG$') then
         vim.api.nvim_exec('silent! normal! g`"zv', false)
+      end
     end,
 })
 
