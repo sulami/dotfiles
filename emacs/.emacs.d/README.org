@@ -1133,7 +1133,6 @@ Popper deals with all those temporary popup windows.
           "\\*Async Shell Command\\*"
           help-mode
           helpful-mode
-          org-roam-mode
           backtrace-mode
           compilation-mode
           vterm-mode
@@ -1425,7 +1424,6 @@ Number windows and allow me to switch to them.
   (org-src-window-setup 'current-window "Show src editing in the current window")
   (org-use-fast-todo-selection t "Use fast selection for workflow states")
   (org-preview-latex-image-directory "~/.cache/org-latex/" "Store latex previews in cache")
-  (org-agenda-files `(,(concat org-roam-directory "/" org-roam-dailies-directory)))
   :config
   ;; Open file links in same window.
   (setf (cdr (assoc 'file org-link-frame-setup)) 'find-file)
@@ -1590,74 +1588,6 @@ This gives me org-mode->github flavoured markdown export.
   :after org)
 #+end_src
 
-** org-present
-
-Useful to do simple screen share presentations.
-
-#+begin_src emacs-lisp :tangle yes
-(use-package org-present
-  :hook
-  ((org-present-mode . (lambda ()
-                         (org-present-big)
-                         (org-display-inline-images)
-                         (org-present-hide-cursor)
-                         (org-present-read-only)))
-   (org-present-mode-quit . (lambda ()
-                              (org-present-small)
-                              (org-remove-inline-images)
-                              (org-present-show-cursor)
-                              (org-present-read-write)))))
-#+end_src
-
-** org-roam
-
-#+begin_src emacs-lisp :tangle yes
-(use-package org-roam
-  :init
-  (setq org-roam-directory "~/Documents/Notes/org-roam")
-  (setq org-roam-mode-sections (list #'org-roam-backlinks-section
-                                     #'org-roam-reflinks-section
-                                     ;; #'org-roam-unlinked-references-section
-                                     ))
-  (setq org-roam-completion-everywhere t)
-  (setq org-roam-capture-templates
-        '(("d" "default" plain "%?"
-           :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
-                              "#+title: ${title}\n")
-           :unnarrowed t)
-          ("b" "book" plain "%?"
-           :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
-                              ":PROPERTIES:\n:Author: \n:Published: \n:Consumed: \n:END:\n#+title: ${title}\n#+filetags: :book:\n\n")
-           :unnarrowed t)))
-  :general
-  (leader-def
-    "o" '(:ignore t :which-key "org")
-    "o c" #'org-roam-capture
-    "o f" #'org-roam-node-find
-    "o t" #'org-roam-dailies-goto-today
-    "o T" #'org-roam-dailies-goto-tomorrow
-    "o y" #'org-roam-dailies-goto-yesterday
-    "o d" #'org-roam-dailies-goto-date
-    "o g" #'org-roam-graph
-    "o S" #'org-roam-db-sync)
-  (local-leader-def
-    :keymaps 'org-mode-map
-    "r" '(:ignore t :which-key "roam")
-    "r i" #'org-roam-node-insert
-    "r I" #'org-id-get-create
-    "r t" #'org-roam-tag-add
-    "r T" #'org-roam-tag-remove
-    "r a" #'org-roam-alias-add
-    "r A" #'org-roam-alias-remove
-    "r r" #'org-roam-ref-add
-    "r R" #'org-roam-ref-remove
-    "r b" #'org-roam-buffer-toggle
-    "r n" #'org-roam-dailies-goto-next-note
-    "r p" #'org-roam-dailies-goto-previous-note)
-  :hook (after-init . org-roam-db-autosync-mode))
-
-(use-package org-roam-ui)
-#+end_src
 * Magit
 This is probably the single best interface for Git out there.
 
@@ -2093,81 +2023,6 @@ available offline, and also much faster.
       mail-envelope-from 'header)
 #+end_src
 
-** Notmuch
-[[https://notmuchmail.org/][notmuch]] is a performant email tagging system, which I use to sort and
-view emails in my local maildir.
-
-#+begin_src emacs-lisp :tangle yes
-(use-package notmuch
-  :defer t
-  :custom
-  (notmuch-search-oldest-first nil)
-  (notmuch-always-prompt-for-sender t)
-  (notmuch-mua-cite-function 'message-cite-original-without-signature)
-  (notmuch-fcc-dirs '((".*@sulami.xyz" . "fastmail/Sent +sent -inbox -unread")
-                      (".*@peerwire.org" . "fastmail/Sent +sent -inbox -unread")
-                      ("robins@circleci.com" . "\"circleci-gmail/[Gmail]/Sent Mail\" +sent -inbox -unread")))
-  :config
-  (defun notmuch-inbox ()
-    (interactive)
-    (notmuch-search "tag:inbox" t))
-  (defun notmuch-unread ()
-    (interactive)
-    (notmuch-search "tag:unread" t))
-  (defun sulami/notmuch-search-open-pr ()
-    "Open the pull request referenced in an email."
-    (interactive)
-    (when (and (eq major-mode 'notmuch-search-mode)
-               (-contains? (notmuch-search-get-tags)
-                           "github"))
-      (let ((subject (substring-no-properties (notmuch-search-find-subject)))
-            (regexp (rx string-start
-                        "[" (group-n 1 (+? anychar)) "]"
-                        (* anychar)
-                        "(PR #" (group-n 2 (+ digit)) ")"
-                        string-end)))
-        (string-match regexp subject)
-        (let ((project-slug (match-string 1 subject))
-              (pr-number (match-string 2 subject)))
-          (browse-url (format "https://github.com/%s/pull/%s" project-slug pr-number))))))
-  :general
-  (leader-def
-    "m i" 'notmuch-inbox
-    "m m" 'notmuch
-    "m n" 'notmuch-mua-new-mail
-    "m r" 'notmuch-poll
-    "m s" 'notmuch-search
-    "m u" 'notmuch-unread)
-  (local-leader-def
-    :keymaps 'notmuch-search-mode-map
-    "o" #'sulami/notmuch-search-open-pr)
-  :hook
-  (notmuch-message-mode . flyspell-mode))
-#+end_src
-
-* Verb
-Verb is an extension to org-mode to run HTTP requests in a literate
-manner. It has all kinds of useful features to build a request library
-which can be programmed.
-
-#+begin_src emacs-lisp :tangle yes
-(use-package verb
-  :defer t
-  :general
-  (local-leader-def
-    :keymaps 'org-mode-map
-    "h" '(:ignore t :wk "http")
-    "h s" 'verb-send-request-on-point-other-window-stay
-    "h S" 'verb-send-request-on-point-other-window
-    "h q" 'verb-send-request-on-point-no-window
-    "h r" 'verb-re-send-request
-    "h v" 'verb-set-var
-    "h y" 'verb-export-request-on-point)
-  (general-nmap
-    :keymaps 'verb-response-body-mode-map
-    "q" 'verb-kill-response-buffer-and-window))
-#+end_src
-
 * Literate Calc Mode
 This is my own package, which does live inline calculations. Quite
 handy, if you ask me.
@@ -2405,15 +2260,6 @@ bindings, because I usually don't use Racket REPLs.
   :defer t)
 #+end_src
 
-* Haskell
-I used to write a lot more Haskell, but I still have some. The major
-mode has reasonable defaults, so that's all I need for now.
-
-#+BEGIN_SRC emacs-lisp :tangle yes
-(use-package haskell-mode
-  :defer t)
-#+END_SRC
-
 * Rust
 
 I don't actually really use Rust beyond experiments, so not much
@@ -2546,12 +2392,6 @@ PostgreSQL specifically.
   :defer t)
 #+end_src
 
-* Kubernetes
-
-#+begin_src emacs-lisp :tangle yes
-(use-package kubel)
-#+end_src
-
 * Terraform
 
 #+begin_src emacs-lisp :tangle yes
@@ -2628,24 +2468,4 @@ Stolen from Spacemacs."
   :hook
   (protobuf-mode . sulami/init-protobuf-imenu))
 #+END_SRC
-
-* Copilot
-
-I feel slightly weird about this, but it's essentially supercharged
-completion, and can often save me a lot of time.
-
-#+begin_src emacs-lisp :tangle yes
-(use-package copilot
-  :straight (:host github :repo "zerolfx/copilot.el" :files ("dist" "*.el"))
-  :ensure t
-  :custom
-  (copilot-idle-delay 1)
-  :general
-  (general-imap
-    :keymaps 'copilot-mode-map
-    "C-j" #'copilot-complete
-    "C-<return>" #'copilot-accept-completion)
-  :hook
-  (prog-mode . copilot-mode))
-#+end_src
 
