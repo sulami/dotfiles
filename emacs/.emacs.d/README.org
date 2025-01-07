@@ -513,6 +513,16 @@ height.
                 (t (frame-char-height))))))))
 #+END_SRC
 
+** Terminal mode
+
+Hide the TUI menu bar and enable mouse support in terminal mode.
+
+#+begin_src emacs-lisp :tangle yes
+(unless window-system
+  (menu-bar-mode 0)
+  (xterm-mouse-mode 1))
+#+end_src
+
 * Custom functions
 
 ** Config
