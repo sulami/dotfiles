@@ -11,6 +11,7 @@
   default = simple
   gpgsign = if-asked
   autoSetupRemote = true
+  followTags = true
 [credential]
   helper = cache --timeout=86400
 [alias]
@@ -64,6 +65,7 @@
   pr = "!f() { if [ $# -lt 1 ]; then echo \"Usage: git pr <id> [<remote>]  # assuming <remote>[=origin] is on GitHub\"; else git checkout -q \"$(git rev-parse --verify HEAD)\" && git fetch -fv \"${2:-origin}\" pull/\"$1\"/head:pr/\"$1\" && git checkout pr/\"$1\"; fi; }; f"
 [commit]
   gpgsign = true
+  verbose = true
 [merge]
   tool = ediff
 [mergetool.ediff]
@@ -76,10 +78,14 @@
   program = gpg
 [fetch]
   prune = true
+  pruneTags = true
+  all = true
 [pull]
   rebase = true
 [rebase]
   autoStash = true
+  autoSquash = true
+  updateRefs = true
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
@@ -89,7 +95,17 @@
   sort=-committerdate
 [rerere]
   enabled = true
+  autoupdate = true
 [url "git@github.com:"]
   insteadOf = https://github.com/
 [checkout]
   defaultRemote = origin
+[diff]
+  algorithm = histogram
+  colorMoved = plain
+  mnemonicPrefix = true
+  renames = true
+[tag]
+  sort = version:refname
+[column]
+  ui = auto
