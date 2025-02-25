@@ -10,15 +10,61 @@
 [gpg]
   program = gpg
   ; format = ssh
+[credential]
+  helper = cache --timeout=86400
 [init]
   defaultBranch = trunk
+[branch]
+  sort=-committerdate
+[tag]
+  sort = version:refname
+[commit]
+  gpgsign = true
+  verbose = true
+[checkout]
+  defaultRemote = origin
 [push]
   default = simple
   gpgsign = if-asked
   autoSetupRemote = true
   followTags = true
-[credential]
-  helper = cache --timeout=86400
+[fetch]
+  prune = true
+  pruneTags = true
+  all = true
+[pull]
+  rebase = true
+[rebase]
+  autoStash = true
+  autoSquash = true
+  updateRefs = true
+[merge]
+  tool = ediff
+[mergetool.ediff]
+  cmd = emacs --eval \"(progn (defun ediff-write-merge-buffer () (let ((file ediff-merge-store-file)) (set-buffer ediff-buffer-C) (write-region (point-min) (point-max) file) (message \\\"Merge buffer saved in: %s\\\" file) (set-buffer-modified-p nil) (sit-for 1))) (setq ediff-quit-hook 'kill-emacs ediff-quit-merge-hook 'ediff-write-merge-buffer) (ediff-merge-files \\\"$LOCAL\\\" \\\"$REMOTE\\\" nil \\\"$MERGED\\\"))\"
+[column]
+  ui = auto
+[rerere]
+  enabled = true
+  autoupdate = true
+[diff]
+  algorithm = histogram
+  colorMoved = plain
+  mnemonicPrefix = true
+  renames = true
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true
+[github]
+  user = sulami
+[url "git@github.com:"]
+  insteadOf = https://github.com/
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 [alias]
   st = status
   sh = show
@@ -31,88 +77,24 @@
   br = branch
   co = checkout
   cob = checkout -b
-  add = add --all
-  aa = add --all .
-  ap = add --all -p
   cm = commit
   cmm = commit -m
-  ca = commit -a
-  cam = commit -am
   rh = reset --hard
   rsh = reset --soft HEAD^
   pu = push --follow-tags
   puf = push --follow-tags --force-with-lease
   poh = push origin HEAD --follow-tags
   pom = push origin master --follow-tags
-  fe = fetch --all --prune
-  rup = remote update
-  puo = pull origin master
   ff = merge --ff
-  noff = merge --no-ff
   cp = cherry-pick
-  cpn = cherry-pick -n
   l = log --decorate --graph --oneline
   ll = log --decorate --graph --stat
   sm = submodule
-  sts = stash save
-  stl = stash list
-  stsh = stash show -p
-  stap = stash apply
-  stpp = stash pop
-  stdr = stash drop
   start = !git init && git commit --allow-empty -m \"In the beginning there was darkness\"
   extend = commit --amend --no-edit
   cleanup = !git br --merged | sed -E 's:^\\* |  ::' | grep -v '^\\(develop\\|master\\|main\\|trunk\\|HEAD\\)$' | xargs git br -D
   cleanup-remote = !git br -r --merged | sed -E 's:^\\* |  ::' | sed 's:^origin/::' | grep -v '^\\(develop\\|master\\|main\\|trunk\\|HEAD\\)' | xargs git push origin --delete
   authors = !git ls-tree -r -z --name-only HEAD -- * | xargs -0 -n1 git blame --line-porcelain HEAD | grep  "^author[^-]" | sort | uniq -c | sort -nr
-  pmm = pull origin master:master
   rtm = !git pmm && git rebase
   pr = "!f() { if [ $# -lt 1 ]; then echo \"Usage: git pr <id> [<remote>]  # assuming <remote>[=origin] is on GitHub\"; else git checkout -q \"$(git rev-parse --verify HEAD)\" && git fetch -fv \"${2:-origin}\" pull/\"$1\"/head:pr/\"$1\" && git checkout pr/\"$1\"; fi; }; f"
-[commit]
-  gpgsign = true
-  verbose = true
-[merge]
-  tool = ediff
-[mergetool.ediff]
-  cmd = emacs --eval \"(progn (defun ediff-write-merge-buffer () (let ((file ediff-merge-store-file)) (set-buffer ediff-buffer-C) (write-region (point-min) (point-max) file) (message \\\"Merge buffer saved in: %s\\\" file) (set-buffer-modified-p nil) (sit-for 1))) (setq ediff-quit-hook 'kill-emacs ediff-quit-merge-hook 'ediff-write-merge-buffer) (ediff-merge-files \\\"$LOCAL\\\" \\\"$REMOTE\\\" nil \\\"$MERGED\\\"))\"
-[include]
-  path = ~/.gitconfig.secret
-[github]
-  user = sulami
-[fetch]
-  prune = true
-  pruneTags = true
-  all = true
-[pull]
-  rebase = true
-[rebase]
-  autoStash = true
-  autoSquash = true
-  updateRefs = true
-[filter "lfs"]
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
-  process = git-lfs filter-process
-  required = true
-[branch]
-  sort=-committerdate
-[rerere]
-  enabled = true
-  autoupdate = true
-[url "git@github.com:"]
-  insteadOf = https://github.com/
-[checkout]
-  defaultRemote = origin
-[diff]
-  algorithm = histogram
-  colorMoved = plain
-  mnemonicPrefix = true
-  renames = true
-[tag]
-  sort = version:refname
-[column]
-  ui = auto
-[interactive]
-  diffFilter = delta --color-only
-[delta]
-  navigate = true
+
