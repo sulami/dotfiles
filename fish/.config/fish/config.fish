@@ -13,6 +13,7 @@ if status is-interactive
     alias la='ll -a'
     alias g='git'
     alias dc='docker-compose'
+    alias tf='terraform'
 
     function psg
       ps aux | grep $argv
