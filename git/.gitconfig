@@ -5,11 +5,11 @@
 [user]
   name = Robin Schroer
   email = git@sulami.xyz
-  # signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINsEirk/ukqqgQiIqdTZ+o0Pc+51ONOOoGGD7qRmEhKN
-  signingkey = A1418106
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMkTnMlqXJyhMLJyP4n3DkJo5imNbTTy0ZwYBac32jsz
+  # signingkey = A1418106
 [gpg]
-  program = gpg
-  ; format = ssh
+  # program = gpg
+  format = ssh
 [credential]
   helper = cache --timeout=86400
 [init]
