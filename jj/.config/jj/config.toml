@@ -1,0 +1,11 @@
+[user]
+name = "Robin Schroer"
+email = "git@sulami.xyz"
+
+[signing]
+behavior = "own"
+backend = "ssh"
+key = "~/.ssh/id_ed25519.pub"
+
+[ui]
+default-command = "log"
