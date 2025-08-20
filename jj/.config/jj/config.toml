@@ -8,5 +8,9 @@ backend = "ssh"
 key = "~/.ssh/id_ed25519.pub"
 
 [ui]
-default-command = "log"
-diff-formatter = "delta"
+default-command = "status"
+diff-formatter = ":git"
+pager = [ "delta", "--pager", "less -FRX" ]
+
+[revsets]
+log = "all()"
