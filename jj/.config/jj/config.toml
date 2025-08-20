@@ -12,5 +12,22 @@ default-command = "status"
 diff-formatter = ":git"
 pager = [ "delta", "--pager", "less -FRX" ]
 
-[revsets]
-log = "all()"
+[aliases]
+l = [ "log" ]
+ll = [ "log", "-r", "all()" ]
+lf = [ "log", "-r", "::@" ]
+sh = [ "show" ]
+
+[templates]
+git_push_bookmark = '"sulami/push-" ++ change_id.short()'
+draft_commit_description = '''
+concat(
+  coalesce(description, default_commit_description, "\n"),
+  surround(
+    "\nJJ: This commit contains the following changes:\n", "",
+    indent("JJ:     ", diff.stat(72)),
+  ),
+  "\nJJ: ignore-rest\n",
+  diff.git(),
+)
+'''
