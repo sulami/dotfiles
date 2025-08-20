@@ -65,6 +65,8 @@ imap <c-c> <Esc>
 map <Nul> <Space>
 imap <Nul> <Space>
 cmap <Nul> <Space>
+" vnoremap < <gv
+" vnoremap > >gv
 nnoremap Q <nop>
 nnoremap gh gt
 nnoremap gH gT
