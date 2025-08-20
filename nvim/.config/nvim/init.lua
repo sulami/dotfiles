@@ -15,9 +15,6 @@ vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
 vim.opt.spelllang = 'en_ca'
 vim.opt.spell = true
 
--- Make underscores word boundaries.
-vim.opt.iskeyword:remove({'_'})
-
 -- Hard-wrap at column 80.
 vim.opt.textwidth = 80
 
