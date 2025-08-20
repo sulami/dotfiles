@@ -1,4 +1,5 @@
 .DS_STORE
 *.elc
 .clj-kondo/.cache
-/.lsp/
+.lsp
+.idea
