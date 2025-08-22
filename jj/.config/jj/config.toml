@@ -18,6 +18,7 @@ ll = [ "log", "-r", "all()" ]
 lf = [ "log", "-r", "::@" ]
 sh = [ "show" ]
 fresh = [ "new", "trunk()" ]
+g = [ "git" ]
 
 [templates]
 git_push_bookmark = '"sulami/push-" ++ change_id.short()'
