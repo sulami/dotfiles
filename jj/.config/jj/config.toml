@@ -13,12 +13,14 @@ diff-formatter = ":git"
 pager = [ "delta", "--pager", "less -FRX" ]
 
 [aliases]
-l = [ "log" ]
-ll = [ "log", "-r", "all()" ]
-lf = [ "log", "-r", "::@" ]
-sh = [ "show" ]
+de = [ "describe" ]
+di = [ "diff" ]
 fresh = [ "new", "trunk()" ]
 g = [ "git" ]
+l = [ "log" ]
+lf = [ "log", "-r", "::@" ]
+ll = [ "log", "-r", "all()" ]
+sh = [ "show" ]
 
 [templates]
 git_push_bookmark = '"sulami/push-" ++ change_id.short()'
