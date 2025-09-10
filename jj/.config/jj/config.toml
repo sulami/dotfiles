@@ -23,6 +23,7 @@ l = [ "log" ]
 lf = [ "log", "-r", "::@" ]
 ll = [ "log", "-r", "all()" ]
 sh = [ "show" ]
+tug = [ "bookmark", "move", "--from", "heads(::@ & bookmarks())" ]
 
 [templates]
 git_push_bookmark = '"sulami/push-" ++ change_id.short()'
