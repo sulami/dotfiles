@@ -35,6 +35,11 @@ if status is-interactive
     set -gx SSH_AUTH_SOCK "$HOME/Library/Containers/com.bitwarden.desktop/Data/.bitwarden-ssh-agent.sock"
   end
 
+  # SSH through 1Password
+  if test -S "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+    set -gx SSH_AUTH_SOCK "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+  end
+
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 set --export --prepend PATH "/Users/sulami/.rd/bin"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
