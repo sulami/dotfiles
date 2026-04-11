@@ -27,8 +27,17 @@ tokei = "latest"
 sd = "latest"
 choose = "latest"
 hexyl = "latest"
+cargo-binstall = "latest"
+"cargo:cargo-hack" = "latest"
+"cargo:cargo-nextest" = "latest"
+"cargo:cargo-release" = "latest"
+"cargo:dummyhttp" = "latest"
+"cargo:sqlx-cli" = "latest"
 
 [settings]
 
 [settings.ruby]
 compile = false
+
+[settings.cargo]
+binstall = true
