@@ -1,10 +1,10 @@
 /leiningen/.lein/repl-history
 /leiningen/.lein/self-installs/
-*.elc
 
 /emacs/*
 !/emacs/.emacs.d/init.el
 !/emacs/.emacs.d/README.org
 !/emacs/.emacs.d/snippets
+*.elc
 
-
+/jj/.config/jj/repos

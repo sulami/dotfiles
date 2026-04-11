@@ -1,0 +1,34 @@
+[tools]
+awscli = { version = "latest", symlink_bins = "true" }
+fd = "latest"
+bat = "latest"
+difftastic = "latest"
+dive = "latest"
+eza = "latest"
+docker-cli = "latest"
+sops = "latest"
+git-cliff = "latest"
+fzf = "latest"
+dust = "latest"
+jujutsu = "latest"
+podman = "latest"
+hurl = "latest"
+hyperfine = "latest"
+zellij = "latest"
+jaq = "latest"
+neovim = "latest"
+just = "latest"
+xh = "latest"
+zoxide = "latest"
+ripgrep = "latest"
+sccache = "latest"
+tokei = "latest"
+"github:fujiapple852/trippy" = "latest"
+sd = "latest"
+choose = "latest"
+hexyl = "latest"
+
+[settings]
+
+[settings.ruby]
+compile = false
