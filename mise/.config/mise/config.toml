@@ -33,6 +33,7 @@ cargo-binstall = "latest"
 "cargo:cargo-release" = "latest"
 "cargo:dummyhttp" = "latest"
 "cargo:sqlx-cli" = "latest"
+delta = "latest"
 
 [settings]
 
