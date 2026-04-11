@@ -1,3 +1,5 @@
+.DS_Store
+
 /leiningen/.lein/repl-history
 /leiningen/.lein/self-installs/
 
