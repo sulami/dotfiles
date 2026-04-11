@@ -9,12 +9,17 @@ key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMkTnMlqXJyhMLJyP4n3DkJo5imNbTTy0ZwYB
 
 [ui]
 default-command = "status"
-diff-formatter = ":git"
-pager = [ "delta", "--pager", "less -FRX" ]
+# diff-formatter = ":git"
+diff-formatter = [ "difft", "--color=always", "$left", "$right" ]
+pager = [ "delta", "--light", "--side-by-side", "--pager", "less -FRX" ]
+
+[remotes.origin]
+auto-track-bookmarks = "glob:*"
 
 [aliases]
 de = [ "describe" ]
 di = [ "diff" ]
+dis = [ "diff", "--stat" ]
 fresh = [ "new", "trunk()" ]
 g = [ "git" ]
 gf = [ "git", "fetch" ]
