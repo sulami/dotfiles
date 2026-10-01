@@ -29,7 +29,7 @@ lf = [ "log", "-r", "::@" ]
 ll = [ "log", "-r", "all()" ]
 sh = [ "show" ]
 tug = [ "bookmark", "move", "--from", "heads(::@ & bookmarks())" ]
-bl = [ "bookmark", "list", "-r", "committer_email('git@sulami.xyz')" ]
+bl = [ "bookmark", "list", "-r", "mine()" ]
 
 [templates]
 git_push_bookmark = '"sulami/push-" ++ change_id.short()'
