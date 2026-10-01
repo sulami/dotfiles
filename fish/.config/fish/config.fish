@@ -25,6 +25,9 @@ if status is-interactive
 
   # Mise
   mise activate fish | source
+  if command -q gh
+    set -gx GITHUB_TOKEN (gh auth token)
+  end
 
   # Zoxide
   eval "$(zoxide init fish)"
