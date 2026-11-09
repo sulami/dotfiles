@@ -367,7 +367,8 @@ Default =straight= to install anything ~use-package~ defines.
 ** el-patch
 Allows for patching functions in packages.
 #+begin_src emacs-lisp :tangle yes
-(use-package el-patch)
+(use-package el-patch
+  :demand t)
 #+end_src
 
 ** Dash
