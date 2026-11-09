@@ -1617,6 +1617,18 @@ history for logs later on.
 (add-hook 'eshell-pre-command-hook #'sulami/eshell-insert-timestamp)
 #+end_src
 
+* omp
+Agent sessions driven over ACP, with a list of what is running and
+which session is mid-turn.
+
+#+begin_src emacs-lisp :tangle yes
+(use-package omp-sessions
+  :load-path "~/src/omp-sessions"
+  :commands (omp-sessions-new
+             omp-sessions-list
+             omp-sessions-send-to-project))
+#+end_src
+
 * Ediff
 Just diffing. I don't have any strong opinions on it, ediff does the
 job. I'm sure there are cool features I'm not aware of.
