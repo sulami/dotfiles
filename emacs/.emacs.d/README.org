@@ -415,7 +415,7 @@ Set the font to Fira Code and enable ligatures.
 #+END_SRC
 
 ** Theme
-I use =doom-themes=, mostly =doom-solarized-light= & =doom-gruvbox=.
+I use =doom-themes= for the dark theme and =leuven= for the light one.
 
 There are some fixes to prevent themes from clashing, and I also
 disable most backgrounds as I find them distracting.
@@ -424,7 +424,7 @@ disable most backgrounds as I find them distracting.
 ;; I like to live dangerously
 (setq custom-safe-themes t)
 
-(defconst sulami/light-theme 'doom-solarized-light)
+(defconst sulami/light-theme 'leuven)
 (defconst sulami/dark-theme 'doom-gruvbox)
 
 (defun sulami/disable-all-themes ()
