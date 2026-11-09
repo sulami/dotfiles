@@ -207,6 +207,16 @@ devices feel more reasonable.
       mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
 #+END_SRC
 
+** Line numbers
+Show line numbers in every buffer by default. =display-line-numbers= is
+the C implementation rather than ~linum-mode~, and it stays a
+buffer-local variable, so =sulami/toggle-line-numbers= still turns them
+off for a single buffer.
+
+#+begin_src emacs-lisp :tangle yes
+(global-display-line-numbers-mode 1)
+#+end_src
+
 ** No line wrapping
 At least as a default, much nicer when resizing windows.
 #+BEGIN_SRC emacs-lisp :tangle yes
