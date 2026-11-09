@@ -454,11 +454,24 @@ of another theme."
             #'sulami/before-load-theme-advice)
 
 (defun sulami/set-face-straight-underline (face)
-  "Remove FACE's :underline style, if it's set"
+  "Remove FACE's :underline style, keeping its colour.
+
+The attribute is a plist such as (:style wave :color \"Red1\").  Read it
+by key rather than by position: depending on which theme set it, :color
+and :style appear in either order, and taking a fixed index picks up the
+symbol `wave' for the colour, which `set-face-attribute' rejects with
+\"Invalid face underline wave\"."
   (when (display-graphic-p)
     (let ((old-attr (face-attribute face :underline)))
-      (when (eq 'cons (type-of old-attr))
-        (set-face-attribute face nil :underline (nth 3 old-attr))))))
+      (when (consp old-attr)
+        (let ((color (plist-get old-attr :color))
+              (position (plist-get old-attr :position)))
+          (set-face-attribute
+           face nil :underline
+           (cond ((and color position) (list :color color :position position))
+                 (color color)
+                 ((not position) t)
+                 (t (list :position position)))))))))
 
 (defun sulami/after-load-theme-advice (theme &optional no-confirm no-enable)
   "Unsets backgrounds for some org-mode faces.
