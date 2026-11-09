@@ -274,13 +274,23 @@ have several frames/Emacsen open and want to switch between them.
 (if (fboundp 'tooltip-mode) (tooltip-mode -1))
 #+END_SRC
 
-** Setup SSH via GPG-Agent
+** Setup SSH agent
 
-This assumes GPG-Agent is already running. Otherwise start it with
-~gpg-agent --daemon~.
+Detect 1Password or Bitwarden SSH agent if available, otherwise preserve
+existing SSH_AUTH_SOCK or fallback to GPG-Agent.
 
 #+begin_src emacs-lisp :tangle yes
-(setenv "SSH_AUTH_SOCK" (string-trim (shell-command-to-string "gpgconf --list-dirs agent-ssh-socket")))
+(let ((onepassword-sock (expand-file-name "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"))
+      (bitwarden-sock (expand-file-name "~/Library/Containers/com.bitwarden.desktop/Data/.bitwarden-ssh-agent.sock")))
+  (cond
+   ((file-exists-p onepassword-sock)
+    (setenv "SSH_AUTH_SOCK" onepassword-sock))
+   ((file-exists-p bitwarden-sock)
+    (setenv "SSH_AUTH_SOCK" bitwarden-sock))
+   ((getenv "SSH_AUTH_SOCK")
+    nil)
+   ((executable-find "gpgconf")
+    (setenv "SSH_AUTH_SOCK" (string-trim (shell-command-to-string "gpgconf --list-dirs agent-ssh-socket"))))))
 #+end_src
 
 ** Enable recursive minibuffers
