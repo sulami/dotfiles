@@ -14,6 +14,18 @@
 (setq gc-cons-threshold 500000000
       gc-cons-percentage 0.6)
 
+;; Set environment variables for SSH agent and macOS native compilation
+(let ((onepassword-sock (expand-file-name "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"))
+      (bitwarden-sock (expand-file-name "~/Library/Containers/com.bitwarden.desktop/Data/.bitwarden-ssh-agent.sock")))
+  (cond
+   ((and (not (getenv "SSH_AUTH_SOCK")) (file-exists-p onepassword-sock))
+    (setenv "SSH_AUTH_SOCK" onepassword-sock))
+   ((and (not (getenv "SSH_AUTH_SOCK")) (file-exists-p bitwarden-sock))
+    (setenv "SSH_AUTH_SOCK" bitwarden-sock))))
+
+(unless (getenv "MACOSX_DEPLOYMENT_TARGET")
+  (setenv "MACOSX_DEPLOYMENT_TARGET" "14.0"))
+
 ;; We don't need file handlers during launch either
 (defvar sulami--file-name-handler-alist file-name-handler-alist)
 (setq file-name-handler-alist nil)
