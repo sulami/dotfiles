@@ -30,7 +30,9 @@
     (when (and (file-exists-p sock)
                (not (getenv "SSH_AUTH_SOCK")))
       (setenv "SSH_AUTH_SOCK" sock)
-      (unless (eq 0 (call-process "ssh-add" nil nil nil "-l"))
+      ;; `call-process' signals if ssh-add is not on `exec-path', which must
+      ;; not abort startup: treat a failed probe as "no agent here".
+      (unless (ignore-errors (eq 0 (call-process "ssh-add" nil nil nil "-l")))
         (setenv "SSH_AUTH_SOCK" nil))))
   (unless (getenv "SSH_AUTH_SOCK")
     (setenv "SSH_AUTH_SOCK" saved)))

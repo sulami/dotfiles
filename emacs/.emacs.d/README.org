@@ -297,11 +297,14 @@ YubiKey keys.
     (when (and (file-exists-p sock)
                (not (getenv "SSH_AUTH_SOCK")))
       (setenv "SSH_AUTH_SOCK" sock)
-      (unless (eq 0 (call-process "ssh-add" nil nil nil "-l"))
+      (unless (ignore-errors (eq 0 (call-process "ssh-add" nil nil nil "-l")))
         (setenv "SSH_AUTH_SOCK" nil))))
   (unless (getenv "SSH_AUTH_SOCK")
     (setenv "SSH_AUTH_SOCK" saved)))
 #+end_src
+
+The socket is resolved by path rather than with ~gpgconf~, which is not
+on the =PATH= of a Finder launch.
 
 ** Enable recursive minibuffers
 
