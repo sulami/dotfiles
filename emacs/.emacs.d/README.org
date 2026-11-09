@@ -460,9 +460,7 @@ Also changes squiggly underlines to straight ones."
   (set-face-background 'org-block-begin-line nil)
   (set-face-background 'org-block-end-line nil)
   (set-face-background 'org-quote nil)
-  (cl-loop for face in '(flyspell-incorrect
-                         flyspell-duplicate
-                         flycheck-error
+  (cl-loop for face in '(flycheck-error
                          flycheck-warning
                          flycheck-info)
            do (sulami/set-face-straight-underline face)))
