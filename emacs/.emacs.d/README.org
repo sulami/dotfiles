@@ -1623,6 +1623,7 @@ which session is mid-turn.
 
 #+begin_src emacs-lisp :tangle yes
 (use-package omp-sessions
+  :straight nil
   :load-path "~/src/omp-sessions"
   :commands (omp-sessions-new
              omp-sessions-list
