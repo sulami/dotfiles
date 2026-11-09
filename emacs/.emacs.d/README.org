@@ -1176,52 +1176,9 @@ Popper deals with all those temporary popup windows.
 * Parentheses
 Keeps my parentheses balanced.
 
-** Lispyville
-
-I use [[https://github.com/noctuid/lispyville][LispyVille]] for all Lisp major modes, as it does some additional
-magic around spacing, comments, and more.
-
-N.B. This currently pulls in a lot of dependencies for no good reason,
-including swiper & hydra.
-
-#+begin_src emacs-lisp :tangle yes
-(use-package lispyville
-  :defer t
-  :custom
-  (lispy-close-quotes-at-end-p t)
-  :config
-  (lispyville-set-key-theme '(operators
-                              c-w
-                              additional-motions
-                              commentary
-                              slurp/barf-lispy
-                              additional-wrap))
-  :general
-  (general-imap
-    :keymaps 'lispyville-mode-map
-    "(" 'lispy-parens
-    "[" 'lispy-brackets
-    "{" 'lispy-braces
-    "\"" 'lispy-quotes
-    ")" 'lispy-right-nostring
-    "]" 'lispy-right-nostring
-    "}" 'lispy-right-nostring
-    "DEL" 'lispy-delete-backward-or-splice-or-slurp)
-  :hook
-  ((emacs-lisp-mode . lispyville-mode)
-   (lisp-mode . lispyville-mode)
-   (scheme-mode . lispyville-mode)
-   (clojure-mode . lispyville-mode)
-   (cider-repl-mode . lispyville-mode)
-   (monroe-mode . lispyville-mode)
-   (racket-mode . lispyville-mode)))
-#+end_src
-
 ** Electric Pair Mode
-All other modes just use ~electric-pair-mode~, which is built into
-Emacs already, for automatically matching parentheses. The main reason
-for this divide being the whitespace changes done by LispyVille
-interfering with non-lisp syntax.
+All modes use ~electric-pair-mode~, which is built into Emacs already,
+for automatically matching parentheses.
 
 #+begin_src emacs-lisp :tangle yes
 (use-package electric-pair-mode
@@ -1428,108 +1385,6 @@ Number windows and allow me to switch to them.
 
 * Org mode
 
-#+begin_src emacs-lisp :tangle yes
-(use-package org
-  :custom
-  (calendar-date-style 'iso "YYYY-MM-DD")
-  (org-directory "~/Documents/Notes")
-  (calendar-week-start-day 1 "Weeks start on Monday")
-  (org-complete-tags-always-offer-all-agenda-tags t "Autocomplete tags")
-  (org-edit-src-content-indentation 0 "Do not indent src blocks")
-  (org-export-initial-scope 'subtree "Default export to the current subtree")
-  (org-export-with-toc nil "Omit the TOC when exporting")
-  (org-export-with-author nil "Omit the author when exporting")
-  (org-footnote-auto-adjust t "Automatically renumber footnotes")
-  (org-footnote-section nil "Footnotes go into the section they are referenced in")
-  (org-hide-emphasis-markers t "Hide emphasis markers")
-  (org-log-into-drawer t "Log workflow changes into a drawer")
-  (org-src-preserve-indentation nil "Remove leading whitespace when editing src blocks")
-  (org-src-window-setup 'current-window "Show src editing in the current window")
-  (org-use-fast-todo-selection t "Use fast selection for workflow states")
-  (org-preview-latex-image-directory "~/.cache/org-latex/" "Store latex previews in cache")
-  :config
-  ;; Open file links in same window.
-  (setf (cdr (assoc 'file org-link-frame-setup)) 'find-file)
-  (defun sulami/org-return ()
-    "`org-return' with better plain list handling.
-
-If inside a plain list, insert a new list item. If the current list
-item is empty, remove it instead. Essentially imitating Google Docs."
-    (interactive)
-    (if (org-at-item-p)
-        (let* ((begin (org-in-item-p))
-               (struct (org-list-struct))
-               (end (org-list-get-item-end begin struct))
-               (indent (org-list-get-ind begin struct))
-               (bullet (org-list-get-bullet begin struct))
-               (checkbox (org-list-get-checkbox begin struct))
-               (type (org-list-get-list-type begin
-                                             struct
-                                             (org-list-prevs-alist struct)))
-               ;; Different factors alter the amount of whitespace.
-               (whitespace (+ 1
-                              (if (= end (point-max)) -1 0)
-                              (if (= end (point-max) (1+ (point)))
-                                  1 0)
-                              (if checkbox 1 0)
-                              (if (equal 'descriptive type) 3 0)
-                              (if (and checkbox
-                                       (equal 'descriptive type))
-                                  1 0))))
-          (if (zerop (- end
-                        begin
-                        indent
-                        (length bullet)
-                        (length checkbox)
-                        whitespace))
-              (progn (org-list-delete-item begin struct)
-                     (insert "\n")
-                     (backward-char))
-            (evil-org-open-below 0)))
-      (org-return)))
-  :config/el-patch
-  (defun org-link-escape (link)
-    "Backslash-escape sensitive characters in string LINK."
-    (el-patch-wrap 3 0
-      (replace-regexp-in-string
-       " "
-       "%20"
-       (replace-regexp-in-string
-        (rx (seq (group (zero-or-more "\\")) (group (or string-end (any "[]")))))
-        (lambda (m)
-          (concat (match-string 1 m)
-	          (match-string 1 m)
-	          (and (/= (match-beginning 2) (match-end 2)) "\\")))
-        link nil t 1))))
-  :general
-  (local-leader-def
-    :keymaps 'org-mode-map
-    :states '(normal)
-    "a" 'org-archive-subtree
-    "d" 'org-deadline
-    "e" '(org-export-dispatch :wk "org-export-dispatch")
-    "f" 'org-fill-paragraph
-    "l" 'org-insert-link
-    "L" 'org-store-link
-    "R" 'sulami/org-refile-in-current-file
-    "s" 'org-schedule
-    "S" 'org-babel-switch-to-session
-    "T" 'org-babel-tangle
-    "w" 'org-todo
-    "W" '((lambda ()
-            (interactive)
-            (org-todo '(4)))
-          :wk "org-todo (with note)"))
-  ;; Fix plain lists.
-  (general-imap
-    :keymaps 'org-mode-map
-    "RET" 'sulami/org-return)
-  :hook
-  ((org-mode . auto-fill-mode)
-   (org-mode . flyspell-mode)
-   (org-mode . org-indent-mode)))
-#+end_src
-
 ** Add more workflow states
 
 #+begin_src emacs-lisp :tangle yes
@@ -1601,49 +1456,7 @@ to avoid overwriting iCloud changes.
          "* %^{title}\n%u\n%?")))
 #+end_src
 
-** org-gfm
-
-This gives me org-mode->github flavoured markdown export.
-
-#+begin_src emacs-lisp :tangle yes
-(use-package ox-gfm
-  :defer 3
-  :after org)
-#+end_src
-
-* Magit
-This is probably the single best interface for Git out there.
-
-#+BEGIN_SRC emacs-lisp :tangle yes
-(use-package magit
-  :custom
-  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
-  :config
-  (defun sulami/clone-repo (url)
-    "Clone the repo at URL into `sulami/source-directory'"
-    (interactive "sURL: ")
-    (let* ((repo-name (magit-clone--url-to-name url))
-           (target-dir (concat sulami/source-directory "/" repo-name)))
-      (magit-clone-regular url target-dir nil)))
-  (defun sulami/reset-repo ()
-    "Reset the current repo to its default state"
-    (interactive)
-    (magit-checkout (magit-main-branch))
-    (magit-pull-from-upstream nil))
-  :general
-  (leader-def
-    "g b" #'magit-blame-addition
-    "g h" #'magit-log
-    "g n" #'sulami/reset-repo
-    "g s" #'magit-status)
-  :hook
-  ((shell-mode . with-editor-export-editor)
-   (term-mode . with-editor-export-editor)
-   (eshell-mode . with-editor-export-editor)
-   (git-commit-setup . git-commit-turn-on-flyspell)))
-#+END_SRC
-
-** Git link
+* Git link
 This package gets me the link to a git repository or line in a file.
 
 #+begin_src emacs-lisp :tangle yes
@@ -1665,47 +1478,24 @@ This package gets me the link to a git repository or line in a file.
    "g R" 'open-git-repo-in-browser))
 #+end_src
 
-** Changelog
-
-This is a convenience function to generate a changelog for a PR.
-
-#+begin_src emacs-lisp :tangle yes
-(defun sulami/magit-changelog ()
-  "Generate a git changelog and copy it to the kill ring"
-  (interactive)
-  (kill-new
-   (format "Best reviewed commit-by-commit:\n\n%s"
-           (shell-command-to-string
-            (format "git log %s..HEAD --reverse --pretty=format:'%s'"
-                    (magit-main-branch)
-                    "### %h %s%n%n%b")))))
-#+end_src
-
 * Flycheck
 Flycheck does automatic linting. I enable it mostly manually, as I
 don't have a lot of linters setup.
 
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package flycheck
-  :after (nix-sandbox)
   :config
   ;; Disable flycheck on-the-fly-checking if the line count exceeds 2000.
   (setq flycheck-check-syntax-automatically
         (if (> (sulami/buffer-line-count) 2000)
             (delete 'idle-change flycheck-check-syntax-automatically)
-          (add-to-list 'flycheck-check-syntax-automatically 'idle-change))
-        ;; Resolve checker commands in Nix environments.
-        flycheck-command-wrapper-function
-        (lambda (command) (apply 'nix-shell-command (nix-current-sandbox) command))
-        flycheck-executable-find
-        (lambda (cmd) (nix-executable-find (nix-current-sandbox) cmd)))
+          (add-to-list 'flycheck-check-syntax-automatically 'idle-change)))
   :custom
   (flycheck-emacs-lisp-load-path 'inherit)
   :general
   (leader-def "t c" 'flycheck-mode)
   :hook
-  ((clojure-mode . flycheck-mode)
-   (rust-mode . flycheck-mode)
+  ((rust-mode . flycheck-mode)
    (go-mode . flycheck-mode)))
 #+END_SRC
 
@@ -2082,8 +1872,7 @@ ticket references into clickable links. Adapted from [[https://www.monotux.tech/
           bug-reference-url-format "https://circleci.atlassian.net/browse/%s"))
   :hook
   ((bug-reference-mode . sulami/bug-reference-setup)
-   (org-mode . bug-reference-mode)
-   (clojure-mode . bug-reference-mode)))
+   (org-mode . bug-reference-mode)))
 #+end_src
 
 * vterm
@@ -2104,32 +1893,6 @@ brew install cmake libtool
     "a t" 'vterm))
 #+end_src
 
-* LSP
-
-LSP (Language Server Protocol) is a system which enables static
-analysis of code and provides various IDE-like features.
-
-#+begin_src emacs-lisp :tangle yes
-(defun sulami/eldoc-documentation-adaptive ()
-  "An `eldoc-documentation-functions' function which uses the
--default variant by default to keep the minibuffer small by only
-showing signatures, but uses -enthusiast if the *eldoc* buffer is
-open."
-  (if (eldoc--echo-area-prefer-doc-buffer-p t)
-      (eldoc-documentation-enthusiast)
-    (eldoc-documentation-default)))
-
-(use-package eglot
-  :custom
-  (eldoc-echo-area-display-truncation-message nil)
-  (eldoc-echo-area-prefer-doc-buffer t)
-  (eldoc-documentation-strategy sulami/eldoc-documentation-adaptive)
-  :general
-  (local-leader-def 'eglot-mode-map
-    "l" '(:ignore t :wk "lsp")
-    "l r" #'eglot-rename))
-#+end_src
-
 * Tree-sitter
 
 Tree-sitter is a library for parsing source code, which can be used to
@@ -2145,85 +1908,7 @@ regexp-based approach.
 (use-package tree-sitter-langs)
 #+end_src
 
-* Clojure
-Clojure is the language I work with at =$DAYJOB=, so it has quite a
-lot of configuration.
-
-#+BEGIN_SRC emacs-lisp :tangle yes
-(use-package clojure-mode
-  :defer t
-  :general
-  (local-leader-def
-    :keymaps 'clojure-mode-map
-    "R" '(:ignore t :wk "refactor")
-    "R a" 'clojure-align
-    "R l" 'clojure-move-to-let
-    "R t" 'clojure-thread-first-all
-    "R T" 'clojure-thread-last-all
-    "R u" 'clojure-unwind-all)
-  :config
-  (define-clojure-indent
-    (database/speculate 1)
-    (car/wcar 1)))
-
-(use-package flycheck-clj-kondo
-  :defer t
-  :hook (clojure-mode . (lambda () (require 'flycheck-clj-kondo))))
-#+END_SRC
-
-** CIDER
-The big IDE-like integration for Clojure.
-
-#+begin_src emacs-lisp :tangle yes
-(use-package cider
-  :defer t
-  :config
-  (defun sulami/cider-debug-defun-at-point ()
-    "Set an implicit breakpoint and load the function at point."
-    (interactive)
-    (let ((current-prefix-arg '(4)))
-      (call-interactively 'cider-eval-defun-at-point)))
-  :custom
-  (cider-show-error-buffer nil)
-  (cider-repl-display-help-banner nil)
-  (cider-redirect-server-output-to-repl nil)
-  :general
-  (local-leader-def
-    :keymaps 'cider-mode-map
-    "c" 'cider-connect
-    "j" 'cider-jack-in
-    "q" 'cider-quit
-    "s" 'cider-scratch
-    "x" 'cider-ns-reload-all
-    "e" '(:ignore t :wk "eval")
-    "e b" 'cider-eval-buffer
-    "e d" 'sulami/cider-debug-defun-at-point
-    "e e" 'cider-eval-last-sexp
-    "e f" 'cider-eval-defun-at-point
-    "e r" 'cider-eval-region
-    "h" '(:ignore t :wk "help")
-    "h a" 'cider-apropos
-    "h A" 'cider-apropos-documentation
-    "h d" 'cider-doc
-    "h i" 'cider-inspect-last-result
-    "h w" 'cider-clojuredocs
-    "h W" 'cider-clojuredocs-web
-    "r" '(:ignore t :wk "repl")
-    "r f" 'cider-insert-defun-in-repl
-    "r n" 'cider-repl-set-ns
-    "r r" 'cider-switch-to-repl-buffer
-    "t" '(:ignore t :wk "test")
-    "t b" 'cider-test-show-report
-    "t f" 'cider-test-rerun-failed-tests
-    "t l" 'cider-test-run-loaded-tests
-    "t n" 'cider-test-run-ns-tests
-    "t p" 'cider-test-run-project-tests
-    "t t" 'cider-test-run-test)
-  :hook
-  ((clojure-mode . cider-mode)))
-#+end_src
-
-** HugSQL
+* HugSQL
 HugSQL is a Clojure ORM which adds some special syntax to SQL.
 
 This declaration is only here for config encapsulation, it doesn't
@@ -2243,44 +1928,6 @@ In this case we install a fix to make imenu work in HugSQL files.
        '((nil "^--[[:space:]]:name[[:space:]]+\\([[:alnum:]-]+\\)" 1)))))
   :hook
   (sql-mode . sulami/init-hugsql-imenu))
-#+end_src
-
-* Common Lisp
-One of my favourite recreational languages. I use =sly= instead of
-=slime= because it's supposedly better. I don't have much of an
-opinion, it works.
-
-#+begin_src emacs-lisp :tangle yes
-(use-package sly
-  :defer t
-  :commands (sly)
-  :custom
-  (inferior-lisp-program "sbcl")
-  :general
-  (local-leader-def
-    :keymaps 'sly-mode-map
-    "s" 'sly
-    "q" 'sly-quit-lisp
-    "e" '(:ignore t :wk "eval")
-    "e b" 'sly-eval-buffer
-    "e e" 'sly-eval-last-expression
-    "e f" 'sly-eval-defun
-    "e r" 'sly-eval-region
-    "h" '(:ignore t :wk "help")
-    "h a" 'sly-apropos
-    "h d" 'sly-documentation
-    "h i" 'sly-inspect))
-#+end_src
-
-* Racket
-I use Racket for quite a bit of scripting, due to its rich standard
-library. I don't need any fancy configuration though, the major mode
-comes with reasonable defaults. This does not have the usual =eval=
-bindings, because I usually don't use Racket REPLs.
-
-#+begin_src emacs-lisp :tangle yes
-(use-package racket-mode
-  :defer t)
 #+end_src
 
 * Rust
@@ -2363,16 +2010,9 @@ Every now and then I do have to look at some Go code, sadly.
 
 (use-package prettier-js
   :defer t
-  :after (nix-sandbox)
-  :config
-  (defun sulami/prettier-js-setup ()
-    (setq prettier-js-command
-          (nix-executable-find (nix-current-sandbox)
-                               "prettier"))
-    (prettier-js-mode +1))
   :hook
-  ((typescript-mode . sulami/prettier-js-setup)
-   (web-mode . sulami/prettier-js-setup)))
+  ((typescript-mode . prettier-js-mode)
+   (web-mode . prettier-js-mode)))
 #+end_src
 
 * Ruby
@@ -2458,37 +2098,3 @@ Sometimes I'm a YAML-engineer, too.
   :hook
   (yaml-mode . sulami/yaml-setup))
 #+END_SRC
-
-* Nix
-
-There are two distinct parts here:
-
-- =nix-mode= :: Provides support for editing Nix expressions
-- =nix-sandbox= :: Used to make other commands Nix-aware
-
-#+begin_src emacs-lisp :tangle yes
-(use-package nix-mode
-  :defer t)
-
-(use-package nix-sandbox
-  :disabled)
-#+end_src
-* Protobuf
-We use quite a lot of protobuffers at =$DAYJOB=, so the mode is
-useful.
-
-#+BEGIN_SRC emacs-lisp :tangle yes
-(use-package protobuf-mode
-  :defer t
-  :init
-  (defun sulami/init-protobuf-imenu ()
-    "Sets up imenu support for Protobuf.
-
-Stolen from Spacemacs."
-    (setq
-     imenu-generic-expression
-     '((nil "^[[:space:]]*\\(message\\|service\\|enum\\)[[:space:]]+\\([[:alnum:]]+\\)" 2))))
-  :hook
-  (protobuf-mode . sulami/init-protobuf-imenu))
-#+END_SRC
-
