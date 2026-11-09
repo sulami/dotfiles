@@ -15,13 +15,25 @@
       gc-cons-percentage 0.6)
 
 ;; Set environment variables for SSH agent and macOS native compilation
-(let ((onepassword-sock (expand-file-name "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"))
-      (bitwarden-sock (expand-file-name "~/Library/Containers/com.bitwarden.desktop/Data/.bitwarden-ssh-agent.sock")))
-  (cond
-   ((and (not (getenv "SSH_AUTH_SOCK")) (file-exists-p onepassword-sock))
-    (setenv "SSH_AUTH_SOCK" onepassword-sock))
-   ((and (not (getenv "SSH_AUTH_SOCK")) (file-exists-p bitwarden-sock))
-    (setenv "SSH_AUTH_SOCK" bitwarden-sock))))
+;; Straight and git need a working agent during startup, so this has to
+;; happen before the bootstrap. Probe with `ssh-add -l': a Finder launch
+;; sets SSH_AUTH_SOCK to launchd's empty listener, which answers nothing
+;; but is present, so neither `getenv' nor `file-exists-p' is evidence.
+;; gpg-agent serves the YubiKey keys too, so it wins over the password
+;; managers, which only hold the git key.
+(let ((saved (getenv "SSH_AUTH_SOCK"))
+      (candidates (list (expand-file-name "~/.gnupg/S.gpg-agent.ssh")
+                        (expand-file-name "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock")
+                        (expand-file-name "~/Library/Containers/com.bitwarden.desktop/Data/.bitwarden-ssh-agent.sock"))))
+  (setenv "SSH_AUTH_SOCK" nil)
+  (dolist (sock candidates)
+    (when (and (file-exists-p sock)
+               (not (getenv "SSH_AUTH_SOCK")))
+      (setenv "SSH_AUTH_SOCK" sock)
+      (unless (eq 0 (call-process "ssh-add" nil nil nil "-l"))
+        (setenv "SSH_AUTH_SOCK" nil))))
+  (unless (getenv "SSH_AUTH_SOCK")
+    (setenv "SSH_AUTH_SOCK" saved)))
 
 (unless (getenv "MACOSX_DEPLOYMENT_TARGET")
   (setenv "MACOSX_DEPLOYMENT_TARGET" "14.0"))

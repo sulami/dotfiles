@@ -276,21 +276,31 @@ have several frames/Emacsen open and want to switch between them.
 
 ** Setup SSH agent
 
-Detect 1Password or Bitwarden SSH agent if available, otherwise preserve
-existing SSH_AUTH_SOCK or fallback to GPG-Agent.
+Probe the candidate agents instead of trusting =SSH_AUTH_SOCK= or the
+socket files. A Finder launch always leaves =SSH_AUTH_SOCK= pointing at
+launchd's empty listener, and a socket file outlives the agent that
+owned it, so neither tells us whether an agent actually answers.
+~ssh-add -l~ does: it exits 0 only when an agent responds.
+
+gpg-agent comes first because with ~enable-ssh-support~ it serves the
+YubiKey identities in addition to the git key, while 1Password and
+Bitwarden only hold the git key. Preferring them silently drops the
+YubiKey keys.
 
 #+begin_src emacs-lisp :tangle yes
-(let ((onepassword-sock (expand-file-name "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"))
-      (bitwarden-sock (expand-file-name "~/Library/Containers/com.bitwarden.desktop/Data/.bitwarden-ssh-agent.sock")))
-  (cond
-   ((file-exists-p onepassword-sock)
-    (setenv "SSH_AUTH_SOCK" onepassword-sock))
-   ((file-exists-p bitwarden-sock)
-    (setenv "SSH_AUTH_SOCK" bitwarden-sock))
-   ((getenv "SSH_AUTH_SOCK")
-    nil)
-   ((executable-find "gpgconf")
-    (setenv "SSH_AUTH_SOCK" (string-trim (shell-command-to-string "gpgconf --list-dirs agent-ssh-socket"))))))
+(let ((saved (getenv "SSH_AUTH_SOCK"))
+      (candidates (list (expand-file-name "~/.gnupg/S.gpg-agent.ssh")
+                        (expand-file-name "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock")
+                        (expand-file-name "~/Library/Containers/com.bitwarden.desktop/Data/.bitwarden-ssh-agent.sock"))))
+  (setenv "SSH_AUTH_SOCK" nil)
+  (dolist (sock candidates)
+    (when (and (file-exists-p sock)
+               (not (getenv "SSH_AUTH_SOCK")))
+      (setenv "SSH_AUTH_SOCK" sock)
+      (unless (eq 0 (call-process "ssh-add" nil nil nil "-l"))
+        (setenv "SSH_AUTH_SOCK" nil))))
+  (unless (getenv "SSH_AUTH_SOCK")
+    (setenv "SSH_AUTH_SOCK" saved)))
 #+end_src
 
 ** Enable recursive minibuffers
