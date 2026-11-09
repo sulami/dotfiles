@@ -1393,7 +1393,9 @@ Manages projects (usually git repositories, but flexible).
     "s p" #'sulami/projectile-rg
     "s P" #'sulami/projectile-rg-thing-at-point)
   ("s-'" #'sulami/toggle-project-root-eshell)
-  :hook (after-init . projectile-global-mode))
+  ;; TODO ?!
+  ;; :hook (after-init . projectile-global-mode)
+  )
 #+end_src
 
 * Winum
