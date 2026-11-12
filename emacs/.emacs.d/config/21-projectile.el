@@ -55,8 +55,10 @@
 
   ;; Don't do projectile stuff on remote files
   ;; from https://github.com/syl20bnr/spacemacs/issues/11381#issuecomment-481239700
-  (defadvice projectile-project-root (around ignore-remote first activate)
-    (unless (file-remote-p default-directory) ad-do-it))
+  (advice-add 'projectile-project-root :around
+              (lambda (orig &rest args)
+                (unless (file-remote-p default-directory)
+                  (apply orig args))))
 
   :general
   (leader-def
