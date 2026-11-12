@@ -1,10 +1,9 @@
 ;; -*- lexical-binding: t; -*-
 
 ;; NOTE
-;; This config is a shim that is loading README.org. Everything here
-;; is necessary setup to get the tangling and loading working, and
-;; also minimise startup speed. This currently starts up on my machine
-;; in about 0.3s.
+;; This config is a shim that loads the files in `config/'. Everything here
+;; is necessary setup to get that loading working, and also minimise startup
+;; speed.
 
 (defconst emacs-start-time (current-time))
 
@@ -79,24 +78,30 @@
 (eval-when-compile
   (require 'use-package))
 
-;; Load up org-mode early on to get a current upstream instead of the
-;; packaged version.
-(use-package org
-  :straight t)
-
-;; Load f.el, which is needed below to expand the path of the actual
-;; config file. `org-babel-load-file' implicitly follows a symlink,
-;; but then renders the result next to the actual file, and proceeds
-;; to fail to load the file next to the symlink. By fixing the config
-;; path to be the actual file, we avoid this confusion.
+;; Load f.el, needed by the config's path helpers.
 (use-package f
   :straight t)
 
-;; Eval the actual config
-(with-eval-after-load 'org
-  (require 'ob-tangle)
-  (defconst sulami/emacs-config-file (f-canonical "~/.emacs.d/README.org"))
-  (org-babel-load-file sulami/emacs-config-file))
+;; Eval the actual config. The files live in `config' and are numbered, so
+;; loading them in filename order is also the load order the config needs:
+;; general.el has to come before anything using `:general' or `leader-def'.
+(defconst sulami/emacs-config-directory
+  (expand-file-name "config" user-emacs-directory))
+
+(defun sulami/load-config-files ()
+  "Load every config file, in filename order.
+
+NOSUFFIX is t so exactly the named `.el' file is loaded. Without it
+`load' would also consider a stale `NN-foo.elc' next to it, and these
+files use macros that `general-create-definer' only creates at runtime,
+so a stray byte-compile produces a `.elc' that fails with a void
+`local-leader-def'."
+  (interactive)
+  (dolist (file (sort (directory-files sulami/emacs-config-directory t "\\.el\\'")
+                      #'string<))
+    (load file nil 'nomessage t)))
+
+(sulami/load-config-files)
 
 ;; Reset file handlers & GC settings after we're done loading.
 (add-hook 'emacs-startup-hook
