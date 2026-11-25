@@ -1,4 +1,2 @@
-# Ignore rendered config
-.emacs.d/README.el
 # Ignore straight working directories
 .emacs.d/straight
